@@ -1,0 +1,22 @@
+{
+	"UUID": "05c1c163-66a6-4a49-bb72-fd103eddf313",
+	"Name": "IPMI System Temperature Over Time",
+	"Description": "",
+	"Data": {
+		"query": "tag=$IPMI json Type==SDR Target==\"%%target%%\" Data.\"System Temp\".Reading \n| stats mean(Reading) by Target \n| chart mean by Target",
+		"variables": [
+			{
+				"name": "%%target%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"kit",
+		"ipmi"
+	]
+}

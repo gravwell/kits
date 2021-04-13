@@ -1,0 +1,16 @@
+{
+	"ThingUUID": "00000000-0000-0000-0000-000000000000",
+	"UID": 0,
+	"Global": false,
+	"Name": "IPMI All Fan Speeds (RPM) Over Time",
+	"Description": "",
+	"Query": "tag=$IPMI json Type==SDR Target \nData.\"FAN1\".Reading!=\"n/a\" as Fan1 \nData.\"FAN2\".Reading!=\"n/a\" as Fan2 \nData.\"FAN3\".Reading!=\"n/a\" as Fan3 \nData.\"FAN4\".Reading!=\"n/a\" as Fan4 \nData.\"FAN5\".Reading!=\"n/a\" as Fan5 \nData.\"FAN6\".Reading!=\"n/a\" as Fan6 \nData.\"FAN7\".Reading!=\"n/a\" as Fan7 \nData.\"FAN8\".Reading!=\"n/a\" as Fan8 \n| stats mean(Fan1) as Fan1 \nmean(Fan2) as Fan2\nmean(Fan3) as Fan3\nmean(Fan4) as Fan4\nmean(Fan5) as Fan5\nmean(Fan6) as Fan6\nmean(Fan7) as Fan7\nmean(Fan8) as Fan8\nby Target \n| chart Fan1 Fan2 Fan3 Fan4 Fan5 Fan6 Fan7 Fan8 by Target",
+	"GUID": "d2fc7cf7-549c-4169-9b7e-b2cd880ccb4b",
+	"Labels": [
+		"kit",
+		"ipmi"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

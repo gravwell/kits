@@ -1,0 +1,16 @@
+{
+	"ThingUUID": "00000000-0000-0000-0000-000000000000",
+	"UID": 0,
+	"Global": false,
+	"Name": "IPMI CPU Temperature Over Time",
+	"Description": "",
+	"Query": "tag=$IPMI json Type==SDR Target Data.\"CPU1 Temp\".Reading as CPU1Temp Data.\"CPU2 Temp\".Reading as CPU2Temp | stats mean(CPU1Temp) as CPU1Temp mean(CPU2Temp) as CPU2Temp by Target | chart CPU1Temp CPU2Temp by Target",
+	"GUID": "5e04103b-43b3-4818-99e8-68a5d29a5d94",
+	"Labels": [
+		"kit",
+		"ipmi"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

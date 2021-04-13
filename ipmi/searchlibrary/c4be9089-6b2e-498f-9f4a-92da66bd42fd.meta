@@ -1,0 +1,16 @@
+{
+	"ThingUUID": "00000000-0000-0000-0000-000000000000",
+	"UID": 0,
+	"Global": false,
+	"Name": "IPMI System Event Log",
+	"Description": "",
+	"Query": "tag=$IPMI json Type==SEL Target Description | table TIMESTAMP Target Description",
+	"GUID": "c4be9089-6b2e-498f-9f4a-92da66bd42fd",
+	"Labels": [
+		"kit",
+		"ipmi"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
