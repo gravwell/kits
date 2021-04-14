@@ -1,0 +1,126 @@
+{
+	"UUID": "fde03452-494d-48ba-91cd-b22b6747be9a",
+	"Name": "IPMI Device Investigation",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "IPMI System Event Log",
+				"timeframe": {},
+				"reference": {
+					"id": "c4be9089-6b2e-498f-9f4a-92da66bd42fd",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI System Event Log",
+				"timeframe": {},
+				"reference": {
+					"id": "504e6191-0065-493c-9519-e9a8f0b0242f",
+					"type": "template"
+				}
+			},
+			{
+				"alias": "IPMI Power Supply Status",
+				"timeframe": {},
+				"reference": {
+					"id": "d30f711b-1b21-45cd-8808-4b97eae4f3be",
+					"type": "template"
+				}
+			},
+			{
+				"alias": "IPMI CPU Temperature Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "22e76583-e349-4400-8fc4-b238378a9b23",
+					"type": "template"
+				}
+			},
+			{
+				"alias": "IPMI System Temperature Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "05c1c163-66a6-4a49-bb72-fd103eddf313",
+					"type": "template"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "System Event Logs",
+				"renderer": "table",
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16182419745350,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Power Supply Status",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16182419958571,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "CPU Temperature",
+				"renderer": "lineChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 4
+				},
+				"id": 16182420236862,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "System Temperature",
+				"renderer": "lineChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16182420420353,
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P7DT"
+		},
+		"version": 2
+	},
+	"Labels": null
+}

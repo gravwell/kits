@@ -1,0 +1,1 @@
+tag=$IPMI json Type==SDR Target Data."Peripheral Temp".Reading | stats mean(Reading) by Target | chart mean by Target

@@ -1,0 +1,21 @@
+{
+	"UUID": "d30f711b-1b21-45cd-8808-4b97eae4f3be",
+	"Name": "IPMI Power Supply Status",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%target%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"kit",
+		"ipmi"
+	]
+}

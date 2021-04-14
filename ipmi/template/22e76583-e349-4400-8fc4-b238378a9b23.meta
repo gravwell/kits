@@ -1,0 +1,21 @@
+{
+	"UUID": "22e76583-e349-4400-8fc4-b238378a9b23",
+	"Name": "IPMI CPU Temperature Over Time",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%target%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "ads"
+			}
+		]
+	},
+	"Labels": [
+		"kit",
+		"ipmi"
+	]
+}

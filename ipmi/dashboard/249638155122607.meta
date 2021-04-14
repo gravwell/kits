@@ -1,0 +1,174 @@
+{
+	"UUID": "5804a229-7aa9-42db-aa03-532b03681f64",
+	"Name": "IPMI Temperature Overview",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "IPMI CPU Temperature Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "5e04103b-43b3-4818-99e8-68a5d29a5d94",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI PCH (Chipset) Temperature",
+				"timeframe": {},
+				"reference": {
+					"id": "abde9a38-7397-4871-8335-d0376afa2fe1",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI Peripheral Temperature Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "c444605e-0175-41ac-8c81-96406bb6eada",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI System Temperature Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "7b6edc0c-236c-4b35-b35f-6d1e7fce9332",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI System Temperature by Target Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "40765f44-a30e-44f2-8319-9ccae7f701b7",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI All Fan Speeds (RPM) Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "d2fc7cf7-549c-4169-9b7e-b2cd880ccb4b",
+					"type": "savedQuery"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "CPU Temperature Over Time",
+				"renderer": "lineChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"id": 16179859083760,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "PCH (Chipset) Temperature",
+				"renderer": "lineChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16179877828011,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Peripheral Temperature Over Time",
+				"renderer": "lineChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 4
+				},
+				"id": 16179878022492,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "System Temperature Over Time",
+				"renderer": "lineChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16179878664043,
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Fan Speed (RPM) Over Time",
+				"renderer": "lineChart",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"id": 16179878845194,
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P7DT"
+		},
+		"version": 2
+	},
+	"Labels": null
+}

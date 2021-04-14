@@ -1,0 +1,72 @@
+# Overview
+
+The Intelligent Platform Management Interface (IPMI) allows system administrators to manage and monitor computer systems out-of-band. It’s usually used simply to control power states, read sensors such as CPU temperature and fan speed, and collect failure event logs from servers. 
+
+Data from IPMI comes in a variety of formats, though the majority of systems support two major data types: System Event Logs (SEL) and Sensor Data Records (SDR). 
+
+SEL entries contain a decription of the event, the sensor that triggered it, and potentially more information. A typical set of SEL entries might look something like this:
+
+`
+1 | 06/23/2020 | 00:00:32 | Power Supply #0xc9 | Failure detected () | Deasserted
+2 | 06/26/2020 | 23:31:38 | Power Supply #0xc9 | Failure detected () | Asserted
+`
+
+Gravwell provides a simple [IPMI ingester](https://docs.gravwell.io/#!ingesters/ingesters.md#IPMI_Ingester) that can collect Sensor Data Record (SDR) and System Event Log (SEL) records from any number of IPMI devices.
+
+The Gravwell IPMI Kit is designed to work with data consumed by the Gravwell IPMI ingester, and provides dashboards, queries, and other resources to quickly begin to analyze data from IPMI devices.
+
+## Using the Playbook
+
+This playbook contains Gravwell queries which can be executed by clicking the 'Launch' button and selecting a time range--typically "Last hour" is sufficient and fast. Once you've launched the search, feel free to modify it and experiment!
+
+# Gravwell IPMI Ingester
+
+The Gravwell [IPMI ingester](https://docs.gravwell.io/#!ingesters/ingesters.md#IPMI_Ingester) directly integrates IPMI SEL and SDR entries into Gravwell. The Gravwell IPMI kit expects to work with data formatted by the IPMI ingester.
+
+## Setting up the IPMI Ingester
+
+Deploying the IPMI ingester is similar to any other Gravwell ingester. The ingester must have network access to both a Gravwell indexer as well as any of the IPMI devices you configure it to access. See the [documentation](https://docs.gravwell.io/#!ingesters/ingesters.md) for more information about downloading and installing ingesters. 
+
+### Example IPMI Ingester Config
+
+Below is an example IPMI ingester configuration. It provides a path to a Gravwell indexer and the authentication secret in the Global section. In the IPMI stanza, it specifies a tag to ingest to and describes two IPMI targets, with authentication credentials for those targets. You can declare as many IPMI stanzas as you need, and you can group IPMI devices that share the same authentication configuration into a single stanza. 
+
+```
+[Global]
+Ingest-Secret = IngestSecrets
+Connection-Timeout = 0
+Insecure-Skip-TLS-Verify=false
+#Cleartext-Backend-Target=127.0.0.1:4023 #example of adding a cleartext connection
+#Cleartext-Backend-Target=127.1.0.1:4023 #example of adding another cleartext connection
+#Encrypted-Backend-Target=127.1.1.1:4024 #example of adding an encrypted connection
+Pipe-Backend-Target=/opt/gravwell/comms/pipe #a named pipe connection, this should be used when ingester is on the same machine as a backend
+#Ingest-Cache-Path=/opt/gravwell/cache/simple_relay.cache #adding an ingest cache for local storage when uplinks fail
+#Max-Ingest-Cache=1024 #Number of MB to store, localcache will only store 1GB before stopping.  This is a safety net
+Log-Level=INFO
+Log-File=/opt/gravwell/log/ipmi.log
+
+[IPMI "Server 1"]
+	Target="127.0.0.1:623"
+	Target="1.2.3.4:623" # a second target
+	Username="user"
+	Password="pass"
+	Tag-Name=ipmi
+	Rate=60 # poll every 60 seconds
+	#Source-Override="DEAD::BEEF" #override the source for just this Queue 
+```
+
+# Inspecting IPMI Data
+
+Let's look at a few examples of Gravwell queries on IPMI data. For more detailed queries, look at the queries provided in this kit. 
+
+## List of SEL Events
+
+SEL events are simple to process, as they come with a string "Description" field. We simply extract, as JSON, entries that have the "SEL" type, the target (the device the event was generated on), and the description:
+
+`tag=ipmi json Type==SEL Target Description | table`
+
+## CPU Temperature Over Time
+
+SDR entries come with the same Type and Target fields as SEL entries, and also provide a "Data" object with dozens of sensor readings. We'll extract "CPU1 Temp" and "CPU2 Temp" from the Data object. Note that we have to quote those fields as they contain a space in the name. From there we'll extract the reading of those sensors and rename them with "as" so they don't conflict, take their mean, and chart them.
+
+`tag=ipmi json Type==SDR Target Data."CPU1 Temp".Reading as CPU1Temp Data."CPU2 Temp".Reading as CPU2Temp | stats mean(CPU1Temp) as CPU1Temp mean(CPU2Temp) as CPU2Temp by Target | chart CPU1Temp CPU2Temp by Target1`

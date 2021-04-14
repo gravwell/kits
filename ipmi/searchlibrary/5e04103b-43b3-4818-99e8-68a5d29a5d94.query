@@ -1,0 +1,1 @@
+tag=$IPMI json Type==SDR Target Data."CPU1 Temp".Reading as CPU1Temp Data."CPU2 Temp".Reading as CPU2Temp | stats mean(CPU1Temp) as CPU1Temp mean(CPU2Temp) as CPU2Temp by Target | chart CPU1Temp CPU2Temp by Target

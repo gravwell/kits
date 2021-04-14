@@ -1,0 +1,139 @@
+{
+	"UUID": "ebc9bb7d-7652-4a83-8b33-e50e112a9986",
+	"Name": "IPMI Overview",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "IPMI System Temperature by Target Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "40765f44-a30e-44f2-8319-9ccae7f701b7",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI System Event Log",
+				"timeframe": {},
+				"reference": {
+					"id": "c4be9089-6b2e-498f-9f4a-92da66bd42fd",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI CPU Temperature Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "5e04103b-43b3-4818-99e8-68a5d29a5d94",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI Power Supply Status",
+				"timeframe": {},
+				"reference": {
+					"id": "161044ea-893b-4af2-880e-a74d7689586b",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPMI Active Targets",
+				"timeframe": {},
+				"reference": {
+					"id": "7cbc6e21-6fc4-419c-b594-67c1acf7a9f6",
+					"type": "savedQuery"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "System Event Log",
+				"renderer": "table",
+				"span": {
+					"col": 13,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16182634628160,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "CPU Temperature Over Time",
+				"renderer": "lineChart",
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 5,
+					"y": 4
+				},
+				"id": 16182634862871,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Power Supply Status",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16182635069152,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Active Targets",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 13,
+					"y": 0
+				},
+				"id": 16182635243153,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "System Temperature Over Time",
+				"renderer": "lineChart",
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 12,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"id": 16182635468974,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": null
+}

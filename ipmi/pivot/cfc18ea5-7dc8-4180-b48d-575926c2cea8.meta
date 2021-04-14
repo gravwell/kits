@@ -1,0 +1,42 @@
+{
+	"UUID": "cfc18ea5-7dc8-4180-b48d-575926c2cea8",
+	"Name": "IPMI",
+	"Description": "",
+	"Data": {
+		"menuLabel": "",
+		"triggers": [
+			{
+				"pattern": "/.*/g",
+				"hyperlink": false
+			}
+		],
+		"actions": [
+			{
+				"name": "IPMI Device Investigation",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "fde03452-494d-48ba-91cd-b22b6747be9a",
+					"options": {
+						"variable": "%%target%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": [
+		"kit",
+		"ipmi"
+	]
+}

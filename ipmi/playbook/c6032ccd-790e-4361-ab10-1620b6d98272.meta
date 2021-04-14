@@ -1,0 +1,21 @@
+{
+	"UUID": "c6032ccd-790e-4361-ab10-1620b6d98272",
+	"GUID": "f544fa45-8702-4acb-8f6f-ee671cbbbd70",
+	"UID": 1,
+	"GIDs": null,
+	"Global": false,
+	"Name": "IPMI \u0026 Gravwell",
+	"Desc": "",
+	"Labels": [
+		"kit",
+		"ipmi"
+	],
+	"LastUpdated": "2021-04-13T14:54:22.057415056Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

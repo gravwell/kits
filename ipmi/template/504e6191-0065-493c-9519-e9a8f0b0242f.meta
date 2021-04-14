@@ -1,0 +1,21 @@
+{
+	"UUID": "504e6191-0065-493c-9519-e9a8f0b0242f",
+	"Name": "IPMI System Event Log",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%target%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"kit",
+		"ipmi"
+	]
+}
