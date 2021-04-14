@@ -3,7 +3,6 @@
 	"Name": "IPMI System Event Log",
 	"Description": "",
 	"Data": {
-		"query": "tag=$IPMI json Type==SEL Target==\"%%target%%\" Description | table TIMESTAMP Target Description",
 		"variables": [
 			{
 				"name": "%%target%%",

@@ -1,10 +1,6 @@
 {
-	"ThingUUID": "00000000-0000-0000-0000-000000000000",
-	"UID": 0,
-	"Global": false,
 	"Name": "IPMI Peripheral Temperature Over Time",
 	"Description": "",
-	"Query": "tag=$IPMI json Type==SDR Target Data.\"Peripheral Temp\".Reading | stats mean(Reading) by Target | chart mean by Target",
 	"GUID": "c444605e-0175-41ac-8c81-96406bb6eada",
 	"Labels": [
 		"kit",

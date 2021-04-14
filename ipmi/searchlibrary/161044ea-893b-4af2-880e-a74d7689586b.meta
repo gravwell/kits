@@ -1,10 +1,6 @@
 {
-	"ThingUUID": "00000000-0000-0000-0000-000000000000",
-	"UID": 0,
-	"Global": false,
 	"Name": "IPMI Power Supply Status",
 	"Description": "",
-	"Query": "tag=$IPMI json Type==SDR Target Data.\"PS1 Status\".Reading as PS1 Data.\"PS2 Status\".Reading as PS2 | eval if (PS1 == \"0x01\") { setEnum(\"PS1\", \"OK\") } else { setEnum(\"PS1\", \"FAIL\") } | eval if (PS2 == \"0x01\") { setEnum(\"PS2\", \"OK\") } else { setEnum(\"PS2\", \"FAIL\") } | last Target | table Target PS1 PS2",
 	"GUID": "161044ea-893b-4af2-880e-a74d7689586b",
 	"Labels": [
 		"kit",

@@ -1,0 +1,1 @@
+tag=$IPMI json Type==SEL Target=="%%target%%" Description | table TIMESTAMP Target Description
