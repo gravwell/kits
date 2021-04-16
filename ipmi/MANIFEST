@@ -1,5 +1,5 @@
 {
-	"ID": "io.gravwell",
+	"ID": "io.gravwell.ipmi",
 	"Name": "IPMI",
 	"Desc": "An IPMI kit that pairs with the Gravwell [IPMI ingester](https://docs.gravwell.io/#!ingesters/ingesters.md#IPMI_Ingester).\n\nThis kit provides dashboards, queries, and actionables to quickly analyze IPMI SEL and SDR entries, chart temperatures, fan speeds, and more.",
 	"Version": 1,
