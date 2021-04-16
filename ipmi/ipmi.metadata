@@ -1,0 +1,8 @@
+{
+	"Ingesters": ["IPMI"],
+	"Tags": ["ipmi"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.jpeg", "Legend": "IPMI", "Featured": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
