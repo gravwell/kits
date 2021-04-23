@@ -1,0 +1,152 @@
+{
+	"UUID": "ff2f2ab5-8ef9-4e12-9b7c-371b6c6af57e",
+	"Name": "Weather Overview",
+	"Description": "An overview of weather conditions over the last week",
+	"Data": {
+		"searches": [
+			{
+				"query": "tag=weather json name main.temp | stats mean(temp) by name | chart mean by name",
+				"alias": "Temperature",
+				"searchID": 3115719596
+			},
+			{
+				"query": "tag=weather json name main.feels_like | stats mean(feels_like) by name | chart mean by name\n",
+				"alias": "\"Feels Like\" Temperature",
+				"searchID": 3653277189
+			},
+			{
+				"query": "tag=weather json name weather.[0].main | sort by time desc | unique name | table -nt name main\n",
+				"alias": "Current Conditions",
+				"searchID": 8857558974
+			},
+			{
+				"query": "tag=weather json name main.temp main.pressure | stats mean(pressure) by name | chart mean by name\n",
+				"alias": "Barometric Pressure",
+				"searchID": 2701890464
+			},
+			{
+				"query": "tag=weather json name wind.speed | stats mean(speed) by name | chart mean by name\n",
+				"alias": null,
+				"searchID": 7150146331
+			},
+			{
+				"query": "tag=weather json name rain.1h as \"1hr rainfall (mm)\" snow.1h as \"1hr snowfall (mm)\" | unique name | table -nt name \"1hr rainfall (mm)\" \"1hr snowfall (mm)\"",
+				"alias": "Precipitation"
+			}
+		],
+		"tiles": [
+			{
+				"title": "Temperature",
+				"renderer": "lineChart",
+				"searchesIndex": 0,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1595615747659
+			},
+			{
+				"title": "\"Feels Like\" Temperature",
+				"renderer": "lineChart",
+				"searchesIndex": 1,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1595615949657
+			},
+			{
+				"title": "Current Conditions",
+				"renderer": "table",
+				"searchesIndex": 2,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 7
+				},
+				"rendererOptions": {},
+				"id": 1595616728197
+			},
+			{
+				"title": "Barometric Pressure",
+				"renderer": "lineChart",
+				"searchesIndex": 3,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 7
+				},
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1595617034854
+			},
+			{
+				"title": "Windspeed",
+				"renderer": "lineChart",
+				"searchesIndex": 4,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 7
+				},
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1595617114777
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT",
+			"start": null,
+			"end": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-07-27T12:57:35-06:00"
+	},
+	"Labels": [
+		"weather"
+	]
+}

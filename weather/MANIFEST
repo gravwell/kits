@@ -1,0 +1,68 @@
+{
+	"ID": "io.gravwell.weather",
+	"Name": "Weather",
+	"Desc": "Pulls and analyzes current weather conditions",
+	"Version": 2,
+	"MinVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "53131f80-d01d-49e0-ae86-f551424fc3c7",
+	"Banner": "",
+	"Cover": "",
+	"Items": [
+		{
+			"Name": "BSD-2",
+			"Type": 10,
+			"Hash": "36988fdf9ef9b39822aa272edac94f5d467ac25c084a3048a1940108d637c327"
+		},
+		{
+			"Name": "75",
+			"Type": 3,
+			"Hash": "20557076a898c26791ab77c72e08b0d03b05b615cb902752d89ccc778715b93d"
+		},
+		{
+			"Name": "Weather Fetcher",
+			"Type": 2,
+			"Hash": "c53e299ece7ac45fc0c99df9080400f89e9f7ce1b434a18b426381c23e5380cc"
+		},
+		{
+			"Name": "53131f80-d01d-49e0-ae86-f551424fc3c7",
+			"Type": 7,
+			"Hash": "1fa3493cd06d73a99dbba0f2011925c734fbf5bcababba9cf21473e54ad01e89"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "WEATHER_KIT_APIKEY",
+			"Description": "Your OpenWeatherMap API key",
+			"DefaultValue": "replaceme",
+			"Value": "",
+			"Type": "",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "WEATHER_KIT_LOCATIONS",
+			"Description": "Colon-separated list of locations to fetch weather for. Can be city names or zip codes.",
+			"DefaultValue": "Albuquerque:83814",
+			"Value": "",
+			"Type": "",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "WEATHER_KIT_UNITS",
+			"Description": "Which units to use (imperial or metric)",
+			"DefaultValue": "imperial",
+			"Value": "",
+			"Type": "",
+			"InstalledByID": ""
+		}
+	]
+}
