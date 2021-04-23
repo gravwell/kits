@@ -1,0 +1,99 @@
+# Overview
+
+The Domain Name System (DNS) is a global naming system for internet connected resources. It provides a mapping from human readable hostnames to a variety of other forms (such as other hostnames, IP addresses, and other datapoints). 
+
+DNS is widely abused by malware and network attackers to facilitate (and sometimes directly perform) data exfiltration, command and control for botnets, and other malicious activities. For this reason, introspecting on DNS data is a first-line activity for network operators.  
+
+[CoreDNS](https://coredns.io) is a flexible, extensible DNS server. CoreDNS provides a plugin framework to allow tools, such as Gravwell, to write plugins that can perform transformations and introspection on CoreDNS queries and responses. 
+
+The Gravwell CoreDNS Kit provides dashboards, queries, and other resources to quickly begin to analyze data from a CoreDNS instance using the Gravwell plugin. 
+
+## Using the Playbook
+
+This playbook contains Gravwell queries which can be executed by clicking the 'Launch' button and selecting a time range--typically "Last hour" is sufficient and fast. Once you've launched the search, feel free to modify it and experiment!
+
+## Dependencies
+
+This kit depends on Gravwell's Network Enrichment Kit, which should have been automatically installed when you selected the CoreDNS Kit. If you are missing resources used in some of our dashboards and queries, make sure the Network Enrichment Kit has been installed.
+
+# Gravwell CoreDNS Plugin
+
+The Gravwell CoreDNS plugin allows for directly integrating DNS auditing into Gravwell.  The plugin acts as an integrated ingester and ships DNS requests and responses directly to a Gravwell instance.
+
+While DNS Requests and responses can be encoded as text, JSON, or as a packed binary format, the CoreDNS Kit expects data to be JSON encoded. 
+
+See the [Gravwell CoreDNS Github Repo](https://github.com/gravwell/coredns) for more information.
+
+## Building CoreDNS with the Gravwell plugin
+
+Gravwell is built into CoreDNS as an optional plugin, which must be built from source using the following commands:
+
+```
+go get github.com/coredns/coredns
+pushd $GOPATH/src/github.com/coredns/coredns/
+sed -i 's/metadata:metadata/metadata:metadata\ngravwell:github.com\/gravwell\/coredns/g' plugin.cfg
+go generate
+CGO_ENABLED=0 go build -o /tmp/coredns
+popd
+```
+
+The statically linked CoreDNS server with the Gravwell plugin will be located at /tmp/coredns.
+
+See the [CoreDNS](https://coredns.io) website for more information.
+
+
+### Example Corefile
+
+Below is an example CoreDNS configuration that invokes the Gravwell plugin. It provides a path to a Gravwell indexer, authentication secret, tag to ingest to, and most importantly - sets the encoding mode to JSON - which is expected by the CoreDNS kit.
+
+```
+.:53 {
+  forward . 8.8.8.8:53 8.8.4.4:53 9.9.9.9:53
+  errors stdout
+  bind 10.0.0.1
+  cache 240
+  whoami
+  gravwell {
+   Ingest-Secret IngestSecretToken
+   Cleartext-Target 192.168.1.1:4023
+   Tag dns
+   Encoding json
+   Log-Level INFO
+   #Cleartext-Target 192.168.1.2:4023 #second indexer
+   #Ciphertext-Target 192.168.1.1:4024
+   #Insecure-Novalidate-TLS true #disable TLS certificate validation
+   #Ingest-Cache-Path /tmp/coredns_ingest.cache #enable the local ingest cache
+   #Max-Cache-Size-MB 1024
+  }
+}
+```
+
+# Inspecting DNS Queries
+
+Let's look at a few examples of Gravwell queries on CoreDNS data. For more detailed queries, look at the queries provided in this kit. 
+
+## Inspecting Requests for a Given Domain
+
+CoreDNS records come in several flavors - requests and responses, and several types therein. Let's start by listing, in a table, every response to any query that contains "google.com" (for example www.google.com, youtube-ui.l.google.com, etc.), and limit the results to CNAME responses - responses that contain _another_ domain name as the answer instead of an IP address.
+
+`tag=dns json Question.Hdr.Name ~ "google.com" as name Question.Target as CNAME Question.Hdr.Rrtype == 5 as rrtype | table`
+
+We begin by looking in tag "dns", and use the [JSON](https://dev.gravwell.io/docs/#!search/json/json.md) module to extract records that match on certain fields. A request "Name" is always in the "Question.Hdr.Name" field in CoreDNS records. We use the match operator "~" to do a simple string "contains" match on that field. We also enumerate that value with the name "name". We also enumerate the target as "CNAME" in those records, and we filter by the CNAME resource record type "5" (CNAME responses). From there we simply invoke the table renderer.
+
+## Plotting "A" Records over Time
+
+Next, we'll plot all "A" records (responses with an IPv4 address as the answer) over time. This is a simple query with only one extraction. 
+
+`tag=dns json Question.Hdr.Rrtype == 1 as rrtype | chart`
+
+Like before, we look into tag "dns", and again invoke the json extraction module to filter on "A" records, which have a Resource Record Type of 1. After filtering, we simply invoke the chart renderer, which will generate a line chart over time with the entries that we filtered down to. Simple!
+
+## Counting DNS Resource Request Types
+
+Finally, let's use one of the resources provided by the Network Enrichment Kit - the "dns_types" resource. This resource provides a lookup table between a DNS query's "Resource Record Type" ID and Name. For example, "A" records have a RRTYPE of 1 and CNAME records have a RRTYPE of 5. 
+
+We'll keep it simple and just count records of each type:
+
+`tag=dns json Question.Hdr.Rrtype as rrtype | lookup -s -r dns_types rrtype Value TYPE as dnstype | stats count by dnstype | table`
+
+As usual, we enumerate a value from the record in the "dns" tag, and apply the [lookup](https://dev.gravwell.io/docs/#!search/lookup/lookup.md) module. The lookup module takes as input the name of the resource (-r dns_types), the value we'll be indexing with (rrtypes), what named column in the resource the value corresponds to (Value), and any number of columns to enumerate, just "TYPE" in this example. From there we simply count by each type and render our data in a table. 

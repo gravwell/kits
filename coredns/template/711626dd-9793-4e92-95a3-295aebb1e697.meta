@@ -1,0 +1,18 @@
+{
+	"UUID": "711626dd-9793-4e92-95a3-295aebb1e697",
+	"Name": "DNS Over Time by Client",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

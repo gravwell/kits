@@ -1,0 +1,37 @@
+{
+	"UUID": "6bd0ee15-9232-415f-94d0-f4246b58db53",
+	"Name": "DNS SLD",
+	"Description": "CoreDNS actions specific to DNS Second Level Domains.",
+	"Data": {
+		"actions": [
+			{
+				"command": {
+					"options": {},
+					"reference": "tag=$COREDNS_KIT_TAG json Question.Hdr.Name as Name Question.Target as Target | grep -s \"_VALUE_\" | table Name Target",
+					"type": "query"
+				},
+				"description": "",
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "Related Domains",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			}
+		],
+		"menuLabel": "DNS",
+		"triggers": [
+			{
+				"hyperlink": true,
+				"pattern": "/(?\u003cfoo\u003e(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)[a-zA-Z]+).$/"
+			}
+		]
+	},
+	"Labels": null
+}

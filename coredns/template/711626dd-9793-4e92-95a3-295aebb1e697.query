@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Remote as rmt | fields -e rmt -d ":" [0] == "%%REMOTE%%" | chart

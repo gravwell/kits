@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Question.Hdr.Name as Name | stats unique_count(Name) as "Unique Queries" count as "Total Queries"  | gauge "Unique Queries" "Total Queries"

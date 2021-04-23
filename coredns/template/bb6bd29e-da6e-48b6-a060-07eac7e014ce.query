@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Question.Hdr.Name ~ "%%NAME%%" Remote | fields -e Remote -d ":" [0] as Client | unique Client | table Client

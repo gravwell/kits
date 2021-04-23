@@ -1,0 +1,5 @@
+tag=$COREDNS_KIT_TAG json Remote as rmt Question.Hdr.Name as Name | fields -e rmt -d ":" [0] == "%%REMOTE%%" |
+stats count by Name |
+sort by count desc |
+limit 100 |
+table Name count

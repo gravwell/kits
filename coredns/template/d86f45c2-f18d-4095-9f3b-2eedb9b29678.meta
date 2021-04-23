@@ -1,0 +1,18 @@
+{
+	"UUID": "d86f45c2-f18d-4095-9f3b-2eedb9b29678",
+	"Name": "Most Queries DNS Names by Client",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

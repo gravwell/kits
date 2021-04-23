@@ -1,0 +1,18 @@
+{
+	"UUID": "bb6bd29e-da6e-48b6-a060-07eac7e014ce",
+	"Name": "Clients Querying this Name",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "NAME",
+				"description": "Domain name",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

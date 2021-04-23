@@ -1,0 +1,18 @@
+{
+	"UUID": "a1f55c54-f262-43ae-bf5a-9b6feadbdd36",
+	"Name": "Unique A Records for this Name",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "NAME",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

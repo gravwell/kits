@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Question.Hdr.Rrtype == 16 Question.Hdr.Name as Name Question.Txt as Payload Question.Hdr.Rdlength as rdlength | eval setEnum("Length", toInt(rdlength)) | sort by Length desc | table Name Payload

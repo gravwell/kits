@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Question.Hdr.Rrtype as rrtype | lookup -s -r dns_types rrtype Value TYPE as dnstype | stats count by dnstype| chart count by dnstype
