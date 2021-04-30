@@ -1,0 +1,38 @@
+{
+	"ID": "io.gravwell.grok",
+	"Name": "Grok",
+	"Desc": "The Grok kit provides some documentation and a pattern resource file of Grok patterns for data extraction within Gravwell.",
+	"Version": 2,
+	"MinVersion": {
+		"Major": 3,
+		"Minor": 4,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "a00a50f4-e7e2-4875-8631-f81bae9e8d3e",
+	"Banner": "a00a50f4-e7e2-4875-8631-f81bae9e8d3e",
+	"Cover": "a00a50f4-e7e2-4875-8631-f81bae9e8d3e",
+	"Items": [
+		{
+			"Name": "grok",
+			"Type": 1,
+			"Hash": "dfc5b8261c1ffecac64327cbc2ba7f867d18f6f1c26393850a95551c711932cc"
+		},
+		{
+			"Name": "bda6e5ae-6ff9-466d-8854-320fd7165fcb",
+			"Type": 11,
+			"Hash": "4913fc3199b9abfcf254b6472030cd8cd51e054159644793e6ece746e2d40cb1"
+		},
+		{
+			"Name": "a00a50f4-e7e2-4875-8631-f81bae9e8d3e",
+			"Type": 7,
+			"Hash": "624f084ba07592fcc771e99d2c84e83836dac469047d0303225a5b78baccf0b4"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": null
+}
