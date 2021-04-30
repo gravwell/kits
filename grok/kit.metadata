@@ -1,0 +1,8 @@
+{
+	"Ingesters": ["simplerelay", "filefollow"],
+	"Tags": ["apache"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.jpg", "Legend": "grok", "Featured": true},
+		{ "Type": "readme", "Source": "readme.md"}
+	]
+}
