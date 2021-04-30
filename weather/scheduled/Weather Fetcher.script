@@ -1,0 +1,49 @@
+var strings = import("strings")
+var url = import("net/url")
+var fmt = import("fmt")
+var time = import("time")
+
+template = "https://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s&units=%s"
+
+# Read the API key config macro
+apiKey, err = getMacro("$WEATHER_KIT_APIKEY")
+if err != nil {
+    return err
+}
+
+# Read the location(s) config macro
+locations, err = getMacro("$WEATHER_KIT_LOCATIONS")
+if err != nil {
+    return err
+}
+
+# Read the location(s) config macro
+units, err = getMacro("$WEATHER_KIT_UNITS")
+if err != nil {
+    return err
+}
+
+if len(locations) == 0 {
+    return "No location given"
+}
+
+# Separate the locations (colon-separated list)
+locs = strings.Split(locations,":")
+
+# Now hit the API for each one
+key = url.QueryEscape(apiKey)
+ents = make([]Entry)
+for l in locs {
+    l = url.QueryEscape(l)
+    q = fmt.Sprintf(template, l, key, units)
+    println(q)
+    res, err = httpGet(q)
+    if err != nil {
+        println(err)
+        continue
+    }
+    println(res)
+    e = newEntry(time.Now(), res)
+    ents += e
+}
+ingestEntries(ents, "weather")

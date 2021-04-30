@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Question.Hdr.Rrtype == 1 Question.Hdr.Name == "%%NAME%%." Question.A as A | unique A | table A

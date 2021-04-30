@@ -1,0 +1,12 @@
+{
+	"Name": "Weather Fetcher",
+	"Description": "Hit openweathermap.org for current weather data",
+	"Labels": [
+		"weather"
+	],
+	"Schedule": "* * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"UUID": "57ede8c4-16f0-4c84-9183-b08239b35416",
+	"Name": "IP Address",
+	"Description": "CoreDNS actions on IP Addresses.",
+	"Data": {
+		"actions": [
+			{
+				"command": {
+					"options": {
+						"variable": "%%REMOTE%%"
+					},
+					"reference": "fd9902cf-ecef-41e0-b1f3-37f1f6d4d039",
+					"type": "dashboard"
+				},
+				"description": null,
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "CoreDNS Client Investigation",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			}
+		],
+		"menuLabel": null,
+		"triggers": [
+			{
+				"hyperlink": true,
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g"
+			}
+		]
+	},
+	"Labels": null
+}

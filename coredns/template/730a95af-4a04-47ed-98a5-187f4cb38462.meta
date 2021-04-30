@@ -1,0 +1,18 @@
+{
+	"UUID": "730a95af-4a04-47ed-98a5-187f4cb38462",
+	"Name": "Rare DNS Queries by Client",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

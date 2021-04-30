@@ -1,0 +1,18 @@
+{
+	"UUID": "65b78579-f546-43dd-8403-e5066da20f2f",
+	"Name": "DNS Beaconing by Client",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

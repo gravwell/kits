@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Question.Hdr.Name as Name Question.Target as Target | grep -s "%%NAME%%" | unique Name | table Name Target

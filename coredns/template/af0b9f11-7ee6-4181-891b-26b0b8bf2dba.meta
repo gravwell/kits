@@ -1,0 +1,18 @@
+{
+	"UUID": "af0b9f11-7ee6-4181-891b-26b0b8bf2dba",
+	"Name": "Related DNS subdomains",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "NAME",
+				"description": "gravwell.io",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

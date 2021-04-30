@@ -1,0 +1,63 @@
+{
+	"UUID": "7bd0ee15-9232-415f-94d0-f4246b58db54",
+	"Name": "DNS FQDN/SLD combined actionables",
+	"Description": "CoreDNS actions common to both FQDNs and SLDs.",
+	"Data": {
+		"actions": [
+			{
+				"command": {
+					"options": {},
+					"reference": "https://www.whois.com/whois/_VALUE_",
+					"type": "url"
+				},
+				"description": null,
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "WHOIS",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			},
+			{
+				"command": {
+					"options": {
+						"variable": "%%NAME%%"
+					},
+					"reference": "d35ddeb3-94c6-4d94-8f10-a467a37fd720",
+					"type": "dashboard"
+				},
+				"description": null,
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "DNS Domain Investigation Dashboard",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			}
+		],
+		"menuLabel": "DNS",
+		"triggers": [
+			{
+				"hyperlink": true,
+				"pattern": "/(?\u003cfoo\u003e(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)[a-zA-Z]+).$/"
+			},
+			{
+				"hyperlink": true,
+				"pattern": "/(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]+/"
+			}
+		]
+	},
+	"Labels": null
+}

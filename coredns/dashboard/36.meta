@@ -1,0 +1,128 @@
+{
+	"UUID": "d35ddeb3-94c6-4d94-8f10-a467a37fd720",
+	"Name": "CoreDNS Domain Investigation",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Related DNS subdomains",
+				"timeframe": {},
+				"reference": {
+					"id": "af0b9f11-7ee6-4181-891b-26b0b8bf2dba",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 3761366572
+			},
+			{
+				"alias": "Clients Querying this Name",
+				"timeframe": {},
+				"reference": {
+					"id": "bb6bd29e-da6e-48b6-a060-07eac7e014ce",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 2224614462
+			},
+			{
+				"alias": "Unique A Records for this Name",
+				"timeframe": {},
+				"reference": {
+					"id": "a1f55c54-f262-43ae-bf5a-9b6feadbdd36",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 2167149189
+			},
+			{
+				"alias": "Requests over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "da829df5-60ec-4308-bc95-dc1214225565",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 5210633627
+			}
+		],
+		"tiles": [
+			{
+				"title": "Related Subdomains",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 15925939321430,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Clients Querying this Name",
+				"renderer": "table",
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 8,
+					"y": 4
+				},
+				"id": 15925971579981,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Unique A Records for this Name",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 5,
+					"y": 4
+				},
+				"id": 15925989985622,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Requests over Time",
+				"renderer": "barChart",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 15926001991073,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT",
+			"start": null,
+			"end": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-06-23T08:40:58-06:00"
+	},
+	"Labels": null
+}

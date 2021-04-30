@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Remote as rmt Question.Hdr.Rrtype as rrtype | fields -e rmt -d ":" [0] == "%%REMOTE%%" | lookup -s -r dns_types rrtype Value TYPE as dnstype | stats count by dnstype| chart count by dnstype

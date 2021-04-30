@@ -1,0 +1,1 @@
+tag=$COREDNS_KIT_TAG json Remote as rmt Question.Hdr.Name as Name | fields -e rmt -d ":" [0] == "%%REMOTE%%" | stats unique_count(Name) as "Unique Queries" count as "Total Queries" | gauge "Unique Queries" "Total Queries"

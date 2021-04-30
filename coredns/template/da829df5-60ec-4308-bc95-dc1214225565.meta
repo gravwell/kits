@@ -1,0 +1,18 @@
+{
+	"UUID": "da829df5-60ec-4308-bc95-dc1214225565",
+	"Name": "Requests over Time",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "NAME",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}
