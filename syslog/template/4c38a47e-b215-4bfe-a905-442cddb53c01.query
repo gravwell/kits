@@ -1,0 +1,1 @@
+tag=$SYSLOG src %%SRC%% | syslog Hostname Appname Severity Message | table SRC Hostname Appname Severity Message

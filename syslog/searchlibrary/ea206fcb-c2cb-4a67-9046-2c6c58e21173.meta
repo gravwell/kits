@@ -1,0 +1,11 @@
+{
+	"Name": "Syslog unparseable",
+	"Description": "Syslog that did not parse to populate Hostname",
+	"GUID": "ea206fcb-c2cb-4a67-9046-2c6c58e21173",
+	"Labels": [
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

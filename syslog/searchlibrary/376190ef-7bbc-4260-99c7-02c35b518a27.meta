@@ -1,0 +1,11 @@
+{
+	"Name": "Syslog last 100 results",
+	"Description": "Most recent 100 syslog entries",
+	"GUID": "376190ef-7bbc-4260-99c7-02c35b518a27",
+	"Labels": [
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

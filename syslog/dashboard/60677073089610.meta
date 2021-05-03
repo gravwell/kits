@@ -1,0 +1,132 @@
+{
+	"UUID": "ae274b27-aa9f-4489-8ecb-f38ad905e007",
+	"Name": "Syslog investigate SRC",
+	"Description": "Investigation dashboard showing all sysmon activity for a given SRC address.",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Syslog by IP SRC",
+				"timeframe": {},
+				"reference": {
+					"id": "4c38a47e-b215-4bfe-a905-442cddb53c01",
+					"type": "template"
+				},
+				"searchID": 2537663070
+			},
+			{
+				"alias": "Syslog Apps by SRC",
+				"timeframe": {},
+				"reference": {
+					"id": "e2852eb0-6451-4f2e-8b4c-832b74f7f0f1",
+					"type": "template"
+				},
+				"searchID": 3491656095
+			},
+			{
+				"alias": "Syslog Sev by SRC",
+				"timeframe": {},
+				"reference": {
+					"id": "86ded222-2670-4994-b50a-707afeddff5b",
+					"type": "template"
+				},
+				"searchID": 7501527872
+			},
+			{
+				"alias": "Syslog unparseable by SRC",
+				"timeframe": {},
+				"reference": {
+					"id": "a791ac4b-7c77-453a-afe9-0958a75516c2",
+					"type": "template"
+				},
+				"searchID": 4710093861
+			}
+		],
+		"tiles": [
+			{
+				"title": "Syslog overview for SRC",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16142269538610,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Syslog activity for SRC",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"id": 16142269870771,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Appnames for SRC",
+				"renderer": "barChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16142270302952,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Severity by SRC",
+				"renderer": "pieChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16142271753573,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Unparseable syslog from this SRC",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 9
+				},
+				"id": 16143662818034,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2,
+		"lastDataUpdate": "2021-02-26T11:05:02-08:00"
+	},
+	"Labels": [
+		"syslog"
+	]
+}

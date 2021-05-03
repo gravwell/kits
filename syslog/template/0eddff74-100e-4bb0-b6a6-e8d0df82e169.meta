@@ -1,0 +1,20 @@
+{
+	"UUID": "0eddff74-100e-4bb0-b6a6-e8d0df82e169",
+	"Name": "Syslog apps by host",
+	"Description": "Count appnames by the hostname, all parsed from syslog",
+	"Data": {
+		"variables": [
+			{
+				"name": "",
+				"label": "",
+				"description": "",
+				"required": false,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"syslog"
+	]
+}

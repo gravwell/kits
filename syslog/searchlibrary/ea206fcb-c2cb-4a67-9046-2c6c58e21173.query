@@ -1,0 +1,1 @@
+tag=$SYSLOG syslog Hostname=="" | table SRC DATA

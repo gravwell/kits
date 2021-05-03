@@ -1,0 +1,83 @@
+{
+	"UUID": "2ae9c7ea-f8e7-4aff-9837-372fd6c801a2",
+	"Name": "Syslog Investigate Appname",
+	"Description": "Provide the Appname for a syslog view",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Syslog by Appname",
+				"timeframe": {},
+				"reference": {
+					"id": "e6e306fc-c136-44d2-b129-edfb8f666829",
+					"type": "template"
+				}
+			},
+			{
+				"alias": "Syslog Hosts by App",
+				"timeframe": {},
+				"reference": {
+					"id": "c6604281-c67e-4bf3-8b4e-f46e40e7132e",
+					"type": "template"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "Syslog overview",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16143135663540,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Syslog for Appname",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"id": 16143136021561,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Hosts emitting this Appname",
+				"renderer": "barChart",
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16143136472392,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"syslog"
+	]
+}

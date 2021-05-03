@@ -1,0 +1,147 @@
+{
+	"UUID": "212af6c8-1fe2-4092-baae-e3b60b863a32",
+	"Name": "Syslog Overview",
+	"Description": "An overview dashboard of syslog activity",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Syslog chart Src+app",
+				"timeframe": {},
+				"reference": {
+					"id": "c60a9022-e57e-4241-a1e5-6e7f38038939",
+					"type": "savedQuery"
+				},
+				"searchID": 3457930518
+			},
+			{
+				"alias": "Syslog chart by host+appname",
+				"timeframe": {},
+				"reference": {
+					"id": "72eb1ce6-cd98-4465-a709-c1cdb0726bb1",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Syslog event counts by host",
+				"timeframe": {},
+				"reference": {
+					"id": "a5c3527d-ca53-4396-83b5-39e248833ab7",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Syslog last 100 results",
+				"timeframe": {},
+				"reference": {
+					"id": "376190ef-7bbc-4260-99c7-02c35b518a27",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Syslog unparseable",
+				"timeframe": {},
+				"reference": {
+					"id": "ea206fcb-c2cb-4a67-9046-2c6c58e21173",
+					"type": "savedQuery"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "Syslog Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16142215496210,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "SRC / Appname Breakdown",
+				"renderer": "stackgraph",
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"id": 16142215827841,
+				"rendererOptions": {
+					"Orientation": "horizontal",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Hostname / Appname Breakdown",
+				"renderer": "stackgraph",
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16142217804612,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Orientation": "horizontal",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Syslog host counts",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16142219538423,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Last 100 Entries",
+				"renderer": "table",
+				"span": {
+					"col": 8,
+					"row": 5,
+					"x": 4,
+					"y": 8
+				},
+				"id": 16142219985824,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Unparseable entries",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 13
+				},
+				"id": 16142220483695,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"syslog"
+	]
+}

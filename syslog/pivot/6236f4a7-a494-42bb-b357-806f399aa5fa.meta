@@ -1,0 +1,63 @@
+{
+	"UUID": "6236f4a7-a494-42bb-b357-806f399aa5fa",
+	"Name": "Syslog",
+	"Description": "Syslog actionable for investigative dashboards",
+	"Data": {
+		"menuLabel": "Syslog",
+		"triggers": [
+			{
+				"pattern": "/\\w+/g",
+				"hyperlink": false
+			}
+		],
+		"actions": [
+			{
+				"name": "Appname",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "2ae9c7ea-f8e7-4aff-9837-372fd6c801a2",
+					"options": {
+						"variable": "%%APPNAME%%"
+					}
+				}
+			},
+			{
+				"name": "Hostname",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "271fa2ab-6f47-4872-bb34-60dca7be20d3",
+					"options": {
+						"variable": "%%HOST%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": [
+		"syslog"
+	]
+}

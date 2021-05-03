@@ -1,0 +1,11 @@
+{
+	"Name": "Syslog event counts by host",
+	"Description": "Count of events by Gravwell SRC and syslog Hostname",
+	"GUID": "a5c3527d-ca53-4396-83b5-39e248833ab7",
+	"Labels": [
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

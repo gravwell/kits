@@ -1,0 +1,1 @@
+tag=syslog syslog Severity Hostname Appname Message | stats count by Hostname Appname | stackgraph Hostname Appname count

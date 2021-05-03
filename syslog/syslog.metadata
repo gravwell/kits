@@ -1,0 +1,8 @@
+{
+	"Ingesters": ["simplerelay"],
+	"Tags": ["syslog"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "Syslog", "Featured": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
