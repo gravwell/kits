@@ -1,0 +1,20 @@
+{
+	"UUID": "e2852eb0-6451-4f2e-8b4c-832b74f7f0f1",
+	"Name": "Syslog Apps by SRC",
+	"Description": "Appname by SRC",
+	"Data": {
+		"variables": [
+			{
+				"name": "",
+				"label": "",
+				"description": "",
+				"required": false,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"syslog"
+	]
+}

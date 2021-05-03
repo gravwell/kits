@@ -1,0 +1,1 @@
+tag=syslog syslog Appname==%%APPNAME%% Hostname Message | table SRC Hostname Appname Message

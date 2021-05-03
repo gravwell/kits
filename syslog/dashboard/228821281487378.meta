@@ -1,0 +1,109 @@
+{
+	"UUID": "271fa2ab-6f47-4872-bb34-60dca7be20d3",
+	"Name": "Syslog investigate Host",
+	"Description": "Investigation dashboard for parsed syslog messages having a given Hostname field",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Syslog by Hostname",
+				"timeframe": {},
+				"reference": {
+					"id": "276066ea-02c2-45cf-a0f1-dc9bd3e8d26f",
+					"type": "template"
+				},
+				"searchID": 3879498218
+			},
+			{
+				"alias": "Syslog apps by host",
+				"timeframe": {},
+				"reference": {
+					"id": "0eddff74-100e-4bb0-b6a6-e8d0df82e169",
+					"type": "template"
+				},
+				"searchID": 6154007212
+			},
+			{
+				"alias": "Syslog sev by Hostname",
+				"timeframe": {},
+				"reference": {
+					"id": "a1753a07-f744-43c5-9140-7a7a5f6ce8ba",
+					"type": "template"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "Syslog overview for Host",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16142272648590,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Syslog for Host",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"id": 16142272863451,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Appnames",
+				"renderer": "barChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16142273200492,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Severity",
+				"renderer": "pieChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16142273714903,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"searchesIndex": 2
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2,
+		"lastDataUpdate": "2021-02-24T20:31:23-08:00"
+	},
+	"Labels": [
+		"syslog"
+	]
+}

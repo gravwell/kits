@@ -1,0 +1,41 @@
+{
+	"UUID": "efff782e-ea10-4f2d-945d-be07563bbd74",
+	"Name": "IP Address",
+	"Description": "Syslog IP address triggers",
+	"Data": {
+		"menuLabel": "Syslog",
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Syslog",
+				"description": "See syslog information from this SRC",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "ae274b27-aa9f-4489-8ecb-f38ad905e007",
+					"options": {
+						"variable": "%%SRC%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": [
+		"syslog"
+	]
+}
