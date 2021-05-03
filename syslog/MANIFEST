@@ -13,7 +13,7 @@
 		"Minor": 0,
 		"Point": 0
 	},
-	"Icon": "",
+	"Icon": "f9a79ae0-3820-4683-a819-2d48d8b50002",
 	"Banner": "64cc610a-2a92-4a3c-a363-efcfa67e7d2a",
 	"Cover": "f9a79ae0-3820-4683-a819-2d48d8b50002",
 	"Items": [
@@ -130,7 +130,7 @@
 			"Description": "Syslog tag (It's probably \"syslog\")",
 			"DefaultValue": "syslog",
 			"Value": "",
-			"Type": "",
+			"Type": "TAG",
 			"InstalledByID": ""
 		}
 	]
