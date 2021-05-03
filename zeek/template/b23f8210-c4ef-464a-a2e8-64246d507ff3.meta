@@ -1,0 +1,22 @@
+{
+	"UUID": "b23f8210-c4ef-464a-a2e8-64246d507ff3",
+	"Name": "Zeek All Modbus for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"modbus",
+		"ics"
+	]
+}

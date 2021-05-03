@@ -1,0 +1,22 @@
+{
+	"UUID": "fc2dcd57-0550-41a3-80f2-88b421acdd26",
+	"Name": "Zeek Most Common SLDs by Client",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	]
+}

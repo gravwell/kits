@@ -1,0 +1,14 @@
+{
+	"Name": "Zeek Upload/Download Traffic Chart",
+	"Description": "Chart the upload and download traffic as seen by zeek",
+	"GUID": "368fc26d-07a4-40f8-9051-b63f3bd76c03",
+	"Labels": [
+		"zeek",
+		"conn",
+		"traffic",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

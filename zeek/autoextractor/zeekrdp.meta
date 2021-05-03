@@ -1,0 +1,15 @@
+{
+	"Name": "zeekrdp",
+	"Desc": "Zeek rdp logs",
+	"Module": "fields",
+	"Tag": "zeekrdp",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "114952cf-54d0-4154-9016-4b60a3fa8a47",
+	"LastUpdated": "2020-09-18T15:38:47.4252585-06:00"
+}

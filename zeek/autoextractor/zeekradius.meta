@@ -1,0 +1,15 @@
+{
+	"Name": "zeekradius",
+	"Desc": "Zeek radius logs",
+	"Module": "fields",
+	"Tag": "zeekradius",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "76895443-09c2-4ce4-83c6-ca8846c4f197",
+	"LastUpdated": "2020-09-18T15:38:47.749142506-06:00"
+}

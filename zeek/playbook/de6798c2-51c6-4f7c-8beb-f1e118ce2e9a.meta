@@ -1,0 +1,23 @@
+{
+	"UUID": "de6798c2-51c6-4f7c-8beb-f1e118ce2e9a",
+	"GUID": "568f4ce4-11fb-4c60-8503-07f043c40d7b",
+	"UID": 1,
+	"GIDs": null,
+	"Global": false,
+	"Name": "Zeek DNS",
+	"Desc": "",
+	"Labels": [
+		"zeek",
+		"dns",
+		"playbook",
+		"kit/io.gravwell.beta.zeek"
+	],
+	"LastUpdated": "2020-11-06T21:21:13.321796478Z",
+	"Author": {
+		"Name": "",
+		"Email": "",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": false
+}

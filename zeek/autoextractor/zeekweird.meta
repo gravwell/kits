@@ -1,0 +1,15 @@
+{
+	"Name": "zeekweird",
+	"Desc": "Zeek weird logs",
+	"Module": "fields",
+	"Tag": "zeekweird",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "cd0ebd71-15f1-492d-b176-f548bf9ab37d",
+	"LastUpdated": "2020-09-18T15:38:47.942389185-06:00"
+}

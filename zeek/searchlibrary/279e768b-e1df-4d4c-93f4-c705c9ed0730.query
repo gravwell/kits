@@ -1,0 +1,3 @@
+tag=zeekconn ax conn_state ~ RST proto==tcp service |
+stats count by service |
+chart count by service

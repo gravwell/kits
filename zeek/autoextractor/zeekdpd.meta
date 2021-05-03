@@ -1,0 +1,15 @@
+{
+	"Name": "zeekdpd",
+	"Desc": "Zeek DPD logs",
+	"Module": "fields",
+	"Tag": "zeekdpd",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "d2e9eb39-1f0d-49ac-8309-a53be2c09f07",
+	"LastUpdated": "2020-09-18T15:38:47.95687481-06:00"
+}

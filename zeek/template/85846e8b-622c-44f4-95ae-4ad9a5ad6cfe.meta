@@ -1,0 +1,22 @@
+{
+	"UUID": "85846e8b-622c-44f4-95ae-4ad9a5ad6cfe",
+	"Name": "Zeek Most Queried DNS Names by Client",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	]
+}

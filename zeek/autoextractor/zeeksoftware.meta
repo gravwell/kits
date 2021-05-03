@@ -1,0 +1,15 @@
+{
+	"Name": "zeeksoftware",
+	"Desc": "Zeek software logs",
+	"Module": "fields",
+	"Tag": "zeeksoftware",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "3165cfe1-fecb-4eff-ba7a-ae7ca25be266",
+	"LastUpdated": "2020-09-18T15:38:47.630024038-06:00"
+}

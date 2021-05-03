@@ -1,0 +1,1 @@
+tag=zeekdhcp,zeekdnp3,zeekdns,zeekfiles,zeekhttp,zeekmodbus,zeeksmtp,zeeksnmp,zeekssh,zeeksyslog words %%UID%% | ax | table

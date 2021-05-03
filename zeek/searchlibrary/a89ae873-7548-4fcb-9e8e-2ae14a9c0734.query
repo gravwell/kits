@@ -1,0 +1,4 @@
+tag=zeekhttp ax 
+| regex -e user_agent "(?P<browser>\S*)/[0-9.]*$" 
+| count by browser 
+| chart count by browser

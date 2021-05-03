@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek SSH Host Keys Seen Per Server",
+	"Description": "Count how many SSH host keys we've observed for each server",
+	"GUID": "e8256f26-e448-4720-a385-c9340cdc5b12",
+	"Labels": [
+		"zeek",
+		"ssh",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

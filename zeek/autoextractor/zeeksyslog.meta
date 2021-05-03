@@ -1,0 +1,15 @@
+{
+	"Name": "zeeksyslog",
+	"Desc": "Zeek Syslog logs",
+	"Module": "fields",
+	"Tag": "zeeksyslog",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "92110ff0-6e28-41f1-91af-782b9e82868b",
+	"LastUpdated": "2020-09-18T15:38:47.834172896-06:00"
+}

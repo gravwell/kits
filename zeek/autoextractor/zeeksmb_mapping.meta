@@ -1,0 +1,17 @@
+{
+	"Name": "Zeek SMB Mapping",
+	"Desc": "Zeek Samba Mapping Log",
+	"Module": "fields",
+	"Tag": "zeeksmb_mapping",
+	"Labels": [
+		"zeek",
+		"samba",
+		"smb",
+		"mapping"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "40e032e3-dd85-40f6-b4bd-de13d35d6d8d",
+	"LastUpdated": "2020-09-22T16:28:26.694778707-06:00"
+}

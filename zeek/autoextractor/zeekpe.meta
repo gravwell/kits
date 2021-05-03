@@ -1,0 +1,15 @@
+{
+	"Name": "zeekpe",
+	"Desc": "Zeek PE logs",
+	"Module": "fields",
+	"Tag": "zeekpe",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "6fab7cc7-c339-4160-895f-0cbeee838562",
+	"LastUpdated": "2020-09-18T15:38:47.745019706-06:00"
+}

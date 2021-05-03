@@ -1,0 +1,3 @@
+tag=zeekssh ax
+| geoip resp_host.Location
+| pointmap resp_host

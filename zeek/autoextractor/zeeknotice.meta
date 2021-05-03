@@ -1,0 +1,15 @@
+{
+	"Name": "zeeknotice",
+	"Desc": "Zeek Notice logs",
+	"Module": "fields",
+	"Tag": "zeeknotice",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "f7fc0516-2858-424f-846a-c95345d25687",
+	"LastUpdated": "2020-09-18T15:38:48.051735543-06:00"
+}

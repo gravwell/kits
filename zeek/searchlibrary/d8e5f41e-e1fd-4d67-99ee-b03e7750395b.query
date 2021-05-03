@@ -1,0 +1,10 @@
+tag=zeekdns ax query |
+sort by time asc |
+diff TIMESTAMP by query |
+require -s diff |
+stats mean(diff) stddev(diff) count by query |
+eval (stddev < mean && count > 2) |
+eval setEnum("r", stddev/mean) |
+eval setEnum("Duration", toDuration(mean)) |
+sort by r asc |
+table query Duration count

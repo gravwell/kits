@@ -1,0 +1,15 @@
+{
+	"Name": "zeeksignature",
+	"Desc": "Zeek signature logs",
+	"Module": "fields",
+	"Tag": "zeeksignature",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "541f1878-4352-40c4-88d1-6fb57df02d7c",
+	"LastUpdated": "2020-09-18T15:38:47.73272442-06:00"
+}

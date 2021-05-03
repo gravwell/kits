@@ -1,0 +1,79 @@
+{
+	"UUID": "88103c85-6747-4b52-bcf1-ab7225ee01ad",
+	"Name": "Zeek IP Investigative Dashboards",
+	"Description": "Zeek Investigative Dashboards",
+	"Data": {
+		"actions": [
+			{
+				"name": "Service Investigative Dashboard",
+				"description": "Investigate a specific IP for service related connection overviews",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "3ef85611-d7a6-4054-ad67-e66454aadce6",
+					"options": {
+						"variable": "%%IP%%"
+					}
+				}
+			},
+			{
+				"name": "SSH successful auths",
+				"description": "List successful SSH connections to this IP",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "6929e79a-c532-40dc-8ca6-35ed2ee36f74",
+					"options": {}
+				}
+			},
+			{
+				"name": "SSH Activity",
+				"description": "Display all SSH activity related to this IP address",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "7d78581b-f1cb-42b1-a9b6-920af905bc67",
+					"options": {}
+				}
+			}
+		],
+		"menuLabel": "IP Address",
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true
+			}
+		]
+	},
+	"Labels": null
+}

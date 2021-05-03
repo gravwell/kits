@@ -1,0 +1,15 @@
+{
+	"Name": "zeekssl",
+	"Desc": "Zeek ssl logs",
+	"Module": "fields",
+	"Tag": "zeekssl",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "e0315f3d-e1bc-438d-9cd7-f82f87013d18",
+	"LastUpdated": "2020-09-18T15:38:48.045754727-06:00"
+}

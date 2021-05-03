@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek Rare DNS Queries",
+	"Description": "Least queried DNS names over time",
+	"GUID": "9e0009e6-4051-4104-b33e-75cc75f39642",
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

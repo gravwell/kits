@@ -1,0 +1,14 @@
+{
+	"Name": "Zeek Total Traffic By Service",
+	"Description": "Total traffic per service as seen by Zeek",
+	"GUID": "aa41a52e-d6d4-449e-a33c-2451d8a12ab7",
+	"Labels": [
+		"zeek",
+		"conn",
+		"traffic",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

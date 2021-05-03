@@ -1,0 +1,22 @@
+{
+	"UUID": "0173803d-2953-469f-ba26-f73fa1b89d49",
+	"Name": "Zeek SMB Share types for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"smb",
+		"fileshare"
+	]
+}

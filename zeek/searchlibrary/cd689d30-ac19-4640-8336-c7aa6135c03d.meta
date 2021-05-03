@@ -1,0 +1,15 @@
+{
+	"Name": "Zeek Connection Averages",
+	"Description": "Table showing averages for traffic, packets, and connection duration for each service",
+	"GUID": "cd689d30-ac19-4640-8336-c7aa6135c03d",
+	"Labels": [
+		"zeek",
+		"conn",
+		"averages",
+		"service",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
