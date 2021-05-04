@@ -1,0 +1,15 @@
+{
+	"Name": "zeekssh",
+	"Desc": "Zeek SSH logs",
+	"Module": "fields",
+	"Tag": "zeekssh",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "c10b83a4-9aa3-460d-94ce-bcf083777d99",
+	"LastUpdated": "2020-09-18T15:38:47.8536668-06:00"
+}

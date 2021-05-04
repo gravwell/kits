@@ -1,0 +1,12 @@
+{
+	"Name": "Zeek SSH Client Locations",
+	"Description": "GeoIP locations for all SSH clients",
+	"GUID": "d475467d-9bff-426e-ac42-a8a576a8da1f",
+	"Labels": [
+		"zeek",
+		"ssh"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

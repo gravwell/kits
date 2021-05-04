@@ -1,0 +1,15 @@
+{
+	"Name": "zeeksip",
+	"Desc": "Zeek SIP logs",
+	"Module": "fields",
+	"Tag": "zeeksip",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "ee80ef30-eb19-4656-97d1-ab6e5d919884",
+	"LastUpdated": "2020-09-18T15:38:48.046158709-06:00"
+}

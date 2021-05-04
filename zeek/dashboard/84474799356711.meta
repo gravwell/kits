@@ -1,0 +1,159 @@
+{
+	"UUID": "fbc053a7-2c5e-455e-af50-c4fa5609b41f",
+	"Name": "Zeek SMB Investigator",
+	"Description": "Investigate a given IP address",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Zeek SMB private IP graph",
+				"timeframe": {},
+				"reference": {
+					"id": "9270435e-3d51-40f5-980f-3deaf4f4163b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 4749800772
+			},
+			{
+				"alias": "Zeek SMB Share types for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "0173803d-2953-469f-ba26-f73fa1b89d49",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 8690809299
+			},
+			{
+				"alias": "Zeek SMB actions",
+				"timeframe": {},
+				"reference": {
+					"id": "55d3f4d8-d273-4a37-9ca6-5befadd46e9e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 1146083197
+			},
+			{
+				"alias": "Zeek All SMB Files for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "ffad28e0-2b62-44b9-ab43-443306a80d20",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 1573927608
+			},
+			{
+				"alias": "Zeek All SMB Mapping for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "fdbd8988-3e8b-4bc7-895c-4dbe841d91d5",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 1912001814
+			}
+		],
+		"tiles": [
+			{
+				"title": "Private IP Activity",
+				"renderer": "fdg",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16018536767010,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Layout": "force",
+					"Labels": "yes",
+					"IncludeOther": "yes",
+					"CurveEdges": "no"
+				}
+			},
+			{
+				"title": "Share Types",
+				"renderer": "stackgraph",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16018537306581,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Orientation": "vertical",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Action Types",
+				"renderer": "barChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16018537669492,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "All File Activity",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16018538291083,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "All mappings",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"id": 16018538493884,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT",
+			"start": null,
+			"end": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-04T16:39:11-07:00"
+	},
+	"Labels": null
+}

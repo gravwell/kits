@@ -1,0 +1,1 @@
+tag=zeekdns ax qtype_name | stats count by qtype_name | numbercard count

@@ -1,0 +1,5 @@
+tag=zeekssh ax
+| unique server resp_host resp_port
+| alias resp_host serverIP resp_port port server latestbanner
+| count by serverIP port
+| table serverIP port count latestbanner

@@ -1,0 +1,15 @@
+{
+	"Name": "Zeekdnp3",
+	"Desc": "Zeek DNP3 AX",
+	"Module": "fields",
+	"Tag": "zeekdnp3",
+	"Labels": [
+		"zeek",
+		"dnp3"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "9f4cac84-681d-4086-bd47-f51be3ecef65",
+	"LastUpdated": "2020-09-22T16:18:36.811823557-06:00"
+}

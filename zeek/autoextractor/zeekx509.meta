@@ -1,0 +1,15 @@
+{
+	"Name": "zeekx509",
+	"Desc": "Zeek X509 logs",
+	"Module": "fields",
+	"Tag": "zeekx509",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "295c2214-e523-4d96-bf79-d732b9488eb6",
+	"LastUpdated": "2020-09-18T15:38:47.622366937-06:00"
+}

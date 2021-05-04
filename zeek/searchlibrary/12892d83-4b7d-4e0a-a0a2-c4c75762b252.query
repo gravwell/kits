@@ -1,0 +1,3 @@
+tag=zeektunnel ax |
+count orig_host |
+gauge (count "Unique Orig Hosts")

@@ -1,0 +1,15 @@
+{
+	"Name": "zeektunnel",
+	"Desc": "Zeek tunnel logs",
+	"Module": "fields",
+	"Tag": "zeektunnel",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "929e01ae-1788-45d9-bb42-60e2246411e5",
+	"LastUpdated": "2020-09-18T15:38:47.841388833-06:00"
+}

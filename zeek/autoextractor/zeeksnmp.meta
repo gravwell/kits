@@ -1,0 +1,15 @@
+{
+	"Name": "zeeksnmp",
+	"Desc": "Zeek SNMP logs",
+	"Module": "fields",
+	"Tag": "zeeksnmp",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "c99b1d18-b242-4c95-8d0d-2b18a85041e2",
+	"LastUpdated": "2020-09-18T15:38:47.853743184-06:00"
+}

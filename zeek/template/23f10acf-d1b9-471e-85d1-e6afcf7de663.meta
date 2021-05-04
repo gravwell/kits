@@ -1,0 +1,21 @@
+{
+	"UUID": "23f10acf-d1b9-471e-85d1-e6afcf7de663",
+	"Name": "Zeek All Files for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"file"
+	]
+}

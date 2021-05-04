@@ -1,0 +1,39 @@
+{
+	"UUID": "9cf025ae-3a77-4a9a-b1e4-c238b689bec5",
+	"Name": "IP Address",
+	"Description": "Zeek Actions on IP Addresses",
+	"Data": {
+		"menuLabel": "",
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Zeek DNS Client Investigation",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "c53dcc2f-4334-4d07-8cf8-66c8e867eed8",
+					"options": {
+						"variable": "%%REMOTE%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": null
+}

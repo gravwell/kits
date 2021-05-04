@@ -1,0 +1,15 @@
+{
+	"Name": "zeeksmtp",
+	"Desc": "Zeek SMTP logs",
+	"Module": "fields",
+	"Tag": "zeeksmtp",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "d01399b5-ae41-437a-9b39-a5ba2a945242",
+	"LastUpdated": "2020-09-18T15:38:47.947643077-06:00"
+}

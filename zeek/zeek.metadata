@@ -1,0 +1,9 @@
+{
+	"Ingesters": ["file follower"],
+	"Tags": ["zeekconn", "zeekdns", "zeekfiles", "zeekssl"],
+	"Assets": [
+		{ "Type": "image", "Source": "zeek-cover.png", "Legend": "ZEEK", "Featured": true},
+		{ "Type": "image", "Source": "zeek-banner.png", "Legend": "Banner Image", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}

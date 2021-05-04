@@ -1,0 +1,17 @@
+{
+	"Name": "Zeek SMB Files",
+	"Desc": "Zeek Samba File",
+	"Module": "fields",
+	"Tag": "zeeksmb_files",
+	"Labels": [
+		"zeek",
+		"smb",
+		"samba",
+		"files"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "76294226-3eda-4c87-b48b-ca82863db4fb",
+	"LastUpdated": "2020-09-22T16:25:50.662745318-06:00"
+}

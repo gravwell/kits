@@ -1,0 +1,110 @@
+{
+	"UUID": "3fb48f40-ded1-41a8-9fcc-acf6291f4775",
+	"Name": "Zeek SSL/x509 Overview",
+	"Description": "Information about SSL connections and x509 certificates",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Zeek x509 Key Length/Type Counts",
+				"timeframe": {},
+				"reference": {
+					"id": "374f57e2-2de2-451c-aeed-9fbdb9dda4ff",
+					"type": "savedQuery"
+				},
+				"searchID": 5493314864
+			},
+			{
+				"query": "tag=zeekx509 ax | anko expired_x509 not_valid_after | time not_valid_after expired_on | table subject issuer dns expired_on",
+				"alias": "Expired Certificates",
+				"searchID": 3377243609
+			},
+			{
+				"alias": "Zeek SSL Version Chart",
+				"timeframe": {},
+				"reference": {
+					"id": "2b6ab0ff-afb6-48cc-a2cf-434df0333eec",
+					"type": "savedQuery"
+				},
+				"searchID": 3823952591
+			},
+			{
+				"alias": "Invalid SSL Certificates",
+				"timeframe": {},
+				"reference": {
+					"id": "ac66437e-56f8-4067-bc4c-f86f9d559fdb",
+					"type": "savedQuery"
+				},
+				"searchID": 8477177826
+			}
+		],
+		"tiles": [
+			{
+				"title": "x509 Key Types \u0026 Lengths",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 0,
+					"y": 5
+				},
+				"id": 16016711996910,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Expired Certificates",
+				"renderer": "table",
+				"searchesIndex": 1,
+				"span": {
+					"col": 9,
+					"row": 4,
+					"x": 3,
+					"y": 5
+				},
+				"rendererOptions": {},
+				"id": 1601673142252
+			},
+			{
+				"title": "SSL/TLS Versions",
+				"renderer": "pieChart",
+				"span": {
+					"col": 3,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16016740235292,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Failed SSL Negotiations",
+				"renderer": "table",
+				"span": {
+					"col": 9,
+					"row": 5,
+					"x": 3,
+					"y": 0
+				},
+				"id": 16016745089113,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT",
+			"start": null,
+			"end": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-02T14:46:42-07:00"
+	},
+	"Labels": [
+		"zeek",
+		"ssl",
+		"x509"
+	]
+}

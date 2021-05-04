@@ -1,0 +1,15 @@
+{
+	"Name": "zeekdns",
+	"Desc": "Zeek dns logs",
+	"Module": "fields",
+	"Tag": "zeekdns",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "49e687bc-d85a-4efa-befb-7a1f0a8cb82c",
+	"LastUpdated": "2020-09-18T15:38:47.630352561-06:00"
+}

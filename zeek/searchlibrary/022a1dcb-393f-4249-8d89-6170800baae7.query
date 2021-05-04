@@ -1,0 +1,3 @@
+tag=zeekhttp ax
+| regex -v -e method "^-|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|PATCH|TRACE$"
+| table orig resp method uri

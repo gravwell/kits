@@ -1,0 +1,1 @@
+tag=zeeksmb_files words %%IPADDR%% | ax | count by action | chart count by action

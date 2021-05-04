@@ -1,0 +1,14 @@
+{
+	"Name": "Zeek HTTP directory traversal requests",
+	"Description": "Show requests that may contain directory traversal attacks",
+	"GUID": "ea28dd16-8743-4bc4-8b32-2996809479a6",
+	"Labels": [
+		"kit/io.gravwell.beta.zeek",
+		"zeek",
+		"http",
+		"directory traversal"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

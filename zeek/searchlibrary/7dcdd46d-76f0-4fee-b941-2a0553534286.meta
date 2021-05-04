@@ -1,0 +1,12 @@
+{
+	"Name": "Zeek HTTP Point-to-Point",
+	"Description": "A point-to-point map showing connections between hosts over HTTP",
+	"GUID": "7dcdd46d-76f0-4fee-b941-2a0553534286",
+	"Labels": [
+		"zeek",
+		"http"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

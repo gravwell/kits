@@ -1,0 +1,15 @@
+{
+	"Name": "zeekconn",
+	"Desc": "Zeek conn logs",
+	"Module": "fields",
+	"Tag": "zeekconn",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "7728c644-879e-4a69-8c25-5ddc34131ec2",
+	"LastUpdated": "2020-09-18T15:38:47.749501864-06:00"
+}

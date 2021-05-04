@@ -1,0 +1,1 @@
+tag=zeeksnmp words %%IPADDR%% | ax | table

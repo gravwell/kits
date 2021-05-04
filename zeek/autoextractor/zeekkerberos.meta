@@ -1,0 +1,15 @@
+{
+	"Name": "zeekkerberos",
+	"Desc": "Zeek Kerberos logs",
+	"Module": "fields",
+	"Tag": "zeekkerberos",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "b02f4235-0920-4750-9ded-38791527f382",
+	"LastUpdated": "2020-09-18T15:38:47.853246151-06:00"
+}

@@ -1,0 +1,63 @@
+{
+	"UUID": "1f4a4980-3b6b-4997-91bf-422eccbdbb68",
+	"Name": "Zeek DNS FQDN/SLD combined actionables",
+	"Description": "",
+	"Data": {
+		"actions": [
+			{
+				"name": "Zeek WHOIS",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "url",
+					"reference": "https://www.whois.com/whois/_VALUE_",
+					"options": {}
+				}
+			},
+			{
+				"name": "Zeek DNS Domain Investigation Dashboard",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "29eef45f-ee30-40eb-a5df-ddb79507cacd",
+					"options": {
+						"variable": "%%NAME%%"
+					}
+				}
+			}
+		],
+		"menuLabel": "DNS",
+		"triggers": [
+			{
+				"pattern": "/(?\u003cfoo\u003e(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)[a-zA-Z]+)$/g",
+				"hyperlink": true
+			},
+			{
+				"pattern": "/(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]+/g",
+				"hyperlink": true
+			}
+		]
+	},
+	"Labels": null
+}

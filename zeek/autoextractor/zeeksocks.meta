@@ -1,0 +1,15 @@
+{
+	"Name": "zeeksocks",
+	"Desc": "Zeek socks logs",
+	"Module": "fields",
+	"Tag": "zeeksocks",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "af5ffd1f-2741-4a21-b051-b3f75dbee0fe",
+	"LastUpdated": "2020-09-18T15:38:47.842325699-06:00"
+}

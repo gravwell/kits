@@ -1,0 +1,15 @@
+{
+	"Name": "zeekdhcp",
+	"Desc": "Zeek dhcp logs",
+	"Module": "fields",
+	"Tag": "zeekdhcp",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "2729b663-96a8-42a2-8b44-6996d5fc0e7c",
+	"LastUpdated": "2020-09-18T15:38:47.622423632-06:00"
+}

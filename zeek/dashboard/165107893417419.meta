@@ -1,0 +1,124 @@
+{
+	"UUID": "498b0653-7bc4-406c-986c-9457c3038618",
+	"Name": "Zeek DHCP Overview",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT"
+		},
+		"searches": [
+			{
+				"query": "tag=zeekdhcp chart",
+				"alias": "Overview Chart",
+				"searchID": 3715954271
+			},
+			{
+				"alias": "Zeek DHCP rejections",
+				"timeframe": {},
+				"reference": {
+					"id": "652e42b4-1d46-44be-9c4d-335de4bd1b3d",
+					"type": "savedQuery"
+				},
+				"searchID": 6221219378
+			},
+			{
+				"alias": "Zeek DHCP Address Assignments",
+				"timeframe": {},
+				"reference": {
+					"id": "d1189e08-78fa-43a7-844b-f038a9cc52e9",
+					"type": "savedQuery"
+				},
+				"searchID": 2394001972
+			},
+			{
+				"alias": "Zeek DHCP MAC Address Count",
+				"timeframe": {},
+				"reference": {
+					"id": "34229f03-8c98-4c3b-8534-b1adc734f45b",
+					"type": "savedQuery"
+				},
+				"searchID": 8472914409
+			}
+		],
+		"tiles": [
+			{
+				"title": "Host / IP Table",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 4
+				},
+				"rendererOptions": {},
+				"id": 1601673467608,
+				"searchesIndex": 2
+			},
+			{
+				"title": "DHCP Event Overview",
+				"renderer": "overview",
+				"searchesIndex": 0,
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				},
+				"id": 1601673531775
+			},
+			{
+				"title": "Unique MAC Count",
+				"renderer": "numberCard",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1601673825480,
+				"searchesIndex": 3
+			},
+			{
+				"title": "DHCP Rejections",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 4
+				},
+				"id": 16019121158773,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Multiple": "no",
+					"Style": "reg",
+					"IncludeOther": "yes"
+				}
+			}
+		],
+		"version": 2,
+		"lastDataUpdate": "2020-10-05T10:20:11-06:00"
+	},
+	"Labels": null
+}

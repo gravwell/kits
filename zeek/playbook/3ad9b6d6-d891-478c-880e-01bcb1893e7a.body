@@ -1,0 +1,124 @@
+# Overview
+
+Welcome to the Gravwell Zeek Kit.  This kit is designed to help you make the most of the [Zeek Network Security Monitoring](https://zeek.org) platform.  Zeek is a powerful [open source](https://github.com/zeek/zeek) tool that can provide a wealth of contextual information about network activities.
+
+This playbook serves to get you oriented around the kit and provide some basic anchors into the data types, dashboards, and actionables.  This kit is dependent on the Gravwell Network Enrichment Kit which provides some additional port enumerations, network ownership, and geospatial information.  There is even a 3D spinning globe, because why not!
+
+![Dashboard Preview](/api/files/3f0a9936-9437-4678-bcd3-6f91bce0cf92 =1897x991)
+
+## Contents
+
+The Zeek Gravwell Kit contains many elements such as dashboards, queries, templates, actionables, and autoextractors.
+
+Geospatial items are provided by the Gravwell Network Enrichment Kit, which enables some cool visualizations like point-to-point traffic maps:
+
+![point-to-point map](/api/files/6c63dfd6-c022-40c6-ac89-2d3e3ce2d5ea =1528x657)
+
+Zeek provides robust introspection on DNS queries and responses, as a result we can replicate much of the Gravwell CoreDNS Kit functionality using passively acquired DNS information which enables excellent overview and investigative dashboards.
+
+![DNS Overview](/api/files/8656ce24-86e2-41e3-ae79-c3789ae1ab85 =1890x999)
+
+### Tags And Data Sources
+
+Zeek can provide a huge array of data sources using a completely unmodified build, but with plugins the sky is the limit.  This kit assumes that the Zeek distribution in use is based on the configuration provided on our [Dockerhub page](https://hub.docker.com/repository/docker/gravwell/zeek).  That Docker image contains a configured build of Zeek along with a preconfigured Gravwell File Follower.
+
+Not all tags may be available, your data will be unique to the traffic that your installation of Zeek has actually seen.  If your installation has never seen DNP3 traffic, you will not have any DNP3 data.
+
+The default file follower configuration includes the following tags and autoextractors:
+
+<table>
+<tr><td>zeekbarnyard2</td><td><a href="/#/search/launch?query=tag%3Dzeekbarnyard2%20ax%20%7C%20table&duration=PT1H">tag=zeekbarnyard2 ax | table</a></td></tr>
+<tr><td>zeekconn</td><td><a href="/#/search/launch?query=tag%3Dzeekconn%20ax%20%7C%20table&duration=PT1H">tag=zeekconn ax | table</a></td></tr>
+<tr><td>zeekdce_rpc</td><td><a href="/#/search/launch?query=tag%3Dzeekdce_rpc%20ax%20%7C%20table&duration=PT1H">tag=zeekdce_rpc ax | table</a></td></tr>
+<tr><td>zeekdhcp</td><td><a href="/#/search/launch?query=tag%3Dzeekdhcp%20ax%20%7C%20table&duration=PT1H">tag=zeekdhcp ax | table</a></td></tr>
+<tr><td>zeekdnp3</td><td><a href="/#/search/launch?query=tag%3Dzeekdnp3%20ax%20%7C%20table&duration=PT1H">tag=zeekdnp3 ax | table</a></td></tr>
+<tr><td>zeekdns</td><td><a href="/#/search/launch?query=tag%3Dzeekdns%20ax%20%7C%20table&duration=PT1H">tag=zeekdns ax | table</a></td></tr>
+<tr><td>zeekdpd</td><td><a href="/#/search/launch?query=tag%3Dzeekdpd%20ax%20%7C%20table&duration=PT1H">tag=zeekdpd ax | table</a></td></tr>
+<tr><td>zeekfiles</td><td><a href="/#/search/launch?query=tag%3Dzeekfiles%20ax%20%7C%20table&duration=PT1H">tag=zeekfiles ax | table</a></td></tr>
+<tr><td>zeekftp</td><td><a href="/#/search/launch?query=tag%3Dzeekftp%20ax%20%7C%20table&duration=PT1H">tag=zeekftp ax | table</a></td></tr>
+<tr><td>zeekhttp</td><td><a href="/#/search/launch?query=tag%3Dzeekhttp%20ax%20%7C%20table&duration=PT1H">tag=zeekhttp ax | table</a></td></tr>
+<tr><td>zeekintel</td><td><a href="/#/search/launch?query=tag%3Dzeekintel%20ax%20%7C%20table&duration=PT1H">tag=zeekintel ax | table</a></td></tr>
+<tr><td>zeekirc</td><td><a href="/#/search/launch?query=tag%3Dzeekirc%20ax%20%7C%20table&duration=PT1H">tag=zeekirc ax | table</a></td></tr>
+<tr><td>zeekkerberos</td><td><a href="/#/search/launch?query=tag%3Dzeekkerberos%20ax%20%7C%20table&duration=PT1H">tag=zeekkerberos ax | table</a></td></tr>
+<tr><td>zeekknown_certs</td><td><a href="/#/search/launch?query=tag%3Dzeekknown_certs%20ax%20%7C%20table&duration=PT1H">tag=zeekknown_certs ax | table</a></td></tr>
+<tr><td>zeekknown_hosts</td><td><a href="/#/search/launch?query=tag%3Dzeekknown_hosts%20ax%20%7C%20table&duration=PT1H">tag=zeekknown_hosts ax | table</a></td></tr>
+<tr><td>zeekknown_modbus</td><td><a href="/#/search/launch?query=tag%3Dzeekknown_modbus%20ax%20%7C%20table&duration=PT1H">tag=zeekknown_modbus ax | table</a></td></tr>
+<tr><td>zeekknown_services</td><td><a href="/#/search/launch?query=tag%3Dzeekknown_services%20ax%20%7C%20table&duration=PT1H">tag=zeekknown_services ax | table</a></td></tr>
+<tr><td>zeekmodbus</td><td><a href="/#/search/launch?query=tag%3Dzeekmodbus%20ax%20%7C%20table&duration=PT1H">tag=zeekmodbus ax | table</a></td></tr>
+<tr><td>zeekmodbus_register_change</td><td><a href="/#/search/launch?query=tag%3Dzeekmodbus_register_change%20ax%20%7C%20table&duration=PT1H">tag=zeekmodbus_register_change ax | table</a></td></tr>
+<tr><td>zeekmysql</td><td><a href="/#/search/launch?query=tag%3Dzeekmysql%20ax%20%7C%20table&duration=PT1H">tag=zeekmysql ax | table</a></td></tr>
+<tr><td>zeeknotice_alarm</td><td><a href="/#/search/launch?query=tag%3Dzeeknotice_alarm%20ax%20%7C%20table&duration=PT1H">tag=zeeknotice_alarm ax | table</a></td></tr>
+<tr><td>zeeknotice</td><td><a href="/#/search/launch?query=tag%3Dzeeknotice%20ax%20%7C%20table&duration=PT1H">tag=zeeknotice ax | table</a></td></tr>
+<tr><td>zeekntlm</td><td><a href="/#/search/launch?query=tag%3Dzeekntlm%20ax%20%7C%20table&duration=PT1H">tag=zeekntlm ax | table</a></td></tr>
+<tr><td>zeekocsp</td><td><a href="/#/search/launch?query=tag%3Dzeekocsp%20ax%20%7C%20table&duration=PT1H">tag=zeekocsp ax | table</a></td></tr>
+<tr><td>zeekopenflow</td><td><a href="/#/search/launch?query=tag%3Dzeekopenflow%20ax%20%7C%20table&duration=PT1H">tag=zeekopenflow ax | table</a></td></tr>
+<tr><td>zeekpe</td><td><a href="/#/search/launch?query=tag%3Dzeekpe%20ax%20%7C%20table&duration=PT1H">tag=zeekpe ax | table</a></td></tr>
+<tr><td>zeekradius</td><td><a href="/#/search/launch?query=tag%3Dzeekradius%20ax%20%7C%20table&duration=PT1H">tag=zeekradius ax | table</a></td></tr>
+<tr><td>zeekrdp</td><td><a href="/#/search/launch?query=tag%3Dzeekrdp%20ax%20%7C%20table&duration=PT1H">tag=zeekrdp ax | table</a></td></tr>
+<tr><td>zeekrfb</td><td><a href="/#/search/launch?query=tag%3Dzeekrfb%20ax%20%7C%20table&duration=PT1H">tag=zeekrfb ax | table</a></td></tr>
+<tr><td>zeeksignatures</td><td><a href="/#/search/launch?query=tag%3Dzeeksignatures%20ax%20%7C%20table&duration=PT1H">tag=zeeksignatures ax | table</a></td></tr>
+<tr><td>zeeksip</td><td><a href="/#/search/launch?query=tag%3Dzeeksip%20ax%20%7C%20table&duration=PT1H">tag=zeeksip ax | table</a></td></tr>
+<tr><td>zeeksmb_cmd</td><td><a href="/#/search/launch?query=tag%3Dzeeksmb_cmd%20ax%20%7C%20table&duration=PT1H">tag=zeeksmb_cmd ax | table</a></td></tr>
+<tr><td>zeeksmb_files</td><td><a href="/#/search/launch?query=tag%3Dzeeksmb_files%20ax%20%7C%20table&duration=PT1H">tag=zeeksmb_files ax | table</a></td></tr>
+<tr><td>zeeksmb_mapping</td><td><a href="/#/search/launch?query=tag%3Dzeeksmb_mapping%20ax%20%7C%20table&duration=PT1H">tag=zeeksmb_mapping ax | table</a></td></tr>
+<tr><td>zeeksmtp</td><td><a href="/#/search/launch?query=tag%3Dzeeksmtp%20ax%20%7C%20table&duration=PT1H">tag=zeeksmtp ax | table</a></td></tr>
+<tr><td>zeeksnmp</td><td><a href="/#/search/launch?query=tag%3Dzeeksnmp%20ax%20%7C%20table&duration=PT1H">tag=zeeksnmp ax | table</a></td></tr>
+<tr><td>zeeksocks</td><td><a href="/#/search/launch?query=tag%3Dzeeksocks%20ax%20%7C%20table&duration=PT1H">tag=zeeksocks ax | table</a></td></tr>
+<tr><td>zeeksoftware</td><td><a href="/#/search/launch?query=tag%3Dzeeksoftware%20ax%20%7C%20table&duration=PT1H">tag=zeeksoftware ax | table</a></td></tr>
+<tr><td>zeekssh</td><td><a href="/#/search/launch?query=tag%3Dzeekssh%20ax%20%7C%20table&duration=PT1H">tag=zeekssh ax | table</a></td></tr>
+<tr><td>zeekssl</td><td><a href="/#/search/launch?query=tag%3Dzeekssl%20ax%20%7C%20table&duration=PT1H">tag=zeekssl ax | table</a></td></tr>
+<tr><td>zeeksyslog</td><td><a href="/#/search/launch?query=tag%3Dzeeksyslog%20ax%20%7C%20table&duration=PT1H">tag=zeeksyslog ax | table</a></td></tr>
+<tr><td>zeektunnel</td><td><a href="/#/search/launch?query=tag%3Dzeektunnel%20ax%20%7C%20table&duration=PT1H">tag=zeektunnel ax | table</a></td></tr>
+<tr><td>zeekweird</td><td><a href="/#/search/launch?query=tag%3Dzeekweird%20ax%20%7C%20table&duration=PT1H">tag=zeekweird ax | table</a></td></tr>
+<tr><td>zeekx509</td><td><a href="/#/search/launch?query=tag%3Dzeekx509%20ax%20%7C%20table&duration=PT1H">tag=zeekx509 ax | table</a></td></tr>
+
+</td></tr>
+</table>
+
+## Zeek Configuration
+
+The container is built using the open source Zeek distribution available on [Github](https://github.com/zeek/zeek).
+
+Also included are a few ICS specific 3rd party plugins:
+
+<table>
+<tr><th>Plugin</th><th>Provider</th><th>Link</th></tr>
+<tr><td>HTTP2</td><td>MITRE</td><td>https://github.com/MITRECND/bro-http2</td></tr>
+<tr><td>BZAR</td><td>MITRE</td><td>https://github.com/mitre-attack/bzar</td></tr>
+<tr><td>EthernetIP</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-enip</td></tr>
+<tr><td>S7</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-s7comm</td></tr>
+<tr><td>BACnet</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-bacnet</td></tr>
+<tr><td>ProfiNet</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-profinet</td></tr>
+<tr><td>TDS</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-tds</td></tr>
+</table>
+
+## Zeek Indexing And Well Configuration
+
+The Zeek data set contains many highly orthogonal data sources, including unique identifiers, GUIDs, floating point timestamps, and IPv6 addresses.  To ensure that Gravwell performs well and minimizes memory usage when indexing Zeek data we highly recommend a separate well for the Zeek data with specific indexing options.
+
+Gravwell supports two indexing engines designed to provide different capabilities and tradeoffs.  Both engines can perform very well with the Zeek datasets.  The bloom engine can provide a balance of good performance and minimal disk usage while the index engine provides precise indexing performance in exchange for greater disk and memory usage.  Regardless of the chosen engine, Gravwell recommends that Zeek data be fulltext indexed with the "ignoreFloat" and "ignoreUUID" options.  The following well configurations work well with Zeek data:
+
+### Bloom Engine
+```
+[Storage-Well "zeek"]
+	Location=/opt/gravwell/storage/zeek
+	Tags=zeek*
+	Accelerator-Name=fulltext
+	Accelerator-Args="-ignoreFloat -ignoreUUID"
+	Accelerator-Engine-Override=bloom
+```
+
+### Index Engine
+```
+[Storage-Well "zeek"]
+	Location=/opt/gravwell/storage/zeek
+	Tags=zeek*
+	Accelerator-Name=fulltext
+	Accelerator-Args="-ignoreFloat -ignoreUUID"
+	Accelerator-Engine-Override=index
+```
+
+## Additional Information
+The "Zeek" and "Bro" names are owned by the [Zeek Community](https://zeek.org).
+
+Zeek is a [BSD](https://github.com/zeek/zeek/blob/master/COPYING) licensed open source project available on [Github](https://github.com/zeek/zeek).

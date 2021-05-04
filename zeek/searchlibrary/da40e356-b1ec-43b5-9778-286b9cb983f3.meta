@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek Most Queried DNS Name",
+	"Description": "Most queried DNS names over time",
+	"GUID": "da40e356-b1ec-43b5-9778-286b9cb983f3",
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

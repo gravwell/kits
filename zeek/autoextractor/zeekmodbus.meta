@@ -1,0 +1,15 @@
+{
+	"Name": "zeekmodbus",
+	"Desc": "Zeek modbus logs",
+	"Module": "fields",
+	"Tag": "zeekmodbus",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "85a5ce3f-0b40-4eca-bba6-b6a05fbf8fbb",
+	"LastUpdated": "2020-09-18T15:38:47.748474477-06:00"
+}

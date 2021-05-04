@@ -1,0 +1,15 @@
+{
+	"Name": "zeekrfb",
+	"Desc": "Zeek rfb logs",
+	"Module": "fields",
+	"Tag": "zeekrfb",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "1d58d0e3-5b50-4d96-9980-c29c1fed533a",
+	"LastUpdated": "2020-09-18T15:38:47.622525989-06:00"
+}

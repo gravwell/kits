@@ -1,0 +1,15 @@
+{
+	"Name": "zeekhttp",
+	"Desc": "Zeek http logs",
+	"Module": "fields",
+	"Tag": "zeekhttp",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "fcadf605-e4a8-44a8-8998-cd1029fb0d0a",
+	"LastUpdated": "2020-09-18T15:38:48.06073388-06:00"
+}

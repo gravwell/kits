@@ -1,0 +1,15 @@
+{
+	"Name": "zeekmysql",
+	"Desc": "Zeek mysql logs",
+	"Module": "fields",
+	"Tag": "zeekmysql",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "ce27edf3-9bd8-49fd-ab3c-e5fe55d790fb",
+	"LastUpdated": "2020-09-18T15:38:47.948120488-06:00"
+}

@@ -1,0 +1,15 @@
+{
+	"Name": "zeekirc",
+	"Desc": "Zeek IRC logs",
+	"Module": "fields",
+	"Tag": "zeekirc",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "d9100c99-ccc7-4283-981b-1163f50e40cf",
+	"LastUpdated": "2020-09-18T15:38:47.957279433-06:00"
+}

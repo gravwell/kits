@@ -1,0 +1,15 @@
+{
+	"Name": "zeekftp",
+	"Desc": "Zeek FTP logs",
+	"Module": "fields",
+	"Tag": "zeekftp",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "3ad15cab-1279-4ea3-8489-faaec4323733",
+	"LastUpdated": "2020-09-18T15:38:47.628815627-06:00"
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek SSH Version 1 Auth Successes",
+	"Description": "Successful SSH authentications using SSH version 1",
+	"GUID": "99d15805-3c68-4844-b50f-eaa5961ed066",
+	"Labels": [
+		"zeek",
+		"ssh",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"UUID": "d2ea37bd-69ce-4135-b90c-b8aca740de6e",
+	"Name": "Zeek Raw UID Records",
+	"Description": "Zeek UIDs (unique identifiers for each flow)",
+	"Data": {
+		"menuLabel": "UID",
+		"triggers": [
+			{
+				"pattern": "/(\\s|^)(?\u003cuid\u003e(C|F)([a-zA-Z0-9]{13,17}))(\\s|$)/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Associated Zeek Records",
+				"description": "",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "3824e3c3-2ca6-4e94-a678-0001b4400fde",
+					"options": {
+						"variable": "%%UID%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": null
+}

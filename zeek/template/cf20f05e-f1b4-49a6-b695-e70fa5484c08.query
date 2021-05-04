@@ -1,0 +1,4 @@
+tag=zeekconn words %%IP%% |
+ax orig resp |
+count by orig resp |
+fdg -v count orig resp

@@ -1,0 +1,15 @@
+{
+	"Name": "zeekfiles",
+	"Desc": "Zeek files logs",
+	"Module": "fields",
+	"Tag": "zeekfiles",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "d6235b9f-9ee7-43d3-9d8d-a74055b4d23b",
+	"LastUpdated": "2020-09-18T15:38:47.956372971-06:00"
+}

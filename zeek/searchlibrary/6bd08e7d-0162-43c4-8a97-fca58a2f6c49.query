@@ -1,0 +1,4 @@
+tag=zeekdns ax resp query answers qtype_name == A |
+regex -e "query" "(?P<TLD>[^\.]+)$" |
+stats count by TLD |
+table TLD count
