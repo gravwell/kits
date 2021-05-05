@@ -1,0 +1,13 @@
+{
+	"Name": "Potential Port Scanners",
+	"Description": "Show a list of IPs that have touched a very large number of unique ports",
+	"GUID": "7816e5ab-99a5-4f06-88e3-97e9fb0c59a3",
+	"Labels": [
+		"ipfix",
+		"security",
+		"port scanning"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

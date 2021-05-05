@@ -1,0 +1,14 @@
+{
+	"Name": "Rare Port Usage",
+	"Description": "Display the 25 least common ports seen in network flows",
+	"GUID": "b243ae4e-546c-44ce-b56f-52daccf928a8",
+	"Labels": [
+		"ipfix",
+		"ports",
+		"rare ports",
+		"test"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

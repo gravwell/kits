@@ -1,0 +1,5 @@
+tag=$IPFIX_KIT_TAG ipfix packets as Pkts bytes as Bytes protocolIdentifier as Protocol |
+stats sum(Pkts) as pktsum sum(Bytes) as bytesum by Protocol over 1m | eval setEnum("pktsz", toFloat(bytesum/pktsum)) |
+stats mean(pktsz) as AveragePacketSize by Protocol|
+lookup -r ip_protocols Protocol Number Name |
+chart AveragePacketSize by Name

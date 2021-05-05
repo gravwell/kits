@@ -1,0 +1,5 @@
+tag=$IPFIX_KIT_TAG ipfix ip!~PRIVATE as IP port as Port protocolIdentifier as Protocol bytes as Bytes |
+geoip IP.CountryName |
+lookup -r network_services [Protocol Port] [proto_number service_port] (service_name as Service) |
+stats sum(Bytes) as Traffic by CountryName Service |
+stackgraph Traffic CountryName Service

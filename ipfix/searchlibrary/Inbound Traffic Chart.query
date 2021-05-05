@@ -1,0 +1,1 @@
+tag=$IPFIX_KIT_TAG ipfix src !~ PRIVATE as Src  dst ~ PRIVATE as Dst bytes as Bytes | stats sum(Bytes) by Dst | chart sum by Dst limit 20

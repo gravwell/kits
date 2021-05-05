@@ -1,0 +1,20 @@
+{
+	"UUID": "5aab22f0-e612-418a-a1d8-48287b89dcd4",
+	"Name": "Long running flows IP investigator",
+	"Description": "Investigation template for identifying flows of over 20 minute duration for a given IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "Address of host for long-running activity",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix"
+	]
+}

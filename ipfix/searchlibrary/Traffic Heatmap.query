@@ -1,0 +1,1 @@
+tag=$IPFIX_KIT_TAG ipfix ip !~ PRIVATE as IP bytes as Bytes | stats sum(Bytes) as traffic by IP | geoip IP.Location | heatmap traffic

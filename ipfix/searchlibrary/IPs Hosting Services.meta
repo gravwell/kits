@@ -1,0 +1,11 @@
+{
+	"Name": "IPs Hosting Services",
+	"Description": "Table of IPs, what servers they are hosting, and how many clients have been served",
+	"GUID": "be1b42d8-48b7-448b-9458-73529f86c4a8",
+	"Labels": [
+		"ipfix"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

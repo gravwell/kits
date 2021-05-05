@@ -1,0 +1,12 @@
+{
+	"Name": "Most Common Port Flows",
+	"Description": "Show the 20 most common ports with averate flow duration and and total traffic",
+	"GUID": "5180aadd-7808-46c4-bc55-5ce62ad674dc",
+	"Labels": [
+		"ipfix",
+		"ports"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

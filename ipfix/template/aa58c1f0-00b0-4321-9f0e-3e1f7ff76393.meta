@@ -1,0 +1,23 @@
+{
+	"UUID": "aa58c1f0-00b0-4321-9f0e-3e1f7ff76393",
+	"Name": "Outbound Traffic Heatmap",
+	"Description": "Show inbound traffic heatmap for a specific IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP to investigate",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"traffic",
+		"IP",
+		"Investigation"
+	]
+}

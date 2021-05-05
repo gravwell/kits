@@ -1,0 +1,4 @@
+tag=$IPFIX_KIT_TAG ipfix src==%%IP%% as Src dst as Dst bytes>0 as Bytes |
+stats count as Connections by Dst |
+geoip -r asn_db Dst.ASNOrg |
+table Dst ASNOrg Connections

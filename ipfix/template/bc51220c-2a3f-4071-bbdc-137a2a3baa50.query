@@ -1,0 +1,1 @@
+tag=$IPFIX_KIT_TAG ipfix dst == %%IP%% as Dst src as Src bytes as Bytes | stats sum(Bytes) as traffic by Src | geoip Src.Location | heatmap traffic

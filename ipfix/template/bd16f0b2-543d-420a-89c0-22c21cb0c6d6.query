@@ -1,0 +1,1 @@
+tag=$IPFIX_KIT_TAG ipfix src ~ PRIVATE as Src dst ~ PRIVATE as Dst port==%%PORT%% as Port bytes as Bytes | stats sum(Bytes) by Src Dst | fdg -v sum Src Dst

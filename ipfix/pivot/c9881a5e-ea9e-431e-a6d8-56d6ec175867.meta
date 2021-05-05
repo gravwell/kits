@@ -1,0 +1,74 @@
+{
+	"UUID": "c9881a5e-ea9e-431e-a6d8-56d6ec175867",
+	"Name": "IPFIX Network Port",
+	"Description": "Actions to take on a network port, e.g. 22",
+	"Data": {
+		"actions": [
+			{
+				"command": {
+					"options": {},
+					"reference": "tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst srcPort as SrcPort dstPort as DstPort port==_VALUE_ as Port protocolIdentifier as Protocol bytes as Bytes | stats sum(Bytes) as ByteTotal by Port Src Dst | lookup -r network_services Protocol proto_number proto_name as Proto Port service_port service_name as Service | table Src Dst Port Service Proto ByteTotal",
+					"type": "query"
+				},
+				"description": null,
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "Most active hosts on this port",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			},
+			{
+				"command": {
+					"options": {},
+					"reference": "tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst srcPort as SrcPort dstPort as DstPort port==_VALUE_ as Port protocolIdentifier as Protocol bytes as Bytes | lookup -r network_services Protocol proto_number proto_name as Proto Port service_port service_name as Service | stats sum(Bytes) by Service Port | chart sum by Service Port",
+					"type": "query"
+				},
+				"description": "Traffic on this port over time",
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "Chart traffic",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			},
+			{
+				"command": {
+					"options": {},
+					"reference": "tag=$IPFIX_KIT_TAG ipfix dst ~ PRIVATE as Dst dstPort==_VALUE_ as DstPort bytes as Bytes protocolIdentifier as Protocol | lookup -r ip_protocols Protocol Number Name as ProtocolName | stats sum(Bytes) as TotalTraffic by Dst | table Dst DstPort Protocol ProtocolName TotalTraffic",
+					"type": "query"
+				},
+				"description": null,
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "Internal IPs serving this port",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			}
+		],
+		"menuLabel": null,
+		"triggers": []
+	},
+	"Labels": [
+		"ipfix"
+	]
+}

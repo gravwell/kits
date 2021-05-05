@@ -1,0 +1,14 @@
+{
+	"Name": "Connection Count By Protocol",
+	"Description": "Chart Connection counts by Protocol",
+	"GUID": "421c017d-4ee6-42a7-bf71-03781dc9b6fb",
+	"Labels": [
+		"ipfix",
+		"chart",
+		"connections",
+		"protocols"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

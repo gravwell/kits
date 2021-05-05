@@ -1,0 +1,4 @@
+tag=$IPFIX_KIT_TAG ipfix ip == %%IP%% as IP src as Src dst as Dst bytes as Bytes |
+eval if IP==Src {setEnum("dir", "inbound")} else { setEnum("dir", "outbound")} |
+stats sum(Bytes) as traffic by dir |
+chart traffic by dir

@@ -1,0 +1,11 @@
+{
+	"Name": "Point-to-Point Map",
+	"Description": "Point to point map of geolocated network flows",
+	"GUID": "8899bfd6-2207-43ef-83ba-dc5b273fae07",
+	"Labels": [
+		"ipfix"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

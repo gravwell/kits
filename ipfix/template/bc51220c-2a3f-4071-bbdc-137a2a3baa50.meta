@@ -1,0 +1,22 @@
+{
+	"UUID": "bc51220c-2a3f-4071-bbdc-137a2a3baa50",
+	"Name": "Inbound traffic heatmap",
+	"Description": "Display inbound traffic heatmap for an IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP address",
+				"description": "Specify the Target IP for destination flows",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"ip",
+		"investigation"
+	]
+}

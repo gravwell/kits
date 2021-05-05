@@ -1,0 +1,22 @@
+{
+	"UUID": "4363ccd4-e591-4ad7-a4dd-454547325f57",
+	"Name": "Traffic and packet sums for a specific IP",
+	"Description": "Line chart showing packet and traffic totals for a given IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP for traffic and packet accounting",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"IP",
+		"investigation"
+	]
+}

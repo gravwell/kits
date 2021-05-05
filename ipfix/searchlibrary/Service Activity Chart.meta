@@ -1,0 +1,11 @@
+{
+	"Name": "Service Activity Chart",
+	"Description": "Chart of bytes sent organized by service",
+	"GUID": "cb38f26c-d187-4e30-a621-1817d8558bd1",
+	"Labels": [
+		"ipfix"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

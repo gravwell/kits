@@ -1,0 +1,13 @@
+{
+	"Name": "Total Traffic and Connection Counts",
+	"Description": "Show total traffic and number of connections as number cards",
+	"GUID": "8085b84f-8329-44d7-8356-148c563ac0f7",
+	"Labels": [
+		"ipfix",
+		"total traffic",
+		"connection counts"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

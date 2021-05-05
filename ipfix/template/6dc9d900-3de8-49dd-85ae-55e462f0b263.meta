@@ -1,0 +1,22 @@
+{
+	"UUID": "6dc9d900-3de8-49dd-85ae-55e462f0b263",
+	"Name": "Rare Port Usage",
+	"Description": "Investigate rare port usage for a given IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP to investigate for rare port usage",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"IP",
+		"investigation"
+	]
+}

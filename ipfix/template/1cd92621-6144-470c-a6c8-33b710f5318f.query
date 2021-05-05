@@ -1,0 +1,4 @@
+tag=$IPFIX_KIT_TAG ipfix ip==__IP__ as IP port as service bytes as Bytes packets as Pkts protocolIdentifier Protocol |
+stats sum(Bytes) as traffic by service |
+lookup -r network_services [Protocol service] [proto_number service_port] service_name as service |
+chart traffic by service

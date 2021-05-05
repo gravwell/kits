@@ -1,0 +1,48 @@
+{
+	"UUID": "ea6ba4ea-fae0-493e-9c47-b9adf186e015",
+	"Name": "IP Address",
+	"Description": "Actionable based on detected IP addresses",
+	"Data": {
+		"actions": [
+			{
+				"command": {
+					"options": {},
+					"reference": "5aab22f0-e612-418a-a1d8-48287b89dcd4",
+					"type": "template"
+				},
+				"description": "Using template",
+				"name": "IPFIX Long running flows",
+				"placeholder": null
+			},
+			{
+				"command": {
+					"options": {
+						"variable": "%%IP%%"
+					},
+					"reference": "db7c22b2-b0e0-11ea-bdbb-7b259a2981f0",
+					"type": "dashboard"
+				},
+				"description": "Investigation dashboard",
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "IP investigator dashboard",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			}
+		],
+		"menuLabel": null,
+		"triggers": [
+			"/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g"
+		]
+	},
+	"Labels": [
+		"ipfix"
+	]
+}

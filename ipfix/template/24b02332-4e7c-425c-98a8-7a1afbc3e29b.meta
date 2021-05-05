@@ -1,0 +1,22 @@
+{
+	"UUID": "24b02332-4e7c-425c-98a8-7a1afbc3e29b",
+	"Name": "IP Traffic Overview",
+	"Description": "Show average traffic rates for a target IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Select a target IP to investigate",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"ip",
+		"investigation"
+	]
+}

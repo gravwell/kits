@@ -1,0 +1,11 @@
+{
+	"Name": "Inbound Traffic Chart",
+	"Description": "Traffic from routable to non-routable",
+	"GUID": "38c42730-160a-48a6-85b4-b7fdc2ed52e9",
+	"Labels": [
+		"ipfix"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

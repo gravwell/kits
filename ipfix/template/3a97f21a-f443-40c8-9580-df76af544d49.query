@@ -1,0 +1,4 @@
+tag=$IPFIX_KIT_TAG ipfix src==%%IP%% as Src dst as Dst bytes as Bytes |
+stats sum(Bytes) as Traffic by Dst |
+geoip -r asn_db Dst.ASNOrg |
+table Dst ASNOrg Traffic

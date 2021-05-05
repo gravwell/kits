@@ -1,0 +1,8 @@
+tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst srcPort as SrcPort dstPort as DstPort port as Port protocolIdentifier as Protocol
+| count by Src Dst SrcPort DstPort Protocol
+| eval if (Port == SrcPort) {setEnum("Server", Src); setEnum("Client", Dst)} else {setEnum("Server", Dst); setEnum("Client", Src)}
+| unique Server Client Port Protocol
+| lookup -r network_services Protocol proto_number proto_name as Proto Port service_port service_name as Service
+| stats count by Server Port Protocol as Clients
+| sort by Clients desc
+| table Server Proto Port Service Clients

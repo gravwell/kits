@@ -1,0 +1,21 @@
+{
+	"UUID": "ca3883db-1eab-45ae-ad38-1b13c1a929dc",
+	"Name": "Most active peers by connectios",
+	"Description": "Show the most active peers by number of flows where traffic is sent",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP address",
+				"description": "A target IP that responds",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"most active connections"
+	]
+}

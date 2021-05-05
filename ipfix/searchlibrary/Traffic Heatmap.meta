@@ -1,0 +1,16 @@
+{
+	"Name": "Traffic Heatmap",
+	"Description": "Global heatmap of total traffic",
+	"GUID": "d05164b4-b668-43c3-b374-c8032b0ef3fb",
+	"Labels": [
+		"ipfix",
+		"traffic",
+		"heatmap"
+	],
+	"Metadata": {
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT"
+		}
+	}
+}

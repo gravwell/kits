@@ -1,0 +1,4 @@
+tag=$IPFIX_KIT_TAG ipfix protocolIdentifier as Protocol |
+stats count as Connections by Protocol |
+lookup -r ip_protocols Protocol Number Name as ProtocolName |
+chart Connections by ProtocolName

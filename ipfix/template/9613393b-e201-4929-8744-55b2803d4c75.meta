@@ -1,0 +1,23 @@
+{
+	"UUID": "9613393b-e201-4929-8744-55b2803d4c75",
+	"Name": "Most common ports",
+	"Description": "Display the most common ports and their service names",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP to investigate for common port usage",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"IP",
+		"investigation",
+		"common ports"
+	]
+}

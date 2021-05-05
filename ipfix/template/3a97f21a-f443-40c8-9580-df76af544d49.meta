@@ -1,0 +1,21 @@
+{
+	"UUID": "3a97f21a-f443-40c8-9580-df76af544d49",
+	"Name": "Highest Outbound Traffic Peers",
+	"Description": "Show peers with the most outbound traffic",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "IP generating originating traffic",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"peers"
+	]
+}

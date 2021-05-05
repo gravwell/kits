@@ -1,5 +1,5 @@
 {
-	"Ingesters": ["netflow"],
+	"Ingesters": ["netflow", "flow"],
 	"Tags": ["netflow"],
 	"Assets": [
 		{ "Type": "image", "Source": "cover.jpg", "Legend": "Netflow v5", "Featured": true},

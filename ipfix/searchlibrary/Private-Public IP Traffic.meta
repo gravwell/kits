@@ -1,0 +1,11 @@
+{
+	"Name": "Private-Public IP Traffic",
+	"Description": "Table summarizing bytes sent from a non-routable IP address to routable. Includes GeoIP country and ASN enrichments.",
+	"GUID": "c9efea3a-3faa-4d11-abb2-81ba2d0e72a3",
+	"Labels": [
+		"ipfix"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

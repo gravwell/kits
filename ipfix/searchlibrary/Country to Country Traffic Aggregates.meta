@@ -1,0 +1,14 @@
+{
+	"Name": "Country to Country Traffic Aggregates",
+	"Description": "Table showing total packets, connections, and traffic between countries",
+	"GUID": "305bbded-9286-4f3a-9b37-72553c278416",
+	"Labels": [
+		"ipfix",
+		"traffic",
+		"geolocation",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
