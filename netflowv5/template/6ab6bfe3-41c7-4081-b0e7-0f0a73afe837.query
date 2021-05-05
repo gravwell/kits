@@ -1,0 +1,1 @@
+tag=netflow netflow IP==%%IPADDR%% Src Dst SrcPort DstPort UptimeFirst UptimeLast Duration > 20m Bytes Timestamp Uptime | table Src Dst SrcPort DstPort Bytes Duration

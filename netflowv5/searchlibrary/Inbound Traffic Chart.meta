@@ -1,0 +1,12 @@
+{
+	"Name": "Inbound Traffic Chart",
+	"Description": "Traffic from routable to non-routable",
+	"GUID": "0befd828-b22a-4275-aa31-cc47c3d87227",
+	"Labels": [
+		"netflow-v5",
+		"netflow"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

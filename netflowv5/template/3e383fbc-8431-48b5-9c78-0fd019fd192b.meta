@@ -1,0 +1,22 @@
+{
+	"UUID": "3e383fbc-8431-48b5-9c78-0fd019fd192b",
+	"Name": "Highest Outbound Traffic Peers",
+	"Description": "Show peers with the most outbound traffic",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "IP generating originating traffic",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"peers"
+	]
+}

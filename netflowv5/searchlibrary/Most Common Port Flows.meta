@@ -1,0 +1,14 @@
+{
+	"Name": "Most Common Port Flows",
+	"Description": "Show the 20 most common ports with averate flow duration and and total traffic",
+	"GUID": "cf9312f4-0384-4d4e-b0cb-febc4573e912",
+	"Labels": [
+		"netflow",
+		"ports",
+		"common",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

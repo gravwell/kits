@@ -1,0 +1,24 @@
+{
+	"UUID": "b5652f0d-a3b9-42ed-8b03-cc6382cde248",
+	"Name": "Most common ports",
+	"Description": "Display the most common ports and their service names",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP to investigate for common port usage",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"IP",
+		"investigation",
+		"common ports"
+	]
+}

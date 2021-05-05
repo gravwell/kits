@@ -1,0 +1,23 @@
+{
+	"UUID": "cab59988-1506-4cac-b33f-747f7f723fcf",
+	"Name": "IP Traffic accounting",
+	"Description": "Show inbound and outbound traffic graph for a specific IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP to sample data",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"IP",
+		"investigation"
+	]
+}

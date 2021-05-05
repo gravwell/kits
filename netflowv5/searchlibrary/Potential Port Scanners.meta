@@ -1,0 +1,14 @@
+{
+	"Name": "Potential Port Scanners",
+	"Description": "Show a list of IPs that have touched a very large number of unique ports",
+	"GUID": "59927e19-621d-43f2-a38e-b2e80af85e88",
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"security",
+		"port scanning"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

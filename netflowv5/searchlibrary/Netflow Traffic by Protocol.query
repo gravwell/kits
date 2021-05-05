@@ -1,0 +1,4 @@
+tag=netflow netflow Protocol Bytes |
+stats sum(Bytes) as Traffic by Protocol |
+lookup -r ip_protocols Protocol Number Name as ProtocolName |
+chart Traffic by ProtocolName

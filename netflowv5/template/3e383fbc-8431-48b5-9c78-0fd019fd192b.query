@@ -1,0 +1,4 @@
+tag=netflow netflow Src==%%IP%% Dst Bytes |
+stats sum(Bytes) as Traffic by Dst |
+geoip -r asn_db Dst.ASNOrg |
+table Dst ASNOrg Traffic

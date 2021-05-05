@@ -1,0 +1,14 @@
+{
+	"Name": "Netflow Traffic by Protocol",
+	"Description": "Chart Traffic By Protocol",
+	"GUID": "195644a4-bc46-4702-9d4f-f082ea3dbeef",
+	"Labels": [
+		"netflow",
+		"chart",
+		"protocols",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

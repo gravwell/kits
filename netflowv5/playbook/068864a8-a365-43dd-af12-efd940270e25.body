@@ -1,0 +1,63 @@
+Netflow is a convenient way to track activity on your network without actually capturing full packets. Instead, a device monitors packets, tracking persistent *flows* and emitting information about those flows. A flow is defined as a sequence of packets which share the following:
+
+* Source IP
+* Destination IP
+* IP Protocol (TCP, UDP, etc.)
+* Source port
+* Destination port
+
+Suppose 10.0.0.1 connects to 10.0.0.2's HTTP service on port 80; the client will use a random port on its end, e.g. 32100. The client sends a 40 byte HTTP request in a single packet, and the server responds with 8943 bytes in 7 packets. The Netflow device keeps track of these packets and, after the connection terminates, sends a pair of *flow records*. One record shows 1 40-byte packet going from 10.0.0.1:32100 to 10.0.0.2:80, and the other record shows 7 packets totaling 8943 bytes going from 10.0.0.2:80 to 10.0.0.1:32100. Even with this limited information, we can make some pretty educated guesses about what happened (a successful HTTP request).
+
+Gravwell can collect these flow records using the [Netflow ingester](https://docs.gravwell.io/docs/#!ingesters/ingesters.md#Netflow_Ingester). Once the records are in Gravwell, we can parse them in a query using the [netflow module](https://docs.gravwell.io/docs/#!search/netflow/netflow.md).
+
+## Versions & Dependencies
+
+This playbook is part of the Netflow kit. The kit depends on Gravwell's Network Enrichment kit, which should have been automatically installed when you selected the Netflow kit. If you seem to be missing resources used in some of our dashboards and queries, make sure the Network Enrichment kit has been installed.
+
+### Limitations of Netflow v5
+
+There are a few basic limitations of the Netflow v5 protocol. You can still get plenty of useful information from Netflow, but some of the limitations can make things confusing if you're not aware.
+
+1. Directionality. As mentioned above, Netflow deals in *flows*, which it defines as a flow of packets from a source IP to a destination IP. Any given network connection will result in two flow records: one describing the packets going from the client to the server, and one describing the packets going from the server to the client.
+2. IPv4. Netflow version 5 only supports IPv4 addresses, not IPv6. Later iterations (Netflow v9 and IPFIX) can handle both address types.
+3. Counter sizes. Netflow uses 32-bit integers to represent the number of bytes and packets in each flow record. This means that if the flow sends over 2<sup>32</sup> bytes (about 4.2 gigabytes, which can easily happen when transferring large files!), that integer would roll over and restart from zero. Depending on the device generating the Netflow records, it may chose to send the flow record before the rollover occurs & start tracking a new flow, or it may allow the overflow to occur with no notice.
+4. Timing. The Netflow exporter will attempt to send the flow only after the connection is "finished". This is usually determined by waiting until a period of time (e.g. 15 minutes) has elapsed without any additional packets being observed. This means that you may not receive the flow record until well after the connection is terminated.
+5. Long-lived connections. Some connections (like SSH) may stay up for hours or days. In order to provide flow information in a semi-timely manner, most Netflow exporters will send a flow record after a certain period of time even if the connection is still active. For example, most Cisco devices will send a record for an active connection every 30 minutes.
+
+### Using the playbook
+
+This playbook contains Gravwell queries which can be executed by clicking the 'Launch' button and selecting a time range--typically "Last hour" is sufficient and fast. Once you've launched the search, feel free to modify it and experiment!
+
+## Basic Netflow Parsing
+
+Assuming you have Netflow records flowing into Gravwell, one of the easiest ways to start exploring is by simply extracting some fields and displaying them. Here we tell the "netflow" module that it should extract the Protocol, Src, SrcPort, Dst, and DstPort fields from each entry, then we use the "table" renderer to display the results:
+
+```
+tag=netflow netflow Protocol Src SrcPort Dst DstPort | table
+```
+
+The network enrichment kit (installed as a dependency of the Netflow kit) includes some resources we can use to change those numeric protocol and port numbers into more friendly names (see the [lookup module documentation](https://docs.gravwell.io/docs/#!search/lookup/lookup.md) for more info on how that works):
+
+```
+tag=netflow netflow Src Dst Port Protocol | lookup -r network_services [Protocol Port] [proto_number service_port] (service_name service_desc) | lookup -r ip_protocols Protocol Number Name as ProtocolName | table
+```
+
+Note that we got rid of "SrcPort" and "DstPort"; instead, we simply say "Port", which picks the lower of the source and destination ports--since client ports are typically a random high port, this is a good way to extract the *service port*.
+
+## Filtering & Mapping Traffic
+
+We can get an idea where our traffic is coming from using the *heatmap* renderer. The following query does just that:
+
+```
+tag=netflow netflow IP !~ PRIVATE Bytes | stats sum(Bytes) as traffic by IP | geoip IP.Location | heatmap traffic
+```
+
+The use of the "IP" field in this case requires some explanation. Each Netflow record contains two IP addresses, *Src* and *Dst*. Just specifying "netflow IP" will normally extract the source IP address, but if we specify a **filter** expression, the module will extract whichever IP address matches the filter. By saying "IP !~ PRIVATE", we instruct the netflow module to extract *whichever IP is not in a private subnet*. When you're capturing netflow records from a private network, this is a very convenient way to figure out the remote IP addresses.
+
+Having extracted the IP address and the number of bytes from each flow, we then sum up the Bytes value for each IP address, storing the result as an enumerated value named "traffic". Next, we use the [geoip module](https://docs.gravwell.io/docs/#!search/geoip/geoip.md) to look up the location for each IP.
+
+Finally, the [heatmap module](https://docs.gravwell.io/docs/#!search/map/map.md) uses the "traffic" sum value and the extracted "Location" values to plot a heatmap of where traffic is coming from.
+
+**Cover photo credit**
+
+Photo by Hope House Press - [Leather Diary Studio on Unsplash](https://unsplash.com/@hope_house_press_leather_diary_studio?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

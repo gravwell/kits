@@ -1,0 +1,5 @@
+tag=netflow netflow Src Dst DstPort |
+stats unique_count(DstPort) as UniquePorts by Src |
+eval UniquePorts > 30 |
+sort by UniquePorts desc |
+table Src UniquePorts

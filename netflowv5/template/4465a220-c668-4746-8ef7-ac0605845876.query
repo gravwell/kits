@@ -1,0 +1,1 @@
+tag=netflow netflow Src == %%IP%% Dst Bytes | stats sum(Bytes) as traffic by Dst | geoip Dst.Location | heatmap traffic

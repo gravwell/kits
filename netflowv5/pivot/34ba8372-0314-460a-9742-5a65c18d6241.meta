@@ -1,0 +1,75 @@
+{
+	"UUID": "34ba8372-0314-460a-9742-5a65c18d6241",
+	"Name": "Network Port",
+	"Description": "Actions to take on a network port, e.g. 22",
+	"Data": {
+		"actions": [
+			{
+				"name": "Netflow - Most active hosts on this port",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "query",
+					"reference": "tag=netflow netflow Src Dst SrcPort DstPort Port==_VALUE_ Protocol Bytes | stats sum(Bytes) as ByteTotal by Port Src Dst | lookup -r network_services Protocol proto_number proto_name as Proto Port service_port service_name as Service | table Src Dst Port Service Proto ByteTotal",
+					"options": {}
+				}
+			},
+			{
+				"name": "Netflow - Chart traffic",
+				"description": "Traffic on this port over time",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "query",
+					"reference": "tag=netflow netflow Src Dst SrcPort DstPort Port==_VALUE_ Protocol Bytes | lookup -r network_services Protocol proto_number proto_name as Proto Port service_port service_name as Service | stats sum(Bytes) by Service Port | chart sum by Service Port",
+					"options": {}
+				}
+			},
+			{
+				"name": "Netflow - Internal IPs serving this port",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "query",
+					"reference": "tag=netflow netflow Dst ~ PRIVATE DstPort==_VALUE_ Bytes Protocol | lookup -r ip_protocols Protocol Number Name as ProtocolName | stats sum(Bytes) as TotalTraffic by Dst | table Dst DstPort Protocol ProtocolName TotalTraffic",
+					"options": {}
+				}
+			}
+		],
+		"menuLabel": null,
+		"triggers": []
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	]
+}

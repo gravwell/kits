@@ -1,0 +1,12 @@
+{
+	"Name": "Long Running Sessions",
+	"Description": "Flows over 20 minutes in duration. Calculated by Server Uptime First and Uptime Last properties of Netflow v5.",
+	"GUID": "01bc7a00-f489-45df-ab09-87360260e424",
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

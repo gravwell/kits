@@ -1,0 +1,8 @@
+{
+	"Ingesters": ["netflow"],
+	"Tags": ["netflow"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.jpg", "Legend": "Netflow v5", "Featured": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}

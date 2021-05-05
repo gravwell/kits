@@ -1,0 +1,1 @@
+tag=netflow netflow Src Dst Bytes | geoip -r asn_db Src.ASNOrg as SrcASNOrg Dst.ASNOrg as DstASNOrg | stats sum(Bytes) by SrcASNOrg DstASNOrg | fdg -v sum SrcASNOrg DstASNOrg

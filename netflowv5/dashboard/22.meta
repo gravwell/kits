@@ -1,0 +1,234 @@
+{
+	"UUID": "3c295e00-4c31-4bee-a41c-4e10d8fc8ec0",
+	"Name": "Netflow V5 IP Investigation Dashboard",
+	"Description": "IP investigation dashboard for Netflow V5\nProvide an overview of netflow activity for a given IP using Netflow V5 logs",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Search 1",
+				"timeframe": {},
+				"reference": {
+					"id": "c6420707-be44-4880-8933-0319571b7ca9",
+					"type": "template",
+					"extras": {
+						"defaultValue": "1.1.1.1"
+					}
+				},
+				"searchID": 3726151145
+			},
+			{
+				"alias": "Search 2",
+				"timeframe": {},
+				"reference": {
+					"id": "4465a220-c668-4746-8ef7-ac0605845876",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 2430932136
+			},
+			{
+				"alias": "Search 3",
+				"timeframe": {},
+				"reference": {
+					"id": "3bf5d876-8ecf-41ae-a8e8-934d6baea7b8",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7307271046
+			},
+			{
+				"alias": "Search 4",
+				"timeframe": {},
+				"reference": {
+					"id": "b5652f0d-a3b9-42ed-8b03-cc6382cde248",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 5200300018
+			},
+			{
+				"alias": "Search 5",
+				"timeframe": {},
+				"reference": {
+					"id": "3e383fbc-8431-48b5-9c78-0fd019fd192b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 5119072756
+			},
+			{
+				"alias": "Search 6",
+				"timeframe": {},
+				"reference": {
+					"id": "30cc6bfb-77b8-46df-b68d-ed49c66e6e84",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 4757127732
+			},
+			{
+				"alias": "Search 7",
+				"timeframe": {},
+				"reference": {
+					"id": "cab59988-1506-4cac-b33f-747f7f723fcf",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 8674805037
+			}
+		],
+		"tiles": [
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 15889761126430,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Traffic and packet rates",
+				"renderer": "areaChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"id": 15889771720141,
+				"rendererOptions": {
+					"ConnectNulls": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Client Connection Heatmap",
+				"renderer": "heatmap",
+				"span": {
+					"col": 6,
+					"row": 15,
+					"x": 6,
+					"y": 8
+				},
+				"id": 15892332954682,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Rare Ports",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 0,
+					"y": 4
+				},
+				"id": 15892333594253,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Most Common Ports",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 14
+				},
+				"id": 15892334157074,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Most Active Peers by Traffic Volume",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 10,
+					"x": 0,
+					"y": 23
+				},
+				"id": 15892347674365,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Most Active Peers by Connection Count",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 10,
+					"x": 3,
+					"y": 23
+				},
+				"id": 15892348352946,
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Inbound Outbound Trafic Rates",
+				"renderer": "areaChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 4
+				},
+				"id": 15892351140747,
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-05-14T16:36:20+00:00",
+		"linkZooming": true
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"investigation",
+		"IP"
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"Name": "Traffic Heatmap",
+	"Description": "Global heatmap of total traffic",
+	"GUID": "83c33cd1-5cbb-4986-af69-d5e067597c15",
+	"Labels": [
+		"netflow",
+		"traffic",
+		"heatmap",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT"
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"Name": "Average Packet Size by Protocol",
+	"Description": "Charge the average packet size by protocol",
+	"GUID": "9d61117e-6fa7-4485-99b6-6f4fbe3dbfaf",
+	"Labels": [
+		"netflow",
+		"packets",
+		"chart",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT"
+		}
+	}
+}

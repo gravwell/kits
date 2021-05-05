@@ -1,0 +1,12 @@
+{
+	"Name": "Private \u003c\u003e Public IP Traffic",
+	"Description": "Table summarizing bytes sent from a non-routable IP address to routable. Includes GeoIP country and ASN enrichments.",
+	"GUID": "6b9d4d4a-c164-43c1-b201-3b92d310b1d3",
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

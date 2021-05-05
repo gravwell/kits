@@ -1,0 +1,12 @@
+{
+	"Name": "Point-to-Point Map",
+	"Description": "Point to point map of geolocated network flows",
+	"GUID": "b8bd4938-a511-4bbd-844a-55efef18deb7",
+	"Labels": [
+		"netflow-v5",
+		"netflow"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

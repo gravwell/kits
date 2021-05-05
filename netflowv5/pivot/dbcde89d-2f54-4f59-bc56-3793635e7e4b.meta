@@ -1,0 +1,52 @@
+{
+	"UUID": "dbcde89d-2f54-4f59-bc56-3793635e7e4b",
+	"Name": "IP Address",
+	"Description": "Actionable based on detected IP addresses",
+	"Data": {
+		"actions": [
+			{
+				"command": {
+					"options": {},
+					"reference": "6ab6bfe3-41c7-4081-b0e7-0f0a73afe837",
+					"type": "template"
+				},
+				"description": "Using template",
+				"name": "Netflow - Long running flows",
+				"placeholder": null
+			},
+			{
+				"command": {
+					"options": {
+						"variable": "%%IP%%"
+					},
+					"reference": "3c295e00-4c31-4bee-a41c-4e10d8fc8ec0",
+					"type": "dashboard"
+				},
+				"description": "Investigation dashboard",
+				"end": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				},
+				"name": "Netflow - IP investigator dashboard",
+				"placeholder": null,
+				"start": {
+					"format": null,
+					"placeholder": null,
+					"type": "string"
+				}
+			}
+		],
+		"menuLabel": null,
+		"triggers": [
+			{
+				"hyperlink": true,
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g"
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	]
+}

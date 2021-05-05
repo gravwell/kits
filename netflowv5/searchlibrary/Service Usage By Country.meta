@@ -1,0 +1,15 @@
+{
+	"Name": "Service Usage By Country",
+	"Description": "Stackgraph of Service usage grouped by Country",
+	"GUID": "fd86e6a6-dccd-4438-b470-70693c004218",
+	"Labels": [
+		"netflow",
+		"stackgraph",
+		"country",
+		"geoip",
+		"netlfow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

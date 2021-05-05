@@ -1,0 +1,12 @@
+{
+	"Name": "Service Activity Chart",
+	"Description": "Chart of bytes sent organized by service",
+	"GUID": "9fe37aaa-3217-4b71-838e-d94692860fb3",
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

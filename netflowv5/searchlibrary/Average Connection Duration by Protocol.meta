@@ -1,0 +1,13 @@
+{
+	"Name": "Average Connection Duration by Protocol",
+	"Description": "Chart the average connection duration by IP protocol",
+	"GUID": "dc828765-4b17-478e-bfeb-c018959c17d8",
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"connection duration"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

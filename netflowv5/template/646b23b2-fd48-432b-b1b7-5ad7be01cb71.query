@@ -1,0 +1,3 @@
+tag=netflow netflow IP==%%IP%% Bytes Pkts |
+stats sum(Bytes) as traffic sum(Pkts) as packets |
+chart traffic packets

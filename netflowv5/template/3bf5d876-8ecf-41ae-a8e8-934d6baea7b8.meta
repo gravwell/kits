@@ -1,0 +1,23 @@
+{
+	"UUID": "3bf5d876-8ecf-41ae-a8e8-934d6baea7b8",
+	"Name": "Rare Port Usage",
+	"Description": "Investigate rare port usage for a given IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP to investigate for rare port usage",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"IP",
+		"investigation"
+	]
+}

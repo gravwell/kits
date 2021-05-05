@@ -1,0 +1,4 @@
+tag=netflow netflow IP==__IP__ Port as service Bytes Pkts Protocol |
+stats sum(Bytes) as traffic by service |
+lookup -r network_services [Protocol service] [proto_number service_port] service_name as service |
+chart traffic by service

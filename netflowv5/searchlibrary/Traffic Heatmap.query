@@ -1,0 +1,1 @@
+tag=netflow netflow IP !~ PRIVATE Bytes | stats sum(Bytes) as traffic by IP | geoip IP.Location | heatmap traffic
