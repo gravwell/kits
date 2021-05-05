@@ -1,0 +1,14 @@
+{
+	"Name": "Force Directed Graph of ASN Traffic",
+	"Description": "Show Force Directed Graph of traffic between ASNs",
+	"GUID": "7780db62-f960-48ba-8e6f-5f809919c6f0",
+	"Labels": [
+		"netflow",
+		"ASN",
+		"FDG",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

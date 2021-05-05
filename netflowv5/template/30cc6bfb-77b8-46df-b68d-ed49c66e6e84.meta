@@ -1,0 +1,22 @@
+{
+	"UUID": "30cc6bfb-77b8-46df-b68d-ed49c66e6e84",
+	"Name": "Most active peers by connections",
+	"Description": "Show the most active peers by number of flows where traffic is sent",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP address",
+				"description": "A target IP that responds",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"most active connections"
+	]
+}

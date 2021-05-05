@@ -1,0 +1,1 @@
+tag=netflow netflow Src ~ PRIVATE Dst ~ PRIVATE Port==%%PORT%% Bytes | stats sum(Bytes) by Src Dst | fdg -v sum Src Dst

@@ -1,0 +1,15 @@
+{
+	"Name": "Country to Country Traffic Aggregates",
+	"Description": "Table showing total packets, connections, and traffic between countries",
+	"GUID": "ebcdf3da-ee7f-4a48-810c-78b1a213d01e",
+	"Labels": [
+		"netflow",
+		"traffic",
+		"geolocation",
+		"table",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"Name": "Connection Count By Protocol",
+	"Description": "Chart Connection counts by Protocol",
+	"GUID": "04d3bdd4-4d1a-403b-9757-9a6bc0105127",
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"chart",
+		"connections",
+		"protocols"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

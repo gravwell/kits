@@ -1,0 +1,14 @@
+{
+	"Name": "Average Traffic Throughput By Service",
+	"Description": "Average Traffic Throughput By Service",
+	"GUID": "22166a78-48b1-4c68-be19-8bd75145b6d2",
+	"Labels": [
+		"netflow",
+		"service",
+		"network traffic",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"Name": "Total Traffic and Connection Counts",
+	"Description": "Show total traffic and number of connections as number cards",
+	"GUID": "59d3a7d7-eb34-432f-953c-f773e7a03479",
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"total traffic",
+		"connection counts"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

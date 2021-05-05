@@ -1,0 +1,7 @@
+tag=netflow netflow Port Bytes |
+stats sum(Bytes) by Port over 1m |
+eval setEnum("throughput", toFloat(sum) / 60.0) |
+stats count mean(throughput) as AvgMBps by Port |
+alias Port Service |
+lookup -r network_services Port service_port service_name as Service |
+chart AvgMBps by Service limit 20

@@ -1,0 +1,224 @@
+{
+	"UUID": "1e0c4c03-2f76-4879-a6c6-9daae30a8664",
+	"Name": "Netflow V5 Traffic Overview",
+	"Description": "General Netflow V5 Traffic Overview",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Search 4",
+				"timeframe": {},
+				"reference": {
+					"id": "04d3bdd4-4d1a-403b-9757-9a6bc0105127",
+					"type": "savedQuery"
+				},
+				"searchID": 4387658907
+			},
+			{
+				"alias": "Search 5",
+				"timeframe": {},
+				"reference": {
+					"id": "b8bd4938-a511-4bbd-844a-55efef18deb7",
+					"type": "savedQuery"
+				},
+				"searchID": 6890016645
+			},
+			{
+				"alias": "Search 10",
+				"timeframe": {},
+				"reference": {
+					"id": "9fe37aaa-3217-4b71-838e-d94692860fb3",
+					"type": "savedQuery"
+				},
+				"searchID": 6493962558
+			},
+			{
+				"alias": "Search 11",
+				"timeframe": {},
+				"reference": {
+					"id": "7a2364c2-7ba2-417c-adbd-67e9874f5fac",
+					"type": "savedQuery"
+				},
+				"searchID": 3267764016
+			},
+			{
+				"alias": "Search 12",
+				"timeframe": {},
+				"reference": {
+					"id": "59d3a7d7-eb34-432f-953c-f773e7a03479",
+					"type": "savedQuery"
+				},
+				"searchID": 3160786393
+			},
+			{
+				"alias": "Search 13",
+				"timeframe": {},
+				"reference": {
+					"id": "195644a4-bc46-4702-9d4f-f082ea3dbeef",
+					"type": "savedQuery"
+				},
+				"searchID": 2767665109
+			}
+		],
+		"tiles": [
+			{
+				"title": "Time Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 15876809729230,
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Totals",
+				"renderer": "numberCard",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"id": 15876817678201,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no"
+				},
+				"searchesIndex": 4
+			},
+			{
+				"title": "Traffic By Protocol",
+				"renderer": "areaChart",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 4
+				},
+				"id": 15876822329082,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no",
+					"values": {
+						"Smoothing": "smooth"
+					}
+				},
+				"searchesIndex": 5
+			},
+			{
+				"title": "Traffic By Service",
+				"renderer": "categoryBarChart",
+				"span": {
+					"col": 5,
+					"row": 9,
+					"x": 0,
+					"y": 14
+				},
+				"id": 15876822932773,
+				"rendererOptions": {
+					"Orientation": "h",
+					"IncludeOther": "yes",
+					"values": {
+						"Orientation": "h"
+					}
+				},
+				"searchesIndex": 2
+			},
+			{
+				"title": "Connection Counts by Protocol",
+				"renderer": "areaChart",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 9
+				},
+				"id": 15876826707994,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Connection Map",
+				"renderer": "point2PointGlobe",
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 6,
+					"y": 4
+				},
+				"id": 15876827444195,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Rotate": "yes",
+					"Labels": "no",
+					"Background": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Rare Ports",
+				"renderer": "table",
+				"span": {
+					"col": 7,
+					"row": 9,
+					"x": 5,
+					"y": 14
+				},
+				"id": 15876841731596,
+				"rendererOptions": {
+					"values": {
+						"columns": [
+							"Port",
+							"service_name",
+							"count",
+							"Src",
+							"SrcPort",
+							"Dst",
+							"DstPort",
+							"Bytes",
+							"Pkts",
+							"Protocol",
+							"Duration",
+							"service_desc"
+						],
+						"evColumns": []
+					}
+				},
+				"searchesIndex": 3
+			}
+		],
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-05-18T14:30:27-07:00"
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"overview"
+	]
+}

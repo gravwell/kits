@@ -1,0 +1,15 @@
+{
+	"Name": "Rare Port Usage",
+	"Description": "Display the 25 least common ports seen in network flows",
+	"GUID": "7a2364c2-7ba2-417c-adbd-67e9874f5fac",
+	"Labels": [
+		"netflow",
+		"ports",
+		"netflow-v5",
+		"rare ports",
+		"test"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

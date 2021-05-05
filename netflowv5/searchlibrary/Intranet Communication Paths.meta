@@ -1,0 +1,12 @@
+{
+	"Name": "Intranet Communication Paths",
+	"Description": "Connections between private IP addresses on any port.",
+	"GUID": "688a52e3-4791-415a-a0fb-7765c1f27dd7",
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

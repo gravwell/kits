@@ -1,0 +1,24 @@
+{
+	"UUID": "4465a220-c668-4746-8ef7-ac0605845876",
+	"Name": "Outbound Traffic Heatmap",
+	"Description": "Show inbound traffic heatmap for a specific IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP to investigate",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"traffic",
+		"IP",
+		"Investigation"
+	]
+}

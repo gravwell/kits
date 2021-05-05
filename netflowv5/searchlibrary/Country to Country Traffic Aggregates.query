@@ -1,0 +1,5 @@
+tag=netflow netflow Src Dst Pkts Bytes |
+geoip Src.CountryName as SrcCountry Dst.CountryName as DstCountry |
+stats sum(Pkts) as Packets sum(Bytes) as Traffic count as Connections by SrcCountry DstCountry |
+sort by Traffic desc | 
+table SrcCountry DstCountry Connections Traffic Packets

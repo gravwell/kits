@@ -1,0 +1,12 @@
+{
+	"Name": "IPs Hosting Services",
+	"Description": "Table of IPs, what servers they are hosting, and how many clients have been served",
+	"GUID": "987fd879-d22c-45d7-bdbd-4af91be83dd8",
+	"Labels": [
+		"netflow-v5",
+		"netflow"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

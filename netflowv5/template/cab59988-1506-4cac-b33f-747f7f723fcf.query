@@ -1,0 +1,4 @@
+tag=netflow netflow IP == %%IP%% Src Dst Bytes |
+eval if IP==Src {setEnum("dir", "inbound")} else { setEnum("dir", "outbound")} |
+stats sum(Bytes) as traffic by dir |
+chart traffic by dir

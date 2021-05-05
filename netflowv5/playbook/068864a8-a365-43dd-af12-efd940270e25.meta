@@ -1,0 +1,23 @@
+{
+	"UUID": "068864a8-a365-43dd-af12-efd940270e25",
+	"GUID": "c9da126b-1608-4740-a7cd-45495e8341a3",
+	"UID": 3,
+	"GIDs": [
+		1
+	],
+	"Global": false,
+	"Name": "Netflow V5 Playbook",
+	"Desc": "A top-level playbook for netflow, with background and starting points.",
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	],
+	"LastUpdated": "2020-05-18T20:15:48.009895858Z",
+	"Author": {
+		"Name": "",
+		"Email": "",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": false
+}

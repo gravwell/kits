@@ -1,0 +1,218 @@
+{
+	"ID": "io.gravwell.netflowv5",
+	"Name": "Netflow v5",
+	"Desc": "This kit provides ready-to-roll dashboards, queries, templates, playbooks, and actionables for analyzing Netflow v5",
+	"Version": 5,
+	"MinVersion": {
+		"Major": 4,
+		"Minor": 1,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "48c6b0ef-6e76-4208-bca7-0b95e4700bdd",
+	"Banner": "48c6b0ef-6e76-4208-bca7-0b95e4700bdd",
+	"Cover": "48c6b0ef-6e76-4208-bca7-0b95e4700bdd",
+	"Items": [
+		{
+			"Name": "068864a8-a365-43dd-af12-efd940270e25",
+			"Type": 11,
+			"Hash": "ff4acfef2c31137d4a75372b44a2cefad92e1be5ccd8036d6ab12377761b6f4f"
+		},
+		{
+			"Name": "1f0571a5-2d34-4bab-a3ea-7ca16cf47f3f",
+			"Type": 6,
+			"Hash": "ce9a3f6ef36814bdd09915df75038ac0f7c5b0fc0b75630ed2bff15c67e9252c"
+		},
+		{
+			"Name": "22",
+			"Type": 3,
+			"Hash": "e900bf95a969c29f0e39fd96d25e733b376fe47c442438b01f0f25e9b2da6946"
+		},
+		{
+			"Name": "23",
+			"Type": 3,
+			"Hash": "7b0686dee8aeb52fee8545f1adf5509700e49df684932cea46b1d22ed6a1514b"
+		},
+		{
+			"Name": "30cc6bfb-77b8-46df-b68d-ed49c66e6e84",
+			"Type": 6,
+			"Hash": "90e97d5123d49467e0b64934ac3bfd20f3d40c2dda948e3fea4e31da686510a6"
+		},
+		{
+			"Name": "34ba8372-0314-460a-9742-5a65c18d6241",
+			"Type": 5,
+			"Hash": "f430854b63340ed52838009797b277f8a91bba6f7c45b0785469e0835fa552e3"
+		},
+		{
+			"Name": "3bf5d876-8ecf-41ae-a8e8-934d6baea7b8",
+			"Type": 6,
+			"Hash": "918eb8d2e1c98cf53e7e512f7b709b5ee1ef95ef13ef8be781291ad495097320"
+		},
+		{
+			"Name": "3e383fbc-8431-48b5-9c78-0fd019fd192b",
+			"Type": 6,
+			"Hash": "7da816ddf2b484d799bfd5782413bb05a401e9fdb26dc832cf3bb32e56a3962e"
+		},
+		{
+			"Name": "4465a220-c668-4746-8ef7-ac0605845876",
+			"Type": 6,
+			"Hash": "6b7b21cc6ac28908de356f6ae4179060c53630d87dd8dcedaf91b66ede469af7"
+		},
+		{
+			"Name": "48c6b0ef-6e76-4208-bca7-0b95e4700bdd",
+			"Type": 7,
+			"Hash": "ef74c026b5375da64e050db184ac659e3c7b81887418b57d4eda1af181c147ab"
+		},
+		{
+			"Name": "646b23b2-fd48-432b-b1b7-5ad7be01cb71",
+			"Type": 6,
+			"Hash": "b4155976648cc4507d91fc500ba6793b2c34b19d8cef0be3d80f3989f848024e"
+		},
+		{
+			"Name": "6ab6bfe3-41c7-4081-b0e7-0f0a73afe837",
+			"Type": 6,
+			"Hash": "c3cff4c99cf1ed4e858b39cf3e26dfcc856ea1ac6976057ce0945307ef38b3e2"
+		},
+		{
+			"Name": "ab6bdcf1-3ae7-460f-bbc8-02fc4c4c2b0a",
+			"Type": 6,
+			"Hash": "d35a2eccc4507da975ac6e339bfc9e84cefca47bb268032ab2628c2af81f1a7d"
+		},
+		{
+			"Name": "aeae08f3-00c1-4034-a86e-d6efcee7dc9b",
+			"Type": 6,
+			"Hash": "ee41a363b9ce2a89430f4267c883fd3ca28e69c3a9c19bc3328d3a2ec2f0814c"
+		},
+		{
+			"Name": "Average Connection Duration by Protocol",
+			"Type": 9,
+			"Hash": "23282743ff4fda3eca5c6d8f7a3dbea3ceabf8088b134cabfaf6d4e7cece936b"
+		},
+		{
+			"Name": "Average Packet Size by Protocol",
+			"Type": 9,
+			"Hash": "cce537634d504e2aae352984639efeca4e23c0b3650b6cd27cd54396388cfb49"
+		},
+		{
+			"Name": "Average Traffic Throughput By Service",
+			"Type": 9,
+			"Hash": "f9db4a1f40511d0a14f4ff1cd152ba7208e582af74dc1c136da8ac0712e46b90"
+		},
+		{
+			"Name": "b5652f0d-a3b9-42ed-8b03-cc6382cde248",
+			"Type": 6,
+			"Hash": "c4b278f3ac4384f6de465b7797aa8e3f476ce341287a65ec3a70df99962c42a4"
+		},
+		{
+			"Name": "c6420707-be44-4880-8933-0319571b7ca9",
+			"Type": 6,
+			"Hash": "c25b5aec5b4abc6dc6cafe81212eaa2846744f5d72e42f7172ecea1713b66751"
+		},
+		{
+			"Name": "cab59988-1506-4cac-b33f-747f7f723fcf",
+			"Type": 6,
+			"Hash": "a46c54e74525c8a39c3ccabaf440ee06ff7af60ac3d8be93d66491bfc30bbb35"
+		},
+		{
+			"Name": "Connection Count By Protocol",
+			"Type": 9,
+			"Hash": "2f8e9133bf210aab21302f073ffee47f05fa0d12b65ae524f1dbc63295284352"
+		},
+		{
+			"Name": "Country to Country Traffic Aggregates",
+			"Type": 9,
+			"Hash": "04f44b6b37885619be2b783336e74665386ec6bed98faf85784438da1ac1fc21"
+		},
+		{
+			"Name": "dbcde89d-2f54-4f59-bc56-3793635e7e4b",
+			"Type": 5,
+			"Hash": "489f94e4f5a9ae3c65c07bf83f0be5042dbac6a2a5cd565933715d966eaf9a8e"
+		},
+		{
+			"Name": "Force Directed Graph of ASN Traffic",
+			"Type": 9,
+			"Hash": "89284889b8b25d30a46711c63847f2681f4882be805579e66034f0a8135a83df"
+		},
+		{
+			"Name": "Inbound Traffic Chart",
+			"Type": 9,
+			"Hash": "14f362f8d5fc5926e9ebb037ddb03a5a99e94afd8470ceab7cb099b1f907a072"
+		},
+		{
+			"Name": "Intranet Communication Paths",
+			"Type": 9,
+			"Hash": "c9888156bcab792a4ff6599d02c5ac2e2f56007d66efc33141f62b82b250be57"
+		},
+		{
+			"Name": "IPs Hosting Services",
+			"Type": 9,
+			"Hash": "7cd926d0c921f13b770d95dfeaa672f25ef79eaf076cbab969602842d0eed9a8"
+		},
+		{
+			"Name": "Long Running Sessions",
+			"Type": 9,
+			"Hash": "916537e16d9a9d34c2c3f93a665c0fbb37c93777ad12e9692e0768bc33af1f40"
+		},
+		{
+			"Name": "Most Common Port Flows",
+			"Type": 9,
+			"Hash": "96fe8c0971391f91f41ec15d8a0483b52cae3bb520efed1346223eae3e901f5c"
+		},
+		{
+			"Name": "Netflow Traffic by Protocol",
+			"Type": 9,
+			"Hash": "eb2f64b09bc2107bd0a0de47eeb1f4b821c92c0d24e9416f665546bad18a8144"
+		},
+		{
+			"Name": "Point-to-Point Map",
+			"Type": 9,
+			"Hash": "d4ac7fb5c800b82123ba3e072ae1ca1ca62dca4b25b4f687153be927eae86ace"
+		},
+		{
+			"Name": "Potential Port Scanners",
+			"Type": 9,
+			"Hash": "cdceebcd3ee5ce98d7e5d9046bac21e040ce6cf2e71323a13f8f755c02891c9f"
+		},
+		{
+			"Name": "Private \u003c\u003e Public IP Traffic",
+			"Type": 9,
+			"Hash": "a0527c7a43f6dd73150f6470db0b730756be40f843c7cf16b40527f9977d7493"
+		},
+		{
+			"Name": "Rare Port Usage",
+			"Type": 9,
+			"Hash": "26ebef61ea09c99724a0f27a4546ac944c194070954a448a34b327932420cb84"
+		},
+		{
+			"Name": "Service Activity Chart",
+			"Type": 9,
+			"Hash": "22a0a9af08bfb6ce787fcc8055d5f1ff3bd5d35c2e6322a75f93b24e37b32b5a"
+		},
+		{
+			"Name": "Service Usage By Country",
+			"Type": 9,
+			"Hash": "560caed4173535fddbce1354d0b7b05aa195c9e8895415de4df2d6e76d0c9117"
+		},
+		{
+			"Name": "Total Traffic and Connection Counts",
+			"Type": 9,
+			"Hash": "531d94307120e64f68f4aceaaddc0cc42784f8883f123cc1bbf398042282cd77"
+		},
+		{
+			"Name": "Traffic Heatmap",
+			"Type": 9,
+			"Hash": "da2fe8519ec65ec4178d75f762df878c802a806ceee04aed7e9b4f517a934940"
+		}
+	],
+	"Dependencies": [
+		{
+			"ID": "io.gravwell.networkenrichment",
+			"MinVersion": 8
+		}
+	],
+	"ConfigMacros": null
+}

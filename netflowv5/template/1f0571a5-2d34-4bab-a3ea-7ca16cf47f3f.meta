@@ -1,0 +1,21 @@
+{
+	"UUID": "1f0571a5-2d34-4bab-a3ea-7ca16cf47f3f",
+	"Name": "Service Intranet Communication Graph",
+	"Description": "FDG showing communications between non-routable IP addresses over a given port",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%PORT%%",
+				"label": "TCP/UDP Port number",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	]
+}

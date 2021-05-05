@@ -1,0 +1,21 @@
+{
+	"UUID": "6ab6bfe3-41c7-4081-b0e7-0f0a73afe837",
+	"Name": "Long running flows IP investigator",
+	"Description": "Investigation template for identifying flows of over 20 minute duration for a given IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "Address of host for long-running activity",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5"
+	]
+}

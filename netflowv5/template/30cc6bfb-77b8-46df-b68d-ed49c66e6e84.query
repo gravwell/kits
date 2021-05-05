@@ -1,0 +1,4 @@
+tag=netflow netflow Src==%%IP%% Dst Bytes>0 |
+stats count as Connections by Dst |
+geoip -r asn_db Dst.ASNOrg |
+table Dst ASNOrg Connections

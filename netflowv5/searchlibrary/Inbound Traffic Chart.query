@@ -1,0 +1,1 @@
+tag=netflow netflow Src !~ PRIVATE Dst ~ PRIVATE Bytes | stats sum(Bytes) by Dst | chart sum by Dst limit 20

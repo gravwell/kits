@@ -1,0 +1,23 @@
+{
+	"UUID": "c6420707-be44-4880-8933-0319571b7ca9",
+	"Name": "IP Traffic Overview",
+	"Description": "Show average traffic rates for a target IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Select a target IP to investigate",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"ip",
+		"investigation"
+	]
+}

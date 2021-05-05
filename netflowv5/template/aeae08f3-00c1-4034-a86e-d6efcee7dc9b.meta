@@ -1,0 +1,23 @@
+{
+	"UUID": "aeae08f3-00c1-4034-a86e-d6efcee7dc9b",
+	"Name": "IP Service Chart",
+	"Description": "Show service traffic and packet rates",
+	"Data": {
+		"variables": [
+			{
+				"name": "__IP__",
+				"label": "target ip",
+				"description": "Include IP",
+				"required": true,
+				"defaultValue": "192.168.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"netflow",
+		"netflow-v5",
+		"services",
+		"traffic"
+	]
+}

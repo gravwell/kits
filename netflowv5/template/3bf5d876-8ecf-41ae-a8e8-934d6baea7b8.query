@@ -1,0 +1,7 @@
+tag=netflow netflow IP==%%IP%% Port Src Dst SrcPort DstPort Bytes Pkts Protocol Duration |
+stats count by Port |
+sort by count asc |
+limit 25 |
+lookup -r network_services [Protocol Port] [proto_number service_port] (service_name service_desc) |
+lookup -r ip_protocols Protocol Number Name as ProtocolName |
+table Port service_name count Src SrcPort Dst DstPort Bytes Pkts Protocol Duration service_desc
