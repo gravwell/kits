@@ -1,0 +1,1 @@
+tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst bytes as Bytes | geoip -r asn_db Src.ASNOrg as SrcASNOrg Dst.ASNOrg as DstASNOrg | stats sum(Bytes) by SrcASNOrg DstASNOrg | fdg -v sum SrcASNOrg DstASNOrg

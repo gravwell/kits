@@ -1,0 +1,22 @@
+{
+	"UUID": "1cd92621-6144-470c-a6c8-33b710f5318f",
+	"Name": "IP Service Chart",
+	"Description": "Show service traffic and packet rates",
+	"Data": {
+		"variables": [
+			{
+				"name": "__IP__",
+				"label": "target ip",
+				"description": "Include IP",
+				"required": true,
+				"defaultValue": "192.168.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"services",
+		"traffic"
+	]
+}

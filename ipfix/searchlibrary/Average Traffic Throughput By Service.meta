@@ -1,0 +1,13 @@
+{
+	"Name": "Average Traffic Throughput By Service",
+	"Description": "Average Traffic Throughput By Service",
+	"GUID": "976d0d6e-e485-43ee-ae05-b901001a5265",
+	"Labels": [
+		"ipfix",
+		"service",
+		"network traffic"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

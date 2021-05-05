@@ -1,0 +1,22 @@
+{
+	"UUID": "1551412e-c773-4bc2-8134-695b8d928adb",
+	"Name": "IP Traffic accounting",
+	"Description": "Show inbound and outbound traffic graph for a specific IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "Target IP",
+				"description": "Target IP to sample data",
+				"required": true,
+				"defaultValue": "1.1.1.1",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix",
+		"IP",
+		"investigation"
+	]
+}

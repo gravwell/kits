@@ -1,0 +1,1 @@
+tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst srcPort as SrcPort dstPort as DstPort flowDuration > 20m as Duration bytes as Bytes | table Src Dst SrcPort DstPort Bytes Duration

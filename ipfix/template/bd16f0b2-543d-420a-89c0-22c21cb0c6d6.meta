@@ -1,0 +1,20 @@
+{
+	"UUID": "bd16f0b2-543d-420a-89c0-22c21cb0c6d6",
+	"Name": "Service Intranet Communication Graph",
+	"Description": "FDG showing communications between non-routable IP addresses over a given port",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%PORT%%",
+				"label": "TCP/UDP Port number",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"ipfix"
+	]
+}

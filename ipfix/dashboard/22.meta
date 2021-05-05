@@ -1,0 +1,233 @@
+{
+	"UUID": "db7c22b2-b0e0-11ea-bdbb-7b259a2981f0",
+	"Name": "IPFIX IP Investigation Dashboard",
+	"Description": "IP investigation dashboard for IPFIX\nProvides an overview of netflow activity for a given IP using IPFIX logs",
+	"Data": {
+		"lastDataUpdate": "2020-05-14T16:36:20+00:00",
+		"linkZooming": true,
+		"searches": [
+			{
+				"alias": "Search 1",
+				"reference": {
+					"extras": {
+						"defaultValue": "1.1.1.1"
+					},
+					"id": "24b02332-4e7c-425c-98a8-7a1afbc3e29b",
+					"type": "template"
+				},
+				"searchID": 3726151145,
+				"timeframe": {}
+			},
+			{
+				"alias": "Search 2",
+				"reference": {
+					"extras": {
+						"defaultValue": null
+					},
+					"id": "aa58c1f0-00b0-4321-9f0e-3e1f7ff76393",
+					"type": "template"
+				},
+				"searchID": 2430932136,
+				"timeframe": {}
+			},
+			{
+				"alias": "Search 3",
+				"reference": {
+					"extras": {
+						"defaultValue": null
+					},
+					"id": "6dc9d900-3de8-49dd-85ae-55e462f0b263",
+					"type": "template"
+				},
+				"searchID": 7307271046,
+				"timeframe": {}
+			},
+			{
+				"alias": "Search 4",
+				"reference": {
+					"extras": {
+						"defaultValue": null
+					},
+					"id": "9613393b-e201-4929-8744-55b2803d4c75",
+					"type": "template"
+				},
+				"searchID": 5200300018,
+				"timeframe": {}
+			},
+			{
+				"alias": "Search 5",
+				"reference": {
+					"extras": {
+						"defaultValue": null
+					},
+					"id": "3a97f21a-f443-40c8-9580-df76af544d49",
+					"type": "template"
+				},
+				"searchID": 5119072756,
+				"timeframe": {}
+			},
+			{
+				"alias": "Search 6",
+				"reference": {
+					"extras": {
+						"defaultValue": null
+					},
+					"id": "ca3883db-1eab-45ae-ad38-1b13c1a929dc",
+					"type": "template"
+				},
+				"searchID": 4757127732,
+				"timeframe": {}
+			},
+			{
+				"alias": "Search 7",
+				"reference": {
+					"extras": {
+						"defaultValue": null
+					},
+					"id": "1551412e-c773-4bc2-8134-695b8d928adb",
+					"type": "template"
+				},
+				"searchID": 8674805037,
+				"timeframe": {}
+			}
+		],
+		"tiles": [
+			{
+				"id": 15889761126430,
+				"renderer": "overview",
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no"
+				},
+				"searchesIndex": 0,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"title": "Overview"
+			},
+			{
+				"id": 15889771720141,
+				"renderer": "areaChart",
+				"rendererOptions": {
+					"ConnectNulls": "yes",
+					"IncludeOther": "yes",
+					"LogScale": "no",
+					"Smoothing": "normal",
+					"Stack": "grouped",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no"
+				},
+				"searchesIndex": 0,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"title": "Traffic and packet rates"
+			},
+			{
+				"id": 15892332954682,
+				"renderer": "heatmap",
+				"rendererOptions": {},
+				"searchesIndex": 1,
+				"span": {
+					"col": 6,
+					"row": 15,
+					"x": 6,
+					"y": 8
+				},
+				"title": "Client Connection Heatmap"
+			},
+			{
+				"id": 15892333594253,
+				"renderer": "table",
+				"rendererOptions": {},
+				"searchesIndex": 2,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 0,
+					"y": 4
+				},
+				"title": "Rare Ports"
+			},
+			{
+				"id": 15892334157074,
+				"renderer": "table",
+				"rendererOptions": {},
+				"searchesIndex": 3,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 14
+				},
+				"title": "Most Common Ports"
+			},
+			{
+				"id": 15892347674365,
+				"renderer": "table",
+				"rendererOptions": {},
+				"searchesIndex": 4,
+				"span": {
+					"col": 3,
+					"row": 10,
+					"x": 0,
+					"y": 23
+				},
+				"title": "Most Active Peers by Traffic Volume"
+			},
+			{
+				"id": 15892348352946,
+				"renderer": "table",
+				"rendererOptions": {},
+				"searchesIndex": 5,
+				"span": {
+					"col": 3,
+					"row": 10,
+					"x": 3,
+					"y": 23
+				},
+				"title": "Most Active Peers by Connection Count"
+			},
+			{
+				"id": 15892351140747,
+				"renderer": "areaChart",
+				"rendererOptions": {
+					"ConnectNulls": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no",
+					"Smoothing": "normal",
+					"Stack": "grouped",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no"
+				},
+				"searchesIndex": 6,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 4
+				},
+				"title": "Inbound Outbound Trafic Rates"
+			}
+		],
+		"timeframe": {
+			"durationString": "P1DT",
+			"end": null,
+			"start": null,
+			"timeframe": "P1DT"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"ipfix",
+		"investigation",
+		"IP"
+	]
+}

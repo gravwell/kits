@@ -1,0 +1,7 @@
+tag=$IPFIX_KIT_TAG ipfix port as Port bytes as Bytes packets as Pkts protocolIdentifier as Protocol flowDuration as Duration |
+stats count mean(Duration) as AvgDurationNS sum(Bytes) as TotalBytes sum(Pkts) as TotalPackets by Port
+| sort by count desc |
+limit 20 |
+lookup -r network_services [Protocol Port] [proto_number service_port] (service_name service_desc) |
+lookup -r ip_protocols Protocol Number Name as ProtocolName |
+table Port service_name count TotalBytes TotalPackets Protocol ProtocolName AvgDurationNS service_desc

@@ -1,0 +1,3 @@
+tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst bytes as Bytes |
+stats unique_count(Src) as UniqueSrcIPs unique_count(Dst) as UniqueDstIPs sum(Bytes) as Traffic count as "Connections" over 1m |
+gauge UniqueSrcIPs UniqueDstIPs Connections Traffic

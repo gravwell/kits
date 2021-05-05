@@ -1,0 +1,11 @@
+{
+	"Name": "Long Running Sessions",
+	"Description": "Flows over 20 minutes in duration.",
+	"GUID": "a90a0028-3f4a-4b87-a632-2c77b71c0fa4",
+	"Labels": [
+		"ipfix"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

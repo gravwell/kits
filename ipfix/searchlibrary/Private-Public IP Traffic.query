@@ -1,0 +1,7 @@
+tag=$IPFIX_KIT_TAG ipfix ip ~ PRIVATE as IP src as Src dst as Dst port as Port bytes as Bytes
+| stats sum(Bytes) by Src Dst Port
+| eval if(IP == Src) { setEnum("otherIP", Dst) } else { setEnum("otherIP", Src) }
+| ip otherIP !~ PRIVATE
+| geoip -r asn_db otherIP.ASNOrg
+| geoip otherIP.Country
+| table Src Dst Port Country ASNOrg sum

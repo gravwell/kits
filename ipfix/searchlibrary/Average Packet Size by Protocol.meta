@@ -1,0 +1,16 @@
+{
+	"Name": "Average Packet Size by Protocol",
+	"Description": "Charge the average packet size by protocol",
+	"GUID": "14f27aa6-f832-49b3-be49-8b626f07ba96",
+	"Labels": [
+		"ipfix",
+		"packets",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT"
+		}
+	}
+}

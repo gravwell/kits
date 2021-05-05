@@ -1,0 +1,5 @@
+tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst packets as Pkts bytes as Bytes |
+geoip Src.CountryName as SrcCountry Dst.CountryName as DstCountry |
+stats sum(Pkts) as Packets sum(Bytes) as Traffic count as Connections by SrcCountry DstCountry |
+sort by Traffic desc | 
+table SrcCountry DstCountry Connections Traffic Packets

@@ -1,0 +1,12 @@
+{
+	"Name": "Average Connection Duration by Protocol",
+	"Description": "Chart the average connection duration by IP protocol",
+	"GUID": "3d068d6c-2382-471a-a33d-7735a681427d",
+	"Labels": [
+		"ipfix",
+		"connection duration"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

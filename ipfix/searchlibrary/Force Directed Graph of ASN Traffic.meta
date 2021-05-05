@@ -1,0 +1,13 @@
+{
+	"Name": "Force Directed Graph of ASN Traffic",
+	"Description": "Show Force Directed Graph of traffic between ASNs",
+	"GUID": "e70847b7-8636-4ce5-8a48-7f8ed687842e",
+	"Labels": [
+		"ipfix",
+		"ASN",
+		"FDG"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

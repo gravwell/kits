@@ -1,0 +1,14 @@
+{
+	"Name": "Service Usage By Country",
+	"Description": "Stackgraph of Service usage grouped by Country",
+	"GUID": "e7bb1f98-5ab9-4f5a-805b-40843743833d",
+	"Labels": [
+		"ipfix",
+		"stackgraph",
+		"country",
+		"geoip"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,56 @@
+IPFIX is an evolution of the Netflow protocol, a way to track activity on your network without actually capturing full packets. A device monitors packets, tracking persistent *flows* and emitting information about those flows.
+
+Originally, a Netflow v5 record would contain a fixed set of fields: source and destination IPv4 addresses & ports, IP protocol, duration, number of bytes, number of packets. In practice, this turned out to be insufficient: some connections used IPv6, some network administrators wanted more information (TCP flags, VLAN, etc.). To address this, Netflow v9 and later IPFIX were developed. These protocols define *templates*, which specify a set of fields; flow records then declare themselves to conform to one of the pre-defined templates, allowing much greater flexibility in reporting.
+
+Gravwell can collect IPFIX records using the [Netflow ingester](https://docs.gravwell.io/docs/#!ingesters/ingesters.md#Netflow_Ingester). Once the records are in Gravwell, we can parse them in a query using the [ipfix module](https://docs.gravwell.io/docs/#!search/ipfix/ipfix.md).
+
+## Versions & Dependencies
+
+This playbook is part of the IPFIX kit. The kit depends on Gravwell's Network Enrichment kit, which should have been automatically installed when you selected the IPFIX kit. If you seem to be missing resources used in some of our dashboards and queries, make sure the Network Enrichment kit has been installed.
+
+### Limitations of IPFIX
+
+There are a few basic limitations of the IPFIX protocol.
+
+1. Directionality. IPFIX deals in *flows*, which it defines as a flow of packets from a source IP to a destination IP. Any given network connection will result in two flow records: one describing the packets going from the client to the server, and one describing the packets going from the server to the client.
+2. Timing. The IPFIX exporter will attempt to send the flow only after the connection is "finished". This is usually determined by waiting until a period of time (e.g. 15 minutes) has elapsed without any additional packets being observed. This means that you may not receive the flow record until well after the connection is terminated.
+3. Long-lived connections. Some connections (like SSH) may stay up for hours or days. In order to provide flow information in a semi-timely manner, most IPFIX exporters will send a flow record after a certain period of time even if the connection is still active. For example, most Cisco devices will send a record for an active connection every 30 minutes.
+4. Templates. In order to parse an IPFIX flow record, you must have the appropriate template or the contents are meaningless. Template definitions are sent at intervals, which means that when the Netflow ingester is first started it may receive some number of flow records before it receives the template definitions. These early records will typically not be parseable.
+
+### Using the playbook
+
+This playbook contains Gravwell queries which can be executed by clicking the 'Launch' button and selecting a time range--typically "Last hour" is sufficient and fast. Once you've launched the search, feel free to modify it and experiment!
+
+## Basic IPFIX Parsing
+
+Assuming you have IPFIX records flowing into Gravwell, one of the easiest ways to start exploring is by simply extracting some fields and displaying them. Here we tell the "ipfix" module that it should extract the protocolIdentifier, src, srcPort, dst, and dstPort fields from each entry, then we use the "table" renderer to display the results:
+
+```
+tag=ipfix ipfix protocolIdentifier src srcPort dst dstPort | table
+```
+
+The network enrichment kit (installed as a dependency of the IPFIX kit) includes some resources we can use to change those numeric protocol and port numbers into more friendly names (see the [lookup module documentation](https://docs.gravwell.io/docs/#!search/lookup/lookup.md) for more info on how that works):
+
+```
+tag=ipfix ipfix src dst port protocolIdentifier | lookup -r network_services [protocolIdentifier port] [proto_number service_port] (service_name service_desc) | lookup -r ip_protocols protocolIdentifier Number Name as ProtocolName | table
+```
+
+Note that we got rid of "srcPort" and "dstPort"; instead, we simply say "port", which picks the lower of the source and destination ports--since client ports are typically a random high port, this is a good way to extract the *service port*.
+
+## Filtering & Mapping Traffic
+
+We can get an idea where our traffic is coming from using the *heatmap* renderer. The following query does just that:
+
+```
+tag=ipfix ipfix ip !~ PRIVATE bytes | stats sum(bytes) as traffic by ip | geoip ip.Location | heatmap traffic
+```
+
+The use of the "ip" field in this case requires some explanation. Most IPFIX records will include two addresses, *src* and *dst*. Just specifying "ipfix ip" will normally extract the source IP address, but if we specify a **filter** expression, the module will extract whichever IP address matches the filter. By saying "ip !~ PRIVATE", we instruct the ipfix module to extract *whichever IP is not in a private subnet*. When you're capturing IPFIX records from a private network, this is a very convenient way to figure out the remote IP addresses.
+
+Having extracted the IP address and the number of bytes from each flow, we then sum up the bytes value for each IP address, storing the result as an enumerated value named "traffic". Next, we use the [geoip module](https://docs.gravwell.io/docs/#!search/geoip/geoip.md) to look up the location for each IP.
+
+Finally, the [heatmap module](https://docs.gravwell.io/docs/#!search/map/map.md) uses the "traffic" sum value and the extracted "Location" values to plot a heatmap of where traffic is coming from.
+
+**Cover photo credit**
+
+Photo by [Matt Artz](https://unsplash.com/@mattartz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on Unsplash
