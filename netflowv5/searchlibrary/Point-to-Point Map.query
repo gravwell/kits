@@ -1,1 +1,1 @@
-tag=netflow netflow Src Dst | geoip Src.Location as src Dst.Location as dst | point2point -srcloc src -dstloc dst
+tag=netflow netflow Src Dst | stats count by Src Dst | geoip Src.Location as src Dst.Location as dst | point2point -mag count -srcloc src -dstloc dst

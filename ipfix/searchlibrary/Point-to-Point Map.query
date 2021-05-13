@@ -1,1 +1,1 @@
-tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst | geoip Src.Location as src Dst.Location as dst | point2point -srcloc src -dstloc dst
+tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst | stats count by Src Dst | geoip Src.Location as src Dst.Location as dst | point2point -mag count -srcloc src -dstloc dst
