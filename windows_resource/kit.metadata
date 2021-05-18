@@ -1,0 +1,8 @@
+{
+	"Ingesters": ["winevent"],
+	"Tags": ["windows", "sysmon"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.jpg", "Legend": "Windows Resources", "Featured": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
