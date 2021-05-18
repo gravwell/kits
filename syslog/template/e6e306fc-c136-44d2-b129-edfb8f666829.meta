@@ -5,10 +5,10 @@
 	"Data": {
 		"variables": [
 			{
-				"name": "",
-				"label": "",
-				"description": "",
-				"required": false,
+				"name": "%%APPNAME%%",
+				"label": "appname",
+				"description": "Syslog Application name",
+				"required": true,
 				"defaultValue": "",
 				"previewValue": ""
 			}
