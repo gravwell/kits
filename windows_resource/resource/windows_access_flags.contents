@@ -1,0 +1,71 @@
+fmt = import("fmt")
+masks = {"CREATE_PROCESS": 0x0080,"CREATE_THREAD": 0x0002,"DUP_HANDLE": 0x0040,"SET_INFORMATION": 0x0200,"SET_QUOTA": 0x0100,"QUERY_LIMITED_INFORMATION": 0x1000,"SYNCHRONIZE": 0x00100000, "QUERY_INFORMATION": 0x0400, "SUSPEND_RESUME": 0x0800, "TERMINATE": 0x0001,"VM_OPERATION": 0x0008,"VM_READ": 0x0010,"VM_WRITE": 0x0020}
+valid = ["CREATE_PROCESS","CREATE_THREAD","DUP_HANDLE", "SET_INFORMATION","SET_QUOTA","QUERY_LIMITED_INFORMATION","SYNCHRONIZE", "QUERY_INFORMATION", "SUSPEND_RESUME", "TERMINATE", "VM_OPERATION", "VM_READ","VM_WRITE"]
+all=toString(valid)
+
+tgt=""
+output=""
+full=false
+flags=[]
+
+func Parse(args) {
+	if len(args) < 3 {
+		return "Missing target enumerated value and output or operation"
+	}
+	tgt=args[0]
+	consumesEnum(tgt)
+	if args[1] == "dump" {
+		output=args[2]
+		producesEnum(output)
+		full=true
+	} else if args[1] == "has" {
+		if len(args[2:]) == 0 {
+			return "Missing flag set, options are "+toString(valid)
+		}
+		for arg in args[2:] {
+			f, ok = masks[arg]
+			if !ok {
+				return arg + " is not a valid mask, options are " + toString(valid)
+			}
+			flags += arg
+		}
+	} else {
+		return "Unknown operation " + args[1]
+	}
+	return nil
+}
+
+func checkFlags(v) {
+	for f in flags {
+		if (masks[f]&v) == 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func populateFlags(bm, outname) {
+	used=[]
+	for k, v in masks {
+		if (v&bm) != 0 {
+			used = used + k
+		}
+	}
+	setEnum(outname, toString(used))
+}
+
+func Process() {
+	v, err = getEnum(tgt)
+	if err != nil {
+		#if dumping full flag set we just pass through the entry
+		#if NOT dumping, then it obviously doesn't have the flag
+		return full
+	} else if full {
+		populateFlags(toInt(v), output)
+		return true #always send on
+	}
+	return checkFlags(toInt(v))
+}
+
+func Finalize() {
+}

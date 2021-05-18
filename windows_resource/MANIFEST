@@ -1,0 +1,50 @@
+{
+	"ID": "io.gravwell.windows.resource",
+	"Name": "Windows Resources",
+	"Desc": "# Gravwell Windows Resource Kit\n\nThis kit contains helpful lookup resources and scripts that make handling encoded values in windows logs easier.\n\nThis kit is generally a dependency to other kits and provides little value on its own.\n\n\n## Contents\n\n- SID lookup resource\n- Permission bit decoder\n- Limited EventID lookup resource",
+	"Readme": "",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 4,
+		"Minor": 1,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "80c345f2-d99b-489b-b1fb-2ceaf757338d",
+	"Banner": "80c345f2-d99b-489b-b1fb-2ceaf757338d",
+	"Cover": "80c345f2-d99b-489b-b1fb-2ceaf757338d",
+	"Items": [
+		{
+			"Name": "windows_security_ids",
+			"Type": 1,
+			"Hash": "fe88874d707ecc5a60fab1999a06fe9a5a1c459f7398f859871206c54eac2145"
+		},
+		{
+			"Name": "windows_access_flags",
+			"Type": 1,
+			"Hash": "1212f74a6952b41966fac89850be6f043ad5363edc24c66f8c38a6552b2400c0"
+		},
+		{
+			"Name": "windows_error_codes",
+			"Type": 1,
+			"Hash": "4cbaace4b0ba64c4bd19c4b195864f17d182c3923bcfe6b7c3d4c501e2eb4cc2"
+		},
+		{
+			"Name": "windows_login_types",
+			"Type": 1,
+			"Hash": "4cbaace4b0ba64c4bd19c4b195864f17d182c3923bcfe6b7c3d4c501e2eb4cc2"
+		},
+
+		{
+			"Name": "80c345f2-d99b-489b-b1fb-2ceaf757338d",
+			"Type": 7,
+			"Hash": "b54c07f9bf5582c776917d6299c55781e0406d60739cc3698fe6899eef84f77b"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": null
+}
