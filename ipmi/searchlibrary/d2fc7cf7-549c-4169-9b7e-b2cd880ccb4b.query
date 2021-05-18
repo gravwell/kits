@@ -1,12 +1,12 @@
 tag=$IPMI json Type==SDR Target 
-Data."FAN1".Reading!="n/a" as Fan1 
-Data."FAN2".Reading!="n/a" as Fan2 
-Data."FAN3".Reading!="n/a" as Fan3 
-Data."FAN4".Reading!="n/a" as Fan4 
-Data."FAN5".Reading!="n/a" as Fan5 
-Data."FAN6".Reading!="n/a" as Fan6 
-Data."FAN7".Reading!="n/a" as Fan7 
-Data."FAN8".Reading!="n/a" as Fan8 
+Data."FAN1".Reading as Fan1 
+Data."FAN2".Reading as Fan2 
+Data."FAN3".Reading as Fan3 
+Data."FAN4".Reading as Fan4 
+Data."FAN5".Reading as Fan5 
+Data."FAN6".Reading as Fan6 
+Data."FAN7".Reading as Fan7 
+Data."FAN8".Reading as Fan8 
 | stats mean(Fan1) as Fan1 
 mean(Fan2) as Fan2
 mean(Fan3) as Fan3
