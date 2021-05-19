@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.ipmi",
 	"Name": "IPMI",
 	"Desc": "An IPMI kit that pairs with the Gravwell IPMI ingester.",
-	"Version": 2,
+	"Version": 3,
 	"MinVersion": {
 		"Major": 4,
 		"Minor": 1,

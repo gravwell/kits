@@ -3,7 +3,7 @@
 	"Name": "Windows Resources",
 	"Desc": "# Gravwell Windows Resource Kit\n\nThis kit contains helpful lookup resources and scripts that make handling encoded values in windows logs easier.\n\nThis kit is generally a dependency to other kits and provides little value on its own.\n\n\n## Contents\n\n- SID lookup resource\n- Permission bit decoder\n- Limited EventID lookup resource",
 	"Readme": "",
-	"Version": 2,
+	"Version": 3,
 	"MinVersion": {
 		"Major": 4,
 		"Minor": 1,
