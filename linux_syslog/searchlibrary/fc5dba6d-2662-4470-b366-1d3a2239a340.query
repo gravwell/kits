@@ -1,0 +1,1 @@
+tag=$SYSLOG syslog Appname==systemd Message Hostname | regex -e Message "(?P<service>\S+).service: (?P<status>.+)" | grep -v -e status "Succeeded" | table TIMESTAMP Hostname service status

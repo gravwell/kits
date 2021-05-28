@@ -1,0 +1,13 @@
+{
+	"Name": "Failed sudo attempts by user/hostname",
+	"Description": "Display a table of the number of times a user has failed to auth to sudo on each machine.",
+	"GUID": "3b1f2e46-cfe4-4f63-bf42-9d20a0c37eb9",
+	"Labels": [
+		"syslog",
+		"sudo",
+		"linux"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

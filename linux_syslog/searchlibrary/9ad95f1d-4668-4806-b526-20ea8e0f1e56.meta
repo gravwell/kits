@@ -1,0 +1,13 @@
+{
+	"Name": "Successful SSH Login Pointmap",
+	"Description": "Pointmap showing where successful SSH logins came from.",
+	"GUID": "9ad95f1d-4668-4806-b526-20ea8e0f1e56",
+	"Labels": [
+		"ssh",
+		"syslog",
+		"linux"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

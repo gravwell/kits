@@ -1,0 +1,13 @@
+{
+	"Name": "Systems running apt-daily jobs",
+	"Description": "Discovers which systems are running apt-daily and apt-daily-upgrade by inspecting syslog for SystemD messages.",
+	"GUID": "ef227a5b-484a-4c04-a06b-05462763e11c",
+	"Labels": [
+		"syslog",
+		"systemd",
+		"linux"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

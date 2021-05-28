@@ -1,0 +1,13 @@
+{
+	"Name": "Sudo invocation counts",
+	"Description": "Count how many times each user has invoked sudo per host.",
+	"GUID": "1f1ff0f9-57c9-4b1d-8016-a49d92149749",
+	"Labels": [
+		"syslog",
+		"linux",
+		"sudo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

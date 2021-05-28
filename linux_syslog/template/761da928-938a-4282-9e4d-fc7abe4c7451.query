@@ -1,0 +1,5 @@
+tag=$SYSLOG words Accepted | syslog Appname==sshd Hostname Message | regex -e Message "Accepted (?P<method>\S+) for (?P<user>\S+) from (?P<srcip>.+) port" user==%%USER%% 
+| stats count by method user srcip Hostname
+| geoip -r asn_db srcip.ASNOrg
+| geoip srcip.CountryName srcip.City
+| table count Hostname user method srcip ASNOrg City CountryName

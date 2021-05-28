@@ -1,0 +1,1 @@
+tag=$SYSLOG syslog Appname==CRON Message Hostname | regex -e Message "\((?P<user>\S+)\) CMD \((?P<command>.+)\)" user=="%%USER%%" | table TIMESTAMP Hostname user command

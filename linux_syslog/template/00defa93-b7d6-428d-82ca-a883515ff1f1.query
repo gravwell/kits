@@ -1,0 +1,5 @@
+tag=$SYSLOG words Accepted | syslog Appname==sshd Hostname Message | regex -e Message "Accepted publickey for (?P<user>\S+) from (?P<srcip>.+) port \d+ ssh2: (?P<pubkey>.+)" pubkey~"%%PUBKEY%%"
+| stats count by user srcip Hostname
+| geoip -r asn_db srcip.ASNOrg
+| geoip srcip.CountryName srcip.City
+| table count Hostname user srcip ASNOrg City CountryName pubkey

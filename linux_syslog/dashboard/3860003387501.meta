@@ -1,0 +1,86 @@
+{
+	"UUID": "874509f9-b2e7-4250-b8f5-648be1552973",
+	"Name": "Syslog Cron Dashboard",
+	"Description": "Shows information about cron jobs run and edits to the crontab.",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Cron invocations by user chart",
+				"timeframe": {},
+				"reference": {
+					"id": "7bc7cce6-dfab-4c54-8c63-53691fdf7f25",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Crontab modifications",
+				"timeframe": {},
+				"reference": {
+					"id": "25583ae3-9455-4ce9-b76a-f5ad0f936597",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Cron commands executed",
+				"timeframe": {},
+				"reference": {
+					"id": "fb7daf01-1cb4-47d1-beaa-2d3a0f1ba2df",
+					"type": "savedQuery"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "Cron Executions Per User",
+				"renderer": "categoryBarChart",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16222186976490,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Orientation": "v",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Crontab Modifications",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 0
+				},
+				"id": 16222187244671,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Cron Commands Executed",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 5
+				},
+				"id": 16222187539062,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P7DT"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"syslog",
+		"cron",
+		"linux"
+	]
+}

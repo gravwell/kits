@@ -1,0 +1,13 @@
+{
+	"Name": "SSH login failure:success ratio",
+	"Description": "Calculates a ratio of failure:success for login attempts via SSH.",
+	"GUID": "7f756338-f696-4ab7-a50b-a21b75b75f37",
+	"Labels": [
+		"syslog",
+		"ssh",
+		"linux"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

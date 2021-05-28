@@ -1,0 +1,1 @@
+tag=$SYSLOG syslog Appname==crontab Message Hostname | regex -e Message "\((?P<editing_user>\S+)\) BEGIN EDIT \((?P<target_user>\S+)\)" | table TIMESTAMP Hostname editing_user target_user

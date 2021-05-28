@@ -1,0 +1,22 @@
+{
+	"UUID": "761da928-938a-4282-9e4d-fc7abe4c7451",
+	"Name": "Successful auth by user investigation",
+	"Description": "Investigates successful authentication attempts for a specific username. Gives a table of which IPs are connecting to which servers, and GeoIP information about those IPs.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%USER%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "root"
+			}
+		]
+	},
+	"Labels": [
+		"syslog",
+		"linux",
+		"ssh"
+	]
+}

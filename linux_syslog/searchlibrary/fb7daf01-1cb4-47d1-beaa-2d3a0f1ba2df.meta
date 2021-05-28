@@ -1,0 +1,13 @@
+{
+	"Name": "Cron commands executed",
+	"Description": "Shows which commands cron has executed and for which user.",
+	"GUID": "fb7daf01-1cb4-47d1-beaa-2d3a0f1ba2df",
+	"Labels": [
+		"linux",
+		"syslog",
+		"cron"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "IPs with SSH failures \u0026 successes",
+	"Description": "Finds IPs who have both failed and successful SSH authentications.",
+	"GUID": "37f0ff83-dd75-42f6-812e-b20eb337a269",
+	"Labels": [
+		"syslog",
+		"ssh",
+		"linux"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

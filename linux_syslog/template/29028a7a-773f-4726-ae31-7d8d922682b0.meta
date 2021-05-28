@@ -1,0 +1,22 @@
+{
+	"UUID": "29028a7a-773f-4726-ae31-7d8d922682b0",
+	"Name": "Cron invocations by user",
+	"Description": "Show all cron commands executed on behalf of a particular user",
+	"Data": {
+		"variables": [
+			{
+				"name": "\"%%USER%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"syslog",
+		"linux",
+		"cron"
+	]
+}

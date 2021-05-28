@@ -1,0 +1,13 @@
+{
+	"Name": "SSH Login FDG",
+	"Description": "Force-directed graph showing which users have logged on to which machines.",
+	"GUID": "de11a60a-784a-41ef-84c5-e5283dc71438",
+	"Labels": [
+		"syslog",
+		"linux",
+		"ssh"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

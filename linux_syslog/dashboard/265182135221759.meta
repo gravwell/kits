@@ -1,0 +1,171 @@
+{
+	"UUID": "ab482bdc-dd48-486d-8f86-336f61a553a8",
+	"Name": "Syslog SSH Dashboard",
+	"Description": "SSH server activity based on syslog",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Successful SSH logins",
+				"timeframe": {},
+				"reference": {
+					"id": "6d124568-e705-47a4-a210-ce5f39565d7f",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Successful SSH Login Heatmap",
+				"timeframe": {},
+				"reference": {
+					"id": "9ad95f1d-4668-4806-b526-20ea8e0f1e56",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Failed SSH logins for existing users",
+				"timeframe": {},
+				"reference": {
+					"id": "c985d5a7-d7d3-4142-8b8f-6f25b57e52a0",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "IPs with SSH failures \u0026 successes",
+				"timeframe": {},
+				"reference": {
+					"id": "37f0ff83-dd75-42f6-812e-b20eb337a269",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Failed SSH Login Heatmap",
+				"timeframe": {},
+				"reference": {
+					"id": "d0c986ff-5010-48db-9f15-6d51639bd41a",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "SSH login failure:success ratio",
+				"timeframe": {},
+				"reference": {
+					"id": "7f756338-f696-4ab7-a50b-a21b75b75f37",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "SSH Login FDG",
+				"timeframe": {},
+				"reference": {
+					"id": "de11a60a-784a-41ef-84c5-e5283dc71438",
+					"type": "savedQuery"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "Successful SSH Logins",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 7,
+					"y": 0
+				},
+				"id": 16216203966920,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Successful SSH Logins",
+				"renderer": "pointmap",
+				"span": {
+					"col": 8,
+					"row": 6,
+					"x": 8,
+					"y": 4
+				},
+				"id": 16216204630271,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Failed SSH logins by User",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 12,
+					"y": 0
+				},
+				"id": 16216206173162,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "IPs with SSH failures \u0026 successes",
+				"renderer": "table",
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16216206831163,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Failed SSH Login Heatmap",
+				"renderer": "heatmap",
+				"span": {
+					"col": 8,
+					"row": 6,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16216207081354,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "SSH login failure:success ratios",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 10
+				},
+				"id": 16221410415195,
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Login FDG",
+				"renderer": "fdg",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 10
+				},
+				"id": 16222181808736,
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Layout": "force",
+					"Labels": "yes",
+					"IncludeOther": "yes",
+					"CurveEdges": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P7DT"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"syslog",
+		"ssh"
+	]
+}

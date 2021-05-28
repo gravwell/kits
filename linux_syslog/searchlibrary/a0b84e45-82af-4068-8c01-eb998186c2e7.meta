@@ -1,0 +1,14 @@
+{
+	"Name": "Sudo invocations",
+	"Description": "Extracts which command was executed by which user using sudo.",
+	"GUID": "a0b84e45-82af-4068-8c01-eb998186c2e7",
+	"Labels": [
+		"syslog",
+		"linux",
+		"sudo",
+		"security"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

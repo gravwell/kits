@@ -1,0 +1,4 @@
+tag=$SYSLOG words authenticating user | syslog Appname==sshd Hostname Message
+| regex -e Message "authenticating user (?P<user>\S+) (?P<srcip>\S+)"
+| stats count by Hostname user
+| table Hostname user count
