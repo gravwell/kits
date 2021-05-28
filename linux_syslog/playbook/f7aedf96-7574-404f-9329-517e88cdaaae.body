@@ -26,4 +26,16 @@ Once you have configured Simple Relay, you just need to make your Linux systems 
 
 # Dashboards
 
-This kit includes two dashboards, one displaying information about SSH and one showing information about sudo use. The SSH dashboard shows tables and maps for failed & successful SSH logins. It also includes a table which melds the two, showing you IPs which have had both successful & failed SSH logins; this can potentially help detect successful brute-forcing. The sudo dashboard shows who has been using sudo and what commands they ran. It also shows who has sudo failures--either due to a mistyped password, or because the user doesn't have sudo permission. For completeness, it also shows invocations of the "su" command.
+This kit includes three dashboards, one displaying information about SSH, one showing information about sudo use, and one giving an overview of cron activity.
+
+The SSH dashboard shows tables and maps for failed & successful SSH logins. It also includes a table which melds the two, showing you IPs which have had both successful & failed SSH logins; this can potentially help detect successful brute-forcing.
+
+The sudo dashboard shows who has been using sudo and what commands they ran. It also shows who has sudo failures--either due to a mistyped password, or because the user doesn't have sudo permission. For completeness, it also shows invocations of the "su" command.
+
+The cron dashboard lets you know when someone has modified their crontab. It also tracks how many cron jobs have run for each user, and lets you look at a list of commands which have run in cron.
+
+# Actionables
+
+The kit contains actionables to help with SSH investigations. You can select a username and see failed/successful logins for that user. You can also click an IP address to search for failed/successful connections from that IP. Selecting a hostname lets you search for failed/successful logins on that system.
+
+There is also an actionable which lets you select an SSH public key signature (e.g. "RSA SHA256:nndxv0GlmyfsavK1ArKwtg9n7JxyuzQFrOyU9B8McdZ") and find any successful logins which used that key. These public key signatures are found in the ssh daemon's logs.

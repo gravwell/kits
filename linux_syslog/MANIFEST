@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.linuxsyslog",
 	"Name": "Linux Syslog",
 	"Desc": "Provides tools for working with Linux system logs, including ssh, sudo, and cron.",
-	"Readme": "",
+	"Readme": "# Linux Syslog Kit\r\n\r\nThis kit provides useful tools for working with system logs from Linux machines. It includes dashboards, queries, actionables, and templates built around logs from the SSH daemon, the cron daemon, and the sudo system.\r\n\r\nWe recommend installing the plain syslog kit (io.gravwell.syslog) as well, but this kit does *not* depend on it.",
 	"Version": 1,
 	"MinVersion": {
 		"Major": 4,
@@ -15,8 +15,8 @@
 		"Point": 0
 	},
 	"Icon": "2f1d91bc-5803-4d5e-85e7-bce607a513af",
-	"Banner": "",
-	"Cover": "88a6e1f1-4abd-4232-821b-0a7ca4a279a6",
+	"Banner": "72ed6d4b-1260-4098-956f-8f59c272464b",
+	"Cover": "5551e4f6-f167-4487-83de-83692468c6ba",
 	"Items": [
 		{
 			"Name": "265182135221759",
@@ -169,16 +169,6 @@
 			"Hash": "da5e8491fbe2ec310dd41451f7531f544f1425af832a43c90533157e21dafa89"
 		},
 		{
-			"Name": "b160ddfe-2635-48c8-a700-dfd1726f2e7c",
-			"Type": 7,
-			"Hash": "7c9e2f6ee2f93a875117ae50aac148c0b507fdf9df0ea49f5038abb176f97377"
-		},
-		{
-			"Name": "ebd13b4c-a3b0-47aa-850a-d98bc9e83739",
-			"Type": 7,
-			"Hash": "049e79754868888a681e49d53ae7a6bed2c6babe15b8e0642f88e94f8079cfbb"
-		},
-		{
 			"Name": "5551e4f6-f167-4487-83de-83692468c6ba",
 			"Type": 7,
 			"Hash": "1f150b8a22fcb2f19d62d6a819e5f67ee4c0d300e11d77ffdd26433d8922b2c8"
@@ -189,17 +179,17 @@
 			"Hash": "72e15b45d4708e93a7f077d11d4d0f48ab3f78f07922e216c0f95feef264d9f6"
 		},
 		{
-			"Name": "88a6e1f1-4abd-4232-821b-0a7ca4a279a6",
-			"Type": 7,
-			"Hash": "62b595f1c2d3f3a9ec6b5d5c1f6d8825cd7520db30d06c6f5397af04146f64f0"
-		},
-		{
 			"Name": "f7aedf96-7574-404f-9329-517e88cdaaae",
 			"Type": 11,
 			"Hash": "d594cb9c5746fbd206dcf464aacf405ca3d2fd90ff2b068e273599c00ace9d3d"
 		}
 	],
-	"Dependencies": null,
+	"Dependencies": [
+		{
+			"ID": "io.gravwell.networkenrichment",
+			"MinVersion": 8
+		}
+	],
 	"ConfigMacros": [
 		{
 			"MacroName": "SYSLOG",
