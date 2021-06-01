@@ -1,0 +1,22 @@
+{
+	"UUID": "3e19b9b5-6e57-4c36-bf3a-bf442ba35051",
+	"Name": "Failed auth by syslog hostname investigation",
+	"Description": "Investigates failed authentication attempts for a specific syslog hostname. Gives a table of which IPs are connecting to which servers, and GeoIP information about those IPs.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%HOSTNAME%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "web1"
+			}
+		]
+	},
+	"Labels": [
+		"syslog",
+		"linux",
+		"ssh"
+	]
+}

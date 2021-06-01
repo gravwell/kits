@@ -1,0 +1,22 @@
+{
+	"UUID": "18ca7b0d-a4fe-44df-bc19-d4c41f760455",
+	"Name": "Failed auth by user investigation",
+	"Description": "Investigates failed authentication attempts for a specific username. Gives a table of which IPs are connecting to which servers, and GeoIP information about those IPs.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%USER%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "root"
+			}
+		]
+	},
+	"Labels": [
+		"syslog",
+		"ssh",
+		"linux"
+	]
+}

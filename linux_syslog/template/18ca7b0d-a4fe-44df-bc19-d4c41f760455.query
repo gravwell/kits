@@ -1,0 +1,7 @@
+tag=$SYSLOG syslog Appname==sshd Message Hostname | regex -p -e Message 
+"Invalid user (?P<user>\S+) from (?P<srcip>\S+)" user==%%USER%% | regex -p -e Message "authenticating user (?P<user>\S+) (?P<srcip>\S+)" user==%%USER%% | require user 
+srcip 
+| stats count by Hostname user srcip
+| geoip -r asn_db srcip.ASNOrg
+| geoip srcip.CountryName srcip.City
+| table count user Hostname srcip ASNOrg City CountryName

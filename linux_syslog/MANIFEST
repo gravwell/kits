@@ -1,0 +1,203 @@
+{
+	"ID": "io.gravwell.linuxsyslog",
+	"Name": "Linux Syslog",
+	"Desc": "Provides tools for working with Linux system logs, including ssh, sudo, and cron.",
+	"Readme": "# Linux Syslog Kit\r\n\r\nThis kit provides useful tools for working with system logs from Linux machines. It includes dashboards, queries, actionables, and templates built around logs from the SSH daemon, the cron daemon, and the sudo system.\r\n\r\nWe recommend installing the plain syslog kit (io.gravwell.syslog) as well, but this kit does *not* depend on it.",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 4,
+		"Minor": 1,
+		"Point": 9
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "2f1d91bc-5803-4d5e-85e7-bce607a513af",
+	"Banner": "72ed6d4b-1260-4098-956f-8f59c272464b",
+	"Cover": "5551e4f6-f167-4487-83de-83692468c6ba",
+	"Items": [
+		{
+			"Name": "265182135221759",
+			"Type": 3,
+			"Hash": "580b00efd5890e1de9b425bc6bbfac321439f1b0ae9c1f0262f16b61dd9f165a"
+		},
+		{
+			"Name": "27018110783312",
+			"Type": 3,
+			"Hash": "3b75fa2d8a8f46f96b02ccc726cfde4d264fa99805248aec58b45551f1a71ec8"
+		},
+		{
+			"Name": "3860003387501",
+			"Type": 3,
+			"Hash": "f4326be12c8250b40083e4bb6f9578f17d404e89b8d086d697a33a9c64e5e7b7"
+		},
+		{
+			"Name": "29028a7a-773f-4726-ae31-7d8d922682b0",
+			"Type": 6,
+			"Hash": "cbbcad221e46d8a0211d0669728fa0023d561ef9e288a6578f25b6c7c0cd05cb"
+		},
+		{
+			"Name": "3e19b9b5-6e57-4c36-bf3a-bf442ba35051",
+			"Type": 6,
+			"Hash": "4c96fda182205d521c65c99e5d186d89070602a232989fa0601b9ec6aa809158"
+		},
+		{
+			"Name": "c966b3bb-6aad-4498-9423-197697bc8233",
+			"Type": 6,
+			"Hash": "bc7856125b934e1a8bbd293d1148313cc47ca707f421cd1a860ce341422096a6"
+		},
+		{
+			"Name": "18ca7b0d-a4fe-44df-bc19-d4c41f760455",
+			"Type": 6,
+			"Hash": "9f810294a13fa35fa39239680bd3e76369f0d2922b53586e673530359172fb6f"
+		},
+		{
+			"Name": "52499b3d-3677-4113-baa7-3567c9a888c9",
+			"Type": 6,
+			"Hash": "79bb42bc68308e8f4281094299c3976ea013f3d1fce67059076be88f75177ce4"
+		},
+		{
+			"Name": "e6ea3372-7c0f-469c-b0be-0783e4e6f186",
+			"Type": 6,
+			"Hash": "2a047ba5d51991f3387dcd4b093eab731e66868910f7e452e0928ae3c2b6b42c"
+		},
+		{
+			"Name": "00defa93-b7d6-428d-82ca-a883515ff1f1",
+			"Type": 6,
+			"Hash": "86b06e81a14d6a37da91bbbeb458be643766f5defb4bab945489f81cbce59a85"
+		},
+		{
+			"Name": "761da928-938a-4282-9e4d-fc7abe4c7451",
+			"Type": 6,
+			"Hash": "cea001bddbb214fcff7f9f8cdf64ceb2b97baf1fbd5ab1b9e4f6cfb62cee0656"
+		},
+		{
+			"Name": "396e1f71-5cf4-4ab3-bf40-4dd471007d21",
+			"Type": 5,
+			"Hash": "32c5389ec06c0c00ef1e4f1b696ad2c48275257b2efae0bb80afa3e9db9e8027"
+		},
+		{
+			"Name": "3ee74567-fc6a-4ca9-84d1-7a49e18bcf2f",
+			"Type": 5,
+			"Hash": "b609d08bb0fa7958e376c725da2999808790c5ad10fe1d7195023d64d7205d19"
+		},
+		{
+			"Name": "fb7daf01-1cb4-47d1-beaa-2d3a0f1ba2df",
+			"Type": 9,
+			"Hash": "6039bd87ee606eeddbb8093e5261f3537bd539dad45c713e507e162304967a7c"
+		},
+		{
+			"Name": "25583ae3-9455-4ce9-b76a-f5ad0f936597",
+			"Type": 9,
+			"Hash": "1170b75f81fe162481d78be67420620b4427cf631e0b8b27d0a2344df0b9d7f1"
+		},
+		{
+			"Name": "7bc7cce6-dfab-4c54-8c63-53691fdf7f25",
+			"Type": 9,
+			"Hash": "2bdca3be51d1f95d7395680585ab1bf63ef3de328d63089baad8e910472be6f4"
+		},
+		{
+			"Name": "d0c986ff-5010-48db-9f15-6d51639bd41a",
+			"Type": 9,
+			"Hash": "3265b5c2e6bb8809d6f11a926ed1cb39332198f296e14036dfb671d64430a1c9"
+		},
+		{
+			"Name": "3b1f2e46-cfe4-4f63-bf42-9d20a0c37eb9",
+			"Type": 9,
+			"Hash": "35da459e3e5f962e0c360af3a48966d6bb03e67e2e7538a1f0abd4687b2e7840"
+		},
+		{
+			"Name": "c985d5a7-d7d3-4142-8b8f-6f25b57e52a0",
+			"Type": 9,
+			"Hash": "e8e8bd918ef8a524c831c2165cc9a2553f26c41a36b0889549b28d1ca9146e4f"
+		},
+		{
+			"Name": "37f0ff83-dd75-42f6-812e-b20eb337a269",
+			"Type": 9,
+			"Hash": "d57c7ebbecd1b46fac6219ddb2d5f6c51e25b13823cd4681f3e613f00201efab"
+		},
+		{
+			"Name": "7f756338-f696-4ab7-a50b-a21b75b75f37",
+			"Type": 9,
+			"Hash": "02685d1fe5e9d9ec733db473ab50d19b564fd9acf644a31d0ef061b4ae2ad54c"
+		},
+		{
+			"Name": "de11a60a-784a-41ef-84c5-e5283dc71438",
+			"Type": 9,
+			"Hash": "d5d7db5584f5100a904deb7c270ed6b2fbf10d752cdbb5aa21e2056f20617bf8"
+		},
+		{
+			"Name": "9ad95f1d-4668-4806-b526-20ea8e0f1e56",
+			"Type": 9,
+			"Hash": "7aa71ee78741a6b1d653a49d6234c349d2894732be15f89f3cdcfc0556209361"
+		},
+		{
+			"Name": "ce8471b8-64b4-4980-a67d-8f87c56bf2ab",
+			"Type": 9,
+			"Hash": "9588c748ad8c31eb8aeb3adc76217698345f89ef0e6843e23f3a8a3213a7263e"
+		},
+		{
+			"Name": "6d124568-e705-47a4-a210-ce5f39565d7f",
+			"Type": 9,
+			"Hash": "c1c8c41ac8abdb5f00a25bcd40c9f3cc8c76289d0f216608f67b3fbbb838970a"
+		},
+		{
+			"Name": "1f1ff0f9-57c9-4b1d-8016-a49d92149749",
+			"Type": 9,
+			"Hash": "53405934735d32e4c59973d0b79db6d550a075af1cf146dc537b4fbd687ca00f"
+		},
+		{
+			"Name": "a0b84e45-82af-4068-8c01-eb998186c2e7",
+			"Type": 9,
+			"Hash": "fa81ab3c241eabc2c5e630516ed60da9ec1e918faae90a7fc0344085beeff823"
+		},
+		{
+			"Name": "fc5dba6d-2662-4470-b366-1d3a2239a340",
+			"Type": 9,
+			"Hash": "2b2989ec153bf77dcb4f21bcb30a7838f83ce17d5750ad1d1603040e2908cef4"
+		},
+		{
+			"Name": "ef227a5b-484a-4c04-a06b-05462763e11c",
+			"Type": 9,
+			"Hash": "1ab4316a7b542911640df1d25ce115165adbd76ca759f8edaf99a47cfd28d37a"
+		},
+		{
+			"Name": "72ed6d4b-1260-4098-956f-8f59c272464b",
+			"Type": 7,
+			"Hash": "da5e8491fbe2ec310dd41451f7531f544f1425af832a43c90533157e21dafa89"
+		},
+		{
+			"Name": "5551e4f6-f167-4487-83de-83692468c6ba",
+			"Type": 7,
+			"Hash": "1f150b8a22fcb2f19d62d6a819e5f67ee4c0d300e11d77ffdd26433d8922b2c8"
+		},
+		{
+			"Name": "2f1d91bc-5803-4d5e-85e7-bce607a513af",
+			"Type": 7,
+			"Hash": "72e15b45d4708e93a7f077d11d4d0f48ab3f78f07922e216c0f95feef264d9f6"
+		},
+		{
+			"Name": "f7aedf96-7574-404f-9329-517e88cdaaae",
+			"Type": 11,
+			"Hash": "d594cb9c5746fbd206dcf464aacf405ca3d2fd90ff2b068e273599c00ace9d3d"
+		}
+	],
+	"Dependencies": [
+		{
+			"ID": "io.gravwell.networkenrichment",
+			"MinVersion": 8
+		}
+	],
+	"ConfigMacros": [
+		{
+			"MacroName": "SYSLOG",
+			"Description": "The tag which contains syslog entries (probably \"syslog\")",
+			"DefaultValue": "syslog",
+			"Value": "",
+			"Type": "",
+			"InstalledByID": ""
+		}
+	]
+}

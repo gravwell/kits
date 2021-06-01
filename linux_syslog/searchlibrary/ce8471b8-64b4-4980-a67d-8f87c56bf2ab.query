@@ -1,0 +1,1 @@
+tag=$SYSLOG syslog Appname==su Hostname Message | regex "\(to (?P<substitute_user>\S+)\) (?P<invoking_user>\S+)" | table TIMESTAMP Hostname invoking_user substitute_user

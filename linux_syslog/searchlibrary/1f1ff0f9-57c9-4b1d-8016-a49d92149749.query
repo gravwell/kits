@@ -1,0 +1,1 @@
+tag=$SYSLOG syslog Appname==sudo Message Hostname | regex -e Message "(?P<sudoing_user>\S+) : (?P<args>.+)" | stats count by sudoing_user Hostname | table sudoing_user Hostname count

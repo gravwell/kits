@@ -1,0 +1,100 @@
+{
+	"UUID": "abb1748c-e1f4-41b5-8a54-7799c1ee34d1",
+	"Name": "Syslog Sudo Dashboard",
+	"Description": "Looks at sudo activity from syslog",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Sudo invocations",
+				"timeframe": {},
+				"reference": {
+					"id": "a0b84e45-82af-4068-8c01-eb998186c2e7",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Sudo invocation counts",
+				"timeframe": {},
+				"reference": {
+					"id": "1f1ff0f9-57c9-4b1d-8016-a49d92149749",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Failed sudo attempts by user/hostname",
+				"timeframe": {},
+				"reference": {
+					"id": "3b1f2e46-cfe4-4f63-bf42-9d20a0c37eb9",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "su invocations",
+				"timeframe": {},
+				"reference": {
+					"id": "ce8471b8-64b4-4980-a67d-8f87c56bf2ab",
+					"type": "savedQuery"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "Sudo History",
+				"renderer": "table",
+				"span": {
+					"col": 13,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16216296604270,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Sudo Invocations Per User",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 5
+				},
+				"id": 16216296998821,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Sudo Failures",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 5
+				},
+				"id": 16216297344422,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Su Invocations",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 8,
+					"y": 5
+				},
+				"id": 16221379722833,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P7DT"
+		},
+		"version": 2
+	},
+	"Labels": null
+}

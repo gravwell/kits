@@ -1,0 +1,13 @@
+{
+	"Name": "Failed SSH logins for existing users",
+	"Description": "Shows failed login counts for users which actually exist on the system. May help detect targeted brute-force attempts.",
+	"GUID": "c985d5a7-d7d3-4142-8b8f-6f25b57e52a0",
+	"Labels": [
+		"syslog",
+		"linux",
+		"ssh"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

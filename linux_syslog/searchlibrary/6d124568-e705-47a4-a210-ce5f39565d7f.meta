@@ -1,0 +1,12 @@
+{
+	"Name": "Successful SSH logins",
+	"Description": "Extracts successful SSH logins from syslog. Shows username, IP, and auth method.",
+	"GUID": "6d124568-e705-47a4-a210-ce5f39565d7f",
+	"Labels": [
+		"ssh",
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"UUID": "00defa93-b7d6-428d-82ca-a883515ff1f1",
+	"Name": "Successful auth by public key investigation",
+	"Description": "Investigates successful authentication attempts using a specific public key, including GeoIP information.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%PUBKEY%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "RSA SHA256:nmdxv0FlmyhsavJ2ArKwrg9n8JxyuzSFrOyU9C8McdY"
+			}
+		]
+	},
+	"Labels": [
+		"syslog",
+		"linux",
+		"ssh"
+	]
+}

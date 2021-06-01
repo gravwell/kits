@@ -1,0 +1,13 @@
+{
+	"Name": "Failed SSH Login Heatmap",
+	"Description": "Map failed SSH logins based on syslog data.",
+	"GUID": "d0c986ff-5010-48db-9f15-6d51639bd41a",
+	"Labels": [
+		"syslog",
+		"ssh",
+		"linux"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

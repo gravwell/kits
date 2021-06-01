@@ -1,0 +1,22 @@
+{
+	"UUID": "52499b3d-3677-4113-baa7-3567c9a888c9",
+	"Name": "Successful auth by hostname investigation",
+	"Description": "Investigates successful authentication attempts to a specific host. Gives a table of which IPs are connecting to that host, and GeoIP information about those IPs.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%HOSTNAME%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "web1"
+			}
+		]
+	},
+	"Labels": [
+		"syslog",
+		"linux",
+		"ssh"
+	]
+}

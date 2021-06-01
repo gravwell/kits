@@ -1,0 +1,1 @@
+tag=$SYSLOG words Accepted | syslog Appname==sshd Hostname Message | regex -e Message "Accepted (?P<method>\S+) for (?P<user>\S+) from (?P<ip>\S+)" | stats count by user Hostname | fdg -v count user Hostname

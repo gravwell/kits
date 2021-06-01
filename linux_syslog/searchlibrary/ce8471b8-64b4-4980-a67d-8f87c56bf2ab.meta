@@ -1,0 +1,14 @@
+{
+	"Name": "su invocations",
+	"Description": "Parses syslog to see when the \"su\" command is used and by whom. \"invoking_user\" is the user who ran su.",
+	"GUID": "ce8471b8-64b4-4980-a67d-8f87c56bf2ab",
+	"Labels": [
+		"syslog",
+		"linux",
+		"sudo",
+		"su"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,1 @@
+tag=$SYSLOG words authentication failure | syslog Appname==sudo Message Hostname | regex -e Message "authentication failure; (?P<kv>.+)" | kv -e kv -sep = user | stats count by user Hostname | table user Hostname count

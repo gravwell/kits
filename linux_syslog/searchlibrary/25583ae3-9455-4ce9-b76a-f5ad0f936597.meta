@@ -1,0 +1,13 @@
+{
+	"Name": "Crontab modifications",
+	"Description": "Parses syslog to find when someone has edited a crontab.",
+	"GUID": "25583ae3-9455-4ce9-b76a-f5ad0f936597",
+	"Labels": [
+		"syslog",
+		"linux",
+		"cron"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "Cron invocations by user chart",
+	"Description": "Charts how many times each user has had cron jobs run.",
+	"GUID": "7bc7cce6-dfab-4c54-8c63-53691fdf7f25",
+	"Labels": [
+		"syslog",
+		"linux",
+		"cron"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

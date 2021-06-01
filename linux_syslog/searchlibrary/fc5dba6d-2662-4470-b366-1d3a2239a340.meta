@@ -1,0 +1,13 @@
+{
+	"Name": "SystemD Service Errors",
+	"Description": "Shows syslog messages from SystemD about services that did not start successfully.",
+	"GUID": "fc5dba6d-2662-4470-b366-1d3a2239a340",
+	"Labels": [
+		"syslog",
+		"linux",
+		"systemd"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,131 @@
+{
+	"UUID": "3ee74567-fc6a-4ca9-84d1-7a49e18bcf2f",
+	"Name": "Syslog SSH",
+	"Description": "Investigate SSH authentication attempts \u0026 successes",
+	"Data": {
+		"actions": [
+			{
+				"name": "Successes by Username",
+				"description": "Investigate successful logins by this username",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "761da928-938a-4282-9e4d-fc7abe4c7451",
+					"options": {
+						"variable": "%%USER%%"
+					}
+				}
+			},
+			{
+				"name": "Failures by User",
+				"description": "Investigate failed login attempts for this user",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "18ca7b0d-a4fe-44df-bc19-d4c41f760455",
+					"options": {
+						"variable": "%%USER%%"
+					}
+				}
+			},
+			{
+				"name": "Successes for Hostname",
+				"description": "Investigate successful SSH logins to this host",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "52499b3d-3677-4113-baa7-3567c9a888c9",
+					"options": {
+						"variable": "%%HOSTNAME%%"
+					}
+				}
+			},
+			{
+				"name": "Failures by Hostname",
+				"description": "Investigate failed SSH logins for this hostname",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "3e19b9b5-6e57-4c36-bf3a-bf442ba35051",
+					"options": {
+						"variable": "%%HOSTNAME%%"
+					}
+				}
+			},
+			{
+				"name": "Auths using this key",
+				"description": "Find successful authentications using a particular SSH key",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "00defa93-b7d6-428d-82ca-a883515ff1f1",
+					"options": {
+						"variable": "%%PUBKEY%%"
+					}
+				}
+			}
+		],
+		"menuLabel": null,
+		"triggers": [
+			{
+				"pattern": "/\\w+/g",
+				"hyperlink": false
+			}
+		]
+	},
+	"Labels": [
+		"syslog",
+		"linux",
+		"ssh"
+	]
+}

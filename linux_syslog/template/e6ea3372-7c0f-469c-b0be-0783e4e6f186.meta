@@ -1,0 +1,22 @@
+{
+	"UUID": "e6ea3372-7c0f-469c-b0be-0783e4e6f186",
+	"Name": "Successful auth by IP investigation",
+	"Description": "Investigates successful authentication attempts from a specific IP address. Gives a table of which IPs are connecting to which servers, and GeoIP information about those IPs.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SRCIP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "1.1.1.1"
+			}
+		]
+	},
+	"Labels": [
+		"syslog",
+		"linux",
+		"ssh"
+	]
+}
