@@ -15,7 +15,7 @@
 				"searchID": 3653277189
 			},
 			{
-				"query": "tag=weather json name weather.[0].main | sort by time desc | unique name | table -nt name main\n",
+				"query": "tag=weather json name as Location weather.[0].description as Conditions main.temp as Temperature | sort by time desc | unique Location | table -nt Location Temperature Conditions\n",
 				"alias": "Current Conditions",
 				"searchID": 8857558974
 			},
