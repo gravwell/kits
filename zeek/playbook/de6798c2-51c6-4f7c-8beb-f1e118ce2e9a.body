@@ -22,7 +22,7 @@ Let's look at a few examples of Gravwell queries on Zeek data. For more detailed
 
 Zeek records come in several flavors - requests and responses, and several types therein. Let's start by listing, in a table, every response to any query that contains "google.com" (for example www.google.com, youtube-ui.l.google.com, etc.).
 
-`tag=zeekdns ax query ~ "google.com" qcode == 5 | table`
+`tag=zeekdns ax query ~ "google.com" | table`
 
 We begin by looking in tag "zeekdns", and use the [AX](https://docs.gravwell.io/#!search/ax/ax.md) module to extract records that match on certain fields. We use the match operator "~" to do a simple string "contains" match on that field. From there we simply invoke the table renderer.
 
