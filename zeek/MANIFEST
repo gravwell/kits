@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.beta.zeek",
 	"Name": "Gravwell Zeek",
 	"Desc": "The Gravwell Zeek Kit provides a baseline set of queries, dashboards, templates, and investigative resources for the Zeek Network Security Monitor.",
-	"Version": 4,
+	"Version": 5,
 	"MinVersion": {
 		"Major": 4,
 		"Minor": 0,
