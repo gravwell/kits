@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.grok",
 	"Name": "Grok",
 	"Desc": "The Grok kit provides some documentation and a pattern resource file of Grok patterns for data extraction within Gravwell.",
-	"Version": 2,
+	"Version": 3,
 	"MinVersion": {
 		"Major": 3,
 		"Minor": 4,

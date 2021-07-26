@@ -6,24 +6,28 @@ This is where grok comes in, grok uses abstracted tokens so that mere mortals ca
 
 To really drive home how much power grok can provide, let's look at a complete regular expression designed to extract every field in an Apache Combined Access Log:
 
-```(?P<ip>\S+) (?P<remote_log_name>\S+) (?P<userid>\S+) \[(?P<date>\S+) ?(?P<timezone>\S+)?\] \"(?P<request_method>\S+) (?P<path>\S+) (?P<request_version>HTTP/\d+\.?\d*)?\" (?P<status>\d+) (?P<length>\d+) \"(?P<referrer>[^\"]+)\" \"(?P<user_agent>[^\"]+)\"```
+<pre>
+(?P<ip>\S+) (?P<remote_log_name>\S+) (?P<userid>\S+) \[(?P<date>\S+) ?(?P<timezone>\S+)?\] \"(?P<request_method>\S+) (?P<path>\S+) (?P<request_version>HTTP/\d+\.?\d*)?\" (?P<status>\d+) (?P<length>\d+) \"(?P<referrer>[^\"]+)\" \"(?P<user_agent>[^\"]+)\"
+</pre>
 
 I consider myself above average when it comes to regular expressions, but that is barely readable.  You might even say it's too hard to grok.
 
 If we were to use grok, we could replace all that mess with one token:
 
-```%{COMBINEDAPACHELOG}```
+<pre>
+%{COMBINEDAPACHELOG}
+</pre>
 
 Grok is basically a macro system for regular expressions. Under the hood, grok identifies known tokens and performs a recursive expansion to generate a complete regular expression.
 
 #List of patterns
 
-The following are a list of patterns present in this kit. View the `grok` resource file for further details into these patterns or you can view the file here: https://raw.githubusercontent.com/gravwell/resources/master/grok/all.grok
+The following are a list of patterns present in this kit. View the resource file named "grok" for further details on these patterns, or you can view the file here: https://raw.githubusercontent.com/gravwell/resources/master/grok/all.grok
 
 Full documentation for the grok module can be found in our docs at https://docs.gravwell.io/docs/#!search/grok/grok.md
 
 
-```
+<pre>
 COMMONAPACHELOG
 COMBINEDAPACHELOG
 
@@ -287,4 +291,4 @@ REDISLOG1
 REDISLOG2
 
 RUBY_LOGGER
-```
+</pre>

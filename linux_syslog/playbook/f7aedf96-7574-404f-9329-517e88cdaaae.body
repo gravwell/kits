@@ -4,25 +4,25 @@ This kit provides dashboards and queries which operate on syslog data originatin
 
 The easiest way to get syslog entries into Gravwell is with the [Simple Relay ingester](https://docs.gravwell.io/#!ingesters/simple_relay.md). The documentation contains more complete instructions for configuration, but in brief, you can configure the ingester to accept syslog messages over TCP with a stanza like this:
 
-```
+<pre>
 [Listener "syslog"]
     Bind-String=0.0.0.0:601
     Reader-Type=RFC5424
-```
+</pre>
 
 To use UDP instead:
 
-```
+<pre>
 [Listener "syslog"]
     Bind-String=udp://0.0.0.0:514
     Reader-Type=RFC524
-```
+</pre>
 
 Once you have configured Simple Relay, you just need to make your Linux systems direct syslog to it. Configuration details will vary, but here's how to make rsyslogd send logs to syslog.example.com over TCP:
 
-```
+<pre>
 *.* @@syslog.example.com:601;RSYSLOG_SyslogProtocol23Format
-```
+</pre>
 
 # Dashboards
 
