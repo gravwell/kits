@@ -6,10 +6,10 @@ Data from IPMI comes in a variety of formats, though the majority of systems sup
 
 SEL entries contain a decription of the event, the sensor that triggered it, and potentially more information. A typical set of SEL entries might look something like this:
 
-`
+<pre>
 1 | 06/23/2020 | 00:00:32 | Power Supply #0xc9 | Failure detected () | Deasserted
 2 | 06/26/2020 | 23:31:38 | Power Supply #0xc9 | Failure detected () | Asserted
-`
+</pre>
 
 Gravwell provides a simple [IPMI ingester](https://docs.gravwell.io/#!ingesters/ingesters.md#IPMI_Ingester) that can collect Sensor Data Record (SDR) and System Event Log (SEL) records from any number of IPMI devices.
 
@@ -31,7 +31,7 @@ Deploying the IPMI ingester is similar to any other Gravwell ingester. The inges
 
 Below is an example IPMI ingester configuration. It provides a path to a Gravwell indexer and the authentication secret in the Global section. In the IPMI stanza, it specifies a tag to ingest to and describes two IPMI targets, with authentication credentials for those targets. You can declare as many IPMI stanzas as you need, and you can group IPMI devices that share the same authentication configuration into a single stanza. 
 
-```
+<pre>
 [Global]
 Ingest-Secret = IngestSecrets
 Connection-Timeout = 0
@@ -53,7 +53,7 @@ Log-File=/opt/gravwell/log/ipmi.log
 	Tag-Name=ipmi
 	Rate=60 # poll every 60 seconds
 	#Source-Override="DEAD::BEEF" #override the source for just this Queue 
-```
+</pre>
 
 # Inspecting IPMI Data
 

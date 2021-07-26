@@ -28,14 +28,14 @@ See the [Gravwell CoreDNS Github Repo](https://github.com/gravwell/coredns) for 
 
 Gravwell is built into CoreDNS as an optional plugin, which must be built from source using the following commands:
 
-```
+<pre>
 go get github.com/coredns/coredns
 pushd $GOPATH/src/github.com/coredns/coredns/
 sed -i 's/metadata:metadata/metadata:metadata\ngravwell:github.com\/gravwell\/coredns/g' plugin.cfg
 go generate
 CGO_ENABLED=0 go build -o /tmp/coredns
 popd
-```
+</pre>
 
 The statically linked CoreDNS server with the Gravwell plugin will be located at /tmp/coredns.
 
@@ -46,7 +46,7 @@ See the [CoreDNS](https://coredns.io) website for more information.
 
 Below is an example CoreDNS configuration that invokes the Gravwell plugin. It provides a path to a Gravwell indexer, authentication secret, tag to ingest to, and most importantly - sets the encoding mode to JSON - which is expected by the CoreDNS kit.
 
-```
+<pre>
 .:53 {
   forward . 8.8.8.8:53 8.8.4.4:53 9.9.9.9:53
   errors stdout
@@ -66,7 +66,7 @@ Below is an example CoreDNS configuration that invokes the Gravwell plugin. It p
    #Max-Cache-Size-MB 1024
   }
 }
-```
+</pre>
 
 # Inspecting DNS Queries
 
