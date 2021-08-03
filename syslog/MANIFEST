@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.syslog",
 	"Name": "syslog",
 	"Desc": "This Syslog kit contains an overview dashboard and some investigative dashboards for easily viewing syslog activity. This kit is intended as a \"getting started with syslog\". It does not attempt to analyze any of the content in the actual syslog Message. The author does not know what syslog you are collecting.  :D\n\nLook for syslog derivative kits (e.g. sshd, dnsmasq) in the future!",
-	"Version": 3,
+	"Version": 4,
 	"MinVersion": {
 		"Major": 4,
 		"Minor": 1,

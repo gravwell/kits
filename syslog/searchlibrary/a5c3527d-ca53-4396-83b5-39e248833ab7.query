@@ -1,1 +1,1 @@
-tag=syslog syslog Hostname | count by SRC Hostname | table SRC Hostname count
+tag=$SYSLOG syslog Hostname | count by SRC Hostname | table SRC Hostname count
