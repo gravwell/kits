@@ -3,7 +3,7 @@
 	"Tags": ["syslog"],
 	"Assets": [
 		{ "Type": "image", "Source": "cover.png", "Legend": "Linux syslog", "Featured": true},
-		{ "Type": "image", "Source": "banner.png", "Legend": "Linux syslog banner", "Banner": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "Linux syslog banner", "Featured": true, "Banner": true},
 		{ "Type": "readme", "Source": "README.md"}
 	]
 }
