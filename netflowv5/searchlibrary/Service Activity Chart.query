@@ -1,4 +1,5 @@
 tag=netflow netflow Src Dst Port Protocol Bytes
 | stats sum(Bytes) by Port Protocol
-| lookup -r network_services Protocol proto_number proto_name as Proto Port service_port service_name as Service
+| lookup -r network_services Protocol proto_number proto_name as Proto 
+| lookup -r network_services Port service_port service_name as Service
 | chart sum by Service Proto limit 10
