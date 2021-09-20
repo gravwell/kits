@@ -69,7 +69,7 @@
 		"triggers": [
 			{
 				"hyperlink": false,
-				"pattern": "/d{1,5}/g"
+				"pattern": "/\d{1,5}/g"
 			}
 		]
 	},
