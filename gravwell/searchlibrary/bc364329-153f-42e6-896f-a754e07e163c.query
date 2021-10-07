@@ -1,0 +1,1 @@
+tag=gravwell syslog Message=="Search finished" Structured.elapsed | eval setEnum("elapsed", toDuration(elapsed)) | stats mean(elapsed) min(elapsed) max(elapsed) stddev(elapsed) | eval if true { setEnum("mean", toDuration(mean)); setEnum("stddev", toDuration(stddev)) } | table mean stddev min max
