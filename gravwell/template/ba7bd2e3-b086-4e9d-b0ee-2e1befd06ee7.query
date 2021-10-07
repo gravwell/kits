@@ -1,0 +1,1 @@
+tag=gravwell syslog Timestamp Message~"User logged" Structured.sessionid Structured.uid Structured.user==%%USERNAME%% | require sessionid | sort by time desc | diff TIMESTAMP by sessionid | eval setEnum("diff", toDuration(-1*diff)) | alias diff duration | table Timestamp user uid sessionid duration

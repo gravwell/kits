@@ -1,0 +1,12 @@
+{
+	"Name": "Ingester authentication failures",
+	"Description": "Failed ingester authentications, as a table.",
+	"GUID": "da3e51f9-6d59-4293-99fd-6bd73661617b",
+	"Labels": [
+		"gravwell",
+		"ingesters"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Indexer reconnects by webserver",
+	"Description": "For each webserver + indexer combination, count how many times the webserver reconnected to the indexer.",
+	"GUID": "98dc3591-a164-453d-a282-7e64311b305b",
+	"Labels": [
+		"gravwell",
+		"infrastructure"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

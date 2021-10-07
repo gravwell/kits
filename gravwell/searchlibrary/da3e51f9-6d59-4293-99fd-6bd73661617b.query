@@ -1,0 +1,1 @@
+tag=gravwell syslog Timestamp Message=="Ingest routine got invalid authentication" Structured.conntype Structured.client Structured.error | sort by time desc | regex -p -e client "://(?P<client>.+):\d+" | stats count by client conntype error | table Timestamp conntype client error count

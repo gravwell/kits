@@ -1,0 +1,11 @@
+{
+	"Name": "Query Count Chart",
+	"Description": "A chart showing how many queries have been executed.",
+	"GUID": "b5aec7eb-62d2-45db-8100-1b2479a5c67c",
+	"Labels": [
+		"gravwell"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

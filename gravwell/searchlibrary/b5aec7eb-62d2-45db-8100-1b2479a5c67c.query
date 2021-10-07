@@ -1,0 +1,1 @@
+tag=gravwell syslog Message=="Search launched" | stats count | chart count
