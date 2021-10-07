@@ -14,9 +14,9 @@
 		"Minor": 2,
 		"Point": 4
 	},
+	"Icon": "97e7479d-d284-4efb-afe4-f30848f6f851",
 	"Banner": "09411e91-71cc-43c3-b4c7-5c8a2dc05180",
 	"Cover": "97e7479d-d284-4efb-afe4-f30848f6f851",
-	"Icon": "97e7479d-d284-4efb-afe4-f30848f6f851",
 	"Items": [
 		{
 			"Name": "05653c81-39af-4f60-8417-78ff25de6a4a",
@@ -32,6 +32,36 @@
 			"Name": "97e7479d-d284-4efb-afe4-f30848f6f851",
 			"Type": 7,
 			"Hash": "87bec1cae0e7bc172cc2f2c998e2b84d184e2c27a2b9429408ce75c4f2946538"
+		},
+		{
+			"Name": "7c0e72bc-c473-4eca-8fd5-82fc3c4da156",
+			"Type": 3,
+			"Hash": "bb5f806b64c45ee21fabfe875f4fc85ab23ef9ecc4e17cb20ba4d4c77eb1f85c"
+		},
+		{
+			"Name": "712eac62-4f7c-4844-8223-8c3480315c42",
+			"Type": 9,
+			"Hash": "e33d5c7d90fbe32ef7778b03e1b4ad0d1bbad7e955eeec35dd15eef2b2a5e3b0"
+		},
+		{
+			"Name": "148974ef-3cd2-4945-8b1c-b88d5faca1ef",
+			"Type": 9,
+			"Hash": "5d70b166b8ef9d98fa0d6d0cbfdd1efb5a178b14e8f8f597686436ee50ce4d42"
+		},
+		{
+			"Name": "751c88a0-741b-4a01-9191-499977b7cb40",
+			"Type": 9,
+			"Hash": "05efb7349da1b84062717ed09ebc20282931e458d401ad94b503ea2e983ba5d8"
+		},
+		{
+			"Name": "99ddc0ad-87bb-4464-8e80-87ebb64464c1",
+			"Type": 9,
+			"Hash": "64680343a98ba36e86a0efbb71e5b7e112711da340aae0829546a52d00b16cc1"
+		},
+		{
+			"Name": "8728d5e6-d323-4c86-829d-90deb6eac928",
+			"Type": 9,
+			"Hash": "b9fee4f827b137934818bcfcbf6851c205a1e083c3a3b9a9f1c429a581ff0e9e"
 		}
 	],
 	"Dependencies": null,
