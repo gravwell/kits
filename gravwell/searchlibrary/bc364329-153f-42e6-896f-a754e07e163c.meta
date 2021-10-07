@@ -1,0 +1,11 @@
+{
+	"Name": "Query Execution Time Statistics",
+	"Description": "Generate a table of statistics about the execution of queries: average, standard deviation, min, and max.",
+	"GUID": "bc364329-153f-42e6-896f-a754e07e163c",
+	"Labels": [
+		"gravwell"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
