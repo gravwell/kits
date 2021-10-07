@@ -1,0 +1,39 @@
+{
+	"ID": "io.gravwell.gravwell",
+	"Name": "Gravwell Kit",
+	"Desc": "Gravwell infrastructure monitoring kit.",
+	"Readme": "# Gravwell Kit\n\nThe Gravwell kit is designed to monitor internal Gravwell components and infrastructure.  Using this kit you can quickly see user activity, infrastructure health over time, ingester health, and API and authentication logs.\n\n\nThe Gravwell kit relies on the internal Gravwell component logging, available visibility will be determined by the logging verbocity configured in each of our components.  By default Gravwell internal logging is set to **warn** which means only messages of level **warn** or better will be logged.",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 4,
+		"Minor": 2,
+		"Point": 4
+	},
+	"MaxVersion": {
+		"Major": 4,
+		"Minor": 2,
+		"Point": 4
+	},
+	"Banner": "09411e91-71cc-43c3-b4c7-5c8a2dc05180",
+	"Cover": "97e7479d-d284-4efb-afe4-f30848f6f851",
+	"Icon": "97e7479d-d284-4efb-afe4-f30848f6f851",
+	"Items": [
+		{
+			"Name": "05653c81-39af-4f60-8417-78ff25de6a4a",
+			"Type": 9,
+			"Hash": "c62a61aa73286ba8f57ebafad0dc9322b66cf1b4802dc8cc46707d5627b13bb3"
+		},
+		{
+			"Name": "09411e91-71cc-43c3-b4c7-5c8a2dc05180",
+			"Type": 7,
+			"Hash": "c832a5dcdf1096a8b8d0cc2e5cb0d853fc5e16a6a8c12770e19a2de15472eecd"
+		},
+		{
+			"Name": "97e7479d-d284-4efb-afe4-f30848f6f851",
+			"Type": 7,
+			"Hash": "87bec1cae0e7bc172cc2f2c998e2b84d184e2c27a2b9429408ce75c4f2946538"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": null
+}
