@@ -1,0 +1,4 @@
+tag=gravwell words Firing off script
+| syslog Appname==searchagent Message
+| stats count
+| chart count
