@@ -1,0 +1,13 @@
+{
+	"Name": "Ingester disconnects",
+	"Description": "Count how many times each ingester gets disconnected from each indexer. This includes regular exits and timeouts due to network problems.",
+	"GUID": "46e1c052-8f84-46a9-be1e-b207c3519afa",
+	"Labels": [
+		"gravwell",
+		"ingesters",
+		"infrastructure"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

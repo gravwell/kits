@@ -1,0 +1,11 @@
+{
+	"Name": "Query Count by User",
+	"Description": "Charts how many queries each user has executed.",
+	"GUID": "891d9202-d77d-41ae-8aac-bd095d769d61",
+	"Labels": [
+		"gravwell"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

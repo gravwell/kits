@@ -1,0 +1,21 @@
+{
+	"UUID": "ba7bd2e3-b086-4e9d-b0ee-2e1befd06ee7",
+	"Name": "User session history",
+	"Description": "History of login sessions for a specific user.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%USERNAME%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "admin"
+			}
+		]
+	},
+	"Labels": [
+		"gravwell",
+		"authentication"
+	]
+}

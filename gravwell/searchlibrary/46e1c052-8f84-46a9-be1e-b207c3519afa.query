@@ -1,0 +1,1 @@
+tag=gravwell syslog Hostname Message~"Ingest routine exiting" Structured.ingester Structured.ingesterversion Structured.ingesteruuid Structured.client | alias Hostname indexer | regex -p -e client "://(?P<client>.+):\d+" | stats count by indexer ingesteruuid client | table indexer ingester client ingesterversion ingesteruuid count

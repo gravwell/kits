@@ -1,0 +1,14 @@
+{
+	"Name": "Update ingester table",
+	"Description": "Updates a resource (\"ingesters_seen\") which contains a list of all ingesters that have been seen on the system.",
+	"Labels": [
+		"gravwell",
+		"infrastructure"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	}
+}
