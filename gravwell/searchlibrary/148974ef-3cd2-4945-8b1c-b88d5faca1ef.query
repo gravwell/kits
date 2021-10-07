@@ -1,0 +1,1 @@
+tag=gravwell syslog Message=="User logged in" Structured.user as User | time -f "Mon Jan _2 15:04:05 MST 2006" TIMESTAMP Time | sort by User | unique User | table User Time

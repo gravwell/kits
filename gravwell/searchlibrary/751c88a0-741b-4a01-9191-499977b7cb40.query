@@ -1,0 +1,3 @@
+@tags{tag=gravwell syslog Message=="Completed search launch" Structured.query as Query Structured.user as User | regex "tag=(?P<Tag>\S+)" | unique User Tag | transaction -rsep ", " -e User Tag | table transaction Tag};
+
+tag=gravwell  syslog Message=="Completed search launch" Structured.query as Query Structured.user as User | regex "tag=(?P<Tag>\S+)" | count by Tag User | lookup -r @tags Tag Tag transaction as Users | table count Tag Users

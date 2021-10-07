@@ -1,0 +1,148 @@
+{
+	"UUID": "7c0e72bc-c473-4eca-8fd5-82fc3c4da156",
+	"Name": "Gravwell User Overview",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Last Login by User",
+				"timeframe": {},
+				"reference": {
+					"id": "148974ef-3cd2-4945-8b1c-b88d5faca1ef",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Active Users",
+				"timeframe": {},
+				"reference": {
+					"id": "712eac62-4f7c-4844-8223-8c3480315c42",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Most Recent Queries by User",
+				"timeframe": {},
+				"reference": {
+					"id": "8728d5e6-d323-4c86-829d-90deb6eac928",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Total Queries by Tag",
+				"timeframe": {},
+				"reference": {
+					"id": "751c88a0-741b-4a01-9191-499977b7cb40",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Total Queries by User",
+				"timeframe": {},
+				"reference": {
+					"id": "99ddc0ad-87bb-4464-8e80-87ebb64464c1",
+					"type": "savedQuery"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "Last Login by User",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16336284343990,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Active Users",
+				"renderer": "table",
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16336284621471,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Most Recent Queries by User",
+				"renderer": "table",
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16336288123122,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Total Queries by Tag",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"id": 16336350749573,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Total Queries by User",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 4
+				},
+				"id": 16336352899254,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2
+	},
+	"Labels": null
+}
