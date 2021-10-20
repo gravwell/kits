@@ -1,0 +1,10 @@
+{
+	"Name": "Ingester state tracker",
+	"Description": "Tracks ingesters and sends a notification email when states change.",
+	"Labels": null,
+	"Schedule": "* * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": true
+	}
+}
