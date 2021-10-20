@@ -1,0 +1,47 @@
+fromAddr, err = getMacro("$INGESTER_STATE_FROMADDR")
+if err != nil {
+    return err
+}
+
+toAddr, err = getMacro("$INGESTER_STATE_TOADDR")
+if err != nil {
+    return err
+}
+
+MinVer(3, 3, 6)
+require(`utils/ingesterTracker.ank`, `b100da945615976d846a5c0e21f0551eb3cf726e`)
+require(`email/htmlEmail.ank`, `b100da945615976d846a5c0e21f0551eb3cf726e`)
+
+var pit = PersistentIngesterTracker
+
+err = pit.Load()
+if err != nil {
+    return err
+}
+err = pit.Scan()
+if err != nil {
+    return err
+}
+
+var changed = pit.ChangedStates()
+if len(changed) == 0 {
+    return pit.Save() //we are done
+}
+
+//something changed, send an alert email
+var online = pit.FilterState(`ONLINE`)
+
+var em = htmlEmail
+em.SetTitle(`Ingester State Change Alert`)
+em.AddSubTitle(`Ingester State Changes`)
+em.AddTable(pit.Table(changed))
+em.AddSubTitle(`Online Ingesters`)
+em.AddTable(pit.Table(online))
+
+err = em.SendEmail(fromAddr, toAddr, `Ingester State Change`)
+if err != nil {
+    return err
+}
+
+//we got the email off, its safe to save our state back
+return pit.Save()
