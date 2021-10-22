@@ -10,9 +10,9 @@
 		"Point": 4
 	},
 	"MaxVersion": {
-		"Major": 4,
-		"Minor": 2,
-		"Point": 4
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
 	},
 	"Icon": "97e7479d-d284-4efb-afe4-f30848f6f851",
 	"Banner": "09411e91-71cc-43c3-b4c7-5c8a2dc05180",
@@ -64,7 +64,7 @@
 			"Hash": "b9fee4f827b137934818bcfcbf6851c205a1e083c3a3b9a9f1c429a581ff0e9e"
 		},
 		{
-			"Name": "83538bed-eef6-47fe-9b7f-3b9d5a16f15a",
+			"Name": "Update ingester table",
 			"Type": 2,
 			"Hash": "09c2585a981d2527b49e41250a4d595620fbcf01bed8a9515f5bd8d8f3c4e7f8"
 		},
@@ -109,7 +109,7 @@
 			"Hash": "751ded33ae4ef00f5c221241ea3b263e7314893a0ad6e2877694af5b88c8823f"
 		},
 		{
-			"Name": "fc8c4d23-f574-4658-8219-f170af1c23ca",
+			"Name": "Ingester state tracker",
 			"Type": 2,
 			"Hash": "c0fc03ece78e83a184c31019d641228c6133f269f3be3d13a399ac98a6a4148a"
 		}
