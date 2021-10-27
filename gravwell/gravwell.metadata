@@ -1,0 +1,8 @@
+{
+	"Tags": ["gravwell"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "Gravwell", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "Gravwell", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
