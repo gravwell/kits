@@ -6,8 +6,9 @@ The Gravwell Kit provides a collection of dashboards, scripts, and queries desig
 
 Gravwell logs are automatically ingested to the "gravwell" tag. Gravwell log entries are formatted as structured syslog, and provide information on user activity, ingester state, errors and more. An example log entry might look like:
 
-
-     <14>1 2021-10-27T13:36:09.881965-06:00 3888b35484f5 webserver 20000069 webserver/bgSearch.go:720 [gw@1 searchid="2122219257" uid="1" query="tag=pcap packet ipv4.Length | stats sum(Length) as Bytes | chart Bytes" start="2021-10-26 13:36:04 -0600 MDT" end="2021-10-27 13:36:04 -0600 MDT" elapsed="112.782782ms"] Search finished
+<pre>
+ <14>1 2021-10-27T13:36:09.881965-06:00 3888b35484f5 webserver 20000069 webserver/bgSearch.go:720 [gw@1 searchid="2122219257" uid="1" query="tag=pcap packet ipv4.Length | stats sum(Length) as Bytes | chart Bytes" start="2021-10-26 13:36:04 -0600 MDT" end="2021-10-27 13:36:04 -0600 MDT" elapsed="112.782782ms"] Search finished
+</pre>
 
 
 In this example, Gravwell logged a completed query, along with the elapsed time, user, search ID, and the entire query. 
@@ -28,8 +29,10 @@ In order to use the Ingester Status Script, you must first enable email by filli
 
 The Ingester Status Script has two configuration macros. On installing the Gravwell Kit, you will be prompted to populate them with your information. 
 
-`$INGESTER_STATE_FROMADDR`
+<pre>
+$INGESTER_STATE_FROMADDR
 The "from" address in the email that is sent.
 
-`$INGESTER_STATE_TOADDR`
+$INGESTER_STATE_TOADDR
 The address to send the email to.
+</pre>
