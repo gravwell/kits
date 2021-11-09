@@ -6,7 +6,7 @@
 	"Global": false,
 	"Name": "Gravwell Kit",
 	"Desc": "Analyze Gravwell Logs",
-	"Labels": null,
+	"Labels": ["gravwell"],
 	"LastUpdated": "2021-10-27T14:33:56.661980674-06:00",
 	"Author": {
 		"Name": "The Gravwell Authors",
