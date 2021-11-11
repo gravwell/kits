@@ -1,4 +1,3 @@
-tag=gravwell words Firing off script
-| syslog Appname==searchagent Message
-| stats count
-| chart count
+tag=gravwell syslog Hostname Appname==searchagent Message=="start" type language uid
+| stats count by type language uid
+| table type language Hostname uid count
