@@ -1,0 +1,120 @@
+{
+	"UUID": "0dc30b64-d251-4818-9e00-e036aa6ef46b",
+	"Name": "Ingester Overview",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Ingester Activity Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "902861bf-1349-47e2-89de-86d360bfb5a7",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Ingester Reconnects Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "00a8f445-9c52-4088-b593-95c738f56fd0",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Ingester Errors",
+				"timeframe": {},
+				"reference": {
+					"id": "c39c05c4-cda8-433e-8095-37495cfd91d2",
+					"type": "savedQuery"
+				}
+			},
+			{
+				"alias": "Ingester Connections",
+				"timeframe": {},
+				"reference": {
+					"id": "523c5984-650b-4d42-8bc7-f207f4c72dd7",
+					"type": "savedQuery"
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "Ingester Activity",
+				"renderer": "overview",
+				"span": {
+					"col": 16,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16366623989650,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Reconnects Over Time",
+				"renderer": "barChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 3
+				},
+				"id": 16366624430151,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Errors",
+				"renderer": "table",
+				"span": {
+					"col": 10,
+					"row": 4,
+					"x": 6,
+					"y": 3
+				},
+				"id": 16366624920152,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Ingester Connections",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 7
+				},
+				"id": 16366629288203,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2
+	},
+	"Labels": null
+}

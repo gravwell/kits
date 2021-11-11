@@ -1,0 +1,1 @@
+tag=gravwell syslog -s Structured.ingesteruuid as UUID Structured.ingester Structured.error | table UUID ingester error

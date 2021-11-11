@@ -1,0 +1,1 @@
+tag=gravwell syslog -s Message==connected Structured.ingester | stats count by ingester | chart count by ingester
