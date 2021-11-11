@@ -19,6 +19,8 @@ By using the syslog module, you can easily search all Gravwell logs for key even
 tag=gravwell syslog Message=="User logged in" Structured.user | table user TIMESTAMP
 ```
 
+**NOTE** - User login events are only emitted when the system **Log-Level** is configured to **INFO** in the *gravwell.conf* file.  Many of the queries in the Gravwell kit rely on the **Log-Level** being set to **INFO**.
+
 # Ingester Status Script
 
 The Gravwell Kit comes with a scheduled search that will enumerate the connection state of all ingesters. If an ingester that had previously been seen is no longer connected, it will send an email to a specified address. 
