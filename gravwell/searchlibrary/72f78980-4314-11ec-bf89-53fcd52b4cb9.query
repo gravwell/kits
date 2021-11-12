@@ -1,0 +1,3 @@
+tag=gravwell syslog Hostname Appname==searchagent Message==error id uid type runtime error
+| stats mean(runtime) as meanruntime count by id uid type error
+| table TIMESTAMP id uid type meanruntime count error
