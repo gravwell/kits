@@ -1,0 +1,20 @@
+{
+	"UUID": "0768d1ac-85b8-4ab5-ba31-db55ca7e541f",
+	"GUID": "e4aac01c-abda-4b6e-a95c-d42887ad29ed",
+	"UID": 2,
+	"GIDs": null,
+	"Global": false,
+	"Name": "Palo Alto Kit",
+	"Desc": "High-level overview of the Palo Alto kit from Gravwell",
+	"Labels": [
+		"palo"
+	],
+	"LastUpdated": "2022-03-31T16:28:58.693423457Z",
+	"Author": {
+		"Name": "The Gravwell Authors",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": true
+}

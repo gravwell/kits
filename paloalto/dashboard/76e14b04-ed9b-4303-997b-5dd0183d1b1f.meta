@@ -1,0 +1,153 @@
+{
+	"UUID": "76e14b04-ed9b-4303-997b-5dd0183d1b1f",
+	"Name": "Palo Alto Config Overview",
+	"Description": "Config logs from Palo Alto devices",
+	"Data": {
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=pan_config ax admin serial host client cmd result | alias admin User serial Serial host Host client Client cmd Command result Result | table User Serial Host Client Command Result",
+				"alias": "Latest Events"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_config ax cmd | stats count by cmd | chart count by cmd",
+				"alias": "Config Events"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_config ax admin | stats count by admin | chart count by admin",
+				"alias": "Configuration Administrators"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_config ax client | stats count by client | chart count by client",
+				"alias": "Clients Used"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_config ax result | stats count by result | chart count by result",
+				"alias": "Results"
+			}
+		],
+		"tiles": [
+			{
+				"title": "Latest Events",
+				"renderer": "table",
+				"searchesIndex": 0,
+				"span": {
+					"col": 18,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648586624514
+			},
+			{
+				"title": "Config Events",
+				"renderer": "categoryBarChart",
+				"searchesIndex": 1,
+				"span": {
+					"col": 9,
+					"row": 6,
+					"x": 9,
+					"y": 5
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648586754472
+			},
+			{
+				"title": "Configuration Administrators",
+				"renderer": "categoryBarChart",
+				"searchesIndex": 2,
+				"span": {
+					"col": 9,
+					"row": 6,
+					"x": 0,
+					"y": 5
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648586798062
+			},
+			{
+				"title": "Clients Used",
+				"renderer": "pieChart",
+				"searchesIndex": 3,
+				"span": {
+					"col": 9,
+					"row": 6,
+					"x": 9,
+					"y": 11
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648587008113
+			},
+			{
+				"title": "Results",
+				"renderer": "pieChart",
+				"searchesIndex": 4,
+				"span": {
+					"col": 9,
+					"row": 6,
+					"x": 0,
+					"y": 11
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648587070381
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"palo"
+	]
+}

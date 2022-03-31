@@ -1,0 +1,20 @@
+{
+	"UUID": "f451f8b7-cf3d-423b-95c6-3738852bd9ea",
+	"Name": "GlobalProtect Info for IP",
+	"Description": "If IP is a GlobalProtect private IP, show information about the user \u0026 machine associated with the IP.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"UUID": "182e5db7-4513-4056-a8a8-987fbf570599",
+	"Name": "Traffic categories for IP",
+	"Description": "Categories of traffic seen by Palo Alto related to given IP address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

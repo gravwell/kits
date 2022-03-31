@@ -1,0 +1,221 @@
+{
+	"UUID": "7fdbf49e-82e9-4b60-b69c-2ec32703c6a7",
+	"Name": "Palo Alto SaaS Overview",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax subtype==\"end\" is_saas_of_app==\"yes\" bytes | stats sum(bytes) | numbercard (sum \"SaaS bytes transferred\")",
+				"alias": "SaaS Bytes Transferred"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax subtype==\"end\" is_saas_of_app==\"yes\" app | stats count by app | chart count by app",
+				"alias": "SaaS Application Usage"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax is_saas_of_app==\"yes\" action | stats count by action | chart count by action",
+				"alias": "SaaS Actions"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval setEnum(\"Volume\", toHumanSize(sum)) \n| sort by sum desc\n| table App Category Subcategory Sessions \"Volume\"",
+				"alias": "SaaS Application Distribution"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval setEnum(\"Volume\", toHumanSize(sum)) \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
+				"alias": "Sanctioned SaaS Applications"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"no\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval setEnum(\"Volume\", toHumanSize(sum)) \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
+				"alias": "Unsanctioned SaaS Applications"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax sanctioned_state_of_app\n| eval if (sanctioned_state_of_app == \"yes\") { setEnum(\"state\", \"Sanctioned\") } else { setEnum(\"state\", \"Non-sanctioned\") }\n| stats count by state\n| chart count by state",
+				"alias": "Sanctioned Application Percentages"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax sanctioned_state_of_app==\"yes\" is_saas_of_app==\"yes\" subcategory_of_app\n| stats count by subcategory_of_app\n| chart count by subcategory_of_app limit 6",
+				"alias": "Top Categories - Sanctioned"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax sanctioned_state_of_app==\"no\" is_saas_of_app==\"yes\" subcategory_of_app\n| stats count by subcategory_of_app\n| chart count by subcategory_of_app limit 6",
+				"alias": "Top Categories - Unsanctioned"
+			}
+		],
+		"tiles": [
+			{
+				"title": "SaaS Bytes Transferred",
+				"renderer": "numberCard",
+				"searchesIndex": 0,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": "",
+					"IncludeOther": "yes"
+				},
+				"id": 1648247098122
+			},
+			{
+				"title": "SaaS Application Usage",
+				"renderer": "areaChart",
+				"searchesIndex": 1,
+				"span": {
+					"col": 16,
+					"row": 5,
+					"x": 6,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": "",
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648247288987
+			},
+			{
+				"title": "SaaS Actions",
+				"renderer": "categoryBarChart",
+				"searchesIndex": 2,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 3
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": "",
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648247796635
+			},
+			{
+				"title": "SaaS Application Distribution",
+				"renderer": "table",
+				"searchesIndex": 3,
+				"span": {
+					"col": 16,
+					"row": 5,
+					"x": 6,
+					"y": 5
+				},
+				"rendererOptions": {},
+				"id": 1648489778201
+			},
+			{
+				"title": "Sanctioned SaaS Applications",
+				"renderer": "table",
+				"searchesIndex": 4,
+				"span": {
+					"col": 10,
+					"row": 4,
+					"x": 0,
+					"y": 10
+				},
+				"rendererOptions": {},
+				"id": 1648493051305
+			},
+			{
+				"title": "Unsanctioned SaaS Applications",
+				"renderer": "table",
+				"searchesIndex": 5,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 10,
+					"y": 10
+				},
+				"rendererOptions": {},
+				"id": 1648493054508
+			},
+			{
+				"title": "Sanctioned Application Percentages",
+				"renderer": "pieChart",
+				"searchesIndex": 6,
+				"span": {
+					"col": 7,
+					"row": 5,
+					"x": 0,
+					"y": 14
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"id": 1648493416132
+			},
+			{
+				"title": "Top Categories - Sanctioned",
+				"renderer": "categoryBarChart",
+				"searchesIndex": 7,
+				"span": {
+					"col": 7,
+					"row": 5,
+					"x": 7,
+					"y": 14
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"id": 1648494628461
+			},
+			{
+				"title": "Top Categories - Unsanctioned",
+				"renderer": "categoryBarChart",
+				"searchesIndex": 8,
+				"span": {
+					"col": 8,
+					"row": 5,
+					"x": 14,
+					"y": 14
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"id": 1648494631338
+			}
+		],
+		"version": 2
+	},
+	"Labels": [
+		"palo"
+	]
+}

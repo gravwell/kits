@@ -1,0 +1,248 @@
+{
+	"UUID": "7d826f9f-73b8-4047-9dfe-2f0163c9ccee",
+	"Name": "Palo Alto Threat Overview",
+	"Description": "Threat log analysis",
+	"Data": {
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype | stats count by subtype | numbercard (count \"\")",
+				"alias": "Threat Log Types"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype threatid | stats count by threatid | awk -e threatid \"{gsub(/\\(9999\\)/, 'URL Filtering(9999)'); print}\" | alias threatid \"Threat ID\" | table \"Threat ID\" count",
+				"alias": "Most Frequent Threat IDs"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype srcloc | stats count by srcloc | chart count by srcloc",
+				"alias": "Threat Source Locations"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype dstloc | stats count by dstloc | chart count by dstloc",
+				"alias": "Threat Destination Locations"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"scan\" src threatid | stats count by src threatid | alias src Source threatid \"Threat ID\" | table Source \"Threat ID\" count",
+				"alias": "Scans Detected"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"scan\" srcloc | stats count by srcloc | chart count by srcloc",
+				"alias": "Scan Source Locations"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"scan\" threatid | stats count by threatid | chart count by threatid",
+				"alias": "Scan Types"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype!=url src | geoip src.Location | heatmap",
+				"alias": "Threat Source Locations"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==scan src | geoip src.Location | heatmap",
+				"alias": "Scan Source Locations"
+			}
+		],
+		"tiles": [
+			{
+				"title": "Threat Log Types",
+				"renderer": "numberCard",
+				"searchesIndex": 0,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no",
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": ""
+				},
+				"id": 1648501709057
+			},
+			{
+				"title": "Most Frequent Threat IDs",
+				"renderer": "table",
+				"searchesIndex": 1,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 0,
+					"y": 3
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648578324809
+			},
+			{
+				"title": "Threat Source Locations",
+				"renderer": "pieChart",
+				"searchesIndex": 2,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 4,
+					"y": 3
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648578467521
+			},
+			{
+				"title": "Threat Destination Locations",
+				"renderer": "pieChart",
+				"searchesIndex": 3,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 8,
+					"y": 3
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648578469419
+			},
+			{
+				"title": "Scans Detected",
+				"renderer": "table",
+				"searchesIndex": 4,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 8
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648580013483
+			},
+			{
+				"title": "Scan Source Locations",
+				"renderer": "pieChart",
+				"searchesIndex": 5,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 4,
+					"y": 8
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648580063888
+			},
+			{
+				"title": "Scan Types",
+				"renderer": "pieChart",
+				"searchesIndex": 6,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 8
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648580097100
+			},
+			{
+				"title": "Threat Source Locations",
+				"renderer": "heatmap",
+				"searchesIndex": 7,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 14
+				},
+				"rendererOptions": {},
+				"id": 1648660210231
+			},
+			{
+				"title": "Scan Source Locations",
+				"renderer": "heatmap",
+				"searchesIndex": 8,
+				"span": {
+					"col": 12,
+					"row": 9,
+					"x": 0,
+					"y": 22
+				},
+				"rendererOptions": {},
+				"id": 1648660274490
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"palo"
+	]
+}

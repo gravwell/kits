@@ -1,0 +1,41 @@
+{
+	"UUID": "6991b96f-3b3f-4255-b790-a7623ccc18c6",
+	"Name": "IP Address",
+	"Description": "Palo Alto actions on IP address",
+	"Data": {
+		"menuLabel": null,
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Investigate Threats",
+				"description": "Look for threats in Palo Alto logs",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "fe0de242-49f7-4c50-9860-26a51ff9ef56",
+					"options": {
+						"variable": "%%IP%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}
