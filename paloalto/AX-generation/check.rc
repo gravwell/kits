@@ -1,0 +1,7 @@
+#!/usr/local/plan9/bin/rc
+for (i in *.txt) {
+	echo $i:
+	awk -F '	' 'NR==FNR { map[$1] = $2; next }
+	$0 in map { $0 = map[$0] }
+	{ print }' map $i | grep '^[A-Z]'
+}
