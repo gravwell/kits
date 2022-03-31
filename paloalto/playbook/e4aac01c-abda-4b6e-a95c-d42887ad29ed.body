@@ -1,0 +1,96 @@
+This kit provides tools for working with logs from Palo Alto next-gen firewalls. Note that at this time, only PAN-OS 10.x is supported.
+
+# Configure Log Forwarding
+
+Before you can use the kit, you'll need to get logs flowing from your Palo Alto device into Gravwell. Our recommended method is via *syslog forwarding*. Gravwell can receive syslog data using the [Simple Relay](https://docs.gravwell.io/#!ingesters/simple_relay.md) ingester.
+
+## Install & Configure Simple Relay
+
+1. Deploy the [Simple Relay](https://docs.gravwell.io/#!ingesters/simple_relay.md) ingester on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/#!ingesters/ingesters.md) for more information.
+2. Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/simple\_relay.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_simple\_relay.service</kbd> to restart the ingester. This will make it start listening for incoming syslog on port 6601, with special rules to route Palo Alto traffic to different Gravwell tags.
+<pre>
+[Listener "syslogtcp"]
+        Bind-String="tcp://0.0.0.0:6601"
+        Reader-Type=line
+        Tag-Name=syslog
+        Assume-Local-Timezone=true #if a time format does not have a timezone, assume local time
+        Preprocessor="PaloAlto PAN"
+
+[preprocessor "PaloAlto PAN"]
+        Type = regexrouter
+        Drop-Misses=false
+        Regex=`^[^,]+,[^,]+,[^,]+,(?P<type>[^,]+),`
+        Route-Extraction=type
+        Route=AUTHENTICATION:pan_auth
+        Route=CONFIG:pan_config
+        Route=CORRELATION:pan_correlation
+        Route=DECRYPTION:pan_decryption
+        Route=GLOBALPROTECT:pan_globalprotect
+        Route=GTP:pan_gtp
+        Route=HIPMATCH:pan_hipmatch
+        Route=IPTAG:pan_iptag
+        Route=SCTP:pan_sctp
+        Route=SYSTEM:pan_system
+        Route=THREAT:pan_threat
+        Route=TRAFFIC:pan_traffic
+        Route=USERID:pan_userid
+</pre>
+3. Ensure that the server running Simple Relay allows incoming connections on port 6601, and that any firewalls between the Palo Alto device and the Simple Relay system allow port 6601 traffic.
+4. Configure log forwarding as described in [the Palo Alto documentation](https://docs.paloaltonetworks.com/pan-os/10-0/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring.html), defining the syslog server profile to point at the Simple Relay server on port 6601 as seen below:
+
+![](/api/files/3bfcce25-dc9f-40dd-a838-fddd02e1cbdf =663x345)
+
+Once the changes have been committed, logs should begin flowing into Gravwell. You can check by running the folowing query:
+
+```
+tag=pan_* limit 10
+```
+
+If any results appear, logs are coming in properly.
+
+## Data Tags
+
+Palo Alto logs are sorted into tags on Gravwell based on the log type, using mappings defined in the preprocessor configuration above. The tags are:
+
+* <kbd>pan_auth</kbd>: [Authentication logs](https://docs.paloaltonetworks.com/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/authentication-log-fields.html)
+* <kbd>pan_config</kbd>: [Device configuration logs](https://docs.paloaltonetworks.com/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/config-log-fields.html)
+* <kbd>pan_correlation</kbd>: [Correlated event logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/correlated-events-log-fields.html)
+* <kbd>pan_decryption</kbd>: [Decryption logs](https://docs.paloaltonetworks.com/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/decryption-log-fields.html)
+* <kbd>pan_globalprotect</kbd>: [GlobalProtect VPN logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/globalprotect-log-fields.html)
+* <kbd>pan_gtp</kbd>: [GTP logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/gtp-log-fields.html)
+* <kbd>pan_hipmatch</kbd>: [HIP match logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/hip-match-log-fields.html)
+* <kbd>pan_iptag</kbd>: [IP-Tag logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/ip-tag-log-fields.html)
+* <kbd>pan_sctp</kbd>: [SCTP logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/sctp-log-fields.html)
+* <kbd>pan_system</kbd>: [System logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/system-log-fields.html)
+* <kbd>pan_threat</kbd>: [Threat logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html)
+* <kbd>pan_traffic</kbd>: [Traffic logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/traffic-log-fields.html)
+* <kbd>pan_userid</kbd>: [User-ID logs](https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/user-id-log-fields.html)
+
+The links in the list above will take you to the official Palo Alto documentation for each log type. These are the best places to find out what any given field *means*. For instance, the traffic log page includes the following definitions:
+
+<blockquote>
+<pre>
+Source Address (src): Original session source IP address.
+Destination Address (dst): Original session destination IP address.
+</pre>
+</blockquote>
+
+The names in parentheses are the names of the fields used in Gravwell; thus to extract the source and destination IP addresses of a session, one would type <kbd>ax src dst</kbd>. See the next session for more information on extracting data fields.
+
+## Working with the Data
+
+One key component of this kit is the pre-configured *auto extractors* which apply structure to the CSV-formatted logs in the system. Each log type contains *many* fields; for instance, the traffic logs consist of 114 individual fields! A table with 114 columns is difficult to deal with on even the largest monitor, so we recommend using a particular trick when exploring the extracted fields of a given data type. First, run a query on the tag using the ax module with no arguments, sent to the text renderer:
+
+```
+tag=pan_traffic ax | text
+```
+
+Then, in the results, click the "Show details" floating button for any one of the results. This will expand the entry to show the extracted enumerated values. This lets you rapidly scroll through the raw results until you find one that looks interesting, then expand it to see which enumerated values are available:
+
+![](/api/files/f99bf07b-e093-4631-85d4-687b039ecda2 =1870x710)
+
+In the image above, a single enumerated value pair is highlighted; from this, we might modify the query to filter down to only traffic destined for Switzerland for further examination:
+
+```
+tag=pan_traffic ax dstloc=="Switzerland" | text
+```

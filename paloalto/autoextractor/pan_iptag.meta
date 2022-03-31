@@ -1,0 +1,12 @@
+{
+	"Name": "Palo Alto iptag",
+	"Desc": "Palo Alto iptag log format",
+	"Module": "csv",
+	"Tag": "pan_iptag",
+	"Labels": null,
+	"UID": 2,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "445ed9e9-f7b9-4d65-8163-5167f96fa9dd",
+	"LastUpdated": "2022-03-31T16:30:55.425575565Z"
+}

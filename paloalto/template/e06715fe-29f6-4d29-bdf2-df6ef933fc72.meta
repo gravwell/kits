@@ -1,0 +1,20 @@
+{
+	"UUID": "e06715fe-29f6-4d29-bdf2-df6ef933fc72",
+	"Name": "Wildfire Submissions for IP",
+	"Description": "Table of Wildfire submissions related to a given IP.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

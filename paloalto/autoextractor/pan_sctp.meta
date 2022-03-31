@@ -1,0 +1,12 @@
+{
+	"Name": "Palo Alto sctp",
+	"Desc": "Palo Alto sctp log format",
+	"Module": "csv",
+	"Tag": "pan_sctp",
+	"Labels": null,
+	"UID": 2,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "22e5103f-9656-47fa-bd83-87792d7f74a4",
+	"LastUpdated": "2022-03-31T16:30:55.415392221Z"
+}

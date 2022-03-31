@@ -1,0 +1,146 @@
+{
+	"UUID": "c30772c4-22a9-4495-8fbf-f62a69bc9640",
+	"Name": "Palo Alto Wildfire Overview",
+	"Description": "Overview of Wildfire analysis submissions \u0026 verdicts.",
+	"Data": {
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"wildfire\" category | stats count by category | numbercard (count \"\")",
+				"alias": "Wildfire Verdicts"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"wildfire\" category | stats count by category | chart count by category",
+				"alias": "Wildfire Verdicts Over Time"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"wildfire\" app | stats count by app | chart count by app",
+				"alias": "Top Applications"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"wildfire\" filetype | stats count by filetype | chart count by filetype",
+				"alias": "Top File Types"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"wildfire\" category!=\"benign\" | alias misc filename | table category rule app src dst filename filetype filedigest",
+				"alias": "Recent Wildfire Submissions"
+			}
+		],
+		"tiles": [
+			{
+				"title": "Wildfire Verdicts",
+				"renderer": "numberCard",
+				"searchesIndex": 0,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"id": 1648497094768
+			},
+			{
+				"title": "Wildfire Verdicts Over Time",
+				"renderer": "lineChart",
+				"searchesIndex": 1,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 3
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648498280976
+			},
+			{
+				"title": "Top Applications",
+				"renderer": "pieChart",
+				"searchesIndex": 2,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 9
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648498460927
+			},
+			{
+				"title": "Top File Types",
+				"renderer": "pieChart",
+				"searchesIndex": 3,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 9
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648498463825
+			},
+			{
+				"title": "Recent Wildfire Submissions",
+				"renderer": "table",
+				"searchesIndex": 4,
+				"span": {
+					"col": 12,
+					"row": 9,
+					"x": 0,
+					"y": 15
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648498739363
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"palo"
+	]
+}

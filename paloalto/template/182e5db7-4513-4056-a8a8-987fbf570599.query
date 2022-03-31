@@ -1,0 +1,5 @@
+tag=pan_traffic words "%%IP%%" 
+| ax src dst category_of_app subcategory_of_app 
+| alias src "Source" dst "Destination" category_of_app "Category" 
+| stats count by Category
+| chart count by Category

@@ -1,0 +1,145 @@
+{
+	"UUID": "6ce64d08-9962-4e1b-9654-78c0e2ac3a09",
+	"Name": "Palo Alto GlobalProtect Overview",
+	"Description": "Information about clients connecting via GlobalProtect VPN",
+	"Data": {
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=pan_globalprotect ax stage==\"connected\" srcuser machinename client_os_ver | stats count by srcuser machinename client_os_ver | alias srcuser User machinename \"Client System\" client_os_ver \"Client OS\" | table User \"Client System\" \"Client OS\" count",
+				"alias": "GlobalProtect Users"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_globalprotect ax stage==\"login\" status | stats count by status | numbercard (count \"\")",
+				"alias": "Login Attempts"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_globalprotect ax stage==\"login\" status==\"failure\" srcuser srcregion public_ip public_ipv6 | alias srcuser User srcregion Region public_ip \"IPv4\" public_ipv6 IPv6 | stats count as failures by User Region IPv4 IPv6| table User Region IPv4 IPv6 failures",
+				"alias": "Failed Logins"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_globalprotect ax stage==\"login\" status | stats count by status | chart count by status",
+				"alias": "Login Events"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_globalprotect ax eventid==\"gateway-tunnel-latency\" description | regex -e description \"Pre-tunnel latency: (?P\u003cpre\u003e[^,]+), Post-tunnel latency: (?P\u003cpost\u003e[^,]+)\"\n/* We use toDuration to go from a string to a Duration */\n| eval setEnum(\"pre\", toDuration(pre))\n| eval setEnum(\"post\", toDuration(post))\n| stats mean(pre) as pre mean(post) as post\n/* At this point, pre and post are in nanoseconds. Let's convert them to milliseconds */\n| hoc (\"Pre-tunnel Latency (ms)\" = pre / 1000000; \"Post-tunnel Latency (ms)\" = post / 1000000)\n| chart \"Pre-tunnel Latency (ms)\" \"Post-tunnel Latency (ms)\" ",
+				"alias": "Average Latency",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "GlobalProtect Users",
+				"renderer": "table",
+				"searchesIndex": 0,
+				"span": {
+					"col": 8,
+					"row": 7,
+					"x": 4,
+					"y": 0
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648584113923
+			},
+			{
+				"title": "Login Attempts",
+				"renderer": "numberCard",
+				"searchesIndex": 1,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648584574137
+			},
+			{
+				"title": "Failed Logins",
+				"renderer": "table",
+				"searchesIndex": 2,
+				"span": {
+					"col": 8,
+					"row": 7,
+					"x": 4,
+					"y": 7
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648584815238
+			},
+			{
+				"title": "Login Events",
+				"renderer": "lineChart",
+				"searchesIndex": 3,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 3
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648584817463
+			},
+			{
+				"title": "Average Latency",
+				"renderer": "categoryBarChart",
+				"searchesIndex": 4,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 0,
+					"y": 9
+				},
+				"rendererOptions": {},
+				"id": 1648585687063
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"palo"
+	]
+}

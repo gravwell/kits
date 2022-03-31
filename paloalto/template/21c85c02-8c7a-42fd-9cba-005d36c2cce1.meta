@@ -1,0 +1,20 @@
+{
+	"UUID": "21c85c02-8c7a-42fd-9cba-005d36c2cce1",
+	"Name": "Threat subtypes for IP",
+	"Description": "Generate a numbercard showing counts of threat subtypes related to a given IP.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

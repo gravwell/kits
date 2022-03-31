@@ -1,0 +1,20 @@
+{
+	"UUID": "8ff368b5-1d29-422a-89a7-7eb20c50d224",
+	"Name": "Threat Table for IP",
+	"Description": "Table of threats related to a given IP.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

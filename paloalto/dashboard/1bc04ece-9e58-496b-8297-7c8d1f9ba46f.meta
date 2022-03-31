@@ -1,0 +1,193 @@
+{
+	"UUID": "1bc04ece-9e58-496b-8297-7c8d1f9ba46f",
+	"Name": "Palo Alto User Behavior",
+	"Description": "General overview of user behavior from Palo Alto logs",
+	"Data": {
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic,pan_threat ax subtype\n| tag=pan_traffic eval if (subtype == \"end\") {\n    setEnum(\"type\", \"Traffic Events\")\n}\n| tag=pan_threat eval if (subtype == \"url\") {\n    setEnum(\"type\", \"URL Events\")\n}  else if (subtype == \"data\") {\n    setEnum(\"type\", \"Data Events\")\n}  else if (subtype == \"file\") {\n    setEnum(\"type\", \"File Events\")\n}  else if (subtype == \"vulnerability\") {\n    setEnum(\"type\", \"Vulnerability Events\")\n}\n| stats count by type\n| numbercard (count \"\")",
+				"alias": "Event Counts"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax is_saas_of_app==\"yes\"\n| stats count\n| numbercard (count \"SaaS Events\")",
+				"alias": "SaaS Events",
+				"searchID": 3702196221
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax subtype==\"url\" misc | regex -e misc \"(?P\u003chostname\u003e[^/]+)/\" | stats count by hostname | table hostname count",
+				"alias": "Top Hostnames",
+				"searchID": 7700647801
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_threat ax url_category_list \n| split -clean -d \",\" url_category_list | alias url_category_list url_category \n| lookup -v -s -r excluded_url_categories url_category category reason \n| stats count by url_category\n| chart count by url_category limit 16",
+				"alias": "Top Web Categories",
+				"color": null,
+				"searchID": 81925551478
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax app!=\"incomplete\" | alias app Application | stats count by Application | chart count by Application limit 16",
+				"alias": "Top Applications",
+				"searchID": 83108512032
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax subtype==\"end\" app | stats count by app | sort by count asc | limit 10 | table app count",
+				"alias": "Rare Applications"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=pan_traffic ax bytes | stats sum(bytes) | hoc (Megabytes = sum / (1024 * 1024)) | chart Megabytes",
+				"alias": "Total Traffic"
+			}
+		],
+		"tiles": [
+			{
+				"title": "Event Counts",
+				"renderer": "numberCard",
+				"searchesIndex": 0,
+				"span": {
+					"col": 10,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": ""
+				},
+				"id": 1648235742223
+			},
+			{
+				"title": "SaaS Events",
+				"renderer": "numberCard",
+				"searchesIndex": 1,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 10,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": ""
+				},
+				"id": 1648235861790
+			},
+			{
+				"title": "Top Hostnames",
+				"renderer": "table",
+				"searchesIndex": 2,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 3
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": ""
+				},
+				"id": 1648241873792
+			},
+			{
+				"title": "Top Web Categories",
+				"renderer": "pieChart",
+				"searchesIndex": 3,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 4,
+					"y": 3
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": "",
+					"IncludeOther": "yes"
+				},
+				"id": 1648244342156
+			},
+			{
+				"title": "Top Applications",
+				"renderer": "pieChart",
+				"searchesIndex": 4,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 3
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": "",
+					"IncludeOther": "yes"
+				},
+				"id": 1648244488931
+			},
+			{
+				"title": "Rare Applications",
+				"renderer": "table",
+				"searchesIndex": 5,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 0,
+					"y": 9
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"id": 1648245840175
+			},
+			{
+				"title": "Total Traffic",
+				"renderer": "areaChart",
+				"searchesIndex": 6,
+				"span": {
+					"col": 8,
+					"row": 5,
+					"x": 4,
+					"y": 9
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1648659493013
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2,
+		"lastDataUpdate": "2022-03-25T14:41:31-07:00"
+	},
+	"Labels": [
+		"palo"
+	]
+}
