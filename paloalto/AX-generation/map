@@ -1,0 +1,335 @@
+Action	action
+Action Flags	actionflags
+Action Source	action_source
+App Flap Count	link_change_count
+Application	app
+Application Category	category_of_app
+Application Characteristic	characteristic_of_app
+Application Container	container_of_app
+Application Risk	risk_of_app
+Application SaaS	is_saas_of_app
+Application Sanctioned State	sanctioned_state_of_app
+Application Subcategory	subcategory_of_app
+Application Technology	technology_of_app
+A Slice Differentiator	nsdsai_sd
+A Slice Service Type	nsdsai_sst
+Attempted Gateways	attempted_gateways
+Authentication Method	auth_method
+Bytes	bytes
+Bytes Received	bytes_received
+Bytes Sent	bytes_sent
+Category	category
+Certificate End Date	notafter
+Certificate Flags	cert_flags
+Certificate Serial Number	cert_serial
+Certificate Size	cert_size
+Certificate Start Date	notbefore
+Certificate Version	cert_ver
+Chain Status	chain_status
+Client OS	client_os
+Client OS Version	client_os_ver
+Client Version	client_ver
+Cloud	cloud
+Cloud Report ID	cloud_reportid
+Common Name Length	cn_len
+Config Version	config_ver
+Connect Method	connect_method
+Container ID	container_id
+Content Type	contenttype
+Content Version	contentver
+Data Source	datasource
+Data Source Name	datasourcename
+Data Source Subtype	datasource_subtype
+Data Source Type	datasource_type
+Description	description
+Destination Address	dst
+Destination Country	dstloc
+Destination Device Category	dst_category
+Destination Device Model	dst_model
+Destination Device OS Family	dst_osfamily
+Destination Device OS Version	dst_osversion
+Destination Device Profile	dst_profile
+Destination Device Vendor	dst_vendor
+Destination Dynamic Address Group	dst_dag
+Destination External Dynamic List	dst_edl
+Destination Hostname	dst_host
+Destination Location	dstloc
+Destination Mac Address	dst_mac
+Destination MAC Address	dst_mac
+Destination Port	dport
+Destination User	dstuser
+Destination VM UUID	dst_uuid
+Destination Zone	to
+Device Group Hierarchy 1	dg_hier_level_1
+Device Group Hierarchy 2	dg_hier_level_2
+Device Group Hierarchy 3	dg_hier_level_3
+Device Group Hierarchy 4	dg_hier_level_4
+Device Group Hierarchy Level 1	dg_hier_level_1
+Device Group Hierarchy Level 2	dg_hier_level_2
+Device Group Hierarchy Level 3	dg_hier_level_3
+Device Group Hierarchy Level 4	dg_hier_level_4
+Device MAC Address	mac
+Device Name	device_name
+DG Hierarchy Level 1	dg_hier_level_1
+DG Hierarchy Level 2	dg_hier_level_2
+DG Hierarchy Level 3	dg_hier_level_3
+DG Hierarchy Level 4	dg_hier_level_4
+Direction	direction
+Domain EDL	domain_edl
+Dynamic User Group	dynusergroup_name
+Dynamic User Group Name	dynusergroup_name
+Elapsed Time	elapsed
+Elliptic Curve	ec_curve
+Encryption Algorithm	tls_enc
+Error Code	error_code
+Error	error
+Error Index	err_index
+Event ID	eventid
+Factor Completion Time	factorcompletiontime
+Factor Number	factorno
+Factor Type	factortype
+File Digest	filedigest
+File Type	filetype
+Fingerprint	fingerprint
+Flags	flags
+FUTURE_USE1	future_use1
+FUTURE_USE2	future_use2
+FUTURE_USE3	future_use3
+FUTURE_USE4	future_use4
+FUTURE_USE5	future_use5
+FUTURE_USE6	future_use6
+FUTURE_USE7	future_use7
+FUTURE_USE8	future_use8
+FUTURE_USE9	future_use9
+FUTURE_USE10	future_use10
+FUTURE_USE11	future_use11
+FUTURE_USE12	future_use12
+FUTURE_USE13	future_use13
+FUTURE_USE14	future_use14
+FUTURE_USE15	future_use15
+FUTURE_USE16	future_use16
+FUTURE_USE17	future_use17
+FUTURE_USE18	future_use18
+FUTURE_USE19	future_use19
+FUTURE_USE20	future_use20
+FUTURE_USE21	future_use21
+FUTURE_USE22	future_use22
+FUTURE_USE23	future_use23
+FUTURE_USE24	future_use24
+FUTURE_USE25	future_use25
+FUTURE_USE26	future_use26
+FUTURE_USE27	future_use27
+FUTURE_USE28	future_use28
+FUTURE_USE29	future_use29
+FUTURE_USE30	future_use30
+FUTURE_USE31	future_use31
+FUTURE_USE32	future_use32
+FUTURE_USE33	future_use33
+FUTURE_USE34	future_use34
+FUTURE_USE35	future_use35
+FUTURE_USE36	future_use36
+Gateway	gateway
+Generated Time	time_generated
+Generate Time	time_generated
+Hash Algorithm	tls_auth
+High Resolution Timestamp	high_res_timestamp
+High Res Timestamp	high_res_timestamp
+HIP	matchname
+HIP Type	matchtype
+Host ID	hostid
+HTTP/2 Connection	http2_connection
+HTTP Headers	http_headers
+HTTP Method	http_method
+Inbound Interface	inbound_if
+IP Protocol	proto
+IPv6 Source Address	srcipv6
+Issuer Common Name Length	issuer_len
+Issuer Subject Common Name	issuer_cn
+Justification	justification
+Key Exchange Algorithm	tls_keyxchg
+Link Switches	link_switches
+Location	location
+Log Action	logset
+Login Duration	login_duration
+Machine Name	machinename
+Maximum Encapsulation	max_encap
+Monitor Tag/IMEI	monitortag
+NAT Destination IP	natdst
+NAT Destination Port	natdport
+NAT Source IP	natsrc
+NAT Source Port	natsport
+Offloaded	offloaded
+Operating System	os
+Outbound Interface	outbound_if
+Packets	packets
+Packets Received	pkts_received
+Packets Sent	pkts_sent
+Parent Session ID	parent_session_id
+Parent Session Start Time	parent_start_time
+Parent Start Time	parent_start_time
+Partial Hash	partial_hash
+Payload Protocol ID	ppid
+PCAP ID	pcap_id
+PCAP_ID	pcap_id
+PDU Session ID	pdu_session_id
+POD Name	pod_name
+POD Namespace	pod_namespace
+Policy ID	policy_id
+Policy Name	policy_name
+Portal	portal
+Priority	priority
+Private IP	private_ip
+Private IPv6	private_ipv6
+Protocol	proto
+Proxy Type	proxy_type
+Public IP	public_ip
+Public IPv6	public_ipv6
+Reason	reason
+Receive Time	receive_time
+Recipient	recipient
+Referer	referer
+Remote User ID	remote_user_id
+Remote User IP	remote_user_ip
+Repeat Count	repeatcnt
+Report ID	reportid
+Response Time	response_time
+Root Common Name Length	rootcn_len
+Root Status	root_status
+Root Subject Common Name	root_cn
+Rule Name	rule
+Rule	rule
+Rule UUID	rule_uuid
+SCTP Association ID	assoc_id
+SCTP Chunks	chunks
+SCTP Chunks Received	chunks_received
+SCTP Chunks Sent	chunks_sent
+SD-WAN Cluster	sdwan_cluster
+SD-WAN Cluster Type	sdwan_cluster_type
+SD-WAN Device Type	sdwan_device_type
+SD-WAN Site	sdwan_site
+Selection Type	selection_type
+Sender	sender
+Sequence Number	seqno
+Serial Number	serial
+Serial	serial
+Server Name Indication	sni
+Session End Reason	session_end_reason
+Session ID	sessionid
+Session Owner	session_owner
+Sessions Closed	sessions_closed
+Sessions Created	sessions_created
+Severity	severity
+SNI Length	sni_len
+Source Address	src
+Source Country	srcloc
+Source Device Category	src_category
+Source Device Model	src_model
+Source Device OS Family	src_osfamily
+Source Device OS Version	src_osversion
+Source Device Profile	src_profile
+Source Device Vendor	src_vendor
+Source Dynamic Address Group	src_dag
+Source External Dynamic List	src_edl
+Source Hostname	src_host
+Source IP	src
+Source Location	srcloc
+Source Mac Address	src_mac
+Source MAC Address	src_mac
+Source Port	sport
+Source Region	srcregion
+Source User	srcuser
+Source VM UUID	src_uuid
+Source Zone	from
+Stage for Client to Firewall	hs_stage_c2f
+Stage for Firewall to Server	hs_stage_f2s
+Stage	stage
+Start Time	start
+Status	status
+Strict Check	strict_check
+Subject Common Name	cn
+Subject	subject
+Subtype	subtype
+Tag Name	tag_name
+Threat Category	thr_category
+Threat/Content Type	subtype
+Threat ID	threatid
+Time Logged	time_received
+Time Out Threshold	timeout
+Timeout	timeout
+TLS Version	tls_version
+Tunneled Application	tunneled_app
+Tunnel Fragment	tunnel_fragment
+Tunnel ID/IMSI	tunnel_id
+Tunnel Inspection Rule	tunnel_insp_rule
+Tunnel	tunnel
+Tunnel Type	tunnel
+Type	type
+Unknown Protocol	unknown_proto
+URL Category List	url_category_list
+URL/Filename	misc
+URL Index	url_idx
+User Agent	user_agent
+User by Source	userbysource
+User Device Serial Number	serialnumber
+User Group Flags	ugflags
+User	user
+UUID for rule	rule_uuid
+Virtual System ID	vsys_id
+Virtual System Name	vsys_name
+Virtual System	vsys
+XFF Address	xff_ip
+X-Forwarded-For	xff
+SCTP Chunk Type	sctp_chunk_type
+SCTP Verification Tag 1	verif_tag_1
+SCTP Verification Tag 2	verif_tag_2
+SCTP Cause Code	sctp_cause_code
+Diameter App ID	diam_app_id
+Diameter Command Code	diam_cmd_code
+Diameter AVP Code	diam_avp_code
+SCTP Stream ID	stream_id
+SCTP Association End Reason	assoc_end_reason
+Op Code	op_code
+SCCP Calling Party SSN	sccp_calling_ssn
+SCCP Calling Party Global Title	sccp_calling_gt
+SCTP Filter	sctp_filter
+Host	host
+Command	cmd
+Admin	admin
+Client	client
+Result	result
+Configuration Path	path
+Before Change Detail	before_change_detail
+After Change Detail	after_change_detail
+Device Group	dg_id
+Audit Comment	comment
+Normalize User	normalize_user
+Object	object
+Authentication Policy	authpolicy
+Authentication ID	authid
+Vendor	vendor
+Server Profile	serverprofile
+Client Type	clienttype
+Event Type	event
+Authentication Protocol	authproto
+Region	region
+Content/Threat Type	subtype
+Object Name	objectname
+Object ID	object_id
+Evidence	evidence
+GTP Event Type	event_type
+MSISDN	msisdn
+Access Point Name	apn
+Radio Access Technology	rat
+GTP Message Type	msg_type
+End User IP Address	end_ip_addr
+Tunnel Endpoint Identifier1	teid1
+Tunnel Endpoint Identifier2	teid2
+GTP Interface	gtp_interface
+GTP Cause	cause_code
+Serving Country MCC	mcc
+Serving Network MNC	mnc
+Area Code	area_code
+Cell ID	cell_id
+GTP Event Code	event_code
+Module	module
+User Device Serial Number	user_serialnumber
