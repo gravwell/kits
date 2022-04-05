@@ -1,0 +1,9 @@
+{
+	"Tags": ["pan_traffic", "pan_threat"],
+	"Ingesters": ["simplerelay"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "Gravwell", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "Gravwell", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
