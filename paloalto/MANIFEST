@@ -199,6 +199,11 @@
 			"Hash": "7f8b238dc0e6fa3252a9a6c60305124d1827b9d9ece98d50060ccff4bb4f0836"
 		}
 	],
-	"Dependencies": null,
+	"Dependencies": [
+		{
+			"ID": "io.gravwell.networkenrichment",
+			"MinVersion": 13
+		}
+	],
 	"ConfigMacros": []
 }
