@@ -1,0 +1,15 @@
+{
+	"Name": "Tag Aggregates",
+	"Description": "Generate period counts entries and total data size, ingested into the _aggs_tags tag.",
+	"Labels": [
+		"gravwell",
+		"aggregates",
+		"agg"
+	],
+	"Schedule": "* * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow"
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "Tag Aggregates",
+	"Desc": "Extractor for the _aggs_tags tag, which contains counts \u0026 byte sums for each tag in the system.",
+	"Module": "csv",
+	"Tag": "_aggs_tags",
+	"Labels": [
+		"gravwell",
+		"aggs",
+		"aggregates"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "a78460d0-4549-4b8a-b9c9-61410c18c2bb",
+	"LastUpdated": "2022-04-12T14:01:58.175722793-07:00"
+}

@@ -1,0 +1,112 @@
+{
+	"UUID": "71ff395f-6e52-4e75-bc55-e50bcceb0714",
+	"Name": "Gravwell Data Stats",
+	"Description": "Information about data ingested into Gravwell based on aggregates.",
+	"Data": {
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=_aggs_tags ax | stats sum(bytes) as bytes by tag | chart bytes by tag",
+				"alias": "Bytes Ingested by Tag"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=_aggs_tags ax | stats sum(entries) as entries by tag | chart entries by tag",
+				"alias": "Entry Count by Tag"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=_aggs_tags ax | stats sum(entries) as entries sum(bytes) as bytes by tag | sort by entries desc | table tag entries bytes",
+				"alias": "Tag Statistics"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=_aggs_tags ax | stats sum(bytes) as bytes by tag | chart bytes by tag limit 8",
+				"alias": "Bytes per Tag"
+			}
+		],
+		"tiles": [
+			{
+				"title": "Bytes Ingested by Tag",
+				"renderer": "lineChart",
+				"searchesIndex": 0,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no",
+					"Smoothing": "normal",
+					"ConnectNulls": "no"
+				},
+				"id": 1649797820263
+			},
+			{
+				"title": "Entry Count by Tag",
+				"renderer": "lineChart",
+				"searchesIndex": 1,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1649797821744
+			},
+			{
+				"title": "Tag Statistics",
+				"renderer": "table",
+				"searchesIndex": 2,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 6
+				},
+				"rendererOptions": {},
+				"id": 1649798653698
+			},
+			{
+				"title": "Bytes per Tag",
+				"renderer": "pieChart",
+				"searchesIndex": 3,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 6
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"id": 1649801757246
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"gravwell",
+		"aggs",
+		"aggregates"
+	]
+}
