@@ -3,7 +3,7 @@
 	"Name": "Gravwell Kit",
 	"Desc": "Gravwell infrastructure monitoring kit.",
 	"Readme": "# Gravwell Kit\n\nThe Gravwell kit is designed to monitor internal Gravwell components and infrastructure.  Using this kit you can quickly see user activity, infrastructure health over time, ingester health, and API and authentication logs.\n\n\nThe Gravwell kit relies on the internal Gravwell component logging, available visibility will be determined by the logging verbocity configured in each of our components.  By default Gravwell internal logging is set to **warn** which means only messages of level **warn** or better will be logged.",
-	"Version": 3,
+	"Version": 4,
 	"MinVersion": {
 		"Major": 4,
 		"Minor": 2,
@@ -167,6 +167,21 @@
 			"Name": "00a8f445-9c52-4088-b593-95c738f56fd0",
 			"Type": 9,
 			"Hash": "ee68b01058af168b638a0b5932c111235e2a307d428dacacf081944746dbfa1e"
+		},
+		{
+			"Name": "e2aa0d2f-7694-421e-b8cf-aa669650cbe8",
+			"Type": 2,
+			"Hash": "c9f7e5602f2db023b3b3f3ac5a626268be0cdb4348e6ec091e59cc24c392e244"
+		},
+		{
+			"Name": "71ff395f-6e52-4e75-bc55-e50bcceb0714",
+			"Type": 3,
+			"Hash": "c8b38138d9af28d55089e2d56957a63841680e185f0210a4107244cce9a646f4"
+		},
+		{
+			"Name": "_aggs_tags",
+			"Type": 4,
+			"Hash": "d0f44b1e1c3e22f8582bfdfc8b362497efdf77ee53feddc121bc81ab7071865f"
 		}
 	],
 	"Dependencies": null,
