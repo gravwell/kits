@@ -4,7 +4,7 @@
 	"Labels": null,
 	"Schedule": "* * * * *",
 	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": true
+		"Disabled": true,
+		"RunImmediately": false
 	}
 }

@@ -23,9 +23,14 @@ tag=gravwell syslog Message=="User logged in" Structured.user | table user TIMES
 
 # Ingester Status Script
 
-The Gravwell Kit comes with a scheduled search that will enumerate the connection state of all ingesters. If an ingester that had previously been seen is no longer connected, it will send an email to a specified address. 
+The Gravwell Kit comes with a script named 'Ingester state tracker' that will watch the connection state of all ingesters and send an email if one disconnects. Because this script requires some additional configuration, it is packaged in a disabled state.
 
-In order to use the Ingester Status Script, you must first enable email by filling out the required fields in the "Email Server" section in the user settings.
+In order to use the Ingester Status Script, you must:
+
+* Set up your email server by filling out the required fields in the "Email Server" section in the user settings.
+* Make sure the $INGESTER\_STATE\_TOADDR and $INGESTER\_STATE\_FROMADDR [macros](/macros) are set to the addresses you want to use.
+* Go to the [scripts](/scripts) management interface, locate the script named "Ingester state tracker", and enable it by clicking the three-dot menu
+ on the script tile and selecting "Enable".
 
 ## Configuration Variables
 
