@@ -1,0 +1,12 @@
+{
+	"Name": "Other pfSense® Firewall Actions",
+	"Description": "Firewall actions other than \"pass\" or \"block\"",
+	"GUID": "62e5208a-4954-4a6f-a3ed-d143b1bce3be",
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

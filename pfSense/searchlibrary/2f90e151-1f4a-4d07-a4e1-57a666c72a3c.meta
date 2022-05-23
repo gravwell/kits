@@ -1,0 +1,12 @@
+{
+	"Name": "Pass Event Count for pfSense® Firewall",
+	"Description": "Shows the total number of firewall \"pass\" events for a given time period",
+	"GUID": "2f90e151-1f4a-4d07-a4e1-57a666c72a3c",
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Severity Breakdown for Syslog from pfSense® Software",
+	"Description": "Shows a breakdown of the severity of logged events",
+	"GUID": "0b54e471-5533-4543-8f18-b4621ee815c9",
+	"Labels": [
+		"pfSense",
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Application/Severity Stackgraph for Syslog from pfSense® Software",
+	"Description": "Log entry counts -- grouped by severity and stacked by application",
+	"GUID": "92a7c464-6de0-4be4-917f-b59e0e275f48",
+	"Labels": [
+		"pfSense",
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

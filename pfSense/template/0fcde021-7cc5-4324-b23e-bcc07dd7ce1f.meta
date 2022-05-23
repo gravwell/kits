@@ -1,0 +1,21 @@
+{
+	"UUID": "0fcde021-7cc5-4324-b23e-bcc07dd7ce1f",
+	"Name": "Standard Deviation of pfSense® Firewall Actions",
+	"Description": "A chart showing the standard deviation of pfSense® firewall actions over time, where the target IP is the source IP or destination IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	]
+}

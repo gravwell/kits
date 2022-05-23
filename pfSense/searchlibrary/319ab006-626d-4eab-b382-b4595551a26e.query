@@ -1,0 +1,5 @@
+tag=$PFSENSE_SYSLOG_TAG syslog Appname == "filterlog" Message
+  | anko ParseFilterlog
+  | count by act
+  | stats stddev(count) by act
+  | chart stddev by act

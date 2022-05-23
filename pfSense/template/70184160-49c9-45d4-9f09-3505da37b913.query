@@ -1,0 +1,1 @@
+tag=$PFSENSE_SYSLOG_TAG syslog | regex "%%SEARCHTERM%%" | count | chart

@@ -1,0 +1,103 @@
+[pfSense](https://www.pfsense.org/) is an open source firewall and router built on FreeBSD. This kit includes several components to make it simpler to analyze syslog events ingested from pfSense. It also includes firewall-specific components to make it easy to explore firewall syslog events and pivot on IP addresses.
+
+## Getting Started
+
+This section explains how to configure Gravwell and pfSense, so that Gravwell can ingest logs sent by pfSense.
+
+### Setting up your Gravwell ingester
+
+1.  [Install the Gravwell Simple Relay ingester](https://docs.gravwell.io/docs/#!ingesters/simple_relay.md)
+2.  Set up a listener to accept logs from pfSense. By default, pfSense® will send logs as udp datagrams to port 514. You can choose a different port if you prefer.
+3.  Keep in mind which Tag-Name you chose, as we'll need it later.
+
+<pre>
+Listener "pfsensesyslogudp"]
+    Bind-String="udp://0.0.0.0:514"
+    Tag-Name=pfsensesyslog
+    Assume-Local-Timezone=true #if a time format does not have a timezone, assume local time
+</pre>
+
+### Sending pfSense® logs to Gravwell
+
+#### Set the Log Message Format to RFC 5424
+1.  Open the web interface for pfSense, and navigate to **Status** -> **System Logs**
+2.  Click on the Settings tab to view logging options
+3.  Ensure that the **Log Message Format** is set to "syslog (RFC 5424...)"
+
+![](/api/files/0529b3c3-7f8a-45da-9e08-56a461b23b3d =2046x1088)
+
+
+#### Enable Remote Logging
+
+1.  Open the web interface for pfSense, navigate to **Status** -> **System Logs**, and click on the Settings tab
+2.  Scroll down to the **Remote Logging Options** section
+3.  Check the box to enable remote logging
+4.  Add the IP address of your Simple Relay ingester in the list of remote logging servers
+    - Be sure to match the port chosen for your Simple Relay listener!
+5.  Enable the remote syslog contents as you see fit.
+    - If you want to use the firewall components in this kit, be sure to check the box for **Firewall Events**
+6.  Click **Save**
+
+![](/api/files/d034a461-e5eb-4661-9b29-7e496e72c917 =2046x1590)
+
+You can read more about remote logging in pfSense® [here](https://docs.netgate.com/pfsense/en/latest/book/monitoring/remote-logging.html).
+
+## Configuring this Kit
+
+This kit contains one configuration macro that can be changed at any time.
+
+**$PFSENSE\_SYSLOG\_TAG** -- The tag used for pfSense® syslog. This should match the **Tag-Name** used for pfSense® in the Simple Relay ingester configuration.
+
+## Using this Playbook
+
+This playbook contains Gravwell queries which can be executed by clicking the 'Launch' button and selecting a time range--typically "Last hour" is sufficient and fast. Once you've launched the search, feel free to modify it and experiment!
+
+## Exploring pfSense® Logs
+
+We can create a table of syslog messages like so:
+
+```
+tag=$PFSENSE_SYSLOG_TAG syslog Timestamp Hostname Appname Message
+  | table
+```
+
+We can extract and compare any of the syslog fields, too! Check out the [documentation for the syslog module](https://docs.gravwell.io/#!search/syslog/syslog.md) for more information.
+
+```
+tag=$PFSENSE_SYSLOG_TAG syslog Severity <= 4 Hostname ~ pfSense® Appname == dhcpd Message
+  | table
+```
+
+## Exploring pfSense® Firewall Logs
+
+pfSense® uses a [special format](https://docs.netgate.com/pfsense/en/latest/monitoring/raw-filter-log-format.html) for logging firewall events. In this kit, we include an **anko** script for parsing these logs into named fields. Our anko implementation is based on the [original PHP implementation by the pfSense® folks](https://github.com/pfsense/pfsense/blob/f3df1d3eaa564da1d1b2c535a59ec269a9edab0f/src/etc/inc/syslog.inc#L1012). [The pfSense® project is licensed under the Apache License 2.0.](https://github.com/pfsense/pfsense/blob/f3df1d3eaa564da1d1b2c535a59ec269a9edab0f/LICENSE)
+
+Firewall events all have the Appname **filterlog**.
+
+We can count firewall events by action name (e.g., **pass** or **block**) like so:
+
+```
+tag=$PFSENSE_SYSLOG_TAG syslog Appname == "filterlog" Message
+  | anko ParseFilterlog
+  | count by act
+  | chart count by act
+```
+
+Firewall events vary depending on several factors including the action taken, the IP version, and the protocol used. The available enumerated values will depend on the fields present in the logs. However, several common fields appear in every message which can be convenient for filtering.
+
+The common fields (as listed on the [pfSense® documentation page](https://docs.netgate.com/pfsense/en/latest/monitoring/raw-filter-log-format.html)) are:
+
+
+> - Rule Number
+- Sub rule number
+- Anchor
+- Tracker
+- Real network interface
+- Reason for the log entry
+- Action taken that resulted in the log entry (e.g. block, pass)
+- Direction of the traffic (in/out)
+- IP version (4 for IPv4, 6 for IPv6)
+
+**Cover photo credit**
+
+Photo by [Jason Dent on Unspash](https://unsplash.com/@jdent?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)

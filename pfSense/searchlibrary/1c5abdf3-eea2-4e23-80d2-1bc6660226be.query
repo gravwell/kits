@@ -1,0 +1,2 @@
+tag=$PFSENSE_SYSLOG_TAG count
+  | gauge (count "Total number of entries for this time frame")

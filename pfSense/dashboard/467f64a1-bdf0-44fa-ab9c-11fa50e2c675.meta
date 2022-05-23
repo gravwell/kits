@@ -1,0 +1,272 @@
+{
+	"UUID": "467f64a1-bdf0-44fa-ab9c-11fa50e2c675",
+	"Name": "Syslog Invesigation Dashboard for pfSense® software",
+	"Description": "Summarizes recent events from pfSense® syslog for a given search term",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Syslog Events over Time for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "70184160-49c9-45d4-9f09-3505da37b913",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 8608705382
+			},
+			{
+				"alias": "Syslog Event Count for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "9e966934-54c7-45f1-aa16-f370263b61d4",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7079914893
+			},
+			{
+				"alias": "Syslog App Breakdown for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "a27de6df-2b9e-4f2f-968f-ba0800819715",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 8755384081
+			},
+			{
+				"alias": "Syslog Severity Breakdown for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "b1e2c5f3-c6ba-467a-b47a-575805049c0c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 5777504584
+			},
+			{
+				"alias": "Syslog Facility Breakdown for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "dfeee681-da79-44a1-9874-7908124a6802",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 1293084552
+			},
+			{
+				"alias": "Syslog Events for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "5c1740d8-2caa-416b-98ae-37da4e89c500",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 2940587527
+			},
+			{
+				"alias": "Severe pfSense® Syslog Events",
+				"timeframe": {},
+				"reference": {
+					"id": "b6e9c6ff-97e4-4e66-a82e-4da1838fb9ef",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 6564960060
+			}
+		],
+		"tiles": [
+			{
+				"title": "Syslog Events",
+				"renderer": "table",
+				"span": {
+					"col": 21,
+					"row": 8,
+					"x": 0,
+					"y": 14
+				},
+				"id": 15954486662560,
+				"rendererOptions": {},
+				"searchesIndex": 5
+			},
+			{
+				"title": "Breakdown by App",
+				"renderer": "categoryBarChart",
+				"searchesIndex": 2,
+				"span": {
+					"col": 14,
+					"row": 6,
+					"x": 0,
+					"y": 8
+				},
+				"rendererOptions": {
+					"renderer": "donutChart",
+					"rendererOptions": {
+						"Stack": "grouped",
+						"Smoothing": "normal",
+						"Orientation": "v",
+						"XAxisSplitLine": "yes",
+						"YAxisSplitLine": "no",
+						"IncludeOther": "yes",
+						"ConnectNulls": "no",
+						"LogScale": "no"
+					},
+					"IncludeOther": "yes",
+					"Orientation": "h"
+				},
+				"id": 1596131593711
+			},
+			{
+				"title": "Log Entry Severity",
+				"renderer": "categoryBarChart",
+				"span": {
+					"col": 13,
+					"row": 6,
+					"x": 14,
+					"y": 8
+				},
+				"rendererOptions": {
+					"Orientation": "h",
+					"IncludeOther": "yes"
+				},
+				"id": 1596131723351,
+				"searchesIndex": 3
+			},
+			{
+				"title": "Log Entry Facilities",
+				"renderer": "categoryBarChart",
+				"span": {
+					"col": 15,
+					"row": 6,
+					"x": 27,
+					"y": 8
+				},
+				"rendererOptions": {
+					"Orientation": "h",
+					"IncludeOther": "yes"
+				},
+				"id": 1596131740490,
+				"searchesIndex": 4
+			},
+			{
+				"title": "Log scale entries over time",
+				"renderer": "areaChart",
+				"searchesIndex": 2,
+				"span": {
+					"col": 21,
+					"row": 4,
+					"x": 21,
+					"y": 4
+				},
+				"rendererOptions": {
+					"LogScale": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no"
+				},
+				"id": 1596139284498
+			},
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 21,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 15961393574195,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				},
+				"searchesIndex": 0
+			},
+			{
+				"title": "Entries over time",
+				"renderer": "areaChart",
+				"span": {
+					"col": 21,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"rendererOptions": {
+					"LogScale": "no",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no"
+				},
+				"id": 15961396207596,
+				"searchesIndex": 2
+			},
+			{
+				"title": "Totals",
+				"renderer": "numberCard",
+				"span": {
+					"col": 21,
+					"row": 4,
+					"x": 21,
+					"y": 0
+				},
+				"id": 15961396448477,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				},
+				"searchesIndex": 1
+			},
+			{
+				"title": "Severe Syslog Events",
+				"renderer": "table",
+				"span": {
+					"col": 21,
+					"row": 8,
+					"x": 21,
+					"y": 14
+				},
+				"id": 15961398234808,
+				"rendererOptions": {},
+				"searchesIndex": 6
+			}
+		],
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-08-04T13:00:00-05:00"
+	},
+	"Labels": [
+		"pfSense",
+		"syslog"
+	]
+}

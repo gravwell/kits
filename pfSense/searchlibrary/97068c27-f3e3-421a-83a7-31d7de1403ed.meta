@@ -1,0 +1,12 @@
+{
+	"Name": "App Breakdown for Syslog from pfSense® Software",
+	"Description": "Shows a breakdown of which apps are logging events",
+	"GUID": "97068c27-f3e3-421a-83a7-31d7de1403ed",
+	"Labels": [
+		"pfSense",
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

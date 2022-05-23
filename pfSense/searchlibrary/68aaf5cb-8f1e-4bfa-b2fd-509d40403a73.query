@@ -1,0 +1,4 @@
+tag=$PFSENSE_SYSLOG_TAG syslog Appname == "filterlog" Message
+  | anko ParseFilterlog
+  | count
+  | gauge (count "Total Events")

@@ -1,0 +1,268 @@
+{
+	"ID": "io.gravwell.pfsense",
+	"Name": "Gravwell for pfSense® Software",
+	"Desc": "Provides tools for working with pfSense® Software logs, including support for firewall logs.\n",
+	"Readme": "",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "ef9d1582-dac5-434d-8063-918f41169902",
+	"Banner": "43b1c817-3ead-4c71-926a-6a4cc57242a9",
+	"Cover": "ef9d1582-dac5-434d-8063-918f41169902",
+	"Items": [
+		{
+			"Name": "Apache 2.0 License",
+			"Type": 10,
+			"Hash": "59899c6091b540582ed617e8eeaac4919dc985ccfc35459ee9752b699be5205b"
+		},
+		{
+			"Name": "SyslogSeverityTable",
+			"Type": 1,
+			"Hash": "df1785d6046858e4973758dde0dae36365d1d71984cb62b2425743aa1d6b4033"
+		},
+		{
+			"Name": "ParseFilterlog",
+			"Type": 1,
+			"Hash": "4de9c3d87ae625474d0de941a63d04da39cb3ee842677087671794f615958cfb"
+		},
+		{
+			"Name": "SyslogFacilityTable",
+			"Type": 1,
+			"Hash": "8704090659d96ff86864b8c02e6939e72baf2815c3a85c35ae1963d37d00ff4e"
+		},
+		{
+			"Name": "4d7bfd79-6d71-44ac-9c95-43491eb445bf",
+			"Type": 3,
+			"Hash": "b014ef9c566f20d75671b6637148160be28cc515ce344f061e367eea54b59fb9"
+		},
+		{
+			"Name": "467f64a1-bdf0-44fa-ab9c-11fa50e2c675",
+			"Type": 3,
+			"Hash": "97772d81fda63ba07052b732e856b9fe2b9c8e6fd407fa6118e4be4d2abbf13c"
+		},
+		{
+			"Name": "7647d826-3833-481c-a14c-9419278e411e",
+			"Type": 3,
+			"Hash": "48accceeee6ee819037fa90eb9a62007e1b84712a394277d44decd975e814ad8"
+		},
+		{
+			"Name": "2798c4aa-469c-4e75-833b-ce1482bea6ff",
+			"Type": 3,
+			"Hash": "8cac597186a3eb2e2f19ef9d760876981450a52cc5932ce3ce64d98485663df1"
+		},
+		{
+			"Name": "0fcde021-7cc5-4324-b23e-bcc07dd7ce1f",
+			"Type": 6,
+			"Hash": "4245abea1ef8f99b5e7d2633bad40814e12e4fcbfcde0409d23f0a695c48d833"
+		},
+		{
+			"Name": "b1e2c5f3-c6ba-467a-b47a-575805049c0c",
+			"Type": 6,
+			"Hash": "5111ece1b3760bbb84688fcba0883f72cc1114629db506eba0b7eea96a252e0c"
+		},
+		{
+			"Name": "dfeee681-da79-44a1-9874-7908124a6802",
+			"Type": 6,
+			"Hash": "5419ee007e7930989bd064b6d17b68168f2cd1091ecae24fc2e891f7913db29b"
+		},
+		{
+			"Name": "a27de6df-2b9e-4f2f-968f-ba0800819715",
+			"Type": 6,
+			"Hash": "64fe1ccf6e9a2dc983d83e4dbe2481dfcd712f8adbddb93018071187a757986d"
+		},
+		{
+			"Name": "5c1740d8-2caa-416b-98ae-37da4e89c500",
+			"Type": 6,
+			"Hash": "9786696dd20ead66c29d4f633b6958b3ffebec120424fac42ec041072e397536"
+		},
+		{
+			"Name": "e80b2158-b1b7-4687-b54b-9ee33fe6a05f",
+			"Type": 6,
+			"Hash": "f6e32efac9da1185a84d2384a310844701567591fd3721d6b57d87fb0ecd3a46"
+		},
+		{
+			"Name": "b6e9c6ff-97e4-4e66-a82e-4da1838fb9ef",
+			"Type": 6,
+			"Hash": "d394c64d5df122b97039c7fb49e90d30ea96f78d106c3a671cae53eb37024681"
+		},
+		{
+			"Name": "a0024701-7598-4dac-ae5d-7219aeeb02bb",
+			"Type": 6,
+			"Hash": "2c70d3c28e63bf37210d370b2c4042b45c40517a5bf8c9b7ef1b9840929c4ee4"
+		},
+		{
+			"Name": "70184160-49c9-45d4-9f09-3505da37b913",
+			"Type": 6,
+			"Hash": "fb252e549ece07d0a4ef58a75c25f05ce1c059dcf9524a9d4f6f96837e96992a"
+		},
+		{
+			"Name": "9e966934-54c7-45f1-aa16-f370263b61d4",
+			"Type": 6,
+			"Hash": "e7cfda9d86555eb37fcce19e6f5bf3c6bdd2673b0c37880b7ca07a37349d4d71"
+		},
+		{
+			"Name": "8dc23dc4-0df4-4395-a039-c93d749baf1e",
+			"Type": 6,
+			"Hash": "ec1f81beb7498c029b3aea0769351336823c4607234c882ae607a65962a09bab"
+		},
+		{
+			"Name": "ef550483-f271-4469-8257-0692784001b8",
+			"Type": 6,
+			"Hash": "5d3b7a2da4ff2f641f0405324292a9d942e8734822123ea8633bbefbc23227e7"
+		},
+		{
+			"Name": "83830292-d90a-41a4-a0f3-71704e182202",
+			"Type": 6,
+			"Hash": "753afce9de50b2fa02f4db03958d2c01b96c55ba9a3fb4424a1acf1c40ef843c"
+		},
+		{
+			"Name": "6ba5665b-972c-4cb4-89cd-48d381c891da",
+			"Type": 6,
+			"Hash": "99ff9b9cd355bcdce232e0203a710bac399c0230c79188fe325db21aa29b3843"
+		},
+		{
+			"Name": "c91361c9-2939-4645-84e9-a99f9ebafd63",
+			"Type": 6,
+			"Hash": "8fcc6c5f65c1930c37e404ecfcf526a984812e73803dbd338a6183d5e0c9ac05"
+		},
+		{
+			"Name": "06da9199-1104-4a62-8e37-ef2a2be1888b",
+			"Type": 5,
+			"Hash": "9a15f8486fb3f9d02205544dead082b2b4c8ec2844174de2d34dfbf4302c2889"
+		},
+		{
+			"Name": "27aa0221-9564-47e4-b9b8-e96ccab9b168",
+			"Type": 9,
+			"Hash": "7d4ac51d131c6e2f4351be1689c03970a1352d70bbf6f74f24018602d2a2880e"
+		},
+		{
+			"Name": "62e5208a-4954-4a6f-a3ed-d143b1bce3be",
+			"Type": 9,
+			"Hash": "ff423cade0861216b0e7dc57ba6d4c90a6b8406b4f0751833920a80e06fc7b97"
+		},
+		{
+			"Name": "bed89cfd-d44d-4d74-9341-3b793a3876e3",
+			"Type": 9,
+			"Hash": "3d562b3be4d09a6b003a72fc6fa36dedbd0ea703d7bc1e94d1c53e3b997f4a3e"
+		},
+		{
+			"Name": "319ab006-626d-4eab-b382-b4595551a26e",
+			"Type": 9,
+			"Hash": "5287bfabbb69f06f5a10ea69d72539c5ed1adb289abde263f61d27bb2d9ec403"
+		},
+		{
+			"Name": "2f90e151-1f4a-4d07-a4e1-57a666c72a3c",
+			"Type": 9,
+			"Hash": "7715d3b6c6d30ab60b3ff815a5f7793276e210f1e72a985cef8c29db2dfed5d7"
+		},
+		{
+			"Name": "5f0acd71-ca2a-451c-9906-b9f1dd0ee449",
+			"Type": 9,
+			"Hash": "6f0bbac10dc6e3814855683201b5eae8e7b36c18022bbef6f3dc1d9e98077242"
+		},
+		{
+			"Name": "f5b7803b-73c9-49f8-9219-b34aec7729ba",
+			"Type": 9,
+			"Hash": "2b9e5a274d46a8080d6516b79df266d0348472794b8a121659f4ad6364c1f18b"
+		},
+		{
+			"Name": "45c3df0e-c2c0-4eb2-ace3-59b78032f626",
+			"Type": 9,
+			"Hash": "6a2ebca8fb9d5c480e5ea179150fdf1c4bd46d8b2138ce1d066dc68f2ae3f0a2"
+		},
+		{
+			"Name": "68aaf5cb-8f1e-4bfa-b2fd-509d40403a73",
+			"Type": 9,
+			"Hash": "fa51064230818943a982e50bb40a9aea82facefb1a367c078bee3eff14720d6d"
+		},
+		{
+			"Name": "7e6b1b8f-6863-49e2-a17b-510836ce202f",
+			"Type": 9,
+			"Hash": "281196c43fb05e317c24e548250592db5d05e9e3d8b9e7e595eeca1322d8bffe"
+		},
+		{
+			"Name": "7266dc8b-6d8a-4039-916a-4cdc2ed1549d",
+			"Type": 9,
+			"Hash": "14732aff5d5b936a1a118ab481cbff2814359d23e634711624baa8ab2c2b9ece"
+		},
+		{
+			"Name": "ab4bbb76-0e3a-46c9-9cb1-ed7b375effca",
+			"Type": 9,
+			"Hash": "8cfa144579a138aba591b54145ff4f175b93c1389b8513a40aa19fd86a5c0a1b"
+		},
+		{
+			"Name": "92a7c464-6de0-4be4-917f-b59e0e275f48",
+			"Type": 9,
+			"Hash": "980d1ac88a574091b3ef999a7be852af9c36483fc3577d4f62cf5dc4620fc919"
+		},
+		{
+			"Name": "1c5abdf3-eea2-4e23-80d2-1bc6660226be",
+			"Type": 9,
+			"Hash": "fb45cb44b8972183b5013b2d938199c58215fbb7e39f16240f29574107075d72"
+		},
+		{
+			"Name": "0b54e471-5533-4543-8f18-b4621ee815c9",
+			"Type": 9,
+			"Hash": "70be81927124b2125dba28f003eb6c98c2318b61bdc41942636cec06dded1b90"
+		},
+		{
+			"Name": "f481ee0c-10cd-4d65-94be-d25b6a6b7e57",
+			"Type": 9,
+			"Hash": "4c81b1a14e1ca8f1bd282454aabdc9292e3113ef6ed3ebeae72b04592e246917"
+		},
+		{
+			"Name": "97068c27-f3e3-421a-83a7-31d7de1403ed",
+			"Type": 9,
+			"Hash": "fbe0cb31ce0eb1dd54ee25c0415cce0cd9c9f96be24d25c226c45bc6ce7f38e2"
+		},
+		{
+			"Name": "43b1c817-3ead-4c71-926a-6a4cc57242a9",
+			"Type": 7,
+			"Hash": "7bf2561b47f3d2bfc3b1a6d06673fea7222283afd811b1ac79a75e20ea5a15a4"
+		},
+		{
+			"Name": "d034a461-e5eb-4661-9b29-7e496e72c917",
+			"Type": 7,
+			"Hash": "e47702e608c7e2d488a8aee2d4030d489f2f5ea4972dcbab367c35ccfc3b4143"
+		},
+		{
+			"Name": "0529b3c3-7f8a-45da-9e08-56a461b23b3d",
+			"Type": 7,
+			"Hash": "fbcdbf6f50d961f4608fd40cf25405af5f0d6122ff83d5b873e43f7897dda031"
+		},
+		{
+			"Name": "ef9d1582-dac5-434d-8063-918f41169902",
+			"Type": 7,
+			"Hash": "bb127ba360707ee0b8047e8903594ebafbe8f37988426d6f55571d69385e6f5a"
+		},
+		{
+			"Name": "a037d96b-36db-47b5-9e2f-e839ccef7760",
+			"Type": 11,
+			"Hash": "12837a8905fccc7c37c3c7856e987cdc9e10c62e3bb1c32f3863a0041a3b4999"
+		}
+	],
+	"Dependencies": [
+		{
+			"ID": "io.gravwell.networkenrichment",
+			"MinVersion": 8
+		}
+	],
+	"ConfigMacros": [
+		{
+			"MacroName": "PFSENSE_SYSLOG_TAG",
+			"Description": "The tag associated with syslog from pfSense® Software",
+			"DefaultValue": "pfsensesyslog",
+			"Value": "",
+			"Type": "STRING",
+			"InstalledByID": ""
+		}
+	]
+}

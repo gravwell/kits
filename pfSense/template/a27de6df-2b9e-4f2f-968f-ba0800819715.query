@@ -1,0 +1,4 @@
+tag=$PFSENSE_SYSLOG_TAG syslog
+| regex "%%SEARCHTERM%%"
+| count by Appname
+| chart count by Appname

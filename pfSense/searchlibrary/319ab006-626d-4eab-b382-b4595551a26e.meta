@@ -1,0 +1,12 @@
+{
+	"Name": "Standard Deviation of pfSense® Firewall Actions",
+	"Description": "A chart showing the standard deviation of pfSense® firewall actions over time.",
+	"GUID": "319ab006-626d-4eab-b382-b4595551a26e",
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

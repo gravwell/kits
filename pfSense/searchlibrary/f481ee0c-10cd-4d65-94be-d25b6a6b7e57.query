@@ -1,0 +1,5 @@
+tag=$PFSENSE_SYSLOG_TAG syslog Appname == "filterlog" Message Timestamp
+  | anko ParseFilterlog
+  | stats count by srcip act
+  | geoip srcip.Location 
+  | pointmap srcip count act

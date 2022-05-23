@@ -1,0 +1,20 @@
+{
+	"UUID": "b1e2c5f3-c6ba-467a-b47a-575805049c0c",
+	"Name": "pfSense® Syslog Severity Breakdown",
+	"Description": "Shows a breakdown of the severity of logged events that match the given search term",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SEARCHTERM%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense"
+	]
+}

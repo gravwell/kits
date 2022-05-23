@@ -1,0 +1,3 @@
+tag=$PFSENSE_SYSLOG_TAG syslog Appname
+  | count by Appname
+  | chart count by Appname

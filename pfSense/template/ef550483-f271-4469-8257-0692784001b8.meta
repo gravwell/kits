@@ -1,0 +1,21 @@
+{
+	"UUID": "ef550483-f271-4469-8257-0692784001b8",
+	"Name": "Firewall Actions for pfSense® software",
+	"Description": "A chart showing actions taken by the pfSense® firewall (filterlog) (e.g. pass, block) over time, where the target IP is the source IP or destination IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	]
+}

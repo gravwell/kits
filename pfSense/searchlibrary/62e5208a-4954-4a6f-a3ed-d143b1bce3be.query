@@ -1,0 +1,4 @@
+tag=$PFSENSE_SYSLOG_TAG syslog Appname == "filterlog" Message Timestamp
+  | anko ParseFilterlog
+  | eval (act!="pass" && act!="block")
+  | table act Timestamp realint rulenum subrulenum srcip srcport dstip dstport proto

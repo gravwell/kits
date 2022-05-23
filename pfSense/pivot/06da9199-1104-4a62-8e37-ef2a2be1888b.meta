@@ -1,0 +1,42 @@
+{
+	"UUID": "06da9199-1104-4a62-8e37-ef2a2be1888b",
+	"Name": "IP Address",
+	"Description": "Actionable based on detected IP addresses",
+	"Data": {
+		"actions": [
+			{
+				"name": "Event Investigation Dashboard for pfSense® Firewall",
+				"description": "Investigation Dashboard",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "4d7bfd79-6d71-44ac-9c95-43491eb445bf",
+					"options": {
+						"variable": "%%IP%%"
+					}
+				}
+			}
+		],
+		"menuLabel": null,
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true
+			}
+		]
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	]
+}

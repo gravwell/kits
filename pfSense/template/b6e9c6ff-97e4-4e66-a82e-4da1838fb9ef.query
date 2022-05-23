@@ -1,0 +1,9 @@
+tag=pfsensesyslog regex "\<(?P<pri>\d+)\>(?P<timestamp>\w+\s+\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(?P<app_name>[\/\w]+)(:\s+)?(\[(?P<procid>\d+(:\d+)?)\]\s+)?(?P<msgid>.*)"
+| regex "%%SEARCHTERM%%"
+| eval setEnum("severity", toInt(pri)&7)
+| eval severity <= 4
+| eval setEnum("facility_code", toInt(pri)>>3)
+| eval setEnum("severity_code", severity)
+| lookup -r SyslogFacilityTable facility_code "Numerical Code" "Facility" as facility
+| lookup -r SyslogSeverityTable severity_code "Numerical Code" "Severity" as severity
+| table pri severity facility timestamp app_name procid msgid

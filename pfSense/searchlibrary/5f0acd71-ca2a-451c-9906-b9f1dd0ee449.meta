@@ -1,0 +1,12 @@
+{
+	"Name": "Severe Syslog Events from pfSense® Software",
+	"Description": "A table of syslog events with severity codes between Emergency (0) and Warning (4)",
+	"GUID": "5f0acd71-ca2a-451c-9906-b9f1dd0ee449",
+	"Labels": [
+		"pfSense",
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

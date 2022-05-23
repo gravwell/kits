@@ -1,0 +1,12 @@
+{
+	"Name": "Map of Sources For PfSense® Firewall Actions",
+	"Description": "A point map of geolocated source IPs with information about firewall actions",
+	"GUID": "f481ee0c-10cd-4d65-94be-d25b6a6b7e57",
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
