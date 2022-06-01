@@ -1,0 +1,21 @@
+{
+	"UUID": "c91361c9-2939-4645-84e9-a99f9ebafd63",
+	"Name": "Firewall Block Event Count for pfSense® software",
+	"Description": "Shows the total number of firewall (filterlog) \"block\" events for a given time period where the target IP is the source IP or destination IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	]
+}

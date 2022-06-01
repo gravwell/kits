@@ -1,0 +1,4 @@
+tag=$PFSENSE_SYSLOG_TAG syslog
+| regex "%%SEARCHTERM%%"
+| count
+| gauge (count "Total number of entries for this time frame")

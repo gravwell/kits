@@ -1,0 +1,295 @@
+{
+	"UUID": "7647d826-3833-481c-a14c-9419278e411e",
+	"Name": "Firewall Overview for pfSense® software",
+	"Description": "An overview of events from the pfSense® firewall (filterlog)",
+	"Data": {
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT",
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Firewall Events over Time for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "ab4bbb76-0e3a-46c9-9cb1-ed7b375effca",
+					"type": "savedQuery"
+				},
+				"searchID": 1058857099
+			},
+			{
+				"alias": "Firewall Event Count for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "68aaf5cb-8f1e-4bfa-b2fd-509d40403a73",
+					"type": "savedQuery"
+				},
+				"searchID": 4301967312
+			},
+			{
+				"alias": "Firewall Pass Event Count for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "2f90e151-1f4a-4d07-a4e1-57a666c72a3c",
+					"type": "savedQuery"
+				},
+				"searchID": 6860481410
+			},
+			{
+				"alias": "Firewall Block Event Count for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "f5b7803b-73c9-49f8-9219-b34aec7729ba",
+					"type": "savedQuery"
+				},
+				"searchID": 6296629358
+			},
+			{
+				"alias": "Firewall Actions for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "27aa0221-9564-47e4-b9b8-e96ccab9b168",
+					"type": "savedQuery"
+				},
+				"searchID": 1390181621
+			},
+			{
+				"alias": "Standard Deviation of pfSense® Firewall Actions",
+				"timeframe": {},
+				"reference": {
+					"id": "319ab006-626d-4eab-b382-b4595551a26e",
+					"type": "savedQuery"
+				},
+				"searchID": 1721194735
+			},
+			{
+				"alias": "Firewall Event Log for pfSense® software",
+				"timeframe": {},
+				"reference": {
+					"id": "7e6b1b8f-6863-49e2-a17b-510836ce202f",
+					"type": "savedQuery"
+				},
+				"searchID": 6383580409
+			},
+			{
+				"alias": "Map of Sources For pfSense® Firewall Actions",
+				"reference": {
+					"id": "f481ee0c-10cd-4d65-94be-d25b6a6b7e57",
+					"type": "savedQuery"
+				},
+				"color": null
+			},
+			{
+				"alias": "Map of Sources For pfSense® Firewall Actions",
+				"reference": {
+					"id": "f481ee0c-10cd-4d65-94be-d25b6a6b7e57",
+					"type": "savedQuery"
+				},
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "Filterlog Actions",
+				"renderer": "stackedArea",
+				"searchesIndex": 4,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 8,
+					"y": 4
+				},
+				"rendererOptions": {
+					"Orientation": "v",
+					"IncludeOther": "yes"
+				},
+				"id": 1596132309352
+			},
+			{
+				"title": "Standard Deviation of Filterlog Actions",
+				"renderer": "streamChart",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 8,
+					"y": 9
+				},
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				},
+				"id": 1596132327844,
+				"searchesIndex": 5
+			},
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 15961326278973,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				},
+				"searchesIndex": 0
+			},
+			{
+				"title": "Filterlog Actions",
+				"renderer": "donutChart",
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"rendererOptions": {
+					"rendererOptions": {
+						"Orientation": "v",
+						"IncludeOther": "yes",
+						"XAxisSplitLine": "no",
+						"Stack": "grouped",
+						"Smoothing": "normal",
+						"YAxisSplitLine": "no",
+						"ConnectNulls": "no",
+						"LogScale": "no"
+					},
+					"renderer": "donutChart",
+					"IncludeOther": "yes"
+				},
+				"id": 1596132725301,
+				"searchesIndex": 4
+			},
+			{
+				"title": "Total Events",
+				"renderer": "numberCard",
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"rendererOptions": {
+					"rendererOptions": {
+						"Multiple": "no",
+						"Style": "reg",
+						"IncludeOther": "yes",
+						"Range": "no",
+						"Precision": "no",
+						"NumberCardLabelFontSize": 24,
+						"NumberCardNumberFontSize": 48,
+						"NumberCardWidth": 25
+					},
+					"renderer": "numberCard",
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				},
+				"id": 1596134927337,
+				"searchesIndex": 1
+			},
+			{
+				"title": "Pass Events",
+				"renderer": "numberCard",
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 10,
+					"y": 0
+				},
+				"rendererOptions": {
+					"rendererOptions": {
+						"Multiple": "no",
+						"Style": "reg",
+						"IncludeOther": "yes",
+						"Range": "no",
+						"Precision": "no",
+						"NumberCardLabelFontSize": 24,
+						"NumberCardNumberFontSize": 48,
+						"NumberCardWidth": 25
+					},
+					"renderer": "numberCard",
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				},
+				"id": 1596134977717,
+				"searchesIndex": 2
+			},
+			{
+				"title": "Block Events",
+				"renderer": "numberCard",
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 12,
+					"y": 0
+				},
+				"rendererOptions": {
+					"rendererOptions": {
+						"Multiple": "no",
+						"Style": "reg",
+						"IncludeOther": "yes",
+						"Range": "no",
+						"Precision": "no",
+						"NumberCardLabelFontSize": 24,
+						"NumberCardNumberFontSize": 48,
+						"NumberCardWidth": 25
+					},
+					"renderer": "numberCard",
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				},
+				"id": 1596135308215,
+				"searchesIndex": 3
+			},
+			{
+				"title": "Firewall Log",
+				"renderer": "table",
+				"span": {
+					"col": 14,
+					"row": 5,
+					"x": 0,
+					"y": 14
+				},
+				"rendererOptions": {},
+				"id": 1596139118344,
+				"searchesIndex": 6
+			},
+			{
+				"title": "Pointmap",
+				"renderer": "pointmap",
+				"span": {
+					"col": 8,
+					"row": 10,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16527240193678,
+				"rendererOptions": {},
+				"searchesIndex": 8
+			}
+		],
+		"lastDataUpdate": "2020-08-04T12:44:51-05:00",
+		"version": 2
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog",
+		"firewall",
+		"syslog"
+	]
+}

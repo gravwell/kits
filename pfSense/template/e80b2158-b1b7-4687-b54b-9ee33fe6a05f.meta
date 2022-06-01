@@ -1,0 +1,21 @@
+{
+	"UUID": "e80b2158-b1b7-4687-b54b-9ee33fe6a05f",
+	"Name": "Firewall Pass Event Count for pfSense® software",
+	"Description": "Shows the total number of firewall (filterlog) \"pass\" events for a given time period where the target IP is the source IP or destination IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	]
+}

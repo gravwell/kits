@@ -1,0 +1,5 @@
+tag=$PFSENSE_SYSLOG_TAG syslog Appname == "filterlog" Severity Facility
+  | lookup -r SyslogSeverityTable Severity "Numerical Code" "Severity" as severity_name
+  | lookup -r SyslogFacilityTable Facility "Numerical Code" "Facility" as facility_description
+  | count by Appname severity_name
+  | stackgraph count severity_name Appname

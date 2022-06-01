@@ -1,0 +1,20 @@
+{
+	"UUID": "b6e9c6ff-97e4-4e66-a82e-4da1838fb9ef",
+	"Name": "Severe pfSense® Syslog Events",
+	"Description": "A table of pfSense® syslog events matching the given search term with severity codes between Emergency (0) and Warning (4)",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SEARCHTERM%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense"
+	]
+}

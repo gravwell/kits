@@ -1,0 +1,12 @@
+{
+	"Name": "Facility Breakdown for Syslog from pfSense® software",
+	"Description": "Shows a breakdown of the facilities of logged events",
+	"GUID": "bed89cfd-d44d-4d74-9341-3b793a3876e3",
+	"Labels": [
+		"pfSense",
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Event Log for pfSense® Firewall",
+	"Description": "A table of recent events from the firewall",
+	"GUID": "7e6b1b8f-6863-49e2-a17b-510836ce202f",
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

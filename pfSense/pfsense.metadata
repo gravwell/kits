@@ -1,0 +1,9 @@
+{
+	"Tags": ["pfsensesyslog"],
+	"Ingesters": [],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "pfSense® software analytics kit", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "pfSense® software analytics kit", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}

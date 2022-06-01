@@ -1,0 +1,12 @@
+{
+	"Name": "Syslog Events from pfSense® Software over Time ",
+	"Description": "Plots the number of pfSense® syslog events over time",
+	"GUID": "45c3df0e-c2c0-4eb2-ace3-59b78032f626",
+	"Labels": [
+		"pfSense",
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

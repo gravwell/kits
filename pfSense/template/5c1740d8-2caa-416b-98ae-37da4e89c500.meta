@@ -1,0 +1,20 @@
+{
+	"UUID": "5c1740d8-2caa-416b-98ae-37da4e89c500",
+	"Name": "pfSense® Syslog Events",
+	"Description": "A table of pfSense® syslog events that match the given search term",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SEARCHTERM%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense"
+	]
+}

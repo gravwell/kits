@@ -1,0 +1,446 @@
+/*
+ * ParseFilterlog
+ *
+ * This anko script parses CSV messages from pfSense filterlog.
+ * It is a derived work, porting PHP code to Anko code.
+ *
+ * Based on https://github.com/pfsense/pfsense/blob/f3df1d3eaa564da1d1b2c535a59ec269a9edab0f/src/etc/inc/syslog.inc#L1012
+ *
+ * Copyright (c) 2004-2013 BSD Perimeter
+ * Copyright (c) 2013-2016 Electric Sheep Fencing
+ * Copyright (c) 2014-2020 Rubicon Communications, LLC (Netgate)
+ * Copyright (c) 2020 Gravwell, Inc.
+ * All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+var strings = import("strings")
+
+func Process() {
+	msgid, err = getEnum("Message")
+	if err != nil {
+		setEnum("error", "expected enumerated value \"Message\"")
+		return true
+	}
+	logData = strings.Split(msgid, ",")
+
+	if len(logData) < 9 {
+		setEnum("error", "Expected at least 9 fields in filterlog CSV")
+		return true
+	}
+
+	field = 0
+
+	setEnum("rulenum", logData[field])
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+	setEnum("subrulenum", logData[field])
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+	setEnum("anchor", logData[field])
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+	setEnum("tracker", logData[field])
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+	setEnum("realint", logData[field])
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+	setEnum("reason", logData[field])
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+	setEnum("act", logData[field])
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+	setEnum("direction", logData[field])
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+	setEnum("version", logData[field])
+	ipVersion = logData[field]
+	if (field+1) < len(logData) {
+		field++
+	} else {
+		return true
+	}
+
+	protoid = ""
+	if ipVersion == "4" || ipVersion == "6" {
+		if ipVersion == "4" {
+			setEnum("tos", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("ecn", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("ttl", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("id", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("offset", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("flags", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("protoid", logData[field])
+			protoid = logData[field]
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("proto", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+		} else {
+			setEnum("class", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("flowlabel", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("hlim", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("proto", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("protoid", logData[field])
+			protoid = logData[field]
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+		}
+
+		setEnum("length", logData[field])
+		if (field+1) < len(logData) {
+			field++
+		} else {
+			return true
+		}
+		setEnum("srcip", logData[field])
+		srcip = logData[field]
+		if (field+1) < len(logData) {
+			field++
+		} else {
+			return true
+		}
+		setEnum("dstip", logData[field])
+		dstip = logData[field]
+		if (field+1) < len(logData) {
+			field++
+		} else {
+			return true
+		}
+
+		if protoid == "6" || protoid == "17" { // TCP or UDP
+			setEnum("srcport", logData[field])
+			srcport = logData[field]
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("dstport", logData[field])
+			dstport = logData[field]
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+
+			setEnum("src", srcip + ":" + srcport)
+			setEnum("dst", dstip + ":" + dstport)
+
+			setEnum("datalen", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			if protoid == "6" { // TCP
+				setEnum("tcpflags", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("seq", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("ack", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("window", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("urg", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("options", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			}
+		} else if protoid == "1" || protoid == "58" { // ICMP (IPv4 & IPv6)
+			setEnum("src", srcip)
+			setEnum("dst", dstip)
+
+			setEnum("icmp_type", logData[field])
+			icmptype = logData[field]
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+
+			if icmptype == "request" || icmptype == "reply" {
+				setEnum("icmp_id", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_seq", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			} else if icmptype == "unreachproto" {
+				setEnum("icmp_dstip", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_protoid", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			} else if icmptype == "unreachport" {
+				setEnum("icmp_dstip", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_protoid", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_port", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			} else if icmptype == "unreach" || icmptype == "timexceed" || icmptype == "paramprob" || icmptype == "redirect" || icmptype == "maskreply" {
+				setEnum("icmp_descr", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			} else if icmptype == "needfrag" {
+				setEnum("icmp_dstip", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_mtu", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			} else if icmptype == "tstamp" {
+				setEnum("icmp_id", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_seq", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			} else if icmptype == "tstampreply" {
+				setEnum("icmp_id", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_seq", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_otime", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_rtime", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+				setEnum("icmp_ttime", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			} else {
+				setEnum("icmp_descr", logData[field])
+				if (field+1) < len(logData) {
+					field++
+				} else {
+					return true
+				}
+			}
+
+		} else if protoid == "2" { // IGMP
+			setEnum("src", srcip)
+			setEnum("dst", dstip)
+		} else if protoid == "112" { // CARP
+			setEnum("type", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("ttl", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("vhid", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("version", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("advskew", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("advbase", logData[field])
+			if (field+1) < len(logData) {
+				field++
+			} else {
+				return true
+			}
+			setEnum("src", srcip)
+			setEnum("dst", dstip)
+		}
+	}
+	return true
+}

@@ -1,0 +1,21 @@
+{
+	"UUID": "83830292-d90a-41a4-a0f3-71704e182202",
+	"Name": "Firewall Events over Time for pfSense® software",
+	"Description": "Plots pfSense® firewall (filterlog) events over time, where the source or destination IP matches the target IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	]
+}

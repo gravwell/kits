@@ -1,0 +1,4 @@
+tag=$PFSENSE_SYSLOG_TAG syslog Timestamp Appname ProcID MsgID Facility Severity
+  | lookup -r SyslogFacilityTable Facility "Numerical Code" "Facility" as facility
+  | lookup -r SyslogSeverityTable Severity "Numerical Code" "Severity" as severity
+  | table severity facility Timestamp Appname ProcID MsgID

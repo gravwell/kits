@@ -1,0 +1,21 @@
+{
+	"UUID": "8dc23dc4-0df4-4395-a039-c93d749baf1e",
+	"Name": "Map of Source For pfSense® Firewall Actions",
+	"Description": "A point map showing the provided geolocated source IP with information about firewall actions",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	]
+}

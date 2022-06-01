@@ -1,0 +1,20 @@
+{
+	"UUID": "dfeee681-da79-44a1-9874-7908124a6802",
+	"Name": "pfSense® Syslog Facility Breakdown",
+	"Description": "Shows a breakdown of the facilities of logged events that match the given search term",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SEARCHTERM%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense"
+	]
+}

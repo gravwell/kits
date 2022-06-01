@@ -1,0 +1,20 @@
+{
+	"UUID": "a27de6df-2b9e-4f2f-968f-ba0800819715",
+	"Name": "Syslog App Breakdown for pfSense® software",
+	"Description": "Shows a breakdown of which apps are logging events that match the given search term",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SEARCHTERM%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense"
+	]
+}

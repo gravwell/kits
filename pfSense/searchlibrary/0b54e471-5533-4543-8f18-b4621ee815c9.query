@@ -1,0 +1,4 @@
+tag=$PFSENSE_SYSLOG_TAG syslog Severity
+  | count by Severity
+  | lookup -r SyslogSeverityTable Severity "Numerical Code" "Severity" as severity_name
+  | chart count by severity_name

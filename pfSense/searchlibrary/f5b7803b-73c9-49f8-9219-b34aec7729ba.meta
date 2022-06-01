@@ -1,0 +1,12 @@
+{
+	"Name": "Block Event Count for pfSense® Firewall",
+	"Description": "Shows the total number of firewall \"block\" events for a given time period",
+	"GUID": "f5b7803b-73c9-49f8-9219-b34aec7729ba",
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

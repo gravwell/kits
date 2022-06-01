@@ -1,0 +1,12 @@
+{
+	"Name": "Actions from pfSense® Firewall",
+	"Description": "A chart showing actions taken by the firewall (e.g. pass, block) over time",
+	"GUID": "27aa0221-9564-47e4-b9b8-e96ccab9b168",
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

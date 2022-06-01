@@ -1,0 +1,12 @@
+{
+	"Name": "Events over Time for pfSense® Firewall",
+	"Description": "Plots firewall events over time",
+	"GUID": "ab4bbb76-0e3a-46c9-9cb1-ed7b375effca",
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Event Count for Syslog from pfSense® Software",
+	"Description": "A gauge indicating the number of pfSense® syslog entries that occur during the selected time frame",
+	"GUID": "1c5abdf3-eea2-4e23-80d2-1bc6660226be",
+	"Labels": [
+		"pfSense",
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

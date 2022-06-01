@@ -1,0 +1,21 @@
+{
+	"UUID": "a0024701-7598-4dac-ae5d-7219aeeb02bb",
+	"Name": "Firewall Event Log for pfSense® software",
+	"Description": "A table of recent events from pfSense® firewall (filterlog), where the target IP is the source IP or destination IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense",
+		"filterlog"
+	]
+}

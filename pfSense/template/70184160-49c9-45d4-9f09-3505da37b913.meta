@@ -1,0 +1,20 @@
+{
+	"UUID": "70184160-49c9-45d4-9f09-3505da37b913",
+	"Name": "Syslog Events over Time for pfSense® software",
+	"Description": "Plots the number of pfSense® syslog events matching the search term over time",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SEARCHTERM%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense"
+	]
+}

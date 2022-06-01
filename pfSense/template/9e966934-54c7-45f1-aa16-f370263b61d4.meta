@@ -1,0 +1,20 @@
+{
+	"UUID": "9e966934-54c7-45f1-aa16-f370263b61d4",
+	"Name": "Syslog Event Count for pfSense® software",
+	"Description": "A gauge indicating the number of pfSense® syslog entries matching the given search term that occur during the selected time frame",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SEARCHTERM%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"pfSense"
+	]
+}
