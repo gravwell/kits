@@ -8,6 +8,7 @@ Before you can use the kit, you'll need to get logs flowing from your Palo Alto 
 
 1. Deploy the [Simple Relay](https://docs.gravwell.io/#!ingesters/simple_relay.md) ingester on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/#!ingesters/ingesters.md) for more information.
 2. Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/simple\_relay.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_simple\_relay.service</kbd> to restart the ingester. This will make it start listening for incoming syslog on port 6601, with special rules to route Palo Alto traffic to different Gravwell tags.
+
 <pre>
 [Listener "syslogtcp"]
         Bind-String="tcp://0.0.0.0:6601"
@@ -19,7 +20,7 @@ Before you can use the kit, you'll need to get logs flowing from your Palo Alto 
 [preprocessor "PaloAlto PAN"]
         Type = regexrouter
         Drop-Misses=false
-        Regex=`^[^,]+,[^,]+,[^,]+,(?P<type>[^,]+),`
+        Regex=`^[^,]+,[^,]+,[^,]+,(?P&lt;type&gt;[^,]+),`
         Route-Extraction=type
         Route=AUTHENTICATION:pan_auth
         Route=CONFIG:pan_config
@@ -35,6 +36,7 @@ Before you can use the kit, you'll need to get logs flowing from your Palo Alto 
         Route=TRAFFIC:pan_traffic
         Route=USERID:pan_userid
 </pre>
+
 3. Ensure that the server running Simple Relay allows incoming connections on port 6601, and that any firewalls between the Palo Alto device and the Simple Relay system allow port 6601 traffic.
 4. Configure log forwarding as described in [the Palo Alto documentation](https://docs.paloaltonetworks.com/pan-os/10-0/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring.html), defining the syslog server profile to point at the Simple Relay server on port 6601 as seen below:
 
