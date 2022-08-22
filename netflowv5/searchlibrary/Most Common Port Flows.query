@@ -4,4 +4,4 @@ stats count mean(Duration) as AvgDurationNS sum(Bytes) as TotalBytes sum(Pkts) a
 limit 20 |
 lookup -r network_services [Protocol Port] [proto_number service_port] (service_name service_desc) |
 lookup -r ip_protocols Protocol Number Name as ProtocolName |
-table Port service_name count TotalBytes TotalPackets Protocol ProtocolName AvgDurationNS service_desc
+table Port service_name count TotalBytes TotalPackets ProtocolName Protocol AvgDurationNS service_desc
