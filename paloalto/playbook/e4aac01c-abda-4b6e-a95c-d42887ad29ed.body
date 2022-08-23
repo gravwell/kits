@@ -2,7 +2,9 @@ This kit provides tools for working with logs from Palo Alto next-gen firewalls.
 
 # Configure Log Forwarding
 
-Before you can use the kit, you'll need to get logs flowing from your Palo Alto device into Gravwell. Our recommended method is via *syslog forwarding*. Gravwell can receive syslog data using the [Simple Relay](https://docs.gravwell.io/#!ingesters/simple_relay.md) ingester.
+Before you can use the kit, you'll need to get logs flowing from your Palo Alto device into Gravwell. Our recommended method is via *syslog forwarding*. Gravwell can receive syslog data using the [Simple Relay](https://docs.gravwell.io/#!ingesters/simple_relay.md) ingester. Configuration of Simple Relay is described below.
+
+You can also send logs via the HTTP ingester; instructions for that are in the "Install & Configure HTTP Ingester" section below.
 
 ## Install & Configure Simple Relay
 
@@ -49,6 +51,63 @@ tag=pan_* limit 10
 ```
 
 If any results appear, logs are coming in properly.
+
+## Install & Configure HTTP Ingester
+
+1. Deploy the [HTTP Ingester](https://docs.gravwell.io/#!ingesters/http.md) on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/#!ingesters/ingesters.md) for more information.
+2. Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/gravwell_http_ingester.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_http_ingester.service</kbd> to restart the ingester. By default, the HTTP ingester listens on port 8080; this config adds an HTTP endpoint at "/pan/logs", with HTTP basic authentication in place. It also defines a preprocessor with special rules to route Palo Alto traffic to different Gravwell tags.
+
+<pre>
+[Listener "palo"]
+	AuthType=basic
+	Username=paloalto
+	Password=paloaltopassword
+	URL="/pan/logs"
+	Tag-Name=pan_other
+	Assume-Local-Timezone=true
+	Preprocessor="PaloAlto PAN"
+
+[preprocessor "PaloAlto PAN"]
+	Type = regexrouter
+	Drop-Misses=false
+	Regex=`^[^,]+,[^,]+,[^,]+,(?P&lt;type&gt;[^,]+),`
+	Route-Extraction=type
+	Route=AUTHENTICATION:pan_auth
+	Route=CONFIG:pan_config
+	Route=CORRELATION:pan_correlation
+	Route=DECRYPTION:pan_decryption
+	Route=GLOBALPROTECT:pan_globalprotect
+	Route=GTP:pan_gtp
+	Route=HIPMATCH:pan_hipmatch
+	Route=IPTAG:pan_iptag
+	Route=SCTP:pan_sctp
+	Route=SYSTEM:pan_system
+	Route=THREAT:pan_threat
+	Route=TRAFFIC:pan_traffic
+	Route=USERID:pan_userid
+</pre>
+
+3. Ensure that the server running the HTTP Ingester allows incoming connections on port 8080, and that any firewalls between the Palo Alto device and the ingester system allow port 8080 traffic.
+
+Once the ingester is configured, set up log forwarding on the Palo Alto device as described in [the Palo Alto documentation]https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-admin/monitoring/forward-logs-to-an-https-destination). You will need to set up the following:
+
+* An HTTP Server Profile. The "Address" field corresponds to the HTTP Ingester's address, "Port" should be 8080, "HTTP Method" is POST, and you should populate the Username and Password fields to match your configuration above. In the "Payload Format" tab, set each log type as shown in the image below:
+
+![](/api/files/50cb5863-6867-47da-bc49-7bef73317ddc =705x467)
+
+* A Log Forwarding Profile which sends all desired log types to the HTTP Server Profile created above. Note that it is possible to use one Log Forwarding Profile to send logs to both syslog and HTTP ingesters at the same time, if desired, as seen below:
+
+![](/api/files/16b991a1-86c7-4f08-b408-c5faa8afeef3 =792x384)
+
+Once the changes have been committed, logs should begin flowing into Gravwell. You can check by running the folowing query:
+
+```
+tag=pan_* limit 10
+```
+
+If any results appear, logs are coming in properly.
+
+Warning: We strongly recommend changing the "Username" and "Password" fields before deploying! We also recommend setting up a TLS frontend (e.g. nginx) for better security, but this is beyond the scope of this playbook.
 
 ## Data Tags
 
