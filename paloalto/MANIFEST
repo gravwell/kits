@@ -3,7 +3,7 @@
 	"Name": "Palo Alto",
 	"Desc": "Analyze Palo Alto logs.",
 	"Readme": "# Palo Alto Kit\n\nThis kit provides pre-built tools to help analyze logs from Palo Alto next-gen firewalls. It includes:\n\n* Autoextractor definitions for common Palo Alto log formats, to more easily extract fields from log entries.\n* Dashboards providing overviews \u0026 investigative options for different log types.\n* Instructions on how to get Palo Alto logs *into* Gravwell.",
-	"Version": 2,
+	"Version": 3,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 0,
@@ -126,7 +126,7 @@
 		{
 			"Name": "e4aac01c-abda-4b6e-a95c-d42887ad29ed",
 			"Type": 11,
-			"Hash": "c6b88b3f2870b7f59e2489c048208598fc496ecfe14a186424dba8bb001c2f20"
+			"Hash": "d09ece7e51cdbf1b4fa11bff1157910ce5c9aa99548f4a59114bf7847aafcb6a"
 		},
 		{
 			"Name": "pan_globalprotect",
@@ -197,6 +197,16 @@
 			"Name": "pan_auth",
 			"Type": 4,
 			"Hash": "7f8b238dc0e6fa3252a9a6c60305124d1827b9d9ece98d50060ccff4bb4f0836"
+		},
+		{
+			"Name": "16b991a1-86c7-4f08-b408-c5faa8afeef3",
+			"Type": 7,
+			"Hash": "052e8b01c4fdeda67330078103b0e1440b0b39d566ae95214c61ba84c32765d2"
+		},
+		{
+			"Name": "50cb5863-6867-47da-bc49-7bef73317ddc",
+			"Type": 7,
+			"Hash": "5774b707971497f4b1088bbe8f8b620a090688038c1b412c10f9dd43a75be035"
 		}
 	],
 	"Dependencies": [
