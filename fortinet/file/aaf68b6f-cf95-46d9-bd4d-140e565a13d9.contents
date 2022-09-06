@@ -1,0 +1,10 @@
+# Fortinet dedicated storage well
+[Storage-Well "fortinet"]
+	Location=/opt/gravwell/storage/fortinet
+	Tags=fortinet*
+	Accelerator-Name=fulltext #fulltext is the most resilent to varying data types
+	Accelerator-Args="-ignoreFloat" #tell the fulltext accelerator to not index timestamps, syslog entries are easy to ID
+	Accelerator-Engine-Override=bloom #The bloom engine is effective and fast with minimal disk overhead
+	#this well to delete old data when the disk reaches 90% full
+	Hot-Storage-Reserve=10
+	Delete-Cold-Data=true

@@ -1,0 +1,21 @@
+[Listener "fortinet"]
+	Bind-String="tcp://0.0.0.0:7079" #TCP port 7079 for reliable line delimited TCP data
+	Reader-Type=line
+	Tag-Name=fortinet
+	Assume-Local-Timezone=true #fortinet logs do not contain a timezone, assume localtime
+	Timestamp-Format-Override="fortinet"
+	Preprocessor=fortinetrouter
+
+[TimeFormat "fortinet"]
+	Format=`date=2006-01-02 time=15:04:05`
+	Regex=`date=\d{4}-\d{1,2}-\d{1,2} time=\d{1,2}:\d{1,2}:\d{1,2}`
+
+[preprocessor "fortinetrouter"]
+	Type=regexrouter
+	Drop-Misses=false
+	# Regex: type="<type>"
+	Regex=` type="?(?P<type>\w+)"? `
+	Route-Extraction=type
+	Route=traffic:fortinet_traffic
+	Route=event:fortinet_event
+	Route=utm:fortinet_utm

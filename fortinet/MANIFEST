@@ -1,0 +1,49 @@
+{
+	"ID": "fortinet.gravwell.io",
+	"Name": "Fortinet Fortigate",
+	"Desc": "Gravwell Fortinet Fortigate kit",
+	"Readme": "Gravwell Fortinet Fortigate kit, contains autoextractors, dashboards, queries, and some sample automations.",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "",
+	"Banner": "",
+	"Cover": "",
+	"Items": [
+		{
+			"Name": "aaf68b6f-cf95-46d9-bd4d-140e565a13d9",
+			"Type": 7,
+			"Hash": "b322bf222d52f1aa7b97ab7c4deedbf93f7872342da14265daa0be339f99addf"
+		},
+		{
+			"Name": "fortinet",
+			"Type": 4,
+			"Hash": "5c048a3e06c8715341fb08d93c8c7b4d68ee65df4c02bcca28a460d7530da4e5"
+		},
+		{
+			"Name": "fortinet_utm",
+			"Type": 4,
+			"Hash": "774da193feb5aca9447e1261a9f7c37b41f566f125a07efa644864dd74fe7580"
+		},
+		{
+			"Name": "fortinet_event",
+			"Type": 4,
+			"Hash": "5cf0ac288daa4a63819358bc7b8258c079fe92f57d8b909e7b52ccc74b02da15"
+		},
+		{
+			"Name": "fortinet_traffic",
+			"Type": 4,
+			"Hash": "cb5efeecd2403d3a7958b33dbfea8cc82b04f3cf85d31ce4b909781fd073ca3b"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": []
+}

@@ -1,0 +1,6 @@
+{
+	"GUID": "aaf68b6f-cf95-46d9-bd4d-140e565a13d9",
+	"Name": "fortinet_simplerelay.conf",
+	"Desc": "Fortinet simple relay data ingester definition, copy to /opt/gravwell/etc/simplerelay.conf.d/fortinet_simplerelay.conf and change ownership to gravwell:gravwell.  Then restart Gravwell SimpleRelay",
+	"Labels": ["fortinet"]
+}
