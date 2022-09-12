@@ -1,0 +1,13 @@
+substatus,description
+0xc0000064,"user name does not exist"
+0xc000006a,"user name is correct but the password is wrong"
+0xc0000234,"user is currently locked out"
+0xc0000072,"account is currently disabled"
+0xc000006f,"user tried to logon outside his day of week or time of day restrictions"
+0xc0000070,"workstation restriction, or Authentication Policy Silo violation (look for event ID 4820 on domain controller)"
+0xc0000193,"account expiration"
+0xc0000071,"expired password"
+0xc0000133,"clocks between DC and other computer too far out of sync"
+0xc0000224,"user is required to change password at next logon"
+0xc0000225,"evidently a bug in Windows and not a risk"
+0xc000015b,"The user has not been granted the requested logon type (aka logon right) at this machine"

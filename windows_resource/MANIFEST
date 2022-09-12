@@ -3,7 +3,7 @@
 	"Name": "Windows Resources",
 	"Desc": "# Gravwell Windows Resource Kit\n\nThis kit contains helpful lookup resources and scripts that make handling encoded values in windows logs easier.\n\nThis kit is generally a dependency to other kits and provides little value on its own.\n\n\n## Contents\n\n- SID lookup resource\n- Permission bit decoder\n- Limited EventID lookup resource",
 	"Readme": "",
-	"Version": 3,
+	"Version": 4,
 	"MinVersion": {
 		"Major": 4,
 		"Minor": 1,
@@ -43,6 +43,16 @@
 			"Name": "80c345f2-d99b-489b-b1fb-2ceaf757338d",
 			"Type": 7,
 			"Hash": "b54c07f9bf5582c776917d6299c55781e0406d60739cc3698fe6899eef84f77b"
+		},
+		{
+			"Name": "windows_ticket_encryption_types",
+			"Type": 1,
+			"Hash": "c2afbe8f6127abd8632e14b9014473188c9bbd0ec7b923f3e50b75475104eba8"
+		},
+		{
+			"Name": "windows_ticket_failure_codes",
+			"Type": 1,
+			"Hash": "59edd34a083a97d51532fff3a6aca31c41f54765d8f80a1cb23feec003aa0a8c"
 		}
 	],
 	"Dependencies": null,
