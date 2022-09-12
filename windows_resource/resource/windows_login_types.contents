@@ -5,7 +5,7 @@ logon_type,name,desc
 4,Batch,"Batch job, often used for scheduled tasks"
 5,Service,"Windows services activity"
 6,Proxy,"A proxy login"
-7,Unlock,"Unlock loging for interactive and remote interactive logins such as screensavers and acreen locks"
+7,Unlock,"Unlock login for interactive and remote interactive logins such as screensavers and screen locks"
 8,NetworkCleartext,"Network loin but using cleartext credentials"
 9,NewCredentials,"Login using secondary credentials, ofent used to run local applications with another accounts credentials"
 10,RemoteInteractive,"Terminal services or Remote Desktop (RDP) login"

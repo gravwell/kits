@@ -1,0 +1,8 @@
+Type,Type Name,Description
+0x1,"DES-CBC-CRC","Disabled by default starting from Windows 7 and Windows Server 2008 R2"
+0x3,"DES-CBC-MD5,"Disabled by default starting from Windows 7 and Windows Server 2008 R2"
+0x11,"AES128-CTS-HMAC-SHA1-96","Supported starting from Windows Server 2008 and Windows Vista"
+0x12,"AES256-CTS-HMAC-SHA1-96","Supported starting from Windows Server 2008 and Windows Vista"
+0x17,"RC4-HMAC","Default suite for operating systems before Windows Server 2008 and Windows Vista"
+0x18,"RC4-HMAC-EXP","Default suite for operating systems before Windows Server 2008 and Windows Vista"
+0xffffffff,"-","This type shows in Audit Failure events"
