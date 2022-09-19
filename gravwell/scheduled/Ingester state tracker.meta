@@ -6,5 +6,6 @@
 	"DefaultDeploymentRules": {
 		"Disabled": true,
 		"RunImmediately": false
-	}
+	},
+	"ScheduledType": "script"
 }

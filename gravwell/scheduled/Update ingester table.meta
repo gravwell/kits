@@ -10,5 +10,6 @@
 	"DefaultDeploymentRules": {
 		"Disabled": false,
 		"RunImmediately": false
-	}
+	},
+	"ScheduledType": "script"
 }
