@@ -1,0 +1,15 @@
+{
+	"Name": "zeekntp",
+	"Desc": "Zeek NTP logs",
+	"Module": "fields",
+	"Tag": "zeekpe",
+	"Labels": [
+		"zeek",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "57cced6c-3aa8-11ed-84a5-7f5b05b0e077",
+	"LastUpdated": "2020-09-18T15:38:47.745019706-06:00"
+}
