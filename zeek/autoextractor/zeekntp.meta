@@ -2,7 +2,7 @@
 	"Name": "zeekntp",
 	"Desc": "Zeek NTP logs",
 	"Module": "fields",
-	"Tag": "zeekpe",
+	"Tag": "zeekntp",
 	"Labels": [
 		"zeek",
 		"autoextractor"
