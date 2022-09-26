@@ -434,6 +434,25 @@ Just copy and paste this into "/opt/gravwell/etc/file_follow.conf.d/zeek.conf" a
 	Tag-Name="zeekx509"
 </pre>
 
+## Corelight
+
+Gravwell can ingest Corelight logs shipped via either syslog or direct TCP connections, using the [Simple Relay ingester](https://docs.gravwell.io/#!ingesters/simple_relay.md). Corelight sends its logs in JSON format; in order to use them with the Zeek kit, they must be converted to the TSV structure the Zeek kit expects.
+
+Here's an example config snippet for the Simple Relay ingester which listens for JSON over TCP on port 7890 and translates the JSON payloads to TSV data:
+
+<pre>
+[Listener "corelight"]
+    Bind-String="0.0.0.0:7890"
+    Preprocessor=corelight
+
+[Preprocessor "corelight"]
+    Type=corelight
+</pre>
+
+The Corelight preprocessor will examine incoming JSON payloads, determine the log type, convert it to TSV, and ingest it under the appropriate tag: zeekconn, zeekdns, etc.
+
+Note: You can ingest Corelight logs without the preprocessor and use them as JSON, but you will need to modify the autoextractor definitions if you want to use them with the Zeek kit's pre-built dashboards and other features. JSON also consumes more space on disk. For ease of use, we therefore recommend using our preprocessor as shown above.
+
 ## Additional Information
 The "Zeek" and "Bro" names are owned by the [Zeek Community](https://zeek.org).
 
