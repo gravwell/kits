@@ -1,0 +1,154 @@
+{
+	"UUID": "0e799dc0-19b0-4f39-8628-f6b3e4e434bd",
+	"Name": "Syslog Overview",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=syslog syslog Severity\n| stats count by Severity\n| lookup -r syslog_severity Severity code severity\n| chart count by severity",
+				"alias": "Overview",
+				"color": null
+			},
+			{
+				"timeframe": null,
+				"query": "tag=syslog syslog Severity \u003c 4 /* error or higher */\n| stats count by Severity\n| lookup -r syslog_severity Severity code severity as Severity\n| numbercard count",
+				"alias": "Errors",
+				"color": null
+			},
+			{
+				"timeframe": null,
+				"query": "tag=syslog syslog Facility\n| stats count by Facility\n| lookup -r syslog_facility Facility code facility\n| chart count by facility limit 16",
+				"alias": "Facility Distribution"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=syslog syslog Appname\n| stats count by Appname\n| table Appname count",
+				"alias": "Most Common Apps"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=syslog syslog Hostname\n| stats count by Hostname\n| table Hostname count",
+				"alias": "Most Common Hosts"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=syslog syslog Hostname Appname Severity \u003c 4 /* error or higher */\n| stats count by Severity Hostname Appname\n| lookup -r syslog_severity Severity code severity as Severity\n| table Hostname Appname Severity count",
+				"alias": "Hosts and Apps with Errors"
+			}
+		],
+		"tiles": [
+			{
+				"title": "Level Overview",
+				"renderer": "barChart",
+				"searchesIndex": 0,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				},
+				"id": 1669046827528
+			},
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 5,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"id": 16690468474031,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Critical and Errors",
+				"renderer": "numberCard",
+				"searchesIndex": 1,
+				"span": {
+					"col": 3,
+					"row": 8,
+					"x": 10,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": ""
+				},
+				"id": 1669047819818
+			},
+			{
+				"title": "Facility Distribution",
+				"renderer": "donutChart",
+				"searchesIndex": 2,
+				"span": {
+					"col": 3,
+					"row": 5,
+					"x": 10,
+					"y": 8
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"id": 1669047945275
+			},
+			{
+				"title": "Most Common Apps",
+				"renderer": "table",
+				"searchesIndex": 3,
+				"span": {
+					"col": 3,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"rendererOptions": {},
+				"id": 1669048065171
+			},
+			{
+				"title": "Most Common Hosts",
+				"renderer": "table",
+				"searchesIndex": 4,
+				"span": {
+					"col": 3,
+					"row": 9,
+					"x": 3,
+					"y": 4
+				},
+				"rendererOptions": {},
+				"id": 1669048069661
+			},
+			{
+				"title": "Hosts and Apps with Errors",
+				"renderer": "table",
+				"searchesIndex": 5,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"rendererOptions": {},
+				"id": 1669048170462
+			}
+		],
+		"version": 2
+	},
+	"Labels": null
+}
