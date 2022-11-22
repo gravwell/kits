@@ -1,0 +1,174 @@
+{
+	"UUID": "c5288c96-0584-4ac0-94f5-66642e010c91",
+	"Name": "Automations",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"searches": [
+			{
+				"timeframe": null,
+				"query": "tag=gravwell syslog Appname==searchagent Message==start type\n| stats count by type\n| chart count by type",
+				"alias": "Automation Activity",
+				"color": null
+			},
+			{
+				"timeframe": null,
+				"query": "tag=gravwell syslog Appname==searchagent Message==error type\n| stats count by type\n| numbercard count",
+				"alias": "Automation Failures"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=gravwell syslog Appname==searchagent Message==error uid type id runtime error\n| stats count mean(runtime) as \"avg runtime\" by id error \n| table uid type error count \"avg runtime\" id\n",
+				"alias": "Failed Automations"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=gravwell syslog Appname==searchagent Message==completed type runtime\n| stats mean(runtime) by type\n| chart mean by type",
+				"alias": "Average Run Times"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=gravwell syslog Appname==searchagent Message==\"Updating automation\" type\n| stats count by type\n| chart count by type",
+				"alias": "Automation Updates"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=gravwell syslog Appname==searchagent Message==\"Adding automation\" type\n| stats count by type\n| numbercard count",
+				"alias": "New Automations"
+			},
+			{
+				"timeframe": null,
+				"query": "tag=gravwell syslog Appname==searchagent Message==start uid type\n| stats count by type uid\n| table uid type count",
+				"alias": "Most Active Users"
+			}
+		],
+		"tiles": [
+			{
+				"title": "Automation Activity",
+				"renderer": "barChart",
+				"searchesIndex": 0,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				},
+				"id": 1669082511927
+			},
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"id": 16690825272211,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Automation Failures",
+				"renderer": "numberCard",
+				"searchesIndex": 1,
+				"span": {
+					"col": 5,
+					"row": 3,
+					"x": 7,
+					"y": 0
+				},
+				"rendererOptions": {},
+				"id": 1669082958650
+			},
+			{
+				"title": "Failed Automations",
+				"renderer": "table",
+				"searchesIndex": 2,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 6,
+					"y": 3
+				},
+				"rendererOptions": {},
+				"id": 1669083125611
+			},
+			{
+				"title": "Average Run Times",
+				"renderer": "lineChart",
+				"searchesIndex": 3,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 3
+				},
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				},
+				"id": 1669083326073
+			},
+			{
+				"title": "Automation Updates",
+				"renderer": "donutChart",
+				"searchesIndex": 4,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 4,
+					"y": 3
+				},
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				},
+				"id": 1669083480957
+			},
+			{
+				"title": "New Automations",
+				"renderer": "numberCard",
+				"searchesIndex": 5,
+				"span": {
+					"col": 2,
+					"row": 6,
+					"x": 4,
+					"y": 7
+				},
+				"rendererOptions": {},
+				"id": 1669083657270
+			},
+			{
+				"title": "Most Active Users",
+				"renderer": "table",
+				"searchesIndex": 6,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 7
+				},
+				"rendererOptions": {},
+				"id": 1669083911110
+			}
+		],
+		"version": 2
+	},
+	"Labels": null
+}
