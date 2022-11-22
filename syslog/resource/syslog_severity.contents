@@ -1,0 +1,9 @@
+code,severity,description
+0,emergency,system is unusable
+1,alert,action must be taken immediately
+2,critical,critical conditions
+3,error,error conditions
+4,warning,warning conditions
+5,notice,normal but significant condition
+6,informational,informational messages
+7,debug,debug-level messages
