@@ -1,7 +1,7 @@
 {
 	"UUID": "0e799dc0-19b0-4f39-8628-f6b3e4e434bd",
-	"Name": "Syslog Overview",
-	"Description": "",
+	"Name": "Syslog Host and Severity Overview",
+	"Description": "Basic overview of syslog severity distribution and active hosts.",
 	"Data": {
 		"timeframe": {
 			"timeframe": "P1DT"
