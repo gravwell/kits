@@ -1,0 +1,22 @@
+{
+	"UUID": "cf20f05e-f1b4-49a6-b695-e70fa5484c08",
+	"Name": "Zeek Connection Graph for IP",
+	"Description": "FDG of IP Connections for a given IP as seen by Zeek",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "IP Address",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"conn",
+		"fdg"
+	]
+}

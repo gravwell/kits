@@ -1,0 +1,23 @@
+{
+	"UUID": "da541e53-395d-4595-aab5-5b31ee581de3",
+	"Name": "Zeek Connstate Chart",
+	"Description": "Count of connection states for a given IP as seen by Zeek",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"conn",
+		"state",
+		"chart"
+	]
+}

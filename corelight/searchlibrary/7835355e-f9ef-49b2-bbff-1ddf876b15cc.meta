@@ -1,0 +1,15 @@
+{
+	"Name": "Zeek Upload/Download Numbercards",
+	"Description": "Numbercards showing total upload/download traffic as seen by Zeek",
+	"GUID": "7835355e-f9ef-49b2-bbff-1ddf876b15cc",
+	"Labels": [
+		"zeek",
+		"conn",
+		"traffic",
+		"upload/download",
+		"numbercard"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

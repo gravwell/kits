@@ -1,0 +1,23 @@
+{
+	"UUID": "7dc9ddf7-2f29-41c7-83cb-0408afb87b4d",
+	"Name": "Zeek Service traffic Totals for an IP",
+	"Description": "Show upstream/downstream traffic totals for service traffic on a given IP.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"traffic",
+		"service",
+		"numbercard"
+	]
+}

@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_pe",
+  "Desc": "Corelight PE logs",
+  "Module": "json",
+  "Tag": "corelight_pe",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "6c7e7867-6558-4197-9a08-12a97a3b9314",
+  "LastUpdated": "2020-09-18T15:38:47.745019706-06:00"
+}

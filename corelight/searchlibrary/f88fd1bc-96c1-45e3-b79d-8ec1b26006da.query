@@ -1,0 +1,1 @@
+tag=zeekx509 ax | anko expired_x509 not_valid_after | time not_valid_after expired_on | table subject issuer dns expired_on

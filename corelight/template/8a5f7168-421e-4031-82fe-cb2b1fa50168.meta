@@ -1,0 +1,20 @@
+{
+	"UUID": "8a5f7168-421e-4031-82fe-cb2b1fa50168",
+	"Name": "Zeek All for UID",
+	"Description": "Raw zeek entries containing a given UID whatsoever",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%UID%%",
+				"label": "Zeek UID",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek"
+	]
+}

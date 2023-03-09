@@ -1,0 +1,1 @@
+tag=zeekssl ax last_alert!="-" | alias orig client resp server last_alert alert | table client server server_name alert established

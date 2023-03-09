@@ -1,0 +1,22 @@
+{
+	"UUID": "b09031b4-e09e-47c7-8c56-e6ed2cf84a33",
+	"Name": "Zeek DNS Beaconing by Client",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	]
+}

@@ -1,0 +1,115 @@
+{
+	"UUID": "29eef45f-ee30-40eb-a5df-ddb79507cacd",
+	"Name": "Zeek DNS Domain Investigation",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Zeek DNS Requests over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "ece007c9-9423-435d-8f7b-7c8196e673e5",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7948315642
+			},
+			{
+				"alias": "Zeek DNS Related Subdomains",
+				"timeframe": {},
+				"reference": {
+					"id": "d2f6fe1d-9845-4a2e-a798-21c17012cb33",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7137343761
+			},
+			{
+				"alias": "Zeek DNS Clients Querying this Name",
+				"timeframe": {},
+				"reference": {
+					"id": "20a1d25a-952e-4998-8b77-f02b43dffedc",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7452951868
+			}
+		],
+		"tiles": [
+			{
+				"title": "Requests over Time",
+				"renderer": "barChart",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16016703711500,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Orientation": "v",
+					"IncludeOther": "yes",
+					"Multiple": "no",
+					"Style": "reg",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "CNAME, A, AAAA Records",
+				"renderer": "table",
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16016705828911,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Clients Requesting this Domain",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 4
+				},
+				"id": 16016708162092,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-02T14:52:48-06:00"
+	},
+	"Labels": null
+}

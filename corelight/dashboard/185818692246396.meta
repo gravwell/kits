@@ -1,0 +1,179 @@
+{
+	"UUID": "e5f2c4ca-611e-41e1-ba0a-f583dcd6eedb",
+	"Name": "Zeek HTTP",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Zeek HTTP Point-to-Point",
+				"timeframe": {},
+				"reference": {
+					"id": "7dcdd46d-76f0-4fee-b941-2a0553534286",
+					"type": "savedQuery"
+				},
+				"searchID": 6072365380
+			},
+			{
+				"alias": "Zeek HTTP Most Requested Hosts",
+				"timeframe": {},
+				"reference": {
+					"id": "51b0d89d-bf0f-47c5-a0b7-c8a88ae29484",
+					"type": "savedQuery"
+				},
+				"searchID": 2237591312
+			},
+			{
+				"alias": "Zeek HTTP Browser Distribution",
+				"timeframe": {},
+				"reference": {
+					"id": "a89ae873-7548-4fcb-9e8e-2ae14a9c0734",
+					"type": "savedQuery"
+				},
+				"searchID": 6136518840
+			},
+			{
+				"alias": "Zeek HTTP Unusual HTTP Methods",
+				"timeframe": {},
+				"reference": {
+					"id": "022a1dcb-393f-4249-8d89-6170800baae7",
+					"type": "savedQuery"
+				},
+				"searchID": 3179765715
+			},
+			{
+				"alias": "Search 6",
+				"timeframe": {},
+				"query": "tag=zeekhttp",
+				"searchID": 1759086870
+			},
+			{
+				"alias": "Zeek HTTP Method Counts",
+				"timeframe": {},
+				"reference": {
+					"id": "bbeb4ceb-de1a-4fb6-9e9f-cb4ddd8efdb8",
+					"type": "savedQuery"
+				},
+				"searchID": 4045784445
+			}
+		],
+		"tiles": [
+			{
+				"title": "HTTP Point-to-Point",
+				"renderer": "point2point",
+				"span": {
+					"col": 5,
+					"row": 7,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16034734722431,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Most Requested Hosts",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 11,
+					"x": 9,
+					"y": 0
+				},
+				"id": 16034774394662,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Browser Distribution",
+				"renderer": "pieChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 3
+				},
+				"id": 16034781580083,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Unusual HTTP Methods",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 4,
+					"y": 7
+				},
+				"id": 16034793423844,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "HTTP Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"id": 16034795627195,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Zeek HTTP Method Counts",
+				"renderer": "donutChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 7
+				},
+				"id": 16034801758805,
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P7DT",
+			"durationString": "P7DT",
+			"start": null,
+			"end": null,
+			"timezone": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-23T13:52:53-06:00"
+	},
+	"Labels": [
+		"zeek",
+		"http"
+	]
+}

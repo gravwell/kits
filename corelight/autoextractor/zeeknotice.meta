@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_notice",
+  "Desc": "Corelight Notice logs",
+  "Module": "json",
+  "Tag": "corelight_notice",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "c937b392-0f63-4971-aa9d-41b4add1689c",
+  "LastUpdated": "2020-09-18T15:38:48.051735543-06:00"
+}

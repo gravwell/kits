@@ -1,0 +1,3 @@
+tag=zeekssh ax
+| geoip orig_host.Location
+| heatmap orig_host

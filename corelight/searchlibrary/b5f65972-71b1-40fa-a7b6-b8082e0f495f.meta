@@ -1,0 +1,15 @@
+{
+	"Name": "Zeek service connection counts",
+	"Description": "Chart of connection counts per service as seen by Zeek",
+	"GUID": "b5f65972-71b1-40fa-a7b6-b8082e0f495f",
+	"Labels": [
+		"zeek",
+		"conn",
+		"service",
+		"count",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

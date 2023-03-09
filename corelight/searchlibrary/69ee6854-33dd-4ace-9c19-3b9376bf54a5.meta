@@ -1,0 +1,14 @@
+{
+	"Name": "Zeek most active service ports",
+	"Description": "The most active service ports as seen by Zeek conn log",
+	"GUID": "69ee6854-33dd-4ace-9c19-3b9376bf54a5",
+	"Labels": [
+		"zeek",
+		"conn",
+		"ports",
+		"most common"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

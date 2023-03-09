@@ -1,0 +1,12 @@
+{
+	"Name": "Zeek HTTP Unusual HTTP Methods",
+	"Description": "A table of info for requests with unusual HTTP request methods",
+	"GUID": "022a1dcb-393f-4249-8d89-6170800baae7",
+	"Labels": [
+		"zeek",
+		"http"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

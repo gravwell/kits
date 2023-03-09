@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_ssl",
+  "Desc": "Corelight ssl logs",
+  "Module": "json",
+  "Tag": "corelight_ssl",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "5370056a-be79-4773-9c4d-7a321db091e0",
+  "LastUpdated": "2020-09-18T15:38:48.045754727-06:00"
+}

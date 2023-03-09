@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_kerberos",
+  "Desc": "Corelight Kerberos logs",
+  "Module": "json",
+  "Tag": "corelight_kerberos",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "96135c69-d967-4efe-981c-30b84c5f714f",
+  "LastUpdated": "2020-09-18T15:38:47.853246151-06:00"
+}

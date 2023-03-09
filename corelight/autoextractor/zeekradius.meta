@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_radius",
+  "Desc": "Corelight radius logs",
+  "Module": "json",
+  "Tag": "corelight_radius",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "b96a8679-5ec6-4189-bdf6-d16c4e0cd671",
+  "LastUpdated": "2020-09-18T15:38:47.749142506-06:00"
+}

@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_intel",
+  "Desc": "Corelight intel logs",
+  "Module": "json",
+  "Tag": "corelight_intel",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "9ab245d0-5665-4d35-a1e1-73d54cf44de7",
+  "LastUpdated": "2020-09-18T15:38:47.310757168-06:00"
+}

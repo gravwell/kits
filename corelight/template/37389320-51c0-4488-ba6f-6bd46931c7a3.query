@@ -1,0 +1,1 @@
+tag=zeekconn words %%IP%% | ax service | stats count by service | chart count by service

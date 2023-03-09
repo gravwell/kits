@@ -1,0 +1,3 @@
+tag=zeekconn ax resp==%%IP%% service resp_bytes != - |
+stats unique_count(service) as "Active Services" |
+numbercard "Active Services"

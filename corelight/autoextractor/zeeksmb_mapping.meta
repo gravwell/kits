@@ -1,0 +1,17 @@
+{
+  "Name": "Corelight SMB Mapping",
+  "Desc": "Corelight Samba Mapping Log",
+  "Module": "json",
+  "Tag": "corelight_smb_mapping",
+  "Labels": [
+    "corelight",
+    "samba",
+    "smb",
+    "mapping"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "3705b4c7-ad77-448b-9579-eb8a91851478",
+  "LastUpdated": "2020-09-22T16:28:26.694778707-06:00"
+}

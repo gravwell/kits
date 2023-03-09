@@ -1,0 +1,22 @@
+{
+	"UUID": "feb7147b-e462-40e0-ab54-b98f8e67b853",
+	"Name": "Zeek DNS Over Time",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"dns",
+		"chart"
+	]
+}

@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_sip",
+  "Desc": "Corelight SIP logs",
+  "Module": "json",
+  "Tag": "corelight_sip",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "7ed39941-38f9-4c2d-a4b0-6e7a4bc8f239",
+  "LastUpdated": "2020-09-18T15:38:48.046158709-06:00"
+}

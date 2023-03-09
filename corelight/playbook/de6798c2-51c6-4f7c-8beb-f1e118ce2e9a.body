@@ -1,0 +1,45 @@
+# Overview
+
+The Domain Name System (DNS) is a global naming system for internet connected resources. It provides a mapping from human readable hostnames to a variety of other forms (such as other hostnames, IP addresses, and other datapoints). 
+
+DNS is widely abused by malware and network attackers to facilitate (and sometimes directly perform) data exfiltration, command and control for botnets, and other malicious activities. For this reason, introspecting on DNS data is a first-line activity for network operators.  
+
+Zeek collects DNS queries and responses, and the Gravwell Zeek DNS Dashboards provide analysis, queries, and other resources to quickly begin to analyze DNS data.
+
+## Using the Playbook
+
+This playbook contains Gravwell queries which can be executed by clicking the 'Launch' button and selecting a time range--typically "Last hour" is sufficient and fast. Once you've launched the search, feel free to modify it and experiment!
+
+## Dependencies
+
+This kit depends on Gravwell's Network Enrichment Kit, which should have been automatically installed when you selected the Zeek Kit. If you are missing resources used in some of our dashboards and queries, make sure the Network Enrichment Kit has been installed.
+
+# Inspecting DNS Queries
+
+Let's look at a few examples of Gravwell queries on Zeek data. For more detailed queries, look at the queries provided in this kit. 
+
+## Inspecting Requests for a Given Domain
+
+Zeek records come in several flavors - requests and responses, and several types therein. Let's start by listing, in a table, every response to any query that contains "google.com" (for example www.google.com, youtube-ui.l.google.com, etc.).
+
+`tag=zeekdns ax query ~ "google.com" | table`
+
+We begin by looking in tag "zeekdns", and use the [AX](https://docs.gravwell.io/#!search/ax/ax.md) module to extract records that match on certain fields. We use the match operator "~" to do a simple string "contains" match on that field. From there we simply invoke the table renderer.
+
+## Plotting "A" Records over Time
+
+Next, we'll plot all "A" records (responses with an IPv4 address as the answer) over time. This is a simple query with only one extraction. 
+
+`tag=zeekdns ax qtype == 1 | chart`
+
+Like before, we look into tag "zeekdns", and again invoke the ax extraction module to filter on "A" records, which have a Resource Record Type of 1. After filtering, we simply invoke the chart renderer, which will generate a line chart over time with the entries that we filtered down to. Simple!
+
+## Counting DNS Resource Request Types
+
+Finally, let's use one of the resources provided by the Network Enrichment Kit - the "dns_types" resource. This resource provides a lookup table between a DNS query's "Resource Record Type" ID and Name. For example, "A" records have a RRTYPE of 1 and CNAME records have a RRTYPE of 5. 
+
+We'll keep it simple and just count records of each type:
+
+`tag=zeekdns ax | lookup -s -r dns_types qtype Value TYPE as dnstype | stats count by dnstype | table dnstype count`
+
+As usual, we enumerate a value from the record in the "zeekdns" tag, and apply the [lookup](https://dev.gravwell.io/docs/#!search/lookup/lookup.md) module. The lookup module takes as input the name of the resource (-r dns_types), the value we'll be indexing with (qtype), what named column in the resource the value corresponds to (Value), and any number of columns to enumerate, just "TYPE" in this example. From there we simply count by each type and render our data in a table. 

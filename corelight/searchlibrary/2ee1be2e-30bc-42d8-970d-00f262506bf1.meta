@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek DNS Requests by Host",
+	"Description": "",
+	"GUID": "2ee1be2e-30bc-42d8-970d-00f262506bf1",
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

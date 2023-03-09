@@ -1,0 +1,12 @@
+{
+	"Name": "Zeek All SSH",
+	"Description": "All entries from ssh.log",
+	"GUID": "becc7280-6d4b-4b38-8b76-5c818aff6cb0",
+	"Labels": [
+		"zeek",
+		"ssh"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

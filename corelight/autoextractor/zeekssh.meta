@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_ssh",
+  "Desc": "Corelight SSH logs",
+  "Module": "json",
+  "Tag": "corelight_ssh",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "1576e2df-d9cf-40ba-9cf8-2c0eeba2f93a",
+  "LastUpdated": "2020-09-18T15:38:47.8536668-06:00"
+}

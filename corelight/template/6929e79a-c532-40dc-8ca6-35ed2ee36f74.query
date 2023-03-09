@@ -1,0 +1,1 @@
+tag=zeekssh ax auth_success==T resp_host==%%IP%% | alias orig_host client resp_host server | stats count by client server | geoip client.CountryName | table server client CountryName count
