@@ -1,1 +1,1 @@
-ts, uid, orig, orig_port, resp, resp_port, proto, trans_id, rtt, query, qclass, qclass_name, qtype, qtype_name, rcode, rcode_name, AA, TC, RD, RA, Z, answers, TTLs, rejected
+ts  uid  "id.orig_h" "id.orig_p" "id.resp_h" "id.resp_p"  proto  trans_id  rtt  query  qclass  qclass_name  qtype  qtype_name  rcode  rcode_name  AA  TC  RD  RA  Z  answers  TTLs  rejected total_answers total_replies saw_query saw_reply auth addl original_query

@@ -1,1 +1,1 @@
-ts, uid, version, serial, subject, issuer, not_valid_before, not_valid_after, key_alg, sig_alg, key_type, key_length, exponent, curve, dns, uri, email, ip, ca, path_len
+ts "fingerprint" "certificate.exponent" "certificate.issuer" "certificate.key_alg" "certificate.key_length" "certificate.key_type" "certificate.not_valid_after" "certificate.not_valid_before" "certificate.serial" "certificate.sig_alg" "certificate.subject" "certificate.version" extensions "san.dns" "basic_constraints.ca" extensions_cache host_cert client_cert deduplication_index cert
