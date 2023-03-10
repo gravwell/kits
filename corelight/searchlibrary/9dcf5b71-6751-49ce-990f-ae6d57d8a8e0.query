@@ -1,5 +1,5 @@
-tag=corelight_conn ax resp_port resp_bytes |
-stats count by resp_port |
-eval toInt(resp_bytes) > 140 && resp_port < 16000 | /* Only looking at ports in the lower range */
+tag=corelight_conn ax "id.resp_p" resp_bytes |
+stats count by "id.resp_p" |
+eval toInt(resp_bytes) > 140 && "id.resp_p" < 16000 | /* Only looking at ports in the lower range */
 sort by count asc |
-table resp_port count
+table "id.resp_p" count
