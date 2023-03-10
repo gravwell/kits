@@ -1,13 +1,13 @@
 {
-	"Name": "Zeek DHCP unique client counts",
+	"Name": "Corelight DHCP unique client counts",
 	"Description": "Numbercard showing unique client counts for each DHCP server",
 	"GUID": "6c3b608c-7e04-4b50-bf74-47231cabea65",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dhcp",
 		"unique",
 		"numbercard",
-		"kit/io.gravwell.beta.zeek"
+		"kit/io.gravwell.beta.corelight"
 	],
 	"Metadata": {
 		"timeframe": null

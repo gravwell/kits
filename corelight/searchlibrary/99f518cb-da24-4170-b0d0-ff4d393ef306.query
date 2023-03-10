@@ -1,4 +1,4 @@
-tag=zeekconn ax service duration orig_bytes resp_bytes orig_pkts resp_pkts |
+tag=corelight_conn ax service duration orig_bytes resp_bytes orig_pkts resp_pkts |
 stats mean(orig_bytes) as "Average Downstream Traffic"
 mean(resp_bytes) as "Average Upstream Traffic"
 mean(duration) as "Average Connection Duration"

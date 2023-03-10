@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek DHCP rejections",
+	"Name": "Corelight DHCP rejections",
 	"Description": "Table of DHCP address rejections and cause",
 	"GUID": "3d7890b7-248e-4ac6-96a7-295318d66d50",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dhcp",
 		"reject"
 	],

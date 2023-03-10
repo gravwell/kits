@@ -1,1 +1,1 @@
-tag=zeekhttp ax | stats count by host | sort by count desc | table count host
+tag=corelight_http ax | stats count by host | sort by count desc | table count host

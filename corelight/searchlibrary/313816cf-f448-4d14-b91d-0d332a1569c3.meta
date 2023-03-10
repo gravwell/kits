@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek Upload/Download Numbercards",
-	"Description": "Numbercards showing total upload/download traffic as seen by Zeek",
+	"Name": "Corelight Upload/Download Numbercards",
+	"Description": "Numbercards showing total upload/download traffic as seen by Corelight",
 	"GUID": "313816cf-f448-4d14-b91d-0d332a1569c3",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"traffic",
 		"upload/download",

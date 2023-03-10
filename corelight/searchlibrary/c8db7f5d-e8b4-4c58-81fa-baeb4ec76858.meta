@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek x509 Find Expired Certificates",
+	"Name": "Corelight x509 Find Expired Certificates",
 	"Description": "List certificates which have expired.",
 	"GUID": "c8db7f5d-e8b4-4c58-81fa-baeb4ec76858",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"x509",
 		"table"
 	],

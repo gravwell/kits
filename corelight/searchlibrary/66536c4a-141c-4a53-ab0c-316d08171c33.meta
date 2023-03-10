@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek Connection Map",
-	"Description": "Geospatial connection map of connections as seen by Zeek",
+	"Name": "Corelight Connection Map",
+	"Description": "Geospatial connection map of connections as seen by Corelight",
 	"GUID": "66536c4a-141c-4a53-ab0c-316d08171c33",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"geospatial",
 		"map",

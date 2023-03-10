@@ -1,1 +1,1 @@
-tag=zeekssh ax resp_port!=22 | table
+tag=corelight_ssh ax resp_port!=22 | table

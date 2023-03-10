@@ -1,4 +1,4 @@
-tag=zeekconn ax orig resp resp_port |
+tag=corelight_conn ax orig resp resp_port |
 stats unique_count(resp_port) by orig resp |
 eval unique_count > 64 |
 geoip orig.Country orig.City |

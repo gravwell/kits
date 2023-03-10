@@ -1,1 +1,1 @@
-tag=zeekhttp ax password != - | table orig resp host uri username password info_code
+tag=corelight_http ax password != - | table orig resp host uri username password info_code

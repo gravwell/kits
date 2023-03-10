@@ -1,4 +1,4 @@
-tag=zeekconn ax resp_port resp_bytes |
+tag=corelight_conn ax resp_port resp_bytes |
 stats count by resp_port |
 eval toInt(resp_bytes) > 140 && resp_port < 16000 | /* Only looking at ports in the lower range */
 sort by count asc |

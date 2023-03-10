@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek SMB private IP graph",
+	"Name": "Corelight SMB private IP graph",
 	"Description": "",
 	"GUID": "2f72164f-0752-4a4d-b133-e7e2fa28cdc4",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"smb",
 		"fileshare"
 	],

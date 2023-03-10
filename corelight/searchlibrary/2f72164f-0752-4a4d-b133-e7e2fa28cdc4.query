@@ -1,1 +1,1 @@
-tag=zeeksmb* ax | ip orig~PRIVATE resp~PRIVATE | fdg orig resp
+tag=corelight_smb* ax | ip orig~PRIVATE resp~PRIVATE | fdg orig resp

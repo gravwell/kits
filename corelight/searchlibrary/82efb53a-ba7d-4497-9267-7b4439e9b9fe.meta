@@ -3,7 +3,7 @@
 	"Description": "SSL connections which failed due to bad certificates",
 	"GUID": "82efb53a-ba7d-4497-9267-7b4439e9b9fe",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"ssl",
 		"table"
 	],

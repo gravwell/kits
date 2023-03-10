@@ -1,3 +1,3 @@
-tag=zeekconn ax orig_bytes!="-" resp_bytes!="-" service !="-" |
+tag=corelight_conn ax orig_bytes!="-" resp_bytes!="-" service !="-" |
 stats sum(orig_bytes) as upload sum(resp_bytes) as download |
 chart upload download

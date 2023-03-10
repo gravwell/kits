@@ -1,1 +1,1 @@
-tag=zeekx509 ax | stats count by key_length key_type | table key_type key_length count
+tag=corelight_x509 ax | stats count by key_length key_type | table key_type key_length count

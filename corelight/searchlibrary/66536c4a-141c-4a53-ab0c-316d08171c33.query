@@ -1,4 +1,4 @@
-tag=zeekconn ax orig resp |
+tag=corelight_conn ax orig resp |
 stats count by orig resp |
 geoip orig.Location as oloc resp.Location as rloc |
 point2point -srcloc oloc -dstloc rloc

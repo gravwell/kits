@@ -1,1 +1,1 @@
-tag=zeekhttp ax status_msg==500 | stats count by host | table host count
+tag=corelight_http ax status_msg==500 | stats count by host | table host count

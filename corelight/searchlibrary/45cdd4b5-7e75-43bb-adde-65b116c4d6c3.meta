@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek DHCP Address Assignments",
+	"Name": "Corelight DHCP Address Assignments",
 	"Description": "Table of DHCP address assignments",
 	"GUID": "45cdd4b5-7e75-43bb-adde-65b116c4d6c3",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dhcp"
 	],
 	"Metadata": {

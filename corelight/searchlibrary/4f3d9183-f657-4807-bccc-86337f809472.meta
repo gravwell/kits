@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek HTTP Potential Command Injection in URI",
+	"Name": "Corelight HTTP Potential Command Injection in URI",
 	"Description": "A table of info for requests with URIs that contain common escape characters",
 	"GUID": "4f3d9183-f657-4807-bccc-86337f809472",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"http"
 	],
 	"Metadata": {

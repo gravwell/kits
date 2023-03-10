@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek DNS SLDs with the most Subdomains",
+	"Name": "Corelight DNS SLDs with the most Subdomains",
 	"Description": "DNS SLDs with the most Subdomains",
 	"GUID": "e81c138d-dc95-4480-b68c-249e792ad2a2",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"table"
 	],

@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek SSH Client Locations",
+	"Name": "Corelight SSH Client Locations",
 	"Description": "GeoIP locations for all SSH clients",
 	"GUID": "9c5172ca-f41b-4fba-bf41-eec9f5e88815",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"ssh"
 	],
 	"Metadata": {

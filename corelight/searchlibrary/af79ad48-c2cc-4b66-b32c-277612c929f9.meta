@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek most active service ports",
-	"Description": "The most active service ports as seen by Zeek conn log",
+	"Name": "Corelight most active service ports",
+	"Description": "The most active service ports as seen by Corelight conn log",
 	"GUID": "af79ad48-c2cc-4b66-b32c-277612c929f9",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"ports",
 		"most common"

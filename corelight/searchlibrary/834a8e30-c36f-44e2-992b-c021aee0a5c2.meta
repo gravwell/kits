@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek All Syslog",
+	"Name": "Corelight All Syslog",
 	"Description": "syslog.log",
 	"GUID": "834a8e30-c36f-44e2-992b-c021aee0a5c2",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"syslog"
 	],
 	"Metadata": {

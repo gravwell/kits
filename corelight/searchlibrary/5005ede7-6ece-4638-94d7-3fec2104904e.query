@@ -1,1 +1,1 @@
-tag=zeeksmb* ax | grep -v -e resp_port 445 139 | count by resp resp_port | table resp resp_port count
+tag=corelight_smb* ax | grep -v -e resp_port 445 139 | count by resp resp_port | table resp resp_port count

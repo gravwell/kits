@@ -1,1 +1,1 @@
-tag=zeeksmb_files ax | count by orig action | stackgraph orig action count
+tag=corelight_smb_files ax | count by orig action | stackgraph orig action count

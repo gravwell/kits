@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek service connection counts",
-	"Description": "Chart of connection counts per service as seen by Zeek",
+	"Name": "Corelight service connection counts",
+	"Description": "Chart of connection counts per service as seen by Corelight",
 	"GUID": "7e5b1227-0458-467e-bf79-6fe7e323c3a6",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"service",
 		"count",

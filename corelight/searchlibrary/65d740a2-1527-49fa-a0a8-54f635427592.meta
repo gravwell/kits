@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek All SSH",
+	"Name": "Corelight All SSH",
 	"Description": "All entries from ssh.log",
 	"GUID": "65d740a2-1527-49fa-a0a8-54f635427592",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"ssh"
 	],
 	"Metadata": {

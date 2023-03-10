@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek SMB Client actions",
+	"Name": "Corelight SMB Client actions",
 	"Description": "Client action types (e.g. open, rename, etc)",
 	"GUID": "d9518c33-539f-4fe1-96b1-cf5317223387",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"smb",
 		"fileshare"
 	],

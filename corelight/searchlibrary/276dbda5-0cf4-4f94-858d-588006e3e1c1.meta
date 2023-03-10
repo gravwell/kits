@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek SSH Successful Authentications by Client",
+	"Name": "Corelight SSH Successful Authentications by Client",
 	"Description": "Display a table of which clients have successfully connected to which server the most. Also includes client country.",
 	"GUID": "276dbda5-0cf4-4f94-858d-588006e3e1c1",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"ssh",
 		"table"
 	],

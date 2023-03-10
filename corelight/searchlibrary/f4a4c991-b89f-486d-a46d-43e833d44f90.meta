@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek most common TLDs",
-	"Description": "Most common queried TLDs as seen by Zeek",
+	"Name": "Corelight most common TLDs",
+	"Description": "Most common queried TLDs as seen by Corelight",
 	"GUID": "f4a4c991-b89f-486d-a46d-43e833d44f90",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"TLD",
 		"table"

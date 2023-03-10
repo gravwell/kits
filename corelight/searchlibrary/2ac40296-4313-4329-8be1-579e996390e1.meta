@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek Potential Port Scans",
-	"Description": "Potential port scans as seen by the Zeek conn log",
+	"Name": "Corelight Potential Port Scans",
+	"Description": "Potential port scans as seen by the Corelight conn log",
 	"GUID": "2ac40296-4313-4329-8be1-579e996390e1",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"portscan",
 		"table"

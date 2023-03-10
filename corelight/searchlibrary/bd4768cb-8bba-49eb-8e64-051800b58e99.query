@@ -1,4 +1,4 @@
-tag=zeekhttp ax 
+tag=corelight_http ax 
 | regex -e user_agent "(?P<browser>\S*)/[0-9.]*$" 
 | count by browser 
 | chart count by browser

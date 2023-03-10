@@ -1,9 +1,9 @@
 {
-	"Name": "Zeek Total Traffic By Service",
-	"Description": "Total traffic per service as seen by Zeek",
+	"Name": "Corelight Total Traffic By Service",
+	"Description": "Total traffic per service as seen by Corelight",
 	"GUID": "ba2cd43f-0525-485e-8b56-7c091b4ac971",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"traffic",
 		"chart"

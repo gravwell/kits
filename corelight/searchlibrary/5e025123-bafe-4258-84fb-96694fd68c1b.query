@@ -1,4 +1,4 @@
-tag=zeekconn ax conn_state ~ RST proto==tcp service |
+tag=corelight_conn ax conn_state ~ RST proto==tcp service |
 stats count by service conn_state |
-lookup -r zeek_conn_state conn_state state description |
+lookup -r corelight_conn_state conn_state state description |
 table service conn_state count description

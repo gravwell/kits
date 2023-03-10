@@ -1,4 +1,4 @@
-tag=zeekdns ax query |
+tag=corelight_dns ax query |
 sort by time asc |
 diff TIMESTAMP by query |
 require -s diff |

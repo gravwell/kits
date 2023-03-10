@@ -1,1 +1,1 @@
-tag=zeekdhcp ax server_addr != - mac | stats unique_count(mac) as server by server_addr | numbercard server
+tag=corelight_dhcp ax server_addr != - mac | stats unique_count(mac) as server by server_addr | numbercard server
