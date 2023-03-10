@@ -1,16 +1,16 @@
 {
-	"UUID": "de6798c2-51c6-4f7c-8beb-f1e118ce2e9a",
+	"UUID": "6659fced-2feb-419e-a655-21b3149939f1",
 	"GUID": "568f4ce4-11fb-4c60-8503-07f043c40d7b",
 	"UID": 1,
 	"GIDs": null,
 	"Global": false,
-	"Name": "Zeek DNS",
+	"Name": "Corelight DNS",
 	"Desc": "",
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"playbook",
-		"kit/io.gravwell.beta.zeek"
+		"kit/io.gravwell.beta.corelight"
 	],
 	"LastUpdated": "2020-11-06T21:21:13.321796478Z",
 	"Author": {
