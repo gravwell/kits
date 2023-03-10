@@ -1,1 +1,1 @@
-tag=corelight_ssh ax | count orig_host by resp_host | alias resp_host server | chart count by server
+tag=corelight_ssh ax | count "id.orig_h" by "id.resp_h" | alias "id.resp_h" server | chart count by server
