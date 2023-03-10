@@ -1,0 +1,12 @@
+{
+	"Name": "Zeek SSH banners per server",
+	"Description": "Show the count of unique banners for each server IP address, as well as the most recent banner",
+	"GUID": "1688a96a-c444-4642-b0b4-731d0b51499f",
+	"Labels": [
+		"zeek",
+		"ssh"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

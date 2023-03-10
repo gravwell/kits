@@ -1,0 +1,14 @@
+{
+	"Name": "Zeek All SMB Files",
+	"Description": "smb_files.log",
+	"GUID": "a4cd6f05-9edd-4133-91b9-d4ff7e4b4aae",
+	"Labels": [
+		"zeek",
+		"smb",
+		"windows",
+		"fileshare"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

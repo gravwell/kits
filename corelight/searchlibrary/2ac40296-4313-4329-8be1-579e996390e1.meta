@@ -1,0 +1,14 @@
+{
+	"Name": "Zeek Potential Port Scans",
+	"Description": "Potential port scans as seen by the Zeek conn log",
+	"GUID": "2ac40296-4313-4329-8be1-579e996390e1",
+	"Labels": [
+		"zeek",
+		"conn",
+		"portscan",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

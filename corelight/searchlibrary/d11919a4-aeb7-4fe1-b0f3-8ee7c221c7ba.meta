@@ -1,0 +1,14 @@
+{
+	"Name": "Zeek HTTP Internal Server Error Counts",
+	"Description": "Count of internal Server Errors per host",
+	"GUID": "d11919a4-aeb7-4fe1-b0f3-8ee7c221c7ba",
+	"Labels": [
+		"zeek",
+		"http",
+		"internal server error",
+		"kit/io.gravwell.beta.zeek"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

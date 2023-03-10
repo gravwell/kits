@@ -8,7 +8,7 @@
 				"alias": "Corelight DNS Totals",
 				"timeframe": {},
 				"reference": {
-					"id": "1b8878d9-8d61-480f-aa10-090da60674e4",
+					"id": "78a11be0-5ea0-4c67-b865-9e21466fd61d",
 					"type": "savedQuery"
 				},
 				"searchID": 5410138615
@@ -17,7 +17,7 @@
 				"alias": "Corelight DNS Requests by Host",
 				"timeframe": {},
 				"reference": {
-					"id": "2ee1be2e-30bc-42d8-970d-00f262506bf1",
+					"id": "302f348f-a30d-4c2c-b9b0-d7e79c34dc75",
 					"type": "savedQuery"
 				},
 				"searchID": 8428286368
@@ -26,7 +26,7 @@
 				"alias": "Corelight DNS Over Time",
 				"timeframe": {},
 				"reference": {
-					"id": "eaa06af1-9478-4c8e-a78f-7e5a1c11e24f",
+					"id": "e9e5aca1-ef17-41de-a514-890a12f91abb",
 					"type": "savedQuery"
 				},
 				"searchID": 6275917740
@@ -35,7 +35,7 @@
 				"alias": "Corelight DNS Most Common SLDs",
 				"timeframe": {},
 				"reference": {
-					"id": "07fe5fcf-b744-4a96-b6c6-ccd6c29bf0d2",
+					"id": "5acdbd6a-5a44-4cff-9506-c234bf90ae58",
 					"type": "savedQuery"
 				},
 				"searchID": 5295249691
@@ -44,7 +44,7 @@
 				"alias": "Corelight DNS SLDs with the most Subdomains",
 				"timeframe": {},
 				"reference": {
-					"id": "d6dbbc30-9fb4-4540-92cc-79bb62201a44",
+					"id": "e81c138d-dc95-4480-b68c-249e792ad2a2",
 					"type": "savedQuery"
 				},
 				"searchID": 7541972414
@@ -53,7 +53,7 @@
 				"alias": "Corelight DNS Queries by Resource Record Type",
 				"timeframe": {},
 				"reference": {
-					"id": "e35508b0-15a7-4a0e-9f26-c56a74792547",
+					"id": "f81da8a5-fbb9-43a3-9911-5ff6cc3fe45a",
 					"type": "savedQuery"
 				},
 				"searchID": 8039098373
@@ -62,7 +62,7 @@
 				"alias": "Corelight DNS Beaconing",
 				"timeframe": {},
 				"reference": {
-					"id": "a9beb170-c1c5-431a-a75d-020762d9b532",
+					"id": "f38fce68-8ec6-43c5-a243-8216fb54df7a",
 					"type": "savedQuery"
 				},
 				"searchID": 5963285825
@@ -71,7 +71,7 @@
 				"alias": "Corelight DNS TXT Records",
 				"timeframe": {},
 				"reference": {
-					"id": "5a6eb9fb-a4fe-4ee1-a617-e2ae07b8ff9c",
+					"id": "b7a120b4-4b44-4faa-aebc-5aea31041cf4",
 					"type": "savedQuery"
 				},
 				"searchID": 7363440767
@@ -80,7 +80,7 @@
 				"alias": "Corelight Most Queried DNS Name",
 				"timeframe": {},
 				"reference": {
-					"id": "da40e356-b1ec-43b5-9778-286b9cb983f3",
+					"id": "0f3686cb-cbde-4b05-b45f-cb3adf116989",
 					"type": "savedQuery"
 				},
 				"searchID": 6523018706
@@ -89,7 +89,7 @@
 				"alias": "Corelight Rare DNS Queries",
 				"timeframe": {},
 				"reference": {
-					"id": "9e0009e6-4051-4104-b33e-75cc75f39642",
+					"id": "b51a9936-db54-42b3-9fa0-16f8e03dd514",
 					"type": "savedQuery"
 				},
 				"searchID": 4314371818

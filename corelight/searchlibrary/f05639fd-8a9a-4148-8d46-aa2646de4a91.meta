@@ -1,0 +1,12 @@
+{
+	"Name": "Zeek Tunnel Orig Host Counts",
+	"Description": "Table showing the number of events for each orig host",
+	"GUID": "f05639fd-8a9a-4148-8d46-aa2646de4a91",
+	"Labels": [
+		"zeek",
+		"tunnel"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

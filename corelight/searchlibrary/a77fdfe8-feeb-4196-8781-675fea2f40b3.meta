@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek Tunnel Connections Map",
+	"Description": "A point-to-point map showing tunnel connections between hosts",
+	"GUID": "a77fdfe8-feeb-4196-8781-675fea2f40b3",
+	"Labels": [
+		"zeek",
+		"tunnel",
+		"map"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

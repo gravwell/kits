@@ -8,7 +8,7 @@
 				"alias": "Corelight SSH server chart of client counts",
 				"timeframe": {},
 				"reference": {
-					"id": "f2082885-ed25-411c-b18a-e5fa6debe3d0",
+					"id": "05a32119-f1f0-4725-ae30-61b0be96258a",
 					"type": "savedQuery"
 				},
 				"searchID": 1945378166
@@ -17,7 +17,7 @@
 				"alias": "Corelight SSH banners per server",
 				"timeframe": {},
 				"reference": {
-					"id": "ebdd5381-8e3d-477b-8c2d-154069f156d4",
+					"id": "1688a96a-c444-4642-b0b4-731d0b51499f",
 					"type": "savedQuery"
 				},
 				"searchID": 7285216222
@@ -26,7 +26,7 @@
 				"alias": "Corelight SSH Client Locations",
 				"timeframe": {},
 				"reference": {
-					"id": "d475467d-9bff-426e-ac42-a8a576a8da1f",
+					"id": "9c5172ca-f41b-4fba-bf41-eec9f5e88815",
 					"type": "savedQuery"
 				},
 				"searchID": 3529754286
@@ -35,7 +35,7 @@
 				"alias": "Corelight SSH chart of ports",
 				"timeframe": {},
 				"reference": {
-					"id": "87c96621-d41e-4f14-938b-cbda31065bff",
+					"id": "709af2b8-7309-4add-bb97-f556dac95b24",
 					"type": "savedQuery"
 				},
 				"searchID": 1788865957
@@ -44,7 +44,7 @@
 				"alias": "Corelight SSH Server Locations",
 				"timeframe": {},
 				"reference": {
-					"id": "78f963f0-e436-49d9-9c8f-78f689338256",
+					"id": "f67d8107-9910-4166-a6d0-1621310d4c5b",
 					"type": "savedQuery"
 				},
 				"searchID": 3670490849
@@ -53,7 +53,7 @@
 				"alias": "Corelight SSH re-used keys",
 				"timeframe": {},
 				"reference": {
-					"id": "b74b3006-8c12-429e-b9a9-97b8ba71a0d8",
+					"id": "a6044e23-6f2d-424c-9b52-ad4905010d92",
 					"type": "savedQuery"
 				},
 				"searchID": 5592859914
@@ -66,7 +66,7 @@
 				"alias": "Corelight SSH Host Keys Seen Per Server",
 				"timeframe": {},
 				"reference": {
-					"id": "e8256f26-e448-4720-a385-c9340cdc5b12",
+					"id": "2e1a32e3-a8e8-4d3a-8a8b-2e748a032d63",
 					"type": "savedQuery"
 				},
 				"searchID": 6082003660
@@ -75,7 +75,7 @@
 				"alias": "Corelight SSH Version 1 Auth Successes",
 				"timeframe": {},
 				"reference": {
-					"id": "99d15805-3c68-4844-b50f-eaa5961ed066",
+					"id": "7cf2fd64-b919-4a7a-b2af-a7cb27271369",
 					"type": "savedQuery"
 				},
 				"searchID": 2282394648
@@ -84,7 +84,7 @@
 				"alias": "Corelight SSH Successful Authentications by Client",
 				"timeframe": {},
 				"reference": {
-					"id": "98e1a4ca-6152-4755-8fd9-4a3086ab5592",
+					"id": "276dbda5-0cf4-4f94-858d-588006e3e1c1",
 					"type": "savedQuery"
 				},
 				"searchID": 4068124823
@@ -93,7 +93,7 @@
 				"alias": "Failed SSH Connections By Country \u0026 Server",
 				"timeframe": {},
 				"reference": {
-					"id": "2f349bd2-d02c-47bd-843a-fa80a5b293b1",
+					"id": "1e103246-fd3f-4920-8f31-dbd03b5db4a1",
 					"type": "savedQuery"
 				},
 				"searchID": 7095398843
@@ -102,7 +102,7 @@
 				"alias": "Corelight SSH Successful Login Map",
 				"timeframe": {},
 				"reference": {
-					"id": "096bbd42-7679-4d73-b131-185e5553bb3b",
+					"id": "ba1ff896-b6a8-4142-bdde-ae72d70e830c",
 					"type": "savedQuery"
 				},
 				"searchID": 5976888925

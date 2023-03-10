@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek Tunnel Connections",
+	"Description": "A force directed graph showing tunnel connections between hosts",
+	"GUID": "67abac1f-b607-4cfd-bc1a-896f93f92649",
+	"Labels": [
+		"zeek",
+		"tunnel",
+		"fdg"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

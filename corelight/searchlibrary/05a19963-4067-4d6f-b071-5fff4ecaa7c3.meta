@@ -1,0 +1,14 @@
+{
+	"Name": "Zeek DHCP session counts",
+	"Description": "Chart of DHCP requests for each server",
+	"GUID": "05a19963-4067-4d6f-b071-5fff4ecaa7c3",
+	"Labels": [
+		"kit/io.gravwell.beta.zeek",
+		"zeek",
+		"dhcp",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

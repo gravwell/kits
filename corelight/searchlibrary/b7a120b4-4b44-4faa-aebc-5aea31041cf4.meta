@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek DNS TXT Records",
+	"Description": "DNS TXT Records",
+	"GUID": "b7a120b4-4b44-4faa-aebc-5aea31041cf4",
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

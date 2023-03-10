@@ -1,0 +1,15 @@
+{
+	"Name": "Zeek DNS round trip time mean, min, and max",
+	"Description": "Chart of round trip times on DNS",
+	"GUID": "21debbd7-57cd-4697-a46d-05a922eed818",
+	"Labels": [
+		"zeek",
+		"dns",
+		"rtt",
+		"chart",
+		"time"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

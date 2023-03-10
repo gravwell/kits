@@ -1,0 +1,15 @@
+{
+	"Name": "Zeek Connection Map",
+	"Description": "Geospatial connection map of connections as seen by Zeek",
+	"GUID": "66536c4a-141c-4a53-ab0c-316d08171c33",
+	"Labels": [
+		"zeek",
+		"conn",
+		"geospatial",
+		"map",
+		"point2point"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

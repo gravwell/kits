@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek Potential DNS Beaconing",
+	"Description": "Potential DNS Beacon activity as seen by Zeek",
+	"GUID": "81893d09-7ba8-4709-a920-fdc451da1fc4",
+	"Labels": [
+		"zeek",
+		"dns",
+		"beaconing"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

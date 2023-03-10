@@ -1,0 +1,13 @@
+{
+	"Name": "Zeek DNS Beaconing",
+	"Description": "Frequent DNS requests with the smallest variance",
+	"GUID": "f38fce68-8ec6-43c5-a243-8216fb54df7a",
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

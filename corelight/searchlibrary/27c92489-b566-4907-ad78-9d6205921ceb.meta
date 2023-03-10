@@ -1,0 +1,12 @@
+{
+	"Name": "Zeek HTTP Method Counts",
+	"Description": "A chart showing the percentage of each HTTP Method",
+	"GUID": "27c92489-b566-4907-ad78-9d6205921ceb",
+	"Labels": [
+		"zeek",
+		"http"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
