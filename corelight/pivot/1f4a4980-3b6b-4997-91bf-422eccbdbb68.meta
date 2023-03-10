@@ -1,11 +1,11 @@
 {
 	"UUID": "1f4a4980-3b6b-4997-91bf-422eccbdbb68",
-	"Name": "Zeek DNS FQDN/SLD combined actionables",
+	"Name": "Corelight DNS FQDN/SLD combined actionables",
 	"Description": "",
 	"Data": {
 		"actions": [
 			{
-				"name": "Zeek WHOIS",
+				"name": "Corelight WHOIS",
 				"description": null,
 				"placeholder": null,
 				"start": {
@@ -25,7 +25,7 @@
 				}
 			},
 			{
-				"name": "Zeek DNS Domain Investigation Dashboard",
+				"name": "Corelight DNS Domain Investigation Dashboard",
 				"description": null,
 				"placeholder": null,
 				"start": {

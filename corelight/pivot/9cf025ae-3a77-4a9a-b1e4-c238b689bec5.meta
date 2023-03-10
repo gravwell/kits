@@ -1,7 +1,7 @@
 {
 	"UUID": "9cf025ae-3a77-4a9a-b1e4-c238b689bec5",
 	"Name": "IP Address",
-	"Description": "Zeek Actions on IP Addresses",
+	"Description": "Corelight Actions on IP Addresses",
 	"Data": {
 		"menuLabel": "",
 		"triggers": [
@@ -12,7 +12,7 @@
 		],
 		"actions": [
 			{
-				"name": "Zeek DNS Client Investigation",
+				"name": "Corelight DNS Client Investigation",
 				"description": null,
 				"placeholder": null,
 				"start": {

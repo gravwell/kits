@@ -13,7 +13,7 @@
 # You can also just execute this file using bash
 #
 #
-OUT="zeek.kit"
+OUT="corelight.kit"
 
 cmd=$(which kitctl)
 if [ "$?" != "0" ]; then

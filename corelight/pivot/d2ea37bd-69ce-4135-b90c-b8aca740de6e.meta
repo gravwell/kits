@@ -1,7 +1,7 @@
 {
 	"UUID": "d2ea37bd-69ce-4135-b90c-b8aca740de6e",
-	"Name": "Zeek Raw UID Records",
-	"Description": "Zeek UIDs (unique identifiers for each flow)",
+	"Name": "Corelight Raw UID Records",
+	"Description": "Corelight UIDs (unique identifiers for each flow)",
 	"Data": {
 		"menuLabel": "UID",
 		"triggers": [
@@ -12,7 +12,7 @@
 		],
 		"actions": [
 			{
-				"name": "Associated Zeek Records",
+				"name": "Associated Corelight Records",
 				"description": "",
 				"placeholder": null,
 				"start": {

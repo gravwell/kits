@@ -1,7 +1,7 @@
 {
-	"ID": "io.gravwell.beta.zeek",
-	"Name": "Gravwell Zeek",
-	"Desc": "The Gravwell Zeek Kit provides a baseline set of queries, dashboards, templates, and investigative resources for the Zeek Network Security Monitor.",
+	"ID": "io.gravwell.beta.corelight",
+	"Name": "Gravwell Corelight",
+	"Desc": "The Gravwell Corelight Kit provides a baseline set of queries, dashboards, templates, and investigative resources for JSON logs originating from Corelight devices.",
 	"Version": 8,
 	"MinVersion": {
 		"Major": 4,
@@ -828,7 +828,7 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "zeek_conn_state",
+			"Name": "corelight_conn_state",
 			"Type": 1,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
