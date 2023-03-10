@@ -1,0 +1,22 @@
+{
+	"UUID": "d3ce301b-a56f-47d0-8a76-33065ab04602",
+	"Name": "Zeek All SMTP for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"smtp",
+		"email"
+	]
+}

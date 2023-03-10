@@ -1,0 +1,23 @@
+{
+	"UUID": "890c87e2-2c2c-4c6a-b22a-0548b0e5f261",
+	"Name": "Zeek Unique Clients for IP",
+	"Description": "Numbercard of active clients for a given machine",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"conn",
+		"clients",
+		"numbercard"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"UUID": "cfa15ccb-13f0-4fbe-af68-51c0d74190f5",
+	"Name": "Zeek DNS Related Subdomains",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Name",
+				"description": "gravwell.io",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	]
+}

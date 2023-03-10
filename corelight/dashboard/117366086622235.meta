@@ -8,7 +8,7 @@
 				"alias": "Zeek Connection activity for IP",
 				"timeframe": {},
 				"reference": {
-					"id": "599916f0-124f-4511-95e6-8beef8eec8b8",
+					"id": "598a46fe-0704-430f-9fe5-a73ba1f579b9",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -20,7 +20,7 @@
 				"alias": "Zeek Service Client heatmap",
 				"timeframe": {},
 				"reference": {
-					"id": "ac8415d4-d3f2-4f36-9ff0-8e3f89505940",
+					"id": "b46ca253-87d3-4e6c-82bf-ce0f379195f7",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -32,7 +32,7 @@
 				"alias": "Active services for an IP",
 				"timeframe": {},
 				"reference": {
-					"id": "9a48cd9e-8291-4ec9-808e-efeba2692941",
+					"id": "3a77dd7b-dd80-449e-9a08-22003b561279",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -44,7 +44,7 @@
 				"alias": "Zeek Unique Clients for IP",
 				"timeframe": {},
 				"reference": {
-					"id": "84123640-bf99-415d-b69c-de438c46027e",
+					"id": "890c87e2-2c2c-4c6a-b22a-0548b0e5f261",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -56,7 +56,7 @@
 				"alias": "Zeek total client connections for a given IP",
 				"timeframe": {},
 				"reference": {
-					"id": "c1f75087-b7f7-4ffb-928a-15374ca770e6",
+					"id": "0fd7045f-d2ab-4573-825f-aabdf6829a67",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -68,7 +68,7 @@
 				"alias": "Zeek Connstate Chart",
 				"timeframe": {},
 				"reference": {
-					"id": "da541e53-395d-4595-aab5-5b31ee581de3",
+					"id": "e5f0da24-644a-4d04-a3a1-96127acc0785",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -80,7 +80,7 @@
 				"alias": "Zeek service bandwidth graph",
 				"timeframe": {},
 				"reference": {
-					"id": "972a28a1-8310-4223-a49c-b7574d31fecb",
+					"id": "bcdb7175-2b05-4a64-9dd5-5edc54046e7e",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -92,7 +92,7 @@
 				"alias": "Zeek 10 most common service ports for IP",
 				"timeframe": {},
 				"reference": {
-					"id": "3c8c01cb-18ce-4493-8a86-88738ffaf1be",
+					"id": "c7079f84-4202-452d-95b0-20c87bcd0d07",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -104,7 +104,7 @@
 				"alias": "Zeek 10 most common service ports for IP",
 				"timeframe": {},
 				"reference": {
-					"id": "abf1ca7c-aa93-42c2-a1e5-36a2ab522cfd",
+					"id": "cac57607-950a-46a5-90b5-07fabf9b3c51",
 					"type": "template",
 					"extras": {
 						"defaultValue": null

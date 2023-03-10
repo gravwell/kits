@@ -8,7 +8,7 @@
 				"alias": "Zeek DNS Requests over Time",
 				"timeframe": {},
 				"reference": {
-					"id": "ece007c9-9423-435d-8f7b-7c8196e673e5",
+					"id": "4792da69-bd6f-455d-9f03-ef1df25c1b64",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -20,7 +20,7 @@
 				"alias": "Zeek DNS Related Subdomains",
 				"timeframe": {},
 				"reference": {
-					"id": "d2f6fe1d-9845-4a2e-a798-21c17012cb33",
+					"id": "cfa15ccb-13f0-4fbe-af68-51c0d74190f5",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -32,7 +32,7 @@
 				"alias": "Zeek DNS Clients Querying this Name",
 				"timeframe": {},
 				"reference": {
-					"id": "20a1d25a-952e-4998-8b77-f02b43dffedc",
+					"id": "f2803227-81ec-494c-a4c9-4c178d10f807",
 					"type": "template",
 					"extras": {
 						"defaultValue": null

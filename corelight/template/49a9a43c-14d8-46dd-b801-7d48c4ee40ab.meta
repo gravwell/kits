@@ -1,0 +1,22 @@
+{
+	"UUID": "49a9a43c-14d8-46dd-b801-7d48c4ee40ab",
+	"Name": "Zeek All MYSQL for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"mysql",
+		"sql"
+	]
+}

@@ -8,7 +8,7 @@
 				"alias": "Zeek DNS Totals by Client",
 				"timeframe": {},
 				"reference": {
-					"id": "f12292f2-6a00-4406-bbbc-3ca08ebff02d",
+					"id": "dea1e2c0-2a23-4f1d-b166-99ff4333e0fb",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -20,7 +20,7 @@
 				"alias": "Zeek DNS Over Time",
 				"timeframe": {},
 				"reference": {
-					"id": "feb7147b-e462-40e0-ab54-b98f8e67b853",
+					"id": "1b99a906-e626-44c2-8bfd-503920dff366",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -32,7 +32,7 @@
 				"alias": "Zeek Most Common SLDs by Client",
 				"timeframe": {},
 				"reference": {
-					"id": "fc2dcd57-0550-41a3-80f2-88b421acdd26",
+					"id": "12121a62-e9fd-4067-a9e3-a8efbd1c394a",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -44,7 +44,7 @@
 				"alias": "Zeek DNS SLDs with the Most Subdomains by Client",
 				"timeframe": {},
 				"reference": {
-					"id": "757209ab-0c62-4f94-b092-5a1ce5ad7e34",
+					"id": "4a2bb62e-2980-446e-8689-3cf3b94a9e8f",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -56,7 +56,7 @@
 				"alias": "Zeek DNS Queries by Resource Record Type",
 				"timeframe": {},
 				"reference": {
-					"id": "3537e42b-683c-4355-a7aa-9cfbf977d1a0",
+					"id": "1ab5eb29-a19a-40d8-9f83-4004f0e65a1e",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -68,7 +68,7 @@
 				"alias": "Zeek DNS Beaconing by Client",
 				"timeframe": {},
 				"reference": {
-					"id": "b09031b4-e09e-47c7-8c56-e6ed2cf84a33",
+					"id": "1fcb678a-a41e-4371-88d0-a79c4ada9442",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -80,7 +80,7 @@
 				"alias": "Zeek Most Queried DNS Names by Client",
 				"timeframe": {},
 				"reference": {
-					"id": "85846e8b-622c-44f4-95ae-4ad9a5ad6cfe",
+					"id": "3bbcf97e-1bd6-476c-bf82-2e9b1affbdd5",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -92,7 +92,7 @@
 				"alias": "Zeek Rare DNS Queries",
 				"timeframe": {},
 				"reference": {
-					"id": "7115784a-558b-4703-85b1-5db363344f5e",
+					"id": "751b1b27-c2d7-4646-a89b-a04d6fbeb096",
 					"type": "template",
 					"extras": {
 						"defaultValue": null

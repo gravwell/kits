@@ -1,0 +1,23 @@
+{
+	"UUID": "b0c78dd7-027d-409b-869e-61b32569716a",
+	"Name": "Zeek All SMB Mapping for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"windows",
+		"fileshare",
+		"smb"
+	]
+}

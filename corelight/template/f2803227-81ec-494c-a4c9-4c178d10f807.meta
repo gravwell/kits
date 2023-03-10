@@ -1,0 +1,22 @@
+{
+	"UUID": "f2803227-81ec-494c-a4c9-4c178d10f807",
+	"Name": "Zeek DNS Clients Querying this Name",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Name",
+				"description": "gravwell.io",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"dns",
+		"table"
+	]
+}

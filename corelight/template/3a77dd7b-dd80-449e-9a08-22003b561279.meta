@@ -1,0 +1,23 @@
+{
+	"UUID": "3a77dd7b-dd80-449e-9a08-22003b561279",
+	"Name": "Active services for an IP",
+	"Description": "Numbercard of active services for a host that have been seen responding as seen by Zeek",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"conn",
+		"service",
+		"numbercard"
+	]
+}

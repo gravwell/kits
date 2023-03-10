@@ -1,0 +1,22 @@
+{
+	"UUID": "1ab5eb29-a19a-40d8-9f83-4004f0e65a1e",
+	"Name": "Zeek DNS Queries by Resource Record Type",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"dns",
+		"chart"
+	]
+}

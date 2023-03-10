@@ -1,0 +1,24 @@
+{
+	"UUID": "288dc72d-1de8-4bd1-9a5b-39cbf79d5d87",
+	"Name": "Zeek IP Service Usage",
+	"Description": "Aggregate count of connections by service as seen by Zeek",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "IPv4 Address",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"conn",
+		"service",
+		"table",
+		"IP"
+	]
+}

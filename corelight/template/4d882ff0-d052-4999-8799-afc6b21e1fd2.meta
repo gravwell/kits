@@ -1,0 +1,21 @@
+{
+	"UUID": "4d882ff0-d052-4999-8799-afc6b21e1fd2",
+	"Name": "Zeek Associated Records",
+	"Description": "All records associated with a specific zeek flow",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%UID%%",
+				"label": "Zeek UID",
+				"description": "Zeek UID value",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"uid"
+	]
+}

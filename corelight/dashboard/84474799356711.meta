@@ -8,7 +8,7 @@
 				"alias": "Zeek SMB private IP graph",
 				"timeframe": {},
 				"reference": {
-					"id": "9270435e-3d51-40f5-980f-3deaf4f4163b",
+					"id": "0c1dc12a-8e1b-45bf-b946-a063bec0c0b8",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -20,7 +20,7 @@
 				"alias": "Zeek SMB Share types for IP",
 				"timeframe": {},
 				"reference": {
-					"id": "0173803d-2953-469f-ba26-f73fa1b89d49",
+					"id": "36e50b20-9679-4285-a4a4-69da6d94de5e",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -32,7 +32,7 @@
 				"alias": "Zeek SMB actions",
 				"timeframe": {},
 				"reference": {
-					"id": "55d3f4d8-d273-4a37-9ca6-5befadd46e9e",
+					"id": "ba8c3942-5106-4bda-9fb9-3c2294ecd7a3",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -44,7 +44,7 @@
 				"alias": "Zeek All SMB Files for IP",
 				"timeframe": {},
 				"reference": {
-					"id": "ffad28e0-2b62-44b9-ab43-443306a80d20",
+					"id": "23bc4af4-b2e9-4c3a-a687-9e2a721941e8",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -56,7 +56,7 @@
 				"alias": "Zeek All SMB Mapping for IP",
 				"timeframe": {},
 				"reference": {
-					"id": "fdbd8988-3e8b-4bc7-895c-4dbe841d91d5",
+					"id": "b0c78dd7-027d-409b-869e-61b32569716a",
 					"type": "template",
 					"extras": {
 						"defaultValue": null

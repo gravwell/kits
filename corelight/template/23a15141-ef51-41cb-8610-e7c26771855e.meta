@@ -1,0 +1,22 @@
+{
+	"UUID": "23a15141-ef51-41cb-8610-e7c26771855e",
+	"Name": "Zeek All Connections for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"conn",
+		"investigate"
+	]
+}

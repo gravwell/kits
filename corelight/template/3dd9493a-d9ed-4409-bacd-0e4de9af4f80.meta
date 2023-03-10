@@ -1,0 +1,24 @@
+{
+	"UUID": "3dd9493a-d9ed-4409-bacd-0e4de9af4f80",
+	"Name": "Zeek service usage chart",
+	"Description": "Chart of service activity by IP as seen by Zeek",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"conn",
+		"service",
+		"count",
+		"chart"
+	]
+}

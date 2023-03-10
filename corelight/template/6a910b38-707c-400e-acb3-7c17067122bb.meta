@@ -1,0 +1,21 @@
+{
+	"UUID": "6a910b38-707c-400e-acb3-7c17067122bb",
+	"Name": "Zeek All DNS for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"dns"
+	]
+}

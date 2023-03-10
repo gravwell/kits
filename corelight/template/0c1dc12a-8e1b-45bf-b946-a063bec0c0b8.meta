@@ -1,0 +1,22 @@
+{
+	"UUID": "0c1dc12a-8e1b-45bf-b946-a063bec0c0b8",
+	"Name": "Zeek SMB private IP graph",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"smb",
+		"fileshare"
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"UUID": "c7079f84-4202-452d-95b0-20c87bcd0d07",
+	"Name": "Zeek 10 most common service ports for IP",
+	"Description": "Table of the most commonly used service ports for an IP as seen by Zeek",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"conn",
+		"service",
+		"ports"
+	]
+}

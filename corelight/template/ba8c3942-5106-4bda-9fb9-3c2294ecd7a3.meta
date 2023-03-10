@@ -1,0 +1,22 @@
+{
+	"UUID": "ba8c3942-5106-4bda-9fb9-3c2294ecd7a3",
+	"Name": "Zeek SMB actions",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"smb",
+		"fileshare"
+	]
+}

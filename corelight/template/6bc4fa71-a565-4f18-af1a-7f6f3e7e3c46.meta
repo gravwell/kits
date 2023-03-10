@@ -1,0 +1,21 @@
+{
+	"UUID": "6bc4fa71-a565-4f18-af1a-7f6f3e7e3c46",
+	"Name": "Zeek All Syslog for IP",
+	"Description": "syslog.log",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zeek",
+		"syslog"
+	]
+}
