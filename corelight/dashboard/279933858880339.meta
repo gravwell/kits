@@ -1,16 +1,16 @@
 {
 	"UUID": "b2ce8387-a271-4f5f-b537-9bb5f291ce4d",
-	"Name": "Zeek Tunnels Overview",
+	"Name": "Corelight Tunnels Overview",
 	"Description": "",
 	"Data": {
 		"searches": [
 			{
-				"query": "tag=zeektunnel chart",
+				"query": "tag=corelight_tunnel chart",
 				"alias": null,
 				"searchID": 8222864273
 			},
 			{
-				"alias": "Zeek Tunnel Types",
+				"alias": "Corelight Tunnel Types",
 				"timeframe": {},
 				"reference": {
 					"id": "b6556ddf-f69b-409e-a83d-b3429e9b3e0c",
@@ -19,7 +19,7 @@
 				"searchID": 4624873301
 			},
 			{
-				"alias": "Zeek Tunnel Orig Host Counts",
+				"alias": "Corelight Tunnel Orig Host Counts",
 				"timeframe": {},
 				"reference": {
 					"id": "21efc152-f78d-49c1-9a83-2739ae842e88",
@@ -28,7 +28,7 @@
 				"searchID": 5547596732
 			},
 			{
-				"alias": "Zeek Tunnel Connections",
+				"alias": "Corelight Tunnel Connections",
 				"timeframe": {},
 				"reference": {
 					"id": "866c0f2d-319b-4805-bb29-d8af1fbf857b",
@@ -37,7 +37,7 @@
 				"searchID": 2123279339
 			},
 			{
-				"alias": "Zeek Tunnel Connections Map",
+				"alias": "Corelight Tunnel Connections Map",
 				"timeframe": {},
 				"reference": {
 					"id": "802d55db-c15d-499e-9796-69f1459423a3",
@@ -46,7 +46,7 @@
 				"searchID": 1651220046
 			},
 			{
-				"alias": "Zeek Tunnel Unique Orig Host Count",
+				"alias": "Corelight Tunnel Unique Orig Host Count",
 				"timeframe": {},
 				"reference": {
 					"id": "12892d83-4b7d-4e0a-a0a2-c4c75762b252",

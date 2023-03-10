@@ -1,11 +1,11 @@
 {
 	"UUID": "3fb48f40-ded1-41a8-9fcc-acf6291f4775",
-	"Name": "Zeek SSL/x509 Overview",
+	"Name": "Corelight SSL/x509 Overview",
 	"Description": "Information about SSL connections and x509 certificates",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek x509 Key Length/Type Counts",
+				"alias": "Corelight x509 Key Length/Type Counts",
 				"timeframe": {},
 				"reference": {
 					"id": "374f57e2-2de2-451c-aeed-9fbdb9dda4ff",
@@ -14,12 +14,12 @@
 				"searchID": 5493314864
 			},
 			{
-				"query": "tag=zeekx509 ax | anko expired_x509 not_valid_after | time not_valid_after expired_on | table subject issuer dns expired_on",
+				"query": "tag=corelight_x509 ax | anko expired_x509 not_valid_after | time not_valid_after expired_on | table subject issuer dns expired_on",
 				"alias": "Expired Certificates",
 				"searchID": 3377243609
 			},
 			{
-				"alias": "Zeek SSL Version Chart",
+				"alias": "Corelight SSL Version Chart",
 				"timeframe": {},
 				"reference": {
 					"id": "2b6ab0ff-afb6-48cc-a2cf-434df0333eec",
@@ -103,7 +103,7 @@
 		"lastDataUpdate": "2020-10-02T14:46:42-07:00"
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"ssl",
 		"x509"
 	]

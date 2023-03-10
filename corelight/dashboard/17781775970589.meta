@@ -1,11 +1,11 @@
 {
 	"UUID": "cfc02287-60b2-446f-aa4c-0b738286136f",
-	"Name": "Zeek DNS Overview",
+	"Name": "Corelight DNS Overview",
 	"Description": "",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek DNS Totals",
+				"alias": "Corelight DNS Totals",
 				"timeframe": {},
 				"reference": {
 					"id": "1b8878d9-8d61-480f-aa10-090da60674e4",
@@ -14,7 +14,7 @@
 				"searchID": 5410138615
 			},
 			{
-				"alias": "Zeek DNS Requests by Host",
+				"alias": "Corelight DNS Requests by Host",
 				"timeframe": {},
 				"reference": {
 					"id": "2ee1be2e-30bc-42d8-970d-00f262506bf1",
@@ -23,7 +23,7 @@
 				"searchID": 8428286368
 			},
 			{
-				"alias": "Zeek DNS Over Time",
+				"alias": "Corelight DNS Over Time",
 				"timeframe": {},
 				"reference": {
 					"id": "eaa06af1-9478-4c8e-a78f-7e5a1c11e24f",
@@ -32,7 +32,7 @@
 				"searchID": 6275917740
 			},
 			{
-				"alias": "Zeek DNS Most Common SLDs",
+				"alias": "Corelight DNS Most Common SLDs",
 				"timeframe": {},
 				"reference": {
 					"id": "07fe5fcf-b744-4a96-b6c6-ccd6c29bf0d2",
@@ -41,7 +41,7 @@
 				"searchID": 5295249691
 			},
 			{
-				"alias": "Zeek DNS SLDs with the most Subdomains",
+				"alias": "Corelight DNS SLDs with the most Subdomains",
 				"timeframe": {},
 				"reference": {
 					"id": "d6dbbc30-9fb4-4540-92cc-79bb62201a44",
@@ -50,7 +50,7 @@
 				"searchID": 7541972414
 			},
 			{
-				"alias": "Zeek DNS Queries by Resource Record Type",
+				"alias": "Corelight DNS Queries by Resource Record Type",
 				"timeframe": {},
 				"reference": {
 					"id": "e35508b0-15a7-4a0e-9f26-c56a74792547",
@@ -59,7 +59,7 @@
 				"searchID": 8039098373
 			},
 			{
-				"alias": "Zeek DNS Beaconing",
+				"alias": "Corelight DNS Beaconing",
 				"timeframe": {},
 				"reference": {
 					"id": "a9beb170-c1c5-431a-a75d-020762d9b532",
@@ -68,7 +68,7 @@
 				"searchID": 5963285825
 			},
 			{
-				"alias": "Zeek DNS TXT Records",
+				"alias": "Corelight DNS TXT Records",
 				"timeframe": {},
 				"reference": {
 					"id": "5a6eb9fb-a4fe-4ee1-a617-e2ae07b8ff9c",
@@ -77,7 +77,7 @@
 				"searchID": 7363440767
 			},
 			{
-				"alias": "Zeek Most Queried DNS Name",
+				"alias": "Corelight Most Queried DNS Name",
 				"timeframe": {},
 				"reference": {
 					"id": "da40e356-b1ec-43b5-9778-286b9cb983f3",
@@ -86,7 +86,7 @@
 				"searchID": 6523018706
 			},
 			{
-				"alias": "Zeek Rare DNS Queries",
+				"alias": "Corelight Rare DNS Queries",
 				"timeframe": {},
 				"reference": {
 					"id": "9e0009e6-4051-4104-b33e-75cc75f39642",
@@ -207,7 +207,7 @@
 				}
 			},
 			{
-				"title": "Zeek DNS Beaconing",
+				"title": "Corelight DNS Beaconing",
 				"renderer": "table",
 				"span": {
 					"col": 3,

@@ -1,11 +1,11 @@
 {
 	"UUID": "ce0ca51d-f131-4a6f-a863-1bdd5f1bcce1",
-	"Name": "Zeek SMB Overview",
+	"Name": "Corelight SMB Overview",
 	"Description": "Windows fileshare activity",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek SMB Server heatmap",
+				"alias": "Corelight SMB Server heatmap",
 				"timeframe": {},
 				"reference": {
 					"id": "8af3bc72-5e0c-4107-8f9d-db45deb8715d",
@@ -14,7 +14,7 @@
 				"searchID": 7180791511
 			},
 			{
-				"alias": "Zeek SMB Client Map",
+				"alias": "Corelight SMB Client Map",
 				"timeframe": {},
 				"reference": {
 					"id": "1b78d4a8-12da-4d03-b2a6-991101515873",
@@ -23,7 +23,7 @@
 				"searchID": 5555666721
 			},
 			{
-				"alias": "Zeek SMB private IP graph",
+				"alias": "Corelight SMB private IP graph",
 				"timeframe": {},
 				"reference": {
 					"id": "f411799f-a175-4290-ba2c-d45c9760a952",
@@ -32,7 +32,7 @@
 				"searchID": 1789983756
 			},
 			{
-				"alias": "Zeek SMB share types",
+				"alias": "Corelight SMB share types",
 				"timeframe": {},
 				"reference": {
 					"id": "34593ced-332b-44a1-be9c-33f7d8d9a321",
@@ -41,7 +41,7 @@
 				"searchID": 3128616960
 			},
 			{
-				"alias": "Zeek SMB nonstandard ports",
+				"alias": "Corelight SMB nonstandard ports",
 				"timeframe": {},
 				"reference": {
 					"id": "ec534f91-4636-4dd6-8dc0-8f4b5e9e0351",
@@ -50,7 +50,7 @@
 				"searchID": 3199223882
 			},
 			{
-				"alias": "Zeek SMB infrequent files",
+				"alias": "Corelight SMB infrequent files",
 				"timeframe": {},
 				"reference": {
 					"id": "6ba62295-6002-492a-b3da-26c251648596",
@@ -59,7 +59,7 @@
 				"searchID": 4912050683
 			},
 			{
-				"alias": "Zeek SMB top files",
+				"alias": "Corelight SMB top files",
 				"timeframe": {},
 				"reference": {
 					"id": "d6822317-6922-4467-bd6f-8579c16b7201",
@@ -68,7 +68,7 @@
 				"searchID": 1057993701
 			},
 			{
-				"alias": "Zeek SMB Client actions",
+				"alias": "Corelight SMB Client actions",
 				"timeframe": {},
 				"reference": {
 					"id": "653c3bb6-b457-4e85-b517-4e3336252bcc",

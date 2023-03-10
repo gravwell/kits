@@ -1,11 +1,11 @@
 {
 	"UUID": "3ef85611-d7a6-4054-ad67-e66454aadce6",
-	"Name": "Zeek IP Investigation",
-	"Description": "IP Investigative Dashboard using Zeek Data",
+	"Name": "Corelight IP Investigation",
+	"Description": "IP Investigative Dashboard using Corelight Data",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek Connection activity for IP",
+				"alias": "Corelight Connection activity for IP",
 				"timeframe": {},
 				"reference": {
 					"id": "598a46fe-0704-430f-9fe5-a73ba1f579b9",
@@ -17,7 +17,7 @@
 				"searchID": 7549173832
 			},
 			{
-				"alias": "Zeek Service Client heatmap",
+				"alias": "Corelight Service Client heatmap",
 				"timeframe": {},
 				"reference": {
 					"id": "b46ca253-87d3-4e6c-82bf-ce0f379195f7",
@@ -41,7 +41,7 @@
 				"searchID": 5392116220
 			},
 			{
-				"alias": "Zeek Unique Clients for IP",
+				"alias": "Corelight Unique Clients for IP",
 				"timeframe": {},
 				"reference": {
 					"id": "890c87e2-2c2c-4c6a-b22a-0548b0e5f261",
@@ -53,7 +53,7 @@
 				"searchID": 3351637767
 			},
 			{
-				"alias": "Zeek total client connections for a given IP",
+				"alias": "Corelight total client connections for a given IP",
 				"timeframe": {},
 				"reference": {
 					"id": "0fd7045f-d2ab-4573-825f-aabdf6829a67",
@@ -65,7 +65,7 @@
 				"searchID": 8629697776
 			},
 			{
-				"alias": "Zeek Connstate Chart",
+				"alias": "Corelight Connstate Chart",
 				"timeframe": {},
 				"reference": {
 					"id": "e5f0da24-644a-4d04-a3a1-96127acc0785",
@@ -77,7 +77,7 @@
 				"searchID": 4789210833
 			},
 			{
-				"alias": "Zeek service bandwidth graph",
+				"alias": "Corelight service bandwidth graph",
 				"timeframe": {},
 				"reference": {
 					"id": "bcdb7175-2b05-4a64-9dd5-5edc54046e7e",
@@ -89,7 +89,7 @@
 				"searchID": 6149356218
 			},
 			{
-				"alias": "Zeek 10 most common service ports for IP",
+				"alias": "Corelight 10 most common service ports for IP",
 				"timeframe": {},
 				"reference": {
 					"id": "c7079f84-4202-452d-95b0-20c87bcd0d07",
@@ -101,7 +101,7 @@
 				"searchID": 7496652430
 			},
 			{
-				"alias": "Zeek 10 most common service ports for IP",
+				"alias": "Corelight 10 most common service ports for IP",
 				"timeframe": {},
 				"reference": {
 					"id": "cac57607-950a-46a5-90b5-07fabf9b3c51",

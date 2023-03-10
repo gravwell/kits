@@ -1,11 +1,11 @@
 {
 	"UUID": "af886067-860f-4c7c-9dd6-e4ab8021ffe8",
-	"Name": "Zeek SSH Overview",
-	"Description": "Overview of SSH activity using the zeek ssh.log",
+	"Name": "Corelight SSH Overview",
+	"Description": "Overview of SSH activity using the corelight ssh.log",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek SSH server chart of client counts",
+				"alias": "Corelight SSH server chart of client counts",
 				"timeframe": {},
 				"reference": {
 					"id": "f2082885-ed25-411c-b18a-e5fa6debe3d0",
@@ -14,7 +14,7 @@
 				"searchID": 1945378166
 			},
 			{
-				"alias": "Zeek SSH banners per server",
+				"alias": "Corelight SSH banners per server",
 				"timeframe": {},
 				"reference": {
 					"id": "ebdd5381-8e3d-477b-8c2d-154069f156d4",
@@ -23,7 +23,7 @@
 				"searchID": 7285216222
 			},
 			{
-				"alias": "Zeek SSH Client Locations",
+				"alias": "Corelight SSH Client Locations",
 				"timeframe": {},
 				"reference": {
 					"id": "d475467d-9bff-426e-ac42-a8a576a8da1f",
@@ -32,7 +32,7 @@
 				"searchID": 3529754286
 			},
 			{
-				"alias": "Zeek SSH chart of ports",
+				"alias": "Corelight SSH chart of ports",
 				"timeframe": {},
 				"reference": {
 					"id": "87c96621-d41e-4f14-938b-cbda31065bff",
@@ -41,7 +41,7 @@
 				"searchID": 1788865957
 			},
 			{
-				"alias": "Zeek SSH Server Locations",
+				"alias": "Corelight SSH Server Locations",
 				"timeframe": {},
 				"reference": {
 					"id": "78f963f0-e436-49d9-9c8f-78f689338256",
@@ -50,7 +50,7 @@
 				"searchID": 3670490849
 			},
 			{
-				"alias": "Zeek SSH re-used keys",
+				"alias": "Corelight SSH re-used keys",
 				"timeframe": {},
 				"reference": {
 					"id": "b74b3006-8c12-429e-b9a9-97b8ba71a0d8",
@@ -59,11 +59,11 @@
 				"searchID": 5592859914
 			},
 			{
-				"query": "tag=zeekssh ax host_key != \"-\" | unique host_key resp_host | stats count(host_key) by resp_host | table resp_host count",
+				"query": "tag=corelight_ssh ax host_key != \"-\" | unique host_key resp_host | stats count(host_key) by resp_host | table resp_host count",
 				"alias": null
 			},
 			{
-				"alias": "Zeek SSH Host Keys Seen Per Server",
+				"alias": "Corelight SSH Host Keys Seen Per Server",
 				"timeframe": {},
 				"reference": {
 					"id": "e8256f26-e448-4720-a385-c9340cdc5b12",
@@ -72,7 +72,7 @@
 				"searchID": 6082003660
 			},
 			{
-				"alias": "Zeek SSH Version 1 Auth Successes",
+				"alias": "Corelight SSH Version 1 Auth Successes",
 				"timeframe": {},
 				"reference": {
 					"id": "99d15805-3c68-4844-b50f-eaa5961ed066",
@@ -81,7 +81,7 @@
 				"searchID": 2282394648
 			},
 			{
-				"alias": "Zeek SSH Successful Authentications by Client",
+				"alias": "Corelight SSH Successful Authentications by Client",
 				"timeframe": {},
 				"reference": {
 					"id": "98e1a4ca-6152-4755-8fd9-4a3086ab5592",
@@ -99,7 +99,7 @@
 				"searchID": 7095398843
 			},
 			{
-				"alias": "Zeek SSH Successful Login Map",
+				"alias": "Corelight SSH Successful Login Map",
 				"timeframe": {},
 				"reference": {
 					"id": "096bbd42-7679-4d73-b131-185e5553bb3b",

@@ -1,11 +1,11 @@
 {
 	"UUID": "fbc053a7-2c5e-455e-af50-c4fa5609b41f",
-	"Name": "Zeek SMB Investigator",
+	"Name": "Corelight SMB Investigator",
 	"Description": "Investigate a given IP address",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek SMB private IP graph",
+				"alias": "Corelight SMB private IP graph",
 				"timeframe": {},
 				"reference": {
 					"id": "0c1dc12a-8e1b-45bf-b946-a063bec0c0b8",
@@ -17,7 +17,7 @@
 				"searchID": 4749800772
 			},
 			{
-				"alias": "Zeek SMB Share types for IP",
+				"alias": "Corelight SMB Share types for IP",
 				"timeframe": {},
 				"reference": {
 					"id": "36e50b20-9679-4285-a4a4-69da6d94de5e",
@@ -29,7 +29,7 @@
 				"searchID": 8690809299
 			},
 			{
-				"alias": "Zeek SMB actions",
+				"alias": "Corelight SMB actions",
 				"timeframe": {},
 				"reference": {
 					"id": "ba8c3942-5106-4bda-9fb9-3c2294ecd7a3",
@@ -41,7 +41,7 @@
 				"searchID": 1146083197
 			},
 			{
-				"alias": "Zeek All SMB Files for IP",
+				"alias": "Corelight All SMB Files for IP",
 				"timeframe": {},
 				"reference": {
 					"id": "23bc4af4-b2e9-4c3a-a687-9e2a721941e8",
@@ -53,7 +53,7 @@
 				"searchID": 1573927608
 			},
 			{
-				"alias": "Zeek All SMB Mapping for IP",
+				"alias": "Corelight All SMB Mapping for IP",
 				"timeframe": {},
 				"reference": {
 					"id": "b0c78dd7-027d-409b-869e-61b32569716a",

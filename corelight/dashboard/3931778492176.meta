@@ -1,11 +1,11 @@
 {
 	"UUID": "3824e3c3-2ca6-4e94-a678-0001b4400fde",
-	"Name": "Zeek UID Investigation",
-	"Description": "Show any records related to a given Zeek UID",
+	"Name": "Corelight UID Investigation",
+	"Description": "Show any records related to a given Corelight UID",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek Conn for UID",
+				"alias": "Corelight Conn for UID",
 				"timeframe": {},
 				"reference": {
 					"id": "92e18262-c273-4659-9f8f-953bec4fc455",
@@ -17,7 +17,7 @@
 				"searchID": 2789462479
 			},
 			{
-				"alias": "Zeek Associated Records",
+				"alias": "Corelight Associated Records",
 				"timeframe": {},
 				"reference": {
 					"id": "4d882ff0-d052-4999-8799-afc6b21e1fd2",
@@ -43,7 +43,7 @@
 				"rendererOptions": {}
 			},
 			{
-				"title": "All Zeek Records Timeline",
+				"title": "All Corelight Records Timeline",
 				"renderer": "overview",
 				"span": {
 					"col": 12,
@@ -60,7 +60,7 @@
 				}
 			},
 			{
-				"title": "All Zeek records (double click to expand)",
+				"title": "All Corelight records (double click to expand)",
 				"renderer": "text",
 				"span": {
 					"col": 12,

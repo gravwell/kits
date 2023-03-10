@@ -1,11 +1,11 @@
 {
 	"UUID": "fe8112c1-07f3-4182-8df1-54b03c91ad3c",
-	"Name": "Zeek Connection Overview",
-	"Description": "Basic overview of connection data as seen by Zeek",
+	"Name": "Corelight Connection Overview",
+	"Description": "Basic overview of connection data as seen by Corelight",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek Connection Count Chart",
+				"alias": "Corelight Connection Count Chart",
 				"timeframe": {},
 				"reference": {
 					"id": "3ce01f76-6642-4558-98ff-e810a40f14ed",
@@ -14,7 +14,7 @@
 				"searchID": 7347825707
 			},
 			{
-				"alias": "Zeek Upload/Download Totals",
+				"alias": "Corelight Upload/Download Totals",
 				"timeframe": {},
 				"reference": {
 					"id": "7835355e-f9ef-49b2-bbff-1ddf876b15cc",
@@ -23,7 +23,7 @@
 				"searchID": 1920914830
 			},
 			{
-				"alias": "Zeek Upload/Download Traffic",
+				"alias": "Corelight Upload/Download Traffic",
 				"timeframe": {},
 				"reference": {
 					"id": "368fc26d-07a4-40f8-9051-b63f3bd76c03",
@@ -32,7 +32,7 @@
 				"searchID": 3175717519
 			},
 			{
-				"alias": "Zeek service connection counts",
+				"alias": "Corelight service connection counts",
 				"timeframe": {},
 				"reference": {
 					"id": "b5f65972-71b1-40fa-a7b6-b8082e0f495f",
@@ -41,7 +41,7 @@
 				"searchID": 3058465685
 			},
 			{
-				"alias": "Zeek Connection Counts by State",
+				"alias": "Corelight Connection Counts by State",
 				"timeframe": {},
 				"reference": {
 					"id": "ba371dad-2c2a-4ecc-b133-a44d3ca308b9",
@@ -50,7 +50,7 @@
 				"searchID": 5239236080
 			},
 			{
-				"alias": "Zeek Connection Map",
+				"alias": "Corelight Connection Map",
 				"timeframe": {},
 				"reference": {
 					"id": "903c5291-d58d-4da0-bfc2-f01555d13d01",

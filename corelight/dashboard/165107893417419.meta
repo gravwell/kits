@@ -1,6 +1,6 @@
 {
 	"UUID": "498b0653-7bc4-406c-986c-9457c3038618",
-	"Name": "Zeek DHCP Overview",
+	"Name": "Corelight DHCP Overview",
 	"Description": "",
 	"Data": {
 		"timeframe": {
@@ -9,12 +9,12 @@
 		},
 		"searches": [
 			{
-				"query": "tag=zeekdhcp chart",
+				"query": "tag=corelight_dhcp chart",
 				"alias": "Overview Chart",
 				"searchID": 3715954271
 			},
 			{
-				"alias": "Zeek DHCP rejections",
+				"alias": "Corelight DHCP rejections",
 				"timeframe": {},
 				"reference": {
 					"id": "652e42b4-1d46-44be-9c4d-335de4bd1b3d",
@@ -23,7 +23,7 @@
 				"searchID": 6221219378
 			},
 			{
-				"alias": "Zeek DHCP Address Assignments",
+				"alias": "Corelight DHCP Address Assignments",
 				"timeframe": {},
 				"reference": {
 					"id": "d1189e08-78fa-43a7-844b-f038a9cc52e9",
@@ -32,7 +32,7 @@
 				"searchID": 2394001972
 			},
 			{
-				"alias": "Zeek DHCP MAC Address Count",
+				"alias": "Corelight DHCP MAC Address Count",
 				"timeframe": {},
 				"reference": {
 					"id": "34229f03-8c98-4c3b-8534-b1adc734f45b",

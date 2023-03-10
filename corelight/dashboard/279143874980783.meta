@@ -1,11 +1,11 @@
 {
 	"UUID": "c53dcc2f-4334-4d07-8cf8-66c8e867eed8",
-	"Name": "Zeek DNS Client Investigation",
+	"Name": "Corelight DNS Client Investigation",
 	"Description": "",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek DNS Totals by Client",
+				"alias": "Corelight DNS Totals by Client",
 				"timeframe": {},
 				"reference": {
 					"id": "dea1e2c0-2a23-4f1d-b166-99ff4333e0fb",
@@ -17,7 +17,7 @@
 				"searchID": 2728586586
 			},
 			{
-				"alias": "Zeek DNS Over Time",
+				"alias": "Corelight DNS Over Time",
 				"timeframe": {},
 				"reference": {
 					"id": "1b99a906-e626-44c2-8bfd-503920dff366",
@@ -29,7 +29,7 @@
 				"searchID": 6501599413
 			},
 			{
-				"alias": "Zeek Most Common SLDs by Client",
+				"alias": "Corelight Most Common SLDs by Client",
 				"timeframe": {},
 				"reference": {
 					"id": "12121a62-e9fd-4067-a9e3-a8efbd1c394a",
@@ -41,7 +41,7 @@
 				"searchID": 6587117131
 			},
 			{
-				"alias": "Zeek DNS SLDs with the Most Subdomains by Client",
+				"alias": "Corelight DNS SLDs with the Most Subdomains by Client",
 				"timeframe": {},
 				"reference": {
 					"id": "4a2bb62e-2980-446e-8689-3cf3b94a9e8f",
@@ -53,7 +53,7 @@
 				"searchID": 8160430833
 			},
 			{
-				"alias": "Zeek DNS Queries by Resource Record Type",
+				"alias": "Corelight DNS Queries by Resource Record Type",
 				"timeframe": {},
 				"reference": {
 					"id": "1ab5eb29-a19a-40d8-9f83-4004f0e65a1e",
@@ -65,7 +65,7 @@
 				"searchID": 2522889360
 			},
 			{
-				"alias": "Zeek DNS Beaconing by Client",
+				"alias": "Corelight DNS Beaconing by Client",
 				"timeframe": {},
 				"reference": {
 					"id": "1fcb678a-a41e-4371-88d0-a79c4ada9442",
@@ -77,7 +77,7 @@
 				"searchID": 6562259631
 			},
 			{
-				"alias": "Zeek Most Queried DNS Names by Client",
+				"alias": "Corelight Most Queried DNS Names by Client",
 				"timeframe": {},
 				"reference": {
 					"id": "3bbcf97e-1bd6-476c-bf82-2e9b1affbdd5",
@@ -89,7 +89,7 @@
 				"searchID": 3763109276
 			},
 			{
-				"alias": "Zeek Rare DNS Queries",
+				"alias": "Corelight Rare DNS Queries",
 				"timeframe": {},
 				"reference": {
 					"id": "751b1b27-c2d7-4646-a89b-a04d6fbeb096",

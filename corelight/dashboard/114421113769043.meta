@@ -1,11 +1,11 @@
 {
 	"UUID": "29eef45f-ee30-40eb-a5df-ddb79507cacd",
-	"Name": "Zeek DNS Domain Investigation",
+	"Name": "Corelight DNS Domain Investigation",
 	"Description": "",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek DNS Requests over Time",
+				"alias": "Corelight DNS Requests over Time",
 				"timeframe": {},
 				"reference": {
 					"id": "4792da69-bd6f-455d-9f03-ef1df25c1b64",
@@ -17,7 +17,7 @@
 				"searchID": 7948315642
 			},
 			{
-				"alias": "Zeek DNS Related Subdomains",
+				"alias": "Corelight DNS Related Subdomains",
 				"timeframe": {},
 				"reference": {
 					"id": "cfa15ccb-13f0-4fbe-af68-51c0d74190f5",
@@ -29,7 +29,7 @@
 				"searchID": 7137343761
 			},
 			{
-				"alias": "Zeek DNS Clients Querying this Name",
+				"alias": "Corelight DNS Clients Querying this Name",
 				"timeframe": {},
 				"reference": {
 					"id": "f2803227-81ec-494c-a4c9-4c178d10f807",

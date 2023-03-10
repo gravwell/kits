@@ -1,11 +1,11 @@
 {
 	"UUID": "e5f2c4ca-611e-41e1-ba0a-f583dcd6eedb",
-	"Name": "Zeek HTTP",
+	"Name": "Corelight HTTP",
 	"Description": "",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Zeek HTTP Point-to-Point",
+				"alias": "Corelight HTTP Point-to-Point",
 				"timeframe": {},
 				"reference": {
 					"id": "7dcdd46d-76f0-4fee-b941-2a0553534286",
@@ -14,7 +14,7 @@
 				"searchID": 6072365380
 			},
 			{
-				"alias": "Zeek HTTP Most Requested Hosts",
+				"alias": "Corelight HTTP Most Requested Hosts",
 				"timeframe": {},
 				"reference": {
 					"id": "51b0d89d-bf0f-47c5-a0b7-c8a88ae29484",
@@ -23,7 +23,7 @@
 				"searchID": 2237591312
 			},
 			{
-				"alias": "Zeek HTTP Browser Distribution",
+				"alias": "Corelight HTTP Browser Distribution",
 				"timeframe": {},
 				"reference": {
 					"id": "a89ae873-7548-4fcb-9e8e-2ae14a9c0734",
@@ -32,7 +32,7 @@
 				"searchID": 6136518840
 			},
 			{
-				"alias": "Zeek HTTP Unusual HTTP Methods",
+				"alias": "Corelight HTTP Unusual HTTP Methods",
 				"timeframe": {},
 				"reference": {
 					"id": "022a1dcb-393f-4249-8d89-6170800baae7",
@@ -43,11 +43,11 @@
 			{
 				"alias": "Search 6",
 				"timeframe": {},
-				"query": "tag=zeekhttp",
+				"query": "tag=corelight_http",
 				"searchID": 1759086870
 			},
 			{
-				"alias": "Zeek HTTP Method Counts",
+				"alias": "Corelight HTTP Method Counts",
 				"timeframe": {},
 				"reference": {
 					"id": "bbeb4ceb-de1a-4fb6-9e9f-cb4ddd8efdb8",
@@ -147,7 +147,7 @@
 				}
 			},
 			{
-				"title": "Zeek HTTP Method Counts",
+				"title": "Corelight HTTP Method Counts",
 				"renderer": "donutChart",
 				"span": {
 					"col": 4,
@@ -173,7 +173,7 @@
 		"lastDataUpdate": "2020-10-23T13:52:53-06:00"
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"http"
 	]
 }
