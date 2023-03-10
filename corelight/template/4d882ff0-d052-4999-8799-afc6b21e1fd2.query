@@ -1,1 +1,1 @@
-tag=zeek* fields -d "\t" [1]==%%UID%% as uid
+tag=corelight_* fields -d "\t" [1]==%%UID%% as uid

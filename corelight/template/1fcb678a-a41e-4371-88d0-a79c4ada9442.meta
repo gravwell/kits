@@ -1,6 +1,6 @@
 {
 	"UUID": "1fcb678a-a41e-4371-88d0-a79c4ada9442",
-	"Name": "Zeek DNS Beaconing by Client",
+	"Name": "Corelight DNS Beaconing by Client",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"table"
 	]

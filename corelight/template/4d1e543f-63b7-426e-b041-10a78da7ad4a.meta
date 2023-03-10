@@ -1,6 +1,6 @@
 {
 	"UUID": "4d1e543f-63b7-426e-b041-10a78da7ad4a",
-	"Name": "Zeek All SNMP",
+	"Name": "Corelight All SNMP",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"snmp"
 	]
 }

@@ -1,4 +1,4 @@
-tag=zeekconn words %%IP%% |
+tag=corelight_conn words %%IP%% |
 ax orig resp |
 count by orig resp |
 fdg -v count orig resp

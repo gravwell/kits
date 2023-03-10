@@ -1,6 +1,6 @@
 {
 	"UUID": "33c2c0cf-b7e1-417e-ba98-2a4707fe73b4",
-	"Name": "Zeek All DHCP for IP",
+	"Name": "Corelight All DHCP for IP",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dhcp"
 	]
 }

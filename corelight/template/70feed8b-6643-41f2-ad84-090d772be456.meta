@@ -1,6 +1,6 @@
 {
 	"UUID": "70feed8b-6643-41f2-ad84-090d772be456",
-	"Name": "Zeek SSH Clients Authenticated to Server",
+	"Name": "Corelight SSH Clients Authenticated to Server",
 	"Description": "Generate a list of which clients have successfully authenticated to a server.",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"ssh",
 		"table"
 	]

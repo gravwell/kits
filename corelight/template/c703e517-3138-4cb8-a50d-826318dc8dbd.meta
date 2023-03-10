@@ -1,6 +1,6 @@
 {
 	"UUID": "c703e517-3138-4cb8-a50d-826318dc8dbd",
-	"Name": "Zeek All Modbus for IP",
+	"Name": "Corelight All Modbus for IP",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"modbus",
 		"ics"
 	]

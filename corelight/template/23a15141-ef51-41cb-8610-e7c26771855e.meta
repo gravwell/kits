@@ -1,6 +1,6 @@
 {
 	"UUID": "23a15141-ef51-41cb-8610-e7c26771855e",
-	"Name": "Zeek All Connections for IP",
+	"Name": "Corelight All Connections for IP",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"investigate"
 	]

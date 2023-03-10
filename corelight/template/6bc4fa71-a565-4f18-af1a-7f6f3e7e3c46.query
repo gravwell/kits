@@ -1,1 +1,1 @@
-tag=zeeksyslog words %%IPADDR%% | ax | table
+tag=corelight_syslog words %%IPADDR%% | ax | table

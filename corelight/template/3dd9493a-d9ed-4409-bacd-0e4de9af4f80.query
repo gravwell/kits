@@ -1,1 +1,1 @@
-tag=zeekconn words %%IP%% | ax service | stats count by service | chart count by service
+tag=corelight_conn words %%IP%% | ax service | stats count by service | chart count by service

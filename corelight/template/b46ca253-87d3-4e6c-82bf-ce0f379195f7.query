@@ -1,1 +1,1 @@
-tag=zeekconn ax orig resp==%%IP%% | stats count by orig | geoip orig.Location | heatmap
+tag=corelight_conn ax orig resp==%%IP%% | stats count by orig | geoip orig.Location | heatmap

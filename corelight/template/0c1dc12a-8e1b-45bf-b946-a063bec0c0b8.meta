@@ -1,6 +1,6 @@
 {
 	"UUID": "0c1dc12a-8e1b-45bf-b946-a063bec0c0b8",
-	"Name": "Zeek SMB private IP graph",
+	"Name": "Corelight SMB private IP graph",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"smb",
 		"fileshare"
 	]

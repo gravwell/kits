@@ -1,12 +1,12 @@
 {
 	"UUID": "eca05bb1-9fba-4930-a74b-b1143d246f1a",
-	"Name": "Zeek procotols for UID",
+	"Name": "Corelight procotols for UID",
 	"Description": "",
 	"Data": {
 		"variables": [
 			{
 				"name": "%%UID%%",
-				"label": "Zeek UID",
+				"label": "Corelight UID",
 				"description": "",
 				"required": true,
 				"defaultValue": "",
@@ -15,6 +15,6 @@
 		]
 	},
 	"Labels": [
-		"zeek"
+		"corelight"
 	]
 }

@@ -1,6 +1,6 @@
 {
 	"UUID": "b46ca253-87d3-4e6c-82bf-ce0f379195f7",
-	"Name": "Zeek Service Client heatmap",
+	"Name": "Corelight Service Client heatmap",
 	"Description": "Heatmap of clients for a given service",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"ip",
 		"location",

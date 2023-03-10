@@ -1,6 +1,6 @@
 {
 	"UUID": "ba8c3942-5106-4bda-9fb9-3c2294ecd7a3",
-	"Name": "Zeek SMB actions",
+	"Name": "Corelight SMB actions",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"smb",
 		"fileshare"
 	]

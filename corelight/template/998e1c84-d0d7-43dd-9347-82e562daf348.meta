@@ -1,12 +1,12 @@
 {
 	"UUID": "998e1c84-d0d7-43dd-9347-82e562daf348",
-	"Name": "Zeek All for UID",
-	"Description": "Raw zeek entries containing a given UID whatsoever",
+	"Name": "Corelight All for UID",
+	"Description": "Raw corelight entries containing a given UID whatsoever",
 	"Data": {
 		"variables": [
 			{
 				"name": "%%UID%%",
-				"label": "Zeek UID",
+				"label": "Corelight UID",
 				"description": "",
 				"required": true,
 				"defaultValue": "",
@@ -15,6 +15,6 @@
 		]
 	},
 	"Labels": [
-		"zeek"
+		"corelight"
 	]
 }

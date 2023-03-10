@@ -1,6 +1,6 @@
 {
 	"UUID": "3bbcf97e-1bd6-476c-bf82-2e9b1affbdd5",
-	"Name": "Zeek Most Queried DNS Names by Client",
+	"Name": "Corelight Most Queried DNS Names by Client",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"table"
 	]

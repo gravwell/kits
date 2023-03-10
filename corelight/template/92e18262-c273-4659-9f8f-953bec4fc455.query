@@ -1,1 +1,1 @@
-tag=zeekconn ax uid==%%UID%% | table
+tag=corelight_conn ax uid==%%UID%% | table

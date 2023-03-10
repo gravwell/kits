@@ -1,3 +1,3 @@
-tag=zeekconn ax resp==%%IP%% resp_bytes != - |
+tag=corelight_conn ax resp==%%IP%% resp_bytes != - |
 stats count(orig) as connections |
 numbercard connections

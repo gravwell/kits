@@ -1,1 +1,1 @@
-tag=zeekfiles words %%IPADDR%% | ax | table
+tag=corelight_files words %%IPADDR%% | ax | table

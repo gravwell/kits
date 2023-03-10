@@ -1,6 +1,6 @@
 {
 	"UUID": "cfa15ccb-13f0-4fbe-af68-51c0d74190f5",
-	"Name": "Zeek DNS Related Subdomains",
+	"Name": "Corelight DNS Related Subdomains",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"table"
 	]

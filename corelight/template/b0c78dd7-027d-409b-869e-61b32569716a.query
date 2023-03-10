@@ -1,1 +1,1 @@
-tag=zeeksmb_mapping words %%IPADDR%% | ax | table
+tag=corelight_smb_mapping words %%IPADDR%% | ax | table

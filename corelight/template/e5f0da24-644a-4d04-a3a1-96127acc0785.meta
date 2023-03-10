@@ -1,7 +1,7 @@
 {
 	"UUID": "e5f0da24-644a-4d04-a3a1-96127acc0785",
-	"Name": "Zeek Connstate Chart",
-	"Description": "Count of connection states for a given IP as seen by Zeek",
+	"Name": "Corelight Connstate Chart",
+	"Description": "Count of connection states for a given IP as seen by Corelight",
 	"Data": {
 		"variables": [
 			{
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"state",
 		"chart"

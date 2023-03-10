@@ -1,1 +1,1 @@
-tag=zeekhttp words %%IPADDR%% | ax | table
+tag=corelight_http words %%IPADDR%% | ax | table

@@ -1,7 +1,7 @@
 {
 	"UUID": "598a46fe-0704-430f-9fe5-a73ba1f579b9",
-	"Name": "Zeek Connection activity for IP",
-	"Description": "Chart of connection activity for a given IP as seen by Zeek",
+	"Name": "Corelight Connection activity for IP",
+	"Description": "Chart of connection activity for a given IP as seen by Corelight",
 	"Data": {
 		"variables": [
 			{
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"ip",
 		"chart",

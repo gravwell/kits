@@ -1,6 +1,6 @@
 {
 	"UUID": "95158f21-9b6c-40e1-9474-d2bd2e12beb5",
-	"Name": "Zeek All Files for IP",
+	"Name": "Corelight All Files for IP",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"file"
 	]
 }

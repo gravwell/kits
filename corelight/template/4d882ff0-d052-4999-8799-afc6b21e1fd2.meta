@@ -1,13 +1,13 @@
 {
 	"UUID": "4d882ff0-d052-4999-8799-afc6b21e1fd2",
-	"Name": "Zeek Associated Records",
-	"Description": "All records associated with a specific zeek flow",
+	"Name": "Corelight Associated Records",
+	"Description": "All records associated with a specific corelight flow",
 	"Data": {
 		"variables": [
 			{
 				"name": "%%UID%%",
-				"label": "Zeek UID",
-				"description": "Zeek UID value",
+				"label": "Corelight UID",
+				"description": "Corelight UID value",
 				"required": true,
 				"defaultValue": "",
 				"previewValue": ""
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"uid"
 	]
 }

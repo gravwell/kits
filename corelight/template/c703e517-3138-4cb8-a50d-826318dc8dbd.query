@@ -1,1 +1,1 @@
-tag=zeekmodbus words %%IPADDR%% | ax | table
+tag=corelight_modbus words %%IPADDR%% | ax | table

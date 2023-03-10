@@ -1,1 +1,1 @@
-tag=zeekdnp3 words %%IPADDR%% | ax | table
+tag=corelight_dnp3 words %%IPADDR%% | ax | table

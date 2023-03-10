@@ -1,1 +1,1 @@
-tag=zeeksmtp words %%IPADDR%% | ax | table
+tag=corelight_smtp words %%IPADDR%% | ax | table

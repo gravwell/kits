@@ -1,7 +1,7 @@
 {
 	"UUID": "92a60422-ed19-4d81-9c5d-4fbaedc72eb4",
-	"Name": "Zeek Connection Graph for IP",
-	"Description": "FDG of IP Connections for a given IP as seen by Zeek",
+	"Name": "Corelight Connection Graph for IP",
+	"Description": "FDG of IP Connections for a given IP as seen by Corelight",
 	"Data": {
 		"variables": [
 			{
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"conn",
 		"fdg"
 	]

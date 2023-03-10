@@ -1,1 +1,1 @@
-tag=zeekssh words %%IPADDR%% | ax | table
+tag=corelight_ssh words %%IPADDR%% | ax | table

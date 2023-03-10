@@ -1,1 +1,1 @@
-tag=zeekdns ax orig == "%%REMOTE%%" | lookup -s -r dns_types qtype Value TYPE as dnstype | stats count by dnstype | chart count by dnstype
+tag=corelight_dns ax orig == "%%REMOTE%%" | lookup -s -r dns_types qtype Value TYPE as dnstype | stats count by dnstype | chart count by dnstype

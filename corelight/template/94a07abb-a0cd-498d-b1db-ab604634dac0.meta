@@ -1,6 +1,6 @@
 {
 	"UUID": "94a07abb-a0cd-498d-b1db-ab604634dac0",
-	"Name": "Zeek Service traffic Totals for an IP",
+	"Name": "Corelight Service traffic Totals for an IP",
 	"Description": "Show upstream/downstream traffic totals for service traffic on a given IP.",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"traffic",
 		"service",
 		"numbercard"

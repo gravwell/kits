@@ -1,6 +1,6 @@
 {
 	"UUID": "1b99a906-e626-44c2-8bfd-503920dff366",
-	"Name": "Zeek DNS Over Time",
+	"Name": "Corelight DNS Over Time",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"chart"
 	]

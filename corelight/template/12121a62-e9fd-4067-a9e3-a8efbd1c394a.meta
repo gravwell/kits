@@ -1,6 +1,6 @@
 {
 	"UUID": "12121a62-e9fd-4067-a9e3-a8efbd1c394a",
-	"Name": "Zeek Most Common SLDs by Client",
+	"Name": "Corelight Most Common SLDs by Client",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"table"
 	]

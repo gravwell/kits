@@ -1,6 +1,6 @@
 {
 	"UUID": "f204deb9-55f1-4edd-869f-b7e12ab4e4ab",
-	"Name": "Zeek all SSH for IP",
+	"Name": "Corelight all SSH for IP",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"ssh"
 	]
 }

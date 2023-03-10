@@ -1,1 +1,1 @@
-tag=zeekdns ax orig == "%%REMOTE%%" | alias query Name | unique Name | regex -e Name "(?P<sld>\w+\.\w+\s*$)" | stats count by sld | sort by count desc | limit 100 | table sld count
+tag=corelight_dns ax orig == "%%REMOTE%%" | alias query Name | unique Name | regex -e Name "(?P<sld>\w+\.\w+\s*$)" | stats count by sld | sort by count desc | limit 100 | table sld count

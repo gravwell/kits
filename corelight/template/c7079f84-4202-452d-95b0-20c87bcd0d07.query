@@ -1,4 +1,4 @@
-tag=zeekconn ax resp==%%IP%% orig_bytes!="-" resp_bytes!="-" resp_port |
+tag=corelight_conn ax resp==%%IP%% orig_bytes!="-" resp_bytes!="-" resp_port |
 stats count by resp_port |
 sort by count desc |
 limit 10 |

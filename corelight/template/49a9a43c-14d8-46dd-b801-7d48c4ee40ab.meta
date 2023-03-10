@@ -1,6 +1,6 @@
 {
 	"UUID": "49a9a43c-14d8-46dd-b801-7d48c4ee40ab",
-	"Name": "Zeek All MYSQL for IP",
+	"Name": "Corelight All MYSQL for IP",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"mysql",
 		"sql"
 	]

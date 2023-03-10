@@ -1,6 +1,6 @@
 {
 	"UUID": "1ab5eb29-a19a-40d8-9f83-4004f0e65a1e",
-	"Name": "Zeek DNS Queries by Resource Record Type",
+	"Name": "Corelight DNS Queries by Resource Record Type",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"chart"
 	]

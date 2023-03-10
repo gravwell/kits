@@ -1,6 +1,6 @@
 {
 	"UUID": "4a2bb62e-2980-446e-8689-3cf3b94a9e8f",
-	"Name": "Zeek DNS SLDs with the Most Subdomains by Client",
+	"Name": "Corelight DNS SLDs with the Most Subdomains by Client",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"dns",
 		"table"
 	]

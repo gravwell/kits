@@ -1,7 +1,7 @@
 {
 	"UUID": "bcdb7175-2b05-4a64-9dd5-5edc54046e7e",
-	"Name": "Zeek service bandwidth graph",
-	"Description": "Service Upload and Download traffic for an IP as seen by Zeek",
+	"Name": "Corelight service bandwidth graph",
+	"Description": "Service Upload and Download traffic for an IP as seen by Corelight",
 	"Data": {
 		"variables": [
 			{

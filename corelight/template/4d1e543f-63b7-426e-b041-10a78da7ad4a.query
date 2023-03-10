@@ -1,1 +1,1 @@
-tag=zeeksnmp words %%IPADDR%% | ax | table
+tag=corelight_snmp words %%IPADDR%% | ax | table

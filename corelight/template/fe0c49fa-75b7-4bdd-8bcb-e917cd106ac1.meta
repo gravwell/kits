@@ -1,6 +1,6 @@
 {
 	"UUID": "fe0c49fa-75b7-4bdd-8bcb-e917cd106ac1",
-	"Name": "Zeek All HTTP for IP",
+	"Name": "Corelight All HTTP for IP",
 	"Description": "",
 	"Data": {
 		"variables": [
@@ -15,7 +15,7 @@
 		]
 	},
 	"Labels": [
-		"zeek",
+		"corelight",
 		"http"
 	]
 }

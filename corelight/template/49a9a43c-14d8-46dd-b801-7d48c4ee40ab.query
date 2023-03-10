@@ -1,1 +1,1 @@
-tag=zeekmysql words %%IPADDR%% | ax | table
+tag=corelight_mysql words %%IPADDR%% | ax | table
