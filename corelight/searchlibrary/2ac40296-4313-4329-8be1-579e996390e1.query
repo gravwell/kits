@@ -1,5 +1,5 @@
-tag=corelight_conn ax orig resp "id.resp_p" |
-stats unique_count("id.resp_p") by orig resp |
+tag=corelight_conn ax "id.orig_h" "id.resp_h" "id.resp_p" |
+stats unique_count("id.resp_p") by "id.orig_h" "id.resp_h" |
 eval unique_count > 64 |
-geoip orig.Country orig.City |
-table orig Country City resp unique_count TIMESTAMP
+geoip "id.orig_h".Country "id.orig_h".City |
+table "id.orig_h" Country City "id.resp_h" unique_count TIMESTAMP

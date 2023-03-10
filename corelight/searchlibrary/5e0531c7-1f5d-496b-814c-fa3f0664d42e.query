@@ -1,1 +1,1 @@
-tag=corelight_http ax password != - | table orig resp host uri username password info_code
+tag=corelight_http ax password != - | table "id.orig_h" "id.resp_h" host uri username password info_code

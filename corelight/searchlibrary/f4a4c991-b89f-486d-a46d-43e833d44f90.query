@@ -1,4 +1,4 @@
-tag=corelight_dns ax resp query answers qtype_name == A |
+tag=corelight_dns ax "id.resp_h" query answers qtype_name == A |
 regex -e "query" "(?P<TLD>[^\.]+)$" |
 stats count by TLD |
 table TLD count

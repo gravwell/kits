@@ -1,1 +1,1 @@
-tag=corelight_dns ax | alias orig Host | stats count by Host | table Host count
+tag=corelight_dns ax | alias "id.orig_h" Host | stats count by Host | table Host count
