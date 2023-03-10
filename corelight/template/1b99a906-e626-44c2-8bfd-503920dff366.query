@@ -1,1 +1,1 @@
-tag=corelight_dns ax orig == "%%REMOTE%%" | chart
+tag=corelight_dns ax "id.orig_h" == "%%REMOTE%%" | chart

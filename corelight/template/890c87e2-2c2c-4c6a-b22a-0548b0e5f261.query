@@ -1,1 +1,1 @@
-tag=corelight_conn ax resp==%%IP%% orig resp_bytes != - | stats unique_count(orig) as "Active Clients" | numbercard "Active Clients"
+tag=corelight_conn ax "id.resp_h"==%%IP%% "id.orig_h" resp_bytes != - | stats unique_count("id.orig_h") as "Active Clients" | numbercard "Active Clients"
