@@ -14,7 +14,10 @@
 				"searchID": 5493314864
 			},
 			{
-				"query": "tag=corelight_x509 ax | anko expired_x509 not_valid_after | time not_valid_after expired_on | table subject issuer dns expired_on",
+				"reference": {
+					"id": "c8db7f5d-e8b4-4c58-81fa-baeb4ec76858",
+					"type": "savedQuery"
+				},
 				"alias": "Expired Certificates",
 				"searchID": 3377243609
 			},

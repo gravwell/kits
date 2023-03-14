@@ -1,6 +1,6 @@
 # Overview
 
-Welcome to the Gravwell Zeek Kit.  This kit is designed to help you make the most of the [Zeek Network Security Monitoring](https://zeek.org) platform.  Zeek is a powerful [open source](https://github.com/zeek/zeek) tool that can provide a wealth of contextual information about network activities.
+Welcome to the Gravwell Corelight Kit.  This kit is designed to help you make the most of the logs from your Corelight device. 
 
 This playbook serves to get you oriented around the kit and provide some basic anchors into the data types, dashboards, and actionables.  This kit is dependent on the Gravwell Network Enrichment Kit which provides some additional port enumerations, network ownership, and geospatial information.  There is even a 3D spinning globe, because why not!
 
@@ -8,95 +8,157 @@ This playbook serves to get you oriented around the kit and provide some basic a
 
 ## Contents
 
-The Zeek Gravwell Kit contains many elements such as dashboards, queries, templates, actionables, and autoextractors.
+The Corelight Gravwell Kit contains many elements such as dashboards, queries, templates, actionables, and autoextractors.
 
 Geospatial items are provided by the Gravwell Network Enrichment Kit, which enables some cool visualizations like point-to-point traffic maps:
 
 ![point-to-point map](/api/files/6c63dfd6-c022-40c6-ac89-2d3e3ce2d5ea =1528x657)
 
-Zeek provides robust introspection on DNS queries and responses, as a result we can replicate much of the Gravwell CoreDNS Kit functionality using passively acquired DNS information which enables excellent overview and investigative dashboards.
+Corelight provides robust introspection on DNS queries and responses; as a result we can replicate much of the Gravwell CoreDNS Kit functionality using passively acquired DNS information which enables excellent overview and investigative dashboards.
 
-![DNS Overview](/api/files/8656ce24-86e2-41e3-ae79-c3789ae1ab85 =1890x999)
+## Ingester Configuration
 
-### Tags And Data Sources
+We recommend ingesting Corelight logs via direct TCP connections using the [Simple Relay ingester](https://docs.gravwell.io/#!ingesters/simple_relay.md).
 
-Zeek can provide a huge array of data sources using a completely unmodified build, but with plugins the sky is the limit.  This kit assumes that the Zeek distribution in use is based on the configuration provided on our [Dockerhub page](https://hub.docker.com/repository/docker/gravwell/zeek).  That Docker image contains a configured build of Zeek along with a preconfigured Gravwell File Follower.
+Below is a config snippet for the Simple Relay ingester which listens for JSON over TCP on port 7890. It extracts the value of the _path field from the JSON payloads and routes each message to an appropriate tag based on the value. 
 
-Not all tags may be available, your data will be unique to the traffic that your installation of Zeek has actually seen.  If your installation has never seen DNP3 traffic, you will not have any DNP3 data.
+<pre>
+[JSONListener "corelight"]
+    Bind-String="0.0.0.0:7890"
+	Default-Tag=corelight
+	Extractor="_path"
+	Tag-Match=bacnet:corelight_bacnet
+	Tag-Match=capture_loss:corelight_capture_loss
+	Tag-Match=cip:corelight_cip
+	Tag-Match=conn:corelight_conn
+	Tag-Match=conn_long:corelight_conn_long
+	Tag-Match=conn_red:corelight_conn_red
+	Tag-Match=corelight_burst:corelight_burst
+	Tag-Match=corelight_overall_capture_loss:corelight_overall_capture_loss
+	Tag-Match=corelight_profiling:corelight_profiling
+	Tag-Match=datared:corelight_datared
+	Tag-Match=dce_rpc:corelight_dce_rpc
+	Tag-Match=dga:corelight_dga
+	Tag-Match=dhcp:corelight_dhcp
+	Tag-Match=dnp3:corelight_dnp3
+	Tag-Match=dns:corelight_dns
+	Tag-Match=dns_red:corelight_dns_red
+	Tag-Match=dpd:corelight_dpd
+	Tag-Match=encrypted_dns:corelight_encrypted_dns
+	Tag-Match=enip:corelight_enip
+	Tag-Match=enip_debug:corelight_enip_debug
+	Tag-Match=enip_list_identity:corelight_enip_list_identity
+	Tag-Match=etc_viz:corelight_etc_viz
+	Tag-Match=files:corelight_files
+	Tag-Match=files_red:corelight_files_red
+	Tag-Match=ftp:corelight_ftp
+	Tag-Match=generic_dns_tunnels:corelight_generic_dns_tunnels
+	Tag-Match=generic_icmp_tunnels:corelight_generic_icmp_tunnels
+	Tag-Match=http:corelight_http
+	Tag-Match=http2:corelight_http2
+	Tag-Match=http_red:corelight_http_red
+	Tag-Match=icmp_specific_tunnels:corelight_icmp_specific_tunnels
+	Tag-Match=intel:corelight_intel
+	Tag-Match=ipsec:corelight_ipsec
+	Tag-Match=irc:corelight_irc
+	Tag-Match=iso_cotp:corelight_iso_cotp
+	Tag-Match=kerberos:corelight_kerberos
+	Tag-Match=known_certs:corelight_known_certs
+	Tag-Match=known_devices:corelight_known_devices
+	Tag-Match=known_domains:corelight_known_domains
+	Tag-Match=known_hosts:corelight_known_hosts
+	Tag-Match=known_names:corelight_known_names
+	Tag-Match=known_remotes:corelight_known_remotes
+	Tag-Match=known_services:corelight_known_services
+	Tag-Match=known_users:corelight_known_users
+	Tag-Match=local_subnets:corelight_local_subnets
+	Tag-Match=local_subnets_dj:corelight_local_subnets_dj
+	Tag-Match=local_subnets_graphs:corelight_local_subnets_graphs
+	Tag-Match=log4shell:corelight_log4shell
+	Tag-Match=modbus:corelight_modbus
+	Tag-Match=mqtt_connect:corelight_mqtt_connect
+	Tag-Match=mqtt_publish:corelight_mqtt_publish
+	Tag-Match=mqtt_subscribe:corelight_mqtt_subscribe
+	Tag-Match=mysql:corelight_mysql
+	Tag-Match=notice:corelight_notice
+	Tag-Match=ntlm:corelight_ntlm
+	Tag-Match=ntp:corelight_ntp
+	Tag-Match=ocsp:corelight_ocsp
+	Tag-Match=openflow:corelight_openflow
+	Tag-Match=packet_filter:corelight_packet_filter
+	Tag-Match=pe:corelight_pe
+	Tag-Match=profinet:corelight_profinet
+	Tag-Match=profinet_dce_rpc:corelight_profinet_dce_rpc
+	Tag-Match=profinet_debug:corelight_profinet_debug
+	Tag-Match=radius:corelight_radius
+	Tag-Match=rdp:corelight_rdp
+	Tag-Match=reporter:corelight_reporter
+	Tag-Match=rfb:corelight_rfb
+	Tag-Match=s7comm:corelight_s7comm
+	Tag-Match=signatures:corelight_signatures
+	Tag-Match=sip:corelight_sip
+	Tag-Match=smartpcap:corelight_smartpcap
+	Tag-Match=smartpcap-stats:corelight_smartpcap-stats
+	Tag-Match=smb_files:corelight_smb_files
+	Tag-Match=smb_mapping:corelight_smb_mapping
+	Tag-Match=smtp:corelight_smtp
+	Tag-Match=smtp_links:corelight_smtp_links
+	Tag-Match=snmp:corelight_snmp
+	Tag-Match=socks:corelight_socks
+	Tag-Match=software:corelight_software
+	Tag-Match=specific_dns_tunnels:corelight_specific_dns_tunnels
+	Tag-Match=ssh:corelight_ssh
+	Tag-Match=ssl:corelight_ssl
+	Tag-Match=ssl_red:corelight_ssl_red
+	Tag-Match=stats:corelight_stats
+	Tag-Match=stepping:corelight_stepping
+	Tag-Match=stun:corelight_stun
+	Tag-Match=stun_nat:corelight_stun_nat
+	Tag-Match=suricata_corelight:corelight_suricata_corelight
+	Tag-Match=suricata_eve:corelight_suricata_eve
+	Tag-Match=suricata_stats:corelight_suricata_stats
+	Tag-Match=suricata_zeek_stats:corelight_suricata_zeek_stats
+	Tag-Match=syslog:corelight_syslog
+	Tag-Match=tds:corelight_tds
+	Tag-Match=tds_rpc:corelight_tds_rpc
+	Tag-Match=tds_sql_batch:corelight_tds_sql_batch
+	Tag-Match=traceroute:corelight_traceroute
+	Tag-Match=tunnel:corelight_tunnel
+	Tag-Match=unknown-smartpcap:corelight_unknown-smartpcap
+	Tag-Match=util_stats:corelight_util_stats
+	Tag-Match=vpn:corelight_vpn
+	Tag-Match=weird:corelight_weird
+	Tag-Match=weird_red:corelight_weird_red
+	Tag-Match=weird_stats:corelight_weird_stats
+	Tag-Match=wireguard:corelight_wireguard
+	Tag-Match=x509:corelight_x509
+	Tag-Match=x509_red:corelight_x509_red
+	Tag-Match=zeek_doctor:corelight_zeek_doctor
+</pre>
 
-The default file follower configuration includes the following tags and autoextractors:
+## Corelight Configuration
 
-<table>
-<tr><td>zeekbarnyard2</td><td><a href="/#/search/launch?query=tag%3Dzeekbarnyard2%20ax%20%7C%20table&duration=PT1H">tag=zeekbarnyard2 ax | table</a></td></tr>
-<tr><td>zeekconn</td><td><a href="/#/search/launch?query=tag%3Dzeekconn%20ax%20%7C%20table&duration=PT1H">tag=zeekconn ax | table</a></td></tr>
-<tr><td>zeekdce_rpc</td><td><a href="/#/search/launch?query=tag%3Dzeekdce_rpc%20ax%20%7C%20table&duration=PT1H">tag=zeekdce_rpc ax | table</a></td></tr>
-<tr><td>zeekdhcp</td><td><a href="/#/search/launch?query=tag%3Dzeekdhcp%20ax%20%7C%20table&duration=PT1H">tag=zeekdhcp ax | table</a></td></tr>
-<tr><td>zeekdnp3</td><td><a href="/#/search/launch?query=tag%3Dzeekdnp3%20ax%20%7C%20table&duration=PT1H">tag=zeekdnp3 ax | table</a></td></tr>
-<tr><td>zeekdns</td><td><a href="/#/search/launch?query=tag%3Dzeekdns%20ax%20%7C%20table&duration=PT1H">tag=zeekdns ax | table</a></td></tr>
-<tr><td>zeekdpd</td><td><a href="/#/search/launch?query=tag%3Dzeekdpd%20ax%20%7C%20table&duration=PT1H">tag=zeekdpd ax | table</a></td></tr>
-<tr><td>zeekfiles</td><td><a href="/#/search/launch?query=tag%3Dzeekfiles%20ax%20%7C%20table&duration=PT1H">tag=zeekfiles ax | table</a></td></tr>
-<tr><td>zeekftp</td><td><a href="/#/search/launch?query=tag%3Dzeekftp%20ax%20%7C%20table&duration=PT1H">tag=zeekftp ax | table</a></td></tr>
-<tr><td>zeekhttp</td><td><a href="/#/search/launch?query=tag%3Dzeekhttp%20ax%20%7C%20table&duration=PT1H">tag=zeekhttp ax | table</a></td></tr>
-<tr><td>zeekintel</td><td><a href="/#/search/launch?query=tag%3Dzeekintel%20ax%20%7C%20table&duration=PT1H">tag=zeekintel ax | table</a></td></tr>
-<tr><td>zeekirc</td><td><a href="/#/search/launch?query=tag%3Dzeekirc%20ax%20%7C%20table&duration=PT1H">tag=zeekirc ax | table</a></td></tr>
-<tr><td>zeekkerberos</td><td><a href="/#/search/launch?query=tag%3Dzeekkerberos%20ax%20%7C%20table&duration=PT1H">tag=zeekkerberos ax | table</a></td></tr>
-<tr><td>zeekknown_certs</td><td><a href="/#/search/launch?query=tag%3Dzeekknown_certs%20ax%20%7C%20table&duration=PT1H">tag=zeekknown_certs ax | table</a></td></tr>
-<tr><td>zeekknown_hosts</td><td><a href="/#/search/launch?query=tag%3Dzeekknown_hosts%20ax%20%7C%20table&duration=PT1H">tag=zeekknown_hosts ax | table</a></td></tr>
-<tr><td>zeekknown_modbus</td><td><a href="/#/search/launch?query=tag%3Dzeekknown_modbus%20ax%20%7C%20table&duration=PT1H">tag=zeekknown_modbus ax | table</a></td></tr>
-<tr><td>zeekknown_services</td><td><a href="/#/search/launch?query=tag%3Dzeekknown_services%20ax%20%7C%20table&duration=PT1H">tag=zeekknown_services ax | table</a></td></tr>
-<tr><td>zeekmodbus</td><td><a href="/#/search/launch?query=tag%3Dzeekmodbus%20ax%20%7C%20table&duration=PT1H">tag=zeekmodbus ax | table</a></td></tr>
-<tr><td>zeekmodbus_register_change</td><td><a href="/#/search/launch?query=tag%3Dzeekmodbus_register_change%20ax%20%7C%20table&duration=PT1H">tag=zeekmodbus_register_change ax | table</a></td></tr>
-<tr><td>zeekmysql</td><td><a href="/#/search/launch?query=tag%3Dzeekmysql%20ax%20%7C%20table&duration=PT1H">tag=zeekmysql ax | table</a></td></tr>
-<tr><td>zeeknotice_alarm</td><td><a href="/#/search/launch?query=tag%3Dzeeknotice_alarm%20ax%20%7C%20table&duration=PT1H">tag=zeeknotice_alarm ax | table</a></td></tr>
-<tr><td>zeeknotice</td><td><a href="/#/search/launch?query=tag%3Dzeeknotice%20ax%20%7C%20table&duration=PT1H">tag=zeeknotice ax | table</a></td></tr>
-<tr><td>zeekntlm</td><td><a href="/#/search/launch?query=tag%3Dzeekntlm%20ax%20%7C%20table&duration=PT1H">tag=zeekntlm ax | table</a></td></tr>
-<tr><td>zeekocsp</td><td><a href="/#/search/launch?query=tag%3Dzeekocsp%20ax%20%7C%20table&duration=PT1H">tag=zeekocsp ax | table</a></td></tr>
-<tr><td>zeekopenflow</td><td><a href="/#/search/launch?query=tag%3Dzeekopenflow%20ax%20%7C%20table&duration=PT1H">tag=zeekopenflow ax | table</a></td></tr>
-<tr><td>zeekpe</td><td><a href="/#/search/launch?query=tag%3Dzeekpe%20ax%20%7C%20table&duration=PT1H">tag=zeekpe ax | table</a></td></tr>
-<tr><td>zeekradius</td><td><a href="/#/search/launch?query=tag%3Dzeekradius%20ax%20%7C%20table&duration=PT1H">tag=zeekradius ax | table</a></td></tr>
-<tr><td>zeekrdp</td><td><a href="/#/search/launch?query=tag%3Dzeekrdp%20ax%20%7C%20table&duration=PT1H">tag=zeekrdp ax | table</a></td></tr>
-<tr><td>zeekrfb</td><td><a href="/#/search/launch?query=tag%3Dzeekrfb%20ax%20%7C%20table&duration=PT1H">tag=zeekrfb ax | table</a></td></tr>
-<tr><td>zeeksignatures</td><td><a href="/#/search/launch?query=tag%3Dzeeksignatures%20ax%20%7C%20table&duration=PT1H">tag=zeeksignatures ax | table</a></td></tr>
-<tr><td>zeeksip</td><td><a href="/#/search/launch?query=tag%3Dzeeksip%20ax%20%7C%20table&duration=PT1H">tag=zeeksip ax | table</a></td></tr>
-<tr><td>zeeksmb_cmd</td><td><a href="/#/search/launch?query=tag%3Dzeeksmb_cmd%20ax%20%7C%20table&duration=PT1H">tag=zeeksmb_cmd ax | table</a></td></tr>
-<tr><td>zeeksmb_files</td><td><a href="/#/search/launch?query=tag%3Dzeeksmb_files%20ax%20%7C%20table&duration=PT1H">tag=zeeksmb_files ax | table</a></td></tr>
-<tr><td>zeeksmb_mapping</td><td><a href="/#/search/launch?query=tag%3Dzeeksmb_mapping%20ax%20%7C%20table&duration=PT1H">tag=zeeksmb_mapping ax | table</a></td></tr>
-<tr><td>zeeksmtp</td><td><a href="/#/search/launch?query=tag%3Dzeeksmtp%20ax%20%7C%20table&duration=PT1H">tag=zeeksmtp ax | table</a></td></tr>
-<tr><td>zeeksnmp</td><td><a href="/#/search/launch?query=tag%3Dzeeksnmp%20ax%20%7C%20table&duration=PT1H">tag=zeeksnmp ax | table</a></td></tr>
-<tr><td>zeeksocks</td><td><a href="/#/search/launch?query=tag%3Dzeeksocks%20ax%20%7C%20table&duration=PT1H">tag=zeeksocks ax | table</a></td></tr>
-<tr><td>zeeksoftware</td><td><a href="/#/search/launch?query=tag%3Dzeeksoftware%20ax%20%7C%20table&duration=PT1H">tag=zeeksoftware ax | table</a></td></tr>
-<tr><td>zeekssh</td><td><a href="/#/search/launch?query=tag%3Dzeekssh%20ax%20%7C%20table&duration=PT1H">tag=zeekssh ax | table</a></td></tr>
-<tr><td>zeekssl</td><td><a href="/#/search/launch?query=tag%3Dzeekssl%20ax%20%7C%20table&duration=PT1H">tag=zeekssl ax | table</a></td></tr>
-<tr><td>zeeksyslog</td><td><a href="/#/search/launch?query=tag%3Dzeeksyslog%20ax%20%7C%20table&duration=PT1H">tag=zeeksyslog ax | table</a></td></tr>
-<tr><td>zeektunnel</td><td><a href="/#/search/launch?query=tag%3Dzeektunnel%20ax%20%7C%20table&duration=PT1H">tag=zeektunnel ax | table</a></td></tr>
-<tr><td>zeekweird</td><td><a href="/#/search/launch?query=tag%3Dzeekweird%20ax%20%7C%20table&duration=PT1H">tag=zeekweird ax | table</a></td></tr>
-<tr><td>zeekx509</td><td><a href="/#/search/launch?query=tag%3Dzeekx509%20ax%20%7C%20table&duration=PT1H">tag=zeekx509 ax | table</a></td></tr>
+Configuring Corelight to forward logs to your Gravwell ingester is simple. In the configuration section of the Export tab, enable JSON over TCP:
 
-</td></tr>
-</table>
+![corelight config](/api/files/8656ce24-86e2-41e3-ae79-c3789ae1ab85 =1034x500)
 
-## Zeek Configuration
+You can also set up export via the Corelight CLI:
 
-The container is built using the open source Zeek distribution available on [Github](https://github.com/zeek/zeek).
+<pre>
+corelight-client configuration update --bro.export.json.enable=1 --bro.export.json.server=simplerelay.example.org:7890
+</pre>
 
-Also included are a few ICS specific 3rd party plugins:
+You can validate that Corelight data is flowing into Gravwell with the following query:
 
-<table>
-<tr><th>Plugin</th><th>Provider</th><th>Link</th></tr>
-<tr><td>HTTP2</td><td>MITRE</td><td>https://github.com/MITRECND/bro-http2</td></tr>
-<tr><td>BZAR</td><td>MITRE</td><td>https://github.com/mitre-attack/bzar</td></tr>
-<tr><td>EthernetIP</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-enip</td></tr>
-<tr><td>S7</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-s7comm</td></tr>
-<tr><td>BACnet</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-bacnet</td></tr>
-<tr><td>ProfiNet</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-profinet</td></tr>
-<tr><td>TDS</td><td>Amazon</td><td>https://github.com/amzn/zeek-plugin-tds</td></tr>
-</table>
+```
+tag=corelight* limit 10
+```
 
-## Zeek Indexing And Well Configuration
+## Corelight Indexing And Well Configuration
 
-The Zeek data set contains many highly orthogonal data sources, including unique identifiers, GUIDs, floating point timestamps, and IPv6 addresses.  To ensure that Gravwell performs well and minimizes memory usage when indexing Zeek data we highly recommend a separate well for the Zeek data with specific indexing options.
+The Corelight data set contains many highly orthogonal data sources, including unique identifiers, GUIDs, floating point timestamps, and IPv6 addresses.  To ensure that Gravwell performs well and minimizes memory usage when indexing Corelight data we highly recommend a separate well for the Corelight data with specific indexing options.
 
-Gravwell supports two indexing engines designed to provide different capabilities and tradeoffs.  Both engines can perform very well with the Zeek datasets.  The bloom engine can provide a balance of good performance and minimal disk usage while the index engine provides precise indexing performance in exchange for greater disk and memory usage.  Regardless of the chosen engine, Gravwell recommends that Zeek data be fulltext indexed with the "ignoreFloat" and "ignoreUUID" options.  The following well configurations work well with Zeek data:
+Gravwell supports two indexing engines designed to provide different capabilities and tradeoffs.  Both engines can perform very well with the Corelight datasets.  The bloom engine can provide a balance of good performance and minimal disk usage while the index engine provides precise indexing performance in exchange for greater disk and memory usage.  Regardless of the chosen engine, Gravwell recommends that Corelight data be fulltext indexed with the "ignoreFloat" and "ignoreUUID" options.  Either of the following configurations should perform well with Corelight data:
 
 ### Bloom Engine
 <pre>
@@ -118,342 +180,3 @@ Gravwell supports two indexing engines designed to provide different capabilitie
 	Accelerator-Engine-Override=index
 </pre>
 
-## Zeek File Follower Configuration
-
-Below is a [Gravwell file follower](https://docs.gravwell.io/#!ingesters/file_follow.md) config file that can be dropped into "/opt/gravwell/etc/file_follow.conf.d/" that will appropriately parse zeek tab delimited logs in "/logs/".  This config file is designed to monitor all the standard Zeek output logs plus some additional plugins that are found in our published [Zeek docker container](https://hub.docker.com/r/gravwell/zeek).
-
-Just copy and paste this into "/opt/gravwell/etc/file_follow.conf.d/zeek.conf" and change the file ownership to "gravwell:gravwell".
-
-<pre>
-[Follower "barnyard2"]
-	Timestamp-Format-Override="UnixMilli"
-	Ignore-Line-Prefix="#"
-	Base-Directory="/logs/"
-	File-Filter="barnyard2.log"
-	Tag-Name="zeekbarnyard2"
-
-[Follower "conn"]
-	Timestamp-Format-Override="UnixMilli"
-	Ignore-Line-Prefix="#"
-	Base-Directory="/logs/"
-	File-Filter="conn.log"
-	Tag-Name="zeekconn"
-
-[Follower "dce_rpc"]
-	Timestamp-Format-Override="UnixMilli"
-	Ignore-Line-Prefix="#"
-	Base-Directory="/logs/"
-	File-Filter="dce_rpc.log"
-	Tag-Name="zeekdce_rpc"
-
-[Follower "dhcp"]
-	Timestamp-Format-Override="UnixMilli"
-	Ignore-Line-Prefix="#"
-	Base-Directory="/logs/"
-	File-Filter="dhcp.log"
-	Tag-Name="zeekdhcp"
-
-[Follower "dnp3"]
-	Timestamp-Format-Override="UnixMilli"
-	Ignore-Line-Prefix="#"
-	Base-Directory="/logs/"
-	File-Filter="dnp3.log"
-	Tag-Name="zeekdnp3"
-
-[Follower "dns"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="dns.log"
-	Tag-Name="zeekdns"
-
-[Follower "dpd"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="dpd.log"
-	Tag-Name="zeekdpd"
-
-[Follower "files"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="files.log"
-	Tag-Name="zeekfiles"
-
-[Follower "ftp"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="ftp.log"
-	Tag-Name="zeekftp"
-
-[Follower "http"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="http.log"
-	Tag-Name="zeekhttp"
-
-[Follower "intel"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="intel.log"
-	Tag-Name="zeekintel"
-
-[Follower "irc"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="irc.log"
-	Tag-Name="zeekirc"
-
-[Follower "kerberos"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="kerberos.log"
-	Tag-Name="zeekkerberos"
-
-[Follower "known_certs"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="known_certs.log"
-	Tag-Name="zeekknown_certs"
-
-[Follower "known_hosts"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="known_hosts.log"
-	Tag-Name="zeekknown_hosts"
-
-[Follower "known_modbus"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="known_modbus.log"
-	Tag-Name="zeekknown_modbus"
-
-[Follower "known_services"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="known_services.log"
-	Tag-Name="zeekknown_services"
-
-[Follower "modbus"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="modbus.log"
-	Tag-Name="zeekmodbus"
-
-[Follower "modbus_register_change"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="modbus_register_change.log"
-	Tag-Name="zeekmodbus_register_change"
-
-[Follower "mysql"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="mysql.log"
-	Tag-Name="zeekmysql"
-
-[Follower "notice_alarm"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="notice_alarm.log"
-	Tag-Name="zeeknotice_alarm"
-
-[Follower "notice"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="notice.log"
-	Tag-Name="zeeknotice"
-
-[Follower "ntlm"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="ntlm.log"
-	Tag-Name="zeekntlm"
-
-[Follower "ocsp"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="ocsp.log"
-	Tag-Name="zeekocsp"
-
-[Follower "openflow"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="openflow.log"
-	Tag-Name="zeekopenflow"
-
-[Follower "pe"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="pe.log"
-	Tag-Name="zeekpe"
-
-[Follower "radius"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="radius.log"
-	Tag-Name="zeekradius"
-
-[Follower "rdp"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="rdp.log"
-	Tag-Name="zeekrdp"
-
-[Follower "rfb"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="rfb.log"
-	Tag-Name="zeekrfb"
-
-[Follower "signatures"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="signatures.log"
-	Tag-Name="zeeksignatures"
-
-[Follower "sip"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="sip.log"
-	Tag-Name="zeeksip"
-
-[Follower "smb_cmd"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="smb_cmd.log"
-	Tag-Name="zeeksmb_cmd"
-
-[Follower "smb_files"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="smb_files.log"
-	Tag-Name="zeeksmb_files"
-
-[Follower "smb_mapping"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="smb_mapping.log"
-	Tag-Name="zeeksmb_mapping"
-
-[Follower "smtp"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="smtp.log"
-	Tag-Name="zeeksmtp"
-
-[Follower "snmp"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="snmp.log"
-	Tag-Name="zeeksnmp"
-
-[Follower "socks"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="socks.log"
-	Tag-Name="zeeksocks"
-
-[Follower "software"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="software.log"
-	Tag-Name="zeeksoftware"
-
-[Follower "ssh"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="ssh.log"
-	Tag-Name="zeekssh"
-
-[Follower "ssl"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="ssl.log"
-	Tag-Name="zeekssl"
-
-[Follower "sy"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="syslog.log"
-	Tag-Name="zeeksyslog"
-
-[Follower "tunnel"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="tunnel.log"
-	Tag-Name="zeektunnel"
-
-[Follower "weird"]
-	Ignore-Line-Prefix="#"
-	Timestamp-Format-Override="UnixMilli"
-	Base-Directory="/logs/"
-	File-Filter="weird.log"
-	Tag-Name="zeekweird"
-
-[Follower "x509"]
-	Timestamp-Format-Override="UnixMilli"
-	Ignore-Line-Prefix="#"
-	Base-Directory="/logs/"
-	File-Filter="x509.log"
-	Tag-Name="zeekx509"
-</pre>
-
-## Corelight
-
-Gravwell can ingest Corelight logs shipped via either syslog or direct TCP connections, using the [Simple Relay ingester](https://docs.gravwell.io/#!ingesters/simple_relay.md). Corelight sends its logs in JSON format; in order to use them with the Zeek kit, they must be converted to the TSV structure the Zeek kit expects.
-
-Here's an example config snippet for the Simple Relay ingester which listens for JSON over TCP on port 7890 and translates the JSON payloads to TSV data:
-
-<pre>
-[Listener "corelight"]
-    Bind-String="0.0.0.0:7890"
-    Preprocessor=corelight
-
-[Preprocessor "corelight"]
-    Type=corelight
-</pre>
-
-The Corelight preprocessor will examine incoming JSON payloads, determine the log type, convert it to TSV, and ingest it under the appropriate tag: zeekconn, zeekdns, etc.
-
-Note: You can ingest Corelight logs without the preprocessor and use them as JSON, but you will need to modify the autoextractor definitions if you want to use them with the Zeek kit's pre-built dashboards and other features. JSON also consumes more space on disk. For ease of use, we therefore recommend using our preprocessor as shown above.
-
-## Additional Information
-The "Zeek" and "Bro" names are owned by the [Zeek Community](https://zeek.org).
-
-Zeek is a [BSD](https://github.com/zeek/zeek/blob/master/COPYING) licensed open source project available on [Github](https://github.com/zeek/zeek).
