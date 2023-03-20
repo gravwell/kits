@@ -4,7 +4,7 @@ Welcome to the Gravwell Corelight Kit.  This kit is designed to help you make th
 
 This playbook serves to get you oriented around the kit and provide some basic anchors into the data types, dashboards, and actionables.  This kit is dependent on the Gravwell Network Enrichment Kit which provides some additional port enumerations, network ownership, and geospatial information.  There is even a 3D spinning globe, because why not!
 
-![Dashboard Preview](/api/files/3f0a9936-9437-4678-bcd3-6f91bce0cf92 =1897x991)
+![Dashboard Preview](/api/files/e81de4fe-288e-429a-ac62-30c60cdcc6ab =1897x991)
 
 ## Contents
 
@@ -12,7 +12,7 @@ The Corelight Gravwell Kit contains many elements such as dashboards, queries, t
 
 Geospatial items are provided by the Gravwell Network Enrichment Kit, which enables some cool visualizations like point-to-point traffic maps:
 
-![point-to-point map](/api/files/6c63dfd6-c022-40c6-ac89-2d3e3ce2d5ea =1528x657)
+![point-to-point map](/api/files/d4508d81-40fd-49e3-85b7-e029434289eb =1528x657)
 
 Corelight provides robust introspection on DNS queries and responses; as a result we can replicate much of the Gravwell CoreDNS Kit functionality using passively acquired DNS information which enables excellent overview and investigative dashboards.
 
@@ -140,7 +140,7 @@ Below is a config snippet for the Simple Relay ingester which listens for JSON o
 
 Configuring Corelight to forward logs to your Gravwell ingester is simple. In the configuration section of the Export tab, enable JSON over TCP:
 
-![corelight config](/api/files/8656ce24-86e2-41e3-ae79-c3789ae1ab85 =1034x500)
+![corelight config](/api/files/2c39877b-81df-4383-aca3-d0b840065715 =1034x500)
 
 You can also set up export via the Corelight CLI:
 
