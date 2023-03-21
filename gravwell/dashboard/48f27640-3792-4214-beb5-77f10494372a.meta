@@ -1,0 +1,114 @@
+{
+	"UUID": "48f27640-3792-4214-beb5-77f10494372a",
+	"Name": "Gravwell Ageout Activity",
+	"Description": "Dashboard monitoring shard ageout and management activity",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P30DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Shard Deletions",
+				"query": "tag=gravwell words Deleted shard\n| syslog Appname==indexer well shardts reason Message \n| regex -e Message \"Deleted (?P\u003cshardtype\u003e\\S+) shard\"\n| count by well shardtype\n| stackgraph count well shardtype",
+				"color": null
+			},
+			{
+				"alias": "Shard Deletion List",
+				"query": "tag=gravwell words Deleted shard\n| syslog Appname==indexer well shardts reason Message \n| regex -e Message \"Deleted (?P\u003cshardtype\u003e\\S+) shard\"\n| table TIMESTAMP well \"shardtype\" shardts reason",
+				"color": null
+			},
+			{
+				"alias": "Cold Migration Activity",
+				"query": "tag=gravwell words Migrated shard\n| syslog Appname==indexer well shardts reason Message~Migrated\n| regex -p -e Message \"due to hot shard (?P\u003creason\u003e.+)?\"\n| stats count by well reason over 24h\n| chart count by well reason",
+				"color": null
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=gravwell words Migrated shard\n| syslog Appname==indexer well shardts reason Message~Migrated\n| regex -p -e Message \"due to hot shard (?P\u003creason\u003e.+)?\"\n| stats count by well reason over 24h\n| chart count by well reason",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 826821970987854,
+				"title": "Shard Deletions",
+				"renderer": "stackgraph",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Orientation": "horizontal",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 1679409979438,
+				"title": "Shard Deletion List",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1679410843026,
+				"title": "Cold Migration Activity",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 16794111428493,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"gravwell",
+		"shard",
+		"shards",
+		"ageout",
+		"data management"
+	]
+}
