@@ -41,7 +41,7 @@
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax bytes | stats sum(bytes) | hoc (Megabytes = sum / (1024 * 1024)) | chart Megabytes",
+				"query": "tag=pan_traffic ax bytes | stats sum(bytes) | eval (Megabytes = sum / (1024 * 1024)) | chart Megabytes",
 				"alias": "Total Traffic"
 			}
 		],

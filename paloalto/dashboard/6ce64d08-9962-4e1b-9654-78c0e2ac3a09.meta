@@ -26,7 +26,7 @@
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_globalprotect ax eventid==\"gateway-tunnel-latency\" description | regex -e description \"Pre-tunnel latency: (?P\u003cpre\u003e[^,]+), Post-tunnel latency: (?P\u003cpost\u003e[^,]+)\"\n/* We use toDuration to go from a string to a Duration */\n| eval setEnum(\"pre\", toDuration(pre))\n| eval setEnum(\"post\", toDuration(post))\n| stats mean(pre) as pre mean(post) as post\n/* At this point, pre and post are in nanoseconds. Let's convert them to milliseconds */\n| hoc (\"Pre-tunnel Latency (ms)\" = pre / 1000000; \"Post-tunnel Latency (ms)\" = post / 1000000)\n| chart \"Pre-tunnel Latency (ms)\" \"Post-tunnel Latency (ms)\" ",
+				"query": "tag=pan_globalprotect ax eventid==\"gateway-tunnel-latency\" description | regex -e description \"Pre-tunnel latency: (?P\u003cpre\u003e[^,]+), Post-tunnel latency: (?P\u003cpost\u003e[^,]+)\"\n/* We use toDuration to go from a string to a Duration */\n| eval setEnum(\"pre\", toDuration(pre))\n| eval setEnum(\"post\", toDuration(post))\n| stats mean(pre) as pre mean(post) as post\n/* At this point, pre and post are in nanoseconds. Let's convert them to milliseconds */\n| eval setEnum(\"Pre-tunnel Latency (ms)\", pre / 1000000) | eval setEnum(\"Post-tunnel Latency (ms)\", post / 1000000)\n| chart \"Pre-tunnel Latency (ms)\" \"Post-tunnel Latency (ms)\" ",
 				"alias": "Average Latency",
 				"color": null
 			}
