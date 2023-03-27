@@ -1,0 +1,21 @@
+{
+	"UUID": "f204deb9-55f1-4edd-869f-b7e12ab4e4ab",
+	"Name": "Corelight all SSH for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"ssh"
+	]
+}

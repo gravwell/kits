@@ -1,0 +1,3 @@
+tag=corelight_http ax
+| regex -e uri "\;|&&|\|`|>|<|\\|\!"
+| table

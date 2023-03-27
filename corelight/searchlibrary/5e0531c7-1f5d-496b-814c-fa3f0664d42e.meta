@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight HTTP Password exposures",
+	"Description": "Table with exposed passwords in HTTP requests",
+	"GUID": "5e0531c7-1f5d-496b-814c-fa3f0664d42e",
+	"Labels": [
+		"kit/io.gravwell.beta.corelight",
+		"corelight",
+		"http",
+		"password"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

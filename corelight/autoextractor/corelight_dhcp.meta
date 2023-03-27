@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_dhcp",
+	"Desc": "Corelight dhcp logs",
+	"Module": "json",
+	"Tag": "corelight_dhcp",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "5915c4ca-892e-428c-a124-81742ab29abe",
+	"LastUpdated": "2020-09-18T15:38:47.622423632-06:00"
+}

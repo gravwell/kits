@@ -1,0 +1,3 @@
+tag=corelight_http ax
+| count by method
+| chart count by method

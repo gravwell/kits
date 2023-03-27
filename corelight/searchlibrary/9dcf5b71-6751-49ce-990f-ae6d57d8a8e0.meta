@@ -1,0 +1,15 @@
+{
+	"Name": "Corelight least common responding ports",
+	"Description": "Least common service ports that respond with data as seen by Corelight",
+	"GUID": "9dcf5b71-6751-49ce-990f-ae6d57d8a8e0",
+	"Labels": [
+		"corelight",
+		"conn",
+		"ports",
+		"least common",
+		"service ports"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

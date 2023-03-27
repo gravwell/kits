@@ -1,0 +1,22 @@
+{
+	"UUID": "a1bea73b-6046-43b8-b13e-66df119ac402",
+	"GUID": "77d4d80a-ed39-4efe-8eb7-aa2fa869335f",
+	"UID": 1,
+	"GIDs": null,
+	"Global": false,
+	"Name": "Corelight Gravwell Kit",
+	"Desc": "Corelight Overview Playbook",
+	"Labels": [
+		"corelight",
+		"overview",
+		"kit/io.gravwell.beta.corelight"
+	],
+	"LastUpdated": "2020-11-06T21:20:47.036675379Z",
+	"Author": {
+		"Name": "The Gravwell Authors",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": false
+}

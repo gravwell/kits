@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_syslog",
+	"Desc": "Corelight Syslog logs",
+	"Module": "json",
+	"Tag": "corelight_syslog",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "92b32186-bfb1-43b3-8145-a153d20bf834",
+	"LastUpdated": "2020-09-18T15:38:47.834172896-06:00"
+}

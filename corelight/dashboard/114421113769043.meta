@@ -1,0 +1,115 @@
+{
+	"UUID": "29eef45f-ee30-40eb-a5df-ddb79507cacd",
+	"Name": "Corelight DNS Domain Investigation",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight DNS Requests over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "4792da69-bd6f-455d-9f03-ef1df25c1b64",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7948315642
+			},
+			{
+				"alias": "Corelight DNS Related Subdomains",
+				"timeframe": {},
+				"reference": {
+					"id": "cfa15ccb-13f0-4fbe-af68-51c0d74190f5",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7137343761
+			},
+			{
+				"alias": "Corelight DNS Clients Querying this Name",
+				"timeframe": {},
+				"reference": {
+					"id": "f2803227-81ec-494c-a4c9-4c178d10f807",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7452951868
+			}
+		],
+		"tiles": [
+			{
+				"title": "Requests over Time",
+				"renderer": "barChart",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16016703711500,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Orientation": "v",
+					"IncludeOther": "yes",
+					"Multiple": "no",
+					"Style": "reg",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "CNAME, A, AAAA Records",
+				"renderer": "table",
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16016705828911,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Clients Requesting this Domain",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 4
+				},
+				"id": 16016708162092,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-02T14:52:48-06:00"
+	},
+	"Labels": null
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "Corelight Most Queried DNS Name",
+	"Description": "Most queried DNS names over time",
+	"GUID": "0f3686cb-cbde-4b05-b45f-cb3adf116989",
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,994 @@
+{
+	"ID": "io.gravwell.corelight",
+	"Name": "Gravwell Corelight",
+	"Desc": "The Gravwell Corelight Kit provides a baseline set of queries, dashboards, templates, and investigative resources for JSON logs originating from Corelight devices.",
+	"Readme": "",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 2,
+		"Point": 1
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "",
+	"Banner": "",
+	"Cover": "",
+	"Items": [
+		{
+			"Name": "36e50b20-9679-4285-a4a4-69da6d94de5e",
+			"Type": 6,
+			"Hash": "9bf615e266ecc34d6fbfdf2fd758f19f32db7af471762ae875316a71479ee12f"
+		},
+		{
+			"Name": "c059cce0-c934-49a5-ace1-fb55b61a2425",
+			"Type": 9,
+			"Hash": "b1ab4bad3b29e15a17a709172f7cef4799cfe9286d70a7716643301e836d6d2d"
+		},
+		{
+			"Name": "d11919a4-aeb7-4fe1-b0f3-8ee7c221c7ba",
+			"Type": 9,
+			"Hash": "4740a08f3d6a82a2c50a53fd27b2e03e135bb865c6cf2d0cb6f280dd1cf53c55"
+		},
+		{
+			"Name": "5acdbd6a-5a44-4cff-9506-c234bf90ae58",
+			"Type": 9,
+			"Hash": "0b400851d22931d7bf5b01d5dda71d728939614613db74ba66265bca242e052e"
+		},
+		{
+			"Name": "b9eeb6a1-4eb9-473e-a1b1-a8d95c0901be",
+			"Type": 9,
+			"Hash": "aebf9a9e72433a3db4a67e6b63e97580d48605985e14975f3089ab1f6b0441f0"
+		},
+		{
+			"Name": "ba1ff896-b6a8-4142-bdde-ae72d70e830c",
+			"Type": 9,
+			"Hash": "1f92ae37fe4bc0e636562fdcb1d559f7bb0621368a772d4ec7d8828bbdb9f59a"
+		},
+		{
+			"Name": "2ac40296-4313-4329-8be1-579e996390e1",
+			"Type": 9,
+			"Hash": "5a66042a1d6db0c8418e0df822cd51d1ea7d7164808fe3859bf7fb48826251a5"
+		},
+		{
+			"Name": "281aa093-662f-4ed1-928e-b0befe993f29",
+			"Type": 7,
+			"Hash": "4a53047d3b0ec17e24edb1a18192b70f30c75c5d067578e1b24f1680e84d4a8a"
+		},
+		{
+			"Name": "755f67e9-727c-4dbe-83f7-c2d0f1fd0767",
+			"Type": 9,
+			"Hash": "ec83ab73349d9c74a972281fba75f21cb4cf97da9e3281f6133892c4bd2d10a6"
+		},
+		{
+			"Name": "114421113769043",
+			"Type": 3,
+			"Hash": "02163932495b9508012f3f5ae870f0301fce0375dadd0ebd937374f6062f4e43"
+		},
+		{
+			"Name": "117366086622235",
+			"Type": 3,
+			"Hash": "2de1b6a9c1889bb36e58ccc0cc0115a603f321e299131a14a358536db20576f1"
+		},
+		{
+			"Name": "9693c932-a2db-462e-8649-edd376acf611",
+			"Type": 9,
+			"Hash": "063fd881aa7db2aac4b33580f8782b2c241de780a5b893af1b6f95a7fa8635cb"
+		},
+		{
+			"Name": "165107893417419",
+			"Type": 3,
+			"Hash": "146acc1bb6d3ac7aed5c3cd97b4ea1d15fca964d90e0c7b3abbc47f63a653dd7"
+		},
+		{
+			"Name": "170748654654798",
+			"Type": 3,
+			"Hash": "6b9435dd5ef46e632427b2accaf529ab437e28c828442d3430517129128ff424"
+		},
+		{
+			"Name": "17781775970589",
+			"Type": 3,
+			"Hash": "e40b77aa9e00a872574ee36ae0ad8322c09d8f85d395f9e3a2a69909a5ce1cba"
+		},
+		{
+			"Name": "185818692246396",
+			"Type": 3,
+			"Hash": "eb8cc5b9d70b182ca3c974ddb7b55238f7bc01335f54b2cee28426495db70c8a"
+		},
+		{
+			"Name": "6c3b608c-7e04-4b50-bf74-47231cabea65",
+			"Type": 9,
+			"Hash": "13a20f21d759aa3c86f29a4b4494dba7890b5e87e1b3cb42fed07997fda61198"
+		},
+		{
+			"Name": "5e0531c7-1f5d-496b-814c-fa3f0664d42e",
+			"Type": 9,
+			"Hash": "0eb50946eec9849351914d0e5cf63877575cf21f6dc03bdaeb3fec2d562bf026"
+		},
+		{
+			"Name": "21debbd7-57cd-4697-a46d-05a922eed818",
+			"Type": 9,
+			"Hash": "058cc8f503ff9edf131541aaeef4fd21d6b3a6b59a63139b9b072de8dcbbbdec"
+		},
+		{
+			"Name": "756a41c4-c412-43bf-929c-095df4895472",
+			"Type": 9,
+			"Hash": "f0a3e5044e95007c9929ffb1099231f963d6ec4649f9e17d2b70c013cc5ae6b4"
+		},
+		{
+			"Name": "78a11be0-5ea0-4c67-b865-9e21466fd61d",
+			"Type": 9,
+			"Hash": "75b4404efa2f36c78e1cd8c334cbf3ace49863b83b87a2a51d5e7bdee0635d4a"
+		},
+		{
+			"Name": "1f4a4980-3b6b-4997-91bf-422eccbdbb68",
+			"Type": 5,
+			"Hash": "98c307bdf85ed3def4357bf4a4471e27f1a174d4eb167cbd92920b6d907d97d7"
+		},
+		{
+			"Name": "f2803227-81ec-494c-a4c9-4c178d10f807",
+			"Type": 6,
+			"Hash": "797cdfb50409f13aa6fb11644e860bddb6ad6e7df1139e32b9d9b24d0cc81866"
+		},
+		{
+			"Name": "213587770620490",
+			"Type": 3,
+			"Hash": "645ec3bc9a817959ff9361e931ab588b72fd642e7cdb7226c65a2a1bf2fd0664"
+		},
+		{
+			"Name": "2165790173070",
+			"Type": 3,
+			"Hash": "1363b8be3848164722b8dd5d30ce460ed7463b9bfdab38b08deadeb050e9c2ab"
+		},
+		{
+			"Name": "288dc72d-1de8-4bd1-9a5b-39cbf79d5d87",
+			"Type": 6,
+			"Hash": "ba45184fe926effacbc59646d75d0354090b77cdc3745902cf55180881c4de82"
+		},
+		{
+			"Name": "f05639fd-8a9a-4148-8d46-aa2646de4a91",
+			"Type": 9,
+			"Hash": "08db32a5b56e4772b52cb4edeb4fe0b686ea5c60eae62a5479860723005575f9"
+		},
+		{
+			"Name": "7581f9ad-62f8-4dd4-9dfd-6f964f6a7c49",
+			"Type": 6,
+			"Hash": "f934180b46b3ce2023977d87216963bd49d3ca5b286cf9cc30be8773b14153f6"
+		},
+		{
+			"Name": "95158f21-9b6c-40e1-9474-d2bd2e12beb5",
+			"Type": 6,
+			"Hash": "e90cd2693a6a9410c132a77f71ddb2e276d1d4a5b571e68f728abd8e5792132b"
+		},
+		{
+			"Name": "269322047303843",
+			"Type": 3,
+			"Hash": "ec0b86cd49d6d8af2c7df8e0256b8e1de20e93aece4503402a98013f7757ec90"
+		},
+		{
+			"Name": "279143874980783",
+			"Type": 3,
+			"Hash": "94f80a2cbaa541b96713f0eeebfff2cb2285f6937de7b90298619c5b3ccd4579"
+		},
+		{
+			"Name": "279933858880339",
+			"Type": 3,
+			"Hash": "4dd402a9ec014c6bc2ea7c7664261495e17e2ea1acfa240cd2e3ccc6e898ffdd"
+		},
+		{
+			"Name": "b7f8c6a6-0047-433c-a54f-c6123322897e",
+			"Type": 9,
+			"Hash": "0071a3a10983ae94d016a1170ae7ec38d44a6e9b160268868a83d0d7fdc8e403"
+		},
+		{
+			"Name": "3a988fcf-3ab8-41f1-973e-5aa7c8c250f2",
+			"Type": 9,
+			"Hash": "79262d11193c0b66205b98b9d9c4b773103ff75d5d1025a896a6f90f155edc35"
+		},
+		{
+			"Name": "302f348f-a30d-4c2c-b9b0-d7e79c34dc75",
+			"Type": 9,
+			"Hash": "ea794327ea5f93618595416632aeb15bceeeee9651bc1e826b1019908cd07687"
+		},
+		{
+			"Name": "1e103246-fd3f-4920-8f31-dbd03b5db4a1",
+			"Type": 9,
+			"Hash": "c1f020f0f64b230c4fbde0203bbe11b1ec8f979898903bfa20a5094457a50766"
+		},
+		{
+			"Name": "578c09b5-62f4-471f-8b1d-515afd021a2d",
+			"Type": 9,
+			"Hash": "482462d240407ad530584dc3b0c2b5f36dd79e34084b8c1aa7785598b34de7fc"
+		},
+		{
+			"Name": "b543c0e3-e785-408a-a8d8-b988fc5c9ef7",
+			"Type": 9,
+			"Hash": "300d46e3e3bad059f2e28f7178d1e2701eee83f3bcff510c0416804ea80029e3"
+		},
+		{
+			"Name": "2f471f98-ace9-4cbe-80ae-1c589322dff9",
+			"Type": 9,
+			"Hash": "a8539fccf5ee41d0d07c47e8ede09ca0b29bc6011f0440f108a01108f423747e"
+		},
+		{
+			"Name": "1ab5eb29-a19a-40d8-9f83-4004f0e65a1e",
+			"Type": 6,
+			"Hash": "523760c15853af83d2aa11677fef2436491a4a6ef2daca887cf007f61da3e2cb"
+		},
+		{
+			"Name": "45796b77-9662-4fed-8112-36fec41e726e",
+			"Type": 9,
+			"Hash": "ef80cc1866c57139f90fe4514363fe5745878698082646b593c7b4be9e1bb2ab"
+		},
+		{
+			"Name": "44a5360e-4d80-4023-9e2d-a9dc68e44b78",
+			"Type": 9,
+			"Hash": "3be2bf0e0a28fb3ae86ecb9afc9e5046b7faa9b3b10018d9b6d89d479ce5513b"
+		},
+		{
+			"Name": "3dd9493a-d9ed-4409-bacd-0e4de9af4f80",
+			"Type": 6,
+			"Hash": "41dd6e9c3c0afe8208c9acce64c4c44a65bd32e7b61e957d0de94e66e69edbf3"
+		},
+		{
+			"Name": "083bf129-022a-4471-ae7f-b84f9bb40f10",
+			"Type": 9,
+			"Hash": "53b4ca5040373885d522321ba7addc8c76c9856abf74e9f68ff0428ef058911f"
+		},
+		{
+			"Name": "3931778492176",
+			"Type": 3,
+			"Hash": "9861db3cf252c8658220f1b310d64801f16242dfa33c3a3d43ee3f6cfc41a9cf"
+		},
+		{
+			"Name": "a1bea73b-6046-43b8-b13e-66df119ac402",
+			"Type": 11,
+			"Hash": "05aa13238dae5e4587dd6901a1266b507eeb35aefed9840dfe3284bcdd9a7ce9"
+		},
+		{
+			"Name": "c7079f84-4202-452d-95b0-20c87bcd0d07",
+			"Type": 6,
+			"Hash": "8229761d86660777f115074c28f7072e10a3f87c8e06efcceb8dee1a9174675e"
+		},
+		{
+			"Name": "1403f741-50f0-4099-b1cc-72eceac3c7a0",
+			"Type": 9,
+			"Hash": "d5dd1a5e39ca96e1d069d88d3e6d063ad043f08a60039f5c9e1af63f3677fc0e"
+		},
+		{
+			"Name": "e81de4fe-288e-429a-ac62-30c60cdcc6ab",
+			"Type": 7,
+			"Hash": "5f57ea8f37c539aeb8537bb56eadf1e89237c4f99e562bb81046faf79645b243"
+		},
+		{
+			"Name": "e27e16f5-5848-4477-82f5-b11a27ed35d2",
+			"Type": 9,
+			"Hash": "95c8e9cd1b12178ddc498f1860aedc1c98653c85e8f7ab36451f95b0e7088206"
+		},
+		{
+			"Name": "d3ce301b-a56f-47d0-8a76-33065ab04602",
+			"Type": 6,
+			"Hash": "4db2379c541a6cd51a877fd6fc00bcb7829e429178653e25c5ec358ca5d6103e"
+		},
+		{
+			"Name": "c212315f-89b5-4db0-ac32-6b1ee86ef465",
+			"Type": 9,
+			"Hash": "3b1fb7bfecb62c57d3a67ee59d81f4918db9d12fe0e23efc40c99a579eb426b6"
+		},
+		{
+			"Name": "4d882ff0-d052-4999-8799-afc6b21e1fd2",
+			"Type": 6,
+			"Hash": "f2d7b9fb6b737476a60631ff6563ee2369a59d83a827915ab1fb2fa305076ecc"
+		},
+		{
+			"Name": "2d73a06e-1384-4b4b-9f84-55ee8c0b6e64",
+			"Type": 9,
+			"Hash": "57745d4e7931ab16c8b734238870235c7276f2432d618e572288a86c8fecab74"
+		},
+		{
+			"Name": "c4a880fe-dc54-4929-992a-8eaa81ef562a",
+			"Type": 9,
+			"Hash": "a5917c3a927fe8480f4801c52cfcf2d8a74e74dad2ba5fc0b2425dce2c6a1903"
+		},
+		{
+			"Name": "ba8c3942-5106-4bda-9fb9-3c2294ecd7a3",
+			"Type": 6,
+			"Hash": "6816f61a571a247e742e1d69c47f19ef4644d39766c0fb8c80e5d6250a8cd4a2"
+		},
+		{
+			"Name": "598a46fe-0704-430f-9fe5-a73ba1f579b9",
+			"Type": 6,
+			"Hash": "863dea6d2be63b0743f955aa39c7624665f129069fd8779a7645caa2ed3d057e"
+		},
+		{
+			"Name": "0815e5c9-e2f5-4a3e-9076-a72a39908c76",
+			"Type": 9,
+			"Hash": "3d5f11a860573063c5cd082b6bf9591bee39a9891aadff497833ba37fb5b1864"
+		},
+		{
+			"Name": "b7a120b4-4b44-4faa-aebc-5aea31041cf4",
+			"Type": 9,
+			"Hash": "84fdba811d49189a09d04c8f1b0630755630fd2ca86afccf3ea955e7106eafd9"
+		},
+		{
+			"Name": "baaae46c-90d0-4153-9c3c-e27274a46f40",
+			"Type": 9,
+			"Hash": "8c7163af68b5ddd4b09a68dbbe19317d38831fa3f2a88afbaf335a4bfc90d91a"
+		},
+		{
+			"Name": "3d7890b7-248e-4ac6-96a7-295318d66d50",
+			"Type": 9,
+			"Hash": "9d29762b07208cef0465e3582961dbefda9ca54e3b82d842a9c18c76a9ca4cdf"
+		},
+		{
+			"Name": "d9518c33-539f-4fe1-96b1-cf5317223387",
+			"Type": 9,
+			"Hash": "de94a2e7169e5feb15bdcc81edf7de57f5164e495a39ada0234e4d5ec70a5789"
+		},
+		{
+			"Name": "70feed8b-6643-41f2-ad84-090d772be456",
+			"Type": 6,
+			"Hash": "214e062eaed7d7175e726dfe7e0734066c39bced212c57583ec9e5d7ad04569e"
+		},
+		{
+			"Name": "af79ad48-c2cc-4b66-b32c-277612c929f9",
+			"Type": 9,
+			"Hash": "70664b17ce9e0bcdc99d4b6355dc0b4ceaa0002a07723ac62fed93577c91ca49"
+		},
+		{
+			"Name": "1acdb84b-2550-4664-8e18-667e749967af",
+			"Type": 9,
+			"Hash": "c9bbb228f1b93483ee1496545f9844c94be57aa6af3bcf46447ec1800278a777"
+		},
+		{
+			"Name": "d49da2c5-a358-45cb-9b4d-d341c1399936",
+			"Type": 9,
+			"Hash": "c4e14dcbf009f54e61110764af19c5b980d5debb69a3f62dfd38fe7a86497c37"
+		},
+		{
+			"Name": "f4a4c991-b89f-486d-a46d-43e833d44f90",
+			"Type": 9,
+			"Hash": "4753d8a5daca077f878bde7541d5a525361dc1c1c4b8818ae21ad257102d31aa"
+		},
+		{
+			"Name": "d4508d81-40fd-49e3-85b7-e029434289eb",
+			"Type": 7,
+			"Hash": "cec7fa8c966b4634a4d4610d5e1f2fd1cc2e209bc2f2df0bed449221f3aacdda"
+		},
+		{
+			"Name": "4f3d9183-f657-4807-bccc-86337f809472",
+			"Type": 9,
+			"Hash": "c4ccfb0d305100196e2db230ebafc04243663b144ca754ec0088f1e01814e0b9"
+		},
+		{
+			"Name": "751b1b27-c2d7-4646-a89b-a04d6fbeb096",
+			"Type": 6,
+			"Hash": "6b376bdaa38245e81c3380a24e687c2e3ca7762a1035d4f9366416eb904eb80d"
+		},
+		{
+			"Name": "4a2bb62e-2980-446e-8689-3cf3b94a9e8f",
+			"Type": 6,
+			"Hash": "329e58280098c933fd2aeb4ee39d763ea356a124024fe2bb692c7bd59966362c"
+		},
+		{
+			"Name": "834a8e30-c36f-44e2-992b-c021aee0a5c2",
+			"Type": 9,
+			"Hash": "b63bbf5390108eb5c1d2dc5014a14f502edc81228d7ddb53f5ad620a855ab5be"
+		},
+		{
+			"Name": "313816cf-f448-4d14-b91d-0d332a1569c3",
+			"Type": 9,
+			"Hash": "45d21909e470d907e2d082a307f54bafe052ecaa06db577f5a72d286b3c34b08"
+		},
+		{
+			"Name": "4d1e543f-63b7-426e-b041-10a78da7ad4a",
+			"Type": 6,
+			"Hash": "c8c9bf5fe297f17c237343d7193a583f4d5b9c2bac00d367a2f4d7b4b2a1e3f6"
+		},
+		{
+			"Name": "f67d8107-9910-4166-a6d0-1621310d4c5b",
+			"Type": 9,
+			"Hash": "c9f5cf530ead7757d9d916049b827cc040d7d72bde293c25cf59178729a6f694"
+		},
+		{
+			"Name": "6a910b38-707c-400e-acb3-7c17067122bb",
+			"Type": 6,
+			"Hash": "b237f67909a7a120dab74c9995baf86f07e1bd8296073818b489886503048e8b"
+		},
+		{
+			"Name": "f204deb9-55f1-4edd-869f-b7e12ab4e4ab",
+			"Type": 6,
+			"Hash": "a50079691004920e448eb1858a23f7474a48982297302ec252166c7d12627641"
+		},
+		{
+			"Name": "94a07abb-a0cd-498d-b1db-ab604634dac0",
+			"Type": 6,
+			"Hash": "d7e76bd3bcffae22efb6aa5757e26582866c5f8e20bd98de4487ce0dd86daa48"
+		},
+		{
+			"Name": "1a0c447b-cc75-4990-9113-64e8e7492b97",
+			"Type": 9,
+			"Hash": "c47b2d47b6f592764a66243c1661d507fc3a4c10b16b2f01b9da7746552e2fcc"
+		},
+		{
+			"Name": "a77fdfe8-feeb-4196-8781-675fea2f40b3",
+			"Type": 9,
+			"Hash": "0f5807bd4f6b7e3498511cd12b8f9ef2f3be32fe5ef18b1fdb13816ecbf0a6b6"
+		},
+		{
+			"Name": "890c87e2-2c2c-4c6a-b22a-0548b0e5f261",
+			"Type": 6,
+			"Hash": "681813069e834ef6d3c74b8600a1e09fcb74181664d8d1689c72b39169c12962"
+		},
+		{
+			"Name": "84474799356711",
+			"Type": 3,
+			"Hash": "5b72a138b9cdefa5c9455a77d93f7c2b6c933945baab0e3b1e115a22d2b31cab"
+		},
+		{
+			"Name": "05a19963-4067-4d6f-b071-5fff4ecaa7c3",
+			"Type": 9,
+			"Hash": "88516cc513969211db4bc46e1ce66ab3ad580f77ad7745a6984c46855bd8a51e"
+		},
+		{
+			"Name": "3bbcf97e-1bd6-476c-bf82-2e9b1affbdd5",
+			"Type": 6,
+			"Hash": "0b9246baae7b817a51b81f6db3f812ceef393e2cde4250491d4f3cd8ac503c61"
+		},
+		{
+			"Name": "2c39877b-81df-4383-aca3-d0b840065715",
+			"Type": 7,
+			"Hash": "705e08ea001044e5911309ebe4694c5115dc6f76ef33732ea86f50b7c48b71d7"
+		},
+		{
+			"Name": "67abac1f-b607-4cfd-bc1a-896f93f92649",
+			"Type": 9,
+			"Hash": "2d2665407d94506735efa5ceee1516144742bac40717e07b7037d615c9c3db70"
+		},
+		{
+			"Name": "709af2b8-7309-4add-bb97-f556dac95b24",
+			"Type": 9,
+			"Hash": "b27f9d8770fc025707cdbfb1fe588df9d858ec56378604c0c901e49aaed9f9b2"
+		},
+		{
+			"Name": "88103c85-6747-4b52-bcf1-ab7225ee01ad",
+			"Type": 5,
+			"Hash": "87704070f8587f72b81877f7f22e64f27133b87d69ad31254371406f4d6a119b"
+		},
+		{
+			"Name": "998e1c84-d0d7-43dd-9347-82e562daf348",
+			"Type": 6,
+			"Hash": "6a12044d91e6f4ae1dada4a1694594ecda795df5a82ab2fb93ce62e20319f950"
+		},
+		{
+			"Name": "dae7ec36-d2b2-489a-99ff-542474b549ec",
+			"Type": 9,
+			"Hash": "e98b3214af127e3ac306dacca835a3de370701c9d9d4b0fe50172e6d1cba87b4"
+		},
+		{
+			"Name": "66536c4a-141c-4a53-ab0c-316d08171c33",
+			"Type": 9,
+			"Hash": "2dab8217c5c7904b9930b956c8ca4b44e7cc96cb01acb8045fdffa2e7c586a0e"
+		},
+		{
+			"Name": "0c1dc12a-8e1b-45bf-b946-a063bec0c0b8",
+			"Type": 6,
+			"Hash": "1c034d0253d95132a0cdc95bbfb8b9ed792c97b24fceb18acd58c5a468b94272"
+		},
+		{
+			"Name": "bcdb7175-2b05-4a64-9dd5-5edc54046e7e",
+			"Type": 6,
+			"Hash": "4d88a103d33901940f36bb80c95f26fff4b27b2a19d5e0696f8f37580e2bd21e"
+		},
+		{
+			"Name": "276dbda5-0cf4-4f94-858d-588006e3e1c1",
+			"Type": 9,
+			"Hash": "cc5354a42f33557f3c0d9ac09d412cee88bd612dccfcbb59f295fdde91f2fdcd"
+		},
+		{
+			"Name": "7cf2fd64-b919-4a7a-b2af-a7cb27271369",
+			"Type": 9,
+			"Hash": "284460794c91a5215fc372ba82faa44bae6229b7d3e5fe30ca43ca201622e945"
+		},
+		{
+			"Name": "3a77dd7b-dd80-449e-9a08-22003b561279",
+			"Type": 6,
+			"Hash": "164006c1a39cbd7271532df564403911ca7eeeb77ca5113d165aa741ef30d768"
+		},
+		{
+			"Name": "a4cd6f05-9edd-4133-91b9-d4ff7e4b4aae",
+			"Type": 9,
+			"Hash": "5efb1fb4f181ae017c2a5e90f33a4ec4b3f913687c59b8acb372673847c9aa93"
+		},
+		{
+			"Name": "9cf025ae-3a77-4a9a-b1e4-c238b689bec5",
+			"Type": 5,
+			"Hash": "9fa7343d15f817fcc706efec73aaf18319eaa1bf8580416d4cb3f49e8aa5f9ad"
+		},
+		{
+			"Name": "b51a9936-db54-42b3-9fa0-16f8e03dd514",
+			"Type": 9,
+			"Hash": "50ed939adb82ff926ea813130f0a1edb31e9efb9142bf10f3045f73006c55c0d"
+		},
+		{
+			"Name": "bd4768cb-8bba-49eb-8e64-051800b58e99",
+			"Type": 9,
+			"Hash": "dd531f65a3ade783fa9fea27faad9fbceefb062c40a57d91dc4249a5f6d126c9"
+		},
+		{
+			"Name": "b48104e6-5206-4f0a-99ba-fb23c1534853",
+			"Type": 7,
+			"Hash": "2e45a79a65b2c5e31492d68e815a368cfd271ab0e18a0556a692786f4c406c80"
+		},
+		{
+			"Name": "f38fce68-8ec6-43c5-a243-8216fb54df7a",
+			"Type": 9,
+			"Hash": "2f02147224c07fddafa56df92d2255e09fb2bf7789b2979725bc7869ec2f27a0"
+		},
+		{
+			"Name": "ba2cd43f-0525-485e-8b56-7c091b4ac971",
+			"Type": 9,
+			"Hash": "0b1755cb6984c85fd5ac52a97a68379bded9a191d3d239dc9c3aef33c4223b02"
+		},
+		{
+			"Name": "eca05bb1-9fba-4930-a74b-b1143d246f1a",
+			"Type": 6,
+			"Hash": "f4ee9252504bf273452ff420a9100a7b6f7596a0f8ff63852e8f69288a1f5e84"
+		},
+		{
+			"Name": "cac57607-950a-46a5-90b5-07fabf9b3c51",
+			"Type": 6,
+			"Hash": "0121628680dd47ea1f27b03ec56600329f8ac92a5a4793af3b36bed7b9171027"
+		},
+		{
+			"Name": "82efb53a-ba7d-4497-9267-7b4439e9b9fe",
+			"Type": 9,
+			"Hash": "fc66ed5b7621e61bc3340a6fb846725149b85b1d8f463bd353f6e406498a6e4e"
+		},
+		{
+			"Name": "b46ca253-87d3-4e6c-82bf-ce0f379195f7",
+			"Type": 6,
+			"Hash": "c68ad9392bddf8760d5597597a8a33f3bc3c7eddfc03552c6c2e90258ae3c29b"
+		},
+		{
+			"Name": "92e18262-c273-4659-9f8f-953bec4fc455",
+			"Type": 6,
+			"Hash": "058ee5fd08d4fd13917a397cb79abf0857a8874d0527f29749e41cd0c9414abf"
+		},
+		{
+			"Name": "0c0a67d1-3fa2-41d2-b778-b440b8a6dfee",
+			"Type": 9,
+			"Hash": "3522afe0761972a5d45dc51472007dcc86a2c5044cb2b357c0a4d1a91c8fa544"
+		},
+		{
+			"Name": "1fcb678a-a41e-4371-88d0-a79c4ada9442",
+			"Type": 6,
+			"Hash": "dd548f532ee0795bf813a6e1527aa5d223466ec50e23dbc6a76b474748815c09"
+		},
+		{
+			"Name": "c703e517-3138-4cb8-a50d-826318dc8dbd",
+			"Type": 6,
+			"Hash": "28b5c4c0eec305146424dcea0ede2b1043febfc0bbfa69db63473d492b651d73"
+		},
+		{
+			"Name": "7e5b1227-0458-467e-bf79-6fe7e323c3a6",
+			"Type": 9,
+			"Hash": "72f76306980aa98408d19b519960a4bdc0c54cbb43779b4b377843d7b3d6e55b"
+		},
+		{
+			"Name": "265a2917-8796-44b5-a53f-78f77a3543cd",
+			"Type": 9,
+			"Hash": "8635367de47e7dd4edb0974d9245ac2fca7ac057ab66f3404c4e50c6c1cbc590"
+		},
+		{
+			"Name": "a6044e23-6f2d-424c-9b52-ad4905010d92",
+			"Type": 9,
+			"Hash": "7043394512ddeacb92ca2c40e890dea0fb3535368e09ce526d29f53a95b97144"
+		},
+		{
+			"Name": "c5a1e3c6-2ed9-4306-9e11-95dcf513c1e0",
+			"Type": 9,
+			"Hash": "1cdea0e8b4708b81c83825dbb81bb3d27c9b8051a791388109c26a5f57e425be"
+		},
+		{
+			"Name": "b914f9a1-605a-4fcb-89d7-1dccfe9a3446",
+			"Type": 9,
+			"Hash": "1ddb86d369b5d34767caa41df483702b5f44d8db3c57e63e058a3cf9ac61eccd"
+		},
+		{
+			"Name": "27c92489-b566-4907-ad78-9d6205921ceb",
+			"Type": 9,
+			"Hash": "5a51bd8f2a634e138af4440977bc5dec78f43a2614b4ff14048f31563a7db9e8"
+		},
+		{
+			"Name": "9dcf5b71-6751-49ce-990f-ae6d57d8a8e0",
+			"Type": 9,
+			"Hash": "d9f7b6746fb08bd5a0dea7401943b069f94f8d0aa4ca9c699a0e3cc6a84a6813"
+		},
+		{
+			"Name": "5e025123-bafe-4258-84fb-96694fd68c1b",
+			"Type": 9,
+			"Hash": "3821a7779e458b147eb27b8b73eff2620c94e95d86549038b134579484776b29"
+		},
+		{
+			"Name": "65d740a2-1527-49fa-a0a8-54f635427592",
+			"Type": 9,
+			"Hash": "98c70d9a9f1d694636714811641a5d79145abdfeddebca4c338629de007a62a8"
+		},
+		{
+			"Name": "0fd7045f-d2ab-4573-825f-aabdf6829a67",
+			"Type": 6,
+			"Hash": "f0badf87d4454ee77e6145d42c1d22590b3ec1842fecd02cfe3fe60ee0d73c8b"
+		},
+		{
+			"Name": "49a9a43c-14d8-46dd-b801-7d48c4ee40ab",
+			"Type": 6,
+			"Hash": "dc8980885c44248516bebe995beb4a3271ced69c508f011c28080fd157ffaa8a"
+		},
+		{
+			"Name": "33c2c0cf-b7e1-417e-ba98-2a4707fe73b4",
+			"Type": 6,
+			"Hash": "54b74baa79a0766e01bccbfa5fd817cc594a5ddde2c8099b64f161ad5704132a"
+		},
+		{
+			"Name": "99f518cb-da24-4170-b0d0-ff4d393ef306",
+			"Type": 9,
+			"Hash": "33ca50b0bed847638f04705e274236435f085419eab5a059678fcc887fc191af"
+		},
+		{
+			"Name": "92a60422-ed19-4d81-9c5d-4fbaedc72eb4",
+			"Type": 6,
+			"Hash": "4b239ae1e7fd43e80dfb98f62bf25718def6155000dd63201619cfee70e05188"
+		},
+		{
+			"Name": "45cdd4b5-7e75-43bb-adde-65b116c4d6c3",
+			"Type": 9,
+			"Hash": "d62c7fd35abf30406ed261435fda65b63d7bbeee71352be9e7a926156c3807b6"
+		},
+		{
+			"Name": "d2ea37bd-69ce-4135-b90c-b8aca740de6e",
+			"Type": 5,
+			"Hash": "3502e0c987cd0150e8dec0a1f5e22a5c62aec48877d1b7c0e8b3ecd0039559aa"
+		},
+		{
+			"Name": "cfa15ccb-13f0-4fbe-af68-51c0d74190f5",
+			"Type": 6,
+			"Hash": "918c5f03d164e0471d94f4c0788c330d4d5750487b5781dc89cc437d9ca2e172"
+		},
+		{
+			"Name": "9c5172ca-f41b-4fba-bf41-eec9f5e88815",
+			"Type": 9,
+			"Hash": "cd4c55d09fb0a88c6e53a13ecef7bf8706f81efd1cd0722e535597ef51244f50"
+		},
+		{
+			"Name": "a0e6a026-9034-463d-81ca-6085e9796a2b",
+			"Type": 9,
+			"Hash": "9e4311f77a534596b3c490c8f486333eaf18698d73c21d3df3e2f1a17bfa8b7e"
+		},
+		{
+			"Name": "e81c138d-dc95-4480-b68c-249e792ad2a2",
+			"Type": 9,
+			"Hash": "1b5690f50169e5f3f94029b76d49064f52d1bc0082eb518ecd0b740fdf44f2a3"
+		},
+		{
+			"Name": "81893d09-7ba8-4709-a920-fdc451da1fc4",
+			"Type": 9,
+			"Hash": "5dffb2f7320d64b73b02ea1480c862dde36f3ea88a057cf66702856aaf9a575a"
+		},
+		{
+			"Name": "0f3686cb-cbde-4b05-b45f-cb3adf116989",
+			"Type": 9,
+			"Hash": "1659dcd4617bccb789fef295123692f8051f5b6b6e31a61f386f560597e01ea6"
+		},
+		{
+			"Name": "e5f0da24-644a-4d04-a3a1-96127acc0785",
+			"Type": 6,
+			"Hash": "94066db8d84dbeefc85b257cef668c641431dd9029ed71af22dc4d40462d68a9"
+		},
+		{
+			"Name": "6659fced-2feb-419e-a655-21b3149939f1",
+			"Type": 11,
+			"Hash": "0b90a050ebf50d4f239c81cece46748a52f1501634678d5e0beacd45bc9f2b8e"
+		},
+		{
+			"Name": "2dec4322-808f-4d2a-9b72-ef10154f2f20",
+			"Type": 9,
+			"Hash": "42928061cd03fc354fd7554f76ad2dd4c9c085a7005d67b6c009a758d6d3990b"
+		},
+		{
+			"Name": "f81da8a5-fbb9-43a3-9911-5ff6cc3fe45a",
+			"Type": 9,
+			"Hash": "202ef012a6cb6fbe48de798666562f25cd057d08a68cb96207a140fb85b39b9a"
+		},
+		{
+			"Name": "2e1a32e3-a8e8-4d3a-8a8b-2e748a032d63",
+			"Type": 9,
+			"Hash": "56447ed097e17ffc9432d064749e78ae7d063af77fe7fadd8ee59c7fc3f4f464"
+		},
+		{
+			"Name": "0372062e-820f-4a7d-aedb-ad1a8690b183",
+			"Type": 9,
+			"Hash": "8dae13266e6d8f7f16f90c15fe30bf3d5ab9ac4d0ef05d0eff5d1f9bb6b1e5e0"
+		},
+		{
+			"Name": "e9e5aca1-ef17-41de-a514-890a12f91abb",
+			"Type": 9,
+			"Hash": "2c53aae9d2a05a90dd4952066e2ae7c5af748d9577289e1745d8826add5af704"
+		},
+		{
+			"Name": "1688a96a-c444-4642-b0b4-731d0b51499f",
+			"Type": 9,
+			"Hash": "f672125f4022ee7fbe1b539162eea827b49beac41b1a301cceed5ed9a17360c8"
+		},
+		{
+			"Name": "5005ede7-6ece-4638-94d7-3fec2104904e",
+			"Type": 9,
+			"Hash": "58d4f86920a6f105e5d67a69848114b5f29677301b4ff5e0aad6cbe90ffd0644"
+		},
+		{
+			"Name": "a70f34f8-c671-4a2c-bfc5-d7e602ff2acb",
+			"Type": 9,
+			"Hash": "060b8f0f82cd0c74fa10b2930b06cd5b1c3e004ceba7c5a12e831955188ff995"
+		},
+		{
+			"Name": "4792da69-bd6f-455d-9f03-ef1df25c1b64",
+			"Type": 6,
+			"Hash": "cd49a7be15f2785169dd81046d9283c516e04abab5f8f2dd8c37814e714908a5"
+		},
+		{
+			"Name": "23a15141-ef51-41cb-8610-e7c26771855e",
+			"Type": 6,
+			"Hash": "e9d25fc702618d6c2928963e6a343bb2c0e9d4de953341a7e83a25da080c7b26"
+		},
+		{
+			"Name": "expired_x509",
+			"Type": 1,
+			"Hash": "03c80a327c76417beeed7900ed8678b1eeae97897f38ff1c219040a24f2b1842"
+		},
+		{
+			"Name": "ab3c0439-5cce-4eaf-903f-775a36e77f6a",
+			"Type": 9,
+			"Hash": "332bd60cd9e8e966c7bd57d866e4754c7a52d8cc261deb9b1ac908244ed47279"
+		},
+		{
+			"Name": "dea1e2c0-2a23-4f1d-b166-99ff4333e0fb",
+			"Type": 6,
+			"Hash": "46b18330889f37f9521fe5a9b49627b95de1626a21e24b134f6c21951bfaacf8"
+		},
+		{
+			"Name": "05a32119-f1f0-4725-ae30-61b0be96258a",
+			"Type": 9,
+			"Hash": "b20eecbf9164499baec904677e56c78c9f1785f795a8809a86ba2bb4feb462c3"
+		},
+		{
+			"Name": "2f72164f-0752-4a4d-b133-e7e2fa28cdc4",
+			"Type": 9,
+			"Hash": "4e0a2fa2be2f479e9cd96f9c10092794e2bea535b6c8472a251c2c1228c3d596"
+		},
+		{
+			"Name": "6bc4fa71-a565-4f18-af1a-7f6f3e7e3c46",
+			"Type": 6,
+			"Hash": "e71ea0e9bf327a6152f4b23c43876a98689b753abc70e580179283d5c4cff7e0"
+		},
+		{
+			"Name": "c8db7f5d-e8b4-4c58-81fa-baeb4ec76858",
+			"Type": 9,
+			"Hash": "687bb4adb31860e8f6f620e2defce62d6eb51c6f99185e0bbfac6cc594cea784"
+		},
+		{
+			"Name": "dcf4a811-d1a1-4db5-9399-ff3934b19e13",
+			"Type": 7,
+			"Hash": "c85963474859a62eccf5e8b0b5fa3924380e9add57921ba400a5e9c73e42ec16"
+		},
+		{
+			"Name": "b6fde264-c02b-47ec-ba52-b52bb6c16872",
+			"Type": 9,
+			"Hash": "dd249c2d245b1fc8fc8ce3284e754ecbd674fe85c7ad94451648dfd03e252f22"
+		},
+		{
+			"Name": "12121a62-e9fd-4067-a9e3-a8efbd1c394a",
+			"Type": 6,
+			"Hash": "122bc6cbb5844230c0af4f45fd2f674286c09cc028c345c542f855fe0a9d8473"
+		},
+		{
+			"Name": "fe0c49fa-75b7-4bdd-8bcb-e917cd106ac1",
+			"Type": 6,
+			"Hash": "e821dd5de1aad6eb096c6be5b5a5b60dd3b5a7fcb88b102e8f363d79d840d86c"
+		},
+		{
+			"Name": "b0c78dd7-027d-409b-869e-61b32569716a",
+			"Type": 6,
+			"Hash": "ed4ad1f0fd664e8f3411ba26e3fb188c9125bc9f8d67dca0b8763f97908b4bcb"
+		},
+		{
+			"Name": "1b99a906-e626-44c2-8bfd-503920dff366",
+			"Type": 6,
+			"Hash": "ef283e109f38dcd3aacc89989d08d4632733c6b9810c0bc745e6c8aa709cbdc4"
+		},
+		{
+			"Name": "23bc4af4-b2e9-4c3a-a687-9e2a721941e8",
+			"Type": 6,
+			"Hash": "e984a9a059e384b1ec0661bc6eb317300004a13b5694d3c59322b61236093bbf"
+		},
+		{
+			"Name": "corelight_conn",
+			"Type": 4,
+			"Hash": "f540442d258c5e98a6fbf1947ae95e72aa4013886b6ae7b7294d4cc43ded6b9f"
+		},
+		{
+			"Name": "corelight_conn_state",
+			"Type": 1,
+			"Hash": "8e437c76ea9b128809c29dd82815b9e65e473b3dab2f99b2593d58082156ea94"
+		},
+		{
+			"Name": "corelight_dhcp",
+			"Type": 4,
+			"Hash": "bf8de3425f5c27070c70f67836b9f3b9e0814dd351cc0cfc4d4d5e3b98e743cd"
+		},
+		{
+			"Name": "corelight_dnp3",
+			"Type": 4,
+			"Hash": "0b0786d4dc8e923bc3fd03f3a83f773056b797359cdd30e493a21e8eafef96d1"
+		},
+		{
+			"Name": "corelight_dns",
+			"Type": 4,
+			"Hash": "bbbaf70705c1de48da88a217976ba35ec97f5955d35bc8b4da43e72f1bdfa444"
+		},
+		{
+			"Name": "corelight_dpd",
+			"Type": 4,
+			"Hash": "faf22427167c470549de0ff71ec0adf2f8bfb6a54dcb851c49e8fa81ca4f574b"
+		},
+		{
+			"Name": "corelight_files",
+			"Type": 4,
+			"Hash": "6a13ba77d49bf2b5e23fa97a70a689a9b662296a7d8f64d87fb4f9ad4bfa8c94"
+		},
+		{
+			"Name": "corelight_ftp",
+			"Type": 4,
+			"Hash": "47873ba381e3766cf49f632daa9e20368117665120e9789d2b69e15c76f09476"
+		},
+		{
+			"Name": "corelight_http",
+			"Type": 4,
+			"Hash": "6644ca1e5589305cfb71695c3151b17416284f8771243c2879a776514eae68ba"
+		},
+		{
+			"Name": "corelight_intel",
+			"Type": 4,
+			"Hash": "1b61ffd76107c61b3f43354ad413a86f08374ae032fc10bcd1895b4f7d835cec"
+		},
+		{
+			"Name": "corelight_irc",
+			"Type": 4,
+			"Hash": "cb688ec80f9efc1ab08f3364feaefea15dbbd75f8a06da9f3901fa7b32a952c1"
+		},
+		{
+			"Name": "corelight_kerberos",
+			"Type": 4,
+			"Hash": "88d93633e3c0731478fac7c2cdc51f2ca6e1a20839ced210ce6e9d24b22eab10"
+		},
+		{
+			"Name": "corelight_modbus",
+			"Type": 4,
+			"Hash": "4c77667ed8ac69832a9b8b58984af905ddfdf8d40d8c432eec1780a99703b274"
+		},
+		{
+			"Name": "corelight_mysql",
+			"Type": 4,
+			"Hash": "ed5dcfab354ed443ebef92de8a7df8d1052d88216485dccba57a541fb4a9dbfe"
+		},
+		{
+			"Name": "corelight_notice",
+			"Type": 4,
+			"Hash": "11e49b361d3063afa9f36fe1bbc6aee387e30dd6ce5fa901ec91f88f9a507ded"
+		},
+		{
+			"Name": "corelight_ntp",
+			"Type": 4,
+			"Hash": "5f228bb516768f8e756627ac6880a405d5c1acb4f61678e56ba707a783233506"
+		},
+		{
+			"Name": "corelight_pe",
+			"Type": 4,
+			"Hash": "359a45edd58f134cdda724f409ad0c1431e408a1ea764573e7fd2c309bb9bcf1"
+		},
+		{
+			"Name": "corelight_radius",
+			"Type": 4,
+			"Hash": "7d68d8ea5e86698fee1316815e9a617a8a9ae39e4739ff2862cd8cbe45fb0b86"
+		},
+		{
+			"Name": "corelight_rdp",
+			"Type": 4,
+			"Hash": "6602ae43a0c50a3bb2f85b259934dee94e44900460d44d335f557d5e7494e3b5"
+		},
+		{
+			"Name": "corelight_rfb",
+			"Type": 4,
+			"Hash": "e30c81ef97b72438743a53179f5fcf94aba588ab5035b15c82f8393f90eb5249"
+		},
+		{
+			"Name": "corelight_signature",
+			"Type": 4,
+			"Hash": "4b1d7e018037aae2709968fe554460e555d53b2437c02a567d8f4868546a6bb8"
+		},
+		{
+			"Name": "corelight_sip",
+			"Type": 4,
+			"Hash": "1917fbb7794718ed3a908693ea7c3cf3311d6c97340e9458f6cbe90305baf48f"
+		},
+		{
+			"Name": "corelight_smb_files",
+			"Type": 4,
+			"Hash": "18d8d52737c77009ed66fbb9e879053938bbcd2b732967e7b3893d394d19053b"
+		},
+		{
+			"Name": "corelight_smb_mapping",
+			"Type": 4,
+			"Hash": "db36cfa2347a100d83c0734f00b5232366a44abc52ea5d8a124e22392a2b9940"
+		},
+		{
+			"Name": "corelight_smtp",
+			"Type": 4,
+			"Hash": "e692cb079f2970b10b39da5362251309dc3fb4a29cc7ac4f374377d681141da3"
+		},
+		{
+			"Name": "corelight_snmp",
+			"Type": 4,
+			"Hash": "b6573f0e3b4bec87860612ad9cdab40411331e4381aebb9c1d92c4b5424f618a"
+		},
+		{
+			"Name": "corelight_socks",
+			"Type": 4,
+			"Hash": "9fdf180c16a353d36dd2cb6f41fb8cf46d999c69018bc4b38d74a12f020ed42c"
+		},
+		{
+			"Name": "corelight_software",
+			"Type": 4,
+			"Hash": "fc5b7618534dce6f5fb413c41c5324c76ead880153f826f29f5d815f293b086a"
+		},
+		{
+			"Name": "corelight_ssh",
+			"Type": 4,
+			"Hash": "7ece71d85d2acf83b5e30dc1681380429a123ee1c408c2df29a534a150edd1f1"
+		},
+		{
+			"Name": "corelight_ssl",
+			"Type": 4,
+			"Hash": "dce142bbbfd8e95348ce5d52530912fbaa22927bf4af091f0ee996a70e8a0cd3"
+		},
+		{
+			"Name": "corelight_syslog",
+			"Type": 4,
+			"Hash": "b891688f40bb34f0469ce1717424a6fc84c25478c4e036abf8bf64bbd9b65834"
+		},
+		{
+			"Name": "corelight_tunnel",
+			"Type": 4,
+			"Hash": "51de21401e9c7269a176fdbbf49219f4237e324916ba0fc41fa8837f0f6fbc46"
+		},
+		{
+			"Name": "corelight_weird",
+			"Type": 4,
+			"Hash": "819f3cb202bbd96d99009ac843ab5234ae17ffcb30b4035171805b4a9befb3bb"
+		},
+		{
+			"Name": "corelight_x509",
+			"Type": 4,
+			"Hash": "433e885ab9c56797906e1ff0330a1cad9fd1e8c100a5d5070190bb9d1b5cc995"
+		}
+	],
+	"Dependencies": [
+		{
+			"ID": "io.gravwell.networkenrichment",
+			"MinVersion": 6
+		}
+	],
+	"ConfigMacros": null
+}

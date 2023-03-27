@@ -1,0 +1,22 @@
+{
+	"UUID": "7581f9ad-62f8-4dd4-9dfd-6f964f6a7c49",
+	"Name": "Corelight All DNP3 for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dnp3",
+		"ics"
+	]
+}

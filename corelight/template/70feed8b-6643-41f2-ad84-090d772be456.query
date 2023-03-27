@@ -1,0 +1,1 @@
+tag=corelight_ssh ax auth_success==T "id.resp_h"==%%IP%% | alias "id.orig_h" client "id.resp_h" server | stats count by client server | geoip client.CountryName | table server client CountryName count

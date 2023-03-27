@@ -1,0 +1,113 @@
+{
+	"UUID": "3fb48f40-ded1-41a8-9fcc-acf6291f4775",
+	"Name": "Corelight SSL/x509 Overview",
+	"Description": "Information about SSL connections and x509 certificates",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight x509 Key Length/Type Counts",
+				"timeframe": {},
+				"reference": {
+					"id": "083bf129-022a-4471-ae7f-b84f9bb40f10",
+					"type": "savedQuery"
+				},
+				"searchID": 5493314864
+			},
+			{
+				"reference": {
+					"id": "c8db7f5d-e8b4-4c58-81fa-baeb4ec76858",
+					"type": "savedQuery"
+				},
+				"alias": "Expired Certificates",
+				"searchID": 3377243609
+			},
+			{
+				"alias": "Corelight SSL Version Chart",
+				"timeframe": {},
+				"reference": {
+					"id": "3a988fcf-3ab8-41f1-973e-5aa7c8c250f2",
+					"type": "savedQuery"
+				},
+				"searchID": 3823952591
+			},
+			{
+				"alias": "Invalid SSL Certificates",
+				"timeframe": {},
+				"reference": {
+					"id": "82efb53a-ba7d-4497-9267-7b4439e9b9fe",
+					"type": "savedQuery"
+				},
+				"searchID": 8477177826
+			}
+		],
+		"tiles": [
+			{
+				"title": "x509 Key Types \u0026 Lengths",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 0,
+					"y": 5
+				},
+				"id": 16016711996910,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Expired Certificates",
+				"renderer": "table",
+				"searchesIndex": 1,
+				"span": {
+					"col": 9,
+					"row": 4,
+					"x": 3,
+					"y": 5
+				},
+				"rendererOptions": {},
+				"id": 1601673142252
+			},
+			{
+				"title": "SSL/TLS Versions",
+				"renderer": "pieChart",
+				"span": {
+					"col": 3,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16016740235292,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Failed SSL Negotiations",
+				"renderer": "table",
+				"span": {
+					"col": 9,
+					"row": 5,
+					"x": 3,
+					"y": 0
+				},
+				"id": 16016745089113,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT",
+			"start": null,
+			"end": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-02T14:46:42-07:00"
+	},
+	"Labels": [
+		"corelight",
+		"ssl",
+		"x509"
+	]
+}

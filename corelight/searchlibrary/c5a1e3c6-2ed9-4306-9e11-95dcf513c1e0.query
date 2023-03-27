@@ -1,0 +1,3 @@
+tag=corelight_conn ax conn_state |
+stats count by conn_state |
+chart count by conn_state

@@ -1,0 +1,3 @@
+tag=corelight_conn ax "id.resp_h"==%%IP%% resp_bytes != - |
+stats count("id.orig_h") as connections |
+numbercard connections

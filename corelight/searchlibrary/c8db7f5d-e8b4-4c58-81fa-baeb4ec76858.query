@@ -1,0 +1,1 @@
+tag=corelight_x509 ax | anko expired_x509 "certificate.not_valid_after" | time "certificate.not_valid_after" expired_on | table "certificate.subject" "certificate.issuer" "san.dns" expired_on

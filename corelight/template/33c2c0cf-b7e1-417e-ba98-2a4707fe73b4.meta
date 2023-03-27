@@ -1,0 +1,21 @@
+{
+	"UUID": "33c2c0cf-b7e1-417e-ba98-2a4707fe73b4",
+	"Name": "Corelight All DHCP for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dhcp"
+	]
+}

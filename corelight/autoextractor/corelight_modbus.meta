@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_modbus",
+	"Desc": "Corelight modbus logs",
+	"Module": "json",
+	"Tag": "corelight_modbus",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "1654f44c-3d1b-407f-b07b-a904f40cdacc",
+	"LastUpdated": "2020-09-18T15:38:47.748474477-06:00"
+}

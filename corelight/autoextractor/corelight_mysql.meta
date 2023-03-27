@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_mysql",
+	"Desc": "Corelight mysql logs",
+	"Module": "json",
+	"Tag": "corelight_mysql",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "6506c78b-0512-43a9-b8fd-690d47dce0c2",
+	"LastUpdated": "2020-09-18T15:38:47.948120488-06:00"
+}

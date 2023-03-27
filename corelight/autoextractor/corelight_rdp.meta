@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_rdp",
+	"Desc": "Corelight rdp logs",
+	"Module": "json",
+	"Tag": "corelight_rdp",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "baaa38c2-cbf8-4b3f-81f9-a0da420735ff",
+	"LastUpdated": "2020-09-18T15:38:47.4252585-06:00"
+}

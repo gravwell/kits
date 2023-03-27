@@ -1,0 +1,3 @@
+tag=corelight_http ax
+| regex -v -e method "^-|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|PATCH|TRACE$"
+| table "id.orig_h" "id.resp_h" method uri

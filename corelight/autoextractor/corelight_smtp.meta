@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_smtp",
+	"Desc": "Corelight SMTP logs",
+	"Module": "json",
+	"Tag": "corelight_smtp",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "58c92f6b-a796-4e77-af6a-03a59f3f2a34",
+	"LastUpdated": "2020-09-18T15:38:47.947643077-06:00"
+}

@@ -1,0 +1,1 @@
+tag=corelight_mysql words %%IPADDR%% | ax | table

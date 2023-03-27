@@ -1,0 +1,23 @@
+{
+	"UUID": "6659fced-2feb-419e-a655-21b3149939f1",
+	"GUID": "568f4ce4-11fb-4c60-8503-07f043c40d7b",
+	"UID": 1,
+	"GIDs": null,
+	"Global": false,
+	"Name": "Corelight DNS",
+	"Desc": "",
+	"Labels": [
+		"corelight",
+		"dns",
+		"playbook",
+		"kit/io.gravwell.beta.corelight"
+	],
+	"LastUpdated": "2020-11-06T21:21:13.321796478Z",
+	"Author": {
+		"Name": "The Gravwell Authors",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": false
+}

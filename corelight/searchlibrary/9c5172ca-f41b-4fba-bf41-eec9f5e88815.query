@@ -1,0 +1,3 @@
+tag=corelight_ssh ax
+| geoip "id.orig_h".Location
+| heatmap "id.orig_h"

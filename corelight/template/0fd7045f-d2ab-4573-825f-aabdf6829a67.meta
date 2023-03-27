@@ -1,0 +1,23 @@
+{
+	"UUID": "0fd7045f-d2ab-4573-825f-aabdf6829a67",
+	"Name": "Corelight total client connections for a given IP",
+	"Description": "Numbercard of the total service connections as seen by corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"connections",
+		"services"
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight SSH login and brute force attempt analytics",
+	"Description": "Examine all successful SSH logins and compare against failures to product",
+	"GUID": "0c0a67d1-3fa2-41d2-b778-b440b8a6dfee",
+	"Labels": [
+		"corelight",
+		"ssh",
+		"logins",
+		"brute force"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,1 @@
+tag=corelight_ssl ax last_alert!="-" | alias "id.orig_h" client "id.resp_h" server last_alert alert | table client server server_name alert established

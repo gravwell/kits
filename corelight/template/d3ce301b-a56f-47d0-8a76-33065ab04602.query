@@ -1,0 +1,1 @@
+tag=corelight_smtp words %%IPADDR%% | ax | table

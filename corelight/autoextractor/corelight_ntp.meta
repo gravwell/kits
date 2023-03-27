@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_ntp",
+	"Desc": "Corelight NTP logs",
+	"Module": "json",
+	"Tag": "corelight_ntp",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "337bb29b-aa40-4afa-a766-9a311d27d59f",
+	"LastUpdated": "2020-09-18T15:38:47.749501864-06:00"
+}

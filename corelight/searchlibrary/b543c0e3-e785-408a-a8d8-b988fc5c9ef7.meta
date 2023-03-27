@@ -1,0 +1,12 @@
+{
+	"Name": "Corelight DHCP MAC Address Count",
+	"Description": "A gauge displaying the count of unique MAC addresses. Useful as a number card.",
+	"GUID": "b543c0e3-e785-408a-a8d8-b988fc5c9ef7",
+	"Labels": [
+		"corelight",
+		"dhcp"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

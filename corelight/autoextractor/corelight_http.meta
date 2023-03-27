@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_http",
+	"Desc": "Corelight http logs",
+	"Module": "json",
+	"Tag": "corelight_http",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "ca100c74-1350-40ea-8fb2-e69c84058e06",
+	"LastUpdated": "2020-09-18T15:38:48.06073388-06:00"
+}

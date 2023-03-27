@@ -1,0 +1,15 @@
+{
+	"Name": "corelight_conn",
+	"Desc": "Corelight conn logs",
+	"Module": "json",
+	"Tag": "corelight_conn",
+	"Labels": [
+		"corelight",
+		"autoextractor"
+	],
+	"UID": 130,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "02c7aafd-5c7f-456c-9d94-9070de1071e0",
+	"LastUpdated": "2020-09-18T15:38:47.749501864-06:00"
+}

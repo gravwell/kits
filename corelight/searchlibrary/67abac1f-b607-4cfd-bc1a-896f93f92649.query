@@ -1,0 +1,3 @@
+tag=corelight_tunnel ax "id.orig_h" "id.resp_h" tunnel_type |
+stats count by "id.orig_h" "id.resp_h" tunnel_type |
+fdg -v count -sg tunnel_type "id.orig_h" "id.resp_h"

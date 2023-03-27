@@ -1,0 +1,272 @@
+{
+	"UUID": "cfc02287-60b2-446f-aa4c-0b738286136f",
+	"Name": "Corelight DNS Overview",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight DNS Totals",
+				"timeframe": {},
+				"reference": {
+					"id": "78a11be0-5ea0-4c67-b865-9e21466fd61d",
+					"type": "savedQuery"
+				},
+				"searchID": 5410138615
+			},
+			{
+				"alias": "Corelight DNS Requests by Host",
+				"timeframe": {},
+				"reference": {
+					"id": "302f348f-a30d-4c2c-b9b0-d7e79c34dc75",
+					"type": "savedQuery"
+				},
+				"searchID": 8428286368
+			},
+			{
+				"alias": "Corelight DNS Over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "e9e5aca1-ef17-41de-a514-890a12f91abb",
+					"type": "savedQuery"
+				},
+				"searchID": 6275917740
+			},
+			{
+				"alias": "Corelight DNS Most Common SLDs",
+				"timeframe": {},
+				"reference": {
+					"id": "5acdbd6a-5a44-4cff-9506-c234bf90ae58",
+					"type": "savedQuery"
+				},
+				"searchID": 5295249691
+			},
+			{
+				"alias": "Corelight DNS SLDs with the most Subdomains",
+				"timeframe": {},
+				"reference": {
+					"id": "e81c138d-dc95-4480-b68c-249e792ad2a2",
+					"type": "savedQuery"
+				},
+				"searchID": 7541972414
+			},
+			{
+				"alias": "Corelight DNS Queries by Resource Record Type",
+				"timeframe": {},
+				"reference": {
+					"id": "f81da8a5-fbb9-43a3-9911-5ff6cc3fe45a",
+					"type": "savedQuery"
+				},
+				"searchID": 8039098373
+			},
+			{
+				"alias": "Corelight DNS Beaconing",
+				"timeframe": {},
+				"reference": {
+					"id": "f38fce68-8ec6-43c5-a243-8216fb54df7a",
+					"type": "savedQuery"
+				},
+				"searchID": 5963285825
+			},
+			{
+				"alias": "Corelight DNS TXT Records",
+				"timeframe": {},
+				"reference": {
+					"id": "b7a120b4-4b44-4faa-aebc-5aea31041cf4",
+					"type": "savedQuery"
+				},
+				"searchID": 7363440767
+			},
+			{
+				"alias": "Corelight Most Queried DNS Name",
+				"timeframe": {},
+				"reference": {
+					"id": "0f3686cb-cbde-4b05-b45f-cb3adf116989",
+					"type": "savedQuery"
+				},
+				"searchID": 6523018706
+			},
+			{
+				"alias": "Corelight Rare DNS Queries",
+				"timeframe": {},
+				"reference": {
+					"id": "b51a9936-db54-42b3-9fa0-16f8e03dd514",
+					"type": "savedQuery"
+				},
+				"searchID": 4314371818
+			}
+		],
+		"tiles": [
+			{
+				"title": "DNS Totals",
+				"renderer": "numberCard",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16016659019530,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Requests by Host",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16016660632651,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "DNS Over Time",
+				"renderer": "areaChart",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 7,
+					"y": 0
+				},
+				"id": 16016661748972,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Smoothing": "smooth",
+					"ConnectNulls": "yes",
+					"Stack": "grouped",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Most Common SLDs",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16016664184083,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "DNS SLDs with the Most Subdomains",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 3,
+					"y": 4
+				},
+				"id": 16016666008484,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "DNS Queries by Resource Record Type",
+				"renderer": "lineChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 4
+				},
+				"id": 16016667396855,
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"ConnectNulls": "yes",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Corelight DNS Beaconing",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"id": 16016674833386,
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"title": "TXT Records",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 3,
+					"y": 8
+				},
+				"id": 16016677306287,
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Most Queried DNS Names",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 6,
+					"y": 8
+				},
+				"id": 16016678250588,
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Rare DNS Queries",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 9,
+					"y": 8
+				},
+				"id": 16016679075179,
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-02T15:24:33-06:00"
+	},
+	"Labels": null
+}

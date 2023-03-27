@@ -1,0 +1,21 @@
+{
+	"UUID": "4d1e543f-63b7-426e-b041-10a78da7ad4a",
+	"Name": "Corelight All SNMP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"snmp"
+	]
+}

@@ -1,0 +1,262 @@
+{
+	"UUID": "af886067-860f-4c7c-9dd6-e4ab8021ffe8",
+	"Name": "Corelight SSH Overview",
+	"Description": "Overview of SSH activity using the corelight ssh.log",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight SSH server chart of client counts",
+				"timeframe": {},
+				"reference": {
+					"id": "05a32119-f1f0-4725-ae30-61b0be96258a",
+					"type": "savedQuery"
+				},
+				"searchID": 1945378166
+			},
+			{
+				"alias": "Corelight SSH banners per server",
+				"timeframe": {},
+				"reference": {
+					"id": "1688a96a-c444-4642-b0b4-731d0b51499f",
+					"type": "savedQuery"
+				},
+				"searchID": 7285216222
+			},
+			{
+				"alias": "Corelight SSH Client Locations",
+				"timeframe": {},
+				"reference": {
+					"id": "9c5172ca-f41b-4fba-bf41-eec9f5e88815",
+					"type": "savedQuery"
+				},
+				"searchID": 3529754286
+			},
+			{
+				"alias": "Corelight SSH chart of ports",
+				"timeframe": {},
+				"reference": {
+					"id": "709af2b8-7309-4add-bb97-f556dac95b24",
+					"type": "savedQuery"
+				},
+				"searchID": 1788865957
+			},
+			{
+				"alias": "Corelight SSH Server Locations",
+				"timeframe": {},
+				"reference": {
+					"id": "f67d8107-9910-4166-a6d0-1621310d4c5b",
+					"type": "savedQuery"
+				},
+				"searchID": 3670490849
+			},
+			{
+				"alias": "Corelight SSH re-used keys",
+				"timeframe": {},
+				"reference": {
+					"id": "a6044e23-6f2d-424c-9b52-ad4905010d92",
+					"type": "savedQuery"
+				},
+				"searchID": 5592859914
+			},
+			{
+				"query": "tag=corelight_ssh ax host_key != \"-\" | unique host_key resp_host | stats count(host_key) by resp_host | table resp_host count",
+				"alias": null
+			},
+			{
+				"alias": "Corelight SSH Host Keys Seen Per Server",
+				"timeframe": {},
+				"reference": {
+					"id": "2e1a32e3-a8e8-4d3a-8a8b-2e748a032d63",
+					"type": "savedQuery"
+				},
+				"searchID": 6082003660
+			},
+			{
+				"alias": "Corelight SSH Version 1 Auth Successes",
+				"timeframe": {},
+				"reference": {
+					"id": "7cf2fd64-b919-4a7a-b2af-a7cb27271369",
+					"type": "savedQuery"
+				},
+				"searchID": 2282394648
+			},
+			{
+				"alias": "Corelight SSH Successful Authentications by Client",
+				"timeframe": {},
+				"reference": {
+					"id": "276dbda5-0cf4-4f94-858d-588006e3e1c1",
+					"type": "savedQuery"
+				},
+				"searchID": 4068124823
+			},
+			{
+				"alias": "Failed SSH Connections By Country \u0026 Server",
+				"timeframe": {},
+				"reference": {
+					"id": "1e103246-fd3f-4920-8f31-dbd03b5db4a1",
+					"type": "savedQuery"
+				},
+				"searchID": 7095398843
+			},
+			{
+				"alias": "Corelight SSH Successful Login Map",
+				"timeframe": {},
+				"reference": {
+					"id": "ba1ff896-b6a8-4142-bdde-ae72d70e830c",
+					"type": "savedQuery"
+				},
+				"searchID": 5976888925
+			}
+		],
+		"tiles": [
+			{
+				"title": "Client counts by server",
+				"renderer": "barChart",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16008183181680,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Banners per server",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 7,
+					"y": 10
+				},
+				"id": 16009003312562,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Client Locations",
+				"renderer": "pointmap",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 5
+				},
+				"id": 16009005551393,
+				"rendererOptions": {},
+				"searchesIndex": 11
+			},
+			{
+				"title": "SSH Ports",
+				"renderer": "categoryBarChart",
+				"span": {
+					"col": 2,
+					"row": 5,
+					"x": 0,
+					"y": 5
+				},
+				"id": 16009011704753,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Orientation": "h",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Server Locations",
+				"renderer": "skyscraperGlobe",
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 0
+				},
+				"id": 16009013606364,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Re-used SSH Keys (should be empty!)",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 14
+				},
+				"id": 16009032428115,
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Successful SSHv1 Authentications (should be empty)",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 14
+				},
+				"id": 16016669723537,
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Most Frequent Successful SSH Clients",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 2,
+					"y": 5
+				},
+				"id": 16016672125318,
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Failed SSH Logins by Country",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 3,
+					"y": 10
+				},
+				"id": 16016675291639,
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Host Keys Seen Per Server",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 7,
+				"id": 16016677497779,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"durationString": "PT1H",
+			"timeframe": "PT1H",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-02T14:29:53-06:00"
+	},
+	"Labels": null
+}

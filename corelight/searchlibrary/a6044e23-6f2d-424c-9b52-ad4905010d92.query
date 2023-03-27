@@ -1,0 +1,7 @@
+tag=corelight_ssh ax "id.resp_h" host_key != -
+| alias "id.resp_h" latestserver
+| stats unique_count("id.resp_h") as unique_hosts by host_key unique_count(host_key) by "id.resp_h"
+| eval !hasEnum("unique_hosts") || unique_hosts > 1
+| sort by host_key
+| geoip -r asn_db "id.resp_h".ASNOrg
+| table "id.resp_h" ASNOrg host_key unique_hosts

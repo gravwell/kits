@@ -1,0 +1,22 @@
+{
+	"UUID": "c703e517-3138-4cb8-a50d-826318dc8dbd",
+	"Name": "Corelight All Modbus for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"modbus",
+		"ics"
+	]
+}

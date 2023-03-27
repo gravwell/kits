@@ -1,0 +1,15 @@
+{
+	"Name": "Corelight Connection Averages",
+	"Description": "Table showing averages for traffic, packets, and connection duration for each service",
+	"GUID": "99f518cb-da24-4170-b0d0-ff4d393ef306",
+	"Labels": [
+		"corelight",
+		"conn",
+		"averages",
+		"service",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

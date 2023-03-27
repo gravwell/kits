@@ -1,0 +1,13 @@
+{
+	"Name": "Corelight SSL Version Chart",
+	"Description": "Display a chart of the SSL/TLS versions in use.",
+	"GUID": "3a988fcf-3ab8-41f1-973e-5aa7c8c250f2",
+	"Labels": [
+		"corelight",
+		"ssl",
+		"tls"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

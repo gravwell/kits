@@ -1,0 +1,1 @@
+tag=corelight_dhcp words %%IPADDR%% | ax | table

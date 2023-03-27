@@ -1,0 +1,5 @@
+tag=corelight_ssh ax
+| unique server "id.resp_h" "id.resp_p"
+| alias "id.resp_h" serverIP "id.resp_p" port server latestbanner
+| count by serverIP port
+| table serverIP port count latestbanner

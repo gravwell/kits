@@ -1,0 +1,9 @@
+{
+	"Ingesters": ["simplerelay", "http_ingester"],
+	"Tags": ["corelight"],
+	"Assets": [
+		{ "Type": "image", "Source": "corelight-cover.png", "Legend": "Corelight", "Featured": true},
+		{ "Type": "image", "Source": "corelight-banner.png", "Legend": "Banner Image", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
