@@ -160,23 +160,24 @@ The Corelight data set contains many highly orthogonal data sources, including u
 
 Gravwell supports two indexing engines designed to provide different capabilities and tradeoffs.  Both engines can perform very well with the Corelight datasets.  The bloom engine can provide a balance of good performance and minimal disk usage while the index engine provides precise indexing performance in exchange for greater disk and memory usage.  Regardless of the chosen engine, Gravwell recommends that Corelight data be fulltext indexed with the "ignoreFloat" and "ignoreUUID" options.  Either of the following configurations should perform well with Corelight data:
 
-### Bloom Engine
+### Example Well
 <pre>
-[Storage-Well "zeek"]
-	Location=/opt/gravwell/storage/zeek
-	Tags=zeek*
+[Storage-Well "corelight"]
+	Location=/opt/gravwell/storage/corelight
+	Tags=corelight*
 	Accelerator-Name=fulltext
 	Accelerator-Args="-ignoreFloat -ignoreUUID"
-	Accelerator-Engine-Override=bloom
 </pre>
 
-### Index Engine
+### Example Well With Hot Storage and Ageout
 <pre>
-[Storage-Well "zeek"]
-	Location=/opt/gravwell/storage/zeek
-	Tags=zeek*
+[Storage-Well "corelight"]
+	Location=/opt/gravwell/storage/corelight
+	Cold-Location=/opt/gravwell/cold_storage/corelight
+	Tags=corelight*
 	Accelerator-Name=fulltext
 	Accelerator-Args="-ignoreFloat -ignoreUUID"
-	Accelerator-Engine-Override=index
+	Hot-Storage-Reserve=10 #keep 10% of the hot disk free
+	Cold-Duration=90d #keep at least 90 days in cold storage
+	Delete-Frozen-Data=true
 </pre>
-
