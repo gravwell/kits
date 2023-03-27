@@ -1,0 +1,179 @@
+{
+	"UUID": "e5f2c4ca-611e-41e1-ba0a-f583dcd6eedb",
+	"Name": "Corelight HTTP",
+	"Description": "",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight HTTP Point-to-Point",
+				"timeframe": {},
+				"reference": {
+					"id": "1a0c447b-cc75-4990-9113-64e8e7492b97",
+					"type": "savedQuery"
+				},
+				"searchID": 6072365380
+			},
+			{
+				"alias": "Corelight HTTP Most Requested Hosts",
+				"timeframe": {},
+				"reference": {
+					"id": "2d73a06e-1384-4b4b-9f84-55ee8c0b6e64",
+					"type": "savedQuery"
+				},
+				"searchID": 2237591312
+			},
+			{
+				"alias": "Corelight HTTP Browser Distribution",
+				"timeframe": {},
+				"reference": {
+					"id": "bd4768cb-8bba-49eb-8e64-051800b58e99",
+					"type": "savedQuery"
+				},
+				"searchID": 6136518840
+			},
+			{
+				"alias": "Corelight HTTP Unusual HTTP Methods",
+				"timeframe": {},
+				"reference": {
+					"id": "c059cce0-c934-49a5-ace1-fb55b61a2425",
+					"type": "savedQuery"
+				},
+				"searchID": 3179765715
+			},
+			{
+				"alias": "Search 6",
+				"timeframe": {},
+				"query": "tag=corelight_http",
+				"searchID": 1759086870
+			},
+			{
+				"alias": "Corelight HTTP Method Counts",
+				"timeframe": {},
+				"reference": {
+					"id": "27c92489-b566-4907-ad78-9d6205921ceb",
+					"type": "savedQuery"
+				},
+				"searchID": 4045784445
+			}
+		],
+		"tiles": [
+			{
+				"title": "HTTP Point-to-Point",
+				"renderer": "point2point",
+				"span": {
+					"col": 5,
+					"row": 7,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16034734722431,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Most Requested Hosts",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 11,
+					"x": 9,
+					"y": 0
+				},
+				"id": 16034774394662,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Browser Distribution",
+				"renderer": "pieChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 3
+				},
+				"id": 16034781580083,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Unusual HTTP Methods",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 4,
+					"y": 7
+				},
+				"id": 16034793423844,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "HTTP Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"id": 16034795627195,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Corelight HTTP Method Counts",
+				"renderer": "donutChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 7
+				},
+				"id": 16034801758805,
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P7DT",
+			"durationString": "P7DT",
+			"start": null,
+			"end": null,
+			"timezone": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-23T13:52:53-06:00"
+	},
+	"Labels": [
+		"corelight",
+		"http"
+	]
+}

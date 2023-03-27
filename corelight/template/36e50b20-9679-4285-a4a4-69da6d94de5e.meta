@@ -1,0 +1,22 @@
+{
+	"UUID": "36e50b20-9679-4285-a4a4-69da6d94de5e",
+	"Name": "Corelight SMB Share types for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"smb",
+		"fileshare"
+	]
+}

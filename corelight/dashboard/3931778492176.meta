@@ -1,0 +1,86 @@
+{
+	"UUID": "3824e3c3-2ca6-4e94-a678-0001b4400fde",
+	"Name": "Corelight UID Investigation",
+	"Description": "Show any records related to a given Corelight UID",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight Conn for UID",
+				"timeframe": {},
+				"reference": {
+					"id": "92e18262-c273-4659-9f8f-953bec4fc455",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 2789462479
+			},
+			{
+				"alias": "Corelight Associated Records",
+				"timeframe": {},
+				"reference": {
+					"id": "4d882ff0-d052-4999-8799-afc6b21e1fd2",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"title": "conn.log",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"id": 16008155756980,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "All Corelight Records Timeline",
+				"renderer": "overview",
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"id": 16008156647643,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "All Corelight records (double click to expand)",
+				"renderer": "text",
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 6
+				},
+				"id": 16008159186022,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"durationString": "PT1H",
+			"timeframe": "PT1H",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-09-22T16:04:16-07:00"
+	},
+	"Labels": null
+}

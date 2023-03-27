@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_dpd",
+  "Desc": "Corelight DPD logs",
+  "Module": "json",
+  "Tag": "corelight_dpd",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "46f9f66d-5327-438f-bb41-01695d7f6892",
+  "LastUpdated": "2020-09-18T15:38:47.95687481-06:00"
+}

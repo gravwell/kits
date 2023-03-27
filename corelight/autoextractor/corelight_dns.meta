@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_dns",
+  "Desc": "Corelight dns logs",
+  "Module": "json",
+  "Tag": "corelight_dns",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "a8b3bef0-52d0-4b3b-85ee-214c71f7c711",
+  "LastUpdated": "2020-09-18T15:38:47.630352561-06:00"
+}

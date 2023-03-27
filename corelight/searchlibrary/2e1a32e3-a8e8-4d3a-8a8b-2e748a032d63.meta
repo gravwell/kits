@@ -1,0 +1,13 @@
+{
+	"Name": "Corelight SSH Host Keys Seen Per Server",
+	"Description": "Count how many SSH host keys we've observed for each server",
+	"GUID": "2e1a32e3-a8e8-4d3a-8a8b-2e748a032d63",
+	"Labels": [
+		"corelight",
+		"ssh",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

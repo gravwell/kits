@@ -1,0 +1,3 @@
+tag=corelight_tunnel ax tunnel_type |
+count by tunnel_type |
+chart count by tunnel_type

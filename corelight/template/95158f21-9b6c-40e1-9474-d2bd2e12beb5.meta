@@ -1,0 +1,21 @@
+{
+	"UUID": "95158f21-9b6c-40e1-9474-d2bd2e12beb5",
+	"Name": "Corelight All Files for IP",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"file"
+	]
+}

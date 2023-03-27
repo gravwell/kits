@@ -1,0 +1,23 @@
+{
+	"UUID": "e5f0da24-644a-4d04-a3a1-96127acc0785",
+	"Name": "Corelight Connstate Chart",
+	"Description": "Count of connection states for a given IP as seen by Corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"state",
+		"chart"
+	]
+}

@@ -1,0 +1,1 @@
+tag=corelight_dns words %%IPADDR%% | ax | table

@@ -1,0 +1,1 @@
+tag=corelight_dhcp,corelight_dnp3,corelight_dns,corelight_files,corelight_http,corelight_modbus,corelight_smtp,corelight_snmp,corelight_ssh,corelight_syslog words %%UID%% | ax | table

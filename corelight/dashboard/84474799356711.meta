@@ -1,0 +1,159 @@
+{
+	"UUID": "fbc053a7-2c5e-455e-af50-c4fa5609b41f",
+	"Name": "Corelight SMB Investigator",
+	"Description": "Investigate a given IP address",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight SMB private IP graph",
+				"timeframe": {},
+				"reference": {
+					"id": "0c1dc12a-8e1b-45bf-b946-a063bec0c0b8",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 4749800772
+			},
+			{
+				"alias": "Corelight SMB Share types for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "36e50b20-9679-4285-a4a4-69da6d94de5e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 8690809299
+			},
+			{
+				"alias": "Corelight SMB actions",
+				"timeframe": {},
+				"reference": {
+					"id": "ba8c3942-5106-4bda-9fb9-3c2294ecd7a3",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 1146083197
+			},
+			{
+				"alias": "Corelight All SMB Files for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "23bc4af4-b2e9-4c3a-a687-9e2a721941e8",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 1573927608
+			},
+			{
+				"alias": "Corelight All SMB Mapping for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "b0c78dd7-027d-409b-869e-61b32569716a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 1912001814
+			}
+		],
+		"tiles": [
+			{
+				"title": "Private IP Activity",
+				"renderer": "fdg",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16018536767010,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Layout": "force",
+					"Labels": "yes",
+					"IncludeOther": "yes",
+					"CurveEdges": "no"
+				}
+			},
+			{
+				"title": "Share Types",
+				"renderer": "stackgraph",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16018537306581,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Orientation": "vertical",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Action Types",
+				"renderer": "barChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16018537669492,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "All File Activity",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16018538291083,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "All mappings",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"id": 16018538493884,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT",
+			"durationString": "P1DT",
+			"start": null,
+			"end": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-04T16:39:11-07:00"
+	},
+	"Labels": null
+}

@@ -1,0 +1,15 @@
+{
+	"Name": "Corelight Service Connection Reset Rates",
+	"Description": "Chart of connection reset rates by service as seen by Corelight",
+	"GUID": "b7f8c6a6-0047-433c-a54f-c6123322897e",
+	"Labels": [
+		"corelight",
+		"conn",
+		"service",
+		"reset",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

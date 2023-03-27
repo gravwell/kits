@@ -1,0 +1,24 @@
+{
+	"UUID": "598a46fe-0704-430f-9fe5-a73ba1f579b9",
+	"Name": "Corelight Connection activity for IP",
+	"Description": "Chart of connection activity for a given IP as seen by Corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "IPv4 Address",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"ip",
+		"chart",
+		"count"
+	]
+}

@@ -1,0 +1,5 @@
+tag=corelight_conn ax service orig_bytes resp_bytes | stats sum(orig_bytes) as upload sum(resp_bytes) as download by service |
+eval setEnum("bytes", upload+download) |
+eval if(service=="-") {setEnum("service", "unknown")}
+| stats sum(bytes) as traffic by service |
+chart traffic by service

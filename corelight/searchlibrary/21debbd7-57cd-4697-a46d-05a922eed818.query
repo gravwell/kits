@@ -1,0 +1,3 @@
+tag=corelight_dns ax qtype_name == A rtt!=- |
+stats mean(rtt) max(rtt) min(rtt) |
+chart min mean max

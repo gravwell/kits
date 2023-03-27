@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_snmp",
+  "Desc": "Corelight SNMP logs",
+  "Module": "json",
+  "Tag": "corelight_snmp",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "b8f0d214-5393-4909-8db9-ffcef9259f73",
+  "LastUpdated": "2020-09-18T15:38:47.853743184-06:00"
+}

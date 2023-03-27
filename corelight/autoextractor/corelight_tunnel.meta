@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_tunnel",
+  "Desc": "Corelight tunnel logs",
+  "Module": "json",
+  "Tag": "corelight_tunnel",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "2b5d2ea4-db0c-4246-8d67-14a6ea25bf39",
+  "LastUpdated": "2020-09-18T15:38:47.841388833-06:00"
+}

@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_x509",
+  "Desc": "Corelight X509 logs",
+  "Module": "json",
+  "Tag": "corelight_x509",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "05a6b608-8972-440b-8d13-41ace5a30e09",
+  "LastUpdated": "2020-09-18T15:38:47.622366937-06:00"
+}

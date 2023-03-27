@@ -1,0 +1,1 @@
+tag=corelight_smb_files ax | count by name | table name count

@@ -1,0 +1,13 @@
+{
+	"Name": "Corelight Potential DNS Beaconing",
+	"Description": "Potential DNS Beacon activity as seen by Corelight",
+	"GUID": "81893d09-7ba8-4709-a920-fdc451da1fc4",
+	"Labels": [
+		"corelight",
+		"dns",
+		"beaconing"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

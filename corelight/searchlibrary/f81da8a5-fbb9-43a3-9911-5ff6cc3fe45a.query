@@ -1,0 +1,1 @@
+tag=corelight_dns ax | lookup -s -r dns_types qtype Value TYPE as dnstype | stats count by dnstype | chart count by dnstype

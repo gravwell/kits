@@ -1,0 +1,294 @@
+{
+	"UUID": "3ef85611-d7a6-4054-ad67-e66454aadce6",
+	"Name": "Corelight IP Investigation",
+	"Description": "IP Investigative Dashboard using Corelight Data",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight Connection activity for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "598a46fe-0704-430f-9fe5-a73ba1f579b9",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7549173832
+			},
+			{
+				"alias": "Corelight Service Client heatmap",
+				"timeframe": {},
+				"reference": {
+					"id": "b46ca253-87d3-4e6c-82bf-ce0f379195f7",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7598317717
+			},
+			{
+				"alias": "Active services for an IP",
+				"timeframe": {},
+				"reference": {
+					"id": "3a77dd7b-dd80-449e-9a08-22003b561279",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 5392116220
+			},
+			{
+				"alias": "Corelight Unique Clients for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "890c87e2-2c2c-4c6a-b22a-0548b0e5f261",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 3351637767
+			},
+			{
+				"alias": "Corelight total client connections for a given IP",
+				"timeframe": {},
+				"reference": {
+					"id": "0fd7045f-d2ab-4573-825f-aabdf6829a67",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 8629697776
+			},
+			{
+				"alias": "Corelight Connstate Chart",
+				"timeframe": {},
+				"reference": {
+					"id": "e5f0da24-644a-4d04-a3a1-96127acc0785",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 4789210833
+			},
+			{
+				"alias": "Corelight service bandwidth graph",
+				"timeframe": {},
+				"reference": {
+					"id": "bcdb7175-2b05-4a64-9dd5-5edc54046e7e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 6149356218
+			},
+			{
+				"alias": "Corelight 10 most common service ports for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "c7079f84-4202-452d-95b0-20c87bcd0d07",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 7496652430
+			},
+			{
+				"alias": "Corelight 10 most common service ports for IP",
+				"timeframe": {},
+				"reference": {
+					"id": "cac57607-950a-46a5-90b5-07fabf9b3c51",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				},
+				"searchID": 3559863083
+			}
+		],
+		"tiles": [
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16008159558730,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Client Heatmap",
+				"renderer": "heatmap",
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 3
+				},
+				"id": 16008972727212,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Active Services",
+				"renderer": "numberCard",
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16008977930213,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"title": "Active Clients",
+				"renderer": "numberCard",
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 10,
+					"y": 0
+				},
+				"id": 16008983709364,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Total Connections",
+				"renderer": "numberCard",
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"id": 16008985364624,
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"title": "Connection State Activity",
+				"renderer": "lineChart",
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"id": 16008998730195,
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Service Traffic",
+				"renderer": "barChart",
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 3
+				},
+				"id": 16009008886996,
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"ConnectNulls": "yes",
+					"Stack": "stacked",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "10 Most Common Service Ports",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 6,
+					"x": 0,
+					"y": 6
+				},
+				"id": 16009013712947,
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"title": "10 Least Common Service Ports",
+				"renderer": "table",
+				"span": {
+					"col": 3,
+					"row": 6,
+					"x": 3,
+					"y": 6
+				},
+				"id": 16009015851448,
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"end": null,
+			"start": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-05T09:29:01-06:00",
+		"linkZooming": true
+	},
+	"Labels": null
+}

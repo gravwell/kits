@@ -1,0 +1,17 @@
+{
+  "Name": "Corelight SMB Files",
+  "Desc": "Corelight Samba File",
+  "Module": "json",
+  "Tag": "corelight_smb_files",
+  "Labels": [
+    "corelight",
+    "smb",
+    "samba",
+    "files"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "39e65af8-b6a3-40d5-8c11-704874bcb635",
+  "LastUpdated": "2020-09-22T16:25:50.662745318-06:00"
+}

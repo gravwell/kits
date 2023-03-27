@@ -1,0 +1,13 @@
+{
+	"Name": "Corelight Rare DNS Queries",
+	"Description": "Least queried DNS names over time",
+	"GUID": "b51a9936-db54-42b3-9fa0-16f8e03dd514",
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,1 @@
+tag=corelight_conn ax "id.resp_p" | stats count as connections by "id.resp_p" | sort by connections | table "id.resp_p" connections

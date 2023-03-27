@@ -1,0 +1,15 @@
+{
+  "Name": "corelight_ftp",
+  "Desc": "Corelight FTP logs",
+  "Module": "json",
+  "Tag": "corelight_ftp",
+  "Labels": [
+    "corelight",
+    "autoextractor"
+  ],
+  "UID": 130,
+  "GIDs": null,
+  "Global": false,
+  "UUID": "cb796543-6a7e-4284-a8e1-067ea625160e",
+  "LastUpdated": "2020-09-18T15:38:47.628815627-06:00"
+}

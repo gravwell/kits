@@ -1,0 +1,20 @@
+{
+	"UUID": "92e18262-c273-4659-9f8f-953bec4fc455",
+	"Name": "Corelight Conn for UID",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%UID%%",
+				"label": "Corelight UID",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight"
+	]
+}

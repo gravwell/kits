@@ -1,0 +1,4 @@
+tag=corelight_dhcp ax msg_types==NAK mac server_message |
+stats count by mac server_message |
+maclookup -r mac_prefixes mac.Manufacturer |
+table mac Manufacturer server_message count

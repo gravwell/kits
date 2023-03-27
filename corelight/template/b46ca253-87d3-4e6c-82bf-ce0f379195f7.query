@@ -1,0 +1,1 @@
+tag=corelight_conn ax "id.orig_h" "id.resp_h"==%%IP%% | stats count by "id.orig_h" | geoip "id.orig_h".Location | heatmap

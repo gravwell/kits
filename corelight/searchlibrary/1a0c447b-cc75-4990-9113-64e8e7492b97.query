@@ -1,0 +1,3 @@
+tag=corelight_http ax "id.orig_h" "id.resp_h"
+| geoip "id.resp_h".Location as resp_host_loc "id.orig_h".Location as orig_host_loc
+| point2point -srcloc orig_host_loc -dstloc resp_host_loc

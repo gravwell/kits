@@ -1,0 +1,5 @@
+tag=corelight_dns ax | alias query Name |
+stats count by Name |
+sort by count desc |
+limit 100 |
+table Name count

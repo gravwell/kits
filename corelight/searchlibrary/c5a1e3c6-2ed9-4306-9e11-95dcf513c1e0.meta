@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight Connection Counts by State",
+	"Description": "Chart the number of sessions by connection state as seen by Corelight",
+	"GUID": "c5a1e3c6-2ed9-4306-9e11-95dcf513c1e0",
+	"Labels": [
+		"corelight",
+		"conn",
+		"chart",
+		"state"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

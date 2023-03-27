@@ -1,0 +1,3 @@
+tag=corelight_ssh ax
+| geoip "id.resp_h".Location
+| pointmap "id.resp_h"
