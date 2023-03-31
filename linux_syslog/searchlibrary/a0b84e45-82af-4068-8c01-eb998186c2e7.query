@@ -1,4 +1,4 @@
 tag=$SYSLOG syslog Appname==sudo Message Hostname
 | regex -e Message "(?P<sudoing_user>\S+) : (?P<args>.+)"
-| kv -e args -ld -sep "=" -d " ; " TTY PWD COMMAND
+| kv -e args -ld -sep "=" -dall " ; " TTY PWD COMMAND
 | table TIMESTAMP Hostname sudoing_user TTY PWD COMMAND
