@@ -3,11 +3,11 @@
 	"Name": "Linux Syslog",
 	"Desc": "Provides tools for working with Linux system logs, including ssh, sudo, and cron.",
 	"Readme": "# Linux Syslog Kit\r\n\r\nThis kit provides useful tools for working with system logs from Linux machines. It includes dashboards, queries, actionables, and templates built around logs from the SSH daemon, the cron daemon, and the sudo system.\r\n\r\nWe recommend installing the plain syslog kit (io.gravwell.syslog) as well, but this kit does *not* depend on it.",
-	"Version": 5,
+	"Version": 6,
 	"MinVersion": {
-		"Major": 4,
-		"Minor": 1,
-		"Point": 9
+		"Major": 5,
+		"Minor": 2,
+		"Point": 1
 	},
 	"MaxVersion": {
 		"Major": 0,
