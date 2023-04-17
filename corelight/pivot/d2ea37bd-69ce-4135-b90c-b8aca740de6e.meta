@@ -6,7 +6,7 @@
 		"menuLabel": "UID",
 		"triggers": [
 			{
-				"pattern": "/(\\s|^)(?\u003cuid\u003e(C|F)([a-zA-Z0-9]{13,17}))(\\s|$)/g",
+				"pattern": "/(\\s|^|\")(?<uid>(C|F)([a-zA-Z0-9]{13,19}))(\\s|$|\")/g",
 				"hyperlink": true
 			}
 		],
