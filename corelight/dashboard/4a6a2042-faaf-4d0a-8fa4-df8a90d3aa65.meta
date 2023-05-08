@@ -1,0 +1,196 @@
+{
+	"UUID": "4a6a2042-faaf-4d0a-8fa4-df8a90d3aa65",
+	"Name": "Corelight Overview",
+	"Description": "Corelight status dashboard showing basic data rates, EPS, and summary statistics for corelight data streams",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Entry Rates",
+				"query": "tag=_aggs_tags ax tag~corelight | stats sum(entries) by tag | chart sum by tag limit 64",
+				"color": null
+			},
+			{
+				"alias": "Data Rates",
+				"query": "tag=_aggs_tags ax tag~corelight | stats sum(bytes) as data by tag | chart data by tag limit 64",
+				"color": null
+			},
+			{
+				"alias": "Overview",
+				"query": "tag=_aggs_tags ax tag~corelight | stats sum(entries) by tag | chart sum by tag limit 64",
+				"color": null
+			},
+			{
+				"alias": "License Usage",
+				"query": "tag=corelight json _path==\"corelight_license_capacity\" mbps | stats mean(mbps) as MBPS | chart MBPS",
+				"color": null
+			},
+			{
+				"alias": "Totals",
+				"query": "tag=_aggs_tags ax tag~corelight | stats sum(entries) as \"Entries\" sum(bytes) as \"Data\" | numbercard Entries Data",
+				"color": null
+			},
+			{
+				"alias": "Non-routed Paths",
+				"query": "tag=corelight json _path | stats count by _path | wordcloud count",
+				"color": null
+			},
+			{
+				"alias": "Capture Loss",
+				"query": "tag=corelight_capture_loss ax | stats max(percent_lost) as lost by _node | chart lost by _node ",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 6603436583113566,
+				"title": "Entry Rates",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 1683551990390,
+				"title": "Data Rates",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 16835520961412,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1683552476249,
+				"title": "License Usage",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 1683552495649,
+				"title": "Totals",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 1683553273059,
+				"title": "Non-routed Paths",
+				"renderer": "wordcloud",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1683553305527,
+				"title": "Capture Loss",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"corelight",
+		"overview",
+		"status"
+	]
+}
