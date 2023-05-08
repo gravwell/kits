@@ -981,12 +981,27 @@
 			"Name": "corelight_x509",
 			"Type": 4,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "4a6a2042-faaf-4d0a-8fa4-df8a90d3aa65",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "corelight_capture_loss",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		}
+
 	],
 	"Dependencies": [
 		{
 			"ID": "io.gravwell.networkenrichment",
 			"MinVersion": 6
+		},
+		{
+			"ID": "io.gravwell.gravwell",
+			"MinVersion": 7
 		}
 	],
 	"ConfigMacros": null
