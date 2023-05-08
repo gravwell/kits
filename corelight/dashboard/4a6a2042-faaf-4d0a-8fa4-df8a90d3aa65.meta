@@ -22,7 +22,7 @@
 				"color": null
 			},
 			{
-				"alias": "Search 3",
+				"alias": "Overview",
 				"query": "tag=_aggs_tags ax tag~corelight | stats sum(entries) by tag | chart sum by tag limit 64",
 				"color": null
 			},
