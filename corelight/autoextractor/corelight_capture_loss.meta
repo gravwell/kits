@@ -1,0 +1,16 @@
+{
+	"Name": "corelight_capture_loss",
+	"Desc": "JSON extraction for tag corelight_capture_loss",
+	"Module": "json",
+	"Tag": "corelight_capture_loss",
+	"Labels": [
+		"corelight",
+		"status",
+		"capture loss"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "1b167bf6-1f8a-4971-8e8b-cf1766a59ada",
+	"LastUpdated": "2023-05-08T14:12:59.869093566Z"
+}
