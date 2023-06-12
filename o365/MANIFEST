@@ -1,0 +1,39 @@
+{
+	"ID": "o365.gravwell.io",
+	"Name": "Office 365",
+	"Desc": "Office 365 resources, queries, and automations.  Contains lookups for Office 365 data across azure, DLP, exchange, and sharepoint.",
+	"Readme": "Office365 kit.",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 1,
+		"Point": 2
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "",
+	"Banner": "",
+	"Cover": "",
+	"Items": [
+		{
+			"Name": "o365_audit_usertype",
+			"Type": 1,
+			"Hash": "63ddfcbc68c5f3669e7be932cf5afaf80f0e9187a2634880b24302f4bbb377a0"
+		},
+		{
+			"Name": "o365_audit_recordtype",
+			"Type": 1,
+			"Hash": "721a6344e49b6f53b8cc1dcf6fbc7967b201a548e80dfb2592fae8f9d754f7e8"
+		},
+		{
+			"Name": "o365_audit_applicationid",
+			"Type": 1,
+			"Hash": "4ffe1a2ab63488b6c01620c04f3d0a0c5b96be6919c7a574a0a8cafd184d7b5a"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": []
+}
