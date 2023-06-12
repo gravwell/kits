@@ -1,24 +1,13 @@
 {
-	"ID": "io.gravwell.o365",
+	"ID": "o365.gravwell.io",
 	"Name": "Office 365",
-	"Desc": "Office 365",
-	"Readme": "office 365",
+	"Desc": "Office 365 resources, queries, and automations.  Contains lookups for Office 365 data across azure, DLP, exchange, and sharepoint.",
+	"Readme": "Office365 kit.",
 	"Version": 1,
 	"MinVersion": {
 		"Major": 5,
-		"Minor": 2,
-		"Point": 0
-	},
-	"MaxVersion": {
-		"Major": 0,
-		"Minor": 0,
-		"Point": 0
-	},
-	"Icon": "",
-	"Banner": "",
-	"Cover": "",
-	"Items": [
-		{
+		"Minor": 1,
+		"Point": 2
 			"Name": "o365_audit_recordtype",
 			"Type": 1,
 			"Hash": "7bbbcc5a432f6d93cb2bc803e92ad3f4c88ff065dd84b4559524628d3ceb117b"
