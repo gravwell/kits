@@ -17,6 +17,12 @@
 	"Icon": "0642db70-5022-4f7d-8aab-56d1d18150d2",
 	"Banner": "d03694e4-0972-11ee-a452-878f39f3d022",
 	"Cover": "0642db70-5022-4f7d-8aab-56d1d18150d2",
+	"Dependencies": [
+		{
+			"ID": "io.gravwell.networkenrichment",
+			"MinVersion": 14
+		}
+	],
 	"Items": [
 		{
 			"Name": "0642db70-5022-4f7d-8aab-56d1d18150d2",
