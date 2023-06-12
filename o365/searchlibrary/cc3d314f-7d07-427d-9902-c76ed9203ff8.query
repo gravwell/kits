@@ -1,0 +1,4 @@
+tag=365-exchange json Operation=="MailboxLogin" ResultStatus==Succeeded ClientIP UserId
+| geoip ClientIP.Location
+| stats count by UserId Location
+| pointmap UserId count

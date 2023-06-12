@@ -1,0 +1,23 @@
+{
+	"UUID": "13be8511-cd54-43ba-bd76-0fd85f57e958",
+	"Name": "Office 365 Exchange Client IP Login Activity List",
+	"Description": "Show table of login attempts and successes",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"office365",
+		"azure",
+		"ip",
+		"logon"
+	]
+}

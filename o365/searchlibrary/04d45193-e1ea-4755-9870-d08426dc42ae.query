@@ -1,0 +1,4 @@
+tag=365-azure json Operation==UserLoginFailed UserId LogonError UserType
+| stats count by LogonError UserId
+| lookup -r o365_audit_usertype UserType value name as UserType
+| table UserId UserType LogonError count

@@ -1,0 +1,4 @@
+tag=365-sharepoint words TargetUserOrGroupType
+| json TargetUserOrGroupType=="Guest" TargetUserOrGroupName UserId SourceFileName SourceRelativeUrl UserAgent SourceFileExtension Operation=="AddedToGroup" ClientIP ObjectId ItemType
+| count by TargetUserOrGroupName ItemType
+| table TargetUserOrGroupName ItemType count

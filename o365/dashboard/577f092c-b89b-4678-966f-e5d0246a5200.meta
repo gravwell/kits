@@ -1,0 +1,97 @@
+{
+	"UUID": "577f092c-b89b-4678-966f-e5d0246a5200",
+	"Name": "Office 365 Sharepoint Asset Investigation",
+	"Description": "Office 365 Sharepoint Asset Investigation",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Office 365 Sharepoint Asset activity map",
+				"reference": {
+					"id": "25a6886f-2376-4fe4-a332-2d860afb85b1",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Sharepoint Asset activity map",
+				"reference": {
+					"id": "25a6886f-2376-4fe4-a332-2d860afb85b1",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Sharepoint Asset search",
+				"reference": {
+					"id": "3ccea445-536f-4abc-9c98-999099b62667",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Sharepoint Asset user activity",
+				"reference": {
+					"id": "b9d8ad5a-7042-4161-963b-1c7c54fe6ba2",
+					"type": "template"
+				},
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "Activity Map",
+				"renderer": "pointmap",
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16698712710500,
+				"rendererOptions": {},
+				"searchesIndex": 1
+			},
+			{
+				"title": "Detailed Results",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 6
+				},
+				"id": 16698713334681,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "User activity",
+				"renderer": "barChart",
+				"span": {
+					"col": 5,
+					"row": 6,
+					"x": 7,
+					"y": 0
+				},
+				"id": 16698714835282,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"o365",
+		"sharepoint"
+	]
+}

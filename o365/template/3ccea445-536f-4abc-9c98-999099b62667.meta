@@ -1,0 +1,21 @@
+{
+	"UUID": "3ccea445-536f-4abc-9c98-999099b62667",
+	"Name": "Office 365 Sharepoint Asset search",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%FILENAME%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"o365",
+		"sharepoint"
+	]
+}

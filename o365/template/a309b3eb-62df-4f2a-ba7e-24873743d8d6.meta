@@ -1,0 +1,25 @@
+{
+	"UUID": "a309b3eb-62df-4f2a-ba7e-24873743d8d6",
+	"Name": "Office 365 Client accounting for IP",
+	"Description": "Show a list of unique users for a given client and version",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"office",
+		"office365",
+		"exchange",
+		"client",
+		"versions",
+		"users"
+	]
+}

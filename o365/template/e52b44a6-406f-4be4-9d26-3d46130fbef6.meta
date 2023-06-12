@@ -1,0 +1,21 @@
+{
+	"UUID": "e52b44a6-406f-4be4-9d26-3d46130fbef6",
+	"Name": "Office 365 Sharepoint User operation count",
+	"Description": "Investigative query",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%USERID%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"o365",
+		"sharepoint"
+	]
+}

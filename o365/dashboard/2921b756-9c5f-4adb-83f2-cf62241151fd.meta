@@ -1,0 +1,100 @@
+{
+	"UUID": "2921b756-9c5f-4adb-83f2-cf62241151fd",
+	"Name": "Office 365 Exchange User Investigative Dashboard",
+	"Description": "Investigative Dashboard for a specific user in Office 365 Exchange",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Office 365 Exchange Client Activity",
+				"reference": {
+					"id": "67390821-3bd6-4a98-ad16-be6ccbbe9f1d",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Exchange Operation Activity",
+				"reference": {
+					"id": "4548aceb-8e7d-414c-a5e2-57f62bf6080d",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Exchange Operation Activity",
+				"reference": {
+					"id": "4548aceb-8e7d-414c-a5e2-57f62bf6080d",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 User Attachment Activity",
+				"reference": {
+					"id": "0a4df85e-fadc-479f-aedc-237d2ac5eb0b",
+					"type": "template"
+				},
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "Client Activity",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 0,
+					"y": 3
+				},
+				"id": 16698427018350,
+				"rendererOptions": {},
+				"searchesIndex": 0
+			},
+			{
+				"title": "Operation Distribution",
+				"renderer": "overview",
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16698427452861,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Operation Distribution",
+				"renderer": "categoryBarChart",
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"id": 16698427452862,
+				"rendererOptions": {},
+				"searchesIndex": 2
+			},
+			{
+				"title": "Attachment Activity",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 6,
+					"y": 3
+				},
+				"id": 16698440068283,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2
+	},
+	"Labels": null
+}

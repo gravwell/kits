@@ -1,0 +1,3 @@
+tag=365-general json RecordType==40 Severity Category EntityType Name
+| stats count by Severity Category EntityType Name
+| table Severity Category EntityType Name count
