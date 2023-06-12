@@ -1,0 +1,3 @@
+tag=365-general json ClientIP UserId | geoip ClientIP.Location
+| stats count by UserId Location
+| pointmap UserId

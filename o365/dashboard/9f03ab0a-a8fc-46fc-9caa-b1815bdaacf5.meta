@@ -1,0 +1,103 @@
+{
+	"UUID": "9f03ab0a-a8fc-46fc-9caa-b1815bdaacf5",
+	"Name": "Office 365 Sharepoint User Investigation",
+	"Description": "Investigation dashboard for user activity",
+	"Data": {
+		"searches": [
+			{
+				"alias": "O365 Sharepoint User File deletions",
+				"reference": {
+					"id": "96109284-e578-47be-bf67-15a397bac65e",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Sharepoint external shares",
+				"reference": {
+					"id": "e0acd20f-af34-48b8-ab20-a8d442f72cc5",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Sharepoint User Investigation Heatmap",
+				"reference": {
+					"id": "392ce1aa-f1ff-453b-a4d0-2ef309b3ec55",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Sharepoint User operation count",
+				"reference": {
+					"id": "e52b44a6-406f-4be4-9d26-3d46130fbef6",
+					"type": "template"
+				},
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "File deletions",
+				"renderer": "table",
+				"span": {
+					"col": 7,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16698697606800,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "External shares",
+				"renderer": "table",
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 0,
+					"y": 5
+				},
+				"id": 16698700529991,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Activity Heatmap",
+				"renderer": "heatmap",
+				"span": {
+					"col": 5,
+					"row": 5,
+					"x": 7,
+					"y": 0
+				},
+				"id": 16698702641722,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Operations",
+				"renderer": "pieChart",
+				"span": {
+					"col": 5,
+					"row": 6,
+					"x": 7,
+					"y": 5
+				},
+				"id": 16698705173653,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"o365",
+		"sharepoint"
+	]
+}

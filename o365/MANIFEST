@@ -1,0 +1,354 @@
+{
+	"ID": "io.gravwell.o365",
+	"Name": "Office 365",
+	"Desc": "Office 365",
+	"Readme": "office 365",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 2,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "",
+	"Banner": "",
+	"Cover": "",
+	"Items": [
+		{
+			"Name": "o365_audit_recordtype",
+			"Type": 1,
+			"Hash": "7bbbcc5a432f6d93cb2bc803e92ad3f4c88ff065dd84b4559524628d3ceb117b"
+		},
+		{
+			"Name": "o365_audit_usertype",
+			"Type": 1,
+			"Hash": "94641e6e61b4b9a0b04ab97a585d836757534f7b62fd6cd944ff0ac54398fb26"
+		},
+		{
+			"Name": "o365_audit_applicationid",
+			"Type": 1,
+			"Hash": "0968da6150363974395672d1d4fad5e4e296ee8c8febf217b435a09fa450e071"
+		},
+		{
+			"Name": "RESOLVE_O365_RECORDTYPE",
+			"Type": 8,
+			"Hash": "560d83df7206e9ec72ad3d0bf3cedb74a05a0110af0b4078515ace195d501a84"
+		},
+		{
+			"Name": "RESOLVE_O365_USERTYPE",
+			"Type": 8,
+			"Hash": "bb161ba87638ea3b8b31cd8cb0244d0bd602bc721726f3b51876e30bd829deda"
+		},
+		{
+			"Name": "2921b756-9c5f-4adb-83f2-cf62241151fd",
+			"Type": 3,
+			"Hash": "f036e0e9c42cdb3fcadb7f0ed892bb3189c2a6dc3b7cd3122b5ec2509897a1c0"
+		},
+		{
+			"Name": "9f03ab0a-a8fc-46fc-9caa-b1815bdaacf5",
+			"Type": 3,
+			"Hash": "665109ae7033b1043c5c29fbf98ff5f40f51ca105f5626db698c8f94a6585faa"
+		},
+		{
+			"Name": "13b4e909-ee47-4fbc-b74d-a6b000effa74",
+			"Type": 3,
+			"Hash": "a68c1a6bf377b0dbf0bb189cba372899c1b7c39386b1669514753f169fb8cf3c"
+		},
+		{
+			"Name": "e868edb2-e6bb-4103-a56e-3af19a6dc036",
+			"Type": 3,
+			"Hash": "977f1cda806f876dc7695a0deb4fac975ef634177aae7e6976b4508d5eaba769"
+		},
+		{
+			"Name": "ab22baa3-9d0d-412a-b7f0-41470330fbb7",
+			"Type": 3,
+			"Hash": "cd26c493964335ec9a76d8203e1e950a30d9a2ae59291616aeae55ee3d2436de"
+		},
+		{
+			"Name": "06be9d81-7118-4e70-95bd-99767ae8223e",
+			"Type": 3,
+			"Hash": "55368798e40b891c469e65db78e635fb176124d2646ae0ba98951b4518a8c4c6"
+		},
+		{
+			"Name": "458fa0d0-7017-4ad6-86ab-9592bcd5496e",
+			"Type": 3,
+			"Hash": "ffd75bc516335c83eb3604456e8348126dd5d016b45eaa04db7a792ce88f9813"
+		},
+		{
+			"Name": "577f092c-b89b-4678-966f-e5d0246a5200",
+			"Type": 3,
+			"Hash": "758476aee37f45a915bec867350566d1607b7d3f450dbdaf0850daa295140af0"
+		},
+		{
+			"Name": "b550b9bf-6dcc-4bc5-a4cf-74f111cdfd78",
+			"Type": 3,
+			"Hash": "8ba5396367ee7d304a7ce8c21259fe927b8d9bd58fa65f3649b0c5c1209ce6e1"
+		},
+		{
+			"Name": "67390821-3bd6-4a98-ad16-be6ccbbe9f1d",
+			"Type": 6,
+			"Hash": "00dd3c6b2ecb6db2e7944f56c07c469380e94bf87ad6a662d1620a8f648772d9"
+		},
+		{
+			"Name": "4548aceb-8e7d-414c-a5e2-57f62bf6080d",
+			"Type": 6,
+			"Hash": "f01bc06f3ce9019999066529bd1a379550e1a4d8f9d04ce0302874134ffe5c01"
+		},
+		{
+			"Name": "0a4df85e-fadc-479f-aedc-237d2ac5eb0b",
+			"Type": 6,
+			"Hash": "1a993c61dc05cb973bbee1e157af62c704844b8a1f9818b2caca402dfdedb4c7"
+		},
+		{
+			"Name": "392ce1aa-f1ff-453b-a4d0-2ef309b3ec55",
+			"Type": 6,
+			"Hash": "436722fcb658230a837b10e1412b7b9155e641dabc8200893044e8f2271f18f7"
+		},
+		{
+			"Name": "96109284-e578-47be-bf67-15a397bac65e",
+			"Type": 6,
+			"Hash": "97947065b010b9b0f52fc6a61b328225c47d18ca8ed7b69062c80c0c726862da"
+		},
+		{
+			"Name": "e52b44a6-406f-4be4-9d26-3d46130fbef6",
+			"Type": 6,
+			"Hash": "047d3c004338dbde51196936209225dfc33f51998ccf3624c7e23bef309e1578"
+		},
+		{
+			"Name": "e0acd20f-af34-48b8-ab20-a8d442f72cc5",
+			"Type": 6,
+			"Hash": "56a9d68bcf508962c7d779eb4be1ce79e28ceebcd5722434c5dc0d98686c26c0"
+		},
+		{
+			"Name": "7f0385e6-9183-4b95-9ce8-812a96cda9e2",
+			"Type": 6,
+			"Hash": "6ea3f93c8ba0eb2028ada5fb22aa6865cce87a249fe06b202cbe31c6b998b241"
+		},
+		{
+			"Name": "e6d7bd23-d805-44f5-9fb2-a1c3bd5cbce0",
+			"Type": 6,
+			"Hash": "293777ddf9aa0500d70d67546a9de5fdb99498104ae91a8ebf878b98a40981d9"
+		},
+		{
+			"Name": "ec300f4a-0b42-4b9e-814d-c75c69c952f2",
+			"Type": 6,
+			"Hash": "7fbf52d34681499f63a33232412ba726aabd13e8bf365dceb481ee5a99409c53"
+		},
+		{
+			"Name": "d9aed2e0-a105-484d-9c69-cb99f5f7a72a",
+			"Type": 6,
+			"Hash": "f72acbc9f30aa59700a573fefc01a881a28b78338e1957f716548d3c2e50adee"
+		},
+		{
+			"Name": "be7ea7a2-e7f1-4507-bc85-549fdeac1d86",
+			"Type": 6,
+			"Hash": "41004ae726c50663f9e8087beb9ff5da78114015f93738441e465507526dd2dd"
+		},
+		{
+			"Name": "f7b702bd-56df-4c1f-bfd8-9e0e20a70098",
+			"Type": 6,
+			"Hash": "9270b63579221dc0c3f4fc964a12e2af7c23f593a7ba97a5d097b85287b5f10a"
+		},
+		{
+			"Name": "9dbad550-7919-4aec-a27a-60888b09cdac",
+			"Type": 6,
+			"Hash": "3cd8a51ba903b5701b437198a97346a835a0e06c4b0a36142666ad9d35d88828"
+		},
+		{
+			"Name": "f83e8d57-6bfe-4c8c-ab2a-6b29a6675873",
+			"Type": 6,
+			"Hash": "439139b59457000e94db8e1a873f8c7bea5ffd5832a2d134f85686992dc60e1e"
+		},
+		{
+			"Name": "a309b3eb-62df-4f2a-ba7e-24873743d8d6",
+			"Type": 6,
+			"Hash": "8ba787b9b434b4cd2b2b7b566b05c0f3446c860c913c8ea1f32a658eace11224"
+		},
+		{
+			"Name": "e0b2de4b-3160-42a0-842c-8b5a33d38b2b",
+			"Type": 6,
+			"Hash": "cef54467998c49c03945b1358411022d3839caadeabfeeea9c1e0778a6c359ac"
+		},
+		{
+			"Name": "b9d8ad5a-7042-4161-963b-1c7c54fe6ba2",
+			"Type": 6,
+			"Hash": "ded38777fb56da316348d274f6739f5d6862d2f6280e53dfa804deaacce79653"
+		},
+		{
+			"Name": "25a6886f-2376-4fe4-a332-2d860afb85b1",
+			"Type": 6,
+			"Hash": "7e3fe477c905950ef7ddc467fe85ef0555ab57654205c0c77d0598bfe0e6b2f2"
+		},
+		{
+			"Name": "3ccea445-536f-4abc-9c98-999099b62667",
+			"Type": 6,
+			"Hash": "c6887858e73e6aba2b35c9d2966daa266240d6e002a00a12f46547b3804d0e51"
+		},
+		{
+			"Name": "13be8511-cd54-43ba-bd76-0fd85f57e958",
+			"Type": 6,
+			"Hash": "9e88f3d02428ca0400a617adf2d6039e84f5fcaa75be6c94b1643d210b31c520"
+		},
+		{
+			"Name": "73529bc7-dd72-4caf-b30a-af012f322e29",
+			"Type": 5,
+			"Hash": "cc6d9d6e82bae811fb513c51e7233d0ba15fabc10aaa381e9e3aeca6fb0d1337"
+		},
+		{
+			"Name": "7be2a47c-cd46-4e45-a094-90093b1dcefd",
+			"Type": 5,
+			"Hash": "c16e03f7cc60131a9690b8299237f545d4a9c321b0c1091b5c6ae71f299afae4"
+		},
+		{
+			"Name": "b03a04d1-475d-46dc-a2ef-dc14a7d9dff9",
+			"Type": 5,
+			"Hash": "dc416676a8b763b89e1fda974ef2178c2f01034f0ae0783237d47705858e0405"
+		},
+		{
+			"Name": "3bf3db7d-7afe-4b90-a15a-ac488dc5fb88",
+			"Type": 9,
+			"Hash": "7a26eb9d624ba41bf779db5aca702757488e11d10db3ff3a8a0e2641c2f54391"
+		},
+		{
+			"Name": "0808c326-302e-4b7e-9eea-a57355ccd895",
+			"Type": 9,
+			"Hash": "e0e2464dd398bf9accb0c2537d39845aef2951f4fed2fe76f4bfc5fe1e911321"
+		},
+		{
+			"Name": "dba32092-adbe-4b3d-a173-5e1cacbb2079",
+			"Type": 9,
+			"Hash": "c0014d24835f2339fe48da7ba7b1a9412e1760b1e07a7e6bccad1a4cc99b2f23"
+		},
+		{
+			"Name": "abf89ce9-8ddf-4b36-84d1-15ff0a1a0b75",
+			"Type": 9,
+			"Hash": "df9890e9ac3014773d29cba392795fc111d3b6e2bb04da43403c0359b2cb9e9b"
+		},
+		{
+			"Name": "9325f888-37d1-4c66-919c-d8eb25c18de9",
+			"Type": 9,
+			"Hash": "95ef58509a0ac48516911a2acbdeb909c25caebae28f300a3ff865fe2b89eae9"
+		},
+		{
+			"Name": "e39fee53-4742-4e53-8008-43ee9a56d5d5",
+			"Type": 9,
+			"Hash": "3419bd91039b606fe0eb913702cb31d1115277e394e1ffba08679d3c931812d1"
+		},
+		{
+			"Name": "eff76888-6c58-4703-ad2c-8e1dc57dcc49",
+			"Type": 9,
+			"Hash": "577a27f7786e279acb0c02745c5130ded03c976cfa2e2805a109d4ef2049306d"
+		},
+		{
+			"Name": "21c4a5ce-9fc7-421c-a8f8-4fdcade8789c",
+			"Type": 9,
+			"Hash": "1d9ffdb453fce95ca69981d3649f9c4d0b6b7d85b18605878a4baa5383d8eab4"
+		},
+		{
+			"Name": "4c04e13f-c007-4453-a33b-9fcc578aa3dd",
+			"Type": 9,
+			"Hash": "345fddc88729f0bb73e380616bec721211f8f0675ecfe971871194d97463617c"
+		},
+		{
+			"Name": "04d45193-e1ea-4755-9870-d08426dc42ae",
+			"Type": 9,
+			"Hash": "dde4cc50a90a823f52a6a998c94426dfc06b19f9c28909cb29e4eb29d229a01b"
+		},
+		{
+			"Name": "faa94f82-9ebb-43e7-9273-ccfbbc5aac04",
+			"Type": 9,
+			"Hash": "a1f461c4684097e83ac1f9d27ffa64a746264f95ce5be705f5a8e1000568f3de"
+		},
+		{
+			"Name": "3bc2f8d5-d54b-4a6d-bc7e-f5d07b03f84a",
+			"Type": 9,
+			"Hash": "dab700d9e04766a01acd60865aa8a32ab01adfc22f95c9f656e9a3d6c1e6679f"
+		},
+		{
+			"Name": "0975d37c-373e-4d7a-9bed-8f8ca7123e93",
+			"Type": 9,
+			"Hash": "ce0cce0aed7ce8ef120a87046ee2d128f44d89c89c351f92fb8256361a552b20"
+		},
+		{
+			"Name": "3fe01f34-6016-40e6-bb03-58c6b24f59db",
+			"Type": 9,
+			"Hash": "c87c5004eb3fe5157a47ef65fc2718716ba37fd7fa419779d055db4932cb67ff"
+		},
+		{
+			"Name": "10f7addf-6d33-4605-9d3d-5c60a32c9977",
+			"Type": 9,
+			"Hash": "1e5a1f68ecfa6d6a1c2d35c907d4239e9a49f57f120bbbf6d57422565e1a30d5"
+		},
+		{
+			"Name": "e3de4a9b-5adb-40c0-bab7-88d72428f4b7",
+			"Type": 9,
+			"Hash": "ac0fbb0ac15d360c4ab7b2c46dfc17b62b2d5839cab72d3e27ee461e1d0f6059"
+		},
+		{
+			"Name": "7dcb0090-b33c-4e82-acaf-6091274e76f6",
+			"Type": 9,
+			"Hash": "a8085cb066770a88f207f9249c4a9ac17e3426d0694854e027315b9b3e66a9f8"
+		},
+		{
+			"Name": "cc3d314f-7d07-427d-9902-c76ed9203ff8",
+			"Type": 9,
+			"Hash": "53c8f8acceea1fb553c926baa8537f981f6e5815afa0fcfbd6d7b003d940283e"
+		},
+		{
+			"Name": "99da6f6a-bb04-439d-b9ab-c729829563a8",
+			"Type": 9,
+			"Hash": "a24812f527b208f4aaaa500d1b4b3fa73281dc58485845367b1562433f5b8dcc"
+		},
+		{
+			"Name": "721f2b91-67b5-44d6-b2c7-c841540f39c5",
+			"Type": 9,
+			"Hash": "a3fab0ed4d3601de34e1d157c59a7ca8ce3ead5243823ab104278be363c58553"
+		},
+		{
+			"Name": "af1a6dc2-477d-47a8-ba49-8b54c7829b43",
+			"Type": 9,
+			"Hash": "93c62a9911a9441d6aa207aeab69cb3416b96650a5f79460c989cfe86b06bf68"
+		},
+		{
+			"Name": "966eec2c-a0df-45da-88b0-db4fea66cccc",
+			"Type": 9,
+			"Hash": "5a96c12ca48f760bc6422222af7605f3818e5fd08e61a7b9a3e4a3180a0b8142"
+		},
+		{
+			"Name": "36bb7555-e0ab-4688-8459-e2376f29e1f4",
+			"Type": 9,
+			"Hash": "a4efb4fb42b0bc62a3cae4d73c66446b62c1c246c59bf652901a6a7d58127d5e"
+		},
+		{
+			"Name": "9a85567b-f2e4-4c86-9b7e-92aee843086e",
+			"Type": 9,
+			"Hash": "48db73fcf971dea178f1f6c9c47ab090d18a793e0a44d4ef87fe57e5c304eaf1"
+		},
+		{
+			"Name": "365-dlp",
+			"Type": 4,
+			"Hash": "b26500e14eb3e9d190f38932e0e61e7475b0497bd24f88ec8ee09078a562fddd"
+		},
+		{
+			"Name": "365-azure",
+			"Type": 4,
+			"Hash": "34a1e8a6a8f0999b75037b799e25ad9c7c08c5c5894e31d330172af5520cee47"
+		},
+		{
+			"Name": "365-general",
+			"Type": 4,
+			"Hash": "7073c2c24d8d685098f858e31de8f0c9e010b5930c6b32387ba463b3bd2289e2"
+		},
+		{
+			"Name": "365-sharepoint",
+			"Type": 4,
+			"Hash": "ebd5fcefe01b91bab640a7ee8a0807d775ba2b2e6ee31f58d34afadac3518119"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": []
+}

@@ -1,0 +1,197 @@
+{
+	"UUID": "06be9d81-7118-4e70-95bd-99767ae8223e",
+	"Name": "Office 365 Azure Overview",
+	"Description": "Overview of Office 365 Azure Activity",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Office 365 Azure Activity Distribution",
+				"color": null,
+				"reference": {
+					"id": "21c4a5ce-9fc7-421c-a8f8-4fdcade8789c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 Azure Activity Distribution",
+				"color": null,
+				"reference": {
+					"id": "21c4a5ce-9fc7-421c-a8f8-4fdcade8789c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 Azure Active Directory Users",
+				"color": null,
+				"reference": {
+					"id": "eff76888-6c58-4703-ad2c-8e1dc57dcc49",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office365 Azure Active Directory User Login Failures",
+				"color": null,
+				"reference": {
+					"id": "4c04e13f-c007-4453-a33b-9fcc578aa3dd",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 Azure Active Directory Login Failures",
+				"color": null,
+				"reference": {
+					"id": "04d45193-e1ea-4755-9870-d08426dc42ae",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 Azure Active Directory Login Failure Map",
+				"color": null,
+				"reference": {
+					"id": "faa94f82-9ebb-43e7-9273-ccfbbc5aac04",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 Azure Login Success/Failure Ratio",
+				"color": null,
+				"reference": {
+					"id": "e39fee53-4742-4e53-8008-43ee9a56d5d5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 16687031927990,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16687032116671,
+				"title": "Activity Distribution",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16687033099732,
+				"title": "Active Users",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16687035313583,
+				"title": "Users Failing To Login",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16687038216674,
+				"title": "Login Failures",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16687039776295,
+				"title": "Login Failure Map",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16697563594626,
+				"title": "User Login Success/Failure ratios",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 12,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

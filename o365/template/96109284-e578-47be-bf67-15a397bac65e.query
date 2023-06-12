@@ -1,0 +1,4 @@
+tag=365-sharepoint words FileDeleted
+| json UserId=="%%USERID%%" SourceFileName SourceRelativeUrl UserAgent SourceFileExtension Operation=="FileDeleted" ClientIP ObjectId ItemType
+| geoip -r asn_db ClientIP.ASNOrg
+| table SourceFileName SourceRelativeUrl ClientIP ASNOrg ItemType

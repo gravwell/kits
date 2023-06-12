@@ -1,0 +1,130 @@
+{
+	"UUID": "e868edb2-e6bb-4103-a56e-3af19a6dc036",
+	"Name": "Office 365 Exchange IP Investigative Dashboard",
+	"Description": "Investigative dashboard for Office 365 activity by IP Address",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Office 365 Exchange IP Activity",
+				"reference": {
+					"id": "f83e8d57-6bfe-4c8c-ab2a-6b29a6675873",
+					"type": "template"
+				},
+				"color": null,
+				"searchID": 22950954751
+			},
+			{
+				"alias": "Office 365 Exchange IP Activity",
+				"reference": {
+					"id": "f83e8d57-6bfe-4c8c-ab2a-6b29a6675873",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Exchange Unique Users for an IP",
+				"reference": {
+					"id": "e0b2de4b-3160-42a0-842c-8b5a33d38b2b",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Exchange Simple IP Lookup",
+				"reference": {
+					"id": "9dbad550-7919-4aec-a27a-60888b09cdac",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 Client accounting for IP",
+				"reference": {
+					"id": "a309b3eb-62df-4f2a-ba7e-24873743d8d6",
+					"type": "template"
+				},
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 5,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16698521761360,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "IP User Activity",
+				"renderer": "stackgraph",
+				"span": {
+					"col": 7,
+					"row": 10,
+					"x": 0,
+					"y": 3
+				},
+				"id": 16698521761361,
+				"rendererOptions": {
+					"Orientation": "horizontal",
+					"IncludeOther": "yes"
+				},
+				"searchesIndex": 1
+			},
+			{
+				"title": "Unique Users",
+				"renderer": "numberCard",
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 5,
+					"y": 0
+				},
+				"id": 16698522951112,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "IP Geo Location",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 3,
+					"x": 7,
+					"y": 0
+				},
+				"id": 16698524762883,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Clients and Versions Seen",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 10,
+					"x": 7,
+					"y": 3
+				},
+				"id": 16698531032984,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"office",
+		"office365",
+		"exchange",
+		"ip"
+	]
+}

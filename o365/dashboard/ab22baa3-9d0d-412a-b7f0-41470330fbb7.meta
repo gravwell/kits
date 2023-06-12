@@ -1,0 +1,147 @@
+{
+	"UUID": "ab22baa3-9d0d-412a-b7f0-41470330fbb7",
+	"Name": "Office 365 Sharepoint Overview",
+	"Description": "Office 365 Sharepoint Overview",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Sharepoint Heatmap",
+				"reference": {
+					"id": "3bf3db7d-7afe-4b90-a15a-ac488dc5fb88",
+					"type": "savedQuery"
+				},
+				"color": null
+			},
+			{
+				"alias": "Domains receiving new shares",
+				"reference": {
+					"id": "9325f888-37d1-4c66-919c-d8eb25c18de9",
+					"type": "savedQuery"
+				},
+				"color": null
+			},
+			{
+				"alias": "Domains receiving new shares",
+				"reference": {
+					"id": "9325f888-37d1-4c66-919c-d8eb25c18de9",
+					"type": "savedQuery"
+				},
+				"color": null
+			},
+			{
+				"alias": "Users touching .exe files",
+				"reference": {
+					"id": "abf89ce9-8ddf-4b36-84d1-15ff0a1a0b75",
+					"type": "savedQuery"
+				},
+				"color": null
+			},
+			{
+				"alias": "Users sharing externally",
+				"reference": {
+					"id": "0808c326-302e-4b7e-9eea-a57355ccd895",
+					"type": "savedQuery"
+				},
+				"color": null
+			},
+			{
+				"alias": "Users sharing externally",
+				"reference": {
+					"id": "0808c326-302e-4b7e-9eea-a57355ccd895",
+					"type": "savedQuery"
+				},
+				"color": null
+			},
+			{
+				"alias": "Users deleting \u003e 5 files",
+				"reference": {
+					"id": "dba32092-adbe-4b3d-a173-5e1cacbb2079",
+					"type": "savedQuery"
+				},
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "Heatmap of Users",
+				"renderer": "heatmap",
+				"span": {
+					"col": 8,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16698679780380,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "\"Guest\" Domains receiving new shares",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16698680209781,
+				"rendererOptions": {},
+				"searchesIndex": 2
+			},
+			{
+				"title": "Users touching .exe files",
+				"renderer": "barChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 7
+				},
+				"id": 16698681024872,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Users sharing externally",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 7
+				},
+				"id": 16698682115043,
+				"rendererOptions": {},
+				"searchesIndex": 5
+			},
+			{
+				"title": "Users with \u003e5 deletions",
+				"renderer": "pieChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 7
+				},
+				"id": 16698686899294,
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "today"
+		},
+		"version": 2
+	},
+	"Labels": [
+		"o365",
+		"sharepoint"
+	]
+}

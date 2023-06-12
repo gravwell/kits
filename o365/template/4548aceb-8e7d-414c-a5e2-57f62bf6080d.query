@@ -1,0 +1,3 @@
+tag=365-exchange json Operation UserId=="%%EMAIL%%"
+| stats count by Operation
+| chart count by Operation

@@ -1,0 +1,23 @@
+{
+	"UUID": "0a4df85e-fadc-479f-aedc-237d2ac5eb0b",
+	"Name": "Office 365 User Attachment Activity",
+	"Description": "Show table of email attachment activity in Office 365",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%EMAIL%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"office",
+		"office365",
+		"email",
+		"user"
+	]
+}

@@ -1,0 +1,4 @@
+tag=365-exchange json ClientIP=="%%IP%%" UserId ClientProcessName ClientVersion
+| stats unique_count(UserId) as Users by ClientProcessName ClientVersion
+| sort by Users asc
+| table ClientProcessName ClientVersion Users

@@ -1,0 +1,10 @@
+value,name,description
+0,Regular,A regular user.
+1,Reserved,A reserved user.
+2,Admin,An administrator.
+3,DcAdmin,A Microsoft datacenter operator.
+4,System,A system account.
+5,Application,An application.
+6,ServicePrincipal,A service principal.
+7,CustomPolicy,A custom policy.
+8,SystemPolicy,A system policy.

@@ -1,0 +1,22 @@
+{
+	"UUID": "d9aed2e0-a105-484d-9c69-cb99f5f7a72a",
+	"Name": "Office 365 User Login Success/Failure Numbercard",
+	"Description": "Show Login Success and Failure counts for a specific user",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%USER%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"office",
+		"user",
+		"azure"
+	]
+}

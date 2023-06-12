@@ -1,0 +1,8 @@
+{
+	"Name": "RESOLVE_O365_USERTYPE",
+	"Description": "Resolves int32 UserType values in the common o365 audit log schema\nhttps://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema",
+	"Labels": [
+		"o365",
+		"UserType"
+	]
+}

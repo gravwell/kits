@@ -1,0 +1,5 @@
+tag=365-sharepoint words FileDeleted
+| json UserId SourceFileName SourceRelativeUrl UserAgent SourceFileExtension Operation=="FileDeleted" ClientIP ObjectId ItemType
+| count by UserId
+| eval (count > 5)
+| chart count by UserId limit 30

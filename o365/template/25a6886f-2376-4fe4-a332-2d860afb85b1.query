@@ -1,0 +1,5 @@
+tag=365-sharepoint json UserId Operation!="ManagedSyncClientAllowed" SourceFileName~"%%FILENAME%%" ClientIP ObjectId
+| grep -e Operation -v "FileSyncUploadedFull"
+| count by UserId Operation
+| geoip ClientIP.Location
+| pointmap ClientIP UserId Operation

@@ -1,0 +1,186 @@
+{
+	"UUID": "b550b9bf-6dcc-4bc5-a4cf-74f111cdfd78",
+	"Name": "Office 365 Exchange User Overview",
+	"Description": "Overview dashboard of users on Office 365 Exchange",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search 1",
+				"query": "tag=365-exchange stats count | chart count",
+				"color": null
+			},
+			{
+				"alias": "Search 2",
+				"query": "tag=365-exchange json Operation==\"New-Mailbox\" | stats count as \"New Mailboxes\" | numbercard \"New Mailboxes\"",
+				"color": null
+			},
+			{
+				"alias": "Search 3",
+				"query": "tag=365-exchange json Operation==\"Remove-Mailbox\" | stats count as \"Removed Mailboxes\" | numbercard \"Removed Mailboxes\"",
+				"color": null
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=365-exchange json UserId\n| regex -e UserId \"[^@]+@(?P\u003cdomain\u003e.+)\"\n| stats unique_count(domain) as \"Active Domains\" unique_count(UserId) as \"Active Users\" \n| numbercard \"Active Users\" \"Active Domains\"",
+				"color": null
+			},
+			{
+				"alias": "Office 365 Email Traffic",
+				"color": null,
+				"reference": {
+					"id": "7dcb0090-b33c-4e82-acaf-6091274e76f6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 Login Activity Map",
+				"color": null,
+				"reference": {
+					"id": "cc3d314f-7d07-427d-9902-c76ed9203ff8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search 7",
+				"query": "tag=365-exchange json -s Operation == \"Create\" Item.Attachments as \"Attachments\"\n| split -d \"; \" Attachments\n| regex -e Attachments \"\\.(?P\u003cextension\u003e[^\\.]+) \\(\\d+b\\)\"\n| stats count by extension\n| lower extension\n| chart count by extension limit 32",
+				"color": null
+			},
+			{
+				"alias": "Search 8",
+				"query": "tag=365-exchange json -s Operation == \"Create\" Item.Attachments as \"Attachments\"\n| split -d \"; \" Attachments\n| regex -e Attachments \"\\.(?P\u003cextension\u003e[^\\.]+) \\(\\d+b\\)\"\n| lower extension\n| stats count by extension\n| sort by count asc\n| limit 10\n| table extension count",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 16680966866390,
+				"title": "Activity Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16680969103981,
+				"title": "New Mailboxes",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 5,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16680974837392,
+				"title": "Removed Mailboxes",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16680975482833,
+				"title": "Active Users",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16680977652784,
+				"title": "Email Traffic Usage",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16680980633605,
+				"title": "Login Activity Map",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16680988814476,
+				"title": "Common Email Extensions",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 5,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16680989652147,
+				"title": "Rare Email File Extensions",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 2,
+					"y": 8
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

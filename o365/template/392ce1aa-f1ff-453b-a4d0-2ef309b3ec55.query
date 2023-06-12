@@ -1,0 +1,3 @@
+tag=365-sharepoint json UserId=="%%USERID%%" ClientIP Operation
+| geoip ClientIP.Location
+| heatmap ClientIP

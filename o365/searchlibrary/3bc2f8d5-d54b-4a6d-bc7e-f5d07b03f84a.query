@@ -1,0 +1,3 @@
+tag=365-general json Workload == "ThreatIntelligence" Verdict 
+| stats count by Verdict
+| chart count by Verdict

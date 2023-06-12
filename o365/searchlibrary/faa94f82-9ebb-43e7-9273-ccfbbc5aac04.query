@@ -1,0 +1,5 @@
+tag=365-azure json Operation == "UserLoginFailed" UserId ClientIP
+| stats count by ClientIP UserId
+| geoip ClientIP.Location
+| geoip -r asn_db ClientIP.ASNOrg
+| pointmap UserId ClientIP ASNOrg

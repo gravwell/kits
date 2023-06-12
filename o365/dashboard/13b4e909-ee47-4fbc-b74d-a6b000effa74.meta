@@ -1,0 +1,149 @@
+{
+	"UUID": "13b4e909-ee47-4fbc-b74d-a6b000effa74",
+	"Name": "Office 365 Azure User Investigative Dashboard",
+	"Description": "Investigative Dashboard for a specific user",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Office 365 User Operation Overview",
+				"reference": {
+					"id": "ec300f4a-0b42-4b9e-814d-c75c69c952f2",
+					"type": "template"
+				},
+				"color": null,
+				"searchID": 31109968124
+			},
+			{
+				"alias": "Office 365 User Login Success/Failure Numbercard",
+				"reference": {
+					"id": "d9aed2e0-a105-484d-9c69-cb99f5f7a72a",
+					"type": "template"
+				},
+				"color": null,
+				"searchID": 41803384329
+			},
+			{
+				"alias": "Office 365 Azure Geo-Located User Operations",
+				"reference": {
+					"id": "f7b702bd-56df-4c1f-bfd8-9e0e20a70098",
+					"type": "template"
+				},
+				"color": null,
+				"searchID": 53826107939
+			},
+			{
+				"alias": "Office 365 User OS Operation Distribution",
+				"reference": {
+					"id": "7f0385e6-9183-4b95-9ce8-812a96cda9e2",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 User Unique Useragent numbercard",
+				"reference": {
+					"id": "be7ea7a2-e7f1-4507-bc85-549fdeac1d86",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Office 365 User Workload  Operations",
+				"reference": {
+					"id": "e6d7bd23-d805-44f5-9fb2-a1c3bd5cbce0",
+					"type": "template"
+				},
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16697570033870,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Login Counts",
+				"renderer": "numberCard",
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16697576856532,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Geo Located Operations",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 3
+				},
+				"id": 16697581348893,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "User Operation Distributions",
+				"renderer": "stackgraph",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 9
+				},
+				"id": 16697622355603,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Orientation": "vertical",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Unique User Agents",
+				"renderer": "numberCard",
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16697626758704,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Workload Operations",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 6,
+					"y": 3
+				},
+				"id": 16697630839685,
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2,
+		"lastDataUpdate": "2022-11-29T14:52:13-07:00"
+	},
+	"Labels": null
+}
