@@ -14,6 +14,12 @@
 		"Minor": 0,
 		"Point": 0
 	},
+	"Dependencies": [
+		{
+			"ID": "io.gravwell.networkenrichment",
+			"MinVersion": 14
+		}
+	],
 	"Icon": "",
 	"Banner": "",
 	"Cover": "",
