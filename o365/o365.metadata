@@ -1,0 +1,9 @@
+{
+	"Ingesters": ["Office 365"],
+	"Tags": ["365-dlp", "365-azure", "365-general", "365-exchange", "365-sharepoint"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "Office 365", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "Banner Image", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
