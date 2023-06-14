@@ -1,0 +1,6 @@
+tag=365-exchange json -s MailboxOwnerUPN Item.Subject as "Subject" Operation == "Create" Item.Attachments as "Attachments"
+| split -d "; " Attachments
+| regex -e "Attachments" "\.(?P<extension>[^\.]+) \(\d+b\)" extension
+| lower extension
+| eval extension == "exe"
+| table TIMESTAMP MailboxOwnerUPN Subject Attachments

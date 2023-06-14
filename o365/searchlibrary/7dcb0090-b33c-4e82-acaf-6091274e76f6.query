@@ -1,0 +1,1 @@
+tag=365-exchange json Operation == "Create" Item.SizeInBytes | stats sum(SizeInBytes) as traffic over 10m | chart traffic

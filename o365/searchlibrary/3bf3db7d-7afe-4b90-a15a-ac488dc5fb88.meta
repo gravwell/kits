@@ -1,0 +1,18 @@
+{
+	"Name": "Sharepoint Client Map",
+	"Description": "Map of user activity (excluding sync operations)",
+	"GUID": "3bf3db7d-7afe-4b90-a15a-ac488dc5fb88",
+	"Labels": [
+		"o365",
+		"sharepoint"
+	],
+	"Metadata": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "today",
+			"timezone": null,
+			"start": null,
+			"end": null
+		}
+	}
+}

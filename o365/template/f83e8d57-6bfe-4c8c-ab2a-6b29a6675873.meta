@@ -1,0 +1,23 @@
+{
+	"UUID": "f83e8d57-6bfe-4c8c-ab2a-6b29a6675873",
+	"Name": "Office 365 Exchange IP Activity",
+	"Description": "Show Stackgraph of User operations for a given IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"office365",
+		"exchange",
+		"ip",
+		"ip address"
+	]
+}

@@ -1,0 +1,17 @@
+@failure{tag=365-azure json Operation==UserLoginFailed UserType UserId RecordType ClientIP
+| stats count as Failures by UserType UserId RecordType ClientIP
+| lookup -r o365_audit_usertype UserType value name as UserType
+| table UserId UserType Failures RecordType ClientIP};
+@success{tag=365-azure json Operation==UserLoggedIn UserType UserId RecordType ClientIP
+| stats count as Logins by UserType UserId RecordType ClientIP
+| lookup -r o365_audit_usertype UserType value name as UserType
+| table UserId UserType Logins RecordType ClientIP};
+
+/* dump both tables into the pipeline */
+dump -r @failure | dump -r @success -p
+| stats sum(Failures) as Failures sum(Logins) as Logins by UserId UserType ClientIP RecordType
+| lookup -r o365_audit_recordtype RecordType value name as RecordType
+| eval (Ratio=float(Failures)/float(Logins))
+| sort by Ratio desc
+| geoip ClientIP.CountryName ClientIP.City
+| table UserId UserType Logins Failures Ratio RecordType ClientIP CountryName City

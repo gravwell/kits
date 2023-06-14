@@ -1,0 +1,24 @@
+{
+	"UUID": "4548aceb-8e7d-414c-a5e2-57f62bf6080d",
+	"Name": "Office 365 Exchange Operation Activity",
+	"Description": "Chart of users Office 365 Exchange Operational Activity",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%EMAIL%%",
+				"label": "Email",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"office365",
+		"exchange",
+		"user",
+		"email",
+		"operations"
+	]
+}

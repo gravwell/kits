@@ -1,0 +1,8 @@
+{
+	"Name": "Office 365 Azure MFA Logon Failures",
+	"Description": "Show list of users that passed username and password logon step but failed the MFA step.",
+	"GUID": "36bb7555-e0ab-4688-8459-e2376f29e1f4",
+	"Metadata": {
+		"timeframe": null
+	}
+}

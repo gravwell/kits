@@ -1,0 +1,3 @@
+tag=365-exchange json ClientIP=="%%IP%%" Operation UserId LogonError
+| stats count by Operation UserId LogonError
+| table UserId Operation LogonError count

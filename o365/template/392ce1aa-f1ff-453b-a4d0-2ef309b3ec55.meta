@@ -1,0 +1,21 @@
+{
+	"UUID": "392ce1aa-f1ff-453b-a4d0-2ef309b3ec55",
+	"Name": "Office 365 Sharepoint User Investigation Heatmap",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%USERID%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"o365",
+		"sharepoint"
+	]
+}

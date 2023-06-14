@@ -1,0 +1,172 @@
+{
+	"UUID": "458fa0d0-7017-4ad6-86ab-9592bcd5496e",
+	"Name": "Office 365 General Overview",
+	"Description": "Overview Dashboard of Office 365 General API activity",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Office365 General Workload Distribution",
+				"color": null,
+				"reference": {
+					"id": "e3de4a9b-5adb-40c0-bab7-88d72428f4b7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office365 General Workload Distribution",
+				"color": null,
+				"reference": {
+					"id": "e3de4a9b-5adb-40c0-bab7-88d72428f4b7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 General User Count",
+				"color": null,
+				"reference": {
+					"id": "10f7addf-6d33-4605-9d3d-5c60a32c9977",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 General ThreatIntel Verdict Distribution",
+				"color": null,
+				"reference": {
+					"id": "3bc2f8d5-d54b-4a6d-bc7e-f5d07b03f84a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office365 General User Activity Map",
+				"color": null,
+				"reference": {
+					"id": "0975d37c-373e-4d7a-9bed-8f8ca7123e93",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 ThreatManagement Alerts",
+				"color": null,
+				"reference": {
+					"id": "3fe01f34-6016-40e6-bb03-58c6b24f59db",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 16686995514600,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16686995762721,
+				"title": "Workload Distribution",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16686997045692,
+				"title": "User Count",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16687000820083,
+				"title": "ThreatIntel",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16687004560724,
+				"title": "User Locations",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16687024775905,
+				"title": "ThreatManagement Alert Stats",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

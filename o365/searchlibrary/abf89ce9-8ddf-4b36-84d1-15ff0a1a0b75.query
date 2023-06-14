@@ -1,0 +1,4 @@
+tag=365-sharepoint words -v ManagedSyncClientAllowed 
+| json UserId SourceFileName SourceRelativeUrl UserAgent SourceFileExtension=="exe" Operation ClientIP ObjectId ItemType
+| count by UserId
+| chart count by UserId limit 20

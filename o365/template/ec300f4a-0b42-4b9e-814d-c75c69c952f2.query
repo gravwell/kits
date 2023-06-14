@@ -1,0 +1,3 @@
+tag=365-azure json Operation UserId==%%USER%%
+| stats count by Operation
+| chart count by Operation
