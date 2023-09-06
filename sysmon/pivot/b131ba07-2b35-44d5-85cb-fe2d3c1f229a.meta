@@ -1,0 +1,39 @@
+{
+	"UUID": "b131ba07-2b35-44d5-85cb-fe2d3c1f229a",
+	"Name": "Sysmon SHA256 Match",
+	"Description": "Search sysmon events for matches on a SHA256",
+	"Data": {
+		"menuLabel": "Sysmon SHA256",
+		"triggers": [
+			{
+				"pattern": "/[0-9,A-F]{64}/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Sysmon SHA256 Events",
+				"description": "Show Sysmon events with matching SHA256",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "87d7b1c8-2aa4-4b09-816a-295d548b797b",
+					"options": {
+						"variable": "_HASH_"
+					}
+				}
+			}
+		]
+	},
+	"Labels": null
+}

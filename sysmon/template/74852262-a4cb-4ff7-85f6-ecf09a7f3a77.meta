@@ -1,0 +1,24 @@
+{
+	"UUID": "74852262-a4cb-4ff7-85f6-ecf09a7f3a77",
+	"Name": "Event Counts by ProcessGuid",
+	"Description": "Numbercard of total Event Counts by Process Guid",
+	"Data": {
+		"variables": [
+			{
+				"name": "_GUID_",
+				"label": "Process Guid",
+				"description": "Process Guid Value",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"events",
+		"count"
+	]
+}

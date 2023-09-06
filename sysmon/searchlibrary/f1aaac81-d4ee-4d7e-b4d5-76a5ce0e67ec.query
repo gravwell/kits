@@ -1,0 +1,5 @@
+tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID == 3 DestinationIp | stats count by DestinationIp |
+geoip -r asn_db DestinationIp.ASNOrg |
+stats unique_count(DestinationIp) as "Unique IPs" sum(count) as "Total Connections" by ASNOrg |
+sort by "Unique IPs" desc |
+table ASNOrg "Unique IPs" "Total Connections"

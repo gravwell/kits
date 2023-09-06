@@ -1,0 +1,5 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==10 Computer SourceImage!~system32 TargetImage~system32 GrantedAccess |
+anko windows_access_flags GrantedAccess has VM_WRITE |
+anko windows_access_flags GrantedAccess dump Flags |
+stats count by Computer SourceImage TargetImage GrantedAccess |
+table Computer SourceImage TargetImage count Flags

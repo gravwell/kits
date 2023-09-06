@@ -1,0 +1,14 @@
+{
+	"Name": "Sysmon Process CreateRemoteThread Activity",
+	"Description": "Table of processes creating remote threads in other processes",
+	"GUID": "d661e0f9-d9fe-4e75-bc5a-ce0f57f12834",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"CreateRemoteThread"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

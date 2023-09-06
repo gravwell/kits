@@ -1,0 +1,22 @@
+{
+	"UUID": "948b682a-f154-4561-ab95-7ab602beb73a",
+	"Name": "Sysmon DNS Client Querying this Name",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"dns"
+	]
+}

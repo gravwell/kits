@@ -1,0 +1,199 @@
+{
+	"UUID": "90918c39-5748-48ab-a0db-91a6534e0911",
+	"Name": "Sysmon Process GUID Investigation",
+	"Description": "Investigate Process Activity via Sysmon",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Event Counts by ProcessGuid",
+				"timeframe": {},
+				"reference": {
+					"id": "74852262-a4cb-4ff7-85f6-ecf09a7f3a77",
+					"type": "template"
+				},
+				"searchID": 5848446221
+			},
+			{
+				"alias": "Sysmon Process DNS Query Activity Summary",
+				"timeframe": {},
+				"reference": {
+					"id": "461f93f2-86be-4122-a4f3-f6eb751f018c",
+					"type": "template"
+				},
+				"searchID": 3609621739
+			},
+			{
+				"alias": "Sysmon ProcessGuid Registry Activity",
+				"timeframe": {},
+				"reference": {
+					"id": "168623c9-1069-4880-80e2-c80d2ff81de3",
+					"type": "template"
+				},
+				"searchID": 8113316497
+			},
+			{
+				"alias": "Sysmon ProcessGuid Network Connections",
+				"timeframe": {},
+				"reference": {
+					"id": "c0d16c9d-d112-45fd-a89f-851b02b91170",
+					"type": "template"
+				},
+				"searchID": 2205193550
+			},
+			{
+				"alias": "Sysmon ProcessGuid File Delete",
+				"timeframe": {},
+				"reference": {
+					"id": "e679c3e2-59bc-4190-8181-0a2716e5d4b5",
+					"type": "template"
+				},
+				"searchID": 4667091655
+			},
+			{
+				"alias": "Sysmon Process Files Created",
+				"timeframe": {},
+				"reference": {
+					"id": "5d186b5c-ba5d-429a-a838-8e5909d648f8",
+					"type": "template"
+				},
+				"searchID": 1206802620
+			},
+			{
+				"alias": "Sysmon Process Guid Loaded Images",
+				"timeframe": {},
+				"reference": {
+					"id": "34c5d680-8882-44ff-9543-2ffbc2520866",
+					"type": "template"
+				},
+				"searchID": 2805506938
+			},
+			{
+				"alias": "Sysmon ProcessGuid",
+				"timeframe": {},
+				"reference": {
+					"id": "43b1c029-9f41-4c76-a32d-d65ff9785864",
+					"type": "template"
+				},
+				"searchID": 5072579336
+			}
+		],
+		"tiles": [
+			{
+				"title": "Event Counts",
+				"renderer": "numberCard",
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16136903142590,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"NumberCardWidth": "20",
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48
+				}
+			},
+			{
+				"title": "DNS Query Activity",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16136908608891,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Registry Activity",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 8,
+					"y": 4
+				},
+				"id": 16136909032622,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Network Connection Activity",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 4,
+					"y": 4
+				},
+				"id": 16136909441613,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "File Deletions",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 23
+				},
+				"id": 16136910798874,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "File Creations",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 23
+				},
+				"id": 16136911086065,
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Loaded Images",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 13
+				},
+				"id": 16136911358386,
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Other Instances of the Process Hash",
+				"renderer": "table",
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 18
+				},
+				"id": 16136917145607,
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2,
+		"lastDataUpdate": "2021-02-19T12:19:20-08:00"
+	},
+	"Labels": null
+}

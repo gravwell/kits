@@ -1,0 +1,24 @@
+{
+	"UUID": "e679c3e2-59bc-4190-8181-0a2716e5d4b5",
+	"Name": "Sysmon ProcessGuid File Delete",
+	"Description": "Show all files deleted by a specific process GUID",
+	"Data": {
+		"variables": [
+			{
+				"name": "_GUID_",
+				"label": "ProcessGuid",
+				"description": "Process GUID ID for Sysmon",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"file",
+		"delete"
+	]
+}

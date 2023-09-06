@@ -1,0 +1,1 @@
+tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID==22 QueryName Computer==%%COMPUTER%% | stats count by QueryName | table QueryName count

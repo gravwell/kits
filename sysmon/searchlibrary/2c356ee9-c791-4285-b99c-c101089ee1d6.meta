@@ -1,0 +1,14 @@
+{
+	"Name": "Sysmon Process Creation Events Table as Share of Whole",
+	"Description": "Table of process creation event counts by computer with a calculation of the share of total process events across all machines",
+	"GUID": "2c356ee9-c791-4285-b99c-c101089ee1d6",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"ProcessCreate"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

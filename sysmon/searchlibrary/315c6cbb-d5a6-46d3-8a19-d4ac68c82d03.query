@@ -1,0 +1,4 @@
+tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID == 1 IntegrityLevel |
+stats count by IntegrityLevel |
+stats stddev(count) by IntegrityLevel over 5m |
+chart stddev by IntegrityLevel

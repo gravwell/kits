@@ -1,0 +1,4 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==8 Computer SourceImage TargetImage StartModule StartFunction |
+stats unique_count(TargetImage) by SourceImage |
+sort by unique_count desc |
+table SourceImage unique_count

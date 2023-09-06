@@ -1,0 +1,5 @@
+tag=$SYSMON words _HASH_
+| winlog -or Provider=="Microsoft-Windows-Sysmon" Hashes~"SHA256=_HASH_" EventID Computer Image
+| stats count by Computer Image EventID
+| lookup -r sysmon_event_ids EventID ID Name as EventType
+| table EventType Image Computer count

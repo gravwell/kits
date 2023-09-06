@@ -1,0 +1,22 @@
+{
+	"UUID": "bcb5c951-d4ce-47be-ae72-f41167dfbcb9",
+	"Name": "Sysmon DNS Processes Querying this Name",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"dns"
+	]
+}

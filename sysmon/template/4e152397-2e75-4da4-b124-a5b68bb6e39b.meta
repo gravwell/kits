@@ -1,0 +1,25 @@
+{
+	"UUID": "4e152397-2e75-4da4-b124-a5b68bb6e39b",
+	"Name": "Sysmon ProcessName Created",
+	"Description": "All Sysmon created events for a given process name",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "process name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "notepad.exe"
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"executable",
+		"hashes",
+		"SHA256"
+	]
+}

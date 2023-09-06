@@ -1,0 +1,23 @@
+{
+	"UUID": "d19183fe-5928-41d8-a58a-30c9341405ff",
+	"Name": "Sysmon ProcessGuid DNS Acvtivity",
+	"Description": "Show all DNS activity for a given process",
+	"Data": {
+		"variables": [
+			{
+				"name": "_GUID_",
+				"label": "ProcessGuid",
+				"description": "Sysmon Process GUID",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"dns"
+	]
+}

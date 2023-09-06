@@ -1,0 +1,25 @@
+{
+	"UUID": "7944efa0-8ba4-461f-9f13-c192dfc04571",
+	"Name": "Sysmon ProcessName network",
+	"Description": "Network communications from a given Image name",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Process Name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "MpCmdRun.exe"
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"executable",
+		"network",
+		"connection"
+	]
+}

@@ -1,0 +1,5 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID Image |
+eval EventID==12 || EventID==13 || EventID==14 |
+regex -e Image ".+\\(?P<exename>[^\\]+.exe)" |
+stats count by exename |
+chart count by exename

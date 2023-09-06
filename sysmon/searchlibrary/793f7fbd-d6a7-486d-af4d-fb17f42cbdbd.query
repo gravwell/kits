@@ -1,0 +1,3 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 TerminalSessionId==1 User |
+stats count by User |
+table User count

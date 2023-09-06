@@ -1,0 +1,23 @@
+{
+	"UUID": "168623c9-1069-4880-80e2-c80d2ff81de3",
+	"Name": "Sysmon ProcessGuid Registry Activity",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "_GUID_",
+				"label": "ProcessGuid",
+				"description": "Process GUID ID for Sysmon",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"registry"
+	]
+}

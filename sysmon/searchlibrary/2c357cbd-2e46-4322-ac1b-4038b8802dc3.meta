@@ -1,0 +1,13 @@
+{
+	"Name": "Sysmon DNS Beaconing",
+	"Description": "",
+	"GUID": "2c357cbd-2e46-4322-ac1b-4038b8802dc3",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"dns"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

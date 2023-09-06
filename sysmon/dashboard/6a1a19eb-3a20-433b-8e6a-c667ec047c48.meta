@@ -1,0 +1,100 @@
+{
+	"UUID": "6a1a19eb-3a20-433b-8e6a-c667ec047c48",
+	"Name": "Sysmon investigate Computer",
+	"Description": "Investigate activity on a particular computer.",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Sysmon DNS queries by Computer",
+				"reference": {
+					"id": "63d69f47-9b2a-4aa0-9f60-32f1997bc9e1",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Sysmon EventID Frequency by Computer",
+				"reference": {
+					"id": "0f280f0e-1a35-4f51-8318-075a6fdf2844",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Sysmon application launches by Computer",
+				"reference": {
+					"id": "0f2f186e-7c89-4036-953b-7a786cf0bd2d",
+					"type": "template"
+				},
+				"color": null
+			},
+			{
+				"alias": "Sysmon network connections by Computer",
+				"reference": {
+					"id": "b5324425-596a-4ede-bd17-0847c90c3c34",
+					"type": "template"
+				},
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"title": "DNS Queries",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16673297290940,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "EventID Frequency",
+				"renderer": "categoryBarChart",
+				"span": {
+					"col": 8,
+					"row": 7,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16673299688541,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Application Launches",
+				"renderer": "table",
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 0,
+					"y": 7
+				},
+				"id": 16673323658722,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Network Connections by Service",
+				"renderer": "table",
+				"span": {
+					"col": 5,
+					"row": 6,
+					"x": 7,
+					"y": 7
+				},
+				"id": 16673366733363,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2
+	},
+	"Labels": null
+}

@@ -1,0 +1,26 @@
+{
+	"UUID": "461f93f2-86be-4122-a4f3-f6eb751f018c",
+	"Name": "Sysmon Process DNS Query Activity Summary",
+	"Description": "Table of DNS query activity for a given process",
+	"Data": {
+		"variables": [
+			{
+				"name": "_GUID_",
+				"label": "ProcessGuid",
+				"description": "Process GUID",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"guid",
+		"DNS",
+		"count",
+		"table"
+	]
+}

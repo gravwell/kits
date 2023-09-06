@@ -1,0 +1,4 @@
+tag=$SYSMON words %%COMPUTER%% | winlog Provider == "Microsoft-Windows-Sysmon" EventID==3 Computer==%%COMPUTER%% Protocol DestinationPort 
+| eval DestinationPort<1024 | stats count by DestinationPort 
+| lookup -r network_services [DestinationPort Protocol] [service_port proto_name] (service_name as Service service_desc as Description)
+| table Protocol DestinationPort Service Description count

@@ -1,0 +1,16 @@
+{
+	"Name": "Sysmon Unsigned Driver Loads",
+	"Description": "Unsigned driver activity",
+	"GUID": "9d1f75a6-e533-4e29-ac08-7dd809941b9d",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"DriverLoad",
+		"unsigned",
+		"security"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

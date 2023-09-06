@@ -1,0 +1,21 @@
+{
+	"UUID": "b5324425-596a-4ede-bd17-0847c90c3c34",
+	"Name": "Sysmon network connections by Computer",
+	"Description": "For the specified Computer, find network connection counts by service.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%COMPUTER%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"sysmon",
+		"computer"
+	]
+}

@@ -1,0 +1,6 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 ParentImage |
+stats count by ParentImage |
+eval count > 1 |
+limit 100 |
+sort by count desc |
+table -nt ParentImage count

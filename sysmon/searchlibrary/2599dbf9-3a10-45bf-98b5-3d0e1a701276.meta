@@ -1,0 +1,15 @@
+{
+	"Name": "Windows Sysmon Rule Tally",
+	"Description": "Table of total events by each rule technique",
+	"GUID": "2599dbf9-3a10-45bf-98b5-3d0e1a701276",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"rule",
+		"technique",
+		"count"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

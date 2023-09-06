@@ -1,0 +1,15 @@
+{
+	"Name": "Sysmon Process Creation Rates by Computer",
+	"Description": "Count of process creation events by Computer",
+	"GUID": "59f849d7-b608-4106-b21f-51818f5dd5bc",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"ProcessCreate",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

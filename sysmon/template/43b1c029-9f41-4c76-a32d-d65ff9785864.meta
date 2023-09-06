@@ -1,0 +1,23 @@
+{
+	"UUID": "43b1c029-9f41-4c76-a32d-d65ff9785864",
+	"Name": "Sysmon ProcessGuid",
+	"Description": "Identify all other images that match the SHA256 from a process",
+	"Data": {
+		"variables": [
+			{
+				"name": "_GUID_",
+				"label": "ProcessGuid",
+				"description": "Process Guid",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"images"
+	]
+}

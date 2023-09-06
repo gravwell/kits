@@ -1,0 +1,13 @@
+{
+	"Name": "Sysmon DNS Totals",
+	"Description": "",
+	"GUID": "84cdc657-d87b-4247-a2fd-0b5f7a173b77",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"dns"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,66 @@
+{
+	"UUID": "0a0e1528-17ea-4104-a56a-fe198cfc4a87",
+	"Name": "Sysmon Executable",
+	"Description": "Examine Windows Executable Events",
+	"Data": {
+		"menuLabel": "Sysmon Executable",
+		"triggers": [
+			{
+				"pattern": "/(?\u003cfilename\u003e[\\w\\-\\. ]+\\.(exe|EXE))/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Sysmon Executable Investigation",
+				"description": "Investigate executable activity using sysmon data",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "ae15b1b7-8cb7-48d4-84e9-b850754346c9",
+					"options": {
+						"variable": "%%NAME%%"
+					}
+				}
+			},
+			{
+				"name": "Sysmon Executable Network Activity",
+				"description": "Investigate executable Network activity using sysmon data",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "7944efa0-8ba4-461f-9f13-c192dfc04571",
+					"options": {
+						"variable": "%%NAME%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"filename",
+		"executable"
+	]
+}

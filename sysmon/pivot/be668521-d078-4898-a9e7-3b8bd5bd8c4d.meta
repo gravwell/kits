@@ -1,0 +1,43 @@
+{
+	"UUID": "be668521-d078-4898-a9e7-3b8bd5bd8c4d",
+	"Name": "Sysmon DNS",
+	"Description": "",
+	"Data": {
+		"menuLabel": "DNS",
+		"triggers": [
+			{
+				"pattern": "/(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]+/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Sysmon DNS Domain Investigation",
+				"description": null,
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "d0905e72-ecad-49c3-9f7b-23560608258f",
+					"options": {
+						"variable": "%%NAME%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": [
+		"sysmon",
+		"windows",
+		"dns"
+	]
+}

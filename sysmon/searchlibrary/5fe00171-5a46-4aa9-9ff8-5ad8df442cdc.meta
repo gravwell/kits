@@ -1,0 +1,15 @@
+{
+	"Name": "Sysmon Network Connections",
+	"Description": "Chart of network connection counts by protocol",
+	"GUID": "5fe00171-5a46-4aa9-9ff8-5ad8df442cdc",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"network",
+		"totals",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

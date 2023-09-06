@@ -1,0 +1,13 @@
+{
+	"Name": "Sysmon DNS Most Active Clients",
+	"Description": "Table of most active DNS clients as seen by sysmon",
+	"GUID": "9f404f9a-812a-4d82-a46b-ab194d51b77a",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"dns"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

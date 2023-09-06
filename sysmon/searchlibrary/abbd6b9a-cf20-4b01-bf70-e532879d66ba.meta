@@ -1,0 +1,14 @@
+{
+	"Name": "Sysmon Process Rare Extensions",
+	"Description": "Table of rarely image extensions on processes",
+	"GUID": "abbd6b9a-cf20-4b01-bf70-e532879d66ba",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"ProcessCreate"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

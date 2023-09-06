@@ -1,0 +1,25 @@
+{
+	"UUID": "77e6fa1e-ac8d-4d05-9fbe-18e4e7f207b8",
+	"Name": "Sysmon ProcessName Users",
+	"Description": "Chart of Users who have executed this process",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Process Name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "notepad.exe"
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"executable",
+		"user",
+		"chart"
+	]
+}

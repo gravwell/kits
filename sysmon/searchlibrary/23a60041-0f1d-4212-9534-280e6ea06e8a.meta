@@ -1,0 +1,14 @@
+{
+	"Name": "Sysmon Process Creation",
+	"Description": "Table of all Sysmon process creation events",
+	"GUID": "23a60041-0f1d-4212-9534-280e6ea06e8a",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"ProcessCreate"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
