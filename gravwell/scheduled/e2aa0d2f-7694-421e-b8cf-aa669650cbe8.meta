@@ -9,7 +9,7 @@
 	"Schedule": "* * * * *",
 	"DefaultDeploymentRules": {
 		"Disabled": false,
-		"RunImmediately": true
+		"RunImmediately": false
 	},
 	"ScheduledType": "flow"
 }
