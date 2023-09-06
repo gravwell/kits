@@ -1,0 +1,14 @@
+{
+	"Name": "gravwell tag",
+	"Desc": "syslog extraction for gravwell tag",
+	"Module": "syslog",
+	"Tag": "gravwell",
+	"Labels": [
+		"gravwell"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "d43efd5a-0af8-45dd-8562-6d2bbd6a8a7b",
+	"LastUpdated": "2023-09-06T14:22:35.096811325Z"
+}
