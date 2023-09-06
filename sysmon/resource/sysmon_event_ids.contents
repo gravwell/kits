@@ -1,0 +1,27 @@
+ID,Name
+1,Process Creation
+2,Process Change File Creation Time
+3,Network Connection
+4,Sysmon Service State Changed
+5,Process Terminated
+6,Driver Loaded
+7,Image Loaded
+8,CreateRemoteThread
+9,RawAccessRead
+10,ProcessAccess
+11,FileCreate
+12,RegistryEvent (Object Create and Delete)
+13,RegistryEvent (Value Set)
+14,RegistryEvent (Key and Value Rename)
+15,FileCreateStreamHash
+16,ServiceConfigurationChange
+17,PipeEvent (Pipe Created)
+18,PipeEvent (Pipe Connected)
+19,WmiEvent (WmiEventFilter Activity Detected)
+20,WmiEvent (WmiEventConsumer Activity Detected)
+21,WmiEvent (WmiEventConsumerToFilter Activity Detected)
+22,DNSEvent (DNS Query)
+23,FileDelete
+24,ClipboardChange
+25,ProcessTampering (Process Image Change)
+255,Error

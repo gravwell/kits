@@ -1,0 +1,15 @@
+{
+	"Name": "Sysmon Process Creation Rate",
+	"Description": "Chart of total process creation rate",
+	"GUID": "6aad4b56-12ed-4fb7-939f-df15fc6e3a9d",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"creation",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

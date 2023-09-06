@@ -1,0 +1,6 @@
+tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID == 1 Computer Image Hashes |
+kv -sep "=" -d "," -e Hashes SHA256 |
+stats count by SHA256 |
+eval count < 2 |
+limit 100 |
+table Image count Computer SHA256

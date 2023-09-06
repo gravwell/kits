@@ -1,0 +1,25 @@
+{
+	"UUID": "082be707-d9a1-4188-902b-041cd16be576",
+	"Name": "Sysmon ProcessName Event Chart",
+	"Description": "A chart of all EventIDs related to a given process name",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Process Name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "RzSynapse.exe"
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"executable",
+		"process",
+		"chart",
+		"eventid"
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"Name": "Sysmon Top 100 Parent Processes",
+	"Description": "Table of the 100 most common parent processes that execute other processes",
+	"GUID": "453457d1-2fcf-4620-a963-ce9491d47d84",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"ProcessCreated",
+		"top"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

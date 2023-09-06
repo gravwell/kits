@@ -1,0 +1,23 @@
+{
+	"UUID": "c0d16c9d-d112-45fd-a89f-851b02b91170",
+	"Name": "Sysmon ProcessGuid Network Connections",
+	"Description": "Sysmon outbound process activity",
+	"Data": {
+		"variables": [
+			{
+				"name": "_GUID_",
+				"label": "ProcessGuid",
+				"description": "Process Guid ID",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"network"
+	]
+}

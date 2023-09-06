@@ -1,0 +1,5 @@
+tag=$SYSMON words %%NAME%%
+| winlog Provider == "Microsoft-Windows-Sysmon" EventID Computer Image~"%%NAME%%"
+| stats count by EventID
+| lookup -r sysmon_event_ids EventID ID Name
+| chart count by Name

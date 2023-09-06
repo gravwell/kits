@@ -1,0 +1,13 @@
+{
+	"Name": "Sysmon DNS Most Queried DNS Names",
+	"Description": "",
+	"GUID": "6dc79f5e-5955-49bf-9b88-81c09c685455",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"dns"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

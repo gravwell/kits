@@ -1,0 +1,7 @@
+@count{tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 | stats count as total};
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 Computer |
+stats count by Computer |
+enrich -r @count total |
+eval setEnum("share", (toFloat(count)/toFloat(total))*100.0) |
+sort by share desc |
+table Computer count share

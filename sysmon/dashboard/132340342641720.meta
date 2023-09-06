@@ -1,0 +1,184 @@
+{
+	"UUID": "50b06309-c8c3-46b0-af80-6ddd496b0a73",
+	"Name": "Sysmon Process Overview",
+	"Description": "Sysmon Process Activity Overview",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Sysmon Process Creation Rate",
+				"timeframe": {},
+				"reference": {
+					"id": "6aad4b56-12ed-4fb7-939f-df15fc6e3a9d",
+					"type": "savedQuery"
+				},
+				"searchID": 8119245118
+			},
+			{
+				"alias": "Search 2",
+				"timeframe": {},
+				"query": "tag=$SYSMON winlog Provider == \"Microsoft-Windows-Sysmon\" EventID == 1 Computer Image Hashes | kv -e Hashes SHA256 | stats unique_count(SHA256) as \"Unique Images\" unique_count(Computer) as Computers | numbercard \"Unique Images\" Computers",
+				"searchID": 1024131721
+			},
+			{
+				"alias": "Sysmon rare process image hashes",
+				"timeframe": {},
+				"reference": {
+					"id": "dd808c75-036d-489a-8e78-313ba2a32309",
+					"type": "savedQuery"
+				},
+				"searchID": 2477983520
+			},
+			{
+				"alias": "Windows Sysmon Low Integrity Process Starts",
+				"timeframe": {},
+				"reference": {
+					"id": "78257dc2-ad67-45b5-86b6-852fec7a39ca",
+					"type": "savedQuery"
+				},
+				"searchID": 8981510482
+			},
+			{
+				"alias": "Process Start Deviation by Integrity Level",
+				"timeframe": {},
+				"reference": {
+					"id": "315c6cbb-d5a6-46d3-8a19-d4ac68c82d03",
+					"type": "savedQuery"
+				},
+				"searchID": 5905719295
+			},
+			{
+				"alias": "Windows Sysmon Product Launch Counts",
+				"timeframe": {},
+				"reference": {
+					"id": "3171549f-ea97-4e1a-809b-0e9743fdd54e",
+					"type": "savedQuery"
+				},
+				"searchID": 7918360965
+			}
+		],
+		"tiles": [
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16129926932670,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Process Activity",
+				"renderer": "areaChart",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"id": 16129927300771,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Totals",
+				"renderer": "numberCard",
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"id": 16136815183452,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"title": "Rare Process Images",
+				"renderer": "table",
+				"span": {
+					"col": 7,
+					"row": 9,
+					"x": 6,
+					"y": 13
+				},
+				"id": 16136820534773,
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Low Integrity Process Activity",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 14,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16136823198254,
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Change of Process Activity by Integrity Level",
+				"renderer": "barChart",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 18
+				},
+				"id": 16136826263425,
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Product Launch Activity",
+				"renderer": "table",
+				"span": {
+					"col": 7,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"id": 16136829628796,
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2,
+		"lastDataUpdate": "2021-02-18T14:16:28-07:00"
+	},
+	"Labels": null
+}

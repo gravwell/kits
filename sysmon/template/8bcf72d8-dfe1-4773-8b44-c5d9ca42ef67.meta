@@ -1,0 +1,24 @@
+{
+	"UUID": "8bcf72d8-dfe1-4773-8b44-c5d9ca42ef67",
+	"Name": "Sysmon ProcessName Files created",
+	"Description": "Files created by a given process name",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "notepad.exe"
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"executable",
+		"files"
+	]
+}

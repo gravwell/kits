@@ -1,0 +1,13 @@
+{
+	"Name": "Sysmon DNS Requests by Process over Time",
+	"Description": "",
+	"GUID": "227e9dbf-ae59-4995-b17b-6a346ff0042f",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"dns"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

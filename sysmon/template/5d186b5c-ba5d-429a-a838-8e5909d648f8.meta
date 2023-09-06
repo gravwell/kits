@@ -1,0 +1,24 @@
+{
+	"UUID": "5d186b5c-ba5d-429a-a838-8e5909d648f8",
+	"Name": "Sysmon ProcessGuid Files Created",
+	"Description": "Show all files created by a specific process GUID",
+	"Data": {
+		"variables": [
+			{
+				"name": "_GUID_",
+				"label": "ProcessGuid",
+				"description": "Process Guid",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"process",
+		"file",
+		"create"
+	]
+}

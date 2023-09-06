@@ -1,0 +1,4 @@
+tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" RuleName != "" |
+kv -s -e RuleName -d "," -sep "=" technique_id technique_name |
+stats count by technique_name |
+table technique_name count

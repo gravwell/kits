@@ -1,0 +1,24 @@
+{
+	"UUID": "1668ea7e-a44b-4cb5-9a21-037de26db297",
+	"Name": "Sysmon ProcessName DNS",
+	"Description": "DNS requests by a given process name",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Process name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "RzSynapse.exe"
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"DNS",
+		"process",
+		"executable"
+	]
+}

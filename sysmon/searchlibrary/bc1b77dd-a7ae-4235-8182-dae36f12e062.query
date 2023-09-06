@@ -1,0 +1,5 @@
+tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID == 3 DestinationIp |
+stats count by DestinationIp |
+geoip DestinationIp.Location |
+geoip -r asn_db DestinationIp.ASNOrg |
+pointmap DestinationIp ASNOrg count

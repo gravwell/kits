@@ -1,0 +1,2 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" ProcessGuid=="_GUID_" EventID==11 TargetFilename |
+table TargetFilename TIMESTAMP

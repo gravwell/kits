@@ -1,0 +1,22 @@
+{
+	"UUID": "57deb1d0-aab2-479b-82a9-853144ffd6ef",
+	"Name": "Sysmon DNS Totals",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"sysmon",
+		"windows",
+		"dns"
+	]
+}

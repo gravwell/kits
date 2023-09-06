@@ -1,0 +1,4 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 ParentImage Computer User CommandLine |
+stats count by ParentImage |
+eval count == 1 |
+table ParentImage Computer User CommandLine

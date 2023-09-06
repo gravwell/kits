@@ -1,0 +1,2 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==7 ProcessGuid=="_GUID_" ImageLoaded FileVersion Product Company Signed Signature SignatureStatus |
+table ImageLoaded FileVersion Product Company Signed Signature SignatureStatus TIMESTAMP

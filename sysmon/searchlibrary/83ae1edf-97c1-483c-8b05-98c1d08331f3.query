@@ -1,0 +1,2 @@
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID == 13 Image Computer TargetObject ~ "HKLM\\System\\CurrentControlSet\\Control\\Session Manager\\Environment" Details |
+table Computer Image TargetObject Details TIMESTAMP

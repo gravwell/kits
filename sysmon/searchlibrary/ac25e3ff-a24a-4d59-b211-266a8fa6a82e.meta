@@ -1,0 +1,14 @@
+{
+	"Name": "Sysmon Registry Autorun",
+	"Description": "Show registry events where an autorun program is installed",
+	"GUID": "ac25e3ff-a24a-4d59-b211-266a8fa6a82e",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"registry",
+		"autorun"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

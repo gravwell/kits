@@ -1,0 +1,21 @@
+{
+	"UUID": "0f2f186e-7c89-4036-953b-7a786cf0bd2d",
+	"Name": "Sysmon application launches by Computer",
+	"Description": "For a given computer, list the applications launched and frequency of launches.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%COMPUTER%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"sysmon",
+		"computer"
+	]
+}

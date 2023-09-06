@@ -1,0 +1,13 @@
+{
+	"Name": "Sysmon DNS Requests by Computer over Time",
+	"Description": "",
+	"GUID": "4cada82e-f7cd-4605-a6ff-64ee5677b13e",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"dns"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

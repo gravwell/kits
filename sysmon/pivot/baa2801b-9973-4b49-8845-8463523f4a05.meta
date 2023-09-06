@@ -1,0 +1,83 @@
+{
+	"UUID": "baa2801b-9973-4b49-8845-8463523f4a05",
+	"Name": "Process GUID",
+	"Description": "Investigate Process GUIDs",
+	"Data": {
+		"menuLabel": "ProcessGuid",
+		"triggers": [
+			{
+				"pattern": "/\\{[a-f,0-9]{8}-[a-f,0-9]{4}-[a-f,0-9]{4}-[a-f,0-9]{4}-[a-f,0-9]{12}\\}/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Sysmon Process Investigation",
+				"description": "Sysmon process investigation dashboard",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "90918c39-5748-48ab-a0db-91a6534e0911",
+					"options": {
+						"variable": "_GUID_"
+					}
+				}
+			},
+			{
+				"name": "Sysmon Process DNS",
+				"description": "Investigate DNS activity by a process",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "d19183fe-5928-41d8-a58a-30c9341405ff",
+					"options": {
+						"variable": "_GUID_"
+					}
+				}
+			},
+			{
+				"name": "Sysmon Process Registry Activity",
+				"description": "Sysmon process registry activity",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "template",
+					"reference": "168623c9-1069-4880-80e2-c80d2ff81de3",
+					"options": {
+						"variable": "_GUID_"
+					}
+				}
+			}
+		]
+	},
+	"Labels": null
+}

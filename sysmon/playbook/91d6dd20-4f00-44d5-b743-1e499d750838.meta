@@ -1,0 +1,24 @@
+{
+	"UUID": "91d6dd20-4f00-44d5-b743-1e499d750838",
+	"GUID": "90784520-2e0b-4e2a-9fd6-dadf2f8bdeba",
+	"UID": 2,
+	"GIDs": [
+		1
+	],
+	"Global": false,
+	"Name": "Sysmon Gravwell Kit",
+	"Desc": "Gravwell Sysmon Kit",
+	"Labels": [
+		"windows",
+		"sysmon",
+		"kit"
+	],
+	"LastUpdated": "2021-02-22T20:43:13.934309137Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell, Inc.",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}
