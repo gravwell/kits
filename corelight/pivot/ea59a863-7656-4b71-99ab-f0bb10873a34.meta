@@ -1,5 +1,5 @@
 {
-	"UUID": "88103c85-6747-4b52-bcf1-ab7225ee01ad",
+	"UUID": "ea59a863-7656-4b71-99ab-f0bb10873a34",
 	"Name": "Corelight IP Investigative Dashboards",
 	"Description": "Corelight Investigative Dashboards",
 	"Data": {
@@ -20,7 +20,7 @@
 				},
 				"command": {
 					"type": "dashboard",
-					"reference": "3ef85611-d7a6-4054-ad67-e66454aadce6",
+					"reference": "1afed318-3a62-4725-b6a5-3878b6432f09",
 					"options": {
 						"variable": "%%IP%%"
 					}

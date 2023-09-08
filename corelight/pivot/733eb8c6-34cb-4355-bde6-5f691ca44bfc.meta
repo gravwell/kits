@@ -1,5 +1,5 @@
 {
-	"UUID": "9cf025ae-3a77-4a9a-b1e4-c238b689bec5",
+	"UUID": "733eb8c6-34cb-4355-bde6-5f691ca44bfc",
 	"Name": "IP Address",
 	"Description": "Corelight Actions on IP Addresses",
 	"Data": {
@@ -27,7 +27,7 @@
 				},
 				"command": {
 					"type": "dashboard",
-					"reference": "c53dcc2f-4334-4d07-8cf8-66c8e867eed8",
+					"reference": "f8faf246-299e-49c1-976e-bdcae8beda11",
 					"options": {
 						"variable": "%%REMOTE%%"
 					}
