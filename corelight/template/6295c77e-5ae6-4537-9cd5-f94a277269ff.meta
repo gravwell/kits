@@ -1,0 +1,23 @@
+{
+	"UUID": "6295c77e-5ae6-4537-9cd5-f94a277269ff",
+	"Name": "Corelight Suricata IP Alerts",
+	"Description": "Show Alerts associated with an IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "192.33.4.12"
+			}
+		]
+	},
+	"Labels": [
+		"Corelight",
+		"suricata",
+		"alerts",
+		"IP"
+	]
+}

@@ -1,0 +1,3 @@
+tag=corelight_suricata_corelight json "alert.signature_id"==%%ID%% "alert.severity" "id.orig_h"  "id.resp_h" "alert.category" "alert.action" "alert.signature" service "id.resp_p" uid
+| stats count by "id.orig_h"  "id.resp_h" service
+| table TIMESTAMP uid "id.orig_h"  "id.resp_h" "alert.category" "alert.action" "alert.signature" service "id.resp_p" "alert.severity" count

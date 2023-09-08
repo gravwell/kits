@@ -1,0 +1,41 @@
+{
+	"UUID": "4e9254eb-dc3c-4682-8d1d-fb7b7f8afed0",
+	"Name": "Corelight Suricata Alert ID",
+	"Description": "Corelight Suricata alerts by ID",
+	"Data": {
+		"menuLabel": "Suricata alert ID",
+		"actions": [
+			{
+				"name": "Alert Activations",
+				"description": "Show src/dst ip pairs that have activated this alert ID",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "9f9220c6-e059-41ed-a391-d78f6553d311",
+					"options": {
+						"variable": "%%ID%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\d+/g",
+				"hyperlink": false,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

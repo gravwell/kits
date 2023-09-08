@@ -1,0 +1,167 @@
+{
+	"UUID": "1099193c-c54c-4c42-92d5-fec0668301fe",
+	"Name": "Corelight Suricata Alerts",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Overview",
+				"query": "tag=corelight_suricata_corelight stats count | chart count",
+				"color": null
+			},
+			{
+				"alias": "Alert Severity Counts",
+				"query": "tag=corelight_suricata_corelight json \"alert.severity\"  | stats count as severity by \"alert.severity\" | numbercard severity",
+				"color": null
+			},
+			{
+				"alias": "Alert Severity Trend",
+				"query": "tag=corelight_suricata_corelight json \"alert.severity\"  | stats count by \"alert.severity\" | chart count by \"alert.severity\"",
+				"color": null
+			},
+			{
+				"alias": "High Severity Alerts",
+				"query": "tag=corelight_suricata_corelight json \"alert.severity\" == 1 \"alert.category\" \"alert.signature\" \"alert.signature_id\" \n| stats count by \"alert.category\" \"alert.signature\" \"alert.signature_id\" \n| table \"alert.category\" \"alert.signature\" \"alert.signature_id\" count",
+				"color": null
+			},
+			{
+				"alias": "Alert Locations",
+				"query": "tag=corelight_suricata_corelight json \"alert.severity\" \"id.resp_h\" \"id.orig_h\" \"alert.category\"\n| stats count by \"id.resp_h\" \"id.orig_h\" \n| ip -or \"id.resp_h\"!~PRIVATE as ip \"id.orig_h\"!~PRIVATE as ip\n| geoip ip.Location\n| pointmap ip \"alert.category\" \"alert.severity\" ",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 425965613387866,
+				"title": "Overview",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no",
+					"Smoothing": "normal",
+					"ConnectNulls": "no"
+				}
+			},
+			{
+				"id": 1692718650614,
+				"title": "Alert Severity Counts",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 3,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no",
+					"Smoothing": "normal",
+					"ConnectNulls": "no",
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 1692718673922,
+				"title": "Alert Severity Trend",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no",
+					"Smoothing": "normal",
+					"ConnectNulls": "no"
+				}
+			},
+			{
+				"id": 1692719070019,
+				"title": "High Severity Alerts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 10,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no",
+					"Smoothing": "normal",
+					"ConnectNulls": "no"
+				}
+			},
+			{
+				"id": 1692719608009,
+				"title": "Alert Locations",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 10,
+					"x": 7,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no",
+					"Smoothing": "normal",
+					"ConnectNulls": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

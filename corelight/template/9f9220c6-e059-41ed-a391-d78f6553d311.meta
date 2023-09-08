@@ -1,0 +1,23 @@
+{
+	"UUID": "9f9220c6-e059-41ed-a391-d78f6553d311",
+	"Name": "Corelight Suricata Alert Activations",
+	"Description": "Show count of src/dst ip pairs that have triggered a given Suricata alert ID",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ID%%",
+				"label": "",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "1234556"
+			}
+		]
+	},
+	"Labels": [
+		"Corelight",
+		"Suricata",
+		"alerts",
+		"ID"
+	]
+}
