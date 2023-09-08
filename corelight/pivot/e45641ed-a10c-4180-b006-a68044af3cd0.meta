@@ -1,5 +1,5 @@
 {
-	"UUID": "d2ea37bd-69ce-4135-b90c-b8aca740de6e",
+	"UUID": "e45641ed-a10c-4180-b006-a68044af3cd0",
 	"Name": "Corelight Raw UID Records",
 	"Description": "Corelight UIDs (unique identifiers for each flow)",
 	"Data": {
@@ -27,7 +27,7 @@
 				},
 				"command": {
 					"type": "dashboard",
-					"reference": "3824e3c3-2ca6-4e94-a678-0001b4400fde",
+					"reference": "b278909a-ab84-4e0b-a619-25cdb9788251",
 					"options": {
 						"variable": "%%UID%%"
 					}

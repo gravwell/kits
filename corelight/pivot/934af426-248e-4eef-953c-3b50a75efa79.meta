@@ -1,5 +1,5 @@
 {
-	"UUID": "1f4a4980-3b6b-4997-91bf-422eccbdbb68",
+	"UUID": "934af426-248e-4eef-953c-3b50a75efa79",
 	"Name": "Corelight DNS FQDN/SLD combined actionables",
 	"Description": "",
 	"Data": {
@@ -40,7 +40,7 @@
 				},
 				"command": {
 					"type": "dashboard",
-					"reference": "29eef45f-ee30-40eb-a5df-ddb79507cacd",
+					"reference": "c22c294a-2eb3-4d1b-be1a-3ea8b076e3e0",
 					"options": {
 						"variable": "%%NAME%%"
 					}
