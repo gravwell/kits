@@ -4,6 +4,6 @@ tag=$IPFIX_KIT_TAG ipfix src as Src dst as Dst srcPort as SrcPort dstPort as Dst
 | unique Server Client Port Protocol
 | lookup -r network_services Protocol proto_number proto_name as Proto 
 | lookup -r network_services Port service_port service_name as Service
-| stats count by Server Port Protocol as Clients
+| stats count as Clients by Server Port Protocol
 | sort by Clients desc
 | table Server Proto Port Service Clients

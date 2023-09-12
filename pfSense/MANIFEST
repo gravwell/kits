@@ -261,7 +261,7 @@
 			"Description": "The tag associated with syslog from pfSense® Software",
 			"DefaultValue": "pfsensesyslog",
 			"Value": "",
-			"Type": "STRING",
+			"Type": "TAG",
 			"InstalledByID": ""
 		}
 	]

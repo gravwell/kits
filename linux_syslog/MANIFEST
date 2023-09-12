@@ -196,7 +196,7 @@
 			"Description": "The tag which contains syslog entries (probably \"syslog\")",
 			"DefaultValue": "syslog",
 			"Value": "",
-			"Type": "",
+			"Type": "TAG",
 			"InstalledByID": ""
 		}
 	]
