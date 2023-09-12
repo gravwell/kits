@@ -485,7 +485,7 @@
 			"Description": "The Sysmon tag value",
 			"DefaultValue": "sysmon",
 			"Value": "",
-			"Type": "",
+			"Type": "TAG",
 			"InstalledByID": ""
 		}
 	]
