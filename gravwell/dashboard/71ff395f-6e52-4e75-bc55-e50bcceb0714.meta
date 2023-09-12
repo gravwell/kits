@@ -3,39 +3,63 @@
 	"Name": "Gravwell Data Stats",
 	"Description": "Information about data ingested into Gravwell based on aggregates.",
 	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
 		"searches": [
 			{
-				"timeframe": null,
+				"alias": "Bytes Ingested by Tag",
 				"query": "tag=_aggs_tags ax | stats sum(bytes) as bytes by tag | chart bytes by tag",
-				"alias": "Bytes Ingested by Tag"
+				"color": null
 			},
 			{
-				"timeframe": null,
+				"alias": "Entry Count by Tag",
 				"query": "tag=_aggs_tags ax | stats sum(entries) as entries by tag | chart entries by tag",
-				"alias": "Entry Count by Tag"
+				"color": null
 			},
 			{
-				"timeframe": null,
+				"alias": "Tag Statistics",
 				"query": "tag=_aggs_tags ax | stats sum(entries) as entries sum(bytes) as bytes by tag | sort by entries desc | table tag entries bytes",
-				"alias": "Tag Statistics"
+				"color": null
 			},
 			{
-				"timeframe": null,
+				"alias": "Bytes per Tag",
 				"query": "tag=_aggs_tags ax | stats sum(bytes) as bytes by tag | chart bytes by tag limit 8",
-				"alias": "Bytes per Tag"
+				"color": null
+			},
+			{
+				"alias": "Search 5",
+				"query": "tag=_aggs_tags ax | stats sum(bytes) as bytes by tag | chart bytes by tag",
+				"color": null
+			},
+			{
+				"alias": "Total Entries",
+				"query": "tag=_aggs_tags ax | stats sum(entries) as Entries | numbercard Entries",
+				"color": null
+			},
+			{
+				"alias": "Total Data",
+				"query": "tag=_aggs_tags ax | stats sum(bytes) as Bytes | numbercard Bytes",
+				"color": null
 			}
 		],
 		"tiles": [
 			{
+				"id": 1649797820263,
 				"title": "Bytes Ingested by Tag",
 				"renderer": "lineChart",
-				"searchesIndex": 0,
+				"hideZoom": true,
 				"span": {
-					"col": 6,
-					"row": 6,
+					"col": 8,
+					"row": 5,
 					"x": 0,
-					"y": 0
+					"y": 3
 				},
+				"searchesIndex": 0,
 				"rendererOptions": {
 					"Stack": "grouped",
 					"Orientation": "v",
@@ -45,19 +69,20 @@
 					"LogScale": "no",
 					"Smoothing": "normal",
 					"ConnectNulls": "no"
-				},
-				"id": 1649797820263
+				}
 			},
 			{
+				"id": 1649797821744,
 				"title": "Entry Count by Tag",
 				"renderer": "lineChart",
-				"searchesIndex": 1,
+				"hideZoom": true,
 				"span": {
-					"col": 6,
-					"row": 6,
-					"x": 6,
-					"y": 0
+					"col": 7,
+					"row": 5,
+					"x": 8,
+					"y": 3
 				},
+				"searchesIndex": 1,
 				"rendererOptions": {
 					"Stack": "grouped",
 					"Smoothing": "normal",
@@ -67,41 +92,83 @@
 					"IncludeOther": "yes",
 					"ConnectNulls": "no",
 					"LogScale": "no"
-				},
-				"id": 1649797821744
+				}
 			},
 			{
+				"id": 1649798653698,
 				"title": "Tag Statistics",
 				"renderer": "table",
-				"searchesIndex": 2,
+				"hideZoom": true,
 				"span": {
-					"col": 6,
+					"col": 8,
 					"row": 5,
-					"x": 0,
-					"y": 6
+					"x": 7,
+					"y": 8
 				},
-				"rendererOptions": {},
-				"id": 1649798653698
+				"searchesIndex": 2,
+				"rendererOptions": {}
 			},
 			{
+				"id": 1649801757246,
 				"title": "Bytes per Tag",
 				"renderer": "pieChart",
-				"searchesIndex": 3,
+				"hideZoom": true,
 				"span": {
-					"col": 6,
+					"col": 7,
 					"row": 5,
-					"x": 6,
-					"y": 6
+					"x": 0,
+					"y": 8
 				},
+				"searchesIndex": 3,
 				"rendererOptions": {
 					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 16944612193014,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 3,
+					"x": 0,
+					"y": 0
 				},
-				"id": 1649801757246
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1694461321469,
+				"title": "Total Entries",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1694461331837,
+				"title": "Total Data",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 12,
+					"y": 0
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
 			}
 		],
-		"timeframe": {
-			"timeframe": "P1DT"
-		},
+		"linkZooming": false,
+		"grid": {},
 		"version": 2
 	},
 	"Labels": [
