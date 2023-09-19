@@ -4,9 +4,9 @@
 	"Desc": "An IPMI kit that pairs with the Gravwell IPMI ingester.",
 	"Version": 5,
 	"MinVersion": {
-		"Major": 4,
-		"Minor": 1,
-		"Point": 6
+		"Major": 5,
+		"Minor": 4,
+		"Point": 0
 	},
 	"MaxVersion": {
 		"Major": 0,
