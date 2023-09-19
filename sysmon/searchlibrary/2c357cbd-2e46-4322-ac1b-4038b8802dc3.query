@@ -3,7 +3,6 @@ diff TIMESTAMP by QueryName |
 require -s diff |
 stats mean(diff) stddev(diff) count by QueryName |
 eval (stddev < mean && count > 2) |
-eval setEnum("r", stddev/mean) |
-eval setEnum("Duration", toDuration(mean)) |
+eval r = stddev/mean; Duration = duration(mean); |
 sort by r asc |
 table QueryName Duration count

@@ -1,5 +1,5 @@
 tag=corelight_conn ax "id.resp_p" resp_bytes |
 stats count by "id.resp_p" |
-eval toInt(resp_bytes) > 140 && "id.resp_p" < 16000 | /* Only looking at ports in the lower range */
+eval resp_bytes > 140 && $(id.resp_p) < 16000 | /* Only looking at ports in the lower range */
 sort by count asc |
 table "id.resp_p" count

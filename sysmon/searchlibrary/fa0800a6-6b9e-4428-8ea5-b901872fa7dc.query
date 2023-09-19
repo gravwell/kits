@@ -1,6 +1,6 @@
 @termination{tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==5 ProcessGuid | table ProcessGuid TIMESTAMP};
 tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 Computer User IntegrityLevel OriginalFileName ProcessGuid CurrentDirectory ParentImage |
 lookup -r @termination ProcessGuid ProcessGuid TIMESTAMP as endts |
-diff endts TIMESTAMP as uptime | eval uptime < toDuration("10s") |
+diff endts TIMESTAMP as uptime | eval uptime < duration("10s") |
 sort by uptime asc |
 table Computer User OriginalFileName CurrentDirectory IntegrityLevel ParentImage uptime

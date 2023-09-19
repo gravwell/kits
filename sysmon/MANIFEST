@@ -3,10 +3,10 @@
 	"Name": "Windows Sysmon",
 	"Desc": "The Gravwell Sysmon kit provides a wide array of queries, dashboards, templates, and actionables to support monitoring and investigating Sysmon data.  The sysmon kit helps you monitor DNS, network, file, and registry activity provided by the Sysmon toolkit, it can be an invaluable resource for day-to-day monitoring as well as hunting misbehaving applications and malware.",
 	"Readme": "",
-	"Version": 4,
+	"Version": 5,
 	"MinVersion": {
-		"Major": 4,
-		"Minor": 2,
+		"Major": 5,
+		"Minor": 4,
 		"Point": 0
 	},
 	"MaxVersion": {

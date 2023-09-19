@@ -1,5 +1,5 @@
 tag=$IPFIX_KIT_TAG ipfix protocolIdentifier as Protocol flowDuration as Duration |
-eval setEnum("dursec", Duration / 1000000000) |
+eval dursec = Duration / 1000000000; |
 stats mean(dursec) as AverageConnectionDuration by Protocol |
 lookup -r ip_protocols Protocol Number Name as ProtocolName |
 chart AverageConnectionDuration by ProtocolName

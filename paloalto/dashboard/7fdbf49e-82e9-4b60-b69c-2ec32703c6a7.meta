@@ -24,22 +24,22 @@
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval setEnum(\"Volume\", toHumanSize(sum)) \n| sort by sum desc\n| table App Category Subcategory Sessions \"Volume\"",
+				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions \"Volume\"",
 				"alias": "SaaS Application Distribution"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval setEnum(\"Volume\", toHumanSize(sum)) \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
+				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
 				"alias": "Sanctioned SaaS Applications"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"no\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval setEnum(\"Volume\", toHumanSize(sum)) \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
+				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"no\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
 				"alias": "Unsanctioned SaaS Applications"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax sanctioned_state_of_app\n| eval if (sanctioned_state_of_app == \"yes\") { setEnum(\"state\", \"Sanctioned\") } else { setEnum(\"state\", \"Non-sanctioned\") }\n| stats count by state\n| chart count by state",
+				"query": "tag=pan_traffic ax sanctioned_state_of_app\n| eval if (sanctioned_state_of_app == \"yes\") { state = \"Sanctioned\"; } else { state = \"Non-sanctioned\"; }\n| stats count by state\n| chart count by state",
 				"alias": "Sanctioned Application Percentages"
 			},
 			{

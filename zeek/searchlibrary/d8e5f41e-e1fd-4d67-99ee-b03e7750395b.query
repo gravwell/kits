@@ -4,7 +4,6 @@ diff TIMESTAMP by query |
 require -s diff |
 stats mean(diff) stddev(diff) count by query |
 eval (stddev < mean && count > 2) |
-eval setEnum("r", stddev/mean) |
-eval setEnum("Duration", toDuration(mean)) |
+eval r = stddev/mean; Duration = duration(mean); |
 sort by r asc |
 table query Duration count

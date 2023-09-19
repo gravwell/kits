@@ -1,5 +1,5 @@
 tag=netflow netflow Pkts Bytes Protocol |
-stats sum(Pkts) as pktsum sum(Bytes) as bytesum by Protocol over 1m | eval setEnum("pktsz", toFloat(bytesum/pktsum)) |
+stats sum(Pkts) as pktsum sum(Bytes) as bytesum by Protocol over 1m | eval pktsz = float(bytesum) / float(pktsum); | 
 stats mean(pktsz) as AveragePacketSize by Protocol|
 lookup -r ip_protocols Protocol Number Name |
 chart AveragePacketSize by Name

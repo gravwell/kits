@@ -2,10 +2,10 @@
 	"ID": "io.gravwell.ipfix",
 	"Name": "IPFIX",
 	"Desc": "This kit provides ready-to-roll dashboards, queries, templates, playbooks, and actionables for analyzing IPFIX",
-	"Version": 6,
+	"Version": 7,
 	"MinVersion": {
-		"Major": 4,
-		"Minor": 1,
+		"Major": 5,
+		"Minor": 4,
 		"Point": 0
 	},
 	"MaxVersion": {

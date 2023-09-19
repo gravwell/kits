@@ -2,9 +2,9 @@
 	"ID": "io.gravwell.coredns",
 	"Name": "CoreDNS",
 	"Desc": "This kit provides ready-to-roll dashboards, queries, templates, playbooks, and actionables for analyzing DNS.",
-	"Version": 6,
+	"Version": 7,
 	"MinVersion": {
-		"Major": 3,
+		"Major": 5,
 		"Minor": 4,
 		"Point": 0
 	},

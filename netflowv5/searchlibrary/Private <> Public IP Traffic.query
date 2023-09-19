@@ -1,6 +1,6 @@
 tag=netflow netflow IP ~ PRIVATE Src Dst Port Bytes
 | stats sum(Bytes) by Src Dst Port
-| eval if(IP == Src) { setEnum("otherIP", Dst) } else { setEnum("otherIP", Src) }
+| eval if( IP == Src ) { otherIP = Dst; } else { otherIP = Src; }
 | ip otherIP !~ PRIVATE
 | geoip -r asn_db otherIP.ASNOrg
 | geoip otherIP.Country
