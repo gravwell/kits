@@ -5,24 +5,24 @@
 	"Data": {
 		"searches": [
 			{
-				"query": "tag=$SYSMON winlog EventID Computer Image | eval EventID==12 || EventID==13 || EventID==14 | stats count by Image Computer | table Image Computer count",
+				"query": "tag=$SYSMON winlog EventID Computer Image | eval ( EventID==12 || EventID==13 || EventID==14 ) | stats count by Image Computer | table Image Computer count",
 				"alias": "Registry Modifications by Application",
 				"searchID": 5856814834
 			},
 			{
-				"query": "tag=$SYSMON winlog EventID Image | eval EventID==12 || EventID==13 || EventID==14 | regex -e Image \".+\\\\(?P\u003cexename\u003e[^\\\\]+.exe)\" | stats count by exename | chart count by exename",
+				"query": "tag=$SYSMON winlog EventID Image | eval ( EventID==12 || EventID==13 || EventID==14 ) | regex -e Image \".+\\\\(?P\u003cexename\u003e[^\\\\]+.exe)\" | stats count by exename | chart count by exename",
 				"alias": "Registry activity",
 				"searchID": 4424691625
 			},
 			{
-				"query": "tag=$SYSMON winlog EventID RuleName!=\"-\" | eval EventID==12 || EventID==13 || EventID==14 | stats count by RuleName | table RuleName count",
+				"query": "tag=$SYSMON winlog EventID RuleName!=\"-\" | eval ( EventID==12 || EventID==13 || EventID==14 ) | stats count by RuleName | table RuleName count",
 				"alias": "Registry Techniques Detected",
 				"searchID": 6704589763
 			},
 			{
 				"alias": "Search 4",
 				"timeframe": {},
-				"query": "tag=$SYSMON winlog Provider == \"Microsoft-Windows-Sysmon\" EventID \u003c= 14 Computer Image | eval EventID\u003e=12 | stats count | chart count",
+				"query": "tag=$SYSMON winlog Provider == \"Microsoft-Windows-Sysmon\" EventID <= 14 Computer Image | eval EventID >= 12; | stats count | chart count",
 				"searchID": 8008259316
 			},
 			{

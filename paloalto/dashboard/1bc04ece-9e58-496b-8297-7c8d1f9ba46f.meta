@@ -6,7 +6,7 @@
 		"searches": [
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic,pan_threat ax subtype\n| tag=pan_traffic eval if (subtype == \"end\") {\n    setEnum(\"type\", \"Traffic Events\")\n}\n| tag=pan_threat eval if (subtype == \"url\") {\n    setEnum(\"type\", \"URL Events\")\n}  else if (subtype == \"data\") {\n    setEnum(\"type\", \"Data Events\")\n}  else if (subtype == \"file\") {\n    setEnum(\"type\", \"File Events\")\n}  else if (subtype == \"vulnerability\") {\n    setEnum(\"type\", \"Vulnerability Events\")\n}\n| stats count by type\n| numbercard (count \"\")",
+				"query": "tag=pan_traffic,pan_threat ax subtype\n| tag=pan_traffic eval if (subtype == \"end\") {\n    $(type) = \"Traffic Events\";\n}\n| tag=pan_threat eval if (subtype == \"url\") {\n    $(type) = \"URL Events\";\n}  else if (subtype == \"data\") {\n    $(type) = \"Data Events\";\n}  else if (subtype == \"file\") {\n    $(type) = \"File Events\";\n}  else if (subtype == \"vulnerability\") {\n    $(type) = \"Vulnerability Events\";\n}\n| stats count by type\n| numbercard (count \"\")",
 				"alias": "Event Counts"
 			},
 			{

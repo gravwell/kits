@@ -1,6 +1,6 @@
 tag=$IPFIX_KIT_TAG ipfix ip==%%IP%% as IP port as Port bytes as Bytes |
 stats sum(Bytes) by Port over 1m |
-eval setEnum("throughput", toFloat(sum) / 60.0) |
+eval throughput = float(sum) / 60.0; |
 stats count mean(throughput) as AvgMBps by Port |
 alias Port Service |
 lookup -r network_services Port service_port service_name as Service |

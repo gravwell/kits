@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.corelight",
 	"Name": "Gravwell Corelight",
 	"Desc": "The Gravwell Corelight Kit provides a baseline set of queries, dashboards, templates, and investigative resources for JSON logs originating from Corelight devices.",
-	"Version": 4,
+	"Version": 5,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 2,

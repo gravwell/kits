@@ -1,4 +1,4 @@
 tag=corelight_conn ax service |
 stats count by service |
-eval if service=="-" {setEnum("service", "unknown")} |
+eval if ( service == "-" ) { service = "unknown"; } |
 chart count by service limit 32

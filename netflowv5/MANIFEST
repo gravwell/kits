@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.netflowv5",
 	"Name": "Netflow v5",
 	"Desc": "This kit provides ready-to-roll dashboards, queries, templates, playbooks, and actionables for analyzing Netflow v5",
-	"Version": 8,
+	"Version": 9,
 	"MinVersion": {
 		"Major": 4,
 		"Minor": 1,
