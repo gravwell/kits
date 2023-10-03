@@ -1,4 +1,4 @@
 tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID == 3 DestinationIsIpv6 |
-eval if (DestinationIsIpv6 == "true") { type = "IPv6"; } else { type = "IPv4"; } |
+eval if (DestinationIsIpv6 == "true") { $(type) = "IPv6"; } else { $(type) = "IPv4"; } |
 stats count by type |
 chart count by type
