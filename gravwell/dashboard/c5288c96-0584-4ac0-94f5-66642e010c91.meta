@@ -20,7 +20,7 @@
 			},
 			{
 				"timeframe": null,
-				"query": "tag=gravwell syslog Appname==searchagent Message==error uid type id runtime error\n| stats count mean(runtime) as \"avg runtime\" by id error \n| table uid type error count \"avg runtime\" id\n",
+				"query": "tag=gravwell syslog Appname==searchagent Message==error uid user type name id runtime error\n| stats count mean(runtime) as \"avg runtime\" by id error \n| table user uid type error count \"avg runtime\" name id\n",
 				"alias": "Failed Automations"
 			},
 			{
@@ -36,11 +36,11 @@
 			{
 				"timeframe": null,
 				"query": "tag=gravwell syslog Appname==searchagent Message==\"Adding automation\" type\n| stats count by type\n| numbercard count",
-				"alias": "New Automations"
+				"alias": "Automation Updates"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=gravwell syslog Appname==searchagent Message==start uid type\n| stats count by type uid\n| table uid type count",
+				"query": "tag=gravwell syslog Appname==searchagent Message==start uid user type\n| stats count by type uid\n| table user uid type count",
 				"alias": "Most Active Users"
 			}
 		],
@@ -142,7 +142,7 @@
 				"id": 1669083480957
 			},
 			{
-				"title": "New Automations",
+				"title": "Automation Updates",
 				"renderer": "numberCard",
 				"searchesIndex": 5,
 				"span": {

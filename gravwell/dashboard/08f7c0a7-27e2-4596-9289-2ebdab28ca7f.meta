@@ -1,110 +1,150 @@
 {
-	"UUID": "08f7c0a7-27e2-4596-9289-2ebdab28ca7f",
-	"Name": "Gravwell Query Overview",
-	"Description": "",
-	"Data": {
-		"searches": [
-			{
-				"alias": "Total Queries by Tag",
-				"timeframe": {},
-				"reference": {
-					"id": "751c88a0-741b-4a01-9191-499977b7cb40",
-					"type": "savedQuery"
-				}
-			},
-			{
-				"alias": "Total Queries",
-				"timeframe": {},
-				"reference": {
-					"id": "b68ae88c-34ef-4afe-947f-da748a495443",
-					"type": "savedQuery"
-				}
-			},
-			{
-				"alias": "Most used Modules",
-				"timeframe": {},
-				"reference": {
-					"id": "5f370a03-7e82-4718-8dbf-20b432803b79",
-					"type": "savedQuery"
-				}
-			},
-			{
-				"alias": "Query Overview",
-				"timeframe": {},
-				"reference": {
-					"id": "45619375-dcb8-4049-95fe-5a84326937f0",
-					"type": "savedQuery"
-				}
-			}
-		],
-		"tiles": [
-			{
-				"title": "Total Queries by Tag",
-				"renderer": "table",
-				"span": {
-					"col": 4,
-					"row": 4,
-					"x": 4,
-					"y": 4
-				},
-				"id": 16349363351370,
-				"searchesIndex": 0,
-				"rendererOptions": {}
-			},
-			{
-				"title": "Total Queries",
-				"renderer": "numberCard",
-				"span": {
-					"col": 4,
-					"row": 4,
-					"x": 0,
-					"y": 4
-				},
-				"id": 16349364803271,
-				"searchesIndex": 1,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "no",
-					"NumberCardLabelFontSize": 24,
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": 25
-				}
-			},
-			{
-				"title": "Most used Modules",
-				"renderer": "table",
-				"span": {
-					"col": 4,
-					"row": 4,
-					"x": 8,
-					"y": 4
-				},
-				"id": 16349369947602,
-				"searchesIndex": 2,
-				"rendererOptions": {}
-			},
-			{
-				"title": "Overview",
-				"renderer": "overview",
-				"span": {
-					"col": 12,
-					"row": 4,
-					"x": 0,
-					"y": 0
-				},
-				"id": 16349370552903,
-				"searchesIndex": 3,
-				"rendererOptions": {
-					"XAxisSplitLine": "no",
-					"YAxisSplitLine": "no",
-					"IncludeOther": "yes"
-				}
-			}
-		],
-		"timeframe": {
-			"timeframe": "P1DT"
-		},
-		"version": 2
-	},
-	"Labels": null
+    "UUID": "08f7c0a7-27e2-4596-9289-2ebdab28ca7f",
+    "Name": "Gravwell Query Overview",
+    "Description": "",
+    "Data": {
+        "timeframe": {
+            "durationString": null,
+            "timeframe": "P1DT",
+            "timezone": null,
+            "start": null,
+            "end": null
+        },
+        "searches": [
+            {
+                "alias": "Total Queries by Tag",
+                "color": null,
+                "reference": {
+                    "id": "751c88a0-741b-4a01-9191-499977b7cb40",
+                    "type": "savedQuery",
+                    "extras": {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Total Queries",
+                "color": null,
+                "reference": {
+                    "id": "b68ae88c-34ef-4afe-947f-da748a495443",
+                    "type": "savedQuery",
+                    "extras": {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Most used Modules",
+                "color": null,
+                "reference": {
+                    "id": "5f370a03-7e82-4718-8dbf-20b432803b79",
+                    "type": "savedQuery",
+                    "extras": {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Query Overview",
+                "color": null,
+                "reference": {
+                    "id": "45619375-dcb8-4049-95fe-5a84326937f0",
+                    "type": "savedQuery",
+                    "extras": {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Expensive Queries",
+                "query": "tag=gravwell syslog -s Appname==webserver ProcID == 20000069 uid query start end elapsed \n| eval (queryrange=(time(end)-time(start)); executiontime=duration(elapsed);)\n| stats mean(executiontime) as AvgExecutionTime max(executiontime) as MaxExecutionTime mean(queryrange) as AvgTimeSpan count by query\n| eval (ExpenseRatio=(AvgExecutionTime/AvgTimeSpan);AvgExecutionTime=duration(int(AvgExecutionTime)); AvgTimeSpan=duration(int(AvgTimeSpan));)\n| sort by ExpenseRatio desc\n| eval (ExpenseRatio=math_round(ExpenseRatio))\n| table query ExpenseRatio MaxExecutionTime AvgExecutionTime AvgTimeSpan",
+                "color": null
+            }
+        ],
+        "tiles": [
+            {
+                "id": 16349363351370,
+                "title": "Total Queries by Tag",
+                "renderer": "table",
+                "hideZoom": true,
+                "span": {
+                    "col": 5,
+                    "row": 4,
+                    "x": 4,
+                    "y": 4
+                },
+                "searchesIndex": 0,
+                "rendererOptions": {}
+            },
+            {
+                "id": 16349364803271,
+                "title": "Total Queries",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span": {
+                    "col": 4,
+                    "row": 4,
+                    "x": 0,
+                    "y": 4
+                },
+                "searchesIndex": 1,
+                "rendererOptions": {
+                    "Range": "no",
+                    "Precision": "no",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25
+                }
+            },
+            {
+                "id": 16349369947602,
+                "title": "Most used Modules",
+                "renderer": "table",
+                "hideZoom": true,
+                "span": {
+                    "col": 3,
+                    "row": 11,
+                    "x": 9,
+                    "y": 4
+                },
+                "searchesIndex": 2,
+                "rendererOptions": {}
+            },
+            {
+                "id": 16349370552903,
+                "title": "Overview",
+                "renderer": "overview",
+                "hideZoom": true,
+                "span": {
+                    "col": 12,
+                    "row": 4,
+                    "x": 0,
+                    "y": 0
+                },
+                "searchesIndex": 3,
+                "rendererOptions": {
+                    "XAxisSplitLine": "no",
+                    "YAxisSplitLine": "no",
+                    "IncludeOther": "yes"
+                }
+            },
+            {
+                "id": 1696619548071,
+                "title": "Expensive Queries",
+                "renderer": "table",
+                "hideZoom": true,
+                "span": {
+                    "col": 9,
+                    "row": 7,
+                    "x": 0,
+                    "y": 8
+                },
+                "searchesIndex": 4,
+                "rendererOptions": {}
+            }
+        ],
+        "linkZooming": false,
+        "grid": {}
+    },
+    "Labels": null
 }
