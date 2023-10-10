@@ -13,7 +13,7 @@
 # You can also just execute this file using bash
 #
 #
-OUT="linuxsyslog.kit"
+OUT="linux_syslog.kit"
 
 cmd=$(which kitctl)
 if [ "$?" != "0" ]; then
