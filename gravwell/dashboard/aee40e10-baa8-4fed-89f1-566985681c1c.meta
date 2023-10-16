@@ -1,0 +1,174 @@
+{
+	"UUID": "aee40e10-baa8-4fed-89f1-566985681c1c",
+	"Name": "Gravwell Alert Overview",
+	"Description": "Information about Alerts in the Gravwell system",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Alerts w/ Dropped Events",
+				"query": "tag=_alerts* json Type==event Metadata.Dispatcher.EventsElided==true json Metadata.Username Metadata.AlertName Metadata.Dispatcher.Name as DispatcherName Metadata.Dispatcher.SearchID\n| unique SearchID\n| count by AlertName DispatcherName Username\n| table Username AlertName DispatcherName count",
+				"color": "#f9f06b"
+			},
+			{
+				"alias": "Alert Event Count",
+				"query": "tag=_alerts* json Type==event Metadata.Username\n| stats count by Username\n| chart count by Username",
+				"color": "#99c1f1"
+			},
+			{
+				"alias": "Alert Consumer Failures",
+				"query": "tag=_alerts* json Type==log Message==\"event consumer failed\" Trigger.Metadata.Username Trigger.Metadata.AlertName | stats count by AlertName Username Message | table AlertName Username Message count",
+				"color": "#f66151"
+			},
+			{
+				"alias": "Alert count by user",
+				"query": "tag=_alerts* json Type==event Metadata.Username\n| stats count by Username\n| chart count by Username",
+				"color": null
+			},
+			{
+				"alias": "Total Events",
+				"query": "tag=_alerts* json Type==event | count | numbercard (count \"Total Events\")",
+				"color": null
+			},
+			{
+				"alias": "Alert Error Count",
+				"query": "tag=_alerts* json Type==log Level==error | stats count | numbercard (count \"Alert errors\")",
+				"color": null
+			},
+			{
+				"alias": "Alerts Dropping Events",
+				"query": "tag=_alerts* json Type==event Metadata.Dispatcher.EventsElided==true json Metadata.Username Metadata.AlertName Metadata.Dispatcher.Name as DispatcherName Metadata.Dispatcher.SearchID\n| unique SearchID\n| count by AlertName Username\n| chart count by Username AlertName",
+				"color": null
+			},
+			{
+				"alias": "Alert Errors",
+				"query": "tag=_alerts* json Type==log Level==\"error\"\n| count\n| chart count",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 1695415107906,
+				"title": "Alerts with Dropped Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1695415194947,
+				"title": "Alert Event Count by User",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 7,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1695676769805,
+				"title": "Alert Consumer Failures",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16956802639413,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1695680402108,
+				"title": "Total Events",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1695851950801,
+				"title": "Alert Error Count",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 2,
+					"y": 3
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1695853254931,
+				"title": "Alerts Dropping Events",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 7
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1695857755120,
+				"title": "Alert Errors",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 13
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}
