@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.ipmi",
 	"Name": "IPMI",
 	"Desc": "An IPMI kit that pairs with the Gravwell IPMI ingester.",
-	"Version": 5,
+	"Version": 6,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 4,
@@ -20,11 +20,6 @@
 		{
 			"Name": "BSD-2",
 			"Type": 10,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "IPMI",
-			"Type": 8,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -119,5 +114,14 @@
 		}
 	],
 	"Dependencies": null,
-	"ConfigMacros": null
+	"ConfigMacros": [
+		{
+                        "MacroName": "IPMI",
+                        "Description": "IPMI tag name",
+                        "DefaultValue": "ipmi",
+                        "Value": "",
+                        "Type": "",
+                        "InstalledByID": ""
+                }
+	]
 }
