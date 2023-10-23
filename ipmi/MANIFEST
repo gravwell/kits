@@ -120,7 +120,7 @@
                         "Description": "IPMI tag name",
                         "DefaultValue": "ipmi",
                         "Value": "",
-                        "Type": "",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 }
 	]
