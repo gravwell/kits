@@ -1,0 +1,12 @@
+{
+	"Name": "pihole-query",
+	"Desc": "pihole query // array:         time      type     domain  client   status  dnssecStatus    reply    response_time   CNAMEDomain regexID  upstream destination    EDE",
+	"Module": "csv",
+	"Tag": "pihole-queries",
+	"Labels": null,
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "8dbf3f6c-c429-473f-9e4f-80d912884d11",
+	"LastUpdated": "2023-10-30T21:51:36.583296051Z"
+}

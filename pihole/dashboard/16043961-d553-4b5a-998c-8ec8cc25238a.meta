@@ -1,0 +1,280 @@
+{
+	"UUID": "16043961-d553-4b5a-998c-8ec8cc25238a",
+	"Name": "PiHole",
+	"Description": "PiHole Dashboard",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "thisHour",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Test",
+				"query": "tag=pihole-queries ax domain type reply | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | stats count  | chart count",
+				"color": null
+			},
+			{
+				"alias": "Activity by Client",
+				"query": "tag=pihole-queries ax client domain type reply | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | stats count by client  | chart count by client",
+				"color": null
+			},
+			{
+				"alias": "Activity by Record Type",
+				"query": "tag=pihole-queries ax client domain type reply | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | stats count by type | chart count by type",
+				"color": null
+			},
+			{
+				"alias": "Upstream DNS Servers",
+				"query": "tag=pihole-queries ax client domain type reply upstream | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | eval if ( upstream == \"N/A#0\" ) {upstream = \"Cached\";} else {upstream = upstream; }| stats count by upstream | chart count by upstream",
+				"color": null
+			},
+			{
+				"alias": "Count by Action",
+				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription) | stats count by action | chart count by action",
+				"color": null
+			},
+			{
+				"alias": "Top Blocked Client",
+				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action==\"Blocked\" | stats count by client | sort by count desc | limit 10",
+				"color": null
+			},
+			{
+				"alias": "Total Blocked Queries",
+				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action == \"Blocked\"  | stats count | gauge count",
+				"color": null
+			},
+			{
+				"alias": "Total Queries",
+				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription)  | stats count | gauge count",
+				"color": null
+			},
+			{
+				"alias": "Top Blocked Domains",
+				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action==\"Blocked\" | stats count by domain | sort by count desc | limit 10 | table domain count",
+				"color": null
+			},
+			{
+				"alias": "Top Clients (Blocked Only)",
+				"query": "tag=pihole-queries ax client  status  | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action == \"Blocked\" | stats count by client | table client count",
+				"color": null
+			},
+			{
+				"alias": "Top Clients",
+				"query": "tag=pihole-queries ax client  status  | lookup -r pihole_status_codes status id (action as action details as statusDescription) | stats count by client | table client count",
+				"color": null
+			},
+			{
+				"alias": "Top Allowed Domains",
+				"query": "tag=pihole-queries ax client status | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action == \"Allowed\" | stats count by client | table client count",
+				"color": null
+			},
+			{
+				"alias": "Top Allowed Domains",
+				"query": "tag=pihole-queries ax  domain status | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action==\"Allowed\" | stats count by domain | sort by count desc | limit 10 | table domain count",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 1697006367277,
+				"title": "Total activity",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 5,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 1697006457625,
+				"title": "Activity by Client",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 1697006776007,
+				"title": "Activity by Record Type",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 1697007078728,
+				"title": "Upstream DNS Servers",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 4,
+					"y": 13
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 1697008271690,
+				"title": "Count by Action",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 5,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 1697010766685,
+				"title": "Total Blocked Queries",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 1697010824320,
+				"title": "Total Queries",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 1697036202001,
+				"title": "Top Blocked Domains",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 4,
+					"y": 21
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1697036792172,
+				"title": "Top Clients (Blocked Only)",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 4,
+					"y": 30
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1697036809087,
+				"title": "Top Clients",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 0,
+					"y": 30
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1697038075658,
+				"title": "Top Allowed Domains",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 0,
+					"y": 21
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

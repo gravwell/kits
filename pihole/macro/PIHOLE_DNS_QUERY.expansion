@@ -1,0 +1,1 @@
+tag=pihole-queries ax client domain type reply status| lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription)
