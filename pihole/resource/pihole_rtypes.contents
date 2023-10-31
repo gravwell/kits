@@ -1,0 +1,43 @@
+type,type_id,description
+A,1,Address record
+AAAA,28,IPv6 address record
+AFSDB,18,AFS database record
+APL,42,Address Prefix List
+CAA,257,Certification Authority Authorization
+CDNSKEY,60,Child copy of DNSKEY record
+CDS,59,Child DS
+CERT,37,Certificate record
+CNAME,5,Canonical name record
+DHCID,49,DHCP identifier
+DLV,32769,DNSSEC Lookaside Validation record
+DNAME,39,Alias for a name and all its subnames
+DNSKEY,48,DNS Key record
+DS,43,Delegation signer
+HIP,55,Host Identity Protocol
+IPSECKEY,45,IPsec Key
+KEY,25,Key record
+KX,36,Key Exchanger record
+LOC,29,Location record
+MX,15,Mail exchange record
+NAPTR,35,Naming Authority Pointer
+NS,2,Name server record
+NSEC,47,Next Secure record
+NSEC3,50,Next Secure record version 3
+NSEC3PARAM,51,NSEC3 parameters
+OPENPGPKEY,61,OpenPGP public key record
+PTR,12,Pointer record
+RRSIG,46,DNSSEC signature
+RP,17,Responsible Person
+SIG,24,Signature
+SMIMEA,53,S/MIME cert association[10]
+SOA,6,Start of [a zone of] authority record
+SRV,33,Service locator
+SSHFP,44,SSH Public Key Fingerprint
+TA,32768,DNSSEC Trust Authorities
+TKEY,249,Transaction Key record
+TLSA,52,TLSA certificate association
+TSIG,250,Transaction Signature
+TXT,16,Text record
+URI,256,Uniform Resource Identifier
+HTTPS,65,HTTPS Binding
+

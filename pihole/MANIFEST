@@ -1,0 +1,79 @@
+{
+	"ID": "io.gravwell.pihole",
+	"Name": "PiHole",
+	"Desc": "The Gravwell PiHole Kit provides a baseline set of queries, dashboards, and resources.",
+	"Readme": "The Gravwell PiHole Kit provides a baseline set of queries, dashboards, and resources.",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "d7996012-4b08-4139-b3f9-4af242a1982c",
+	"Banner": "a30ca40d-7f5c-4c70-a033-1748ac0b8ded",
+	"Cover": "987688bb-b613-4044-9adb-8c429e1ac086",
+	"Items": [
+		{
+			"Name": "Apache 2.0 License",
+			"Type": 10,
+			"Hash": "59899c6091b540582ed617e8eeaac4919dc985ccfc35459ee9752b699be5205b"
+		},
+		{
+			"Name": "pihole_rtypes",
+			"Type": 1,
+			"Hash": "1f0d6e967a612e773511423a5f821abfbe7cebb3b6a8c18daaf089c67aa1683b"
+		},
+		{
+			"Name": "pihole_rcodes",
+			"Type": 1,
+			"Hash": "4f7594963bdbb436c27e0e7f1ccc603884288104990445796d25dea0667ff576"
+		},
+		{
+			"Name": "pihole_status_codes",
+			"Type": 1,
+			"Hash": "c62032ea77895480630d63f830922f21b5704e69e86590fd6b1c7b2bc1b0aa86"
+		},
+		{
+			"Name": "PIHOLE_DNS_QUERY",
+			"Type": 8,
+			"Hash": "bfbcf3499c7fcfc484d6a0443f69079e2e1677501ed0bdeab7001b9f13a293c0"
+		},
+		{
+			"Name": "16043961-d553-4b5a-998c-8ec8cc25238a",
+			"Type": 3,
+			"Hash": "c978805841ab754aaf6b569b9be1027139076479813bb2af9841d91b618d0a63"
+		},
+		{
+			"Name": "f9a79ae0-3820-4683-a819-2d48d8b50002",
+			"Type": 7,
+			"Hash": "b6cac4f13010abe3cc836d2181ab6a94530872eff5cb6a6ef56aa55626931449"
+		},
+		{
+			"Name": "d7996012-4b08-4139-b3f9-4af242a1982c",
+			"Type": 7,
+			"Hash": "95b9d3b5212ad6747a5b4e50f93ff83175228d3b756886c626d46c4c3c46ebcd"
+		},
+		{
+			"Name": "987688bb-b613-4044-9adb-8c429e1ac086",
+			"Type": 7,
+			"Hash": "5725706d1791e08f02e21225c336374c3323beb95aa8dea7d0bde40a116688f8"
+		},
+		{
+			"Name": "a30ca40d-7f5c-4c70-a033-1748ac0b8ded",
+			"Type": 7,
+			"Hash": "c0c82d43572722e9d0ba9409fb6626c4016df68781fbb0bae01cec7549eee3de"
+		},
+		{
+			"Name": "pihole-queries",
+			"Type": 4,
+			"Hash": "3b56e1c9bba30147d5f0f41689a88c0f3d7e6cf847d71b12753fc431dea19bc9"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": []
+}
