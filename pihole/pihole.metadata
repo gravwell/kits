@@ -1,0 +1,9 @@
+{
+	"Ingesters": ["simplerelay"],
+	"Tags": ["pihole"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "PiHole", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "PiHole", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
