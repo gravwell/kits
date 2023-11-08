@@ -1,0 +1,96 @@
+var strings = import("strings")
+var url = import("net/url")
+var fmt = import("fmt")
+var time = import("time")
+var json = import("encoding/json")
+var regexp = import("regexp")
+var time = import("time")
+
+template = "http://%s:%s/admin/api.php?getAllQueries&from=%s&until=%s&auth=%s"
+
+# Read the API key config macro
+# Example "56795c7e54d3ed6c7a6c3a5d8804ffcadcfbf9126acd3613d7d09ebbac4760dd"
+ apiKey, err = getMacro("$PIHOLE_APIKEY")
+ if err != nil {
+     return err
+ }
+
+# Read the location(s) config macro
+# Example "192.168.1.63"
+ piholeIp, err = getMacro("$PIHOLE_IP")
+ if err != nil {
+     return err
+ }
+
+# Read the location(s) config macro
+# Example "80"
+ piholePort, err = getMacro("$PIHOLE_PORT")
+ if err != nil {
+     return err
+ }
+
+
+# Use if you want to hard code your secrets
+# apiKey = "56795c7e54d3ed6c7a6c3a5d8804ffcadcfbf9126acd3613d7d09ebbac4760dd"
+# piholeIp = "192.168.1.63"
+# piholePort = "80"
+
+now = time.Now().Unix()
+
+
+# Set this equal to your time on the cron schedule
+then = now - 300
+
+# Escape all the values 
+key = url.QueryEscape(apiKey)
+ip = url.QueryEscape(piholeIp)
+port = url.QueryEscape(piholePort)
+
+# New entries
+ents = make([]Entry)
+
+    # Make the new url 
+
+
+    q = fmt.Sprintf(template, ip, port, then, now, key)
+
+    # Get data
+    res, err = httpGet(q)
+    if err != nil {
+        println(err)
+        continue
+        }
+
+    # Print result
+    # println(res)
+
+
+target = make(map[string]interface)
+json.Unmarshal(res, &target)
+
+data = target["data"]
+
+
+# println(len(data))
+
+
+# TODO: Need to find a more elegant solution
+for i in data{
+
+    temp = toString(i)
+    temp = strings.TrimLeft(temp, "[")
+    temp = strings.TrimRight(temp, " ]")
+    temp = strings.Split(temp, " ")
+    t = time.Unix(toInt(temp[0]), 0)
+
+    record = ""
+    for j in temp{
+        record = record + j + "," 
+    }
+    println(record)
+    e = newEntry(t, record)
+    ents += e
+}
+
+# Sets the tag for the data
+ingestEntries(ents, "pihole-queries")

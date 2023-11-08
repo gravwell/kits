@@ -1,0 +1,48 @@
+type,id,description
+A,1,Address record
+NS,2,Name server record
+CNAME,5,Canonical name record
+SOA,6,Start of [a zone of] authority record
+PTR,12,PTR Resource Record [de]
+HINFO,13,Host Information
+MX,15,Mail exchange record
+TXT,16,Text record
+RP,17,Responsible Person
+AFSDB,18,AFS database record
+SIG,24,Signature
+KEY,25,Key record
+AAAA,28,IPv6 address record
+LOC,29,Location record
+SRV,33,Service locator
+NAPTR,35,Naming Authority Pointer
+KX,36,Key Exchanger record
+CERT,37,Certificate record
+DNAME,39,Delegation name record
+APL,42,Address Prefix List
+DS,43,Delegation signer
+SSHFP,44,SSH Public Key Fingerprint
+IPSECKEY,45,IPsec Key
+RRSIG,46,DNSSEC signature
+NSEC,47,Next Secure record
+DNSKEY,48,DNS Key record
+DHCID,49,DHCP identifier
+NSEC3,50,Next Secure record version 3
+NSEC3PARAM,51,NSEC3 parameters
+TLSA,52,TLSA certificate association
+SMIMEA,53,S/MIME cert association[10]
+HIP,55,Host Identity Protocol
+CDS,59,Child DS
+CDNSKEY,60,
+OPENPGPKEY,61,OpenPGP public key record
+CSYNC,62,Child-to-Parent Synchronization
+ZONEMD,63,Message Digests for DNS Zones
+SVCB,64,Service Binding
+HTTPS,65,HTTPS Binding
+EUI48,108,MAC address (EUI-48)
+EUI64,109,MAC address (EUI-64)
+TKEY,249,Transaction Key record
+TSIG,250,Transaction Signature
+URI,256,Uniform Resource Identifier
+CAA,257,Certification Authority Authorization
+TA,32768,DNSSEC Trust Authorities
+DLV,32769,DNSSEC Lookaside Validation record

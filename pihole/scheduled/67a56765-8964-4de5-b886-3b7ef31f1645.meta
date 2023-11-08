@@ -1,0 +1,12 @@
+{
+	"Name": "PiHole Script",
+	"Description": "Fetches Pihole data",
+	"Labels": null,
+	"Schedule": "*/5 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "script",
+	"GUID": "67a56765-8964-4de5-b886-3b7ef31f1645"
+}
