@@ -3,8 +3,6 @@
 The pihole kit includes everything to pull, extract and query the query data from your pihole server. 
 
 
-![Pihole!](/kits/pihole/img/pihole-dashboard-1.png "Dashboard")
-
 ## Kit Components
 
 ### Dashboards
