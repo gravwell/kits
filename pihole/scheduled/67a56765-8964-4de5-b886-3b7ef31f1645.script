@@ -8,6 +8,13 @@ var time = import("time")
 
 template = "http://%s:%s/admin/api.php?getAllQueries&from=%s&until=%s&auth=%s"
 
+# Read the tag config macro
+# Example "pihole-queries"
+ tag, err = getMacro("$PIHOLE_TAG")
+ if err != nil {
+     return err
+ }
+
 # Read the API key config macro
 # Example "56795c7e54d3ed6c7a6c3a5d8804ffcadcfbf9126acd3613d7d09ebbac4760dd"
  apiKey, err = getMacro("$PIHOLE_APIKEY")
@@ -93,4 +100,4 @@ for i in data{
 }
 
 # Sets the tag for the data
-ingestEntries(ents, "pihole-queries")
+ingestEntries(ents, tag)

@@ -48,7 +48,9 @@ N/A
 2. Change the `$PIHOLE_PORT` macro to the port of your pihole instance.(Usually 80)
 3. Get the API key from your pihole instance. Go to `Settings > API` and then the `Show API` token button
 4. Set the `$PIHOLE_APIKEY` macro to the token from the previous step.
-5. Go to scripts and enable the `PiHole Script` to run every 5 minutes with a cron schedule of `*/5 * * * *`
+5. Set the `PIHOLE_TAG` macro to the desired tag name. The defualt is `pihole-queries`.
+6. If you used a tag name other than the defualt you will need to update the extractor to your new tag name. 
+7. Go to scripts and enable the `PiHole Script` to run every 5 minutes with a cron schedule of `*/5 * * * *`
 
 ## Query Data
 Data will be located in the `pihole-queries` tag and can be accessed by going to Query Studio and using the query `tag=pihole-queries`

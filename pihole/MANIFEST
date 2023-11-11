@@ -109,6 +109,14 @@
 			"Value": "",
 			"Type": "OTHER",
 			"InstalledByID": ""
+		},
+		{
+			"MacroName": "PIHOLE_TAG",
+			"Description": "Set pihole tag name",
+			"DefaultValue": "pihole-queries",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
 		}
 	]
 }
