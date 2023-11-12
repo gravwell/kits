@@ -1,79 +1,79 @@
 {
 	"UUID": "16043961-d553-4b5a-998c-8ec8cc25238a",
-	"Name": "PiHole",
-	"Description": "PiHole Dashboard",
+	"Name": "Pihole Overview",
+	"Description": "Pihole  Overview Dashboard",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
-			"timeframe": "thisHour",
+			"timeframe": "today",
 			"timezone": null,
 			"start": null,
 			"end": null
 		},
 		"searches": [
 			{
-				"alias": "Test",
-				"query": "tag=pihole-queries ax domain type reply | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | stats count  | chart count",
+				"alias": "Total Activity",
+				"query": "$PIHOLE_DNS_QUERY | stats count  | chart count",
 				"color": null
 			},
 			{
 				"alias": "Activity by Client",
-				"query": "tag=pihole-queries ax client domain type reply | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | stats count by client  | chart count by client",
+				"query": "$PIHOLE_DNS_QUERY | stats count by client  | chart count by client",
 				"color": null
 			},
 			{
 				"alias": "Activity by Record Type",
-				"query": "tag=pihole-queries ax client domain type reply | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | stats count by type | chart count by type",
+				"query": "$PIHOLE_DNS_QUERY | stats count by type | chart count by type",
 				"color": null
 			},
 			{
 				"alias": "Upstream DNS Servers",
-				"query": "tag=pihole-queries ax client domain type reply upstream | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | eval if ( upstream == \"N/A#0\" ) {upstream = \"Cached\";} else {upstream = upstream; }| stats count by upstream | chart count by upstream",
+				"query": "$PIHOLE_DNS_QUERY | eval if ( upstream == \"N/A#0\" ) {upstream = \"Cached\";} else {upstream = upstream; }| stats count by upstream | chart count by upstream",
 				"color": null
 			},
 			{
 				"alias": "Count by Action",
-				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription) | stats count by action | chart count by action",
+				"query": "$PIHOLE_DNS_QUERY | stats count by action | chart count by action",
 				"color": null
 			},
 			{
 				"alias": "Top Blocked Client",
-				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action==\"Blocked\" | stats count by client | sort by count desc | limit 10",
+				"query": "$PIHOLE_DNS_QUERY | eval action==\"Blocked\" | stats count by client | sort by count desc | limit 10",
 				"color": null
 			},
 			{
 				"alias": "Total Blocked Queries",
-				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action == \"Blocked\"  | stats count | gauge count",
+				"query": "$PIHOLE_DNS_QUERY | eval action == \"Blocked\"  | stats count | gauge count",
 				"color": null
 			},
 			{
 				"alias": "Total Queries",
-				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription)  | stats count | gauge count",
+				"query": "$PIHOLE_DNS_QUERY | lookup -r pihole_status_codes status id (action as action details as statusDescription)  | stats count | gauge count",
 				"color": null
 			},
 			{
 				"alias": "Top Blocked Domains",
-				"query": "tag=pihole-queries ax client domain type reply status | lookup -r pihole_rtypes type type (description as typeDescription) | lookup -r pihole_rcodes reply rcode (name as replyName description as replyDescription) | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action==\"Blocked\" | stats count by domain | sort by count desc | limit 10 | table domain count",
+				"query": "$PIHOLE_DNS_QUERY | eval action==\"Blocked\" | stats count by domain | sort by count desc | limit 10 | table domain count",
 				"color": null
 			},
 			{
 				"alias": "Top Clients (Blocked Only)",
-				"query": "tag=pihole-queries ax client  status  | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action == \"Blocked\" | stats count by client | table client count",
+				"query": "$PIHOLE_DNS_QUERY | eval action == \"Blocked\" | stats count by client | table client count",
 				"color": null
 			},
 			{
 				"alias": "Top Clients",
-				"query": "tag=pihole-queries ax client  status  | lookup -r pihole_status_codes status id (action as action details as statusDescription) | stats count by client | table client count",
+				"query": "$PIHOLE_DNS_QUERY | stats count by client | table client count",
 				"color": null
 			},
 			{
 				"alias": "Top Allowed Domains",
-				"query": "tag=pihole-queries ax client status | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action == \"Allowed\" | stats count by client | table client count",
+				"query": "$PIHOLE_DNS_QUERY | eval action == \"Allowed\" | stats count by client | table client count",
 				"color": null
 			},
 			{
 				"alias": "Top Allowed Domains",
-				"query": "tag=pihole-queries ax  domain status | lookup -r pihole_status_codes status id (action as action details as statusDescription) | eval action==\"Allowed\" | stats count by domain | sort by count desc | limit 10 | table domain count",
+				"query": "$PIHOLE_DNS_QUERY | eval action==\"Allowed\" | stats count by domain | sort by count desc | limit 10 | table domain count",
 				"color": null
 			}
 		],

@@ -3,7 +3,7 @@
 	"Name": "PiHole",
 	"Desc": "The Gravwell PiHole Kit provides a baseline set of queries, dashboards, and resources.",
 	"Readme": "The Gravwell PiHole Kit provides a baseline set of queries, dashboards, and resources.",
-	"Version": 1,
+	"Version": 2,
 	"MinVersion": {
 		"Major": 0,
 		"Minor": 0,
@@ -26,16 +26,6 @@
 		{
 			"Name": "CC BY-SA 4.0",
 			"Type": 10,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "pihole_rtypes",
-			"Type": 1,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "pihole_rcodes",
-			"Type": 1,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -77,8 +67,56 @@
 			"Name": "pihole-queries",
 			"Type": 4,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "67a56765-8964-4de5-b886-3b7ef31f1645",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "pihole-rectypes",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "pihole-replytypes",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		}
 	],
 	"Dependencies": null,
-	"ConfigMacros": []
+	"ConfigMacros": [
+		{
+			"MacroName": "PIHOLE_IP",
+			"Description": "The IP of the pihole instance",
+			"DefaultValue": "192.168.1.5",
+			"Value": "",
+			"Type": "OTHER",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "PIHOLE_PORT",
+			"Description": "The port of the pihole instance",
+			"DefaultValue": "80",
+			"Value": "",
+			"Type": "OTHER",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "PIHOLE_APIKEY",
+			"Description": "The API key of the pihole instance",
+			"DefaultValue": "\u003cAPI_KEY\u003e",
+			"Value": "",
+			"Type": "OTHER",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "PIHOLE_TAG",
+			"Description": "Set pihole tag name",
+			"DefaultValue": "pihole-queries",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
+	]
 }
