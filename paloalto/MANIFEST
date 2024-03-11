@@ -3,7 +3,7 @@
 	"Name": "Palo Alto",
 	"Desc": "Analyze Palo Alto logs.",
 	"Readme": "# Palo Alto Kit\n\nThis kit provides pre-built tools to help analyze logs from Palo Alto next-gen firewalls. It includes:\n\n* Autoextractor definitions for common Palo Alto log formats, to more easily extract fields from log entries.\n* Dashboards providing overviews \u0026 investigative options for different log types.\n* Instructions on how to get Palo Alto logs *into* Gravwell.",
-	"Version": 5,
+	"Version": 6,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 4,
