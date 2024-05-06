@@ -1,4 +1,11 @@
 tag=corelight_x509 ax
-| eval (if (TIMESTAMP < time($(certificate.not_valid_before))) {Validity="NOT_YET_VALID";} if (TIMESTAMP > time($(certificate.not_valid_after))) {Validity="EXPIRED";})
-| require Validity
-| table "certificate.subject" "certificate.issuer" "san.dns" "certificate.not_valid_after" "certificate.not_valid_before" Validity
+| eval ( 
+if (TIMESTAMP < time($(certificate.not_valid_before))) {
+   validity="NOT_YET_VALID";
+   return true; } 
+else if (TIMESTAMP > time($(certificate.not_valid_after))) {
+   validity="EXPIRED";
+   return true; } 
+else {
+   return false; })
+| table "certificate.subject" "certificate.issuer" "san.dns" "certificate.not_valid_after" "certificate.not_valid_before" validity
