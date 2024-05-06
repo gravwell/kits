@@ -1,1 +1,1 @@
-tag=corelight_* words %%UID%%
+tag=corelight_* words %%UID%% | json uid=="%%UID%%"
