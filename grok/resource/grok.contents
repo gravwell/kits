@@ -452,3 +452,7 @@ REDISLOG \[%{POSINT:pid}\] %{REDISTIMESTAMP:time} \*\s
 REDISLOG1 %{REDISLOG}
 REDISLOG2 %{POSINT:pid}:M %{REDISTIMESTAMP:time} [*#] %{GREEDYDATA:message}RUBY_LOGLEVEL DEBUG|FATAL|ERROR|WARN|INFO
 RUBY_LOGGER [DFEWI], \[%{TIMESTAMP_ISO8601:timestamp} #%{POSINT:pid}\] *%{RUBY_LOGLEVEL:loglevel} -- +%{DATA:progname}: %{GREEDYDATA:message}
+
+# AWS Flow log pattern contributed by Discord user
+
+AWSFLOWLOG %{NUMBER:version} %{NUMBER:account_id} %{USERNAME:eni_id} %{IP:src_ip} %{IP:dst_ip} %{NUMBER:src_port} %{NUMBER:dst_port} %{NUMBER:protocol} %{NUMBER:packets} %{NUMBER:bytes} %{NUMBER:start_time} %{NUMBER:end_time} %{WORD:action} %{WORD:status}
