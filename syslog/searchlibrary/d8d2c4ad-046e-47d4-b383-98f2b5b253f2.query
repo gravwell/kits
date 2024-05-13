@@ -1,0 +1,4 @@
+tag=$SYSLOG syslog Severity < 4 /* error or higher */ 
+| stats count by Severity 
+| lookup -r syslog_severity Severity code severity as Severity 
+| numbercard count

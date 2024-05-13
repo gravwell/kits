@@ -1,1 +1,2 @@
-tag=$SYSLOG syslog Hostname==%%HOST%% Appname Severity Message | table TIMESTAMP SRC Hostname Appname Severity Message
+tag=$SYSLOG syslog Hostname==%%HOST%% Appname Severity Message 
+| table TIMESTAMP SRC Hostname Appname Severity Message

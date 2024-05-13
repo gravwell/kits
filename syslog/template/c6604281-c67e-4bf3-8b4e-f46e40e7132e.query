@@ -1,1 +1,3 @@
-tag=$SYSLOG syslog Appname==%%APPNAME%% Hostname | stats count by Hostname | chart count by Hostname
+tag=$SYSLOG syslog Appname==%%APPNAME%% Hostname 
+| stats count by Hostname 
+| chart count by Hostname

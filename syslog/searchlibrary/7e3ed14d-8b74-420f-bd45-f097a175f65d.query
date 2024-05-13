@@ -1,0 +1,3 @@
+tag=$SYSLOG syslog Appname 
+| stats count by Appname 
+| table Appname count

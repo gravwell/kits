@@ -1,1 +1,3 @@
-tag=$SYSLOG syslog Hostname Appname Severity Message | limit 100 | table SRC Hostname Appname Severity Message
+tag=$SYSLOG syslog Hostname Appname Severity Message 
+| limit 100 
+| table SRC Hostname Appname Severity Message

@@ -1,1 +1,4 @@
-tag=$SYSLOG src %%SRC%% | syslog Severity | count by Severity | chart count by Severity
+tag=$SYSLOG src %%SRC%% 
+| syslog Severity 
+| count by Severity 
+| chart count by Severity

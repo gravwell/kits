@@ -4,53 +4,93 @@
 	"Description": "Basic overview of syslog severity distribution and active hosts.",
 	"Data": {
 		"timeframe": {
-			"timeframe": "P1DT"
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
 		},
 		"searches": [
 			{
-				"timeframe": null,
-				"query": "tag=syslog syslog Severity\n| stats count by Severity\n| lookup -r syslog_severity Severity code severity\n| chart count by severity",
-				"alias": "Overview",
-				"color": null
+				"alias": "Syslog chart by sev count",
+				"color": null,
+				"reference": {
+					"id": "68d50b7d-662a-43bf-8964-afe66dad4d75",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=syslog syslog Severity \u003c 4 /* error or higher */\n| stats count by Severity\n| lookup -r syslog_severity Severity code severity as Severity\n| numbercard count",
-				"alias": "Errors",
-				"color": null
+				"alias": "Num Sys Crit and Errors",
+				"color": null,
+				"reference": {
+					"id": "d8d2c4ad-046e-47d4-b383-98f2b5b253f2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=syslog syslog Facility\n| stats count by Facility\n| lookup -r syslog_facility Facility code facility\n| chart count by facility limit 16",
-				"alias": "Facility Distribution"
+				"alias": "Syslog Appname",
+				"color": null,
+				"reference": {
+					"id": "7e3ed14d-8b74-420f-bd45-f097a175f65d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=syslog syslog Appname\n| stats count by Appname\n| table Appname count",
-				"alias": "Most Common Apps"
+				"alias": "Syslog Hostname",
+				"color": null,
+				"reference": {
+					"id": "59bb1401-fdc9-4586-881a-2b84c1c7fa20",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=syslog syslog Hostname\n| stats count by Hostname\n| table Hostname count",
-				"alias": "Most Common Hosts"
+				"alias": "Syslog: Hosts and Apps with Errors",
+				"color": null,
+				"reference": {
+					"id": "780ef7b6-f638-4d5d-a15c-f7f610e9e23a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=syslog syslog Hostname Appname Severity \u003c 4 /* error or higher */\n| stats count by Severity Hostname Appname\n| lookup -r syslog_severity Severity code severity as Severity\n| table Hostname Appname Severity count",
-				"alias": "Hosts and Apps with Errors"
+				"alias": "Syslog: Lookup by Facility",
+				"color": null,
+				"reference": {
+					"id": "8fece70c-e5a7-4536-a7c0-bea0f6758bcd",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
+				"id": 1669046827528,
 				"title": "Level Overview",
 				"renderer": "barChart",
-				"searchesIndex": 0,
+				"hideZoom": true,
 				"span": {
 					"col": 5,
 					"row": 4,
 					"x": 0,
 					"y": 0
 				},
+				"searchesIndex": 0,
 				"rendererOptions": {
 					"Stack": "stacked",
 					"Orientation": "v",
@@ -58,12 +98,13 @@
 					"YAxisSplitLine": "no",
 					"IncludeOther": "yes",
 					"LogScale": "no"
-				},
-				"id": 1669046827528
+				}
 			},
 			{
+				"id": 16690468474031,
 				"title": "Overview",
 				"renderer": "overview",
+				"hideZoom": true,
 				"span": {
 					"col": 5,
 					"row": 4,
@@ -71,84 +112,92 @@
 					"y": 0
 				},
 				"searchesIndex": 0,
-				"id": 16690468474031,
 				"rendererOptions": {}
 			},
 			{
+				"id": 1669047819818,
 				"title": "Critical and Errors",
 				"renderer": "numberCard",
-				"searchesIndex": 1,
+				"hideZoom": true,
 				"span": {
 					"col": 3,
 					"row": 8,
 					"x": 10,
 					"y": 0
 				},
+				"searchesIndex": 1,
 				"rendererOptions": {
 					"Range": "no",
 					"Precision": "no",
 					"NumberCardLabelFontSize": "",
 					"NumberCardNumberFontSize": "",
 					"NumberCardWidth": ""
-				},
-				"id": 1669047819818
+				}
 			},
 			{
+				"id": 1669047945275,
 				"title": "Facility Distribution",
 				"renderer": "donutChart",
-				"searchesIndex": 2,
+				"hideZoom": true,
 				"span": {
 					"col": 3,
 					"row": 5,
 					"x": 10,
 					"y": 8
 				},
+				"searchesIndex": 5,
 				"rendererOptions": {
 					"IncludeOther": "yes"
-				},
-				"id": 1669047945275
+				}
 			},
 			{
+				"id": 1669048065171,
 				"title": "Most Common Apps",
 				"renderer": "table",
-				"searchesIndex": 3,
+				"hideZoom": true,
 				"span": {
 					"col": 3,
 					"row": 9,
 					"x": 0,
 					"y": 4
 				},
-				"rendererOptions": {},
-				"id": 1669048065171
+				"searchesIndex": 2,
+				"rendererOptions": {}
 			},
 			{
+				"id": 1669048069661,
 				"title": "Most Common Hosts",
 				"renderer": "table",
-				"searchesIndex": 4,
+				"hideZoom": true,
 				"span": {
 					"col": 3,
 					"row": 9,
 					"x": 3,
 					"y": 4
 				},
-				"rendererOptions": {},
-				"id": 1669048069661
+				"searchesIndex": 3,
+				"rendererOptions": {}
 			},
 			{
+				"id": 1669048170462,
 				"title": "Hosts and Apps with Errors",
 				"renderer": "table",
-				"searchesIndex": 5,
+				"hideZoom": true,
 				"span": {
 					"col": 4,
 					"row": 9,
 					"x": 6,
 					"y": 4
 				},
-				"rendererOptions": {},
-				"id": 1669048170462
+				"searchesIndex": 4,
+				"rendererOptions": {}
 			}
 		],
+		"linkZooming": false,
+		"grid": {},
 		"version": 2
 	},
-	"Labels": null
+	"Labels": [
+		"syslog"
+	]
 }

@@ -2,6 +2,9 @@
 	"VersionNumber": 1,
 	"ResourceName": "syslog_facility",
 	"Description": "Lookup table to turn syslog facility codes into text names and descriptions",
+	"Labels": [
+		"syslog"
+	],
 	"Size": 561,
 	"Hash": "Jk9zPQ4Ao410svS0WfHaDw==",
 	"Data": ""

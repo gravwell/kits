@@ -1,1 +1,4 @@
-tag=$SYSLOG src %%SRC%% | syslog Appname | count by Appname | chart count by Appname
+tag=$SYSLOG src %%SRC%% 
+| syslog Appname 
+| count by Appname 
+| chart count by Appname

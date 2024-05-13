@@ -32,7 +32,7 @@
 				"searchID": 7501527872
 			},
 			{
-				"alias": "Syslog unparseable by SRC",
+				"alias": "Syslog unparsable by SRC",
 				"timeframe": {},
 				"reference": {
 					"id": "a791ac4b-7c77-453a-afe9-0958a75516c2",
@@ -107,7 +107,7 @@
 				}
 			},
 			{
-				"title": "Unparseable syslog from this SRC",
+				"title": "Unparsable syslog from this SRC",
 				"renderer": "table",
 				"span": {
 					"col": 12,

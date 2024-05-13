@@ -2,6 +2,9 @@
 	"VersionNumber": 1,
 	"ResourceName": "syslog_severity",
 	"Description": "Lookup table to turn syslog severity codes into text names",
+	"Labels": [
+		"syslog"
+	],
 	"Size": 293,
 	"Hash": "wSmgdt8/0Crk0EWZHs5KcA==",
 	"Data": ""

@@ -1,0 +1,11 @@
+{
+	"Name": "Syslog: chart by sev count",
+	"Description": "A chart of syslog severities.",
+	"GUID": "68d50b7d-662a-43bf-8964-afe66dad4d75",
+	"Labels": [
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
