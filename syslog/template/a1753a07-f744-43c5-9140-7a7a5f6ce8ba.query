@@ -1,1 +1,3 @@
-tag=$SYSLOG syslog Hostname==%%HOST%% Severity | count by Severity | chart count by Severity
+tag=$SYSLOG syslog Hostname==%%HOST%% Severity 
+| count by Severity 
+| chart count by Severity

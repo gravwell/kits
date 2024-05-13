@@ -1,1 +1,2 @@
-tag=$SYSLOG syslog Hostname=="" | table SRC DATA
+tag=$SYSLOG syslog Hostname=="" 
+| table SRC DATA

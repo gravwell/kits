@@ -31,7 +31,8 @@
 					"options": {
 						"variable": "%%SRC%%"
 					}
-				}
+				},
+				"noValueUrlEncode": false
 			}
 		]
 	},

@@ -1,1 +1,3 @@
-tag=$SYSLOG syslog Severity Hostname Appname Message | stats count by Hostname Appname | stackgraph Hostname Appname count
+tag=$SYSLOG syslog Severity Hostname Appname Message 
+| stats count by Hostname Appname 
+| stackgraph Hostname Appname count

@@ -1,0 +1,4 @@
+tag=$SYSLOG syslog Severity
+| stats count by Severity
+| lookup -r syslog_severity Severity code severity
+| chart count by severity 

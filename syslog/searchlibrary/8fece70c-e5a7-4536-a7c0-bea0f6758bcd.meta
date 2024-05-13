@@ -1,0 +1,11 @@
+{
+	"Name": "Syslog: Lookup by Facility",
+	"Description": "Chart Top 16 Facilities with the most logs.",
+	"GUID": "8fece70c-e5a7-4536-a7c0-bea0f6758bcd",
+	"Labels": [
+		"syslog"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

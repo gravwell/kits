@@ -1,0 +1,4 @@
+tag=$SYSLOG syslog Facility 
+| stats count by Facility 
+| lookup -r syslog_facility Facility code facility 
+| chart count by facility limit 16

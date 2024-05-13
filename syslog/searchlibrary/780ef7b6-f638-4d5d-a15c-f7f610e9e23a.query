@@ -1,0 +1,4 @@
+tag=$SYSLOG syslog Hostname Appname Severity < 4 /* error or higher */ 
+| stats count by Severity Hostname Appname 
+| lookup -r syslog_severity Severity code severity as Severity 
+| table Hostname Appname Severity count

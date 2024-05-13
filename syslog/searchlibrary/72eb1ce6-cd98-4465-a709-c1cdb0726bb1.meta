@@ -1,5 +1,5 @@
 {
-	"Name": "Syslog chart by host+appname",
+	"Name": "Syslog: chart by host+appname",
 	"Description": "A stackgraph of syslog messages broken out by hostname and appname.",
 	"GUID": "72eb1ce6-cd98-4465-a709-c1cdb0726bb1",
 	"Labels": [

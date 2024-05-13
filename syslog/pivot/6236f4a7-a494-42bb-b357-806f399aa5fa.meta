@@ -7,7 +7,8 @@
 		"triggers": [
 			{
 				"pattern": "/^(([a-zA-Z0-9\\-_]+)\\.)*([A-Za-z0-9\\-_]*)$/g",
-				"hyperlink": false
+				"hyperlink": false,
+				"disabled": false
 			}
 		],
 		"actions": [
@@ -31,7 +32,8 @@
 					"options": {
 						"variable": "%%APPNAME%%"
 					}
-				}
+				},
+				"noValueUrlEncode": false
 			},
 			{
 				"name": "Hostname",
@@ -53,7 +55,8 @@
 					"options": {
 						"variable": "%%HOST%%"
 					}
-				}
+				},
+				"noValueUrlEncode": false
 			}
 		]
 	},

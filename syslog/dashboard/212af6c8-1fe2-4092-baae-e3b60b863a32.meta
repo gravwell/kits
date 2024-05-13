@@ -38,7 +38,7 @@
 				}
 			},
 			{
-				"alias": "Syslog unparseable",
+				"alias": "Syslog unparsable",
 				"timeframe": {},
 				"reference": {
 					"id": "ea206fcb-c2cb-4a67-9046-2c6c58e21173",
@@ -123,7 +123,7 @@
 				"rendererOptions": {}
 			},
 			{
-				"title": "Unparseable entries",
+				"title": "Unparsable entries",
 				"renderer": "table",
 				"span": {
 					"col": 12,
