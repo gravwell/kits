@@ -1,0 +1,20 @@
+{
+	"UUID": "cee7c9ec-be90-499e-b955-4b8669138d31",
+	"Name": "Syslog unparsable Hostname by SRC",
+	"Description": "Shows valid syslogs where a Hostname was not extracted.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%SRC%%",
+				"label": "source",
+				"description": "Syslog collection source",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"syslog"
+	]
+}
