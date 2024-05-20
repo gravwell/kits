@@ -1,0 +1,3 @@
+tag=gravwell syslog Message == "successfully connected with ingest OK" Hostname Appname Structured[gw@1].version Structured[gw@1].indexer as upstream
+| stats count by Hostname Appname version upstream
+| table
