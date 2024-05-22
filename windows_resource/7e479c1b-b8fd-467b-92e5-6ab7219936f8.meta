@@ -1,0 +1,8 @@
+{
+	"Name": "Windows Successful User Logon Details",
+	"Description": "Count of successful user logon events by computer, user, logoninfo; excluding builtin users and local system auths",
+	"GUID": "7e479c1b-b8fd-467b-92e5-6ab7219936f8",
+	"Metadata": {
+		"timeframe": null
+	}
+}

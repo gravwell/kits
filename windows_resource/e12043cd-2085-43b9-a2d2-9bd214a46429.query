@@ -1,0 +1,3 @@
+tag=windows_security winlog TimeCreated EventID==4740 Computer as LockedFrom TargetUserName as TUN TargetDomainName
+| printf -e LockedUser "%v\\%v" TargetDomainName TUN
+| table TimeCreated LockedFrom LockedUser

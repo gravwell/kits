@@ -1,0 +1,4 @@
+tag=$WINDOWS_ALL winlog Level
+| stats count by Level
+| lookup -r windows_event_level_criticality Level Level Criticality
+| chart count by Criticality

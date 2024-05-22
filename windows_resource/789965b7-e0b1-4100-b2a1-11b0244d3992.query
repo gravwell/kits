@@ -1,0 +1,5 @@
+tag=$WINDOWS_ALL winlog EventID Level
+| stats count as Count by EventID Level
+| lookup -r windows_event_level_criticality Level Level Criticality
+| lookup -r windows_eventid_messages EventID ID Message
+| table Count EventID Message Criticality

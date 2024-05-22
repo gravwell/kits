@@ -1,0 +1,6 @@
+tag=$WINDOWS_LOGON winlog EventID SubjectUserName TargetUserSid
+// Exclude builtin users and local system auths
+| eval ( !(SubjectUserName ~ "$" && (TargetUserSid !~ "S-1-5-80" || TargetUserSid ~ "S-1-5-82" || TargetUserSid ~ "S-1-5-90" || TargetUserSid ~ "S-1-5-96")) || !((SubjectUserName == "-" || SubjectUserName ~ "$") && TargetUserSid == "S-1-5-18") )
+| eval (in(EventID,4624,4625,4627,4648,4771,4776))
+| stats count
+| chart count

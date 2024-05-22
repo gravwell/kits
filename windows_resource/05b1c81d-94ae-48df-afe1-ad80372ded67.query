@@ -1,0 +1,4 @@
+tag=$WINDOWS_ALL winlog Computer EventID Level
+| stats count by Computer EventID Level
+| lookup -r windows_eventid_messages EventID ID Message
+| table count Computer EventID Message
