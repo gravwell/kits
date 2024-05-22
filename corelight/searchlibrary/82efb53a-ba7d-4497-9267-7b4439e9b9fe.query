@@ -1,4 +1,1 @@
-tag=corelight_ssl json -s last_alert "id.orig_h" "id.resp_h" server_name established
-| alias "id.orig_h" client "id.resp_h" server last_alert alert
-| stats count by client server server_name alert established
-| table count client server server_name alert established
+tag=corelight_ssl ax last_alert!="-" | alias "id.orig_h" client "id.resp_h" server last_alert alert | table client server server_name alert established
