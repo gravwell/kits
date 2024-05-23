@@ -1,0 +1,183 @@
+{
+	"UUID": "426216e8-73f8-4866-934e-962935f0d70f",
+	"Name": "Windows Overview - Logons",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": "PT4H",
+			"timeframe": "manual",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Windows - Successful user logon count",
+				"color": null,
+				"reference": {
+					"id": "7e479c1b-b8fd-467b-92e5-6ab7219936f8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows - Failed user logon count",
+				"color": null,
+				"reference": {
+					"id": "79d5841f-a565-479d-9e64-1600d4ce7047",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows - User Locked events",
+				"color": null,
+				"reference": {
+					"id": "e12043cd-2085-43b9-a2d2-9bd214a46429",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows_* Logon Events Overview",
+				"color": null,
+				"reference": {
+					"id": "1d653fd9-5335-494d-8baf-9a6b9d5b98fc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Successful Admin logons",
+				"color": null,
+				"reference": {
+					"id": "0f7750bd-1576-481a-b60d-b382bc9e70fd",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Successful Admin Logon Details",
+				"color": null,
+				"reference": {
+					"id": "ee62b55d-d567-4a68-8b47-7d7b7525303e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Successful Admin Logon Details - 4627",
+				"color": null,
+				"reference": {
+					"id": "0f7750bd-1576-481a-b60d-b382bc9e70fd",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17146816448690,
+				"title": "Successful user logon details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 5,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17146817176131,
+				"title": "Failed user logon events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 5,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17150027512942,
+				"title": "Locked out user events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 5,
+					"x": 11,
+					"y": 9
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17158658259713,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 22,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17158795770494,
+				"title": "Successful admin logon details - ElevatedToken",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 5,
+					"x": 11,
+					"y": 4
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17163828723935,
+				"title": "Successful admin logon details - Group Membership",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 5,
+					"x": 0,
+					"y": 14
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

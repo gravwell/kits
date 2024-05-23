@@ -1,0 +1,2 @@
+tag=$WINDOWS_ALL stats count by TAG
+| chart count by TAG

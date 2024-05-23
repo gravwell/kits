@@ -1,0 +1,8 @@
+{
+	"Name": "Windows Successful Admin Logon Details - ElevatedToken",
+	"Description": "Count of successful admin logon events by computer, user, logoninfo; excluding builtin users and local system auths",
+	"GUID": "ee62b55d-d567-4a68-8b47-7d7b7525303e",
+	"Metadata": {
+		"timeframe": null
+	}
+}
