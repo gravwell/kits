@@ -1,6 +1,6 @@
 {
-	"Name": "Invalid SSL Certificates",
-	"Description": "SSL connections which failed due to bad certificates",
+	"Name": "SSL Alert Protocol Messages",
+	"Description": "SSL connections with associated alert messages",
 	"GUID": "82efb53a-ba7d-4497-9267-7b4439e9b9fe",
 	"Labels": [
 		"corelight",
