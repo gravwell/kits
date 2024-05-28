@@ -1,1 +1,3 @@
-tag=corelight_smb_mapping ax | count by "id.resp_h" share_type | stackgraph "id.resp_h" share_type count
+tag=corelight_smb_mapping ax
+| count by responder share_type
+| stackgraph responder share_type count

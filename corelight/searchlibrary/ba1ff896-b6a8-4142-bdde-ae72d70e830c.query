@@ -1,1 +1,5 @@
-tag=corelight_ssh ax auth_success=="true" | alias "id.orig_h" client | stats count by client  | geoip client.Location |  pointmap client count
+tag=corelight_ssh ax auth_success == "true"
+| alias originator client
+| stats count by client
+| geoip client.Location
+| pointmap client count

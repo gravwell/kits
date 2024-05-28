@@ -1,1 +1,3 @@
-tag=corelight_dns ax | stats unique_count(query) as "Unique Queries" count as "Total Queries" | gauge "Unique Queries" "Total Queries"
+tag=corelight_dns ax
+| stats unique_count(query) as "Unique Queries" count as "Total Queries"
+| gauge "Unique Queries" "Total Queries"

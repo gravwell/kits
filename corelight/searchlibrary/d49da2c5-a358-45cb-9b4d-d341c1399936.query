@@ -1,1 +1,4 @@
-tag=corelight_smb_files ax | count by name | sort by count asc | table name count
+tag=corelight_smb_files ax
+| count by name
+| sort by count asc
+| table name count

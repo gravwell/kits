@@ -1,1 +1,3 @@
-tag=corelight_dns ax qtype == 16 | alias query Name answers Payload | table Name Payload
+tag=corelight_dns ax qtype == "16"
+| alias query Name answers Payload
+| table Name Payload

@@ -1,1 +1,1 @@
-_write_ts ts "id.resp_h" opcode _system_name uid _path "id.orig_p" "id.resp_p" "id.orig_h" proto message_id
+_write_ts ts "id.resp_h" as responder opcode _system_name uid _path "id.orig_p" as orig_port "id.resp_p" as resp_port "id.orig_h" as originator proto message_id

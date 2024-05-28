@@ -1,1 +1,4 @@
-tag=corelight_dns ax "id.resp_h" | stats count by "id.resp_h" | geoip -r asn_db "id.resp_h".ASNOrg | table "id.resp_h" ASNOrg count
+tag=corelight_dns ax responder
+| stats count by responder
+| geoip -r asn_db responder.ASNOrg
+| table responder ASNOrg count
