@@ -59,7 +59,7 @@
 				"searchID": 5592859914
 			},
 			{
-				"query": "tag=corelight_ssh ax host_key != \"-\" | unique host_key \"id.resp_h\" | stats count(host_key) by \"id.resp_h\" | table \"id.resp_h\" count",
+				"query": "tag=corelight_ssh ax host_key != \"-\" | unique host_key responder | stats count(host_key) by responder | table responder count",
 				"alias": null
 			},
 			{

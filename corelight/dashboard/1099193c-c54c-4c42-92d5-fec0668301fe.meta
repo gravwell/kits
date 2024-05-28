@@ -28,12 +28,12 @@
 			},
 			{
 				"alias": "High Severity Alerts",
-				"query": "tag=corelight_suricata_corelight json \"alert.severity\" == 1 \"alert.category\" \"alert.signature\" \"alert.signature_id\" \n| stats count by \"alert.category\" \"alert.signature\" \"alert.signature_id\" \n| table \"alert.category\" \"alert.signature\" \"alert.signature_id\" count",
+				"query": "tag=corelight_suricata_corelight json \"alert.severity\" == "1" \"alert.category\" \"alert.signature\" \"alert.signature_id\" \n| stats count by \"alert.category\" \"alert.signature\" \"alert.signature_id\" \n| table \"alert.category\" \"alert.signature\" \"alert.signature_id\" count",
 				"color": null
 			},
 			{
 				"alias": "Alert Locations",
-				"query": "tag=corelight_suricata_corelight json \"alert.severity\" \"id.resp_h\" \"id.orig_h\" \"alert.category\"\n| stats count by \"id.resp_h\" \"id.orig_h\" \n| ip -or \"id.resp_h\"!~PRIVATE as ip \"id.orig_h\"!~PRIVATE as ip\n| geoip ip.Location\n| pointmap ip \"alert.category\" \"alert.severity\" ",
+				"query": "tag=corelight_suricata_corelight json \"alert.severity\" responder originator \"alert.category\"\n| stats count by responder originator \n| ip -or responder !~ "PRIVATE" as ip originator !~ "PRIVATE" as ip\n| geoip ip.Location\n| pointmap ip \"alert.category\" \"alert.severity\" ",
 				"color": null
 			}
 		],

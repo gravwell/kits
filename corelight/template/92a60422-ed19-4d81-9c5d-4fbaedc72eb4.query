@@ -1,4 +1,4 @@
-tag=corelight_conn words %%IP%% |
-ax "id.orig_h" "id.resp_h" |
-count by "id.orig_h" "id.resp_h" |
-fdg -v count "id.orig_h" "id.resp_h"
+tag=corelight_conn words %%IP%%
+| ax originator responder
+| count by originator responder
+| fdg -v count originator responder
