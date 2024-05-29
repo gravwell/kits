@@ -1,1 +1,3 @@
-tag=corelight_smb* ax | ip "id.orig_h"~PRIVATE "id.resp_h"~PRIVATE | fdg "id.orig_h" "id.resp_h"
+tag=corelight_smb* ax
+| ip originator ~ "PRIVATE" responder ~ "PRIVATE"
+| fdg originator responder

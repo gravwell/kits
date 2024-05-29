@@ -1,1 +1,4 @@
-tag=corelight_x509 ax | alias "certificate.key_length" key_length "certificate.key_type" key_type | stats count by key_length key_type | table key_type key_length count
+tag=corelight_x509 ax
+| alias "certificate.key_length" key_length "certificate.key_type" key_type
+| stats count by key_length key_type
+| table key_type key_length count
