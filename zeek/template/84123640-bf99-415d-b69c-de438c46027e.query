@@ -1,1 +1,3 @@
-tag=zeekconn ax resp==%%IP%% orig resp_bytes != - | stats unique_count(orig) as "Active Clients" | numbercard "Active Clients"
+tag=zeekconn ax responder == "%%IP%%" originator resp_bytes != "-"
+| stats unique_count(originator) as "Active Clients"
+| numbercard "Active Clients"

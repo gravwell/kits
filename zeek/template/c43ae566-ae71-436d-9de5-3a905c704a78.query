@@ -1,1 +1,3 @@
-tag=zeekmysql words %%IPADDR%% | ax | table
+tag=zeekmysql words %%IPADDR%%
+| ax
+| table

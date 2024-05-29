@@ -1,1 +1,6 @@
-tag=zeekdns ax orig == "%%REMOTE%%" | alias query Name | stats count by Name | sort by count desc | limit 100 | table Name count
+tag=zeekdns ax originator == "%%REMOTE%%"
+| alias query Name
+| stats count by Name
+| sort by count desc
+| limit 100
+| table count Name

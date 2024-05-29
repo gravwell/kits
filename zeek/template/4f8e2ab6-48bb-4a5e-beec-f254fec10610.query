@@ -1,1 +1,3 @@
-tag=zeeksmtp words %%IPADDR%% | ax | table
+tag=zeeksmtp words %%IPADDR%%
+| ax
+| table

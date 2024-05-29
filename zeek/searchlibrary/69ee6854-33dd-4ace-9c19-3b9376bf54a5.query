@@ -1,1 +1,4 @@
-tag=zeekconn ax resp_port | stats count as connections by resp_port | sort by connections | table resp_port connections
+tag=zeekconn ax resp_port
+| stats count as connections by resp_port
+| sort by connections
+| table resp_port connections

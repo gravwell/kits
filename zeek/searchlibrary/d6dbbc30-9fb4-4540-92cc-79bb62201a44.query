@@ -1,1 +1,7 @@
-tag=zeekdns ax | unique query | regex -e query "(?P<sld>\w+\.\w+\s*$)" | stats count by sld | sort by count desc | limit 100 | table sld count
+tag=zeekdns ax
+| unique querys
+| regex -e query "(?P<sld>\w+\.\w+\s*$)"
+| stats count by sld
+| sort by count desc
+| limit 100
+| table sld count

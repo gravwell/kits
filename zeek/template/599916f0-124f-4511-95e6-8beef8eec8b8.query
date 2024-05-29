@@ -1,1 +1,3 @@
-tag=zeekconn words %%IP%% | stats count | chart count
+tag=zeekconn words %%IP%%
+| stats count
+| chart count

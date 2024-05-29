@@ -1,4 +1,4 @@
-tag=zeekdhcp ax mac host_name assigned_addr |
-stats count by mac host_name assigned_addr |
-maclookup -r mac_prefixes mac.Manufacturer |
-table mac Manufacturer host_name assigned_addr count
+tag=zeekdhcp ax mac host_name assigned_addr
+| stats count by mac host_name assigned_addr
+| maclookup -r mac_prefixes mac.Manufacturer
+| table count mac Manufacturer host_name assigned_addr

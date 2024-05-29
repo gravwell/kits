@@ -1,1 +1,4 @@
-tag=zeekdns ax query ~ "%%NAME%%" | alias orig Client | unique Client | table Client
+tag=zeekdns ax query ~ "%%NAME%%"
+| alias originator Client
+| unique Client
+| table Client

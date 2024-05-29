@@ -1,1 +1,3 @@
-tag=zeeksmb_files words %%IPADDR%% | ax | table
+tag=zeeksmb_files words %%IPADDR%%
+| ax
+| table

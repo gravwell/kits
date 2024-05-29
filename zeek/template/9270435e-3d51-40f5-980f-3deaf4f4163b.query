@@ -1,1 +1,4 @@
-tag=zeeksmb_mapping words %%IPADDR%% | ax | ip orig~PRIVATE resp~PRIVATE | fdg orig resp
+tag=zeeksmb_mapping words %%IPADDR%%
+| ax
+| ip originator ~ "PRIVATE" responder ~ "PRIVATE"
+| fdg originator responder

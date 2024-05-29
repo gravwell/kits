@@ -1,1 +1,3 @@
-tag=zeekdns words %%IPADDR%% | ax | table
+tag=zeekdns words %%IPADDR%%
+| ax
+| table

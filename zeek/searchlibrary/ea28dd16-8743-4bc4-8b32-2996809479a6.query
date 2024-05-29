@@ -1,1 +1,2 @@
-tag=zeekhttp ax uri~"../.." | table orig resp host uri status_msg info_code
+tag=zeekhttp ax uri~"../.."
+| table originator responder host uri status_msg info_code

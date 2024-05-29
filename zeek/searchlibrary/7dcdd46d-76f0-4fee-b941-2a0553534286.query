@@ -1,3 +1,3 @@
-tag=zeekhttp ax orig resp
-| geoip resp.Location as resp_host_loc orig.Location as orig_host_loc
+tag=zeekhttp ax originator responder
+| geoip responder.Location as resp_host_loc originator.Location as orig_host_loc
 | point2point -srcloc orig_host_loc -dstloc resp_host_loc

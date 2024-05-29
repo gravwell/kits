@@ -59,7 +59,7 @@
 				"searchID": 5592859914
 			},
 			{
-				"query": "tag=zeekssh ax host_key != \"-\" | unique host_key resp_host | stats count(host_key) by resp_host | table resp_host count",
+				"query": "tag=zeekssh ax host_key != \"-\" | unique host_key responder | stats count(host_key) by responder | table responder count",
 				"alias": null
 			},
 			{

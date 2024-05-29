@@ -1,4 +1,5 @@
-tag=zeekconn ax service orig_bytes resp_bytes | stats sum(orig_bytes) as upload sum(resp_bytes) as download by service |
-eval bytes = upload+download; if(service=="-") {service = "unknown";}
-| stats sum(bytes) as traffic by service |
-chart traffic by service
+tag=zeekconn ax service orig_bytes resp_bytes
+| stats sum(orig_bytes) as upload sum(resp_bytes) as download by service
+| eval bytes = upload+download; if(service=="-") {service = "unknown";}
+| stats sum(bytes) as traffic by service
+| chart traffic by service

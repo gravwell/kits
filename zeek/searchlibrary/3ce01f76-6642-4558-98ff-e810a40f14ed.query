@@ -1,1 +1,2 @@
-tag=zeekconn stats count | chart count
+tag=zeekconn stats count
+| chart count

@@ -1,1 +1,5 @@
-tag=zeekssh ax auth_success!=T | alias orig_host client resp_host server | geoip client.CountryName | stats count by CountryName server | table server CountryName count
+tag=zeekssh ax auth_success != "T"
+| alias originator client responder server
+| geoip client.CountryName
+| stats count by CountryName server
+| table server CountryName count

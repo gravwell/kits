@@ -1,1 +1,3 @@
-tag=zeekfiles words %%IPADDR%% | ax | table
+tag=zeekfiles words %%IPADDR%%
+| ax
+| table

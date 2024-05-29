@@ -1,1 +1,4 @@
-tag=zeekssh ax | count orig_host by resp_host | alias resp_host server | chart count by server
+tag=zeekssh ax
+| count originator by responder
+| alias responder server
+| chart count by server

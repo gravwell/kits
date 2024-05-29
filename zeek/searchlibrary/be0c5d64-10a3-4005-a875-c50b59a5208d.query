@@ -1,5 +1,6 @@
-tag=zeekconn ax resp_port resp_bytes |
-stats count by resp_port |
-eval resp_bytes > 140 && resp_port < 16000 | /* Only looking at ports in the lower range */
-sort by count asc |
-table resp_port count
+tag=zeekconn ax resp_port resp_bytes
+| stats count by resp_port
+/* Only looking at ports in the lower range */
+| eval resp_bytes > 140 && resp_port < 16000
+| sort by count asc
+| table count resp_port

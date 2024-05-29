@@ -1,1 +1,4 @@
-tag=zeeksmb* ax | grep -v -e resp_port 445 139 | count by resp resp_port | table resp resp_port count
+tag=zeeksmb* ax
+| grep -v -e resp_port 445 139
+| count by responder resp_port
+| table count responder resp_port

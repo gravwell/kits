@@ -1,1 +1,3 @@
-tag=zeekmodbus words %%IPADDR%% | ax | table
+tag=zeekmodbus words %%IPADDR%%
+| ax
+| table

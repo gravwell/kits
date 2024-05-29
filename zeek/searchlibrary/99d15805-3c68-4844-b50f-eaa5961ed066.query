@@ -1,1 +1,3 @@
-tag=zeekssh ax version==1 auth_success==T | alias orig_host client resp_host server | table client server
+tag=zeekssh ax version == "1" auth_success == "T"
+| alias originator client responder server
+| table client server

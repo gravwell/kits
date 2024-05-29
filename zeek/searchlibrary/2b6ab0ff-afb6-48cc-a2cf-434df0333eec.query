@@ -1,1 +1,3 @@
-tag=zeekssl ax version!="-" | stats count by version | chart count by version
+tag=zeekssl ax version != "-"
+| stats count by version
+| chart count by version

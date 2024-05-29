@@ -1,4 +1,4 @@
-tag=zeekdhcp ax |
-unique mac |
-count mac |
-gauge (count "Unique MAC Addresses")
+tag=zeekdhcp ax
+| unique mac
+| count mac
+| gauge (count "Unique MAC Addresses")

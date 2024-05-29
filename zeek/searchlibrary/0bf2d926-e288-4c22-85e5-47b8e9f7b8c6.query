@@ -1,5 +1,5 @@
-tag=zeekconn ax orig resp resp_port |
-stats unique_count(resp_port) by orig resp |
-eval unique_count > 64 |
-geoip orig.Country orig.City |
-table orig Country City resp unique_count TIMESTAMP
+tag=zeekconn ax originator responder resp_port
+| stats unique_count(resp_port) by originator responder
+| eval unique_count > 64
+| geoip originator.Country originator.City
+| table originator Country City responder unique_count TIMESTAMP

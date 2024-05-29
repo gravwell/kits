@@ -1,1 +1,3 @@
-tag=zeeksyslog words %%IPADDR%% | ax | table
+tag=zeeksyslog words %%IPADDR%%
+| ax
+| table

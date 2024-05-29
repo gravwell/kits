@@ -1,1 +1,4 @@
-tag=zeeksmb* ax | unique orig | geoip orig.Location | heatmap orig
+tag=zeeksmb* ax
+| unique originator
+| geoip originator.Location
+| heatmap originator

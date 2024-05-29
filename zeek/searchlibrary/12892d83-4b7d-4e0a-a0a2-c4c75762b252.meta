@@ -1,6 +1,6 @@
 {
-	"Name": "Zeek Tunnel Unique Orig Host Count",
-	"Description": "A gauge displaying the count of unique orig hosts. Useful as a number card.",
+	"Name": "Zeek Tunnel Unique Originator Host Count",
+	"Description": "A gauge displaying the count of unique originator hosts. Useful as a number card.",
 	"GUID": "12892d83-4b7d-4e0a-a0a2-c4c75762b252",
 	"Labels": [
 		"zeek",

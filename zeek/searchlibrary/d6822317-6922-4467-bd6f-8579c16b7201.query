@@ -1,1 +1,3 @@
-tag=zeeksmb_files ax | count by name | table name count
+tag=zeeksmb_files ax
+| count by name
+| table name count

@@ -1,1 +1,4 @@
-tag=zeeksmb_files ax | count by name | sort by count asc | table name count
+tag=zeeksmb_files ax
+| count by name
+| sort by count asc
+| table name count

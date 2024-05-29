@@ -1,4 +1,5 @@
-tag=zeekconn words %%IP%% |
-ax conn_state!=- | /* Exclude any conn_states that we can't resolve, like UDP */
-stats count by conn_state |
-chart count by conn_state
+tag=zeekconn words %%IP%%
+/* Exclude any conn_states that we can't resolve, like UDP */
+| ax conn_state != "-"
+| stats count by conn_state
+| chart count by conn_state

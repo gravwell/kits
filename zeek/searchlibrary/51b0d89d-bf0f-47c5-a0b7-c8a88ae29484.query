@@ -1,1 +1,4 @@
-tag=zeekhttp ax | stats count by host | sort by count desc | table count host
+tag=zeekhttp ax
+| stats count by host
+| sort by count desc
+| table count host

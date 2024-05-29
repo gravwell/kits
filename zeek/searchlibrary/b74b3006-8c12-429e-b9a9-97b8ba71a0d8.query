@@ -1,7 +1,7 @@
-tag=zeekssh ax resp_host host_key != -
-| alias resp_host latestserver
-| stats unique_count(resp_host) as unique_hosts by host_key unique_count(host_key) by resp_host
+tag=zeekssh ax responder host_key != "-"
+| alias responder latestserver
+| stats unique_count(responder) as unique_hosts by host_key unique_count(host_key) by responder
 | eval ( !has(unique_hosts) || unique_hosts > 1 )
 | sort by host_key
-| geoip -r asn_db resp_host.ASNOrg
-| table resp_host ASNOrg host_key unique_hosts
+| geoip -r asn_db responder.ASNOrg
+| table responder ASNOrg host_key unique_hosts
