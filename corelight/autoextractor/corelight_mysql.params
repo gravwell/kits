@@ -1,1 +1,1 @@
-ts uid "id.orig_h" as originator "id.orig_p" as orig_port "id.resp_h" as responder "id.resp_p" as resp_port cmd arg success rows response
+ts  uid  "id.orig_h" "id.orig_p" "id.resp_h" "id.resp_p"  cmd  arg  success  rows  response

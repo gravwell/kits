@@ -1,3 +1,1 @@
-tag=corelight_ssh ax version == "1" auth_success == "true"
-| alias originator client responder server
-| table client server
+tag=corelight_ssh ax version==1 auth_success=="true" | alias "id.orig_h" client "id.resp_h" server | table client server

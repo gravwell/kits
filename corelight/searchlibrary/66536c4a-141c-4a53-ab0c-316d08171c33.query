@@ -1,4 +1,4 @@
-tag=corelight_conn ax originator responder
-| stats count by originator responder
-| geoip originator.Location as oloc responder.Location as rloc
-| point2point -srcloc oloc -dstloc rloc
+tag=corelight_conn ax "id.orig_h" "id.resp_h" |
+stats count by "id.orig_h" "id.resp_h" |
+geoip "id.orig_h".Location as oloc "id.resp_h".Location as rloc |
+point2point -srcloc oloc -dstloc rloc

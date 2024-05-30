@@ -1,6 +1,1 @@
-tag=corelight_dns ax originator == "%%REMOTE%%"
-| alias query Name
-| stats count by Name
-| sort by count desc
-| limit 100
-| table Name count
+tag=corelight_dns ax "id.orig_h" == "%%REMOTE%%" | alias query Name | stats count by Name | sort by count desc | limit 100 | table Name count

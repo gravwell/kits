@@ -1,4 +1,1 @@
-tag=corelight_smb* ax
-| grep -v -e resp_port 445 139
-| count by responder resp_port
-| table responder resp_port count
+tag=corelight_smb* ax | grep -v -e "id.resp_p" 445 139 | count by "id.resp_h" "id.resp_p" | table "id.resp_h" "id.resp_p" count

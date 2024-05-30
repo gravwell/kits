@@ -1,3 +1,1 @@
-tag=corelight_dns ax qtype_name
-| stats count by qtype_name
-| numbercard count
+tag=corelight_dns ax qtype_name | stats count by qtype_name | numbercard count

@@ -1,4 +1,1 @@
-tag=corelight_smb_mapping words %%IPADDR%%
-| ax originator responder
-| ip originator ~ "PRIVATE" responder ~ "PRIVATE"
-| fdg originator responder
+tag=corelight_smb_mapping words %%IPADDR%% | ax | ip "id.orig_h"~PRIVATE "id.resp_h"~PRIVATE | fdg "id.orig_h" "id.resp_h"

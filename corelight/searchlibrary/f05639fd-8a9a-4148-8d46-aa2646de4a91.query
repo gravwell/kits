@@ -1,3 +1,3 @@
-tag=corelight_tunnel ax
-| count by originator
-| table originator count
+tag=corelight_tunnel ax |
+count by "id.orig_h" |
+table "id.orig_h" count

@@ -1,5 +1,5 @@
-tag=corelight_conn ax responder == "%%IP%%" orig_bytes!="-" resp_bytes!="-" resp_port
-| stats count by resp_port
-| sort by count desc
-| limit 10
-| table count resp_port
+tag=corelight_conn ax "id.resp_h"==%%IP%% orig_bytes!="-" resp_bytes!="-" "id.resp_p" |
+stats count by "id.resp_p" |
+sort by count desc |
+limit 10 |
+table "id.resp_p" count
