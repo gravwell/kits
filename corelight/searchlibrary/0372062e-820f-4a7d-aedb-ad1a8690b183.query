@@ -1,2 +1,1 @@
-tag=corelight_http ax uri ~ "../.."
-| table originator responder host uri status_msg info_code
+tag=corelight_http ax uri~"../.." | table "id.orig_h" "id.resp_h" host uri status_msg info_code

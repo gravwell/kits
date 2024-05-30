@@ -1,4 +1,4 @@
-tag=corelight_dhcp ax
-| unique mac
-| count mac
-| gauge (count "Unique MAC Addresses")
+tag=corelight_dhcp ax |
+unique mac |
+count mac |
+gauge (count "Unique MAC Addresses")

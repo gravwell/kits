@@ -1,3 +1,1 @@
-tag=corelight_smb_files ax
-| count by originator action
-| stackgraph originator action count
+tag=corelight_smb_files ax | count by "id.orig_h" action | stackgraph "id.orig_h" action count

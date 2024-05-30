@@ -1,4 +1,1 @@
-tag=corelight_dns ax query ~ "%%NAME%%"
-| alias originator Client
-| unique Client
-| table Client
+tag=corelight_dns ax query ~ "%%NAME%%" | alias "id.orig_h" Client | unique Client | table Client

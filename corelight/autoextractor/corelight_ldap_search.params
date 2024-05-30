@@ -1,1 +1,1 @@
-"id.orig_h" as originator "id.resp_p" as resp_port "id.orig_p" as orig_port message_id _system_name ts result_count uid "id.resp_h" as responder _path _write_ts
+"id.orig_h" "id.resp_p" "id.orig_p" message_id _system_name ts result_count uid "id.resp_h" _path _write_ts
