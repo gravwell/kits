@@ -1,1 +1,3 @@
-tag=zeekssl ax last_alert!="-" | alias orig client resp server last_alert alert | table client server server_name alert established
+tag=zeekssl ax last_alert != "-"
+| alias "id.orig_h" client "id.resp_h" server last_alert alert
+| table client server server_name alert established

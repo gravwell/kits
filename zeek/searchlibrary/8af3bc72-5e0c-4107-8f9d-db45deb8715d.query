@@ -1,1 +1,4 @@
-tag=zeeksmb* ax | unique resp | geoip resp.Location | heatmap resp
+tag=zeeksmb* ax "id.resp_h"
+| unique "id.resp_h"
+| geoip "id.resp_h".Location
+| heatmap "id.resp_h"

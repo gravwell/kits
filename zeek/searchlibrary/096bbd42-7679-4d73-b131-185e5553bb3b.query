@@ -1,1 +1,5 @@
-tag=zeekssh ax auth_success==T | alias orig_host client | stats count by client  | geoip client.Location |  pointmap client count
+tag=zeekssh ax auth_success == "T"
+| alias "id.orig_h" client
+| stats count by client
+| geoip client.Location
+| pointmap client count

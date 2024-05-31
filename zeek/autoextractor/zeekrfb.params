@@ -1,1 +1,1 @@
-ts, uid, orig_host, orig_port, resp_host, resp_port, client_major_version, client_minor_version, server_major_version, server_minor_version, authentication_method, auth, share_flag, desktop_name, width, height
+ts, uid, "id.orig_h", "id.orig_p", "id.resp_h", "id.resp_p", client_major_version, client_minor_version, server_major_version, server_minor_version, authentication_method, auth, share_flag, desktop_name, width, height

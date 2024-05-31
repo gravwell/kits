@@ -1,1 +1,1 @@
-ts, uid, orig_host, orig_port, resp_host, resp_port, username, mac, framed_addr, tunnel_client, connect_info, reply_msg, result, ttl, logged
+ts, uid, "id.orig_h", "id.orig_p", "id.resp_h", "id.resp_p", username, mac, framed_addr, tunnel_client, connect_info, reply_msg, result, ttl, logged

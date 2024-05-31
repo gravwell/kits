@@ -1,1 +1,1 @@
-ts, uid, orig_host, orig_port, resp_host, resp_port, nick, user, command, value, additional_info, dcc_file_name, dcc_file_size, dcc_mime_type, fuid
+ts, uid, "id.orig_h", "id.orig_p", "id.resp_h", "id.resp_p", nick, user, command, value, additional_info, dcc_file_name, dcc_file_size, dcc_mime_type, fuid

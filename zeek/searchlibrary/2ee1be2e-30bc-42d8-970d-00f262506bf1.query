@@ -1,1 +1,4 @@
-tag=zeekdns ax | alias orig Host | stats count by Host | table Host count
+tag=zeekdns ax
+| alias "id.orig_h" Host
+| stats count by Host
+| table count Host
