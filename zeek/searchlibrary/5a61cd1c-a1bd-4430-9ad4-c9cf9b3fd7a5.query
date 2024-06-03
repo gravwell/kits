@@ -1,4 +1,4 @@
 tag=zeekdns ax "id.resp_h"
 | stats count by "id.resp_h"
-| geoip -r asn_db resp.ASNOrg
+| geoip -r asn_db "id.resp_h".ASNOrg
 | table count "id.resp_h" ASNOrg
