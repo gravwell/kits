@@ -1,1 +1,4 @@
-tag=zeekconn ax orig resp==%%IP%% | stats count by orig | geoip orig.Location | heatmap
+tag=zeekconn ax "id.orig_h" "id.resp_h" == "%%IP%%"
+| stats count by "id.orig_h"
+| geoip "id.orig_h".Location
+| heatmap

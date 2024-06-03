@@ -1,1 +1,3 @@
-tag=zeeksmb* ax | ip orig~PRIVATE resp~PRIVATE | fdg orig resp
+tag=zeeksmb* ax "id.orig_h" "id.resp_h"
+| ip "id.orig_h" ~ "PRIVATE" "id.resp_h" ~ "PRIVATE"
+| fdg "id.orig_h" "id.resp_h"

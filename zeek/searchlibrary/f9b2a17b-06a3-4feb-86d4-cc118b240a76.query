@@ -1,1 +1,2 @@
-tag=zeekssh ax resp_port!=22 | table
+tag=zeekssh ax "id.resp_p" != 22
+| table

@@ -1,4 +1,4 @@
-tag=zeekconn words %%IP%% |
-ax orig resp |
-count by orig resp |
-fdg -v count orig resp
+tag=zeekconn words %%IP%%
+| ax "id.orig_h" "id.resp_h"
+| count by "id.orig_h" "id.resp_h"
+| fdg -v count "id.orig_h" "id.resp_h"

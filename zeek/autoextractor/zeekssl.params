@@ -1,1 +1,1 @@
-ts, uid, orig, orig_port, resp, resp_port, version, cipher, curve, server_name, resumed, last_alert, next_protocol, established, cert_chain_fuids, client_cert_chain_fuids, subject, issuer, client_subject, client_issuer, validation_status
+ts, uid, "id.orig_h", "id.orig_p", "id.resp_h", "id.resp_p", version, cipher, curve, server_name, resumed, last_alert, next_protocol, established, cert_chain_fuids, client_cert_chain_fuids, subject, issuer, client_subject, client_issuer, validation_status

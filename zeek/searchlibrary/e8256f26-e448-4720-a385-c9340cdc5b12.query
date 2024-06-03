@@ -1,1 +1,5 @@
-tag=zeekssh ax host_key != "-" | alias resp_host server | unique host_key server | stats count(host_key) by server | table server count
+tag=zeekssh ax host_key != "-"
+| alias "id.resp_h" server
+| unique host_key server
+| stats count(host_key) by server
+| table count server

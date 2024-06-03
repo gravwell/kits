@@ -1,4 +1,4 @@
-tag=zeekconn ax orig resp |
-stats count by orig resp |
-geoip orig.Location as oloc resp.Location as rloc |
-point2point -srcloc oloc -dstloc rloc
+tag=zeekconn ax "id.orig_h" "id.resp_h"
+| stats count by "id.orig_h" "id.resp_h"
+| geoip "id.orig_h".Location as oloc "id.resp_h".Location as rloc
+| point2point -srcloc oloc -dstloc rloc

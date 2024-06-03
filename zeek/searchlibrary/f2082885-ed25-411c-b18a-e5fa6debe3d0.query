@@ -1,1 +1,4 @@
-tag=zeekssh ax | count orig_host by resp_host | alias resp_host server | chart count by server
+tag=zeekssh ax "id.orig_h" "id.resp_h"
+| count "id.orig_h" by "id.resp_h"
+| alias "id.resp_h" server
+| chart count by server

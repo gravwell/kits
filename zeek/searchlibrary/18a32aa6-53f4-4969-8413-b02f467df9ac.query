@@ -1,1 +1,2 @@
-tag=zeekhttp ax password != - | table orig resp host uri username password info_code
+tag=zeekhttp ax password != "-" "id.orig_h" "id.resp_h" host uri username info_code
+| table "id.orig_h" "id.resp_h" host uri username password info_code

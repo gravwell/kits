@@ -1,1 +1,3 @@
-tag=zeeksmb_files ax | count by orig action | stackgraph orig action count
+tag=zeeksmb_files ax "id.orig_h" action
+| count by "id.orig_h" action
+| stackgraph "id.orig_h" action count

@@ -1,3 +1,3 @@
-tag=zeektunnel ax |
-count by orig_host |
-table orig_host count
+tag=zeektunnel ax "id.orig_h"
+| count by "id.orig_h"
+| table count "id.orig_h"

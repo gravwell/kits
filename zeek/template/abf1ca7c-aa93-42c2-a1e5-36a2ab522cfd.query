@@ -1,5 +1,5 @@
-tag=zeekconn ax resp==%%IP%% orig_bytes!="-" resp_bytes!="-" resp_port |
-stats count by resp_port |
-sort by count asc |
-limit 10 |
-table resp_port count
+tag=zeekconn ax "id.resp_h" == "%%IP%%" orig_bytes != "-" resp_bytes != "-" "id.resp_p"
+| stats count by "id.resp_p"
+| sort by count asc
+| limit 10
+| table count "id.resp_p"
