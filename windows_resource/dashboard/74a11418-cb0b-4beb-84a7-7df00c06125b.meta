@@ -1,7 +1,7 @@
 {
 	"UUID": "74a11418-cb0b-4beb-84a7-7df00c06125b",
-	"Name": "Windows Overview",
-	"Description": "",
+	"Name": "Windows - Overview",
+	"Description": "Overview of all collected Windows events",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Windows - Events per TAG",
+				"alias": "All Windows TAG count",
 				"color": null,
 				"reference": {
 					"id": "e49c3829-6a48-41b9-b17f-0a57b97e5eee",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Windows - Events per Computer",
+				"alias": "All Windows Computer Details",
 				"color": null,
 				"reference": {
 					"id": "05b1c81d-94ae-48df-afe1-ad80372ded67",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Windows - Events per Computer",
+				"alias": "All Windows Computer Details",
 				"color": null,
 				"reference": {
 					"id": "05b1c81d-94ae-48df-afe1-ad80372ded67",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Windows Events Overview",
+				"alias": "All Windows Events Overview",
 				"color": null,
 				"reference": {
 					"id": "d0df0c1b-aefe-46f9-ae2c-ec7a016c69c3",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Windows_*  EventID count",
+				"alias": "All Windows EventID count",
 				"color": null,
 				"reference": {
 					"id": "e2693b54-944b-405e-b12b-9ea7f8669aa6",
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Windows_* Level count",
+				"alias": "All Windows Level count",
 				"color": null,
 				"reference": {
 					"id": "22d3a9ef-4aaf-4e65-a902-f2ca5b043298",
@@ -78,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Windows_*  Computer Details",
+				"alias": "All Windows Computer Details",
 				"color": null,
 				"reference": {
 					"id": "05b1c81d-94ae-48df-afe1-ad80372ded67",
@@ -89,7 +89,7 @@
 				}
 			},
 			{
-				"alias": "Windows_*  EventID Details",
+				"alias": "All Windows EventID Details",
 				"color": null,
 				"reference": {
 					"id": "789965b7-e0b1-4100-b2a1-11b0244d3992",
