@@ -1,0 +1,207 @@
+{
+	"UUID": "54f5d3ed-9d84-4908-8b15-a91c0c40b529",
+	"Name": "Corelight SMB Overview",
+	"Description": "Windows fileshare activity",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Corelight SMB Server heatmap",
+				"timeframe": {},
+				"reference": {
+					"id": "dae7ec36-d2b2-489a-99ff-542474b549ec",
+					"type": "savedQuery"
+				},
+				"searchID": 7180791511
+			},
+			{
+				"alias": "Corelight SMB Client Map",
+				"timeframe": {},
+				"reference": {
+					"id": "756a41c4-c412-43bf-929c-095df4895472",
+					"type": "savedQuery"
+				},
+				"searchID": 5555666721
+			},
+			{
+				"alias": "Corelight SMB private IP graph",
+				"timeframe": {},
+				"reference": {
+					"id": "2f72164f-0752-4a4d-b133-e7e2fa28cdc4",
+					"type": "savedQuery"
+				},
+				"searchID": 1789983756
+			},
+			{
+				"alias": "Corelight SMB share types",
+				"timeframe": {},
+				"reference": {
+					"id": "2f471f98-ace9-4cbe-80ae-1c589322dff9",
+					"type": "savedQuery"
+				},
+				"searchID": 3128616960
+			},
+			{
+				"alias": "Corelight SMB nonstandard ports",
+				"timeframe": {},
+				"reference": {
+					"id": "5005ede7-6ece-4638-94d7-3fec2104904e",
+					"type": "savedQuery"
+				},
+				"searchID": 3199223882
+			},
+			{
+				"alias": "Corelight SMB infrequent files",
+				"timeframe": {},
+				"reference": {
+					"id": "d49da2c5-a358-45cb-9b4d-d341c1399936",
+					"type": "savedQuery"
+				},
+				"searchID": 4912050683
+			},
+			{
+				"alias": "Corelight SMB top files",
+				"timeframe": {},
+				"reference": {
+					"id": "a0e6a026-9034-463d-81ca-6085e9796a2b",
+					"type": "savedQuery"
+				},
+				"searchID": 1057993701
+			},
+			{
+				"alias": "Corelight SMB Client actions",
+				"timeframe": {},
+				"reference": {
+					"id": "d9518c33-539f-4fe1-96b1-cf5317223387",
+					"type": "savedQuery"
+				},
+				"searchID": 2971809566
+			}
+		],
+		"tiles": [
+			{
+				"title": "Server Locations",
+				"renderer": "heatmap",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16018529174620,
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Client Locations",
+				"renderer": "heatmap",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"id": 16018529411841,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Private network activity",
+				"renderer": "fdg",
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 8,
+					"y": 0
+				},
+				"id": 16018529695142,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Layout": "circular",
+					"CurveEdges": "yes",
+					"Labels": "yes",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Share types by server",
+				"renderer": "stackgraph",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16018530198913,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Orientation": "vertical",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "SMB over nonstandard ports",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 4
+				},
+				"id": 16018530995084,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Infrequent Files",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"id": 16018533890555,
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Most frequent files",
+				"renderer": "table",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 8
+				},
+				"id": 16018534217746,
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Client Actions",
+				"renderer": "stackgraph",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 8
+				},
+				"id": 16018534407027,
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Orientation": "vertical",
+					"IncludeOther": "yes"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "PT1H",
+			"durationString": "PT1H",
+			"start": null,
+			"end": null
+		},
+		"version": 2,
+		"lastDataUpdate": "2020-10-04T16:40:27-07:00"
+	},
+	"Labels": null
+}

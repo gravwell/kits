@@ -1,0 +1,86 @@
+##Requirements
+****
+
+- Collector server(s)
+    - Recommended sizing for < 10,000 clients = 4 cpu,16GB RAM
+    - Recommended sizing for > 10,000 clients = 8 cpu, 32GB RAM
+    - Source systems need to be able to connect to this host on either:
+        - 5985/TCP when using HTTP (adjust firewall accordingly)
+        - 5986/TCP when using HTTPS (adjust firewall accordingly)
+- GPOs
+    - Collector
+    - Source
+- WEC subscription(s)
+- Client system(s)
+    - Source systems need to be able to connect to this host on either:
+        - 5985/TCP when using HTTP (adjust firewall accordingly)
+        - 5986/TCP when using HTTPS (adjust firewall accordingly)
+
+##Implementation (AD domain environment)
+****
+***_NOTE: It is recommended that collector servers be placed in a central location relative to its source systems
+i.e the same forest and network as it’s source systems as well as their destination i.e. gravwell indexer_***
+
+1) Create the collector GPO:
+
+- Set the Wecsvc (Windows Event Collector) and WinRM (Windows Remote Management) services to start automatically
+- For WinRM client, set the following:
+    - Allow Basic authentication: Disabled
+    - Allow unencrypted traffic: Disabled
+    - Disallow Digest authentication: Enabled&nbsp;&nbsp;&nbsp;&nbsp;***_*Consider setting “Trusted Hosts” and/or only allowing Kerberos authentication_***
+    - Desired audit policy (unless already configured)
+    - For WinRM service, set the following:
+    - Allow Basic authentication: Disabled
+    - Allow unencrypted traffic: Disabled
+    - Disallow WinRm from storing RunAs credentials: Enabled&nbsp;&nbsp;&nbsp;&nbsp;***_*Consider disabling “Allow remote server management through WinRM”, only allowing Kerberos authentication, and/or setting “Specify channel binding token hardening level” (when using HTTPS)***_
+
+2) Create the source GPO:
+
+- Set the WinRM (Windows Remote Management) service to start automatically
+- For WinRM client, set the following:
+    - Allow Basic authentication: Disabled
+    - Allow unencrypted traffic: Disabled
+    - Disallow Digest authentication: Enabled&nbsp;&nbsp;&nbsp;&nbsp;***_*Consider setting “Trusted Hosts” and/or only allowing Kerberos authentication_***
+    - For WinRM service, set the following:
+    - Allow Basic authentication: Disabled
+    - Allow unencrypted traffic: Disabled
+    - Disallow WinRm from storing RunAs credentials: Enabled&nbsp;&nbsp;&nbsp;&nbsp;***_Consider disabling “Allow remote server management through WinRM” if remote management of these computers should be disable and/or only allowing Kerberos authentication as this is the most secure option available for authentication_**
+
+3) Once GPOs are pushed and the servers/clients have been restarted proceed
+
+*Verify by opening powershell on the target system and running:
+
+Get-GPO -Name "NAME OF SOURCE GPO"
+
+
+
+If results come back the GPO has been applied to the target system, otherwise an error indicates the GPO has not been applied.  Check if the GPO has been linked to the target systems’ OU or if a linked WMI filter is causing this by opening Group Policy Management.
+
+4) Copy over the XML files for the desired level of event collection and run the following for each:
+
+wecutil cs "PATH\_TO\_XML"
+
+5) To validate this was successful perform one of the following:
+
+- Wecutil es (to show all WEC subscriptions)
+- Open Event Viewer, select “Subscriptions” from the left tree menu
+	
+	
+6) Lastly, verify the “Forwarded Events” log is:
+
+- At least sized to the maximum recommended view size: 4194240
+- Configured to your desired retention setting
+
+7) Once each client system updates group policy, you should see events showing up in the “Forwarded Events” log
+
+##Helpful links
+***
+[Microsoft WEC/WEF documentation](https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/use-windows-event-forwarding-to-assist-in-intrusion-detection#what-format-is-used-for-forwarded-events)
+
+[Windows Event Collection server setup](https://learn.microsoft.com/en-us/windows/win32/wec/setting-up-a-source-initiated-subscription)
+
+[NSA WEC/WEF program](https://github.com/nsacyber/Event-Forwarding-Guidance/blob/master/README.md)
+
+[Palantir WEC/WEF program](https://github.com/palantir/windows-event-forwarding)
+
+[ASD WEC/WEC program](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-monitoring/windows-event-logging-and-forwarding)

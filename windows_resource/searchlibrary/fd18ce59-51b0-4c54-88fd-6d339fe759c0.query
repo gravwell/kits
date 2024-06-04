@@ -1,0 +1,4 @@
+tag=$WINDOWS_USER winlog EventID
+| regex -e EventID "^(4720|4722|4725|4726|4738|4767)$"
+| stats count
+| chart count

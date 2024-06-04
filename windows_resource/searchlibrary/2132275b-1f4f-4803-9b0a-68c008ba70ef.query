@@ -1,0 +1,5 @@
+tag=$WINDOWS_USER winlog EventID==4726 TimeCreated Computer TargetUserName TargetDomainName SubjectUserName SubjectDomainName SamAccountName
+| printf -e DeletedUser "%v\\%v" TargetDomainName TargetUserName
+| printf -e DeletedBy "%v\\%v" SubjectDomainName SubjectUserName
+| lookup -r windows_eventid_messages EventID ID Message
+| table TimeCreated Message DeletedUser DeletedBy Computer
