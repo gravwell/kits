@@ -1,0 +1,203 @@
+{
+	"UUID": "cfc013bd-927e-464b-b647-cc26f19b5e4c",
+	"Name": "Corelight Investigate Responder Port",
+	"Description": "Investigate given responder port using the Corelight conn.log",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Corelight - Host count - resp port",
+				"color": null,
+				"reference": {
+					"id": "be127f58-d9b5-4d42-b510-01ea70b32edc",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight connection count overview for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "8586bddf-bc88-4de9-8a70-3eeeb2a79e96",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight totals by traffic direction for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "ec7df9d0-1200-40ef-961b-d63ab7f3ea14",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight connection count by service for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "3427f21c-7a52-4472-b36b-6ff8211e11f4",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight connection count by state for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "a0feb9ca-3e7c-479c-a27a-5598e034276d",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight connection traffic total details by org for id.res",
+				"color": null,
+				"reference": {
+					"id": "0fd8fe81-d562-421f-b93a-09f80ffed7ca",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 5843827026453846,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 8578315267666202,
+				"title": "Traffic totals by direction",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 1124157298325866,
+				"title": "Connection Rates by Service",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 5601943506580578,
+				"title": "Connection Counts by State",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17151814153235,
+				"title": "Connection count details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17152049938425,
+				"title": "Connection traffic total details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

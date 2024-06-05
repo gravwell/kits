@@ -63,6 +63,11 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
+			"Name": "cfc013bd-927e-464b-b647-cc26f19b5e4c",
+			"Type": 3,
+			"Hash": "4a72b028bbb973346c2d3139b41ae0f552449b95a5ab5c879dc38ad266c21a6a"
+		},
+		{
 			"Name": "c22c294a-2eb3-4d1b-be1a-3ea8b076e3e0",
 			"Type": 3,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -1021,6 +1026,41 @@
 			"Name": "corelight_suricata_corelight",
 			"Type": 4,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "be127f58-d9b5-4d42-b510-01ea70b32edc",
+			"Type": 6,
+			"Hash": "17fd2e7d05112b9264e5f12fff88d336fa8abe1ef179440d3cfa29afa07e749a"
+		},
+		{
+			"Name": "ec7df9d0-1200-40ef-961b-d63ab7f3ea14",
+			"Type": 6,
+			"Hash": "fd9bea70616cc28584199fc40de98de57602600cb1948502b05b2f8c60aec19f"
+		},
+		{
+			"Name": "0fd8fe81-d562-421f-b93a-09f80ffed7ca",
+			"Type": 6,
+			"Hash": "63bf6fd46702c4c71648e63e2d43f71e449938de1a2d9251e887d32eae0a8db4"
+		},
+		{
+			"Name": "8586bddf-bc88-4de9-8a70-3eeeb2a79e96",
+			"Type": 6,
+			"Hash": "edf6cd3505bec634d12eb7834defd52a79c7c9cdb0f546a015b0fc692529aeaa"
+		},
+		{
+			"Name": "3427f21c-7a52-4472-b36b-6ff8211e11f4",
+			"Type": 6,
+			"Hash": "dc01698a250c8789696a530a40926e503d3f8fcbda8a0d752e36170b6172f29b"
+		},
+		{
+			"Name": "a0feb9ca-3e7c-479c-a27a-5598e034276d",
+			"Type": 6,
+			"Hash": "1a96aa95b96b3459121b78c3b6cecf8c94040527ec99b75b5b8e2bc465795bd3"
+		},
+		{
+			"Name": "b418c325-7cf5-4e23-9989-0f7ccc9034fc",
+			"Type": 5,
+			"Hash": "8623d851953232697b182213665ad7083eff0b4a6a64b76e33938d5d3d9bc2d2"
 		}
 	],
 	"Dependencies": [
