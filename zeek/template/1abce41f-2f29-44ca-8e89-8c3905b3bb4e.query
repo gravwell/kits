@@ -1,0 +1,4 @@
+tag=zeek_conn ax "id.resp_p"==%%respport%% orig_bytes resp_bytes
+| require -s orig_bytes resp_bytes
+| stats sum(orig_bytes) as upload sum(resp_bytes) as download
+| chart upload download

@@ -1,0 +1,3 @@
+tag=zeek_conn ax "id.resp_p"==%%respport%% conn_state
+| stats count by conn_state
+| chart count by conn_state
