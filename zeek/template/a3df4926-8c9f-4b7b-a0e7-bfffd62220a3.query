@@ -1,0 +1,5 @@
+tag=zeek_conn ax "id.resp_p"==%%respport%% service
+| stats count as Count by service
+| eval if ( service == "-" ) { service = "unknown"; }
+| alias service Service
+| chart Count by Service limit 32

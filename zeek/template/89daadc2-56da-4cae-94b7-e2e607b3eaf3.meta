@@ -1,0 +1,18 @@
+{
+	"UUID": "89daadc2-56da-4cae-94b7-e2e607b3eaf3",
+	"Name": "Zeek connection traffic total details by org for id.resp_p",
+	"Description": "Table of connection traffic details by org with responding port",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%respport%%",
+				"label": "Responding Port",
+				"description": "Destination port of connection",
+				"required": true,
+				"defaultValue": "443",
+				"previewValue": "443"
+			}
+		]
+	},
+	"Labels": null
+}

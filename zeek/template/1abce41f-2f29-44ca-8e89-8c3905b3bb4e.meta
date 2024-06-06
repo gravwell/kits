@@ -1,0 +1,18 @@
+{
+	"UUID": "1abce41f-2f29-44ca-8e89-8c3905b3bb4e",
+	"Name": "Zeek totals by traffic direction for id.resp_p",
+	"Description": "Chart the upload and download traffic as seen by zeek with responder port",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%respport%%",
+				"label": "Responder Port",
+				"description": "Destination port of connection",
+				"required": true,
+				"defaultValue": "443",
+				"previewValue": "443"
+			}
+		]
+	},
+	"Labels": null
+}
