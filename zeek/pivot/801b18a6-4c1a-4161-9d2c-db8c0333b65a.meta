@@ -1,0 +1,88 @@
+{
+	"UUID": "801b18a6-4c1a-4161-9d2c-db8c0333b65a",
+	"Name": "Zeek Port number",
+	"Description": "Zeek actions on port numbers",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Port service research (speedguide.net)",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "url",
+					"reference": "https://www.speedguide.net/port.php?port=_VALUE_",
+					"options": {
+						"modal": false,
+						"noValueUrlEncode": false
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "Zeek connection details",
+				"description": "Zeek connection details",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "c3ceb661-4d6d-4bb8-8970-fad4c353b9d5",
+					"options": {
+						"variable": "%%respport%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "Zeek Investigate Responder Port",
+				"description": "Zeek Investigate Responder Port",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "70149c86-e4a6-4385-82cd-12bc9e2e3e95",
+					"options": {
+						"variable": "%%respport%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/^([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/g",
+				"hyperlink": false,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}
