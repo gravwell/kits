@@ -1,1 +1,0 @@
-tag=corelight_smb* ax | unique "id.orig_h" | geoip "id.orig_h".Location | heatmap "id.orig_h"

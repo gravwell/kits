@@ -1,1 +1,0 @@
-tag=corelight_smb* ax | grep -v -e "id.resp_p" 445 139 | count by "id.resp_h" "id.resp_p" | table "id.resp_h" "id.resp_p" count
