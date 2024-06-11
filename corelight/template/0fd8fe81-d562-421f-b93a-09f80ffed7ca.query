@@ -1,0 +1,9 @@
+tag=corelight_conn ax "id.orig_h" "id.resp_h" "id.resp_p"==%%respport%% service orig_bytes resp_bytes
+| eval (tot=int(orig_bytes)+int(resp_bytes);)
+| stats sum(tot) as "Total Bytes" by "id.orig_h" "id.resp_h" "id.resp_p" service
+| geoip -r asn_db "id.resp_h".ASN as asn "id.resp_h".ASNOrg as asnorg
+| printf -e Org "%v(%v)" asnorg asn
+| alias "id.orig_h" "Originating Host"
+| alias "id.resp_h" "Responder Host"
+| alias service Service
+| table "Total Bytes" "Originating Host" "Responder Host" Service Org
