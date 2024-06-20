@@ -84,6 +84,11 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
+                        "Name": "WINDOWS_EVENTLOG_CLEARED",
+                        "Type": 8,
+                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
 			"Name": "74a11418-cb0b-4beb-84a7-7df00c06125b",
 			"Type": 3,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -322,6 +327,14 @@
 			"Value": "",
 			"Type": "STRING",
 			"InstalledByID": ""
-		}
+		},
+		{
+                        "MacroName": "WINDOWS_EVENTLOG_CLEARED",
+                        "Description": "Windows tags containing security and system events i.e. windows_security,windows_system",
+                        "DefaultValue": "windows",
+                        "Value": "",
+                        "Type": "STRING",
+                        "InstalledByID": ""
+                }
 	]
 }

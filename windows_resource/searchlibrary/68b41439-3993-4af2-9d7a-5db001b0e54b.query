@@ -1,4 +1,4 @@
-tag=windows_system,windows_security winlog -s TimeCreated EventID Computer as LogClearedOn UserData
+tag=$WINDOWS_EVENTLOG_CLEARED winlog -s TimeCreated EventID Computer as LogClearedOn UserData
 | eval ((EventID == "104") || EventID == "1102")
 | xml -e UserData LogFileCleared.SubjectUserName as SubjectUserName LogFileCleared.SubjectDomainName as SubjectDomainName LogFileCleared.Channel as ClearedLogName
 | eval (if (EventID == "1102") {ClearedLogName = "Security";})
