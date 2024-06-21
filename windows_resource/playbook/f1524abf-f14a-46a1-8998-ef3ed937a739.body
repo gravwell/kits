@@ -6,7 +6,7 @@ The Windows Resource Kit aims to provide pathways to jump start your Windows inv
 ##Configuration
 ****
 
-A well defined collection strategry and data management are key to achieving data omniscience, especially with logs as cumbersome as those formatted in XML, and thus it is recommended to consider the following:
+A well defined collection strategy and data management are key to achieving data omniscience, especially with logs as cumbersome as those formatted in XML, and thus it is recommended to consider the following:
 
 <font color="orange">Plan your collection strategy accordingly for your environment</font>
 
@@ -95,7 +95,7 @@ Overview of all collected successful Windows logon Events, by default, from the 
 
 <font color="red">Required EventIDs: </font>4625, 4740, 4771
 
-Overview of all collected failed Windows logn and associated account logout events, by default, from the last 4 hours
+Overview of all collected failed Windows logon and associated account logout events, by default, from the last 4 hours
 
 <font color="orange">Windows - Groups - Overview</font>
 
