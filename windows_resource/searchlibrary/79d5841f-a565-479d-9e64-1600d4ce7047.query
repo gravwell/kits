@@ -10,4 +10,4 @@ tag=$WINDOWS_LOGON winlog EventID Computer SubjectUserName SubjectDomainName Tar
 | eval (if (EventID == "4771") {LogonTypeInfo = ""; KrbStatus = Status; SubjectUser = ""; TargetUser = TargetUserName;})
 | lookup -r windows_ticket_failure_codes KrbStatus code description as Description
 | stats count by Computer SubjectUser TargetUser Description Status LogonTypeInfo TargetInfo SourceInfo
-| table count Computer SubjectUser TargetUser Description Status LogonTypeInfo TargetInfo SourceInfo
+| table count Computer SubjectUser TargetUser Description LogonTypeInfo TargetInfo SourceInfo

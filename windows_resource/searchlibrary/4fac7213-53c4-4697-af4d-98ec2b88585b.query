@@ -1,0 +1,7 @@
+tag=$WINDOWS_GROUP winlog EventID TimeCreated Computer MemberName MemberSid TargetUserName TargetDomainName SubjectUserName SubjectDomainName
+| regex -e EventID "^(4729|4733|4747|4752|4757|4762)$"
+| lookup -r windows_eventid_messages EventID ID Message
+| printf -e TargetGroup "%v\\%v" TargetDomainName TargetUserName
+| printf -e AddedBy "%v\\%v" SubjectDomainName SubjectUserName
+| printf -e MemberInfo "%v (%v)" MemberName MemberSid
+| table TimeCreated Message Computer MemberInfo TargetGroup AddedBy

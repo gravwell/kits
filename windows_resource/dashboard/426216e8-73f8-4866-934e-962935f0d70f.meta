@@ -1,10 +1,10 @@
 {
 	"UUID": "426216e8-73f8-4866-934e-962935f0d70f",
-	"Name": "Windows Overview - Logons",
-	"Description": "",
+	"Name": "Windows - Logons - Successful",
+	"Description": "Overview of successful Windows logon events",
 	"Data": {
 		"timeframe": {
-			"durationString": "PT4H",
+			"durationString": "PT8H",
 			"timeframe": "manual",
 			"timezone": null,
 			"start": null,
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Windows - Successful user logon count",
+				"alias": "Windows Successful User Logon Details",
 				"color": null,
 				"reference": {
 					"id": "7e479c1b-b8fd-467b-92e5-6ab7219936f8",
@@ -23,29 +23,7 @@
 				}
 			},
 			{
-				"alias": "Windows - Failed user logon count",
-				"color": null,
-				"reference": {
-					"id": "79d5841f-a565-479d-9e64-1600d4ce7047",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Windows - User Locked events",
-				"color": null,
-				"reference": {
-					"id": "e12043cd-2085-43b9-a2d2-9bd214a46429",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Windows_* Logon Events Overview",
+				"alias": "Windows Successful Logon Events Overview",
 				"color": null,
 				"reference": {
 					"id": "1d653fd9-5335-494d-8baf-9a6b9d5b98fc",
@@ -56,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Windows Successful Admin logons",
+				"alias": "Windows Successful Admin Logon Details - Group Membership",
 				"color": null,
 				"reference": {
 					"id": "0f7750bd-1576-481a-b60d-b382bc9e70fd",
@@ -67,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Windows Successful Admin Logon Details",
+				"alias": "Windows Successful Admin Logon Details - ElevatedToken",
 				"color": null,
 				"reference": {
 					"id": "ee62b55d-d567-4a68-8b47-7d7b7525303e",
@@ -78,7 +56,18 @@
 				}
 			},
 			{
-				"alias": "Windows Successful Admin Logon Details - 4627",
+				"alias": "Windows Successful RDP Logon Details",
+				"color": null,
+				"reference": {
+					"id": "357db0e6-7346-40af-8863-f3468f3ae991",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Successful Admin Logon Details - Group Membership",
 				"color": null,
 				"reference": {
 					"id": "0f7750bd-1576-481a-b60d-b382bc9e70fd",
@@ -105,34 +94,6 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 17146817176131,
-				"title": "Failed user logon events",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 11,
-					"row": 5,
-					"x": 0,
-					"y": 9
-				},
-				"searchesIndex": 1,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17150027512942,
-				"title": "Locked out user events",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 11,
-					"row": 5,
-					"x": 11,
-					"y": 9
-				},
-				"searchesIndex": 2,
-				"rendererOptions": {}
-			},
-			{
 				"id": 17158658259713,
 				"title": "Overview",
 				"renderer": "overview",
@@ -143,7 +104,7 @@
 					"x": 0,
 					"y": 0
 				},
-				"searchesIndex": 3,
+				"searchesIndex": 1,
 				"rendererOptions": {}
 			},
 			{
@@ -155,13 +116,27 @@
 					"col": 11,
 					"row": 5,
 					"x": 11,
-					"y": 4
+					"y": 9
 				},
-				"searchesIndex": 5,
+				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17163828723935,
+				"id": 17169204513286,
+				"title": "Successful RDP logon details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 5,
+					"x": 11,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17171796003114,
 				"title": "Successful admin logon details - Group Membership",
 				"renderer": "table",
 				"hideZoom": true,
@@ -169,9 +144,9 @@
 					"col": 11,
 					"row": 5,
 					"x": 0,
-					"y": 14
+					"y": 9
 				},
-				"searchesIndex": 6,
+				"searchesIndex": 5,
 				"rendererOptions": {}
 			}
 		],

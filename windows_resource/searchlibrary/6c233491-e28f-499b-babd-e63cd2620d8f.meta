@@ -1,0 +1,8 @@
+{
+	"Name": "Windows Failed Logons Before User Locked Events",
+	"Description": "Count of failed logon events (4625,4771) based on information from 4740 events",
+	"GUID": "6c233491-e28f-499b-babd-e63cd2620d8f",
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,14 @@
+tag=$WINDOWS_LOGON winlog EventID == 4624 Computer SubjectUserName SubjectDomainName TargetUserSid TargetUserName !~ "$" TargetDomainName LogonType==10 LogonProcessName WorkstationName as TargetInfo IpAddress
+// Exclude builtin users and local system auths
+| eval (
+    !(SubjectUserName ~ "$" && (TargetUserSid !~ "S-1-5-80" || TargetUserSid ~ "S-1-5-82" || TargetUserSid ~ "S-1-5-90" || TargetUserSid ~ "S-1-5-96")) 
+    || !((SubjectUserName == "-" || SubjectUserName ~ "$") && TargetUserSid == "S-1-5-18") )
+| lookup -r windows_login_types LogonType logon_type name as LogonName
+| dns -reverse IpAddress Host
+| printf -e SourceInfo "%v (%v)" Host IpAddress
+| printf -e LogonTypeInfo "%v (%v)" LogonName LogonType
+| printf -e SubjectUser "%v\\%v" SubjectDomainName SubjectUserName
+| printf -e TargetUser "%v\\%v" TargetDomainName TargetUserName
+| eval (if (TargetInfo == "-") {TargetInfo = "<See Computer>";})
+| stats count by Computer SubjectUser TargetUser LogonTypeInfo LogonProcessName TargetInfo SourceInfo
+| table count Computer SubjectUser TargetUser LogonTypeInfo LogonProcessName TargetInfo SourceInfo
