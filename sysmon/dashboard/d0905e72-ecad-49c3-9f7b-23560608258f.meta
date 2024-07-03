@@ -1,7 +1,7 @@
 {
 	"UUID": "d0905e72-ecad-49c3-9f7b-23560608258f",
 	"Name": "Sysmon DNS Domain Investigation",
-	"Description": "",
+	"Description": "Investigate activity for a specified domain.",
 	"Data": {
 		"searches": [
 			{

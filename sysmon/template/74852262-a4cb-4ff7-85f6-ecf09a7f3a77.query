@@ -1,2 +1,2 @@
-tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" ProcessGuid=="_GUID_" EventID |
+tag=$SYSMON winlog $PROVIDER ProcessGuid=="_GUID_" EventID |
 stats count as "Event ID" by EventID |numbercard "Event ID"

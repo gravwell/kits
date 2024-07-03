@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID Computer Image |
-eval ( EventID==12 || EventID==13 || EventID==14 ) |
-stats count by Image Computer |
-table Image Computer count
+tag=$SYSMON winlog $PROVIDER EventID Computer Image 
+| eval ( EventID==12 || EventID==13 || EventID==14 ) 
+| stats count by Image Computer 
+| table Image Computer count

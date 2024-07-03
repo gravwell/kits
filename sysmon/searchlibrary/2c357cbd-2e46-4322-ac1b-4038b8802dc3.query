@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==22 QueryName |
+tag=$SYSMON winlog $PROVIDER EventID==22 QueryName |
 diff TIMESTAMP by QueryName |
 require -s diff |
 stats mean(diff) stddev(diff) count by QueryName |

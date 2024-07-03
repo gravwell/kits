@@ -1,2 +1,2 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" ProcessGuid=="_GUID_" EventID==22 Computer QueryName QueryStatus QueryResults |
+tag=$SYSMON winlog $PROVIDER ProcessGuid=="_GUID_" EventID==22 Computer QueryName QueryStatus QueryResults |
 table Computer QueryName QueryStatus QueryResults TIMESTAMP

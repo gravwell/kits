@@ -1,0 +1,12 @@
+{
+	"Name": "Sysmon: Registry Overview",
+	"Description": "Chart of total registry activity",
+	"GUID": "688f94a9-bf43-4b64-b5d0-e162c6763785",
+	"Labels": [
+		"sysmon",
+		"windows"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

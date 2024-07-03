@@ -1,1 +1,1 @@
-tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID==22 QueryName ~ "%%NAME%%"
+tag=$SYSMON winlog $PROVIDER EventID==22 QueryName ~ "%%NAME%%"

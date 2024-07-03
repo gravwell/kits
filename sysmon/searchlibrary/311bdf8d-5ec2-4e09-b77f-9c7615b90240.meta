@@ -1,0 +1,12 @@
+{
+	"Name": "Sysmon: Registry Techniques Detected",
+	"Description": "Count of triggered rules that indicate potential registry modification",
+	"GUID": "311bdf8d-5ec2-4e09-b77f-9c7615b90240",
+	"Labels": [
+		"sysmon",
+		"windows"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -3,98 +3,123 @@
 	"Name": "Sysmon investigate Computer",
 	"Description": "Investigate activity on a particular computer.",
 	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
 		"searches": [
 			{
 				"alias": "Sysmon DNS queries by Computer",
+				"color": null,
 				"reference": {
 					"id": "63d69f47-9b2a-4aa0-9f60-32f1997bc9e1",
-					"type": "template"
-				},
-				"color": null
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
 				"alias": "Sysmon EventID Frequency by Computer",
+				"color": null,
 				"reference": {
 					"id": "0f280f0e-1a35-4f51-8318-075a6fdf2844",
-					"type": "template"
-				},
-				"color": null
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
 				"alias": "Sysmon application launches by Computer",
+				"color": null,
 				"reference": {
 					"id": "0f2f186e-7c89-4036-953b-7a786cf0bd2d",
-					"type": "template"
-				},
-				"color": null
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
 				"alias": "Sysmon network connections by Computer",
+				"color": null,
 				"reference": {
 					"id": "b5324425-596a-4ede-bd17-0847c90c3c34",
-					"type": "template"
-				},
-				"color": null
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
+				"id": 16673297290940,
 				"title": "DNS Queries",
 				"renderer": "table",
+				"hideZoom": true,
 				"span": {
 					"col": 4,
 					"row": 7,
 					"x": 0,
 					"y": 0
 				},
-				"id": 16673297290940,
 				"searchesIndex": 0,
 				"rendererOptions": {}
 			},
 			{
+				"id": 16673299688541,
 				"title": "EventID Frequency",
 				"renderer": "categoryBarChart",
+				"hideZoom": true,
 				"span": {
 					"col": 8,
 					"row": 7,
 					"x": 4,
 					"y": 0
 				},
-				"id": 16673299688541,
 				"searchesIndex": 1,
 				"rendererOptions": {}
 			},
 			{
+				"id": 16673323658722,
 				"title": "Application Launches",
 				"renderer": "table",
+				"hideZoom": true,
 				"span": {
 					"col": 7,
 					"row": 6,
 					"x": 0,
 					"y": 7
 				},
-				"id": 16673323658722,
 				"searchesIndex": 2,
 				"rendererOptions": {}
 			},
 			{
+				"id": 16673366733363,
 				"title": "Network Connections by Service",
 				"renderer": "table",
+				"hideZoom": true,
 				"span": {
 					"col": 5,
 					"row": 6,
 					"x": 7,
 					"y": 7
 				},
-				"id": 16673366733363,
 				"searchesIndex": 3,
 				"rendererOptions": {}
 			}
 		],
-		"timeframe": {
-			"timeframe": "P1DT"
-		},
+		"linkZooming": false,
+		"grid": {},
 		"version": 2
 	},
-	"Labels": null
+	"Labels": [
+		"sysmon",
+		"windows"
+	]
 }

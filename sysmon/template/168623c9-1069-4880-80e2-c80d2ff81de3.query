@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" ProcessGuid=="_GUID_" EventID>=12 Computer RuleName | eval EventID <= 14 |
+tag=$SYSMON winlog $PROVIDER ProcessGuid=="_GUID_" EventID>=12 Computer RuleName | eval EventID <= 14 |
 kv -e RuleName -sep "=" -d "," technique_name as Rule |
 winlog -or TargetObject Details |
 table Rule TargetObject Details

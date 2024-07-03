@@ -1,6 +1,6 @@
 {
-	"Name": "Sysmon DNS Queries over Time",
-	"Description": "",
+	"Name": "Sysmon: DNS Queries over Time",
+	"Description": "Chart of total number DNS queries over time",
 	"GUID": "ce0ef618-9135-4860-9f6f-091c65925c44",
 	"Labels": [
 		"windows",

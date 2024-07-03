@@ -1,5 +1,5 @@
 {
-	"Name": "Registry events by computer \u0026 image",
+	"Name": "Sysmon: Registry events by computer \u0026 image",
 	"Description": "Counts the number of registry events (creation, deletion, modification) per computer and image (executable file).",
 	"GUID": "0308f7d1-dc1b-4ff1-a1e4-39d209d900b2",
 	"Labels": [

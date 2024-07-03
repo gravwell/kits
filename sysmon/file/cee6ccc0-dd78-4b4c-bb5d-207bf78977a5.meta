@@ -1,6 +1,9 @@
 {
 	"GUID": "cee6ccc0-dd78-4b4c-bb5d-207bf78977a5",
-	"Name": "test2 cover",
+	"Name": "Cover Image",
 	"Desc": "",
-	"Labels": null
+	"Labels": [
+		"sysmon",
+		"windows"
+	]
 }

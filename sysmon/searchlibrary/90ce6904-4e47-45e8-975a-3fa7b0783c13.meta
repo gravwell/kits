@@ -1,5 +1,5 @@
 {
-	"Name": "Sysmon CreateRemoteThread unique activity",
+	"Name": "Sysmon: CreateRemoteThread unique activity",
 	"Description": "Table of source applications creating remote threads in many other target applications",
 	"GUID": "90ce6904-4e47-45e8-975a-3fa7b0783c13",
 	"Labels": [

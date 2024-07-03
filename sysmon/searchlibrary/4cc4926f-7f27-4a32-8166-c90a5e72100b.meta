@@ -1,0 +1,12 @@
+{
+	"Name": "Sysmon: Network Connection Detected",
+	"Description": "Chart of total number of network connections over time",
+	"GUID": "4cc4926f-7f27-4a32-8166-c90a5e72100b",
+	"Labels": [
+		"sysmon",
+		"windows"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
