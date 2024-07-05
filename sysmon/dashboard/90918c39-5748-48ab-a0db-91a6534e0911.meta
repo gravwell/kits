@@ -195,5 +195,8 @@
 		"version": 2,
 		"lastDataUpdate": "2021-02-19T12:19:20-08:00"
 	},
-	"Labels": null
+	"Labels": [
+		"sysmon",
+		"windows"
+	]
 }

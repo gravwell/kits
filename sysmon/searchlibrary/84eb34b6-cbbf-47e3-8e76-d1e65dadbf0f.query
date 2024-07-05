@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==6 Computer ImageLoaded Hashes Signed Signature SignatureStatus |
+tag=$SYSMON winlog $PROVIDER EventID==6 Computer ImageLoaded Hashes Signed Signature SignatureStatus |
 kv -e Hashes -sep "=" -d "," SHA256 |
 stats count as LoadCount by Computer ImageLoaded SHA256 |
 table Computer Signed Signature SignatureStatus LoadCount ImageLoaded SHA256

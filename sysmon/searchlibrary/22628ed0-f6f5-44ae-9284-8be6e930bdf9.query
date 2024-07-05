@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID == 3 DestinationPort |
+tag=$SYSMON winlog $PROVIDER EventID == 3 DestinationPort |
 stats count by DestinationPort |
 sort by count asc |
 limit 100 |

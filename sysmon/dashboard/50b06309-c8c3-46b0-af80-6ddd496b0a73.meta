@@ -14,13 +14,16 @@
 				"searchID": 8119245118
 			},
 			{
-				"alias": "Search 2",
+				"alias": "Computer Image Hash Totals",
 				"timeframe": {},
-				"query": "tag=$SYSMON winlog Provider == \"Microsoft-Windows-Sysmon\" EventID == 1 Computer Image Hashes | kv -e Hashes SHA256 | stats unique_count(SHA256) as \"Unique Images\" unique_count(Computer) as Computers | numbercard \"Unique Images\" Computers",
+				"reference": {
+					"id": "1169e587-973b-492a-a73f-e63aeecd023d",
+					"type": "savedQuery"
+				},
 				"searchID": 1024131721
 			},
 			{
-				"alias": "Sysmon rare process image hashes",
+				"alias": "Sysmon Rare Process Image Hashes",
 				"timeframe": {},
 				"reference": {
 					"id": "dd808c75-036d-489a-8e78-313ba2a32309",
@@ -180,5 +183,8 @@
 		"version": 2,
 		"lastDataUpdate": "2021-02-18T14:16:28-07:00"
 	},
-	"Labels": null
+	"Labels": [
+		"sysmon",
+		"windows"
+	]
 }

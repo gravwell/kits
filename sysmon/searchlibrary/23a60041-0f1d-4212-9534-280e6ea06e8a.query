@@ -1,2 +1,2 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 Computer User OriginalFileName FileVersion Description Product ParentCommandLine |
+tag=$SYSMON winlog $PROVIDER EventID==1 Computer User OriginalFileName FileVersion Description Product ParentCommandLine |
 table Computer User OriginalFileName Product Description ParentCommandLine

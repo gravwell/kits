@@ -1,6 +1,6 @@
 {
-	"Name": "Sysmon Process Access with VM_WRITE Access on system32 images",
-	"Description": "Display all ProcessAccess requests where an image from outside the system32 directory accesses a process with an image inside system32 with the VM_WRITE permission bit.",
+	"Name": "Sysmon: Process Access with VM_WRITE Access on system32 images",
+	"Description": "Display all ProcessAccess requests where an image from outside the system32 directory accesses a process with an image inside system32 with the VM_WRITE permission bit",
 	"GUID": "a020a61b-af5e-40b8-a44f-0690c8ad99e3",
 	"Labels": [
 		"windows",

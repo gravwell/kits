@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 Computer Image |
+tag=$SYSMON winlog $PROVIDER EventID==1 Computer Image |
 regex -e Image "\.(?P<extension>[a-zA-Z0-9]+)$" |
 stats count by extension |
 sort by count asc |

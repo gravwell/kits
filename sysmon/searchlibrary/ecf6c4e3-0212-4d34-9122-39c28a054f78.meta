@@ -1,5 +1,5 @@
 {
-	"Name": "Sysmon Driver Loads with invalid signatures",
+	"Name": "Sysmon: Driver Loads with invalid signatures",
 	"Description": "Table of driver activity where the signature of a driver could not be validated",
 	"GUID": "ecf6c4e3-0212-4d34-9122-39c28a054f78",
 	"Labels": [

@@ -1,7 +1,7 @@
 {
 	"UUID": "ae15b1b7-8cb7-48d4-84e9-b850754346c9",
 	"Name": "Sysmon Process Name Investigator",
-	"Description": "Use the name of an exe to search for related activity across all sysmon logs",
+	"Description": "Use the name of an EXE to search for related activity across all sysmon logs",
 	"Data": {
 		"searches": [
 			{
@@ -14,7 +14,7 @@
 				"searchID": 6248324516
 			},
 			{
-				"alias": "Sysmon ProcessName Files created",
+				"alias": "Sysmon ProcessName Files Created",
 				"timeframe": {},
 				"reference": {
 					"id": "8bcf72d8-dfe1-4773-8b44-c5d9ca42ef67",
@@ -41,7 +41,7 @@
 				"searchID": 7101445981
 			},
 			{
-				"alias": "Sysmon ProcessName network",
+				"alias": "Sysmon ProcessName Network",
 				"timeframe": {},
 				"reference": {
 					"id": "7944efa0-8ba4-461f-9f13-c192dfc04571",
@@ -91,7 +91,7 @@
 				"rendererOptions": {}
 			},
 			{
-				"title": "Process file creations",
+				"title": "Process File Creations",
 				"renderer": "table",
 				"span": {
 					"col": 6,
@@ -123,7 +123,7 @@
 				}
 			},
 			{
-				"title": "DNS activity",
+				"title": "DNS Activity",
 				"renderer": "table",
 				"span": {
 					"col": 6,
@@ -140,7 +140,7 @@
 				}
 			},
 			{
-				"title": "Network connections",
+				"title": "Network Connections",
 				"renderer": "table",
 				"span": {
 					"col": 6,
@@ -153,7 +153,7 @@
 				"rendererOptions": {}
 			},
 			{
-				"title": "Users running this exe",
+				"title": "Users running this EXE",
 				"renderer": "pieChart",
 				"span": {
 					"col": 3,
@@ -175,5 +175,8 @@
 		"version": 2,
 		"lastDataUpdate": "2021-02-19T15:22:54-08:00"
 	},
-	"Labels": null
+	"Labels": [
+		"sysmon",
+		"windows"
+	]
 }

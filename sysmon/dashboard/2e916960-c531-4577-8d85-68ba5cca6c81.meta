@@ -1,79 +1,101 @@
 {
 	"UUID": "2e916960-c531-4577-8d85-68ba5cca6c81",
 	"Name": "Sysmon Network Overview",
-	"Description": "Overview dashboard of network activity by Sysmon",
+	"Description": "Overview of network activity as seen by Sysmon",
 	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
 		"searches": [
 			{
-				"alias": "Search 1",
-				"timeframe": {},
-				"query": "tag=$SYSMON winlog Provider == \"Microsoft-Windows-Sysmon\" EventID == 3 | stats count | chart count",
-				"searchID": 6027826504
-			},
-			{
-				"alias": "Search 2",
-				"timeframe": {},
-				"query": "tag=$SYSMON winlog Provider == \"Microsoft-Windows-Sysmon\" EventID == 3 | stats count | chart count",
-				"searchID": 8100646652
-			},
-			{
 				"alias": "Sysmon Network Connections by Computer",
-				"timeframe": {},
+				"searchID": 5282604497,
+				"color": null,
 				"reference": {
 					"id": "d22fec64-d6d8-421e-a554-07a702b3b571",
-					"type": "savedQuery"
-				},
-				"searchID": 5282604497
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
 				"alias": "Sysmon Least Common Network Service Ports",
-				"timeframe": {},
+				"searchID": 2134746554,
+				"color": null,
 				"reference": {
 					"id": "22628ed0-f6f5-44ae-9284-8be6e930bdf9",
-					"type": "savedQuery"
-				},
-				"searchID": 2134746554
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
 				"alias": "Sysmon Network Connection Pointmap",
-				"timeframe": {},
+				"searchID": 7998154759,
+				"color": null,
 				"reference": {
 					"id": "bc1b77dd-a7ae-4235-8182-dae36f12e062",
-					"type": "savedQuery"
-				},
-				"searchID": 7998154759
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
 				"alias": "Sysmon Network Connections",
-				"timeframe": {},
+				"searchID": 5596511275,
+				"color": null,
 				"reference": {
 					"id": "5fe00171-5a46-4aa9-9ff8-5ad8df442cdc",
-					"type": "savedQuery"
-				},
-				"searchID": 5596511275
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
 				"alias": "Sysmon Network connection by IP Protocol",
-				"timeframe": {},
+				"searchID": 8238934926,
+				"color": null,
 				"reference": {
 					"id": "83a531a3-2e8a-4859-b0dd-b7c892881fc0",
-					"type": "savedQuery"
-				},
-				"searchID": 8238934926
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Sysmon Network Connection Detected",
+				"color": null,
+				"reference": {
+					"id": "4cc4926f-7f27-4a32-8166-c90a5e72100b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
+				"id": 16136890702520,
 				"title": "Overview",
 				"renderer": "overview",
+				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 4,
 					"x": 0,
 					"y": 0
 				},
-				"searchesIndex": 0,
-				"id": 16136890702520,
+				"searchesIndex": 5,
 				"rendererOptions": {
 					"XAxisSplitLine": "no",
 					"YAxisSplitLine": "no",
@@ -81,76 +103,16 @@
 				}
 			},
 			{
+				"id": 16136892998161,
 				"title": "Total Connection Rate",
 				"renderer": "areaChart",
+				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 4,
 					"x": 6,
 					"y": 0
 				},
-				"searchesIndex": 1,
-				"id": 16136892998161,
-				"rendererOptions": {
-					"Stack": "grouped",
-					"Smoothing": "normal",
-					"Orientation": "v",
-					"XAxisSplitLine": "no",
-					"YAxisSplitLine": "no",
-					"IncludeOther": "yes",
-					"ConnectNulls": "no",
-					"LogScale": "no"
-				}
-			},
-			{
-				"title": "Popular ASN Organizations",
-				"renderer": "table",
-				"span": {
-					"col": 6,
-					"row": 9,
-					"x": 0,
-					"y": 4
-				},
-				"id": 16136893658032,
-				"searchesIndex": 2,
-				"rendererOptions": {}
-			},
-			{
-				"title": "Least Common Service Ports",
-				"renderer": "table",
-				"span": {
-					"col": 6,
-					"row": 10,
-					"x": 0,
-					"y": 13
-				},
-				"id": 16136894055563,
-				"searchesIndex": 3,
-				"rendererOptions": {}
-			},
-			{
-				"title": "Connection Map",
-				"renderer": "pointmap",
-				"span": {
-					"col": 6,
-					"row": 9,
-					"x": 6,
-					"y": 4
-				},
-				"id": 16136894440394,
-				"searchesIndex": 4,
-				"rendererOptions": {}
-			},
-			{
-				"title": "Protocol Activity",
-				"renderer": "lineChart",
-				"span": {
-					"col": 6,
-					"row": 4,
-					"x": 6,
-					"y": 13
-				},
-				"id": 16136894864255,
 				"searchesIndex": 5,
 				"rendererOptions": {
 					"Stack": "grouped",
@@ -164,16 +126,82 @@
 				}
 			},
 			{
+				"id": 16136893658032,
+				"title": "Popular ASN Organizations",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16136894055563,
+				"title": "Least Common Service Ports",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16136894440394,
+				"title": "Connection Map",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16136894864255,
+				"title": "Protocol Activity",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 13
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 16136896855376,
 				"title": "IP Protocol Activity",
 				"renderer": "areaChart",
+				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 4,
 					"x": 6,
 					"y": 17
 				},
-				"id": 16136896855376,
-				"searchesIndex": 6,
+				"searchesIndex": 4,
 				"rendererOptions": {
 					"Stack": "grouped",
 					"Smoothing": "normal",
@@ -186,12 +214,13 @@
 				}
 			}
 		],
-		"timeframe": {
-			"timeframe": "P1DT"
-		},
-		"version": 2,
 		"linkZooming": true,
-		"lastDataUpdate": "2021-02-18T16:08:59-07:00"
+		"grid": {},
+		"version": 2
 	},
-	"Labels": null
+	"Labels": [
+		"sysmon",
+		"windows",
+		"network"
+	]
 }
