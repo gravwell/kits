@@ -1,6 +1,6 @@
 {
-	"Name": "Sysmon: Process Creation Via Multiple Paths",
-	"Description": "Table showing a list of processes where the same image has is seen executing from multiple image locations.",
+	"Name": "Sysmon: Process Creation via Multiple Paths",
+	"Description": "Table showing a list of processes where the same image is seen executing from multiple image locations",
 	"GUID": "da8c9621-b3b5-4daa-aa49-4eb0477e5a29",
 	"Labels": [
 		"windows",
