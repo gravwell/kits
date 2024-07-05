@@ -1,6 +1,6 @@
 {
 	"Name": "PROVIDER",
-	"Description": "The Provider value (Default: Provider==\"Microsoft-Windows-Sysmon\")",
+	"Description": "The Sysmon Provider value (Default: Provider==\"Microsoft-Windows-Sysmon\")",
 	"Labels": [
 		"sysmon",
 		"windows"
