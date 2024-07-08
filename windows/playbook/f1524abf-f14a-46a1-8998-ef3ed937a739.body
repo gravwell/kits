@@ -1,7 +1,7 @@
 #Overview
 ****
 
-The Windows Resource Kit aims to provide pathways to jump start your Windows investigations, whether chasing a configuration error, suspicious logon, etc., and ultimately conclude with actionable data.
+The Windows Kit aims to provide pathways to jump start your Windows investigations, whether chasing a configuration error, suspicious logon, etc., and ultimately conclude with actionable data.
 
 ##Configuration
 ****
@@ -105,17 +105,9 @@ Overview of all collected Windows group events, by default, from the last 4 hour
 
 ##Resources
 ****
-<font color="orange">windows\_access\_flags</font>
-
-Anko script to process Sysmon GrantAccess bitmasks (i.e. 0x0080 = "CREATE\_PROCESS")
-
 <font color="orange">windows\_auth\_fail\_codes</font>
 
 Map authentication failure status codes in failed logon events with their description (i.e. 0xc0000071 = "Account logon with expired password")
-
-<font color="orange">windows\_error\_codes</font>
-
-Windows winerror.h codes and descriptions (i.e. 0x00000005 = "Access is denied")
 
 <font color="orange">windows\_event\_level\_criticality</font>
 
@@ -124,22 +116,6 @@ Map level numbers in EventIDs to their criticality description (i.e. Level 2 = E
 <font color="orange">windows\_eventid\_messages</font>
 
 Map Windows EventIDs to their rendered text descriptions (i.e. 4616 = "The system time was changed")
-
-<font color="orange">windows\_login\_types</font>
-
-Map authentication event LogonType numbers to a name and description (i.e. 3 = "Network login from remote computer")
-
-<font color="orange">windows\_security\_ids</font>
-
-Maps Windows security IDs (SID) to friendly names/descriptions (i.e. S-1-1-0 = EVERYONE)
-
-<font color="orange">windows\_ticket\_encryption\_types</font>
-
-Maps Windows Kerberos ticket encryption types to names and descriptions (i.e. 0x12 = "AES256-CTS-HMAC-SHA1-96")
-
-<font color="orange">windows\_ticket\_failure\_codes</font>
-
-Maps Windows Kerberos ticket request failure codes to their description (i.e. 0x6 = KDC\_ERR\_C\_PRINCIPAL\_UNKNOWN")
 
 ##Example logs
 ****

@@ -1,8 +1,7 @@
 {
-	"VersionNumber": 2,
+	"VersionNumber": 3,
 	"ResourceName": "windows_security_ids",
 	"Description": "Maps Windows security IDs (e.g. \"S-1-5-18\") to friendly names/descriptions (\"Local System\"/\"A service account that is used by the operating system.\")",
-	"Labels": null,
 	"Size": 17075,
 	"Hash": "twbiL41fmXhQo9irF+nA6w==",
 	"Data": ""
