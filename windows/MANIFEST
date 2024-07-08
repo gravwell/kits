@@ -19,20 +19,20 @@
 	"Cover": "3add526e-3523-445d-bbfc-050c06546d81",
 	"Items": [
 		{
-                        "Name": "windows_event_level_criticality",
-                        "Type": 1,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-                },
+			"Name": "windows_event_level_criticality",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
 		{
-                        "Name": "windows_eventid_messages",
-                        "Type": 1,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-                },
+			"Name": "windows_eventid_messages",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
 		{
-                        "Name": "windows_auth_fail_codes",
-                        "Type": 1,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-                },
+			"Name": "windows_auth_fail_codes",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
 		{
 			"Name": "WINDOWS_ALL",
 			"Type": 8,
@@ -54,9 +54,9 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-                        "Name": "WINDOWS_EVENTLOG_CLEARED",
-                        "Type": 8,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+			"Name": "WINDOWS_EVENTLOG_CLEARED",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "74a11418-cb0b-4beb-84a7-7df00c06125b",
@@ -265,11 +265,11 @@
 		}
 	],
 	"Dependencies": [
-                {
-                        "ID": "io.gravwell.windows.resource",
-                        "MinVersion": 1
-                }
-        ],
+		{
+			"ID": "io.gravwell.windows.resource",
+			"MinVersion": 1
+		}
+	],
 	"ConfigMacros": [
 		{
 			"MacroName": "WINDOWS_ALL",
@@ -304,12 +304,12 @@
 			"InstalledByID": ""
 		},
 		{
-                        "MacroName": "WINDOWS_EVENTLOG_CLEARED",
-                        "Description": "Windows tags containing security and system events i.e. windows_security,windows_system",
-                        "DefaultValue": "windows",
-                        "Value": "",
-                        "Type": "STRING",
-                        "InstalledByID": ""
-                }
+			"MacroName": "WINDOWS_EVENTLOG_CLEARED",
+			"Description": "Windows tags containing security and system events i.e. windows_security,windows_system",
+			"DefaultValue": "windows",
+			"Value": "",
+			"Type": "STRING",
+			"InstalledByID": ""
+		}
 	]
 }
