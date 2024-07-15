@@ -1,0 +1,18 @@
+{
+	"UUID": "e8e18d4a-50a5-4481-9546-1b53b6410b4f",
+	"Name": "Juniper User Commands",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

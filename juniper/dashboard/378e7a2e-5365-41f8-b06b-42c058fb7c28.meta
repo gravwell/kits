@@ -1,0 +1,233 @@
+{
+	"UUID": "378e7a2e-5365-41f8-b06b-42c058fb7c28",
+	"Name": "Juniper Overview",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Juniper Appname Count",
+				"color": null,
+				"reference": {
+					"id": "bcbdaa8e-2011-4d37-b096-9cd44ef2d859",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Alarms",
+				"color": null,
+				"reference": {
+					"id": "5488c73a-6629-4682-bbe1-4e2c608ab05d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Alarms Count by Color",
+				"color": null,
+				"reference": {
+					"id": "296a5fe1-9da7-4c3e-83f1-3c1b34ba01d0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Logins",
+				"color": null,
+				"reference": {
+					"id": "8668804b-baa3-4b2a-bef7-4c60c100e95d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Logins by Client Mode",
+				"color": null,
+				"reference": {
+					"id": "ac0a4c5d-8bd1-49a7-a102-de69de4269bc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper SSH Logins by User",
+				"color": null,
+				"reference": {
+					"id": "9b8c5a06-ae30-4939-9c4b-a6d88b3826e5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Alarms by Class",
+				"color": null,
+				"reference": {
+					"id": "6af60afa-93d3-48fb-b07d-09637a2956d1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Alarms by Hostname",
+				"color": null,
+				"reference": {
+					"id": "d3414597-ff13-40ee-8511-4c0016dadf8f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Login Count by Hostname",
+				"color": null,
+				"reference": {
+					"id": "0bece134-4963-4543-882a-80e68220a305",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17129380222014,
+				"title": "Alarms",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 6,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129381428055,
+				"title": "Alarms by Color",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129384063796,
+				"title": "Juniper Logins",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 8,
+					"x": 4,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129385657587,
+				"title": "Logins by Client Mode",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 8,
+					"x": 2,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129388068198,
+				"title": "Logins by User",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 8,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129390155246,
+				"title": "Alarms by Class",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 6,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129395074036,
+				"title": "Alarms by Hostname",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 6,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129396196977,
+				"title": "Login Count by Hostname",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 8,
+					"x": 9,
+					"y": 6
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

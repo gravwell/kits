@@ -1,0 +1,4 @@
+tag=$JUNIPER_TAG ax Appname Facility==10 Hostname Message
+| regex -e Message `FROM\s(?P<src>.+?)\,\s(?P<Username>.+)`
+| stats unique_count(Username) as UsernameCount unique_count(Hostname) as DestCount count by src
+| table src UsernameCount DestCount

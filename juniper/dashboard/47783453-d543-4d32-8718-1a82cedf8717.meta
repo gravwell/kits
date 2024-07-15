@@ -1,0 +1,122 @@
+{
+	"UUID": "47783453-d543-4d32-8718-1a82cedf8717",
+	"Name": "Juniper User Detail",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Juniper User Login",
+				"color": null,
+				"reference": {
+					"id": "fc339912-7469-4071-ba07-604f2d998b34",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper User Commands",
+				"color": null,
+				"reference": {
+					"id": "e8e18d4a-50a5-4481-9546-1b53b6410b4f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Config Set",
+				"color": null,
+				"reference": {
+					"id": "ac407515-ab46-4f78-862a-ffa6dc7934a5",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper User Config Mode",
+				"color": null,
+				"reference": {
+					"id": "1f75573b-ab23-47dc-ab5f-81fb23507d4c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17129371664280,
+				"title": "User Logins",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 8,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129372390641,
+				"title": "User Command Line",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 8,
+					"x": 5,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129377362742,
+				"title": "Config Set",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 7,
+					"x": 5,
+					"y": 8
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129377615663,
+				"title": "User Config Mode",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 7,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

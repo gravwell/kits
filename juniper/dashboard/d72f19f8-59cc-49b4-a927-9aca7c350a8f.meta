@@ -1,0 +1,222 @@
+{
+	"UUID": "d72f19f8-59cc-49b4-a927-9aca7c350a8f",
+	"Name": "Juniper User Overview",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "thisWeek",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Juniper Logins by Client Mode",
+				"color": null,
+				"reference": {
+					"id": "ac0a4c5d-8bd1-49a7-a102-de69de4269bc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Latest Configuration Changes",
+				"color": null,
+				"reference": {
+					"id": "ff684d70-c08c-4071-8b1d-55e3dbce000c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Command Count",
+				"color": null,
+				"reference": {
+					"id": "a9c65b19-cedd-48c9-b0d5-5263720a9d3f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Failed Logins by Src",
+				"color": null,
+				"reference": {
+					"id": "adf0a4b5-b09e-4e6b-b036-395044b7235c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Logins",
+				"color": null,
+				"reference": {
+					"id": "8668804b-baa3-4b2a-bef7-4c60c100e95d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Failed Logins by Destination",
+				"color": null,
+				"reference": {
+					"id": "50b1a3c8-8af2-4c07-85a9-efcf73b5de01",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Latest Commands",
+				"color": null,
+				"reference": {
+					"id": "036554e6-bcfd-4c92-aeca-ab69a508da4a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Config Changes by Hostname",
+				"color": null,
+				"reference": {
+					"id": "a8d0fb86-f16d-4234-948c-99cfaaf82e1e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17129391753540,
+				"title": "Logins by Client Mode",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 8,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129391994731,
+				"title": "Latest Config Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 7,
+					"x": 0,
+					"y": 15
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129392230392,
+				"title": "Command Count",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 7,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129392538603,
+				"title": "Failed Logins by Source",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 8,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129392814814,
+				"title": "Juniper Logins",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129393093665,
+				"title": "Failed Logins by Destination",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 8,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129398375416,
+				"title": "Latest Commands",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 2,
+					"y": 8
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17129401329377,
+				"title": "Config Changes by Hostname",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 7,
+					"x": 5,
+					"y": 15
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

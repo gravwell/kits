@@ -1,0 +1,4 @@
+tag=juniper  ax Appname=="mgd" Facility Hostname Message 
+//| regex -e Message `UI_LOGIN_EVENT\:\sUser\s'(?P<User>.+?)\'\slogin,\sclass\s\'(?P<class>.+?)\'\s.+ssh-connection\s'(?P<src>.+?)\s.+,\sclient-mode\s\'(?P<clientMode>.+?)\'`
+| stats count by Hostname
+| table Hostname count

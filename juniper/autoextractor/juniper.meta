@@ -1,0 +1,15 @@
+{
+	"Name": "juniper",
+	"Desc": "syslog extraction for tag juniper",
+	"Module": "syslog",
+	"Tag": "",
+	"Tags": [
+		"juniper"
+	],
+	"Labels": null,
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "65c59c0b-6248-420e-8401-db402b023a4e",
+	"LastUpdated": "2024-04-18T16:59:25.611229143Z"
+}

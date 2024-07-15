@@ -1,0 +1,18 @@
+{
+	"UUID": "ac407515-ab46-4f78-862a-ffa6dc7934a5",
+	"Name": "Juniper Config Set",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}
