@@ -1,0 +1,1 @@
+tag= barracuda ax Dst bytes | ip Dst == %%Barracuda_IP%% | stats sum(bytes) as upload | chart upload

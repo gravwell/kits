@@ -1,0 +1,8 @@
+tag=barracuda ax |
+$BARRACUDAWSG_LOOKUP_ALL | 
+eval !in(content_type, "-", "text/plain", "application/json", "text/html") |
+ip Src == %%Barracuda_IP%% | 
+stats count as unusual_type_count by content_type | 
+sort by unusual_type_count desc |
+limit 10 |
+table content_type unusual_type_count

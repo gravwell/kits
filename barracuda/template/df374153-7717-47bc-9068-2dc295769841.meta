@@ -1,0 +1,20 @@
+{
+	"UUID": "df374153-7717-47bc-9068-2dc295769841",
+	"Name": "Barracuda IP Overview",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%Barracuda_IP%%",
+				"label": "Barracuda IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"barracuda-wsg"
+	]
+}

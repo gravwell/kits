@@ -1,0 +1,15 @@
+{
+	"Name": "Barracuda Aggregates",
+	"Description": "Flow to generate aggregate barracuda tags",
+	"Labels": [
+		"barracuda-wsg",
+		"aggregates"
+	],
+	"Schedule": "*/5 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "1e1252aa-f1dd-464a-9abb-811b07b9b6a9"
+}

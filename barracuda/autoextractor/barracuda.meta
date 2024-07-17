@@ -1,0 +1,17 @@
+{
+	"Name": "barracuda syslog",
+	"Desc": "https://campus.barracuda.com/product/websecuritygateway/doc/6160435/syslog-and-the-barracuda-web-security-gateway/",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"barracuda"
+	],
+	"Labels": [
+		"barracuda-wsg"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "d9b5ca38-3be5-4633-bece-8061528a323f",
+	"LastUpdated": "2024-07-16T19:49:14.839129087Z"
+}

@@ -1,0 +1,10 @@
+id,desc
+0,always, matched any destination
+1,category, matched a particular category
+2,category any, matched any category
+3,domain, matched due to domain or subdomain
+4,mimetype, matched due to mime-type
+5,spyware hit, matched due to spyware hit
+6,uri path regex, matched URI path
+7,uri regex, matched any part of the URI
+8,application, matches an application characteristics

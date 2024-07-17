@@ -1,0 +1,20 @@
+{
+	"UUID": "f528f30f-eb01-4d38-9f8b-a2d5221fc2c6",
+	"Name": "Barracuda User Info for IP",
+	"Description": "Shows user information given an IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%Barracuda_IP%%",
+				"label": "Barracuda IP",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"barracuda-wsg"
+	]
+}

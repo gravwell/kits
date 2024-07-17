@@ -1,0 +1,18 @@
+{
+	"Name": "Barracuda Top Categories Aggregate",
+	"Desc": "Extracts from the _aggs_barracuda_category tag",
+	"Module": "csv",
+	"Tag": "",
+	"Tags": [
+		"_aggs_barracuda_category"
+	],
+	"Labels": [
+		"aggregates",
+		"barracuda-wsg"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "e1adca36-dce7-4934-a89c-cde5ada93054",
+	"LastUpdated": "2024-07-16T19:49:06.566880389Z"
+}
