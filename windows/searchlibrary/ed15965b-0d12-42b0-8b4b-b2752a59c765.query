@@ -1,0 +1,5 @@
+tag=$WINDOWS_USER winlog EventID==4720 TimeCreated Computer TargetUserName TargetDomainName SubjectUserName SubjectDomainName SamAccountName
+| printf -e NewUser "%v\\%v" TargetDomainName TargetUserName
+| printf -e CreatedBy "%v\\%v" SubjectDomainName SubjectUserName
+| lookup -r windows_eventid_messages EventID ID Message
+| table TimeCreated Message NewUser CreatedBy Computer

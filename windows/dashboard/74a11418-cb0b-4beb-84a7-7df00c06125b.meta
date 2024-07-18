@@ -1,0 +1,212 @@
+{
+	"UUID": "74a11418-cb0b-4beb-84a7-7df00c06125b",
+	"Name": "Windows - Overview",
+	"Description": "Overview of all collected Windows events",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "All Windows TAG count",
+				"color": null,
+				"reference": {
+					"id": "e49c3829-6a48-41b9-b17f-0a57b97e5eee",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "All Windows Computer Details",
+				"color": null,
+				"reference": {
+					"id": "05b1c81d-94ae-48df-afe1-ad80372ded67",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "All Windows Computer Details",
+				"color": null,
+				"reference": {
+					"id": "05b1c81d-94ae-48df-afe1-ad80372ded67",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "All Windows Events Overview",
+				"color": null,
+				"reference": {
+					"id": "d0df0c1b-aefe-46f9-ae2c-ec7a016c69c3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "All Windows EventID count",
+				"color": null,
+				"reference": {
+					"id": "e2693b54-944b-405e-b12b-9ea7f8669aa6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "All Windows Level count",
+				"color": null,
+				"reference": {
+					"id": "22d3a9ef-4aaf-4e65-a902-f2ca5b043298",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "All Windows Computer Details",
+				"color": null,
+				"reference": {
+					"id": "05b1c81d-94ae-48df-afe1-ad80372ded67",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "All Windows EventID Details",
+				"color": null,
+				"reference": {
+					"id": "789965b7-e0b1-4100-b2a1-11b0244d3992",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17137983635611,
+				"title": "Top Categories",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17138117002502,
+				"title": "Top EventIDs",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17138118490593,
+				"title": "Top Levels",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17153138794934,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17157039400634,
+				"title": "Computer Details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17157041831875,
+				"title": "EventID Details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

@@ -1,5 +1,5 @@
 tag=$SYSMON words %%COMPUTER%%
-| winlog Provider == "Microsoft-Windows-Sysmon" EventID Computer==%%COMPUTER%%
+| winlog $PROVIDER EventID Computer==%%COMPUTER%%
 | stats count by EventID
 | lookup -r sysmon_event_ids EventID ID Name
 | chart count by Name

@@ -1,6 +1,6 @@
-@SHA{tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID==1 ProcessGuid=="_GUID_" Hashes |
+@SHA{tag=$SYSMON winlog $PROVIDER EventID==1 ProcessGuid=="_GUID_" Hashes |
 kv -sep "=" -d "," SHA256 | table SHA256};
-tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" EventID==1 Hashes Image Computer User |
+tag=$SYSMON winlog $PROVIDER EventID==1 Hashes Image Computer User |
 kv -sep "=" -d "," SHA256 |
 lookup -s -r @SHA SHA256 SHA256 SHA256 |
 unique Computer Image User |

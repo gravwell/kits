@@ -1,2 +1,2 @@
-tag=$SYSMON words %%NAME%% | winlog Provider=="Microsoft-Windows-Sysmon" EventID==11 TargetFilename Computer Image~"%%NAME%%"
+tag=$SYSMON words %%NAME%% | winlog $PROVIDER EventID==11 TargetFilename Computer Image~"%%NAME%%"
 | table Computer Image TargetFilename TIMESTAMP

@@ -1,0 +1,5 @@
+tag=$WINDOWS_USER winlog EventID==4725 TimeCreated Computer TargetUserName TargetDomainName SubjectUserName SubjectDomainName SamAccountName
+| printf -e DisabledUser "%v\\%v" TargetDomainName TargetUserName
+| printf -e DisabledBy "%v\\%v" SubjectDomainName SubjectUserName
+| lookup -r windows_eventid_messages EventID ID Message
+| table TimeCreated Message DisabledUser DisabledBy Computer

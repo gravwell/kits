@@ -1,0 +1,182 @@
+{
+	"UUID": "ae15b1b7-8cb7-48d4-84e9-b850754346c9",
+	"Name": "Sysmon Process Name Investigator",
+	"Description": "Use the name of an EXE to search for related activity across all sysmon logs",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Sysmon ProcessName Created",
+				"timeframe": {},
+				"reference": {
+					"id": "4e152397-2e75-4da4-b124-a5b68bb6e39b",
+					"type": "template"
+				},
+				"searchID": 6248324516
+			},
+			{
+				"alias": "Sysmon ProcessName Files Created",
+				"timeframe": {},
+				"reference": {
+					"id": "8bcf72d8-dfe1-4773-8b44-c5d9ca42ef67",
+					"type": "template"
+				},
+				"searchID": 8108636278
+			},
+			{
+				"alias": "Sysmon ProcessName Event Chart",
+				"timeframe": {},
+				"reference": {
+					"id": "082be707-d9a1-4188-902b-041cd16be576",
+					"type": "template"
+				},
+				"searchID": 3181837719
+			},
+			{
+				"alias": "Sysmon ProcessName DNS",
+				"timeframe": {},
+				"reference": {
+					"id": "1668ea7e-a44b-4cb5-9a21-037de26db297",
+					"type": "template"
+				},
+				"searchID": 7101445981
+			},
+			{
+				"alias": "Sysmon ProcessName Network",
+				"timeframe": {},
+				"reference": {
+					"id": "7944efa0-8ba4-461f-9f13-c192dfc04571",
+					"type": "template"
+				},
+				"searchID": 3855799987
+			},
+			{
+				"alias": "Sysmon ProcessName Users",
+				"timeframe": {},
+				"reference": {
+					"id": "77e6fa1e-ac8d-4d05-9fbe-18e4e7f207b8",
+					"type": "template"
+				},
+				"searchID": 6120219928
+			}
+		],
+		"tiles": [
+			{
+				"title": "Creation Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"id": 16137685742550,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Creation",
+				"renderer": "table",
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"id": 16137701785771,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Process File Creations",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 4
+				},
+				"id": 16137702636642,
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Process Event Activity",
+				"renderer": "donutChart",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16137703051193,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "DNS Activity",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"id": 16137703588054,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Multiple": "no",
+					"Style": "reg",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Network Connections",
+				"renderer": "table",
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 8
+				},
+				"id": 16137703957995,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Users running this EXE",
+				"renderer": "pieChart",
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 3,
+					"y": 4
+				},
+				"id": 16137709267926,
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Orientation": "v",
+					"IncludeOther": "yes"
+				}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2,
+		"lastDataUpdate": "2021-02-19T15:22:54-08:00"
+	},
+	"Labels": [
+		"sysmon",
+		"windows"
+	]
+}

@@ -1,8 +1,0 @@
-{
-	"Name": "Windows Successful Admin Logon Details - Group Membership",
-	"Description": "Count of successful user logon events by computer, user, logoninfo using group membership info in eventid 4627",
-	"GUID": "0f7750bd-1576-481a-b60d-b382bc9e70fd",
-	"Metadata": {
-		"timeframe": null
-	}
-}

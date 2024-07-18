@@ -1,0 +1,197 @@
+{
+	"UUID": "d6d86716-153c-4d4b-af72-a1c9a4acdc64",
+	"Name": "Windows - Users - Overview",
+	"Description": "Overview of all collected Windows user account events",
+	"Data": {
+		"timeframe": {
+			"durationString": "PT4H",
+			"timeframe": "manual",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Windows User Account Events Overview",
+				"color": null,
+				"reference": {
+					"id": "fd18ce59-51b0-4c54-88fd-6d339fe759c0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows User Account Created Events",
+				"color": null,
+				"reference": {
+					"id": "ed15965b-0d12-42b0-8b4b-b2752a59c765",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows User Account Changed Events",
+				"color": null,
+				"reference": {
+					"id": "b1e0b8c8-a75c-4a3c-ad03-c059555447f9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows User Account Disabled Events",
+				"color": null,
+				"reference": {
+					"id": "b8b7f045-ccde-44c2-8145-7e0282fb031e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows User Account Deleted Events",
+				"color": null,
+				"reference": {
+					"id": "2132275b-1f4f-4803-9b0a-68c008ba70ef",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows User Account Enabled Events",
+				"color": null,
+				"reference": {
+					"id": "62877004-2fd0-4e44-878b-545ac03a3b52",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows User Account Unlocked Events",
+				"color": null,
+				"reference": {
+					"id": "a36b1f55-2be8-467a-a38c-8430702ef632",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17174450274040,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174450840891,
+				"title": "New User Account Created",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 5
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174460070352,
+				"title": "User Account Changed",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 15
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174460744263,
+				"title": "User Account Disabled",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174467778594,
+				"title": "User Account Deleted",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 5
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174468719985,
+				"title": "User Account Enabled",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 10
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174469940586,
+				"title": "User Account Unlocked",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 15
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

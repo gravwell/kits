@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==22 QueryResults |
+tag=$SYSMON winlog $PROVIDER EventID==22 QueryResults |
 regex -p -e QueryResults "type:\s+(?P<RRType>[0-9]+)" |
 enrich RRType 1 |
 lookup -r dns_types RRType Value TYPE |

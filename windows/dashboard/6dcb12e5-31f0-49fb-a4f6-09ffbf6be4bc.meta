@@ -1,0 +1,147 @@
+{
+	"UUID": "6dcb12e5-31f0-49fb-a4f6-09ffbf6be4bc",
+	"Name": "Windows - Groups - Overview",
+	"Description": "Overview of Windows group events",
+	"Data": {
+		"timeframe": {
+			"durationString": "PT8H",
+			"timeframe": "manual",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Windows Group Events Overview",
+				"color": null,
+				"reference": {
+					"id": "c2d9a4e7-97b3-4c42-a4da-eb03613105ed",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Group Creation Events",
+				"color": null,
+				"reference": {
+					"id": "7f39e7e5-0168-4329-8640-4b5602962b83",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Group Deletion Events",
+				"color": null,
+				"reference": {
+					"id": "0ada9df6-c1ef-4b53-917b-18929ee6cf42",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Member Added to Group Events",
+				"color": null,
+				"reference": {
+					"id": "2ad90f84-5882-45ef-97dd-2f9ac157036f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Member Removed from Group Events",
+				"color": null,
+				"reference": {
+					"id": "4fac7213-53c4-4697-af4d-98ec2b88585b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17171638054230,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174072012761,
+				"title": "Windows Group Created",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 5
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174072393922,
+				"title": "Windows Group Deleted",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 5
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174094716063,
+				"title": "Member added to group",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17174102533864,
+				"title": "Member removed from group",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 10
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

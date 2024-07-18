@@ -1,6 +1,6 @@
 {
-	"Name": "Windows Sysmon Low Integrity Process Starts",
-	"Description": "Table of process starts from Low Integrity Applicatons",
+	"Name": "Sysmon: Windows Low Integrity Process Starts",
+	"Description": "Table of process starts from Low Integrity Applications",
 	"GUID": "78257dc2-ad67-45b5-86b6-852fec7a39ca",
 	"Labels": [
 		"windows",

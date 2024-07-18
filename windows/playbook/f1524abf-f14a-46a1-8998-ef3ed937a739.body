@@ -1,0 +1,224 @@
+#Overview
+****
+
+The Windows Kit aims to provide pathways to jump start your Windows investigations, whether chasing a configuration error, suspicious logon, etc., and ultimately conclude with actionable data.
+
+##Configuration
+****
+
+A well defined collection strategy and data management are key to achieving data omniscience, especially with logs as cumbersome as those formatted in XML, and thus it is recommended to consider the following:
+
+<font color="orange">Plan your collection strategy accordingly for your environment</font>
+
+Understanding your environment is paramount to defining an effective collection strategy as there may be some precursive work necessary to avoid a future configuration nightmare:
+- Will the Windows Events ingester be deployed locally on target systems?  How many? Local or remote network?
+- Is a Windows Event Collection server desired?  How many?
+- Are multiple collectors needed to simplify collection across diverse subnets/DMZs?
+- Is a federator needed to traverse untrusted networks?
+- If a configuration change is needed, how quickly/accurately can it be changed across your environment?
+
+
+<font color="orange">Collect what is needed for your desired outcome</font>
+
+While factoring in available infrastructure (cpu, ram, storage, etc.), monitoring ability, and number of target systems, create your use cases.
+
+If the goal of collecting Windows logs is purely to monitor the creation of new user accounts:
+```shell
+[EventChannel "security"]
+	Tag-Name=windows_security
+	Channel=Security
+    EventID==4720,4722,4725,4726,4738,4767
+```
+If the goal is to monitor user login success/failure:
+```shell
+[EventChannel "security"]
+	Tag-Name=windows_security
+	Channel=Security
+    EventID==4624,4625,4627,4648,4771,4776
+```
+
+Keep in mind that this can/will change if collecting logs from a WEC server i.e.:
+
+```shell
+[EventChannel "WEF"]
+	Tag-Name=windows_security
+	Channel=ForwardedEvents
+    EventID==4624,4625,4627,4648,4771,4776
+
+[Preprocessor "regexrouter"]
+	Type=regexrouter
+	Drop-Misses=false
+        Regex="<Channel>(?P<channel>.*)</Channel>"
+        Route-Extraction=channel
+        Route=Security:windows_security
+```
+
+###*Important Events to Monitor
+
+If you're struggling to know where to begin, here are a few links to get you started:
+- [Microsoft Sentinel event sets](https://learn.microsoft.com/en-us/azure/sentinel/windows-security-event-id-reference "Microsoft Sentinel event sets")
+- [Monitoring Active Directory for Signs of Compromise](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/appendix-l--events-to-monitor "Monitoring Active Directory for Signs of Compromise")
+- [42 Windows Server Security Events You Should Monitor](https://www.xplg.com/windows-server-security-events-list/ "42 Windows Server Security Events You Should Monitor")
+
+<font color="orange">Tag by log category</font>
+
+An example of this is:
+
+Rather than leave all EventIDs in
+```shell
+tag=windows
+```
+ plan to route EventIDs 4624,4625,4627,4648,4771,4776 (EventIDs associated with Windows logons) to 
+```shell
+tag=windows_logons
+```
+**OR**
+
+plan to route EventIDs 4720,4722,4725,4726,4738,4767 (EventIDs associated with Windows account creation/modification) to 
+```shell
+tag=windows_users
+```
+
+##Dashboards
+****
+<font color="orange">Windows - Overview</font>
+
+Overview of all collected Windows Events, by default, from the last 24 hours
+
+<font color="orange">Windows - Logons - Successful</font>
+
+<font color="red">Required EventIDs: </font>4624, 4627
+
+Overview of all collected successful Windows logon Events, by default, from the last 4 hours
+
+<font color="orange">Windows - Logons - Failures/Lockouts</font>
+
+<font color="red">Required EventIDs: </font>4625, 4740, 4771
+
+Overview of all collected failed Windows logon and associated account logout events, by default, from the last 4 hours
+
+<font color="orange">Windows - Groups - Overview</font>
+
+<font color="red">Required EventIDs: </font>4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4736, 4737, 4744, 4745, 4746, 4747, 4749, 4750, 4751, 4752, 4753, 4754, 4755, 4756, 4757, 4758, 4759, 4760, 4761, 4762, 4763, 4764
+
+Overview of all collected Windows group events, by default, from the last 4 hours
+
+##Resources
+****
+<font color="orange">windows\_auth\_fail\_codes</font>
+
+Map authentication failure status codes in failed logon events with their description (i.e. 0xc0000071 = "Account logon with expired password")
+
+<font color="orange">windows\_event\_level\_criticality</font>
+
+Map level numbers in EventIDs to their criticality description (i.e. Level 2 = Error)
+
+<font color="orange">windows\_eventid\_messages</font>
+
+Map Windows EventIDs to their rendered text descriptions (i.e. 4616 = "The system time was changed")
+
+##Example logs
+****
+
+<font color="orange">4624(S): An account was successfully logged on.</font> [Microsoft Documentation](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624 "Microsoft Documentation")
+
+```shell
+<?xml version="1.0"?>
+<Event
+    xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+        <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-A5BA-3E3B0328C30D}"/>
+        <EventID>4624</EventID>
+        <Version>2</Version>
+        <Level>0</Level>
+        <Task>12544</Task>
+        <Opcode>0</Opcode>
+        <Keywords>0x8020000000000000</Keywords>
+        <TimeCreated SystemTime="2015-11-12T00:24:35.079785200Z"/>
+        <EventRecordID>211</EventRecordID>
+        <Correlation ActivityID="{00D66690-1CDF-0000-AC66-D600DF1CD101}"/>
+        <Execution ProcessID="716" ThreadID="760"/>
+        <Channel>Security</Channel>
+        <Computer>WIN-GG82ULGC9GO</Computer>
+        <Security/>
+    </System>
+    <EventData>
+        <Data Name="SubjectUserSid">S-1-5-18</Data>
+        <Data Name="SubjectUserName">WIN-GG82ULGC9GO$</Data>
+        <Data Name="SubjectDomainName">WORKGROUP</Data>
+        <Data Name="SubjectLogonId">0x3e7</Data>
+        <Data Name="TargetUserSid">S-1-5-21-1377283216-344919071-3415362939-500</Data>
+        <Data Name="TargetUserName">Administrator</Data>
+        <Data Name="TargetDomainName">WIN-GG82ULGC9GO</Data>
+        <Data Name="TargetLogonId">0x8dcdc</Data>
+        <Data Name="LogonType">2</Data>
+        <Data Name="LogonProcessName">User32</Data>
+        <Data Name="AuthenticationPackageName">Negotiate</Data>
+        <Data Name="WorkstationName">WIN-GG82ULGC9GO</Data>
+        <Data Name="LogonGuid">{00000000-0000-0000-0000-000000000000}</Data>
+        <Data Name="TransmittedServices">-</Data>
+        <Data Name="LmPackageName">-</Data>
+        <Data Name="KeyLength">0</Data>
+        <Data Name="ProcessId">0x44c</Data>
+        <Data Name="ProcessName">C:\\Windows\\System32\\svchost.exe</Data>
+        <Data Name="IpAddress">127.0.0.1</Data>
+        <Data Name="IpPort">0</Data>
+        <Data Name="ImpersonationLevel">%%1833</Data>
+        <Data Name="RestrictedAdminMode">-</Data>
+        <Data Name="TargetOutboundUserName">-</Data>
+        <Data Name="TargetOutboundDomainName">-</Data>
+        <Data Name="VirtualAccount">%%1843</Data>
+        <Data Name="TargetLinkedLogonId">0x0</Data>
+        <Data Name="ElevatedToken">%%1842</Data>
+    </EventData>
+</Event>
+```
+
+<font color="orange">4625(F): An account failed to log on.</font> [Microsoft Documentation](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625 "Microsoft Documentation")
+
+```shell
+- <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+- <System>
+ <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-A5BA-3E3B0328C30D}" /> 
+ <EventID>4625</EventID> 
+ <Version>0</Version> 
+ <Level>0</Level> 
+ <Task>12546</Task> 
+ <Opcode>0</Opcode> 
+ <Keywords>0x8010000000000000</Keywords> 
+ <TimeCreated SystemTime="2015-09-08T22:54:54.962511700Z" /> 
+ <EventRecordID>229977</EventRecordID> 
+ <Correlation /> 
+ <Execution ProcessID="516" ThreadID="3240" /> 
+ <Channel>Security</Channel> 
+ <Computer>DC01.contoso.local</Computer> 
+ <Security /> 
+ </System>
+- <EventData>
+ <Data Name="SubjectUserSid">S-1-5-18</Data> 
+ <Data Name="SubjectUserName">DC01$</Data> 
+ <Data Name="SubjectDomainName">CONTOSO</Data> 
+ <Data Name="SubjectLogonId">0x3e7</Data> 
+ <Data Name="TargetUserSid">S-1-0-0</Data> 
+ <Data Name="TargetUserName">Auditor</Data> 
+ <Data Name="TargetDomainName">CONTOSO</Data> 
+ <Data Name="Status">0xc0000234</Data> 
+ <Data Name="FailureReason">%%2307</Data> 
+ <Data Name="SubStatus">0x0</Data> 
+ <Data Name="LogonType">2</Data> 
+ <Data Name="LogonProcessName">User32</Data> 
+ <Data Name="AuthenticationPackageName">Negotiate</Data> 
+ <Data Name="WorkstationName">DC01</Data> 
+ <Data Name="TransmittedServices">-</Data> 
+ <Data Name="LmPackageName">-</Data> 
+ <Data Name="KeyLength">0</Data> 
+ <Data Name="ProcessId">0x1bc</Data> 
+ <Data Name="ProcessName">C:\\Windows\\System32\\winlogon.exe</Data> 
+ <Data Name="IpAddress">127.0.0.1</Data> 
+ <Data Name="IpPort">0</Data> 
+ </EventData>
+ </Event>
+```
+
+
+Credits - Photo by [Timo C. Dinger](https://unsplash.com/@tcdinger" https://unsplash.com/@tcdinger") on [Unsplash](https://unsplash.com" https://unsplash.com")

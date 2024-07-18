@@ -1,0 +1,122 @@
+{
+	"UUID": "6a13bcdb-423e-4010-940d-071e93061503",
+	"Name": "Windows - Logons - Failures/Lockouts",
+	"Description": "Overview of failed Windows logon and associated account lockout events",
+	"Data": {
+		"timeframe": {
+			"durationString": "PT8H",
+			"timeframe": "manual",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Windows Failed Logon Events Overview",
+				"color": null,
+				"reference": {
+					"id": "4eea7c70-4a4d-4448-9e61-1e3921fa1647",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Failed User Logon Details",
+				"color": null,
+				"reference": {
+					"id": "79d5841f-a565-479d-9e64-1600d4ce7047",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows User Locked Details",
+				"color": null,
+				"reference": {
+					"id": "e12043cd-2085-43b9-a2d2-9bd214a46429",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Windows Failed Logons Before User Locked Events",
+				"color": null,
+				"reference": {
+					"id": "6c233491-e28f-499b-babd-e63cd2620d8f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17169922022940,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17169922616951,
+				"title": "Failed user logon details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 5
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17170055301312,
+				"title": "Locked user details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17170087211173,
+				"title": "Failed user logon events before lock event",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 10
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

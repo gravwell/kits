@@ -1,0 +1,5 @@
+tag=$WINDOWS_USER winlog EventID==4767 TimeCreated Computer TargetUserName TargetDomainName SubjectUserName SubjectDomainName SamAccountName
+| printf -e UnlockedUser "%v\\%v" TargetDomainName TargetUserName
+| printf -e UnlockedBy "%v\\%v" SubjectDomainName SubjectUserName
+| lookup -r windows_eventid_messages EventID ID Message
+| table TimeCreated Message UnlockedUser UnlockedBy Computer
