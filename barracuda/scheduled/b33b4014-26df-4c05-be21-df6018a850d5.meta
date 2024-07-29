@@ -1,0 +1,14 @@
+{
+	"Name": "Barracuda Category Count Aggregrate",
+	"Description": "This flow populates the _aggs_barracuda_category tag which gives aggregate info about categories from barracuda logs.",
+	"Labels": [
+		"barracuda-wsg"
+	],
+	"Schedule": "*/5 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "b33b4014-26df-4c05-be21-df6018a850d5"
+}

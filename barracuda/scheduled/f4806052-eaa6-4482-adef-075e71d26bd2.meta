@@ -1,0 +1,14 @@
+{
+	"Name": "Barracuda Unusual Content Type Aggregrate",
+	"Description": "This flow populates the _aggs_barracuda_unusual_content tag which gives aggregate info about unusual content types from barracuda logs",
+	"Labels": [
+		"barracuda-wsg"
+	],
+	"Schedule": "*/5 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "f4806052-eaa6-4482-adef-075e71d26bd2"
+}

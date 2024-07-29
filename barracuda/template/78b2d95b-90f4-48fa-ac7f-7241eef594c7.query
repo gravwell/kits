@@ -1,1 +1,1 @@
-tag= barracuda ax Src Dst bytes | ip Src == %%Barracuda_IP%% | stats sum(bytes) as download | chart download
+tag= $BARRACUDA ax Src Dst bytes | ip Src == %%Barracuda_IP%% | stats sum(bytes) as download | chart download

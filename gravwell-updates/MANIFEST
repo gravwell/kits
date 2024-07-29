@@ -1,0 +1,34 @@
+{
+	"ID": "io.gravwell.gravwell",
+	"Name": "Gravwell Kit Updates",
+	"Desc": "updates to the gravwell kit based on Issue #157 ",
+	"Readme": "Updates to the gravwell kit to fix issues described in this open issue: https://github.com/gravwell/kits/issues/157",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "",
+	"Banner": "",
+	"Cover": "",
+	"Items": [
+		{
+			"Name": "50a0c257-b4b4-437e-9cc0-49da0a7a582e",
+			"Type": 9,
+			"Hash": "5719a9f96de1e23bc92dadce761d539bbdbd02f3f309f58fb56ec3596a16c8bc"
+		},
+		{
+			"Name": "18725e4f-7266-4167-a330-b3941177fdd7",
+			"Type": 9,
+			"Hash": "d3ca3a8fef172d16bb3313a706953c9549863ed89401bac9374c22d67b9c2c24"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": []
+}

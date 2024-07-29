@@ -1,6 +1,6 @@
-tag=barracuda ax | 
+tag=$BARRACUDA ax | 
 $BARRACUDAWSG_LOOKUP_ALL | 
-ip Src == 10.102.13.169 | 
+ip Src == %%Barracuda_IP%% | 
 eval action_type != "allowed" | 
 stats count as blocked_count by url |
 sort by blocked_count desc |

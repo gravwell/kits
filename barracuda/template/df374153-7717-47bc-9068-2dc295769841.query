@@ -1,1 +1,1 @@
-tag=barracuda words %%Barracuda_IP%%| stats count | chart count
+tag=$BARRACUDA words %%Barracuda_IP%%| stats count | chart count
