@@ -1,3 +1,0 @@
-tag=gravwell syslog -s Hostname Appname error
-| stats count by Hostname Appname error
-| table count error Hostname Appname
