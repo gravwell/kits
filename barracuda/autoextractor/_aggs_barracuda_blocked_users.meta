@@ -1,0 +1,18 @@
+{
+	"Name": "Barracuda Blocked Users Aggregate",
+	"Desc": "_aggs_barracuda_blocked_users",
+	"Module": "csv",
+	"Tag": "",
+	"Tags": [
+		"_aggs_barracuda_blocked_users"
+	],
+	"Labels": [
+		"aggregates",
+		"barracuda-wsg"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "680b02dd-2c6b-4a23-9172-ceda77c06c4e",
+	"LastUpdated": "2024-07-29T16:07:25.581408814Z"
+}

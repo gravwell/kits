@@ -1,0 +1,14 @@
+{
+	"Name": " Barracuda Blocked User Count Aggregrate",
+	"Description": "This flow populates the _aggs_barracuda_blocked_users tag which gives aggregate info about blocked users from barracuda logs.",
+	"Labels": [
+		"barracuda-wsg"
+	],
+	"Schedule": "*/5 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "9e33f4b6-00cd-4b53-9497-3b2476eb9874"
+}

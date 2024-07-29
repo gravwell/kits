@@ -1,0 +1,14 @@
+{
+	"Name": "Barracuda Destination Detail Aggregrate",
+	"Description": "This flow populates the _aggs_barracuda_dst tag which gives aggregate info about destination details from barracuda logs.",
+	"Labels": [
+		"barracuda-wsg"
+	],
+	"Schedule": "*/5 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "b7dc7a9a-05f5-49d2-87b9-7c938ca96987"
+}

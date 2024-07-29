@@ -1,0 +1,18 @@
+{
+	"Name": "Barracuda Conent Type Aggregate Extractor",
+	"Desc": "Extracts from the _aggs_barracuda_unusual_content tag.",
+	"Module": "csv",
+	"Tag": "",
+	"Tags": [
+		"_aggs_barracuda_unusual_content"
+	],
+	"Labels": [
+		"aggregates",
+		"barracuda-wsg"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "6c14351a-186c-4e19-9876-9354e2a4a756",
+	"LastUpdated": "2024-07-29T16:07:25.617586103Z"
+}

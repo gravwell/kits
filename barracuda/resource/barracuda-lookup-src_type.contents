@@ -1,0 +1,7 @@
+id,desc
+0,always, matches any source
+1,group, matched by group id
+2,ipv4addr, matched by an Ipv4 address
+3,login, matched by login
+4,login any, matched any authenticated user
+5,min_score, matched due to minimum infection threshold breached

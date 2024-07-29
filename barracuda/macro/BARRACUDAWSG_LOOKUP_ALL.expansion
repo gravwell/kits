@@ -1,0 +1,4 @@
+lookup -r barracuda-lookup-action_type action_type id desc as action_type
+| lookup -r barracuda-lookup-src_type src_type id desc as src_type
+| lookup -r barracuda-lookup-dst_type dst_type id desc as dst_type
+| lookup -r barracuda-lookup-spyware_type spy_type id desc as spy_type
