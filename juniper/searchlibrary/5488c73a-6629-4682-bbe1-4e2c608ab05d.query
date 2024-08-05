@@ -1,0 +1,3 @@
+tag=$JUNIPER_TAG ax Appname=="alarmd" Facility==3 Hostname Message 
+| regex -e Message `Alarm\sset\:\s(?P<AlarmSet>.+?)(id=.,)?\scolor=(?P<color>.+?)\,\sclass=(?P<class>.+?)\,\sreason=(?P<reason>.+?)$`
+|table TIMESTAMP Hostname AlarmSet color class reason

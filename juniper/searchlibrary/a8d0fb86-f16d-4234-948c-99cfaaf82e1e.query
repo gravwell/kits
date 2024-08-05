@@ -1,0 +1,4 @@
+tag=$JUNIPER_TAG ax Appname Facility==22 Hostname Message
+| regex -e Message `User\s\'(?P<User>.+?)\'\sset:\s(?P<Change>.+)`
+| stats count by Hostname
+| chart count by Hostname

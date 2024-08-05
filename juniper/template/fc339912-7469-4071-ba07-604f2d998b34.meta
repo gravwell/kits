@@ -1,0 +1,18 @@
+{
+	"UUID": "fc339912-7469-4071-ba07-604f2d998b34",
+	"Name": "Juniper User Login",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

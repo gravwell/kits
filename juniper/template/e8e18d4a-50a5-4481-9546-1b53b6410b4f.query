@@ -1,0 +1,4 @@
+tag=$JUNIPER_TAG ax Appname=="mgd" Facility Hostname Message 
+| regex -e Message `UI_CMDLINE_READ_LINE\:\sUser\s\'(?P<User>.+?)\'\,\scommand\s\'(?P<command>.+?)\'`
+| eval User~"%%user%%"
+| table TIMESTAMP Hostname User command
