@@ -1,1 +1,3 @@
-tag=gravwell syslog Message=="Search launched" Structured.user | stats count by user | chart count by user
+tag=gravwell syslog Message=="Search launched" Structured.user 
+| stats count by user 
+| chart count by user

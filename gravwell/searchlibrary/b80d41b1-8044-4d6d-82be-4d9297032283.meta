@@ -1,0 +1,11 @@
+{
+	"Name": "Gravwell: Number of days over ingestion target in past 30.",
+	"Description": "This represents the number of days over ingestion target.",
+	"GUID": "b80d41b1-8044-4d6d-82be-4d9297032283",
+	"Labels": [
+		"gravwell"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

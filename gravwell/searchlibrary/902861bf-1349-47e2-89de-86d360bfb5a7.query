@@ -1,1 +1,2 @@
-tag=gravwell syslog -s Structured.ingester | chart
+tag=gravwell syslog -s Structured.ingester 
+| chart

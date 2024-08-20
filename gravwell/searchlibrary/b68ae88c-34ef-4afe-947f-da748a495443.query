@@ -1,1 +1,4 @@
-tag=gravwell syslog Message=="Completed search launch" Structured.query as Query Structured.user as User | regex "tag=(?P<Tag>\S+)" | count | gauge count
+tag=gravwell syslog Message=="Completed search launch" Structured.query as Query Structured.user as User 
+| regex "tag=(?P<Tag>\S+)" 
+| count 
+| gauge count

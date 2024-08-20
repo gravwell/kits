@@ -1,1 +1,5 @@
-tag=gravwell syslog Structured.user as User | eval ( int(TIMESTAMP) > int(NOW) - 300 ) | sort by User | unique User | table
+tag=gravwell syslog Structured.user as User 
+| eval ( int(TIMESTAMP) > int(NOW) - 300 ) 
+| sort by User 
+| unique User 
+| table

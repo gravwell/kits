@@ -1,1 +1,3 @@
-tag=gravwell syslog -s Structured.ingester Structured.indexer | unique ingester indexer | table ingester indexer
+tag=gravwell syslog -s Structured.ingester Structured.indexer 
+| unique ingester indexer 
+| table ingester indexer

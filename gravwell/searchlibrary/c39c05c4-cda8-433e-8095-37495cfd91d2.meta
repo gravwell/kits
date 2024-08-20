@@ -1,6 +1,9 @@
 {
-	"Name": "Ingester Errors",
+	"Name": "Gravwell: Ingester Errors",
 	"Description": "",
 	"GUID": "c39c05c4-cda8-433e-8095-37495cfd91d2",
+	"Labels": [
+		"gravwell"
+	],
 	"Metadata": null
 }

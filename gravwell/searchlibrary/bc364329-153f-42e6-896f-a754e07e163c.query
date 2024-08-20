@@ -1,1 +1,5 @@
-tag=gravwell syslog Message=="Search finished" Structured.elapsed | eval elapsed = duration(elapsed); | stats mean(elapsed) min(elapsed) max(elapsed) stddev(elapsed) | eval mean = duration(mean); stddev = duration(stddev); | table mean stddev min max
+tag=gravwell syslog Message=="Search finished" Structured.elapsed 
+| eval elapsed = duration(elapsed); 
+| stats mean(elapsed) min(elapsed) max(elapsed) stddev(elapsed) 
+| eval mean = duration(mean); stddev = duration(stddev); 
+| table mean stddev min max

@@ -1,6 +1,9 @@
 {
-	"Name": "Automations Failures",
+	"Name": "Gravwell: Automations Failures",
 	"Description": "Table of automation failures with reason",
 	"GUID": "72f78980-4314-11ec-bf89-53fcd52b4cb9",
+	"Labels": [
+		"gravwell"
+	],
 	"Metadata": null
 }

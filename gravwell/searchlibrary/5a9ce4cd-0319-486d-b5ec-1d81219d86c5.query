@@ -1,0 +1,3 @@
+tag=_ingesters_stats ax lastdaycount 
+| stats sum(lastdaycount) as Entries 
+| numbercard Entries

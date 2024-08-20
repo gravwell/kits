@@ -1,0 +1,14 @@
+{
+	"Name": "Aggregates_Ingestion",
+	"Description": "",
+	"Labels": [
+		"gravwell"
+	],
+	"Schedule": "0 0 * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "a4e19037-6acc-4301-ab02-22b5e22084bf"
+}

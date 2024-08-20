@@ -1,1 +1,3 @@
-tag=gravwell syslog Message=="Completed search launch" Structured.query as Query Structured.user as User | count by User | table count User
+tag=gravwell syslog Message=="Completed search launch" Structured.query as Query Structured.user as User 
+| count by User 
+| table count User

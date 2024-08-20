@@ -1,6 +1,9 @@
 {
-	"Name": "Ingester Connections",
+	"Name": "Gravwell: Ingester Connections",
 	"Description": "",
 	"GUID": "523c5984-650b-4d42-8bc7-f207f4c72dd7",
+	"Labels": [
+		"gravwell"
+	],
 	"Metadata": null
 }

@@ -1,7 +1,9 @@
 {
 	"Name": "Ingester state tracker",
 	"Description": "Tracks ingesters and sends a notification email when states change.",
-	"Labels": null,
+	"Labels": [
+		"gravwell"
+	],
 	"Schedule": "* * * * *",
 	"DefaultDeploymentRules": {
 		"Disabled": true,

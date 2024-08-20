@@ -1,0 +1,4 @@
+tag=_ingesters_stats kv lastdaysize
+| stats sum(lastdaysize) as Bytes
+| eval GB_ingested=$CONVERT_BYTES_GB(Bytes);
+| numbercard GB_ingested

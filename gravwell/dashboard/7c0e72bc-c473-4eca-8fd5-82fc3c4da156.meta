@@ -1,6 +1,6 @@
 {
     "UUID": "7c0e72bc-c473-4eca-8fd5-82fc3c4da156",
-    "Name": "Gravwell User Overview",
+    "Name": "Gravwell: User Overview",
     "Description": "",
     "Data": {
         "timeframe": {
@@ -188,5 +188,7 @@
         "linkZooming": false,
         "grid": {}
     },
-    "Labels": null
+	"Labels": [
+		"gravwell"
+	]
 }

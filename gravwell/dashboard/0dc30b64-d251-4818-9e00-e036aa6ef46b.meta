@@ -1,6 +1,6 @@
 {
 	"UUID": "0dc30b64-d251-4818-9e00-e036aa6ef46b",
-	"Name": "Gravwell Ingester Overview",
+	"Name": "Gravwell: Ingester Overview",
 	"Description": "",
 	"Data": {
 		"searches": [
@@ -116,5 +116,7 @@
 		},
 		"version": 2
 	},
-	"Labels": null
+	"Labels": [
+		"gravwell"
+	]
 }

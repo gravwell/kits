@@ -1,0 +1,4 @@
+tag=_ingesters_stats kv lastdaysize
+| eval GB_per_day=$CONVERT_BYTES_GB(lastdaysize);
+| eval target=$TARGET_INGEST 
+| chart GB_per_day target

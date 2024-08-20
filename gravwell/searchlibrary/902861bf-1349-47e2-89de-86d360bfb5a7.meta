@@ -1,6 +1,9 @@
 {
-	"Name": "Ingester Activity Over Time",
+	"Name": "Gravwell: Ingester Activity Over Time",
 	"Description": "",
 	"GUID": "902861bf-1349-47e2-89de-86d360bfb5a7",
+	"Labels": [
+		"gravwell"
+	],
 	"Metadata": null
 }

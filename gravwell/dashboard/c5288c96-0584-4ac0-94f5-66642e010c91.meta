@@ -1,6 +1,6 @@
 {
 	"UUID": "c5288c96-0584-4ac0-94f5-66642e010c91",
-	"Name": "Automations",
+	"Name": "Gravwell: Automations",
 	"Description": "",
 	"Data": {
 		"timeframe": {
@@ -170,5 +170,7 @@
 		],
 		"version": 2
 	},
-	"Labels": null
+	"Labels": [
+		"gravwell"
+	]
 }
