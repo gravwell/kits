@@ -1,0 +1,18 @@
+{
+	"UUID": "78b2d95b-90f4-48fa-ac7f-7241eef594c7",
+	"Name": "Barracuda IP Download Traffic",
+	"Description": "Calculates the amount of bytes downloaded given a source IP address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%Barracuda_IP%%",
+				"label": "Bararcuda IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

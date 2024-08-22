@@ -1,0 +1,17 @@
+{
+	"Name": "Barracuda Destination Aggregate ",
+	"Desc": "Extracts from the _aggs_barracuda_dst tag. ",
+	"Module": "csv",
+	"Tag": "",
+	"Tags": [
+		"_aggs_barracuda_dst"
+	],
+	"Labels": [
+		"barracuda-wsg"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "94aa6427-81dc-4ae3-92fb-2dc6011a2126",
+	"LastUpdated": "2024-07-29T16:07:25.585911177Z"
+}

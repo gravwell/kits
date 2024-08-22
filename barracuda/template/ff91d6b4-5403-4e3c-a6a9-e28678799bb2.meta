@@ -1,0 +1,20 @@
+{
+	"UUID": "ff91d6b4-5403-4e3c-a6a9-e28678799bb2",
+	"Name": "Barracuda Top 10 Blocked URLs for IP",
+	"Description": "Displays the top 10 Blocked URLs given a Source IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%Barracuda_IP%%",
+				"label": "Barracuda IP Addres",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"barracuda-wsg"
+	]
+}

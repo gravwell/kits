@@ -1,0 +1,20 @@
+{
+	"UUID": "1cd047a7-508d-4d9a-868d-d821f387fd75",
+	"Name": "Barracuda IP Upload Traffic",
+	"Description": "Calculates the amount of bytes uploaded given a Destination IP address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%Barracuda_IP%%",
+				"label": "Barracuda IP",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"barracuda-wsg"
+	]
+}

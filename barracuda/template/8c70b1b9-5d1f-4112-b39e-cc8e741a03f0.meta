@@ -1,0 +1,20 @@
+{
+	"UUID": "8c70b1b9-5d1f-4112-b39e-cc8e741a03f0",
+	"Name": "Barracuda Top 10 Unusual Content Types for IP",
+	"Description": "Shows unusual content types given an IP address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%Barracuda_IP%%",
+				"label": "Barracuda IP Addres",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"barracuda-wsg"
+	]
+}

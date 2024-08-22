@@ -1,0 +1,8 @@
+id,desc
+0,allowed
+1,denied
+2,redirected
+3,rewritten by add/set a new parameter in query
+4,rewritten by deleting an existing parameter in query
+5,matched a rule and allowed but marked as monitored
+6,branched to another rule set

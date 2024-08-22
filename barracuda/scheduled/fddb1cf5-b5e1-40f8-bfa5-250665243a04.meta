@@ -1,0 +1,14 @@
+{
+	"Name": "Barracuda Blocked URL Count Aggregrate",
+	"Description": "This flow populates the _aggs_barracuda_blocked_url which gives aggregate info about blocked urls from barracuda logs.",
+	"Labels": [
+		"barracuda-wsg"
+	],
+	"Schedule": "*/5 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "fddb1cf5-b5e1-40f8-bfa5-250665243a04"
+}
