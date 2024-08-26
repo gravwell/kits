@@ -1,4 +1,4 @@
 tag=$SYSMON words %%NAME%%
-| winlog Provider == "Microsoft-Windows-Sysmon" EventID==1 Image~"%%NAME%%" Computer User
+| winlog $PROVIDER EventID==1 Image~"%%NAME%%" Computer User
 | stats count by User
 | chart count by User

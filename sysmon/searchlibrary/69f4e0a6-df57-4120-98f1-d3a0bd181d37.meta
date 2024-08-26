@@ -1,6 +1,6 @@
 {
-	"Name": "Sysmon DNS Queries by Resource Record Type",
-	"Description": "",
+	"Name": "Sysmon: DNS Queries by Resource Record Type",
+	"Description": "Chart of DNS Record types",
 	"GUID": "69f4e0a6-df57-4120-98f1-d3a0bd181d37",
 	"Labels": [
 		"windows",

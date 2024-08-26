@@ -1,5 +1,5 @@
 {
-	"Name": "Process Start Deviation by Integrity Level",
+	"Name": "Sysmon: Process Start Deviation by Integrity Level",
 	"Description": "Chart showing standard deviation of the count of process starts by Integrity Level",
 	"GUID": "315c6cbb-d5a6-46d3-8a19-d4ac68c82d03",
 	"Labels": [

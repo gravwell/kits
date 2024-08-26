@@ -1,0 +1,4 @@
+tag=$WINDOWS_LOGON winlog EventID
+| eval (EventID == "4625" || EventID == "4771")
+| stats count
+| chart count

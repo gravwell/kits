@@ -1,5 +1,5 @@
-@count{tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 | stats count as total};
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 Computer |
+@count{tag=$SYSMON winlog $PROVIDER EventID==1 | stats count as total};
+tag=$SYSMON winlog $PROVIDER EventID==1 Computer |
 stats count by Computer |
 enrich -r @count total |
 eval share = (float(count)/float(total))*100.0; |

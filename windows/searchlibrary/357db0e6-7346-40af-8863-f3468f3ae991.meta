@@ -1,0 +1,8 @@
+{
+	"Name": "Windows Successful RDP Logon Details",
+	"Description": "Count of successful RDP logon events by computer, user, logoninfo; excluding builtin users and local system auths",
+	"GUID": "357db0e6-7346-40af-8863-f3468f3ae991",
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,4 @@
+tag=$SYSMON winlog $PROVIDER EventID == 1 Computer Image Hashes
+| kv -e Hashes SHA256
+| stats unique_count(SHA256) as "Unique Images" unique_count(Computer) as Computers
+| numbercard "Unique Images" Computers

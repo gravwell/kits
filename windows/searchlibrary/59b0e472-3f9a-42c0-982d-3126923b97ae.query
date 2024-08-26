@@ -1,0 +1,11 @@
+tag=$WINDOWS_LOGON winlog TimeCreated Computer EventID SubjectUserSid SubjectDomainName SubjectUserName TargetDomainName TargetUserName LogonType LogonProcessName KeyLength WorkstationName IpAddress
+| eval (EventID=="4624" || EventID=="4625")
+| eval ((SubjectUserSid=="S-1-0-0" && LogonType=="3" && LogonProcessName=="NtLmSsp") || (LogonType=="9" && LogonProcessName=="seclogo"))
+| lookup -r windows_login_types LogonType logon_type name as LogonName
+| dns -reverse IpAddress Host
+| eval if (Host~"localhost") Host="localhost.";
+| unique TimeCreated Computer TargetDomainName TargetUserName Host IpAddress LogonName LogonType LogonProcessName
+| printf -e TargetUser "%v\\%v" TargetDomainName TargetUserName
+| printf -e LogonTypeInfo "%v (%v)" LogonName LogonType
+| printf -e HostInfo "%v (%v)" Host IpAddress
+| table TimeCreated Computer TargetUser HostInfo LogonTypeInfo LogonProcessName
