@@ -1,7 +1,10 @@
 {
 	"Name": "Juniper Alarms by Hostname",
-	"Description": "",
+	"Description": "Count alarms by hostname",
 	"GUID": "d3414597-ff13-40ee-8511-4c0016dadf8f",
+	"Labels": [
+		"juniper"
+	],
 	"Metadata": {
 		"timeframe": null
 	}

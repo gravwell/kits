@@ -1,7 +1,10 @@
 {
 	"Name": "Juniper Alarms",
-	"Description": "",
+	"Description": "Detail alarms by set, class, reason",
 	"GUID": "5488c73a-6629-4682-bbe1-4e2c608ab05d",
+	"Labels": [
+		"juniper"
+	],
 	"Metadata": {
 		"timeframe": null
 	}

@@ -1,7 +1,7 @@
 {
 	"UUID": "e8e18d4a-50a5-4481-9546-1b53b6410b4f",
 	"Name": "Juniper User Commands",
-	"Description": "",
+	"Description": "Display executed commands per user, hostname",
 	"Data": {
 		"variables": [
 			{
@@ -14,5 +14,7 @@
 			}
 		]
 	},
-	"Labels": null
+	"Labels": [
+		"juniper"
+	]
 }

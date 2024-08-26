@@ -1,7 +1,10 @@
 {
 	"Name": "Juniper SSH Logins by User",
-	"Description": "",
+	"Description": "Count SSH logins by user",
 	"GUID": "9b8c5a06-ae30-4939-9c4b-a6d88b3826e5",
+	"Labels": [
+		"juniper"
+	],
 	"Metadata": {
 		"timeframe": null
 	}

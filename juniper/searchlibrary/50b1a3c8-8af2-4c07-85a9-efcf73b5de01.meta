@@ -1,7 +1,10 @@
 {
 	"Name": "Juniper Failed Logins by Destination",
-	"Description": "",
+	"Description": "Count failed login attempts by destination with a count unique usernames and sources",
 	"GUID": "50b1a3c8-8af2-4c07-85a9-efcf73b5de01",
+	"Labels": [
+		"juniper"
+	],
 	"Metadata": {
 		"timeframe": null
 	}

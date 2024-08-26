@@ -1,7 +1,10 @@
 {
 	"Name": "Juniper Latest Commands",
-	"Description": "",
+	"Description": "Display commands per user hostname",
 	"GUID": "036554e6-bcfd-4c92-aeca-ab69a508da4a",
+	"Labels": [
+		"juniper"
+	],
 	"Metadata": {
 		"timeframe": null
 	}

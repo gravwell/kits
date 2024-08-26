@@ -1,11 +1,11 @@
 {
 	"UUID": "d72f19f8-59cc-49b4-a927-9aca7c350a8f",
 	"Name": "Juniper User Overview",
-	"Description": "",
+	"Description": "Overview of user commands, configuration changes, and logins",
 	"Data": {
 		"timeframe": {
-			"durationString": null,
-			"timeframe": "thisWeek",
+			"durationString": "PT3H",
+			"timeframe": "manual",
 			"timezone": null,
 			"start": null,
 			"end": null

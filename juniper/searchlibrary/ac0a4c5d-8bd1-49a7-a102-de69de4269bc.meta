@@ -1,7 +1,10 @@
 {
 	"Name": "Juniper Logins by Client Mode",
-	"Description": "",
+	"Description": "Count logins by client mode",
 	"GUID": "ac0a4c5d-8bd1-49a7-a102-de69de4269bc",
+	"Labels": [
+		"juniper"
+	],
 	"Metadata": {
 		"timeframe": null
 	}

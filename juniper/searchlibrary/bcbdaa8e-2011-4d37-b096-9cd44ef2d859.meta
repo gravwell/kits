@@ -1,7 +1,10 @@
 {
 	"Name": "Juniper Appname Count",
-	"Description": "",
+	"Description": "Count by appname",
 	"GUID": "bcbdaa8e-2011-4d37-b096-9cd44ef2d859",
+	"Labels": [
+		"juniper"
+	],
 	"Metadata": {
 		"timeframe": null
 	}

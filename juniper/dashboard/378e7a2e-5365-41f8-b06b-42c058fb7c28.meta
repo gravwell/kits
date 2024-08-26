@@ -1,11 +1,11 @@
 {
 	"UUID": "378e7a2e-5365-41f8-b06b-42c058fb7c28",
 	"Name": "Juniper Overview",
-	"Description": "",
+	"Description": "Overview of Juniper alarms and user logins",
 	"Data": {
 		"timeframe": {
-			"durationString": null,
-			"timeframe": "P7DT",
+			"durationString": "P3DT",
+			"timeframe": "manual",
 			"timezone": null,
 			"start": null,
 			"end": null
@@ -229,5 +229,7 @@
 		"grid": {},
 		"version": 2
 	},
-	"Labels": null
+	"Labels": [
+		"juniper"
+	]
 }

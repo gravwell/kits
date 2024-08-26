@@ -1,7 +1,7 @@
 {
 	"UUID": "fc339912-7469-4071-ba07-604f2d998b34",
-	"Name": "Juniper User Login",
-	"Description": "",
+	"Name": "Juniper User Logins",
+	"Description": "Display logins per user, hostname",
 	"Data": {
 		"variables": [
 			{
@@ -14,5 +14,7 @@
 			}
 		]
 	},
-	"Labels": null
+	"Labels": [
+		"juniper"
+	]
 }
