@@ -1,6 +1,6 @@
 {
 	"Name": "Aggregates_Ingestion",
-	"Description": "",
+	"Description": "Generate lastdaysize and lastdaycount stats per ingested data, then ingest into the _ingester_stats tag.",
 	"Labels": [
 		"gravwell"
 	],

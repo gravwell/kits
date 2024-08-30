@@ -1,4 +1,3 @@
 tag=gravwell syslog Message=="Completed search launch" Structured.query as Query Structured.user as User 
-| sort by User 
-| unique User 
+| stats max(TIMESTAMP) by User
 | table User Query TIMESTAMP
