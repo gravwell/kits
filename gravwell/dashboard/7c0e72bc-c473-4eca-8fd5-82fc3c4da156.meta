@@ -68,7 +68,7 @@
             },
             {
                 "alias": "Failed Logins",
-                "query": "tag=gravwell syslog Appname == webserver Hostname user host Message == \"Authentication failure\" MsgID~login ProcID == 400000f8\n| stats count by user host\n| table user host count Hostname",
+                "query": "tag=gravwell syslog Appname == webserver Hostname user host Message == \"Authorization failure\" MsgID~login ProcID == 400000f8\n| stats count by user host\n| table user host count Hostname",
                 "color": null
             }
         ],
