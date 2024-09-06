@@ -1,0 +1,2 @@
+tag=$JUNIPER_TAG ax Appname Facility=="21" Hostname Message
+| table TIMESTAMP Hostname Message

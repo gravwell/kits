@@ -1,0 +1,24 @@
+{
+	"UUID": "e6e3d4ea-1081-47ce-8f12-3a8127a49ea3",
+	"GUID": "21984059-3c42-4a69-ae50-de84c7ab3fbc",
+	"UID": 1,
+	"GIDs": [],
+	"Global": false,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Juniper Kit",
+	"Desc": "Resources for understanding Juniper log data",
+	"Labels": [
+		"juniper"
+	],
+	"LastUpdated": "2024-08-26T13:40:05.901464113Z",
+	"Author": {
+		"Name": "Gravwell Cloud Admin",
+		"Email": "infotech@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": false
+}

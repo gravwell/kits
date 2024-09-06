@@ -1,0 +1,4 @@
+tag=$JUNIPER_TAG ax Appname=="mgd" Facility Hostname Message 
+| regex -e Message `UI_DBASE_LOGIN_EVENT\:\sUser\s\'(?P<User>.+?)\'\s(?P<msg>.+?)$`
+| eval User~"%%user%%"
+| table TIMESTAMP Hostname User msg

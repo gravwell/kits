@@ -1,0 +1,15 @@
+facility,facility_number,facility_desc
+kernel,0,The Junos OS kernel performs actions and encounters errors.
+user,1,User-space perform actions or encounter errors.
+daemon,3,System perform actions or encounter errors.
+authorization,4,Authentication and authorization attempts.
+ftp,11,FTP performs actions or encounters errors.
+ntp,12,Network Time Protocol performs actions or encounters errors.
+security,13,Security related events or errors.
+dfc,17,Events related to dynamic flow capture.
+external,18,The local external applications perform actions or encounter errors.
+firewall,19,The firewall filter performs packet filtering actions.
+pfe,20,The Packet Forwarding Engine performs actions or encounters errors.
+conflict,21,Specified configuration is invalid on the router type.
+change,22,Changes to the Junos OS configuration.
+interactive,23,A client application such as a Junos XML protocol or NETCONF XML client issues commands at the Junos OS command-line interface (CLI) prompt.

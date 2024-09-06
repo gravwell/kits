@@ -1,0 +1,11 @@
+{
+	"Name": "Juniper Alarms Overview",
+	"Description": "Count alarm by hostname, alarm set, color, class, reason",
+	"GUID": "ef504c00-74a0-4421-9d29-7c8693d3332d",
+	"Labels": [
+		"juniper"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

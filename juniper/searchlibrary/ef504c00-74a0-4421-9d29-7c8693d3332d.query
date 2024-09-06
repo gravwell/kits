@@ -1,0 +1,6 @@
+tag=$JUNIPER_TAG ax Appname=="alarmd" Facility==3 Hostname Message
+| regex -e Message `Alarm\sset\:\s(?P<AlarmSet>.+?)(id=.,)?\scolor=(?P<Color>.+?)\,\sclass=(?P<Class>.+?)\,\sreason=(?P<Reason>.+?)$`
+//| printf -e AlarmInfo "%v::%v::%v" AlarmSet Color Class
+| stats count as Count by Hostname AlarmSet Color Class Reason
+| sort by Count desc
+| table Count Hostname AlarmSet Color Class Reason

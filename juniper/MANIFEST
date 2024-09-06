@@ -1,0 +1,218 @@
+{
+	"ID": "io.gravwell.juniper",
+	"Name": "Juniper",
+	"Desc": "The Gravwell Juniper Kit provides a baseline set of queries, dashboards, templates, and investigative resources for Juniper devices.",
+	"Readme": "# Gravwell Juniper Kit\r\n****\r\n\r\nThe Gravwell Juniper Kit provides a baseline set of queries, dashboards, templates, and investigative resources for Juniper devices.\r\n\r\n*Desired format and delivery method: syslog*\r\n\r\n##Kit Components\r\n****\r\n\r\n\u003cfont color=\"orange\"\u003eDashboards\u003c/font\u003e\r\n\r\nJuniper Overview: Overview of Juniper alarms and user logins\r\n\r\nJuniper User Detail: User commands, configuration changes, and login details \r\n\r\nJuniper User Overview: Overview of user commands, configuration changes, and logins\r\n\r\n\u003cfont color=\"orange\"\u003eQuery Library\u003c/font\u003e\r\n\r\nJuniper Logins by Client Mode: Count logins by client mode\r\n\r\nJuniper Latest Configuration Changes: Display configuration changes per user\r\n\r\nJuniper SSH Logins by User: Count SSH logins by user\r\n\r\nJuniper Command Count: Count by command\r\n\r\nJuniper Facility Count: Count by logging facility\r\n\r\nJuniper Failed Logins by Src: Count failed login attempts by source with a count unique usernames and destinations\r\n\r\nJuniper Alarms: Detail alarms by set, class, reason\r\n\r\nJuniper Configuration Errors: Display configuration errors by hostname\r\n\r\nJuniper Latest Commands: Display commands per user hostname\r\n\r\nJuniper Alarms by Hostname: Count alarms by hostname\r\n\r\nJuniper Failed Logins by Destination: Count failed login attempts by destination with a count unique usernames and sources\r\n\r\nJuniper Configuration Changes by Hostname : Count configuration changes by hostname\r\n\r\nJuniper Appname Count: Count by appname\r\n\r\nJuniper Alarms by Class: Count by alarm class\r\n\r\nJuniper Alarms by Set: Count by alarm set\r\n\r\nJuniper Alarms Overview: Count alarm by hostname, alarm set, color, class, reason\r\n\r\nJuniper Alarms Count by Color: Count by alarm color\r\n\r\nJuniper Count by SSH Login User: Count SSH login by user\r\n\r\nJunper SSH Logins: Detail SSH logins by user and unique source\r\n\r\n\u003cfont color=\"orange\"\u003eExtractors\u003c/font\u003e\r\n\r\njuniper: Syslog extraction for tag juniper\r\n\r\n\u003cfont color=\"orange\"\u003eMacros\u003c/font\u003e\r\n\r\n$JUNIPER_TAG: Set juniper tag name (CONFIG MACRO)\r\n\r\n\u003cfont color=\"orange\"\u003eResources\u003c/font\u003e\r\n\r\njuniper_facility: Juniper facility details\r\n\r\njuniper_severity: Juniper severity details\r\n\r\n\u003cfont color=\"orange\"\u003eTemplates\u003c/font\u003e\r\n\r\nJuniper Config Set: Display configuration set per user, hostname\r\n\r\nJuniper User Commands: Display executed commands per user, hostname\r\n\r\nJuniper User Logins: Display logins per user, hostname\r\n\r\nJuniper User Config Mode: Display users entering config mode per user, hostname\r\n\r\n##Install Instructions\r\n****\r\n\r\n*After verifying Juniper data is being properly indexed and available for search*\r\n\r\n1. Set the $JUNIPER_TAG macro to the tag containing juniper data\r\n\r\n\r\n\\#\\# Credits - Photo by [Thomas Jensen](https://unsplash.com/@thomasjsn \"https://unsplash.com/@thomasjsn\") on [Unsplash](https://unsplash.com \"https://unsplash.com\") \\#\\#",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"Icon": "11b69e21-c906-4c76-894b-22cd0c503ab5",
+	"Banner": "7d0f2703-12a2-426e-b519-b5bf640330b7",
+	"Cover": "b56a0767-8259-4591-ba1d-ad56f51bd06a",
+	"Items": [
+		{
+                        "Name": "Apache 2.0 License",
+                        "Type": 10,
+                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "juniper_severity",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "juniper_facility",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "JUNIPER_TAG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "378e7a2e-5365-41f8-b06b-42c058fb7c28",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d72f19f8-59cc-49b4-a927-9aca7c350a8f",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "47783453-d543-4d32-8718-1a82cedf8717",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ac407515-ab46-4f78-862a-ffa6dc7934a5",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e8e18d4a-50a5-4481-9546-1b53b6410b4f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fc339912-7469-4071-ba07-604f2d998b34",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1f75573b-ab23-47dc-ab5f-81fb23507d4c",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bcbdaa8e-2011-4d37-b096-9cd44ef2d859",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ac0a4c5d-8bd1-49a7-a102-de69de4269bc",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9b8c5a06-ae30-4939-9c4b-a6d88b3826e5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5488c73a-6629-4682-bbe1-4e2c608ab05d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d3414597-ff13-40ee-8511-4c0016dadf8f",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6af60afa-93d3-48fb-b07d-09637a2956d1",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "296a5fe1-9da7-4c3e-83f1-3c1b34ba01d0",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ff684d70-c08c-4071-8b1d-55e3dbce000c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a9c65b19-cedd-48c9-b0d5-5263720a9d3f",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "adf0a4b5-b09e-4e6b-b036-395044b7235c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "036554e6-bcfd-4c92-aeca-ab69a508da4a",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "50b1a3c8-8af2-4c07-85a9-efcf73b5de01",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a8d0fb86-f16d-4234-948c-99cfaaf82e1e",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ba4b0623-efa6-4986-b214-7b9a6f1b324c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bb6fe9e0-95bd-4bf4-b3ad-b28d30de9455",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b2826d6b-fd48-4f95-9fe9-4fea062fb878",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "95dcd4cb-adbf-4afb-8fe2-c3e74653618b",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ef504c00-74a0-4421-9d29-7c8693d3332d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5615a9ac-75e6-44c0-b497-bc3d6047dd28",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "009150bf-c165-4b08-a45d-24cd7807f99e",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "11507305-19a0-44bd-9543-9792f5e6381c",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7d0f2703-12a2-426e-b519-b5bf640330b7",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "11b69e21-c906-4c76-894b-22cd0c503ab5",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b56a0767-8259-4591-ba1d-ad56f51bd06a",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "21984059-3c42-4a69-ae50-de84c7ab3fbc",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "juniper",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+                {
+                        "MacroName": "JUNIPER_TAG",
+                        "Description": "Set juniper tag name",
+                        "DefaultValue": "juniper",
+                        "Value": "",
+                        "Type": "STRING",
+                        "InstalledByID": ""
+                }
+        ]
+}

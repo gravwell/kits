@@ -1,0 +1,6 @@
+tag=$JUNIPER_TAG ax Appname=="sshd" Facility=="4" Hostname Message
+| grep -e Message "Accepted password for"
+| lookup -r juniper_facility Facility facility_number (facility as facility_name facility_desc as facility_desc)
+| regex -e Message `for\s(?P<user>.+?)\sfrom\s(?P<src>.+?)\s`
+| stats count by user
+| chart count by user
