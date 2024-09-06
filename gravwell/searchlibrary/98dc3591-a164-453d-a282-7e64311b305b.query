@@ -1,1 +1,4 @@
-tag=gravwell syslog Message=="Indexer came online" Hostname Structured.indexer | alias Hostname webserver | stats count by webserver indexer | table webserver indexer count
+tag=gravwell syslog Message=="Indexer came online" Hostname Structured.indexer 
+| alias Hostname webserver 
+| stats count by webserver indexer 
+| table webserver indexer count

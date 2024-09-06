@@ -1,6 +1,9 @@
 {
-	"Name": "Total Queries by Tag",
-	"Description": "",
+	"Name": "Gravwell: Total Queries by Tag",
+	"Description": "Count most queried Tags and associated users",
 	"GUID": "751c88a0-741b-4a01-9191-499977b7cb40",
+	"Labels": [
+		"gravwell"
+	],
 	"Metadata": null
 }

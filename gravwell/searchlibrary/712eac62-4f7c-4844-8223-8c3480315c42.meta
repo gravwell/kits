@@ -1,6 +1,9 @@
 {
-	"Name": "Active Users",
-	"Description": "",
+	"Name": "Gravwell: Active Users",
+	"Description": "Display users active within the last 5 minutes",
 	"GUID": "712eac62-4f7c-4844-8223-8c3480315c42",
+	"Labels": [
+		"gravwell"
+	],
 	"Metadata": null
 }

@@ -1,6 +1,9 @@
 {
-	"Name": "Ingester Reconnects Over Time",
-	"Description": "",
+	"Name": "Gravwell: Ingester Reconnects Over Time",
+	"Description": "Chart count of ingester reconnections over time",
 	"GUID": "00a8f445-9c52-4088-b593-95c738f56fd0",
+	"Labels": [
+		"gravwell"
+	],
 	"Metadata": null
 }

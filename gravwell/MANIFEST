@@ -3,7 +3,7 @@
 	"Name": "Gravwell Kit",
 	"Desc": "Gravwell infrastructure monitoring kit.",
 	"Readme": "# Gravwell Kit\n\nThe Gravwell kit is designed to monitor internal Gravwell components and infrastructure.  Using this kit you can quickly see user activity, infrastructure health over time, ingester health, and API and authentication logs.\n\n\nThe Gravwell kit relies on the internal Gravwell component logging, available visibility will be determined by the logging verbocity configured in each of our components.  By default Gravwell internal logging is set to **warn** which means only messages of level **warn** or better will be logged.",
-	"Version": 11,
+	"Version": 12,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 4,
@@ -29,6 +29,21 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
+                        "Name": "AGG_TAG_MT",
+                        "Type": 8,
+                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                },
+		{
+			"Name": "CONVERT_BYTES_GB",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "TARGET_INGEST",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
 			"Name": "09411e91-71cc-43c3-b4c7-5c8a2dc05180",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -40,6 +55,11 @@
 		},
 		{
 			"Name": "7c0e72bc-c473-4eca-8fd5-82fc3c4da156",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8e3396a2-4d8e-4dad-b748-ebf8272d8594",
 			"Type": 3,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
@@ -69,7 +89,32 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
+			"Name": "5a9ce4cd-0319-486d-b5ec-1d81219d86c5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "83f94374-2148-42d9-a5ff-0e9923a3a358",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b80d41b1-8044-4d6d-82be-4d9297032283",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d2d276d6-966c-4268-9471-e1cbb70c083f",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
 			"Name": "Update ingester table",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a4e19037-6acc-4301-ab02-22b5e22084bf",
 			"Type": 2,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},

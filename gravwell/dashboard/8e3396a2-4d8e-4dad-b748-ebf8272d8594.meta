@@ -1,0 +1,133 @@
+{
+	"UUID": "8e3396a2-4d8e-4dad-b748-ebf8272d8594",
+	"Name": "Gravwell: Data Ingestion",
+	"Description": "Dashboard for monitoring Data Ingestion",
+	"Data": {
+		"timeframe": {
+			"durationString": "P1MT",
+			"timeframe": "manual",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Gravwell_Kit: Number of days over ingestion target in past 30.",
+				"color": null,
+				"reference": {
+					"id": "b80d41b1-8044-4d6d-82be-4d9297032283",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Gravwell_Kit: GBs Ingested",
+				"color": null,
+				"reference": {
+					"id": "d2d276d6-966c-4268-9471-e1cbb70c083f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Gravwell_Kit: Over Target Ingest",
+				"color": null,
+				"reference": {
+					"id": "83f94374-2148-42d9-a5ff-0e9923a3a358",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Gravwell_Kit: Number of Entries",
+				"color": null,
+				"reference": {
+					"id": "5a9ce4cd-0319-486d-b5ec-1d81219d86c5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17200392414660,
+				"title": "Days over Target Daily Ingestion",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17200407456001,
+				"title": "Total GB Ingested",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1720562665376,
+				"title": "Over Target Daily Ingestion",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17238299776084,
+				"title": "Number of Entries",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"gravwell"
+	]
+}

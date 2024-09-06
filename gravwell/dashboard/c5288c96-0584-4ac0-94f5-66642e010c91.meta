@@ -1,7 +1,7 @@
 {
 	"UUID": "c5288c96-0584-4ac0-94f5-66642e010c91",
-	"Name": "Automations",
-	"Description": "",
+	"Name": "Gravwell: Automations",
+	"Description": "Dashboard for monitoring automation errors and states",
 	"Data": {
 		"timeframe": {
 			"timeframe": "P1DT"
@@ -170,5 +170,7 @@
 		],
 		"version": 2
 	},
-	"Labels": null
+	"Labels": [
+		"gravwell"
+	]
 }
