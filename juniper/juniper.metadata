@@ -1,0 +1,9 @@
+{
+	"Tags": ["juniper"],
+	"Ingesters": [],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "Juniper", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "Juniper", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
