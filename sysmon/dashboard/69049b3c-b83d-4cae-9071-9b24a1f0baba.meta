@@ -1,0 +1,178 @@
+{
+	"UUID": "69049b3c-b83d-4cae-9071-9b24a1f0baba",
+	"Name": "Sysmon Registry Overview",
+	"Description": "Activity on registry keys",
+	"Data": {
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Sysmon Registry Autorun",
+				"searchID": 5253014086,
+				"color": null,
+				"reference": {
+					"id": "ac25e3ff-a24a-4d59-b211-266a8fa6a82e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Registry Modifications by Image",
+				"color": null,
+				"reference": {
+					"id": "10ecb70c-2806-453b-aa22-a3ebdd31060a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Registry events by computer \u0026 image",
+				"color": null,
+				"reference": {
+					"id": "0308f7d1-dc1b-4ff1-a1e4-39d209d900b2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Sysmon Registry Overview",
+				"color": null,
+				"reference": {
+					"id": "688f94a9-bf43-4b64-b5d0-e162c6763785",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Sysmon Registry Techniques Detected",
+				"color": null,
+				"reference": {
+					"id": "311bdf8d-5ec2-4e09-b77f-9c7615b90240",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 1611951493898,
+				"title": "Registry Modifications by Application",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 18,
+					"x": 7,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 1611951513508,
+				"title": "Registry activity",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no",
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 1611951514954,
+				"title": "Registry Techniques Detected",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 18,
+					"x": 14,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 16136832395273,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 16136834659064,
+				"title": "Autorun Registry Actions",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 18,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"sysmon",
+		"windows"
+	]
+}

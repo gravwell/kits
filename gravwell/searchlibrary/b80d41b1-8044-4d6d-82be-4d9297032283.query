@@ -1,0 +1,5 @@
+tag=_ingesters_stats kv lastdaysize
+| eval GB_per_day=$CONVERT_BYTES_GB(lastdaysize);
+| eval if (GB_per_day >= $TARGET_INGEST ) { overTarget = 1; } else { overTarget = 0; }
+| stats sum(overTarget) as "OverTarget"
+| numbercard "OverTarget"

@@ -1,0 +1,18 @@
+{
+	"UUID": "4c80351e-2fa9-4bee-8c1c-75933b202872",
+	"Name": "Zeek connection count overview for id.resp_p",
+	"Description": "Connection count overview as seen by Zeek using responder port variable",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%respport%%",
+				"label": "Responder Port",
+				"description": "Destination port of connection",
+				"required": true,
+				"defaultValue": "443",
+				"previewValue": "443"
+			}
+		]
+	},
+	"Labels": null
+}

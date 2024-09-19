@@ -1,6 +1,9 @@
 {
-	"Name": "Total Queries",
-	"Description": "",
+	"Name": "Gravwell: Total Queries",
+	"Description": "Count gauge of successfully launched queries",
 	"GUID": "b68ae88c-34ef-4afe-947f-da748a495443",
+	"Labels": [
+		"gravwell"
+	],
 	"Metadata": null
 }

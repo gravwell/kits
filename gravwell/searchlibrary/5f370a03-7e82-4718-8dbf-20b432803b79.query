@@ -1,1 +1,7 @@
-tag=gravwell syslog Message=="Completed search launch" Structured.query as Query | require Query | split -d "|" Query | regex -p -e Query "tag=\S+\s+(?P<Query>\S+)" | regex -e Query "\s+(?P<Module>\S+)" | count by Module | table count Module
+tag=gravwell syslog Message=="Completed search launch" Structured.query as Query 
+| require Query 
+| split -d "|" Query 
+| regex -p -e Query "tag=\S+\s+(?P<Query>\S+)" 
+| regex -e Query "\s+(?P<Module>\S+)" 
+| count by Module 
+| table count Module

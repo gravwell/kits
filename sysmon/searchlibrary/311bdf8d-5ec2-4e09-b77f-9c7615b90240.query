@@ -1,0 +1,4 @@
+tag=$SYSMON winlog $PROVIDER EventID RuleName!="-" 
+| eval ( EventID==12 || EventID==13 || EventID==14 ) 
+| stats count by RuleName 
+| table RuleName count 

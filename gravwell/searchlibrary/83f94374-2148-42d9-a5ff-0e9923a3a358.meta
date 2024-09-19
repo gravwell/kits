@@ -1,0 +1,11 @@
+{
+	"Name": "Gravwell: Over Target Ingest",
+	"Description": "Chart ingest GB per day according to _ingesters_stats against target GB per day",
+	"GUID": "83f94374-2148-42d9-a5ff-0e9923a3a358",
+	"Labels": [
+		"gravwell"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

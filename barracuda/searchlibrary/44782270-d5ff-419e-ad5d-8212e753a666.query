@@ -1,0 +1,1 @@
+tag = _aggs_barracuda_blocked_url ax url Src blocked_url_count | stats sum(blocked_url_count) by Src url | sort by sum desc | limit 10 | stackgraph url Src sum

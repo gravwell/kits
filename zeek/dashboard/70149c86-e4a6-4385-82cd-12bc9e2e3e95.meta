@@ -1,0 +1,194 @@
+{
+	"UUID": "70149c86-e4a6-4385-82cd-12bc9e2e3e95",
+	"Name": "Zeek Investigate Responder Port",
+	"Description": "Investigate given responder port using the Zeek conn.log",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Zeek connection count overview for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "4c80351e-2fa9-4bee-8c1c-75933b202872",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zeek totals by traffic direction for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "1abce41f-2f29-44ca-8e89-8c3905b3bb4e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zeek connection count by service for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "a3df4926-8c9f-4b7b-a0e7-bfffd62220a3",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zeek connection count by state for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "c3008942-a2af-41ab-801f-8745a5181559",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zeek connection count details by host, service, org for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "c3ceb661-4d6d-4bb8-8970-fad4c353b9d5",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zeek connection traffic total details by org for id.resp_p",
+				"color": null,
+				"reference": {
+					"id": "89daadc2-56da-4cae-94b7-e2e607b3eaf3",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 1055688054728282,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 8909798857843542,
+				"title": "Traffic totals by direction",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1360196570230754,
+				"title": "Connection Rates by Service",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 4333909364945956,
+				"title": "Connection Counts by State",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 3401409270272026,
+				"title": "Connection count details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 2676606806314514,
+				"title": "Connection traffic total details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

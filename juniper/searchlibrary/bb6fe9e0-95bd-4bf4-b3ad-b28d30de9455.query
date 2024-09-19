@@ -1,0 +1,4 @@
+tag=$JUNIPER_TAG ax Appname Facility Hostname
+| lookup -r juniper_facility Facility facility_number (facility as Facility_Name facility_desc as Facility_Description)
+| stats count by Facility
+| table Facility Facility_Name Facility_Description count

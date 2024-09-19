@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==13 TargetObject RuleName~"Audio Capture" Computer TimeCreated Details |
+tag=$SYSMON winlog $PROVIDER EventID==13 TargetObject RuleName~"Audio Capture" Computer TimeCreated Details |
 sort by time asc |
 regex -e Details "\((?P<qword>.+)\)" qword != "0x00000000-0x00000000" |
 regex -e TargetObject "#(?P<appname>[^#]+)\\LastUsedTime(?P<mic_action>\S+)" |

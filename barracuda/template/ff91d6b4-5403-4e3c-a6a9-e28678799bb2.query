@@ -1,0 +1,8 @@
+tag=$BARRACUDA ax | 
+$BARRACUDAWSG_LOOKUP_ALL | 
+ip Src == %%Barracuda_IP%% | 
+eval action_type != "allowed" | 
+stats count as blocked_count by url |
+sort by blocked_count desc |
+limit 10 |  
+table url blocked_count

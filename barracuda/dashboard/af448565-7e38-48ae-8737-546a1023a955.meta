@@ -1,0 +1,185 @@
+{
+	"UUID": "af448565-7e38-48ae-8737-546a1023a955",
+	"Name": "Barracuda IP investigation",
+	"Description": "Investigates IP addresses from Barracuda Logs",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Barracuda IP Overview",
+				"color": null,
+				"reference": {
+					"id": "df374153-7717-47bc-9068-2dc295769841",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Barracuda IP Overview",
+				"color": null,
+				"reference": {
+					"id": "df374153-7717-47bc-9068-2dc295769841",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Barracuda IP Traffic",
+				"color": null,
+				"reference": {
+					"id": "78b2d95b-90f4-48fa-ac7f-7241eef594c7",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Barracuda IP Upload Traffic",
+				"color": null,
+				"reference": {
+					"id": "1cd047a7-508d-4d9a-868d-d821f387fd75",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Barracuda Blocked URLs for IP",
+				"color": null,
+				"reference": {
+					"id": "ff91d6b4-5403-4e3c-a6a9-e28678799bb2",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Barracuda Top 10 Unusual Content Types for IP",
+				"color": null,
+				"reference": {
+					"id": "8c70b1b9-5d1f-4112-b39e-cc8e741a03f0",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Barracuda User Info for IP",
+				"color": null,
+				"reference": {
+					"id": "f528f30f-eb01-4d38-9f8b-a2d5221fc2c6",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17210078839950,
+				"title": "IP Overview",
+				"renderer": "areaChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17210121147051,
+				"title": "Download",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17210636084992,
+				"title": "Upload",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17211564605603,
+				"title": "Blocked URLs",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17211581839214,
+				"title": "Unusual Content Types",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 4
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17211587123975,
+				"title": "User Info",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 4
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"barracuda-wsg"
+	]
+}

@@ -1,2 +1,2 @@
-tag=$SYSMON winlog Provider == "Microsoft-Windows-Sysmon" RuleName != "" EventID == 255 ID Description |
+tag=$SYSMON winlog $PROVIDER RuleName != "" EventID == 255 ID Description |
 table TIMESTAMP ID Description

@@ -1,6 +1,6 @@
 {
-	"Name": "Registry Technique Frequency",
-	"Description": "Frequency of potential attack techniques via registry modification.",
+	"Name": "Sysmon: Registry Technique Frequency",
+	"Description": "Frequency of potential attack techniques via registry modification",
 	"GUID": "3dd5db6b-11af-423e-a606-371ed93bfce7",
 	"Labels": [
 		"sysmon",

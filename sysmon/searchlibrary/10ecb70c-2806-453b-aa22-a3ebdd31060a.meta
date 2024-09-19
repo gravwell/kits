@@ -1,6 +1,6 @@
 {
-	"Name": "Registry Modifications by Image",
-	"Description": "Chart which programs are modifying the registry the most.",
+	"Name": "Sysmon: Registry Modifications by Image",
+	"Description": "Chart which programs are modifying the registry the most",
 	"GUID": "10ecb70c-2806-453b-aa22-a3ebdd31060a",
 	"Labels": [
 		"sysmon",

@@ -1,0 +1,152 @@
+{
+	"UUID": "a3afff2a-d154-478c-8318-249d7f460a33",
+	"Name": "Barracuda Aggregrate Overview",
+	"Description": "Aggregate Dashboard of Barracuda Tags",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Non-Allowed by User",
+				"color": null,
+				"reference": {
+					"id": "df29d613-fc20-442c-a45f-8b16a2399be7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Blocked Urls by Source",
+				"color": null,
+				"reference": {
+					"id": "44782270-d5ff-419e-ad5d-8212e753a666",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Unusual Content Types by User",
+				"color": null,
+				"reference": {
+					"id": "b0c98cea-9951-4735-9d94-9d7581d43f5e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Categories",
+				"color": null,
+				"reference": {
+					"id": "c6833444-aaa8-4dd3-a5c0-50d32d99cfe9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Destination Types",
+				"color": null,
+				"reference": {
+					"id": "bec2fdf5-3a70-4996-ba08-f633e543b48f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17208167537700,
+				"title": "Non-Allowed by User",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17208175042541,
+				"title": "Blocked URLs",
+				"renderer": "stackgraph",
+				"hideZoom": true,
+				"span": {
+					"col": 13,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17208182038502,
+				"title": "Unusual Content Types by User",
+				"renderer": "stackgraph",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 7,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Orientation": "horizontal",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 17208186314833,
+				"title": "Top Categories",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17208193102474,
+				"title": "Top Destination Types",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 7,
+					"y": 8
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"barracuda-wsg"
+	]
+}

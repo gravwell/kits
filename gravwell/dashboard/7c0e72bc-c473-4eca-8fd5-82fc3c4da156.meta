@@ -1,7 +1,7 @@
 {
     "UUID": "7c0e72bc-c473-4eca-8fd5-82fc3c4da156",
-    "Name": "Gravwell User Overview",
-    "Description": "",
+    "Name": "Gravwell: User Overview",
+    "Description": "Dashboard for monitoring user activity",
     "Data": {
         "timeframe": {
             "durationString": null,
@@ -68,7 +68,7 @@
             },
             {
                 "alias": "Failed Logins",
-                "query": "tag=gravwell syslog Appname == webserver Hostname user host Message == \"Authentication failure\" MsgID~login ProcID == 400000f8\n| stats count by user host\n| table user host count Hostname",
+                "query": "tag=gravwell syslog Appname == webserver Hostname user host Message == \"Authorization failure\" MsgID~login ProcID == 400000f8\n| stats count by user host\n| table user host count Hostname",
                 "color": null
             }
         ],
@@ -188,5 +188,7 @@
         "linkZooming": false,
         "grid": {}
     },
-    "Labels": null
+	"Labels": [
+		"gravwell"
+	]
 }

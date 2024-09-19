@@ -1,1 +1,6 @@
-tag=gravwell syslog Timestamp Message~"User logged" Structured.sessionid Structured.uid Structured.user | require sessionid | sort by time desc | diff TIMESTAMP by sessionid | eval $(duration) = duration(-1*diff); | table Timestamp user uid sessionid duration
+tag=gravwell syslog Timestamp Message~"User logged" Structured.sessionid Structured.uid Structured.user 
+| require sessionid 
+| sort by time desc 
+| diff TIMESTAMP by sessionid 
+| eval $(duration) = duration(-1*diff); 
+| table Timestamp user uid sessionid duration

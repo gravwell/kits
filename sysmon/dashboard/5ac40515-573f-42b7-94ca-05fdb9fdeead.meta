@@ -1,0 +1,315 @@
+{
+	"UUID": "5ac40515-573f-42b7-94ca-05fdb9fdeead",
+	"Name": "Sysmon DNS Overview",
+	"Description": "Overview dashboard of DNS activity as seen by Sysmon",
+	"Data": {
+		"searches": [
+			{
+				"alias": "Sysmon DNS Totals",
+				"timeframe": {},
+				"reference": {
+					"id": "84cdc657-d87b-4247-a2fd-0b5f7a173b77",
+					"type": "savedQuery"
+				},
+				"searchID": 3976074407
+			},
+			{
+				"alias": "Sysmon DNS Queries over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "ce0ef618-9135-4860-9f6f-091c65925c44",
+					"type": "savedQuery"
+				},
+				"searchID": 3139207708
+			},
+			{
+				"alias": "Sysmon DNS Requests by Computer over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "4cada82e-f7cd-4605-a6ff-64ee5677b13e",
+					"type": "savedQuery"
+				},
+				"searchID": 8618462804
+			},
+			{
+				"alias": "Sysmon DNS Requests by Process over Time",
+				"timeframe": {},
+				"reference": {
+					"id": "227e9dbf-ae59-4995-b17b-6a346ff0042f",
+					"type": "savedQuery"
+				},
+				"searchID": 6246019546
+			},
+			{
+				"alias": "Sysmon DNS Beaconing",
+				"timeframe": {},
+				"reference": {
+					"id": "2c357cbd-2e46-4322-ac1b-4038b8802dc3",
+					"type": "savedQuery"
+				},
+				"searchID": 8615161481
+			},
+			{
+				"alias": "Sysmon DNS Most Queried DNS Names",
+				"timeframe": {},
+				"reference": {
+					"id": "6dc79f5e-5955-49bf-9b88-81c09c685455",
+					"type": "savedQuery"
+				},
+				"searchID": 6670165776
+			},
+			{
+				"alias": "Sysmon DNS Most Active Clients",
+				"timeframe": {},
+				"reference": {
+					"id": "9f404f9a-812a-4d82-a46b-ab194d51b77a",
+					"type": "savedQuery"
+				},
+				"searchID": 4984387292
+			},
+			{
+				"alias": "Sysmon DNS Most Active Processes",
+				"timeframe": {},
+				"reference": {
+					"id": "45fa6e57-add4-4c85-80bd-04528f427101",
+					"type": "savedQuery"
+				},
+				"searchID": 3924776551
+			},
+			{
+				"alias": "Sysmon DNS Queries by Resource Record Type",
+				"timeframe": {},
+				"reference": {
+					"id": "69f4e0a6-df57-4120-98f1-d3a0bd181d37",
+					"type": "savedQuery"
+				},
+				"searchID": 3415906673
+			},
+			{
+				"alias": "Sysmon DNS Errors",
+				"timeframe": {},
+				"reference": {
+					"id": "8a2c4d44-f1bf-42a8-b73a-ceade2add2cf",
+					"type": "savedQuery"
+				},
+				"searchID": 1343263541
+			}
+		],
+		"tiles": [
+			{
+				"title": "DNS Totals",
+				"renderer": "numberCard",
+				"span": {
+					"col": 11,
+					"row": 4,
+					"x": 0,
+					"y": 8
+				},
+				"id": 16119449184830,
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"NumberCardLabelFontSize": "20",
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "DNS Over Time",
+				"renderer": "areaChart",
+				"span": {
+					"col": 10,
+					"row": 4,
+					"x": 11,
+					"y": 0
+				},
+				"id": 16119449676001,
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "DNS Queries by Client over Time",
+				"renderer": "lineChart",
+				"span": {
+					"col": 10,
+					"row": 4,
+					"x": 11,
+					"y": 4
+				},
+				"id": 16119450095762,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "DNS Queries by Process over Time",
+				"renderer": "lineChart",
+				"span": {
+					"col": 9,
+					"row": 4,
+					"x": 21,
+					"y": 4
+				},
+				"id": 16119450373273,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no",
+					"Multiple": "no",
+					"Style": "reg"
+				}
+			},
+			{
+				"title": "DNS Beaconing",
+				"renderer": "table",
+				"span": {
+					"col": 11,
+					"row": 7,
+					"x": 0,
+					"y": 12
+				},
+				"id": 16119450624624,
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"title": "Most Queried DNS Names",
+				"renderer": "table",
+				"span": {
+					"col": 11,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"id": 16119450829465,
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"title": "DNS Most Active Clients",
+				"renderer": "pieChart",
+				"span": {
+					"col": 10,
+					"row": 4,
+					"x": 11,
+					"y": 8
+				},
+				"id": 16119451066646,
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "DNS Most Active Processes",
+				"renderer": "pieChart",
+				"span": {
+					"col": 9,
+					"row": 4,
+					"x": 21,
+					"y": 8
+				},
+				"id": 16119451478837,
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "DNS Queries by Resource Record Type",
+				"renderer": "lineChart",
+				"span": {
+					"col": 9,
+					"row": 4,
+					"x": 21,
+					"y": 0
+				},
+				"id": 16119451744858,
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"title": "Overview",
+				"renderer": "overview",
+				"span": {
+					"col": 11,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"id": 16128142032559,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"title": "Query Summary",
+				"renderer": "table",
+				"span": {
+					"col": 19,
+					"row": 7,
+					"x": 11,
+					"y": 12
+				},
+				"id": 161282071122710,
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			}
+		],
+		"timeframe": {
+			"timeframe": "P1DT"
+		},
+		"version": 2,
+		"lastDataUpdate": "2021-02-18T17:06:11-08:00",
+		"linkZooming": true
+	},
+	"Labels": [
+		"sysmon",
+		"windows",
+		"dns"
+	]
+}

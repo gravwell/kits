@@ -1,0 +1,18 @@
+{
+	"Name": "Barracuda Blocked Url Aggregate  ",
+	"Desc": "Extracts from the _aggs_barracuda_blocked_url tag.",
+	"Module": "csv",
+	"Tag": "",
+	"Tags": [
+		"_aggs_barracuda_blocked_url"
+	],
+	"Labels": [
+		"aggregates",
+		"barracuda-wsg"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "7fe86440-e5bf-4392-a036-4c6b03095d34",
+	"LastUpdated": "2024-07-29T16:07:25.583442564Z"
+}

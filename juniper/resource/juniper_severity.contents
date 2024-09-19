@@ -1,0 +1,10 @@
+severity_id,severity,severity_desc
+N/A,none,Disables logging of the associated facility to a destination.
+0,emergency,System panic or other condition that causes the router to stop functioning.
+1,alert,"Conditions that require immediate correction, such as a corrupted system database."
+2,critical,"Critical conditions, such as hard errors."
+3,error,"Error conditions that generally have less serious consequences than errors at the emergency, alert, and critical levels."
+4,warning,Conditions that warrant monitoring.
+5,notice,Conditions that are not errors but might warrant special handling.
+6,info,Events or non-error conditions of interest.
+7,any,Includes all severity levels.

@@ -1,4 +1,4 @@
-tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID<=14 RuleName!="-" |
+tag=$SYSMON winlog $PROVIDER EventID<=14 RuleName!="-" |
 eval EventID>=12 |
 regex -e RuleName "technique_id=(?P<technique_id>[^,]+),technique_name=(?P<technique_name>.+)" |
 stats count by technique_name technique_id |

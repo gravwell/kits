@@ -1,0 +1,1 @@
+tag= _aggs_barracuda_blocked_users ax user_info blocked_users_count Src | stats sum(blocked_users_count) by Src user_info | sort by sum desc | limit 10 | table user_info Src sum

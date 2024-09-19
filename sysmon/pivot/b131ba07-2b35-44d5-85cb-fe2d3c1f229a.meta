@@ -35,5 +35,8 @@
 			}
 		]
 	},
-	"Labels": null
+	"Labels": [
+		"sysmon",
+		"windows"
+	]
 }

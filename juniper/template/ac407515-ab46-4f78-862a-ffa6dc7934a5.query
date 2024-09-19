@@ -1,0 +1,4 @@
+tag=$JUNIPER_TAG ax Appname=="mgd" Facility Hostname Message 
+| regex -e Message `UI_CFG_AUDIT_SET\:\sUser\s\'(?P<User>.+?)\'\sset\:\s(?P<config>.+?)$`
+| eval User~"%%user%%"
+| table TIMESTAMP Hostname User config

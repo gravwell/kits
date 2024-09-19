@@ -1,0 +1,11 @@
+{
+	"Name": "Gravwell: Number of Entries",
+	"Description": "Numbercard for total number of entries according to _ingesters_stats",
+	"GUID": "5a9ce4cd-0319-486d-b5ec-1d81219d86c5",
+	"Labels": [
+		"gravwell"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

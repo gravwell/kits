@@ -1,0 +1,41 @@
+{
+	"UUID": "a2b4f50c-58e9-46d6-bdd9-9d09ad5abe3e",
+	"Name": "Barracuda IP",
+	"Description": "IP actionable for Barracuda",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Barracuda IP Dashboard",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "af448565-7e38-48ae-8737-546a1023a955",
+					"options": {
+						"variable": "%%Barracuda_IP%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}
