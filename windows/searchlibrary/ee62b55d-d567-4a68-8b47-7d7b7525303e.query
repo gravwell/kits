@@ -4,11 +4,9 @@ tag=$WINDOWS_LOGON winlog EventID == 4624 ElevatedToken=="%%1842" Computer Subje
     && !((SubjectUserName == "-" || strings_hassuffix(SubjectUserName,"$") == true) && TargetUserSid == "S-1-5-18") 
     && !(in(TargetDomainName,"NT VIRTUAL MACHINE","NT AUTHORITY")))
 | lookup -r windows_login_types LogonType logon_type name as LogonName
-/* | dns -reverse IpAddress Host */
-| printf -e SourceInfo "%v" IpAddress
 | printf -e LogonTypeInfo "%v (%v)" LogonName LogonType
 | printf -e SubjectUser "%v\\%v" SubjectDomainName SubjectUserName
 | printf -e TargetUser "%v\\%v" TargetDomainName TargetUserName
 | eval (if (TargetInfo == "-") {TargetInfo = "<See Computer>";})
-| stats count as Count by Computer SubjectUser TargetUser LogonTypeInfo LogonProcessName TargetInfo SourceInfo
-| table Count Computer SubjectUser TargetUser LogonTypeInfo LogonProcessName TargetInfo SourceInfo
+| stats count as Count by Computer SubjectUser TargetUser LogonTypeInfo LogonProcessName TargetInfo IpAddress
+| table Count Computer SubjectUser TargetUser LogonTypeInfo LogonProcessName TargetInfo IpAddress
