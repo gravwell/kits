@@ -8,5 +8,6 @@ tag=$WINDOWS_LOGON winlog TimeCreated EventID == 4624 Computer SubjectUserName S
 | lookup -r windows_login_types LogonType logon_type name as LogonName
 | printf -e SubjectUser "%v\\%v" SubjectDomainName SubjectUserName
 | printf -e TargetUser "%v\\%v" TargetDomainName TargetUserName
+| printf -e LogonTypeInfo "%v (%v)" LogonName LogonType
 | eval (if (TargetInfo == "-") {TargetInfo = "<See Computer>";})
 | table TimeCreated Computer SubjectUser TargetUser LogonTypeInfo LogonProcessName TargetInfo IpAddress
