@@ -2,8 +2,8 @@ tag=$WINDOWS_LOGON winlog EventID Computer SubjectUserName SubjectDomainName Tar
 | eval (EventID == "4625" || EventID == "4771")
 | lookup -r windows_login_types LogonType logon_type name as LogonName
 | lookup -r windows_auth_fail_codes Status Code Description
-| dns -reverse IpAddress Host
-| printf -e SourceInfo "%v (%v)" Host IpAddress
+/* | dns -reverse IpAddress Host */
+| printf -e SourceInfo "%v" IpAddress
 | printf -e LogonTypeInfo "%v (%v)" LogonName LogonType
 | printf -e SubjectUser "%v\\%v" SubjectDomainName SubjectUserName
 | printf -e TargetUser "%v\\%v" TargetDomainName TargetUserName
