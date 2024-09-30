@@ -9,47 +9,47 @@
 		"searches": [
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax subtype==\"end\" is_saas_of_app==\"yes\" bytes | stats sum(bytes) | numbercard (sum \"SaaS bytes transferred\")",
+				"query": "tag=$PAN_TRAFFIC ax subtype==\"end\" is_saas_of_app==\"yes\" bytes | stats sum(bytes) | numbercard (sum \"SaaS bytes transferred\")",
 				"alias": "SaaS Bytes Transferred"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax subtype==\"end\" is_saas_of_app==\"yes\" app | stats count by app | chart count by app",
+				"query": "tag=$PAN_TRAFFIC ax subtype==\"end\" is_saas_of_app==\"yes\" app | stats count by app | chart count by app",
 				"alias": "SaaS Application Usage"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax is_saas_of_app==\"yes\" action | stats count by action | chart count by action",
+				"query": "tag=$PAN_TRAFFIC ax is_saas_of_app==\"yes\" action | stats count by action | chart count by action",
 				"alias": "SaaS Actions"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions \"Volume\"",
+				"query": "tag=$PAN_TRAFFIC ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions \"Volume\"",
 				"alias": "SaaS Application Distribution"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
+				"query": "tag=$PAN_TRAFFIC ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
 				"alias": "Sanctioned SaaS Applications"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"no\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
+				"query": "tag=$PAN_TRAFFIC ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"no\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
 				"alias": "Unsanctioned SaaS Applications"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax sanctioned_state_of_app\n| eval if (sanctioned_state_of_app == \"yes\") { state = \"Sanctioned\"; } else { state = \"Non-sanctioned\"; }\n| stats count by state\n| chart count by state",
+				"query": "tag=$PAN_TRAFFIC ax sanctioned_state_of_app\n| eval if (sanctioned_state_of_app == \"yes\") { state = \"Sanctioned\"; } else { state = \"Non-sanctioned\"; }\n| stats count by state\n| chart count by state",
 				"alias": "Sanctioned Application Percentages"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax sanctioned_state_of_app==\"yes\" is_saas_of_app==\"yes\" subcategory_of_app\n| stats count by subcategory_of_app\n| chart count by subcategory_of_app limit 6",
+				"query": "tag=$PAN_TRAFFIC ax sanctioned_state_of_app==\"yes\" is_saas_of_app==\"yes\" subcategory_of_app\n| stats count by subcategory_of_app\n| chart count by subcategory_of_app limit 6",
 				"alias": "Top Categories - Sanctioned"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax sanctioned_state_of_app==\"no\" is_saas_of_app==\"yes\" subcategory_of_app\n| stats count by subcategory_of_app\n| chart count by subcategory_of_app limit 6",
+				"query": "tag=$PAN_TRAFFIC ax sanctioned_state_of_app==\"no\" is_saas_of_app==\"yes\" subcategory_of_app\n| stats count by subcategory_of_app\n| chart count by subcategory_of_app limit 6",
 				"alias": "Top Categories - Unsanctioned"
 			}
 		],

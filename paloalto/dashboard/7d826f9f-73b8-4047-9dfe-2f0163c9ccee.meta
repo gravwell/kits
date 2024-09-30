@@ -6,47 +6,47 @@
 		"searches": [
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype | stats count by subtype | numbercard (count \"\")",
+				"query": "tag=$PAN_THREAT ax subtype | stats count by subtype | numbercard (count \"\")",
 				"alias": "Threat Log Types"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype threatid | stats count by threatid | awk -e threatid \"{gsub(/\\(9999\\)/, 'URL Filtering(9999)'); print}\" | alias threatid \"Threat ID\" | table \"Threat ID\" count",
+				"query": "tag=$PAN_THREAT ax subtype threatid | stats count by threatid | awk -e threatid \"{gsub(/\\(9999\\)/, 'URL Filtering(9999)'); print}\" | alias threatid \"Threat ID\" | table \"Threat ID\" count",
 				"alias": "Most Frequent Threat IDs"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype srcloc | stats count by srcloc | chart count by srcloc",
+				"query": "tag=$PAN_THREAT ax subtype srcloc | stats count by srcloc | chart count by srcloc",
 				"alias": "Threat Source Locations"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype dstloc | stats count by dstloc | chart count by dstloc",
+				"query": "tag=$PAN_THREAT ax subtype dstloc | stats count by dstloc | chart count by dstloc",
 				"alias": "Threat Destination Locations"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"scan\" src threatid | stats count by src threatid | alias src Source threatid \"Threat ID\" | table Source \"Threat ID\" count",
+				"query": "tag=$PAN_THREAT ax subtype==\"scan\" src threatid | stats count by src threatid | alias src Source threatid \"Threat ID\" | table Source \"Threat ID\" count",
 				"alias": "Scans Detected"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"scan\" srcloc | stats count by srcloc | chart count by srcloc",
+				"query": "tag=$PAN_THREAT ax subtype==\"scan\" srcloc | stats count by srcloc | chart count by srcloc",
 				"alias": "Scan Source Locations"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"scan\" threatid | stats count by threatid | chart count by threatid",
+				"query": "tag=$PAN_THREAT ax subtype==\"scan\" threatid | stats count by threatid | chart count by threatid",
 				"alias": "Scan Types"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype!=url src | geoip src.Location | heatmap",
+				"query": "tag=$PAN_THREAT ax subtype!=url src | geoip src.Location | heatmap",
 				"alias": "Threat Source Locations"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==scan src | geoip src.Location | heatmap",
+				"query": "tag=$PAN_THREAT ax subtype==scan src | geoip src.Location | heatmap",
 				"alias": "Scan Source Locations"
 			}
 		],
