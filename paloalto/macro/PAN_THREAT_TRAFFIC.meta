@@ -1,0 +1,8 @@
+{
+	"Name": "PAN_THREAT_TRAFFIC",
+	"Description": "Palo Alto tag containing type=threat and type=traffic events",
+	"Labels": [
+		"palo",
+		"RecordType"
+	]
+}
