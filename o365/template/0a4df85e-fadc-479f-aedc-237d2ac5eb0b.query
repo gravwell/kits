@@ -1,4 +1,4 @@
-tag=365-exchange words Attachments | json -s -x AffectedItems UserId=="%%EMAIL%%" AffectedItems Operation
+tag=$365-EXCHANGE words Attachments | json -s -x AffectedItems UserId=="%%EMAIL%%" AffectedItems Operation
 | json -s -e AffectedItems Attachments
 | split -d ";" -clean Attachments
 | regex -e Attachments "(?P<name>.+) \((?P<size>\d+)[^\d]+\)"

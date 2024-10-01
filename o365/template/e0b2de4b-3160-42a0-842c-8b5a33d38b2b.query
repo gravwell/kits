@@ -1,4 +1,4 @@
-tag=365-exchange json ClientIP=="%%IP%%" UserId
+tag=$365-EXCHANGE json ClientIP=="%%IP%%" UserId
 | unique UserId
 | stats count as "Unique Users"
 | numbercard "Unique Users"

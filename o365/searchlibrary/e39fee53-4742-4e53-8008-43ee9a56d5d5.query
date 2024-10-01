@@ -1,8 +1,8 @@
-@failure{tag=365-azure json Operation==UserLoginFailed UserType UserId RecordType ClientIP
+@failure{tag=$365-AZURE json Operation==UserLoginFailed UserType UserId RecordType ClientIP
 | stats count as Failures by UserType UserId RecordType ClientIP
 | lookup -r o365_audit_usertype UserType value name as UserType
 | table UserId UserType Failures RecordType ClientIP};
-@success{tag=365-azure json Operation==UserLoggedIn UserType UserId RecordType ClientIP
+@success{tag=$365-AZURE json Operation==UserLoggedIn UserType UserId RecordType ClientIP
 | stats count as Logins by UserType UserId RecordType ClientIP
 | lookup -r o365_audit_usertype UserType value name as UserType
 | table UserId UserType Logins RecordType ClientIP};

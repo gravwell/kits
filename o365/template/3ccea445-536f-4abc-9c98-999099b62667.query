@@ -1,3 +1,3 @@
-tag=365-sharepoint json UserId Operation!="ManagedSyncClientAllowed" SourceFileName~"%%FILENAME%%" ClientIP ObjectId
+tag=$365-SHAREPOINT json UserId Operation!="ManagedSyncClientAllowed" SourceFileName~"%%FILENAME%%" ClientIP ObjectId
 | grep -e Operation -v "FileSyncUploadedFull"
 | table

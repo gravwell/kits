@@ -1,4 +1,4 @@
-tag=365-azure json Operation~UserLog UserId=="%%USER%%"
+tag=$365-AZURE json Operation~UserLog UserId=="%%USER%%"
 | eval (Operation == "UserLoginFailed" || Operation == "UserLoggedIn")
 | stats count by Operation
 | numbercard count

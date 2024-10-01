@@ -1,4 +1,4 @@
-tag=365-exchange json ClientIP=="%%IP%%" 
+tag=$365-EXCHANGE json ClientIP=="%%IP%%" 
 | limit 1
 | geoip ClientIP.CountryName as Country ClientIP.City
 | geoip -r asn_db ClientIP.ASNOrg

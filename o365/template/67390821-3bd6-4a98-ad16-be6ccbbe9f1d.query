@@ -1,4 +1,4 @@
-tag=365-exchange json Operation UserId=="%%EMAIL%%" ClientProcessName ClientVersion ExternalAccess ClientIP
+tag=$365-EXCHANGE json Operation UserId=="%%EMAIL%%" ClientProcessName ClientVersion ExternalAccess ClientIP
 | unique ClientProcessName ClientVersion ExternalAccess ClientIP
 | sort by ClientProcessName desc
 | geoip ClientIP.CountryName as Country ClientIP.City

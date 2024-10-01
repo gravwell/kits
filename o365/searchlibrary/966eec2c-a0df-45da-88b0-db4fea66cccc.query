@@ -1,4 +1,4 @@
-tag=365-exchange json MailboxOwnerUPN
+tag=$365-EXCHANGE json MailboxOwnerUPN
 | regex -e MailboxOwnerUPN "[^@]+@(?P<domain>.+)"
 | stats unique_count(MailboxOwnerUPN) as users by domain
 | chart users by domain

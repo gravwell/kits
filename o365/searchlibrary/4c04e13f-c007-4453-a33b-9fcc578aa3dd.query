@@ -1,3 +1,3 @@
-tag=365-azure json Operation==UserLoginFailed UserId
+tag=$365-AZURE json Operation==UserLoginFailed UserId
 | stats unique_count(UserId) as "Users With Login Failures"
 | numbercard "Users With Login Failures"
