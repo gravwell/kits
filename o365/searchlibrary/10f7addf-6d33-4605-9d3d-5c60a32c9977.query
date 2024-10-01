@@ -1,1 +1,1 @@
-tag=365-general json UserId | stats unique_count(UserId) as Users | numbercard Users
+tag=$365-GENERAL json UserId | stats unique_count(UserId) as Users | numbercard Users

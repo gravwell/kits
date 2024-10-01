@@ -1,4 +1,4 @@
-tag=365-sharepoint json UserId=="%%USERID%%" ClientIP Operation
+tag=$365-SHAREPOINT json UserId=="%%USERID%%" ClientIP Operation
 | count by Operation
 | eval (Operation != "ManagedSyncClientAllowed" && Operation != "FileSyncUploadedFull")
 | chart count by Operation limit 20

@@ -1,4 +1,4 @@
-tag=365-azure json -x DeviceProperties Operation UserId=="%%USER%%" DeviceProperties
+tag=$365-AZURE json -x DeviceProperties Operation UserId=="%%USER%%" DeviceProperties
 | json -e DeviceProperties Name==OS Value as OS
 | stats count by Operation OS
 | stackgraph Operation OS count

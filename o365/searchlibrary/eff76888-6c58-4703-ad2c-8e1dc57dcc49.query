@@ -1,3 +1,3 @@
-tag=365-azure json Operation == "UserLoggedIn" ResultStatus == "Success" UserId
+tag=$365-AZURE json Operation == "UserLoggedIn" ResultStatus == "Success" UserId
 | stats unique_count(UserId) as Users
 | numbercard Users

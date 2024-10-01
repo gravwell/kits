@@ -1,4 +1,4 @@
-tag=365-azure json -x ExtendedProperties ExtendedProperties UserId=="%%USER%%" Operation==UserLoggedIn
+tag=$365-AZURE json -x ExtendedProperties ExtendedProperties UserId=="%%USER%%" Operation==UserLoggedIn
 | json -e ExtendedProperties Name==UserAgent Value as UserAgent
 | stats unique_count(UserAgent) as UserAgents
 | numbercard UserAgents

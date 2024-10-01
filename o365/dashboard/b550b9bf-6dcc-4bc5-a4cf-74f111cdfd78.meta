@@ -13,22 +13,22 @@
 		"searches": [
 			{
 				"alias": "Search 1",
-				"query": "tag=365-exchange stats count | chart count",
+				"query": "tag=$365-EXCHANGE stats count | chart count",
 				"color": null
 			},
 			{
 				"alias": "Search 2",
-				"query": "tag=365-exchange json Operation==\"New-Mailbox\" | stats count as \"New Mailboxes\" | numbercard \"New Mailboxes\"",
+				"query": "tag=$365-EXCHANGE json Operation==\"New-Mailbox\" | stats count as \"New Mailboxes\" | numbercard \"New Mailboxes\"",
 				"color": null
 			},
 			{
 				"alias": "Search 3",
-				"query": "tag=365-exchange json Operation==\"Remove-Mailbox\" | stats count as \"Removed Mailboxes\" | numbercard \"Removed Mailboxes\"",
+				"query": "tag=$365-EXCHANGE json Operation==\"Remove-Mailbox\" | stats count as \"Removed Mailboxes\" | numbercard \"Removed Mailboxes\"",
 				"color": null
 			},
 			{
 				"alias": "Search 4",
-				"query": "tag=365-exchange json UserId\n| regex -e UserId \"[^@]+@(?P\u003cdomain\u003e.+)\"\n| stats unique_count(domain) as \"Active Domains\" unique_count(UserId) as \"Active Users\" \n| numbercard \"Active Users\" \"Active Domains\"",
+				"query": "tag=$365-EXCHANGE json UserId\n| regex -e UserId \"[^@]+@(?P\u003cdomain\u003e.+)\"\n| stats unique_count(domain) as \"Active Domains\" unique_count(UserId) as \"Active Users\" \n| numbercard \"Active Users\" \"Active Domains\"",
 				"color": null
 			},
 			{
@@ -55,12 +55,12 @@
 			},
 			{
 				"alias": "Search 7",
-				"query": "tag=365-exchange json -s Operation == \"Create\" Item.Attachments as \"Attachments\"\n| split -d \"; \" Attachments\n| regex -e Attachments \"\\.(?P\u003cextension\u003e[^\\.]+) \\(\\d+b\\)\"\n| stats count by extension\n| lower extension\n| chart count by extension limit 32",
+				"query": "tag=$365-EXCHANGE json -s Operation == \"Create\" Item.Attachments as \"Attachments\"\n| split -d \"; \" Attachments\n| regex -e Attachments \"\\.(?P\u003cextension\u003e[^\\.]+) \\(\\d+b\\)\"\n| stats count by extension\n| lower extension\n| chart count by extension limit 32",
 				"color": null
 			},
 			{
 				"alias": "Search 8",
-				"query": "tag=365-exchange json -s Operation == \"Create\" Item.Attachments as \"Attachments\"\n| split -d \"; \" Attachments\n| regex -e Attachments \"\\.(?P\u003cextension\u003e[^\\.]+) \\(\\d+b\\)\"\n| lower extension\n| stats count by extension\n| sort by count asc\n| limit 10\n| table extension count",
+				"query": "tag=$365-EXCHANGE json -s Operation == \"Create\" Item.Attachments as \"Attachments\"\n| split -d \"; \" Attachments\n| regex -e Attachments \"\\.(?P\u003cextension\u003e[^\\.]+) \\(\\d+b\\)\"\n| lower extension\n| stats count by extension\n| sort by count asc\n| limit 10\n| table extension count",
 				"color": null
 			}
 		],

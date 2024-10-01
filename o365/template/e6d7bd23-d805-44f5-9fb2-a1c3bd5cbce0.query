@@ -1,2 +1,2 @@
-tag=365-azure json UserId=="%%USER%%" Operation Workload ClientIP
+tag=$365-AZURE json UserId=="%%USER%%" Operation Workload ClientIP
 | table TIMESTAMP Operation Workload ClientIP

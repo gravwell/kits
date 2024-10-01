@@ -1,3 +1,3 @@
-tag=365-exchange json ClientIP=="%%IP%%" UserId Operation
+tag=$365-EXCHANGE json ClientIP=="%%IP%%" UserId Operation
 | stats count by UserId Operation
 | stackgraph UserId Operation count

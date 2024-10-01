@@ -1,4 +1,4 @@
-tag=365-sharepoint json UserId SourceFileName SourceRelativeUrl UserAgent SourceFileExtension Operation!="ManagedSyncClientAllowed" ClientIP ObjectId ItemType
+tag=$365-SHAREPOINT json UserId SourceFileName SourceRelativeUrl UserAgent SourceFileExtension Operation!="ManagedSyncClientAllowed" ClientIP ObjectId ItemType
 | grep -e Operation -v FileSyncUploadedFull
 | count by UserId ClientIP Operation
 | geoip ClientIP.Location

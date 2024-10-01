@@ -1,4 +1,4 @@
-tag=365-exchange json -s MailboxOwnerUPN Item.Subject as "Subject" Operation == "Create" Item.Attachments as "Attachments"
+tag=$365-EXCHANGE json -s MailboxOwnerUPN Item.Subject as "Subject" Operation == "Create" Item.Attachments as "Attachments"
 | split -d "; " Attachments
 | regex -e "Attachments" "\.(?P<extension>[^\.]+) \(\d+b\)" extension
 | lower extension

@@ -1,4 +1,4 @@
-tag=365-sharepoint words -or AnonymousLinkCreated SecureLinkCreated AddedToSecureLink SharingInvitationCreated
+tag=$365-SHAREPOINT words -or AnonymousLinkCreated SecureLinkCreated AddedToSecureLink SharingInvitationCreated
 | json TargetUserOrGroupType=="Guest" TargetUserOrGroupName UserId SourceFileName SourceRelativeUrl UserAgent SourceFileExtension Operation ClientIP ObjectId ItemType
 | regex -e TargetUserOrGroupName ".+@(?P<Domain>.+)"
 | count by Domain ItemType

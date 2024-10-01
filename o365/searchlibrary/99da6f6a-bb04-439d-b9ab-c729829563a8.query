@@ -1,4 +1,4 @@
-tag=365-azure json Operation == "UserLoginFailed" LogonError=="InvalidUserNameOrPassword" UserId ClientIP
+tag=$365-AZURE json Operation == "UserLoginFailed" LogonError=="InvalidUserNameOrPassword" UserId ClientIP
 | stats count by UserId ClientIP
 | geoip ClientIP.CountryName as Country ClientIP.City
 | table count UserId ClientIP Country City
