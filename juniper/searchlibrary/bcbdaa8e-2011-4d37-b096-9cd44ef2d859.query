@@ -1,4 +1,4 @@
-tag=juniper ax Appname
+tag=$JUNIPER ax Appname
 | eval len(Appname) > 0 
 | stats count by Appname
 | sort by count desc 
