@@ -6,27 +6,27 @@
 		"searches": [
 			{
 				"timeframe": null,
-				"query": "tag=pan_globalprotect ax stage==\"connected\" srcuser machinename client_os_ver | stats count by srcuser machinename client_os_ver | alias srcuser User machinename \"Client System\" client_os_ver \"Client OS\" | table User \"Client System\" \"Client OS\" count",
+				"query": "tag=$PAN_GLOBALPROTECT ax stage==\"connected\" srcuser machinename client_os_ver | stats count by srcuser machinename client_os_ver | alias srcuser User machinename \"Client System\" client_os_ver \"Client OS\" | table User \"Client System\" \"Client OS\" count",
 				"alias": "GlobalProtect Users"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_globalprotect ax stage==\"login\" status | stats count by status | numbercard (count \"\")",
+				"query": "tag=$PAN_GLOBALPROTECT ax stage==\"login\" status | stats count by status | numbercard (count \"\")",
 				"alias": "Login Attempts"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_globalprotect ax stage==\"login\" status==\"failure\" srcuser srcregion public_ip public_ipv6 | alias srcuser User srcregion Region public_ip \"IPv4\" public_ipv6 IPv6 | stats count as failures by User Region IPv4 IPv6| table User Region IPv4 IPv6 failures",
+				"query": "tag=$PAN_GLOBALPROTECT ax stage==\"login\" status==\"failure\" srcuser srcregion public_ip public_ipv6 | alias srcuser User srcregion Region public_ip \"IPv4\" public_ipv6 IPv6 | stats count as failures by User Region IPv4 IPv6| table User Region IPv4 IPv6 failures",
 				"alias": "Failed Logins"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_globalprotect ax stage==\"login\" status | stats count by status | chart count by status",
+				"query": "tag=$PAN_GLOBALPROTECT ax stage==\"login\" status | stats count by status | chart count by status",
 				"alias": "Login Events"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_globalprotect ax eventid==\"gateway-tunnel-latency\" description | regex -e description \"Pre-tunnel latency: (?P\u003cpre\u003e[^,]+), Post-tunnel latency: (?P\u003cpost\u003e[^,]+)\"\n/* We use toDuration to go from a string to a Duration */\n| eval pre = duration(pre);\n post = duration(post);\n| stats mean(pre) as pre mean(post) as post\n/* At this point, pre and post are in nanoseconds. Let's convert them to milliseconds */\n| eval $(Pre-tunnel Latency) = pre / 1000000; $(Post-tunnel Latency) = post / 1000000;\n| chart \"Pre-tunnel Latency\" \"Post-tunnel Latency\" ",
+				"query": "tag=$PAN_GLOBALPROTECT ax eventid==\"gateway-tunnel-latency\" description | regex -e description \"Pre-tunnel latency: (?P\u003cpre\u003e[^,]+), Post-tunnel latency: (?P\u003cpost\u003e[^,]+)\"\n/* We use toDuration to go from a string to a Duration */\n| eval pre = duration(pre);\n post = duration(post);\n| stats mean(pre) as pre mean(post) as post\n/* At this point, pre and post are in nanoseconds. Let's convert them to milliseconds */\n| eval $(Pre-tunnel Latency) = pre / 1000000; $(Post-tunnel Latency) = post / 1000000;\n| chart \"Pre-tunnel Latency\" \"Post-tunnel Latency\" ",
 				"alias": "Average Latency",
 				"color": null
 			}

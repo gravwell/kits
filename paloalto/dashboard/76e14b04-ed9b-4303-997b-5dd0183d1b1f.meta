@@ -6,27 +6,27 @@
 		"searches": [
 			{
 				"timeframe": null,
-				"query": "tag=pan_config ax admin serial host client cmd result | alias admin User serial Serial host Host client Client cmd Command result Result | table User Serial Host Client Command Result",
+				"query": "tag=$PAN_CONFIG ax admin serial host client cmd result | alias admin User serial Serial host Host client Client cmd Command result Result | table User Serial Host Client Command Result",
 				"alias": "Latest Events"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_config ax cmd | stats count by cmd | chart count by cmd",
+				"query": "tag=$PAN_CONFIG ax cmd | stats count by cmd | chart count by cmd",
 				"alias": "Config Events"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_config ax admin | stats count by admin | chart count by admin",
+				"query": "tag=$PAN_CONFIG ax admin | stats count by admin | chart count by admin",
 				"alias": "Configuration Administrators"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_config ax client | stats count by client | chart count by client",
+				"query": "tag=$PAN_CONFIG ax client | stats count by client | chart count by client",
 				"alias": "Clients Used"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_config ax result | stats count by result | chart count by result",
+				"query": "tag=$PAN_CONFIG ax result | stats count by result | chart count by result",
 				"alias": "Results"
 			}
 		],

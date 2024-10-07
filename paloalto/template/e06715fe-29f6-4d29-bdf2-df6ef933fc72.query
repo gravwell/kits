@@ -1,3 +1,3 @@
-tag=pan_threat words "%%IP%%" | ax subtype=="wildfire" category misc app rule src dst filetype filedigest 
+tag=$PAN_THREAT words "%%IP%%" | ax subtype=="wildfire" category misc app rule src dst filetype filedigest 
 | alias misc filename 
 | table category rule app src dst filename filetype filedigest

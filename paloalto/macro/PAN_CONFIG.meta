@@ -1,0 +1,8 @@
+{
+	"Name": "PAN_CONFIG",
+	"Description": "Palo Alto tag containing type=config events",
+	"Labels": [
+		"palo",
+		"RecordType"
+	]
+}
