@@ -1,0 +1,13 @@
+{
+	"Name": "Office 365 - Historical User Info",
+	"Description": "Create o365_login_history resource",
+	"Labels": null,
+	"Schedule": "0 1 * * *",
+	"Duration": -2592000,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e584594d-4be8-4f1f-b42b-e82d5439ba7b"
+}

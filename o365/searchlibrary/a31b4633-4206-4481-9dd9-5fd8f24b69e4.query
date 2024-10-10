@@ -1,0 +1,3 @@
+tag=$365-EXCHANGE json Operation=="Remove-Mailbox"
+| stats count as "Removed Mailboxes"
+| numbercard "Removed Mailboxes"

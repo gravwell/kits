@@ -3,7 +3,7 @@
 	"Name": "Office 365",
 	"Desc": "Office 365 resources, queries, and automations.  Contains lookups for Office 365 data across azure, DLP, exchange, and sharepoint.",
 	"Readme": "Office365 kit.",
-	"Version": 2,
+	"Version": 3,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 2,
@@ -383,7 +383,57 @@
 			"Name": "365-SHAREPOINT",
 			"Type": 8,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		}
+		},
+		{
+                        "Name": "35379d80-485c-4822-8f84-0c0542505b02",
+                        "Type": 9,
+                        "Hash": "c1631c6a50d96c6515a57d3dbfcdff7c2b66ec39520851e07d707977712f40b8"
+                },
+                {
+                        "Name": "c151f61e-62d4-4f80-98c7-9b2bbd7ac55a",
+                        "Type": 9,
+                        "Hash": "a6b305c981e629eb6cfd68a6cbbb10f350e8dd56bf5ee314904866e9b64d7a08"
+                },
+                {
+                        "Name": "29528ab0-239d-445d-95e2-96319f099686",
+                        "Type": 9,
+                        "Hash": "21d39717c2a759fb3a2bc63f0ee856b7e3ac45a356d1d45eeb859e89a12c67d1"
+                },
+                {
+                        "Name": "cc3d314f-7d07-427d-9902-c76ed9203ff8",
+                        "Type": 9,
+                        "Hash": "53c8f8acceea1fb553c926baa8537f981f6e5815afa0fcfbd6d7b003d940283e"
+                },
+                {
+                        "Name": "e5b0ce97-5320-4ab8-aa2e-90e7eaf0980e",
+                        "Type": 9,
+                        "Hash": "900814f442acca5e61c47cd5c2aa638f89b6092ec1bfdea32da70f37840cf100"
+                },
+                {
+                        "Name": "7dcb0090-b33c-4e82-acaf-6091274e76f6",
+                        "Type": 9,
+                        "Hash": "a8085cb066770a88f207f9249c4a9ac17e3426d0694854e027315b9b3e66a9f8"
+                },
+                {
+                        "Name": "68659f92-f629-448c-b717-38d5b3bec77b",
+                        "Type": 9,
+                        "Hash": "90de03cd0955c126af15299faed4b0b81f4094ae83a07db3143afc22122a731d"
+                },
+                {
+                        "Name": "a31b4633-4206-4481-9dd9-5fd8f24b69e4",
+                        "Type": 9,
+                        "Hash": "11bfbd2a957cf986ae67954ac2ef92d47c59e56c7370dbfb45efb3732de3c56b"
+                },
+                {
+                        "Name": "bea054cd-f223-4c2f-9fa5-54f9c7d9d448",
+                        "Type": 9,
+                        "Hash": "060c80e38de2b6eb45cfbb4e573a8762c9efe2d61fbe1f89a28628247aec6a2a"
+                },
+		{
+                        "Name": "e584594d-4be8-4f1f-b42b-e82d5439ba7b",
+                        "Type": 2,
+                        "Hash": "e388dea04606bd38446a4085e55b44b59f0a2874f67838d2a31559e61ccab810"
+                }
 	],
 	"ConfigMacros": [
 		{
