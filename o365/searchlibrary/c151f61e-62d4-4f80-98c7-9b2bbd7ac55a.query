@@ -1,0 +1,8 @@
+tag=$365-EXCHANGE json -s Operation == "Create" Item.Attachments as "Attachments"
+| split -d "; " Attachments
+| regex -e Attachments "\.(?P<extension>[^\.]+) \(\d+b\)"
+| lower extension
+| stats count by extension
+| sort by count asc
+| limit 10
+| table extension count

@@ -12,26 +12,6 @@
 		},
 		"searches": [
 			{
-				"alias": "Search 1",
-				"query": "tag=$365-EXCHANGE stats count | chart count",
-				"color": null
-			},
-			{
-				"alias": "Search 2",
-				"query": "tag=$365-EXCHANGE json Operation==\"New-Mailbox\" | stats count as \"New Mailboxes\" | numbercard \"New Mailboxes\"",
-				"color": null
-			},
-			{
-				"alias": "Search 3",
-				"query": "tag=$365-EXCHANGE json Operation==\"Remove-Mailbox\" | stats count as \"Removed Mailboxes\" | numbercard \"Removed Mailboxes\"",
-				"color": null
-			},
-			{
-				"alias": "Search 4",
-				"query": "tag=$365-EXCHANGE json UserId\n| regex -e UserId \"[^@]+@(?P\u003cdomain\u003e.+)\"\n| stats unique_count(domain) as \"Active Domains\" unique_count(UserId) as \"Active Users\" \n| numbercard \"Active Users\" \"Active Domains\"",
-				"color": null
-			},
-			{
 				"alias": "Office 365 Email Traffic",
 				"color": null,
 				"reference": {
@@ -54,14 +34,70 @@
 				}
 			},
 			{
-				"alias": "Search 7",
-				"query": "tag=$365-EXCHANGE json -s Operation == \"Create\" Item.Attachments as \"Attachments\"\n| split -d \"; \" Attachments\n| regex -e Attachments \"\\.(?P\u003cextension\u003e[^\\.]+) \\(\\d+b\\)\"\n| stats count by extension\n| lower extension\n| chart count by extension limit 32",
-				"color": null
+				"alias": "Office 365 - Active Users and User Domains",
+				"color": null,
+				"reference": {
+					"id": "35379d80-485c-4822-8f84-0c0542505b02",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Search 8",
-				"query": "tag=$365-EXCHANGE json -s Operation == \"Create\" Item.Attachments as \"Attachments\"\n| split -d \"; \" Attachments\n| regex -e Attachments \"\\.(?P\u003cextension\u003e[^\\.]+) \\(\\d+b\\)\"\n| lower extension\n| stats count by extension\n| sort by count asc\n| limit 10\n| table extension count",
-				"color": null
+				"alias": "Office 365 - Exchange events count",
+				"color": null,
+				"reference": {
+					"id": "68659f92-f629-448c-b717-38d5b3bec77b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 Email Traffic",
+				"color": null,
+				"reference": {
+					"id": "e5b0ce97-5320-4ab8-aa2e-90e7eaf0980e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 Login Activity Map",
+				"color": null,
+				"reference": {
+					"id": "a31b4633-4206-4481-9dd9-5fd8f24b69e4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 - Attachment extensions over time",
+				"color": null,
+				"reference": {
+					"id": "29528ab0-239d-445d-95e2-96319f099686",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Office 365 - Attachment extensions",
+				"color": null,
+				"reference": {
+					"id": "c151f61e-62d4-4f80-98c7-9b2bbd7ac55a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
@@ -76,7 +112,7 @@
 					"x": 0,
 					"y": 0
 				},
-				"searchesIndex": 0,
+				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
@@ -90,7 +126,7 @@
 					"x": 5,
 					"y": 0
 				},
-				"searchesIndex": 1,
+				"searchesIndex": 4,
 				"rendererOptions": {}
 			},
 			{
@@ -104,7 +140,7 @@
 					"x": 7,
 					"y": 0
 				},
-				"searchesIndex": 2,
+				"searchesIndex": 5,
 				"rendererOptions": {}
 			},
 			{
@@ -118,7 +154,7 @@
 					"x": 9,
 					"y": 0
 				},
-				"searchesIndex": 3,
+				"searchesIndex": 2,
 				"rendererOptions": {}
 			},
 			{
@@ -132,7 +168,7 @@
 					"x": 0,
 					"y": 4
 				},
-				"searchesIndex": 4,
+				"searchesIndex": 0,
 				"rendererOptions": {}
 			},
 			{
@@ -146,7 +182,7 @@
 					"x": 6,
 					"y": 4
 				},
-				"searchesIndex": 5,
+				"searchesIndex": 1,
 				"rendererOptions": {}
 			},
 			{

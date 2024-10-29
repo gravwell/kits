@@ -1,0 +1,4 @@
+tag=$365-EXCHANGE json UserId
+| regex -e UserId "[^@]+@(?P<domain>.+)"
+| stats unique_count(domain) as "Active Domains" unique_count(UserId) as "Active Users"
+| numbercard "Active Users" "Active Domains"

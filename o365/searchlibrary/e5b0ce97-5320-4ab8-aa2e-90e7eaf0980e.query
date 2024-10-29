@@ -1,0 +1,3 @@
+tag=$365-EXCHANGE json Operation=="New-Mailbox"
+| stats count as "New Mailboxes"
+| numbercard "New Mailboxes"
