@@ -2,10 +2,7 @@
 	"Name": "juniper",
 	"Desc": "syslog extraction for tag juniper",
 	"Module": "syslog",
-	"Tag": "",
-	"Tags": [
-		"juniper"
-	],
+	"Tag": "juniper",
 	"Labels": [
 		"juniper"
 	],
