@@ -3,7 +3,7 @@
 	"Name": "Palo Alto",
 	"Desc": "Analyze Palo Alto logs.",
 	"Readme": "# Palo Alto Kit\n\nThis kit provides pre-built tools to help analyze logs from Palo Alto next-gen firewalls. It includes:\n\n* Autoextractor definitions for common Palo Alto log formats, to more easily extract fields from log entries.\n* Dashboards providing overviews \u0026 investigative options for different log types.\n* Instructions on how to get Palo Alto logs *into* Gravwell.",
-	"Version": 7,
+	"Version": 8,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 4,
@@ -207,6 +207,36 @@
 			"Name": "50cb5863-6867-47da-bc49-7bef73317ddc",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "PAN_ALL",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "PAN_CONFIG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "PAN_GLOBALPROTECT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "PAN_THREAT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "PAN_TRAFFIC",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "PAN_THREAT_TRAFFIC",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		}
 	],
 	"Dependencies": [
@@ -215,5 +245,46 @@
 			"MinVersion": 13
 		}
 	],
-	"ConfigMacros": []
+	"ConfigMacros": [
+		{
+                        "MacroName": "PAN_ALL",
+                        "Description": "Palo Alto tag containing type=* events",
+                        "DefaultValue": "pan_*",
+                        "Value": "",
+                        "Type": "STRING",
+                        "InstalledByID": ""
+                },
+		{
+                        "MacroName": "PAN_CONFIG",
+                        "Description": "Palo Alto tag containing type=config events",
+                        "DefaultValue": "pan_config",
+                        "Value": "",
+                        "Type": "STRING",
+                        "InstalledByID": ""
+                },
+		{
+                        "MacroName": "PAN_GLOBALPROTECT",
+                        "Description": "Palo Alto tag containing type=globalprotect events",
+                        "DefaultValue": "pan_globalprotect",
+                        "Value": "",
+                        "Type": "STRING",
+                        "InstalledByID": ""
+                },
+		{
+                        "MacroName": "PAN_THREAT",
+                        "Description": "Palo Alto tag containing type=threat events",
+                        "DefaultValue": "pan_threat",
+                        "Value": "",
+                        "Type": "STRING",
+                        "InstalledByID": ""
+                },
+		{
+                        "MacroName": "PAN_TRAFFIC",
+                        "Description": "Palo Alto tag containing type=traffic events",
+                        "DefaultValue": "pan_traffic",
+                        "Value": "",
+                        "Type": "STRING",
+                        "InstalledByID": ""
+                }
+	]
 }

@@ -1,3 +1,3 @@
-tag=pan_globalprotect ax private_ip=="%%IP%%" srcuser machinename | alias srcuser User machinename Machine private_ip "GlobalProtect IP" 
+tag=$PAN_GLOBALPROTECT ax private_ip=="%%IP%%" srcuser machinename | alias srcuser User machinename Machine private_ip "GlobalProtect IP" 
 | unique "GlobalProtect IP" User Machine 
 | table "GlobalProtect IP" User Machine

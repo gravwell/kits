@@ -47,7 +47,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 Once the changes have been committed, logs should begin flowing into Gravwell. You can check by running the folowing query:
 
 ```
-tag=pan_* limit 10
+tag=$PAN_ALL limit 10
 ```
 
 If any results appear, logs are coming in properly.
@@ -102,7 +102,7 @@ Once the ingester is configured, set up log forwarding on the Palo Alto device a
 Once the changes have been committed, logs should begin flowing into Gravwell. You can check by running the folowing query:
 
 ```
-tag=pan_* limit 10
+tag=$PAN_ALL limit 10
 ```
 
 If any results appear, logs are coming in properly.
@@ -143,7 +143,7 @@ The names in parentheses are the names of the fields used in Gravwell; thus to e
 One key component of this kit is the pre-configured *auto extractors* which apply structure to the CSV-formatted logs in the system. Each log type contains *many* fields; for instance, the traffic logs consist of 114 individual fields! A table with 114 columns is difficult to deal with on even the largest monitor, so we recommend using a particular trick when exploring the extracted fields of a given data type. First, run a query on the tag using the ax module with no arguments, sent to the text renderer:
 
 ```
-tag=pan_traffic ax | text
+tag=$PAN_TRAFFIC ax | text
 ```
 
 Then, in the results, click the "Show details" floating button for any one of the results. This will expand the entry to show the extracted enumerated values. This lets you rapidly scroll through the raw results until you find one that looks interesting, then expand it to see which enumerated values are available:
@@ -153,5 +153,5 @@ Then, in the results, click the "Show details" floating button for any one of th
 In the image above, a single enumerated value pair is highlighted; from this, we might modify the query to filter down to only traffic destined for Switzerland for further examination:
 
 ```
-tag=pan_traffic ax dstloc=="Switzerland" | text
+tag=$PAN_TRAFFIC ax dstloc=="Switzerland" | text
 ```

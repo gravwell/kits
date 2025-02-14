@@ -6,42 +6,42 @@
 		"searches": [
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic,pan_threat ax subtype\n| tag=pan_traffic eval if (subtype == \"end\") {\n    $(type) = \"Traffic Events\";\n}\n| tag=pan_threat eval if (subtype == \"url\") {\n    $(type) = \"URL Events\";\n}  else if (subtype == \"data\") {\n    $(type) = \"Data Events\";\n}  else if (subtype == \"file\") {\n    $(type) = \"File Events\";\n}  else if (subtype == \"vulnerability\") {\n    $(type) = \"Vulnerability Events\";\n}\n| stats count by type\n| numbercard (count \"\")",
+				"query": "tag=$PAN_THREAT_TRAFFIC ax subtype\n| tag=$PAN_TRAFFIC eval if (subtype == \"end\") {\n    $(type) = \"Traffic Events\";\n}\n| tag=$PAN_THREAT eval if (subtype == \"url\") {\n    $(type) = \"URL Events\";\n}  else if (subtype == \"data\") {\n    $(type) = \"Data Events\";\n}  else if (subtype == \"file\") {\n    $(type) = \"File Events\";\n}  else if (subtype == \"vulnerability\") {\n    $(type) = \"Vulnerability Events\";\n}\n| stats count by type\n| numbercard (count \"\")",
 				"alias": "Event Counts"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax is_saas_of_app==\"yes\"\n| stats count\n| numbercard (count \"SaaS Events\")",
+				"query": "tag=$PAN_TRAFFIC ax is_saas_of_app==\"yes\"\n| stats count\n| numbercard (count \"SaaS Events\")",
 				"alias": "SaaS Events",
 				"searchID": 3702196221
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"url\" misc | regex -e misc \"(?P\u003chostname\u003e[^/]+)/\" | stats count by hostname | table hostname count",
+				"query": "tag=$PAN_THREAT ax subtype==\"url\" misc | regex -e misc \"(?P\u003chostname\u003e[^/]+)/\" | stats count by hostname | table hostname count",
 				"alias": "Top Hostnames",
 				"searchID": 7700647801
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax url_category_list \n| split -clean -d \",\" url_category_list | alias url_category_list url_category \n| lookup -v -s -r excluded_url_categories url_category category reason \n| stats count by url_category\n| chart count by url_category limit 16",
+				"query": "tag=$PAN_THREAT ax url_category_list \n| split -clean -d \",\" url_category_list | alias url_category_list url_category \n| lookup -v -s -r excluded_url_categories url_category category reason \n| stats count by url_category\n| chart count by url_category limit 16",
 				"alias": "Top Web Categories",
 				"color": null,
 				"searchID": 81925551478
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax app!=\"incomplete\" | alias app Application | stats count by Application | chart count by Application limit 16",
+				"query": "tag=$PAN_TRAFFIC ax app!=\"incomplete\" | alias app Application | stats count by Application | chart count by Application limit 16",
 				"alias": "Top Applications",
 				"searchID": 83108512032
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax subtype==\"end\" app | stats count by app | sort by count asc | limit 10 | table app count",
+				"query": "tag=$PAN_TRAFFIC ax subtype==\"end\" app | stats count by app | sort by count asc | limit 10 | table app count",
 				"alias": "Rare Applications"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_traffic ax bytes | stats sum(bytes) | eval (Megabytes = sum / (1024 * 1024)) | chart Megabytes",
+				"query": "tag=$PAN_TRAFFIC ax bytes | stats sum(bytes) | eval (Megabytes = sum / (1024 * 1024)) | chart Megabytes",
 				"alias": "Total Traffic"
 			}
 		],
