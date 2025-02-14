@@ -1,1 +1,1 @@
-tag=pan_threat words "%%IP%%" | ax subtype | stats count by subtype | numbercard (count "")
+tag=$PAN_THREAT words "%%IP%%" | ax subtype | stats count by subtype | numbercard (count "")

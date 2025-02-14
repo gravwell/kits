@@ -1,4 +1,4 @@
-tag=pan_threat words "%%IP%%" 
+tag=$PAN_THREAT words "%%IP%%" 
 | ax src dst threatid category_of_app subcategory_of_app 
 | alias threatid "Threat ID" src "Source" dst "Destination" category_of_app "Category" 
 | table Source Destination "Threat ID" "Category"

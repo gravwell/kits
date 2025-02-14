@@ -6,27 +6,27 @@
 		"searches": [
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"wildfire\" category | stats count by category | numbercard (count \"\")",
+				"query": "tag=$PAN_THREAT ax subtype==\"wildfire\" category | stats count by category | numbercard (count \"\")",
 				"alias": "Wildfire Verdicts"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"wildfire\" category | stats count by category | chart count by category",
+				"query": "tag=$PAN_THREAT ax subtype==\"wildfire\" category | stats count by category | chart count by category",
 				"alias": "Wildfire Verdicts Over Time"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"wildfire\" app | stats count by app | chart count by app",
+				"query": "tag=$PAN_THREAT ax subtype==\"wildfire\" app | stats count by app | chart count by app",
 				"alias": "Top Applications"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"wildfire\" filetype | stats count by filetype | chart count by filetype",
+				"query": "tag=$PAN_THREAT ax subtype==\"wildfire\" filetype | stats count by filetype | chart count by filetype",
 				"alias": "Top File Types"
 			},
 			{
 				"timeframe": null,
-				"query": "tag=pan_threat ax subtype==\"wildfire\" category!=\"benign\" | alias misc filename | table category rule app src dst filename filetype filedigest",
+				"query": "tag=$PAN_THREAT ax subtype==\"wildfire\" category!=\"benign\" | alias misc filename | table category rule app src dst filename filetype filedigest",
 				"alias": "Recent Wildfire Submissions"
 			}
 		],

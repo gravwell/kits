@@ -1,0 +1,8 @@
+{
+	"Name": "PAN_ALL",
+	"Description": "Palo Alto tag containing type=* events",
+	"Labels": [
+		"palo",
+		"RecordType"
+	]
+}
