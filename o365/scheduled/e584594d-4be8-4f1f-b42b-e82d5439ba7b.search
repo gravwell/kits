@@ -1,0 +1,4 @@
+tag=$365-AZURE json -s UserKey as HistoricalUserKey UserId != "Not Available" as HistoricalUserId
+| lower HistoricalUserId
+| unique HistoricalUserKey HistoricalUserId
+| table -nt -save o365_login_history HistoricalUserKey HistoricalUserId
