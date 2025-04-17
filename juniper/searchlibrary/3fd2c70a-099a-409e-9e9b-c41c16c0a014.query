@@ -1,0 +1,3 @@
+tag=$JUNIPER_TAG ax Appname=="mgd" Facility Hostname Message 
+| regex -e Message `UI_LOGIN_EVENT\:\sUser\s'(?P<User>.+?)\'\slogin,\sclass\s\'(?P<class>.+?)\'\s.+ssh-connection\s'(?P<src>.+?)\s.+,\sclient-mode\s\'(?P<clientMode>.+?)\'`
+| table TIMESTAMP Hostname User src clientMode
