@@ -109,6 +109,28 @@
 						"defaultValue": null
 					}
 				}
+			},
+			{
+				"alias": "Juniper Login Count by Hostname",
+				"color": null,
+				"reference": {
+					"id": "026c2c1b-7945-4efe-8fd1-bd3a5f18a57c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Juniper Logins",
+				"color": null,
+				"reference": {
+					"id": "3fd2c70a-099a-409e-9e9b-c41c16c0a014",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
@@ -151,7 +173,7 @@
 					"x": 4,
 					"y": 6
 				},
-				"searchesIndex": 3,
+				"searchesIndex": 10,
 				"rendererOptions": {}
 			},
 			{
@@ -221,7 +243,7 @@
 					"x": 9,
 					"y": 6
 				},
-				"searchesIndex": 8,
+				"searchesIndex": 9,
 				"rendererOptions": {}
 			}
 		],

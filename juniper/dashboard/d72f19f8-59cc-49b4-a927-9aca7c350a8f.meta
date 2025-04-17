@@ -98,6 +98,17 @@
 						"defaultValue": null
 					}
 				}
+			},
+			{
+				"alias": "Juniper Logins",
+				"color": null,
+				"reference": {
+					"id": "3fd2c70a-099a-409e-9e9b-c41c16c0a014",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
@@ -168,7 +179,7 @@
 					"x": 0,
 					"y": 0
 				},
-				"searchesIndex": 4,
+				"searchesIndex": 8,
 				"rendererOptions": {}
 			},
 			{
