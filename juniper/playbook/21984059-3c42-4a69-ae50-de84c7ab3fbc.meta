@@ -1,9 +1,9 @@
 {
-	"UUID": "e6e3d4ea-1081-47ce-8f12-3a8127a49ea3",
+	"UUID": "b0fb3bae-436f-4178-bbf5-269f4390a969",
 	"GUID": "21984059-3c42-4a69-ae50-de84c7ab3fbc",
 	"UID": 1,
 	"GIDs": [],
-	"Global": false,
+	"Global": true,
 	"WriteAccess": {
 		"Global": false,
 		"GIDs": []
@@ -13,7 +13,7 @@
 	"Labels": [
 		"juniper"
 	],
-	"LastUpdated": "2024-08-26T13:40:05.901464113Z",
+	"LastUpdated": "2025-04-17T14:11:35.418701723Z",
 	"Author": {
 		"Name": "Gravwell Cloud Admin",
 		"Email": "infotech@gravwell.io",
