@@ -2,11 +2,11 @@
 	"ID": "io.gravwell.juniper",
 	"Name": "Juniper",
 	"Desc": "The Gravwell Juniper Kit provides a baseline set of queries, dashboards, templates, and investigative resources for Juniper devices.",
-	"Readme": "",
+	"Readme": "# Gravwell Juniper Kit\r\n****\r\n\r\nThe Gravwell Juniper Kit provides a baseline set of queries, dashboards, templates, and investigative resources for Juniper devices.\r\n\r\n*Desired format and delivery method: syslog*\r\n\r\n##Kit Components\r\n****\r\n\r\n\u003cfont color=\"orange\"\u003eDashboards\u003c/font\u003e\r\n\r\nJuniper Overview: Overview of Juniper alarms and user logins\r\n\r\nJuniper User Detail: User commands, configuration changes, and login details \r\n\r\nJuniper User Overview: Overview of user commands, configuration changes, and logins\r\n\r\n\u003cfont color=\"orange\"\u003eQuery Library\u003c/font\u003e\r\n\r\nJuniper Logins by Client Mode: Count logins by client mode\r\n\r\nJuniper Latest Configuration Changes: Display configuration changes per user\r\n\r\nJuniper SSH Logins by User: Count SSH logins by user\r\n\r\nJuniper Command Count: Count by command\r\n\r\nJuniper Facility Count: Count by logging facility\r\n\r\nJuniper Failed Logins by Src: Count failed login attempts by source with a count unique usernames and destinations\r\n\r\nJuniper Alarms: Detail alarms by set, class, reason\r\n\r\nJuniper Configuration Errors: Display configuration errors by hostname\r\n\r\nJuniper Latest Commands: Display commands per user hostname\r\n\r\nJuniper Alarms by Hostname: Count alarms by hostname\r\n\r\nJuniper Failed Logins by Destination: Count failed login attempts by destination with a count unique usernames and sources\r\n\r\nJuniper Configuration Changes by Hostname : Count configuration changes by hostname\r\n\r\nJuniper Appname Count: Count by appname\r\n\r\nJuniper Alarms by Class: Count by alarm class\r\n\r\nJuniper Alarms by Set: Count by alarm set\r\n\r\nJuniper Alarms Overview: Count alarm by hostname, alarm set, color, class, reason\r\n\r\nJuniper Alarms Count by Color: Count by alarm color\r\n\r\nJuniper Count by SSH Login User: Count SSH login by user\r\n\r\nJunper SSH Logins: Detail SSH logins by user and unique source\r\n\r\n\u003cfont color=\"orange\"\u003eExtractors\u003c/font\u003e\r\n\r\njuniper: Syslog extraction for tag juniper\r\n\r\n\u003cfont color=\"orange\"\u003eMacros\u003c/font\u003e\r\n\r\n$JUNIPER_TAG: Set juniper tag name (CONFIG MACRO)\r\n\r\n\u003cfont color=\"orange\"\u003eResources\u003c/font\u003e\r\n\r\njuniper_facility: Juniper facility details\r\n\r\njuniper_severity: Juniper severity details\r\n\r\n\u003cfont color=\"orange\"\u003eTemplates\u003c/font\u003e\r\n\r\nJuniper Config Set: Display configuration set per user, hostname\r\n\r\nJuniper User Commands: Display executed commands per user, hostname\r\n\r\nJuniper User Logins: Display logins per user, hostname\r\n\r\nJuniper User Config Mode: Display users entering config mode per user, hostname\r\n\r\n##Install Instructions\r\n****\r\n\r\n*After verifying Juniper data is being properly indexed and available for search*\r\n\r\n1. Set the $JUNIPER_TAG macro to the tag containing juniper data\r\n\r\n\r\n\\#\\# Credits - Photo by [Thomas Jensen](https://unsplash.com/@thomasjsn \"https://unsplash.com/@thomasjsn\") on [Unsplash](https://unsplash.com \"https://unsplash.com\") \\#\\#",
 	"Version": 4,
 	"MinVersion": {
-		"Major": 0,
-		"Minor": 0,
+		"Major": 5,
+		"Minor": 5,
 		"Point": 0
 	},
 	"MaxVersion": {
@@ -21,197 +21,197 @@
 		{
 			"Name": "Apache 2.0 License",
 			"Type": 10,
-			"Hash": "59899c6091b540582ed617e8eeaac4919dc985ccfc35459ee9752b699be5205b"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "juniper_facility",
 			"Type": 1,
-			"Hash": "418214fcdaf03d7cca9a3467154a0bfcf1d440ff607515b0a62ed7040cfd40b0"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "juniper_severity",
 			"Type": 1,
-			"Hash": "b3b0d2eb765255a774f2b8034425b55f59b9065dd1bd9bf213d691cb295fad31"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "JUNIPER_TAG",
 			"Type": 8,
-			"Hash": "c9ebda9131b56d2dc30948acfdaacd47bbd87d62f2c806181d7c650d8e12015d"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "d72f19f8-59cc-49b4-a927-9aca7c350a8f",
 			"Type": 3,
-			"Hash": "38fc3d09a361c5328dd78d903eb404e707ed0360bc9bfbb449188a0692d80e84"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "47783453-d543-4d32-8718-1a82cedf8717",
 			"Type": 3,
-			"Hash": "0d275c4465839c035da4773029fde994e340a90bb33980b6988fa7b2128c07f5"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "378e7a2e-5365-41f8-b06b-42c058fb7c28",
 			"Type": 3,
-			"Hash": "1ecf5c07421910e7a6fbdcacb15079cc0d314052028d22406b7c2efc114874bd"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "e8e18d4a-50a5-4481-9546-1b53b6410b4f",
 			"Type": 6,
-			"Hash": "a0b14a38d4ff9de1193142f5b9cf4336b0d3bf4006a1e231b42cd625303d351c"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "1f75573b-ab23-47dc-ab5f-81fb23507d4c",
 			"Type": 6,
-			"Hash": "642a0c6f3bcad99ed05f71b3b5941c25de110e57fe1281d121d01b9973a55d14"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "fc339912-7469-4071-ba07-604f2d998b34",
 			"Type": 6,
-			"Hash": "e13935f43ed8621ec3e40b40453f9dc9075233ec77eead92309e9e19a8ed806e"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "ac407515-ab46-4f78-862a-ffa6dc7934a5",
 			"Type": 6,
-			"Hash": "4c9ee0b037d2d998d65732c087989a53dfcac21dd95a7cd8e842612098d4159b"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "9b8c5a06-ae30-4939-9c4b-a6d88b3826e5",
 			"Type": 9,
-			"Hash": "f8ab40de1357e96f6560337a7472a03c0330edc5a5491d88d5f4785bf4e0f2f9"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "adf0a4b5-b09e-4e6b-b036-395044b7235c",
 			"Type": 9,
-			"Hash": "4c9343ca617d0e1428aa129cd841e0071805c29c4a53d9aab6c5e66dfce17896"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "50b1a3c8-8af2-4c07-85a9-efcf73b5de01",
 			"Type": 9,
-			"Hash": "dbaa1dd2c56bfc17bce2f89f5b2fe7576c44c6c64b32839751551db25cb7b40d"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "d3414597-ff13-40ee-8511-4c0016dadf8f",
 			"Type": 9,
-			"Hash": "2e71f976acc7e8ee9a4bc492ce3d0df9b340e1824b9e4f972b30269757404509"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "036554e6-bcfd-4c92-aeca-ab69a508da4a",
 			"Type": 9,
-			"Hash": "ce2dd0f1d7846d8c15846adff1ce4d16d1f5f1432218a700819f503a9d71405d"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "ba4b0623-efa6-4986-b214-7b9a6f1b324c",
 			"Type": 9,
-			"Hash": "c6c2de34a02aca2781ceb4571b0ebcff3a45cd96ca053f72cb2c4f618ef05461"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "b2826d6b-fd48-4f95-9fe9-4fea062fb878",
 			"Type": 9,
-			"Hash": "9fe6d4c9862cf8caa8353864f91e5c79895e21eb59be1a6b42979fd87e431992"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "5488c73a-6629-4682-bbe1-4e2c608ab05d",
 			"Type": 9,
-			"Hash": "bd0cb9c269ac7606383b50549b82b03bcc2cea6fcb0370b94168d0e9fa6a5da2"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "ac0a4c5d-8bd1-49a7-a102-de69de4269bc",
 			"Type": 9,
-			"Hash": "a2f06439ae3e25241a0c26fcdf07ddb602e7e26f459cefae511dd0870a8dc8f7"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "a8d0fb86-f16d-4234-948c-99cfaaf82e1e",
 			"Type": 9,
-			"Hash": "c0f76290231a5da68d81f395aedb4c446206e657941e748caaa87a4a9ff1d464"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "95dcd4cb-adbf-4afb-8fe2-c3e74653618b",
 			"Type": 9,
-			"Hash": "1405a5dee6b9944ed0db95301e316aa3a0dc6e73c72ec0422ceb39b9801696dd"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "ff684d70-c08c-4071-8b1d-55e3dbce000c",
 			"Type": 9,
-			"Hash": "7bb742732bbb81b927fdd5e79bc62a6c20168685b6082585fad9e83b80491eaf"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "bcbdaa8e-2011-4d37-b096-9cd44ef2d859",
 			"Type": 9,
-			"Hash": "4df2186b455b35866c8cdd1233b54d0933dcc26a3fee536369eea293d8a8cb21"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "bb6fe9e0-95bd-4bf4-b3ad-b28d30de9455",
 			"Type": 9,
-			"Hash": "a6b16e2933c7cc186a97cb8f0e10429204b18614c38676fd0c710aba67c0ecbb"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "026c2c1b-7945-4efe-8fd1-bd3a5f18a57c",
 			"Type": 9,
-			"Hash": "2a3702dbdc1eaf17a124813898f9ea444c0e2ab640216daee23c5b93e7fa5d32"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "a9c65b19-cedd-48c9-b0d5-5263720a9d3f",
 			"Type": 9,
-			"Hash": "339aad1cba2d90a0f5b2ffd45990f6cfa2a9931ef3edfbcf1e2ca6031d2b1547"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "6af60afa-93d3-48fb-b07d-09637a2956d1",
 			"Type": 9,
-			"Hash": "32941326c93c4d0da40e1c211c46fe25bd3fab79d174fc8bfe2a10e3492384ad"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "296a5fe1-9da7-4c3e-83f1-3c1b34ba01d0",
 			"Type": 9,
-			"Hash": "4d52f82901f5c50f9e2cc3f507398db9d3433e2d27ecfbde43e3fa45174a15df"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "5615a9ac-75e6-44c0-b497-bc3d6047dd28",
 			"Type": 9,
-			"Hash": "a81850b636ab99f96ca4fddd90d021f64015ac3d7dcc5756c8ebf5613dcf9705"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "ef504c00-74a0-4421-9d29-7c8693d3332d",
 			"Type": 9,
-			"Hash": "e962d0c45c5a6a6b3233770b2ea107cc5597d9f726312417292fb54c638b7641"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "3fd2c70a-099a-409e-9e9b-c41c16c0a014",
 			"Type": 9,
-			"Hash": "ce00e5fd180d40f217688f2924eb1f37597751a16ce05edb3a38105104f6796d"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "11b69e21-c906-4c76-894b-22cd0c503ab5",
 			"Type": 7,
-			"Hash": "244df6bebd3080a1b165387944ff556ebd2071db946451fcb2659f63f1f74d11"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "7d0f2703-12a2-426e-b519-b5bf640330b7",
 			"Type": 7,
-			"Hash": "6edf2eb43859a81c235a746adde55509a2109cbe26a0513f03af614ed07a6b42"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "b56a0767-8259-4591-ba1d-ad56f51bd06a",
 			"Type": 7,
-			"Hash": "f8102942f131f311198c83690fa50732c2ff5fd2fcbe82f6df8c0224c1ce4f0d"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "009150bf-c165-4b08-a45d-24cd7807f99e",
 			"Type": 7,
-			"Hash": "71fa91ed1c6dc456bd810a49028ad8056fc7331366f277f4670746a4b3608ab0"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "11507305-19a0-44bd-9543-9792f5e6381c",
 			"Type": 7,
-			"Hash": "79648ee4be4365b94ca2246c8e52039ed5c166ddbedf2afd6b51642ecc3bb1ca"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "21984059-3c42-4a69-ae50-de84c7ab3fbc",
 			"Type": 11,
-			"Hash": "215e77825e6bf7680dafa10204b44c075cea269b26bef02d247218db89872ec4"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "juniper",
 			"Type": 4,
-			"Hash": "af51fe9f8853cb0dd3dde8666f0134c5fdb884ef6d5aaa0b0d080b6b4ac45b5c"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		}
 	],
 	"Dependencies": null,

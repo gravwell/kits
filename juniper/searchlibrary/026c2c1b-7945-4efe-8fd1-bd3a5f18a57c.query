@@ -1,0 +1,3 @@
+tag=$JUNIPER_TAG ax Appname=="mgd" Facility Hostname Message 
+| stats count by Hostname
+| table Hostname count
