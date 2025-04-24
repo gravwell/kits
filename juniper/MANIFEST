@@ -3,7 +3,7 @@
 	"Name": "Juniper",
 	"Desc": "The Gravwell Juniper Kit provides a baseline set of queries, dashboards, templates, and investigative resources for Juniper devices.",
 	"Readme": "# Gravwell Juniper Kit\r\n****\r\n\r\nThe Gravwell Juniper Kit provides a baseline set of queries, dashboards, templates, and investigative resources for Juniper devices.\r\n\r\n*Desired format and delivery method: syslog*\r\n\r\n##Kit Components\r\n****\r\n\r\n\u003cfont color=\"orange\"\u003eDashboards\u003c/font\u003e\r\n\r\nJuniper Overview: Overview of Juniper alarms and user logins\r\n\r\nJuniper User Detail: User commands, configuration changes, and login details \r\n\r\nJuniper User Overview: Overview of user commands, configuration changes, and logins\r\n\r\n\u003cfont color=\"orange\"\u003eQuery Library\u003c/font\u003e\r\n\r\nJuniper Logins by Client Mode: Count logins by client mode\r\n\r\nJuniper Latest Configuration Changes: Display configuration changes per user\r\n\r\nJuniper SSH Logins by User: Count SSH logins by user\r\n\r\nJuniper Command Count: Count by command\r\n\r\nJuniper Facility Count: Count by logging facility\r\n\r\nJuniper Failed Logins by Src: Count failed login attempts by source with a count unique usernames and destinations\r\n\r\nJuniper Alarms: Detail alarms by set, class, reason\r\n\r\nJuniper Configuration Errors: Display configuration errors by hostname\r\n\r\nJuniper Latest Commands: Display commands per user hostname\r\n\r\nJuniper Alarms by Hostname: Count alarms by hostname\r\n\r\nJuniper Failed Logins by Destination: Count failed login attempts by destination with a count unique usernames and sources\r\n\r\nJuniper Configuration Changes by Hostname : Count configuration changes by hostname\r\n\r\nJuniper Appname Count: Count by appname\r\n\r\nJuniper Alarms by Class: Count by alarm class\r\n\r\nJuniper Alarms by Set: Count by alarm set\r\n\r\nJuniper Alarms Overview: Count alarm by hostname, alarm set, color, class, reason\r\n\r\nJuniper Alarms Count by Color: Count by alarm color\r\n\r\nJuniper Count by SSH Login User: Count SSH login by user\r\n\r\nJunper SSH Logins: Detail SSH logins by user and unique source\r\n\r\n\u003cfont color=\"orange\"\u003eExtractors\u003c/font\u003e\r\n\r\njuniper: Syslog extraction for tag juniper\r\n\r\n\u003cfont color=\"orange\"\u003eMacros\u003c/font\u003e\r\n\r\n$JUNIPER_TAG: Set juniper tag name (CONFIG MACRO)\r\n\r\n\u003cfont color=\"orange\"\u003eResources\u003c/font\u003e\r\n\r\njuniper_facility: Juniper facility details\r\n\r\njuniper_severity: Juniper severity details\r\n\r\n\u003cfont color=\"orange\"\u003eTemplates\u003c/font\u003e\r\n\r\nJuniper Config Set: Display configuration set per user, hostname\r\n\r\nJuniper User Commands: Display executed commands per user, hostname\r\n\r\nJuniper User Logins: Display logins per user, hostname\r\n\r\nJuniper User Config Mode: Display users entering config mode per user, hostname\r\n\r\n##Install Instructions\r\n****\r\n\r\n*After verifying Juniper data is being properly indexed and available for search*\r\n\r\n1. Set the $JUNIPER_TAG macro to the tag containing juniper data\r\n\r\n\r\n\\#\\# Credits - Photo by [Thomas Jensen](https://unsplash.com/@thomasjsn \"https://unsplash.com/@thomasjsn\") on [Unsplash](https://unsplash.com \"https://unsplash.com\") \\#\\#",
-	"Version": 4,
+	"Version": 5,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 5,
@@ -212,6 +212,16 @@
                         "Name": "3fd2c70a-099a-409e-9e9b-c41c16c0a014",
                         "Type": 9,
                         "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                },
+		{
+                        "Name": "juniper_logins_exclusion_list",
+                        "Type": 1,
+                        "Hash": "5f8ee70063f2a3a33eb4a155f3c236dfe76e96ad3d8edf1c2d57c0fe7cbb99e3"
+                },
+                {
+                        "Name": "JUNIPER_LOGIN_HELPER",
+                        "Type": 8,
+                        "Hash": "f5237cbf1fa6757ed6c42d037703e15849c4066b720b6dcaf67aebf521a37a52"
                 }
 	],
 	"Dependencies": null,
