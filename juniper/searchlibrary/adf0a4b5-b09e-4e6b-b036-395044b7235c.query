@@ -1,4 +1,6 @@
-tag=$JUNIPER_TAG ax Appname Facility==10 Hostname Message
-| regex -e Message `FROM\s(?P<src>.+?)\,\s(?P<Username>.+)`
-| stats unique_count(Username) as UsernameCount unique_count(Hostname) as DestCount count by src
-| table src UsernameCount DestCount
+tag=$JUNIPER_TAG ax Severity != 6 Hostname Message ~ "LOGIN"
+| grep -e Message -i "failed"
+| $JUNIPER_LOGIN_HELPER
+| lookup -v -r juniper_logins_exclusion_list Username excluded_users
+| stats unique_count(Username) as UsernameCount unique_count(Hostname) as DestCount count by SrcIP
+| table SrcIP UsernameCount DestCount

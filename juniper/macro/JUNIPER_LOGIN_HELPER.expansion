@@ -1,0 +1,7 @@
+regex -e Message `^(?P<Event_Name>[0-9A-Z_]+?):`
+| regex -p -e Message `[Uu]ser\s(\')*(?P<Username>.*?)(\')*(\s|from|$)`
+| regex -p -e Message `,\sclass\s\'(?P<User_Class>.*?)\'`
+| regex -p -e Message `,\sclient\-mode\s\'(?P<Client_Mode>.*?)\'`
+| regex -p -e Message `(\'|from\shost\s)(?P<SrcIP>[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)(\s|\')*`
+| eval if (Event_Name == "UI_DBASE_LOGIN_EVENT") {Client_Mode = "config_mode";}
+| eval if (Event_Name == "SSHD_LOGIN_FAILED") {Client_Mode = "ssh";}
