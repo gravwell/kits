@@ -1,0 +1,3 @@
+tag=corelight_ssl_agg ax version != "-"
+| stats sum(count) as count by version
+| chart count by version

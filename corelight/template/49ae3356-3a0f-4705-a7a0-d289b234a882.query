@@ -1,0 +1,3 @@
+tag=corelight_dns_agg words %%IP%%
+| ax
+| table

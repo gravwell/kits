@@ -1,0 +1,21 @@
+{
+	"UUID": "49ae3356-3a0f-4705-a7a0-d289b234a882",
+	"Name": "Corelight All DNS for IP - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns"
+	]
+}

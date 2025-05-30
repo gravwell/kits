@@ -1,0 +1,12 @@
+{
+	"Name": "Corelight HTTP Potential Command Injection in URI - AGG",
+	"Description": "A table of info for requests with URIs that contain common escape characters",
+	"GUID": "37d68598-941d-4fb5-b42a-6dae16e3818b",
+	"Labels": [
+		"corelight",
+		"http"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

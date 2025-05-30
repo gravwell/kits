@@ -1,0 +1,4 @@
+tag=corelight_conn_agg ax
+| stats sum(count) as Count by service
+| eval if ( service == "-" ) { service = "unknown"; }
+| chart Count by service limit 32

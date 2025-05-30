@@ -1,0 +1,23 @@
+{
+	"UUID": "a53b03d5-e9ba-4e41-b8eb-2740eb51dad6",
+	"Name": "Corelight 10 least common service ports for IP - AGG",
+	"Description": "Table of the least commonly used service ports for an IP as seen by Corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"service",
+		"ports"
+	]
+}

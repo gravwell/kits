@@ -1,0 +1,5 @@
+tag=corelight_conn_agg ax
+| stats sum(count) as Count by "id.resp_p"
+| eval resp_bytes > 140 && $(id.resp_p) < 16000 // Only looking at ports in the lower range 
+| sort by Count asc
+| table "id.resp_p" Count

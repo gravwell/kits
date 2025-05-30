@@ -1,0 +1,5 @@
+tag=corelight_http_agg json -s user_agents
+| json -x user_agents
+| regex -e user_agents "(?P<browser>\S*)/[0-9.]*$"
+| stats count by browser
+| chart count by browser

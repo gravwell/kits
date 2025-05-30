@@ -1,0 +1,4 @@
+tag=corelight_http_agg ax
+| stats sum(count) as Count by host
+| sort by Count desc
+| table Count host

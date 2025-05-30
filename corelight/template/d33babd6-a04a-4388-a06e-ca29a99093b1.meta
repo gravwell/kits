@@ -1,0 +1,18 @@
+{
+	"UUID": "d33babd6-a04a-4388-a06e-ca29a99093b1",
+	"Name": "Corelight connection count details by host, service, org for id.resp_p - AGG",
+	"Description": "Table of connection count details by host, service, org with responder port",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%respport%%",
+				"label": "Responder Port",
+				"description": "Destination Port of connection",
+				"required": true,
+				"defaultValue": "443",
+				"previewValue": "443"
+			}
+		]
+	},
+	"Labels": null
+}

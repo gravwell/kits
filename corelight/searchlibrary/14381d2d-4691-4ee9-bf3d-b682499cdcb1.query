@@ -1,0 +1,3 @@
+tag=corelight_http_agg ax
+| regex -v -e method "^-|GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|PATCH|TRACE$"
+| table count "id.orig_h" "id.resp_h" method uri

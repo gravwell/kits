@@ -1,0 +1,4 @@
+tag=corelight_dns_agg ax "id.orig_h" == %%REMOTE%%
+| alias query Name
+| stats unique_count(Name) as "Unique Queries" sum(count) as "Total Queries"
+| gauge "Unique Queries" "Total Queries"

@@ -1,0 +1,10 @@
+tag=corelight_dns_agg ax
+| alias query Name
+| sort by time asc
+| diff TIMESTAMP by query
+| require -s diff
+| stats mean(diff) stddev(diff) sum(count) as Count by query
+| eval (stddev < mean && count > 2)
+| eval r = stddev/mean; Duration = duration(mean);
+| sort by r asc
+| table Name Duration Count

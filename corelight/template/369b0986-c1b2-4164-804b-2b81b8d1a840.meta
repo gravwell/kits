@@ -1,0 +1,22 @@
+{
+	"UUID": "369b0986-c1b2-4164-804b-2b81b8d1a840",
+	"Name": "Corelight DNS Over Time - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns",
+		"chart"
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"Name": "Corelight Service Connection Reset Rates - AGG",
+	"Description": "Chart of connection reset rates by service as seen by Corelight",
+	"GUID": "7e083e30-0c06-4819-9346-2f3d4834c3b9",
+	"Labels": [
+		"corelight",
+		"conn",
+		"service",
+		"reset",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

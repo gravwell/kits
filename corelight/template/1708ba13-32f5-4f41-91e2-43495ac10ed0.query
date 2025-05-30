@@ -1,0 +1,10 @@
+tag=corelight_dns_agg ax "id.orig_h" == %%REMOTE%%
+| sort by time asc
+| alias query Name
+| diff TIMESTAMP by Name
+| require -s diff
+| stats mean(diff) stddev(diff) count by Name
+| eval (stddev < mean && count > 2)
+| eval r = stddev/mean; Duration = duration(mean);
+| sort by r asc
+| table Name Duration count

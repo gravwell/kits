@@ -1,0 +1,5 @@
+tag=corelight_conn_agg ax "id.resp_p" == %%respport%%
+| stats sum(count) as Count by service
+| eval if ( service == "-" ) { service = "unknown"; }
+| alias service Service
+| chart Count by Service limit 32

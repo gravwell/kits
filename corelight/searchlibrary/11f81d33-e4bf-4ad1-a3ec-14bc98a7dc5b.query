@@ -1,0 +1,5 @@
+tag=corelight_conn_agg ax
+| stats unique_count("id.resp_p") by "id.orig_h" "id.resp_h"
+| eval unique_count > 64
+| geoip "id.orig_h".Country "id.orig_h".City
+| table "id.orig_h" Country City "id.resp_h" unique_count TIMESTAMP

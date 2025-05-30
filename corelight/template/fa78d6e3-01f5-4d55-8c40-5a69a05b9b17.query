@@ -1,0 +1,4 @@
+tag=corelight_conn_agg ax "id.resp_p" == %%respport%%
+| require -s orig_bytes resp_bytes
+| stats sum(orig_bytes) as upload sum(resp_bytes) as download
+| chart upload download

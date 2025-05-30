@@ -1,0 +1,4 @@
+tag=corelight_conn_agg ax
+| stats sum(count) as connections by "id.resp_p"
+| sort by connections
+| table "id.resp_p" connections

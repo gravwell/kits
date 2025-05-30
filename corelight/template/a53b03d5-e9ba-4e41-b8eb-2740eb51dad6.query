@@ -1,0 +1,5 @@
+tag=corelight_conn_agg ax "id.resp_h" == %%IP%% orig_bytes != "-" resp_bytes != "-"
+| stats sum(count) as Count by "id.resp_p"
+| sort by Count asc
+| limit 10
+| table "id.resp_p" Count

@@ -1,0 +1,295 @@
+{
+	"UUID": "e6c69caa-a8eb-4891-a386-70a127d31b3b",
+	"Name": "Corelight IP Investigation - AGG",
+	"Description": "IP Investigative Dashboard using Corelight Data",
+	"Data": {
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Corelight Connection activity for IP",
+				"color": null,
+				"reference": {
+					"id": "49e00668-aba6-45c2-9bd7-76661e694f0c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight Service Client heatmap",
+				"color": null,
+				"reference": {
+					"id": "cac8c74c-02b4-4cb2-9361-4e25c6f75f45",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Active services for an IP",
+				"color": null,
+				"reference": {
+					"id": "07e82065-8ce3-4919-ab08-a9c250409304",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight Unique Clients for IP",
+				"color": null,
+				"reference": {
+					"id": "055c0322-ab7c-4f8c-9980-07ad14848370",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight total client connections for a given IP",
+				"color": null,
+				"reference": {
+					"id": "396d018d-c9c0-4ca3-93ae-c11345f36784",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight Connstate Chart",
+				"color": null,
+				"reference": {
+					"id": "8bed927f-6287-42f7-b4f9-a98590c9bccf",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight service bandwidth graph",
+				"color": null,
+				"reference": {
+					"id": "c575ee97-333b-4625-9cc8-4c8a7331d94f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight 10 most common service ports for IP",
+				"color": null,
+				"reference": {
+					"id": "a53b03d5-e9ba-4e41-b8eb-2740eb51dad6",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight 10 most common service ports for IP",
+				"color": null,
+				"reference": {
+					"id": "09aac6a5-6a7e-4641-8fbc-0842a81c4ef0",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 7635960348918976,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 174603280562443,
+				"title": "Client Heatmap",
+				"renderer": "heatmap",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 2461358348113455,
+				"title": "Active Services",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 4014491113549708,
+				"title": "Active Clients",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 7933184526587972,
+				"title": "Total Connections",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 4268262171594725,
+				"title": "Connection State Activity",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 4334142645231086,
+				"title": "Service Traffic",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 3
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"ConnectNulls": "yes",
+					"Stack": "stacked",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 7894733870238824,
+				"title": "10 Most Common Service Ports",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 6,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6848070520414223,
+				"title": "10 Least Common Service Ports",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 6,
+					"x": 3,
+					"y": 6
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

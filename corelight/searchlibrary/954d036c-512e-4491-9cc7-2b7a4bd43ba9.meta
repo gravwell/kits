@@ -1,0 +1,15 @@
+{
+	"Name": "Corelight Upload/Download Numbercards - AGG",
+	"Description": "Numbercards showing total upload/download traffic as seen by Corelight",
+	"GUID": "954d036c-512e-4491-9cc7-2b7a4bd43ba9",
+	"Labels": [
+		"corelight",
+		"conn",
+		"traffic",
+		"upload/download",
+		"numbercard"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

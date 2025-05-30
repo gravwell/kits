@@ -1,0 +1,4 @@
+tag=corelight_conn_agg words %%IP%%
+| ax
+| stats sum(count) as Count by "id.orig_h" "id.resp_h"
+| fdg -v Count "id.orig_h" "id.resp_h"

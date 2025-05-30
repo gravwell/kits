@@ -1,0 +1,15 @@
+{
+	"Name": "Corelight Connection Averages - AGG",
+	"Description": "Table showing averages for traffic, packets, and connection duration for each service",
+	"GUID": "2fc5ce4e-9282-47d5-b159-9316ffa9a994",
+	"Labels": [
+		"corelight",
+		"conn",
+		"averages",
+		"service",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

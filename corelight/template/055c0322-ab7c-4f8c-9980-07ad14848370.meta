@@ -1,0 +1,23 @@
+{
+	"UUID": "055c0322-ab7c-4f8c-9980-07ad14848370",
+	"Name": "Corelight Unique Clients for IP - AGG",
+	"Description": "Numbercard of active clients for a given machine",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"clients",
+		"numbercard"
+	]
+}

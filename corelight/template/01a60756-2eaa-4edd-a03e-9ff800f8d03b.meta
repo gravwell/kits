@@ -1,0 +1,22 @@
+{
+	"UUID": "01a60756-2eaa-4edd-a03e-9ff800f8d03b",
+	"Name": "Corelight DNS Queries by Resource Record Type - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns",
+		"chart"
+	]
+}

@@ -1,0 +1,3 @@
+tag=corelight_conn_agg ax orig_bytes != "-" resp_bytes != "-"
+| stats sum(orig_bytes) as upload sum(resp_bytes) as download
+| numbercard upload download

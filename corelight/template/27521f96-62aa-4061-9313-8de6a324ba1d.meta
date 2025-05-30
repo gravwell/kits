@@ -1,0 +1,20 @@
+{
+	"UUID": "27521f96-62aa-4061-9313-8de6a324ba1d",
+	"Name": "Corelight Conn for UID - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%UID%%",
+				"label": "Corelight UID",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight"
+	]
+}

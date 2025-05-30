@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight most active service ports - AGG",
+	"Description": "The most active service ports as seen by Corelight conn log",
+	"GUID": "04a70538-8ecd-4cff-9b23-877e3345db50",
+	"Labels": [
+		"corelight",
+		"conn",
+		"ports",
+		"most common"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "Corelight Most Queried DNS Name - AGG",
+	"Description": "Most queried DNS names over time",
+	"GUID": "54accc77-ffe6-4337-a9a5-4318452d2e1c",
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

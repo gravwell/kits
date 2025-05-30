@@ -1,0 +1,18 @@
+{
+	"UUID": "1611eabc-631e-4f89-8a7c-def7941aa259",
+	"Name": "Corelight connection traffic total details by org for id.resp_p - AGG",
+	"Description": "Table of connection traffic details by org with responding port",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%respport%%",
+				"label": "Responding Port",
+				"description": "Destination port of connection",
+				"required": true,
+				"defaultValue": "443",
+				"previewValue": "443"
+			}
+		]
+	},
+	"Labels": null
+}

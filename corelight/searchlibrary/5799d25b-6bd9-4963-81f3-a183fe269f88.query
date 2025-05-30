@@ -1,0 +1,4 @@
+tag=corelight_dns_agg ax
+| alias "id.orig_h" Host
+| stats sum(count) as Count by Host
+| table Host Count

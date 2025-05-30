@@ -1,0 +1,3 @@
+tag=corelight_conn_agg ax "id.resp_h" == %%IP%%
+| stats sum(orig_bytes) as upstream sum(resp_bytes) as downstream
+| numbercard upstream downstream

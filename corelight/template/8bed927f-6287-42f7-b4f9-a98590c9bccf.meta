@@ -1,0 +1,23 @@
+{
+	"UUID": "8bed927f-6287-42f7-b4f9-a98590c9bccf",
+	"Name": "Corelight service bandwidth graph - AGG",
+	"Description": "Service Upload and Download traffic for an IP as seen by Corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"zee",
+		"conn",
+		"service",
+		"traffic"
+	]
+}

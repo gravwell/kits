@@ -1,0 +1,6 @@
+tag=corelight_conn_agg ax
+| stats sum(orig_bytes) as upload sum(resp_bytes) as download by service
+| eval bytes = upload + download;
+| eval if ( service == "-" ) { service = "unknown"; }
+| stats sum(bytes) as traffic by service
+| chart traffic by service

@@ -1,0 +1,22 @@
+{
+	"UUID": "1708ba13-32f5-4f41-91e2-43495ac10ed0",
+	"Name": "Corelight DNS Beaconing by Client - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	]
+}

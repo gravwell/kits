@@ -1,0 +1,18 @@
+{
+	"UUID": "fa78d6e3-01f5-4d55-8c40-5a69a05b9b17",
+	"Name": "Corelight totals by traffic direction for id.resp_p - AGG",
+	"Description": "Chart the upload and download traffic as seen by corelight with responder port",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%respport%%",
+				"label": "Responder Port",
+				"description": "Destination port of connection",
+				"required": true,
+				"defaultValue": "443",
+				"previewValue": "443"
+			}
+		]
+	},
+	"Labels": null
+}

@@ -1,0 +1,22 @@
+{
+	"UUID": "ca87283f-2ed7-4cea-a53e-09c73c84d7f0",
+	"Name": "Corelight All Connections for IP - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"investigate"
+	]
+}

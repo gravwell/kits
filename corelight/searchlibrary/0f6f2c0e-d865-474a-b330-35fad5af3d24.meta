@@ -1,0 +1,15 @@
+{
+	"Name": "Corelight DNS round trip time mean, min, and max - AGG",
+	"Description": "Chart of round trip times on DNS",
+	"GUID": "0f6f2c0e-d865-474a-b330-35fad5af3d24",
+	"Labels": [
+		"corelight",
+		"dns",
+		"rtt",
+		"chart",
+		"time"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

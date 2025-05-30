@@ -1,0 +1,4 @@
+tag=corelight_conn_agg ax conn_state ~ "RST" proto == "tcp"
+| stats sum(count) as Count by service conn_state
+| lookup -r corelight_conn_state conn_state state description
+| table service conn_state Count description

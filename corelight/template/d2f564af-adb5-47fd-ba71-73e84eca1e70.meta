@@ -1,0 +1,22 @@
+{
+	"UUID": "d2f564af-adb5-47fd-ba71-73e84eca1e70",
+	"Name": "Corelight Connection Graph for IP - AGG",
+	"Description": "FDG of IP Connections for a given IP as seen by Corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "IP Address",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"fdg"
+	]
+}

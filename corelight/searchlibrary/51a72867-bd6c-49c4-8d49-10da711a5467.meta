@@ -1,0 +1,12 @@
+{
+	"Name": "Corelight HTTP Method Counts - AGG",
+	"Description": "A chart showing the percentage of each HTTP Method",
+	"GUID": "51a72867-bd6c-49c4-8d49-10da711a5467",
+	"Labels": [
+		"corelight",
+		"http"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

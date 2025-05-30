@@ -1,0 +1,3 @@
+tag=corelight_conn_agg ax
+| stats sum(count) as Count
+| chart Count

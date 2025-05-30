@@ -1,0 +1,4 @@
+tag=corelight_dns_agg ax
+| stats sum(count) as Count by "id.orig_h"
+| geoip -r asn_db "id.orig_h".ASNOrg
+| table "id.orig_h" ASNOrg Count
