@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight Upload/Download Traffic Chart - AGG",
+	"Description": "Chart the upload and download traffic as seen by corelight",
+	"GUID": "42db797b-1cc0-4c96-8bca-dc831f005989",
+	"Labels": [
+		"corelight",
+		"conn",
+		"traffic",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,4 @@
+tag=corelight_conn_agg ax "id.resp_h" == %%IP%%
+| stats sum(count) as Count by "id.orig_h"
+| geoip "id.orig_h".Location
+| heatmap

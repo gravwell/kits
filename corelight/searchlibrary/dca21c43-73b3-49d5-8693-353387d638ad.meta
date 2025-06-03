@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight HTTP directory traversal requests - AGG",
+	"Description": "Show requests that may contain directory traversal attacks",
+	"GUID": "dca21c43-73b3-49d5-8693-353387d638ad",
+	"Labels": [
+		"kit/io.gravwell.beta.corelight",
+		"corelight",
+		"http",
+		"directory traversal"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

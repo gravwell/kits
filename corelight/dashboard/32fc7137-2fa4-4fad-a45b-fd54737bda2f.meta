@@ -1,0 +1,117 @@
+{
+	"UUID": "32fc7137-2fa4-4fad-a45b-fd54737bda2f",
+	"Name": "Corelight DNS Domain Investigation - AGG",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Corelight DNS Requests over Time - AGG",
+				"color": null,
+				"reference": {
+					"id": "5765ede8-7745-41ea-8484-1227bcedccd4",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight DNS Related Subdomains - AGG",
+				"color": null,
+				"reference": {
+					"id": "572ec6a7-87cf-4bef-9b0b-962ca0f8a398",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight DNS Clients Querying this Name - AGG",
+				"color": null,
+				"reference": {
+					"id": "d89b2430-a5e6-486c-b403-015502440f34",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 7953488318951541,
+				"title": "Requests over Time",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Orientation": "v",
+					"IncludeOther": "yes",
+					"Multiple": "no",
+					"Style": "reg",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 2476224914484511,
+				"title": "CNAME, A, AAAA Records",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 4589109364452245,
+				"title": "Clients Requesting this Domain",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

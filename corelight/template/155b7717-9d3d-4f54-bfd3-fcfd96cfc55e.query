@@ -1,0 +1,4 @@
+tag=corelight_conn_agg words %%IP%%
+| ax
+| stats sum(count) as Count by service
+| chart Count by service

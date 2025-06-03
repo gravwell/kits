@@ -1,0 +1,5 @@
+tag=corelight_http_agg ax
+| json -x user_agents
+| regex -e user_agents "\((?P<OS>[^\)]*)\)"
+| stats count by OS
+| chart count by OS

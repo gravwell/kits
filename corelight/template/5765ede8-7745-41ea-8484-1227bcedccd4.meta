@@ -1,0 +1,22 @@
+{
+	"UUID": "5765ede8-7745-41ea-8484-1227bcedccd4",
+	"Name": "Corelight DNS Requests over Time - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Name",
+				"description": "gravwell.io",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns",
+		"chart"
+	]
+}

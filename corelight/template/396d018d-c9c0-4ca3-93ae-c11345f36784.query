@@ -1,0 +1,4 @@
+tag=corelight_conn_agg words %%IP%%
+| ax conn_state != "-" // Exclude any conn_states that we can't resolve, like UDP
+| stats sum(count) as Count by conn_state
+| chart Count by conn_state

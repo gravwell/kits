@@ -1,0 +1,3 @@
+tag=corelight_dns_agg ax "id.orig_h" == %%REMOTE%%
+| stats sum(count) as Count
+| chart Count

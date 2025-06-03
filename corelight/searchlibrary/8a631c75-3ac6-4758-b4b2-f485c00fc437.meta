@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight Connection Count Chart - AGG",
+	"Description": "Chart of total sessions as seen by Corelight",
+	"GUID": "8a631c75-3ac6-4758-b4b2-f485c00fc437",
+	"Labels": [
+		"corelight",
+		"conn",
+		"sessions",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

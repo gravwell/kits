@@ -1,0 +1,24 @@
+{
+	"UUID": "155b7717-9d3d-4f54-bfd3-fcfd96cfc55e",
+	"Name": "Corelight service usage chart - AGG",
+	"Description": "Chart of service activity by IP as seen by Corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"service",
+		"count",
+		"chart"
+	]
+}

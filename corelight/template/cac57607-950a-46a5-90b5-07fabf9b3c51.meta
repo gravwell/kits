@@ -1,7 +1,7 @@
 {
 	"UUID": "cac57607-950a-46a5-90b5-07fabf9b3c51",
-	"Name": "Corelight 10 most common service ports for IP",
-	"Description": "Table of the most commonly used service ports for an IP as seen by Corelight",
+	"Name": "Corelight 10 least common service ports for IP",
+	"Description": "Table of the least commonly used service ports for an IP as seen by Corelight",
 	"Data": {
 		"variables": [
 			{

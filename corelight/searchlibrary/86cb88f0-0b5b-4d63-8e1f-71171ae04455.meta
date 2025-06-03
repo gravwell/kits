@@ -1,0 +1,12 @@
+{
+	"Name": "Corelight HTTP Point-to-Point - AGG",
+	"Description": "A point-to-point map showing connections between hosts over HTTP",
+	"GUID": "86cb88f0-0b5b-4d63-8e1f-71171ae04455",
+	"Labels": [
+		"corelight",
+		"http"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

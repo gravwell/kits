@@ -1,0 +1,22 @@
+{
+	"UUID": "c46228f2-403f-47da-9b9e-2d1de6d95bdc",
+	"Name": "Corelight Rare DNS Queries - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	]
+}

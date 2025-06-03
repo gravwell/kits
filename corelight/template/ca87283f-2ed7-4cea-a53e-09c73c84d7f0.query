@@ -1,0 +1,3 @@
+tag=corelight_conn_agg words %%IPADDR%%
+| ax
+| table

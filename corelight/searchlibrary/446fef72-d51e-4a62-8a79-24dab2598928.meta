@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight Total Traffic By Service - AGG",
+	"Description": "Total traffic per service as seen by Corelight",
+	"GUID": "446fef72-d51e-4a62-8a79-24dab2598928",
+	"Labels": [
+		"corelight",
+		"conn",
+		"traffic",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

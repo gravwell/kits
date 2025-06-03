@@ -1,0 +1,3 @@
+tag=corelight_dns_agg ax query ~ %%NAME%%
+| stats sum(count) as Count by query
+| chart Count by query

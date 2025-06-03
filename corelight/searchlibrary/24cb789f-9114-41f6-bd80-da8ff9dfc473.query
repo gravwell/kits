@@ -1,0 +1,4 @@
+tag=corelight_dns_agg ax qtype_name == "A"
+| regex -e "query" "(?P<TLD>[^\.]+)$"
+| stats sum(count) as Count by TLD
+| table TLD Count

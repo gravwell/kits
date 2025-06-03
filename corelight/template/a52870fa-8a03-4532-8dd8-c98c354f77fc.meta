@@ -1,0 +1,21 @@
+{
+	"UUID": "a52870fa-8a03-4532-8dd8-c98c354f77fc",
+	"Name": "Corelight All Files for IP - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"file"
+	]
+}

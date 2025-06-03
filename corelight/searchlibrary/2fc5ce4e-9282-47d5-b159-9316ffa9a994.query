@@ -1,0 +1,5 @@
+tag=corelight_conn_agg ax
+| stats mean(orig_bytes) as "Average Downstream Traffic" by service mean(resp_bytes) as "Average Upstream Traffic" by service mean(duration) as "Average Connection Duration" by service sum(count) as Count by service
+| eval if ( service == "-" ) { service = "unknown"; }
+| sort by Count desc
+| table Count service "Average Connection Duration" "Average Downstream Traffic" "Average Upstream Traffic"

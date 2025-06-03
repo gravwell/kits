@@ -1,0 +1,22 @@
+{
+	"UUID": "d89b2430-a5e6-486c-b403-015502440f34",
+	"Name": "Corelight DNS Clients Querying this Name - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Name",
+				"description": "gravwell.io",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	]
+}

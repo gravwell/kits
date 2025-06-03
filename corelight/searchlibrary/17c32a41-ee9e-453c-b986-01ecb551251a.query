@@ -1,0 +1,6 @@
+tag=corelight_dns_agg ax
+| regex -e query "(?P<sld>\w+\.\w+\s*$)"
+| stats sum(count) as Count by sld
+| sort by Count desc
+| limit 100
+| table sld Count

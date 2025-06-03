@@ -1,0 +1,22 @@
+{
+	"UUID": "572ec6a7-87cf-4bef-9b0b-962ca0f8a398",
+	"Name": "Corelight DNS Related Subdomains - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%NAME%%",
+				"label": "Name",
+				"description": "gravwell.io",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	]
+}

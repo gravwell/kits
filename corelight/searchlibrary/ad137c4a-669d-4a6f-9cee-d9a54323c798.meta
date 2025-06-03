@@ -1,0 +1,13 @@
+{
+	"Name": "Corelight DNS Beaconing - AGG",
+	"Description": "Frequent DNS requests with the smallest variance",
+	"GUID": "ad137c4a-669d-4a6f-9cee-d9a54323c798",
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

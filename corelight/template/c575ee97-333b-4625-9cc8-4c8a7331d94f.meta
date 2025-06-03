@@ -1,0 +1,25 @@
+{
+	"UUID": "c575ee97-333b-4625-9cc8-4c8a7331d94f",
+	"Name": "Corelight Service Client heatmap - AGG",
+	"Description": "Heatmap of clients for a given service",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"ip",
+		"location",
+		"geospatial",
+		"heatmap"
+	]
+}

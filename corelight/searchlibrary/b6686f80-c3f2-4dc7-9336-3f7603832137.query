@@ -1,0 +1,3 @@
+tag=corelight_dns_agg ax qtype == "16"
+| alias query Name answers Payload
+| table Name Payload

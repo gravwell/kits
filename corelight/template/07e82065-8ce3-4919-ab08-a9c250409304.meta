@@ -1,0 +1,23 @@
+{
+	"UUID": "07e82065-8ce3-4919-ab08-a9c250409304",
+	"Name": "Corelight Active services for an IP - AGG",
+	"Description": "Numbercard of active services for a host that have been seen responding as seen by Corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"service",
+		"numbercard"
+	]
+}

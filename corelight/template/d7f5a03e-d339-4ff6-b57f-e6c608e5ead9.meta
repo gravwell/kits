@@ -1,0 +1,22 @@
+{
+	"UUID": "d7f5a03e-d339-4ff6-b57f-e6c608e5ead9",
+	"Name": "Corelight DNS SLDs with the Most Subdomains by Client - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%REMOTE%%",
+				"label": "Remote",
+				"description": "192.168.1.1",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"dns",
+		"table"
+	]
+}

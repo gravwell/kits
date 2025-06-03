@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight HTTP Internal Server Error Counts - AGG",
+	"Description": "Count of internal Server Errors per host",
+	"GUID": "e778da56-d73c-43f7-86e0-b240c50575cf",
+	"Labels": [
+		"corelight",
+		"http",
+		"internal server error",
+		"kit/io.gravwell.beta.corelight"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

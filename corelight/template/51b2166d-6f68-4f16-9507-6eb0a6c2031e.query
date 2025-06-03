@@ -1,0 +1,6 @@
+tag=corelight_dns_agg ax "id.orig_h" == %%REMOTE%%
+| alias query Name
+| stats sum(count) as Count by Name
+| sort by Count desc
+| top -n 100 Count
+| table Name Count

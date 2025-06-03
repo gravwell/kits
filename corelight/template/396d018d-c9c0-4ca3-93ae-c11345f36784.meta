@@ -1,0 +1,23 @@
+{
+	"UUID": "396d018d-c9c0-4ca3-93ae-c11345f36784",
+	"Name": "Corelight Connstate Chart - AGG",
+	"Description": "Count of connection states for a given IP as seen by Corelight",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"conn",
+		"state",
+		"chart"
+	]
+}

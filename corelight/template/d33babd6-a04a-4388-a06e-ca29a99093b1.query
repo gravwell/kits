@@ -1,0 +1,9 @@
+tag=corelight_conn_agg ax "id.resp_p" == 443
+| stats sum(count) as Count by "id.orig_h" "id.resp_h" service
+| eval if ( service == "-" ) { service = "unknown"; }
+| geoip -r asn_db "id.resp_h".ASN as asn "id.resp_h".ASNOrg as asnorg
+| printf -e Org "%v(%v)" asnorg asn
+| alias "id.orig_h" "Originating Host"
+| alias "id.resp_h" "Responder Host"
+| alias service Service
+| table Count "Originating Host" "Responder Host" Service Org

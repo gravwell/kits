@@ -1,0 +1,243 @@
+{
+	"UUID": "e0b2c0e3-046e-46f5-8148-7d7052ec637d",
+	"Name": "Corelight Connection Overview - AGG",
+	"Description": "Basic overview of AGG connection data as seen by Corelight",
+	"Data": {
+		"timeframe": {
+			"durationString": "P1DT",
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Corelight Connection Count Chart - AGG",
+				"color": null,
+				"reference": {
+					"id": "8a631c75-3ac6-4758-b4b2-f485c00fc437",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight Upload/Download Numbercards - AGG",
+				"color": null,
+				"reference": {
+					"id": "954d036c-512e-4491-9cc7-2b7a4bd43ba9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight Connection Map - AGG",
+				"color": null,
+				"reference": {
+					"id": "3d8471f9-f7a1-405a-980d-f58f365d327f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight Upload/Download Traffic Chart - AGG",
+				"color": null,
+				"reference": {
+					"id": "42db797b-1cc0-4c96-8bca-dc831f005989",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight service connection counts - AGG",
+				"color": null,
+				"reference": {
+					"id": "f6f04eb9-7751-4a26-875a-f2a4c57e0031",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Corelight Connection Counts by State - AGG",
+				"color": null,
+				"reference": {
+					"id": "8e846721-da4f-43a6-a5f2-c5eb0a019424",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 470698709277892,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 7054493375089095,
+				"title": "Connection Rates",
+				"renderer": "areaChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 5817123438686173,
+				"title": "Traffic Totals",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"Layout": "force",
+					"Labels": "yes",
+					"IncludeOther": "yes",
+					"CurveEdges": "no"
+				}
+			},
+			{
+				"id": 1112452843619022,
+				"title": "Traffic Rates By Direction",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 2498082886199343,
+				"title": "Connection Rates by Service",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 8347569269268149,
+				"title": "Connection Counts by State",
+				"renderer": "areaChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 2800523644884399,
+				"title": "Connection Map",
+				"renderer": "point2PointGlobe",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 9,
+					"x": 5,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Rotate": "yes",
+					"Labels": "no",
+					"Background": "no",
+					"IncludeOther": "yes",
+					"Multiple": "no",
+					"Style": "reg"
+				}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

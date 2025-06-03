@@ -1,0 +1,23 @@
+{
+	"UUID": "de7775a5-bdfa-4b0f-a531-07263ee8710a",
+	"Name": "Corelight Service traffic Totals for an IP - AGG",
+	"Description": "Show upstream/downstream traffic totals for service traffic on a given IP.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IP%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"traffic",
+		"service",
+		"numbercard"
+	]
+}

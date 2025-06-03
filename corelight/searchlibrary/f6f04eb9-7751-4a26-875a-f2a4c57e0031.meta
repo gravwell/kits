@@ -1,0 +1,15 @@
+{
+	"Name": "Corelight service connection counts - AGG",
+	"Description": "Chart of connection counts per service as seen by Corelight",
+	"GUID": "f6f04eb9-7751-4a26-875a-f2a4c57e0031",
+	"Labels": [
+		"corelight",
+		"conn",
+		"service",
+		"count",
+		"chart"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

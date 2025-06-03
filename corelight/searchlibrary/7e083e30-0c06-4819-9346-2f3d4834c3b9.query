@@ -1,0 +1,3 @@
+tag=corelight_conn_agg ax conn_state ~ "RST" proto == "tcp"
+| stats sum(count) as Count by service
+| chart Count by service

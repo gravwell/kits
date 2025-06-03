@@ -1,0 +1,3 @@
+tag=corelight_http_agg ax status_msg == "500"
+| stats sum(count) as Count by host
+| table host Count

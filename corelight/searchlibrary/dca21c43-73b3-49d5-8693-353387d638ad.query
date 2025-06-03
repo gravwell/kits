@@ -1,0 +1,2 @@
+tag=corelight_http_agg ax uri ~ "../.."
+| table count "id.orig_h" "id.resp_h" host uri status_msg

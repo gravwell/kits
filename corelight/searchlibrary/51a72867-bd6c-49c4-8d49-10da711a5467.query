@@ -1,0 +1,3 @@
+tag=corelight_http_agg ax
+| stats sum(count) as Count by method
+| chart Count by method

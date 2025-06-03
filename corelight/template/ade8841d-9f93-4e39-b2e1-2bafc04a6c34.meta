@@ -1,0 +1,21 @@
+{
+	"UUID": "ade8841d-9f93-4e39-b2e1-2bafc04a6c34",
+	"Name": "Corelight All HTTP for IP - AGG",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%IPADDR%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"corelight",
+		"http"
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"Name": "Corelight Potential Port Scans - AGG",
+	"Description": "Potential port scans as seen by the Corelight conn log",
+	"GUID": "11f81d33-e4bf-4ad1-a3ec-14bc98a7dc5b",
+	"Labels": [
+		"corelight",
+		"conn",
+		"portscan",
+		"table"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
