@@ -3,8 +3,10 @@
 	"Desc": "Auto-generated JSON extraction for tag corelight_ssl_agg",
 	"Module": "json",
 	"Tag": "corelight_ssl_agg",
-	"Tags": null,
-	"Labels": null,
+	"Labels": [
+                "corelight",
+                "autoextractor"
+        ],
 	"UID": 1,
 	"GIDs": null,
 	"Global": false,

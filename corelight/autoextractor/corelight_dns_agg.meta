@@ -2,11 +2,11 @@
 	"Name": "corelight_dns_agg",
 	"Desc": "Auto-generated JSON extraction for tag corelight_dns_agg",
 	"Module": "json",
-	"Tag": "",
-	"Tags": [
-		"corelight_dns_agg"
-	],
-	"Labels": null,
+	"Tag": "corelight_dns_agg",
+	"Labels": [
+                "corelight",
+                "autoextractor"
+        ],
 	"UID": 1,
 	"GIDs": null,
 	"Global": false,
