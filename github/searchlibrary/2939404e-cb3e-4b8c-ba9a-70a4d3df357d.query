@@ -1,0 +1,12 @@
+tag=$GITHUB json @timestamp actor action operation_type vulnerability_alert_rule_id vulnerability_alert_rule_name repo repo_id
+| eval in(action, 
+    "vulnerability_alert_rule.create",
+    "vulnerability_alert_rule.enable",
+    "vulnerability_alert_rule.force_enable",
+    "vulnerability_alert_rule.disable",
+    "vulnerability_alert_rule.force_disable",
+    "vulnerability_alert_rule.delete",
+    "vulnerability_alert_rule.update"
+    )
+| printf -e context "at %v, %v was %v by %v for %v:%v in %v:%v" @timestamp action operation_type actor vulnerability_alert_rule_id vulnerability_alert_rule_name repo_id repo
+| $GITHUB_ALERT_META("Medium", "Vulnerability Alert Modified")

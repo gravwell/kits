@@ -1,0 +1,3 @@
+tag=$GITHUB json action~"secret_scanning_alert" actor repo 
+| stats count by repo 
+| table

@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Repo - High - GitHub Advanced Security Disabled for a Repo",
+	"Description": "Detects when a high risk configuration has been changed for a repo.\n\nrepo.advanced_security_disabled = GitHub Advanced Security was disabled for a repository.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo\n\nhttps://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "3 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "1dee6c72-2224-4f35-9e73-e59dfc1307e8"
+}

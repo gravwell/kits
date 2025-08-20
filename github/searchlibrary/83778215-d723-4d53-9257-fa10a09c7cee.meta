@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Hook - Low - Webhook Modified",
+	"Description": "Detects when a webhook was modified.\n\nhook.active_changed = A hook's active status was updated.\nhook.config_changed = A hook's configuration was changed.\nhook.create = A new hook was added.\nhook.destroy = A hook was deleted.\nhook.events_changed = A hook's configured events were changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#hook\n\nhttps://docs.github.com/get-started/exploring-integrations/about-webhooks",
+	"GUID": "83778215-d723-4d53-9257-fa10a09c7cee",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

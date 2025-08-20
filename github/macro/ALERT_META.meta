@@ -1,0 +1,5 @@
+{
+	"Name": "ALERT_META",
+	"Description": "Usage $ALERT_META(priority[string], message[string], class[string]) i.e. $ALERT_META(\"Critical\", \"Low Memory\", \"metrics\")",
+	"Labels": null
+}

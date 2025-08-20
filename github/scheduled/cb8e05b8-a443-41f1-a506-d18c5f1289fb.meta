@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Codespaces - Medium - Group Policy Deleted",
+	"Description": "Detects when a delete action in invoked on a codespace.\n\ncodespaces.policy_group_deleted = Policies were removed from codespaces in an organization or enterprise.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "cb8e05b8-a443-41f1-a506-d18c5f1289fb"
+}

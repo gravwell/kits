@@ -1,0 +1,7 @@
+tag=$GITHUB json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "org.add_member",
+    "org.invite_member"
+    )
+| printf -e context "at %v, %v was %v by %v for %v" @timestamp action operation_type actor org
+| $GITHUB_ALERT_META("Low", "New Member Added to Org")

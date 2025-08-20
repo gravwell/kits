@@ -1,0 +1,3 @@
+tag=$GITHUB json @timestamp actor action=="account.plan_change" business operation_type repo
+| printf -e context "at %v, %v was %v by %v in business %v" @timestamp action operation_type actor business
+| $GITHUB_ALERT_META("Medium", "Plan Changed")

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Opened PR (Last 7d)",
+	"Description": "Finds created pull requests \n\npull_request.create = A pull request was created.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request",
+	"GUID": "8d55dfda-0a3d-4be9-bfc7-40e7d9af7e62",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

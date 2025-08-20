@@ -1,0 +1,6 @@
+tag=$GITHUB json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "org.secret_scanning_push_protection_disable"
+    )
+| printf -e context "at %v, %v was %v by %v in %v" @timestamp action operation_type actor org
+| $GITHUB_ALERT_META("Medium", "Push Protection for Secret Scanning Disabled")

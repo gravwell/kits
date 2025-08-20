@@ -1,0 +1,6 @@
+tag=$GITHUB json @timestamp actor action operation_type repo
+| eval in(action, 
+    "project.delete"
+    )
+| printf -e context "at %s, %s was %s by %s" @timestamp action operation_type actor
+| $GITHUB_ALERT_META("Medium", "Delete Action Invoked")

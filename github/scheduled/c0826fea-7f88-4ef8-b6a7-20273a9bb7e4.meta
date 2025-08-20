@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Org - Low - New Member Added to Org",
+	"Description": "Detects when a new member has been invited and added to org.\n\norg.add_member = A user joined an organization.\norg.invite_member = A new user was invited to join an organization.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "27 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c0826fea-7f88-4ef8-b6a7-20273a9bb7e4"
+}

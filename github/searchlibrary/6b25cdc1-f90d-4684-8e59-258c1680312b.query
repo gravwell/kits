@@ -1,0 +1,3 @@
+tag=$GITHUB json actor action~"integration_installation.create" repo permission user
+| printf -e context "%v performed by %v" action actor
+| $GITHUB_ALERT_META("Low", "App Installed")

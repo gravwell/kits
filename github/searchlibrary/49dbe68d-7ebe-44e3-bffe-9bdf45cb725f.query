@@ -1,0 +1,3 @@
+tag=$GITHUB json @timestamp actor action~"org.update_member" operation_type org old_permission permission=="admin" user repo
+| printf -e context "at %v, %v was %v from %v to %v by %v for %v in %v" @timestamp action operation_type old_permission permission actor user org
+| $GITHUB_ALERT_META("High", "Member Granted Owner Role")

@@ -1,0 +1,38 @@
+eval _alert_priority = "%%1%%"
+| eval _alert_name = "%%2%%"
+| eval _alert_class = "%%3%%"
+| intrinsic customer name host device disk _alert_severity
+| lookup -r hostToCustomer host host customer
+| eval if (disk && (device ~ "/dev/" || name ~ "/dev/")) {customer = "gravwell";}
+| eval if (disk ~ "idxhost" || disk ~ "/dev/") {customer = "gravwell";}
+| eval if (!in(customer,"gravwell","everstream","gonzaga","pinterest","wyndham","Private Cloud")) {customer = "Unknown";}
+| eval if (_alert_class == "metrics") {
+            repo = "";
+            count = "";
+            user = "";
+            CountryName = "";
+        }
+        else if (_alert_class == "security") {
+            repo = "";
+            context = "";
+        }
+| eval if (_alert_class == "metrics") {
+            _alert_header = "| Customer | Host | Name | Context |";
+            _alert_divider = "|-----|-----|-----|-----|";
+            _alert_data = printf("|%v|%v|%v|%v|", customer, host, _alert_name, context); 
+        }
+        else if (_alert_class == "security") {
+            _alert_header = "| Count | Customer | User | Source | Country |";
+            _alert_divider = "|-----|-----|-----|-----|-----|";
+            _alert_data = printf("|%v|%v|%v|%v|%v|", count, customer, user, host, CountryName);
+        }
+        else if (_alert_class == "github") {
+            customer = "gravwell";
+            if (match(repo,".")) {host = repo;} else {host = "github";}
+            _alert_header = "| Context |";
+            _alert_divider = "|-----|";
+            _alert_data = printf("|%v|", context);
+        }
+| eval _alert_title = printf("%v Alert: %v on %v for %v ",_alert_priority, _alert_name, host, customer)
+//| eval if (TAG == "cloud-collectd" && SRC == "2600:1f14:292b:1fbe:882:9ffe:d002:49dc") {context = printf("::AWS:: %v",context);}
+| table -nt

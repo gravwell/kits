@@ -1,0 +1,3 @@
+tag=$GITHUB json action=="pull_request.close"
+| stats count
+| numbercard count

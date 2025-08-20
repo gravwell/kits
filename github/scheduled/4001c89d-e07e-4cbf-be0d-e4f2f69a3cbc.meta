@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Repo - High - Secret Scanning Disabled for a Repo",
+	"Description": "Detects when secret scanning has been disabled for a repo.\n\nrepository_secret_scanning.disable = Secret scanning was disabled for a repository.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_secret_scanning\n\nhttps://docs.github.com/code-security/secret-scanning/about-secret-scanning",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "3 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4001c89d-e07e-4cbf-be0d-e4f2f69a3cbc"
+}

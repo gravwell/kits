@@ -1,0 +1,6 @@
+tag=$GITHUB json @timestamp actor action repo operation_type
+| eval in(action, 
+    "repository_secret_scanning.disable"
+    )
+| printf -e context "at %s, %s was %s by %s in %s" @timestamp action operation_type actor repo
+| $GITHUB_ALERT_META("High", "Secret Scanning Disabled for a Repo")

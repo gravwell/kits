@@ -1,0 +1,3 @@
+tag=$GITHUB json action=="pull_request.create"
+| stats count(action) as "Opened"
+| numbercard Opened

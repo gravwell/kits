@@ -1,0 +1,6 @@
+tag=$GITHUB json @timestamp actor action operation_type repo org
+| eval in(action, 
+    "repository_vulnerability_alerts.disable"
+    )
+| printf -e context "at %v, %v was %v by %v for %v repo in %v org" @timestamp action operation_type actor repo org
+| $GITHUB_ALERT_META("High", "Dependabot Vulnerability Alerts Disabled")

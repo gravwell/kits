@@ -1,0 +1,6 @@
+tag=$GITHUB json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "codespaces.group_policy_deleted"
+    )
+| printf -e context "at %v, %v was %v by %v for %v" @timestamp action operation_type actor org
+| $GITHUB_ALERT_META("Medium", "Group Policy Deleted")

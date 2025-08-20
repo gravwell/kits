@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Created by Repo [Pie]",
+	"Description": "Finds created pull requests by repo.\n\npull_request.merge = A pull request was created.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request",
+	"GUID": "65862d83-3d27-489a-87f0-1bf5e02ab02d",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

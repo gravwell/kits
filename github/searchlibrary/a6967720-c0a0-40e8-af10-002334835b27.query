@@ -1,0 +1,6 @@
+tag=$GITHUB json @timestamp actor action operation_type org repo cname old_cname
+| eval in(action, 
+    "repo.pages_cname"
+    )
+| printf -e context "at %v, %v was %v for %v was changed from %v to %v by %v" @timestamp action operation_type repo old_cname cname actor
+| $GITHUB_ALERT_META("Low", "CNAME Modified")

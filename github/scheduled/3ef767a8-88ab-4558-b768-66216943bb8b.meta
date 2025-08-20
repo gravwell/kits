@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Org - Medium - SSH Certificate Authority Changed",
+	"Description": "Detects when an SSH certificate authority for an org has been created.\n\nssh_certificate_authority.create = An SSH certificate authority for an organization or enterprise was created.\nssh_certificate_authority.destroy = An SSH certificate authority for an organization or enterprise was deleted.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#ssh_certificate_authority\n\nhttps://docs.github.com/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities\n\nhttps://docs.github.com/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "3ef767a8-88ab-4558-b768-66216943bb8b"
+}

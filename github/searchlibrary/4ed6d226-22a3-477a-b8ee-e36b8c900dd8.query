@@ -1,0 +1,3 @@
+tag=$GITHUB json action=="pull_request.ready_for_review" repo
+| stats count by repo
+| table repo count

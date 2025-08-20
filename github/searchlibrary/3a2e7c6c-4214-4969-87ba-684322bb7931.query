@@ -1,0 +1,8 @@
+tag=$GITHUB json actor action repo
+| eval in(action, 
+    "org.advanced_security_disabled_for_new_repos",
+    "org.advanced_security_disabled_on_all_repos",
+    "org.advanced_security_policy_selected_member_disabled"
+    )
+| printf -e context "%s performed by %s in %s" action actor repo
+| $GITHUB_ALERT_META("High", "GitHub Advanced Security Configuration Changed")

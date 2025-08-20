@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Repo - Medium - User Accepted Repo Transfer Request",
+	"Description": "Detects when a user accepted a transferred repo.\n\nrepo.transfer = A user accepted a request to receive a transferred repository.\nrepo.transfer_outgoing = A repository was transferred to another repository network.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a339c20f-c14d-448d-954c-073147eccd2c"
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Org - New Alerts [numbercard]",
+	"Description": "Detects when a new user joins the org.\n\norg.add_member = A user joined an organization.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n",
+	"GUID": "9d8ab914-2707-48c6-b3b4-e362c067ad4f",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

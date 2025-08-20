@@ -1,0 +1,6 @@
+tag=$GITHUB json @timestamp issuer action operation_type org sso_url repo
+| eval in(action, 
+    "org.disable_saml"
+    )
+| printf -e context "at %v, %v was %v to %v by %v for %v" @timestamp action operation_type sso_url issuer org
+| $GITHUB_ALERT_META("High", "SAML (single sign-on) Disabled")

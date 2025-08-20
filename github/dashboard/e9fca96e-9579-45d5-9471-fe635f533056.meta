@@ -1,0 +1,74 @@
+{
+	"UUID": "e9fca96e-9579-45d5-9471-fe635f533056",
+	"Name": "GitHub Actor Investigation",
+	"Description": "This Dashboard is intended to be used for actor investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - GitHub - Actor - Investigation (Wildcard)",
+				"color": null,
+				"reference": {
+					"id": "c48b0e19-a2f5-4e3a-af29-41e0bbf1339a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - Actor - Investigation",
+				"color": null,
+				"reference": {
+					"id": "fddec024-8937-40ee-bbdd-d2b5dc9caad9",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17551826399831,
+				"title": "Actor Investigation Wildcard",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17551953740631,
+				"title": "Actor Actions w/o API Requests",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"github"
+	]
+}

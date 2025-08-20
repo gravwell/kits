@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Create by Actor [donut]",
+	"Description": "Shows created/open pull requests by actor.\n\npull_request.create = A pull request was created.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request",
+	"GUID": "2c4dc712-33c9-4ef3-af19-c5408786129b",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

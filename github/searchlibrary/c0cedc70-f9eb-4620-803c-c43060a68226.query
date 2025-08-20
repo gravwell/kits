@@ -1,0 +1,6 @@
+tag=$GITHUB json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "org.disable_two_factor_authentication"
+    )
+| printf -e context "at %v, %v was %v by %v for %v" @timestamp action operation_type actor org
+| $GITHUB_ALERT_META("High", "2FA Disabled")

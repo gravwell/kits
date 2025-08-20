@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Business - High - Dependabot Alerts Disabled for Any New Repos",
+	"Description": "Detects when dependabots alerts have been disabled for any new repos in the enterprise.\n\nbusiness_dependabot_alerts_new_repos.disable = Dependabot alerts were disabled for new repositories in your enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_dependabot_alerts_new_repos",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "3 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4965eaf7-9e78-4f4c-8629-7fc581f3f390"
+}

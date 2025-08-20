@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Repo - Medium - Repo Transferred to Another Repo Network",
+	"Description": "Detects when a repo is transferred to another repo network.\n\nrepo.transfer_outgoing = A repository was transferred to another repository network.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "dd906495-481e-41e1-a125-f69b784bcd45"
+}

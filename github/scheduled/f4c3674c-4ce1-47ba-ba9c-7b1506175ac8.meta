@@ -1,0 +1,15 @@
+{
+	"Name": "ScheduledSearch - GitHub - Org - Medium - Push Protection Bypass List Modified",
+	"Description": "Detects when the push protection bypass list was modified for your org.\n\norg_secret_scanning_push_protection_bypass_list.add = A role or team was added to the push protection bypass list at the organization level.\norg_secret_scanning_push_protection_bypass_list.disable = Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Specific roles or teams\" to \"Anyone with write access\" at the organization level.\norg_secret_scanning_push_protection_bypass_list.enable = Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Anyone with write access\" to \"Specific roles or teams\" at the organization level.\norg_secret_scanning_push_protection_bypass_list.remove = A role or team was removed from the push protection bypass list at the organization level.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org_secret_scanning_push_protection_bypass_list\n\nhttps://docs.github.com/code-security/secret-scanning/protecting-pushes-with-secret-scanning",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f4c3674c-4ce1-47ba-ba9c-7b1506175ac8"
+}

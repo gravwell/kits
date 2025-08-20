@@ -1,0 +1,10 @@
+tag=$GITHUB json @timestamp inviter action operation_type invitee repo
+| eval in(action, 
+    "repository_invitation.create",
+    "repository_invitation.accept",
+    "repository_invitation.reject",
+    "repository_invitation.cancel"
+    )
+| time -oformat "2006-01-02 15:04:05" @timestamp time
+| printf -e context "at %v, %v was %v by %v to %v for %v" time action operation_type inviter invitee repo
+| $GITHUB_ALERT_META("Low", "Invitation Actions")

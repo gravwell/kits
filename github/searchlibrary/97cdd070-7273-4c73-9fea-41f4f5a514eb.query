@@ -1,0 +1,16 @@
+tag=$GITHUB json @timestamp actor action invitation_id user org repo
+| eval in(action, "org.add_member", "org.invite_member")
+| stats min(@timestamp) as start_ts max(@timestamp) as end_ts by invitation_id
+| diff end_ts start_ts as duration_ms
+| eval 
+    seconds_total = floor(duration_ms / 1000); 
+    days = floor(seconds_total / 86400); 
+    seconds_total = seconds_total - days * 86400;
+    hours = floor(seconds_total / 3600);
+    seconds_total = seconds_total - hours * 3600;
+    minutes = floor(seconds_total / 60);
+    seconds = seconds_total - minutes * 60;
+| eval days >= 7
+| time -oformat "2006-01-02 15:04:05" @timestamp time
+| printf -e context "%v performed %v in %v org on %v where %v was added %v days %v hours %v minutes %v seconds later with %v Invite ID" actor action org time user days hours minutes seconds invitation_id
+| $GITHUB_ALERT_META("Medium", "Member Added After 7 Day Invitation Expiry")

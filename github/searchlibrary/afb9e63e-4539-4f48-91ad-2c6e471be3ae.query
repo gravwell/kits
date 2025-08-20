@@ -1,0 +1,7 @@
+tag=$GITHUB json @timestamp actor action operation_type user repository_selection repo
+| eval in(action,
+    "personal_access_token.access_granted",
+    "personal_access_token.request_created"
+    )
+| printf -e context "at %v, %v was %v by %v for %v with %v repo(s)" @timestamp action operation_type actor user repository_selection
+| $GITHUB_ALERT_META("High", "Personal Access Token (PAT) Granted or Created")
