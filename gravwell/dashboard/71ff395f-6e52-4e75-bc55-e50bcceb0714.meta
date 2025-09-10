@@ -23,7 +23,7 @@
 			},
 			{
 				"alias": "Tag Statistics",
-				"query": "tag=_aggs_tags ax | stats sum(entries) as entries sum(bytes) as bytes by tag | sort by entries desc | table tag entries bytes",
+				"query": "tag=_aggs_tags ax | stats sum(entries) as entries sum(bytes) as bytes by tag | sort by entries desc | eval total = pretty_size(bytes) | table tag entries total",
 				"color": null
 			},
 			{
