@@ -1,8 +1,8 @@
 {
 	"ID": "io.gravwell.github",
-	"Name": "Gravwell GitHub",
+	"Name": "GitHub",
 	"Desc": "The Gravwell GitHub Kit provides a baseline set of queries, and dashboards for GitHub.",
-	"Readme": "\u003ch1\u003e\n\tGravwell GitHub Kit\n\u003c/h1\u003e\n\u003ch2\u003e\n\tQuery Library\n\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\tWe've created a few baseline Dashboards to interact with your GitHub data.\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\tDashboards\n\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\tGitHub Overview: This Dashboard is a general overview of your GitHub data.\n\u003c/li\u003e\n\u003cli\u003e\n\tGitHub Pull Requests: This Dashboard is a general overview of all Pull Requests.\n\u003c/li\u003e\n\u003cli\u003e\n\tGitHub User Investigation: This Dashboard is intended to be used for user investigations.\n\u003c/li\u003e\n\u003cli\u003e\n\tGitHub Actor Investigation: This Dashboard is intended to be used for actor investigations.\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\tResources\n\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n    github_audit_events: This is intended to be used as a lookup file for the GitHub Kit or standalone searches regarding GitHub Audit Event information.\n\u003c/li\u003e\n\u003cul\u003e\n\u003cli\u003e\n    fieldnames = category, name, description\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cli\u003e\n\tgithub_cidr: This is intended to be used as a CIDR lookup file for the GitHub Kit or standalone searches.\n\u003c/li\u003e\n\u003cul\u003e\n\u003cli\u003e\n    fieldnames = company, category, CIDR\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cli\u003e\n    github_domains: This is intended to be used as a lookup file for the GitHub Kit or standalone searches regarding GitHub Domains and their associated category.\n\u003c/li\u003e\n\u003cul\u003e\n\u003cli\u003e\n    fieldnames = company, category, domain\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cli\u003e\n    Examples using resources\n\u003c/li\u003e\n\u003cul\u003e\n\u003cli\u003e\n    Sample query searching for Created/Opened Pull Requests showing an iplookup\n\u003c/li\u003e\n\u003ccode\u003etag=github-audit json action~\"pull_request.create\" repo SRC | alias SRC src_ip | iplookup -r github_cidr -e src_ip CIDR category | table\n\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\n    Sample query searching for Created/Opened Pull Requests showing an iplookup and lookup can both be used together\n\u003c/li\u003e\n\u003ccode\u003etag=github-audit json action~\"pull_request.create\" repo SRC \n| alias SRC src_ip \n| lookup -r github_audit_events action name (category as ip_category name description) \n| iplookup -r github_cidr -e src_ip CIDR category as action_category \n| table repo src_ip ip_category CIDR action action_category description\u003c/code\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/ul\u003e\n\u003ch2\u003e\n    Templates\n\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n    Contains templates used in the Investigation Dashboards\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n    Alerts/Searches/ScheduledSearches\n\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n    Naming Schema: QueryType - Company - Category - Severity - Name - [\u003ci\u003eVisualization - *if any*\u003c/i\u003e]\n\u003c/li\u003e\n\u003cul\u003e\n\u003cli\u003e\n    Alert - GitHub - Category - Severity - Alertname\n\u003c/li\u003e\n\u003cul\u003e\n\u003cli\u003e\n\tExample: Alert - GitHub - Account - Medium - Plan Changed\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cli\u003e\n\tSearch - GitHub - Category - Searchname [Visual Output Type]\n\u003c/li\u003e\n\u003cul\u003e\n\u003cli\u003e\n\tExample: Search - GitHub - Code Scan - New Alerts [numbercard]\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cli\u003e\n\tScheduledSearch - GitHub - Category - Searchname\n\u003c/li\u003e\n\u003cul\u003e\n\u003cli\u003e\n\tExample: ScheduledSearch - GitHub - Code Scan - New Alerts\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/ul\u003e\n\u003c/ul\u003e\n\u003ch4\u003eImage Credits\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n    Icon: [UXWing] (https://uxwing.com/github-icon/)\n\u003c/li\u003e\n\u003cli\u003e\n    Cover: [Unsplash] (https://unsplash.com/photos/a-white-dice-with-a-black-github-logo-on-it-HLQDfaJUTVI)\n\u003c/li\u003e\n\u003cli\u003e\n    Banner: [Unsplash] (https://unsplash.com/photos/black-flat-screen-computer-monitor-turned-on-near-blue-and-white-sky-SrewPUfo2c0)\n\u003c/li\u003e",
+	"Readme": "# Gravwell GitHub Kit\n\nA comprehensive toolkit for interacting with GitHub data in Gravwell. This kit includes dashboards, query libraries, resources, templates, and alerts to help streamline GitHub data analysis.\n\n***\n\n# Table of Contents\n\n1. [Introduction](#introduction)  \n2. [Query Library](#query-library)  \n3. [Dashboards](#dashboards)  \n    3.1 [GitHub Overview](#github-overview)  \n    3.2 [GitHub Pull Requests](#github-pull-requests)  \n    3.3 [GitHub User Investigation](#github-user-investigation)  \n    3.4 [GitHub Actor Investigation](#github-actor-investigation)  \n4. [Resources](#resources)  \n    4.1 [github\\_audit\\_events](#github\\_audit\\_events)  \n    4.2 [github\\_cidr](#github\\_cidr)  \n    4.3 [github\\_domains](#github\\_domains)  \n    4.4 [Example Queries Using Resources](#example-queries-using-resources)  \n5. [Templates](#templates)  \n6. [Alerts, Searches, and Scheduled Searches](#alerts-searches-and-scheduled-searches)  \n7. [Image Credits](#image-credits)  \n\n***\n\n## Introduction\n\nThe Gravwell GitHub Kit provides a set of tools and pre-built resources to analyze GitHub activity efficiently. Use it for monitoring pull requests, investigating users and actors, and correlating GitHub data with IPs or domains.\n\n***\n\n## 1. Query Library\n\nWe’ve created several baseline queries to interact with your GitHub data. These queries serve as a foundation for custom analysis and can be adapted to your specific needs.\n\n***\n\n## 2. Dashboards\n\nThe kit includes a variety of dashboards designed to provide insights into GitHub activity:\n\n#### 2.1 GitHub Overview\n- A general overview of your GitHub data, summarizing key metrics.\n#### 2.2 GitHub Pull Requests\n- Provides an overview of all Pull Requests across repositories, including their status and activity trends.\n#### 2.3 GitHub User Investigation\n- Intended for investigating specific GitHub users, including their activity and interactions.\n#### 2.4 GitHub Actor Investigation\n- Used for investigating actors (users, bots, or service accounts) to understand their actions and impact.\n\n***\n\n## 3. Resources\n\nThese lookup files enhance queries and dashboards by providing contextual information about GitHub activity.\n\n#### 3.1 github\\_audit\\_events\n- A lookup file for GitHub Audit Event information.  \n    - **Fieldnames:** category, name, description\n#### 3.2 github\\_cidr\n- A CIDR lookup file for mapping IP addresses in queries.  \n    - **Fieldnames:** company, category, CIDR\n#### 3.3 github\\_domains\n- A lookup file for GitHub domains and their associated categories.  \n    - **Fieldnames:** company, category, domain\n#### 3.4 Example Queries Using Resources\n### Example 1: Pull Requests with IP Lookup\n```query\n    tag=github-audit json action~\"pull\\_request.create\" repo SRC\n    | alias SRC src\\_ip\n    | iplookup -r github\\_cidr -e src\\_ip CIDR category\n    | table\n```\n\n### Example 2: Pull Requests with Audit Event and IP Lookup\n```query\n    tag=github-audit json action~\"pull\\_request.create\" repo SRC\n    | alias SRC src\\_ip\n    | lookup -r github\\_audit\\_events action name (category as ip\\_category name description)\n    | iplookup -r github\\_cidr -e src\\_ip CIDR category as action\\_category\n    | table repo src\\_ip ip\\_category CIDR action action\\_category description\n```\n\n***\n\n## 4. Templates\n\nThis section contains templates used in the Investigation Dashboards for streamlined analysis and reporting.\n\n***\n\n## 5. Alerts, Searches, and Scheduled Searches\n\nNaming conventions for alerts, searches, and scheduled searches help maintain consistency:\n- **Naming Schema:** _QueryType - Company - Category - Severity - Name - [Visualization if any]_\n\n#### Examples\n- **Alert:** Alert - GitHub - Category - Severity - Alertname  \n    - _Example:_ Alert - GitHub - Account - Medium - Plan Changed\n- **Search:** Search - GitHub - Category - Searchname [Visual Output Type]  \n    - _Example:_ Search - GitHub - Code Scan - New Alerts [numbercard]\n- **ScheduledSearch:** ScheduledSearch - GitHub - Category - Searchname  \n    - _Example:_ ScheduledSearch - GitHub - Code Scan - New Alerts\n\n***\n\n## 6. Image Credits\n\n- **Icon:** [UXWing](https://uxwing.com/github-icon/)  \n- **Cover:** [Unsplash](https://unsplash.com/photos/a-white-dice-with-a-black-github-logo-on-it-HLQDfaJUTVI)  \n- **Banner:** [Unsplash](https://unsplash.com/photos/black-flat-screen-computer-monitor-turned-on-near-blue-and-white-sky-SrewPUfo2c0)",
 	"Version": 1,
 	"MinVersion": {
 		"Major": 0,
@@ -14,13 +14,33 @@
 		"Minor": 0,
 		"Point": 0
 	},
-	"Icon": "2a084984-c77b-463d-8978-eb8442ef99b9",
-	"Banner": "c86acae0-715f-431c-bec4-227eecd107aa",
-	"Cover": "16ea55ca-d243-47d0-8fbe-ccb35567762a",
+	"Icon": "47dfe3bf-3346-4821-8e34-459080fc0c98",
+	"Banner": "0652d5a9-1acc-44ae-9d30-482f050701c7",
+	"Cover": "13ad3c57-1936-47cc-b670-7968aa7a6074",
 	"Items": [
 		{
-			"Name": "Apache License 2.0",
+			"Name": "Apache 2.0 License",
 			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "github_cidr",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "github_audit_events",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "github_info",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "github_domains",
+			"Type": 1,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -349,7 +369,7 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "ALERT_META",
+			"Name": "GITHUB_ALERT_META",
 			"Type": 8,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
@@ -359,8 +379,13 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "GITHUB_ALERT_META",
+			"Name": "ALERT_META",
 			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "82bbe2b8-c232-44dc-a1da-e84f1d4142d3",
+			"Type": 3,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -374,13 +399,18 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "82bbe2b8-c232-44dc-a1da-e84f1d4142d3",
+			"Name": "6bb43cae-037e-4477-b727-fb401ee8d246",
 			"Type": 3,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "6bb43cae-037e-4477-b727-fb401ee8d246",
-			"Type": 3,
+			"Name": "1017d2ee-f6d4-4346-b8a2-4a7eb24f4a4b",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "db9a7760-a92f-4b39-a864-f2a0ff57da1a",
+			"Type": 6,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -394,22 +424,12 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "1017d2ee-f6d4-4346-b8a2-4a7eb24f4a4b",
-			"Type": 6,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
 			"Name": "64686975-b757-428a-9921-9965bcc01195",
 			"Type": 6,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "e2a3d3ca-df4f-4ce9-8deb-fbbae70e78b0",
-			"Type": 6,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "db9a7760-a92f-4b39-a864-f2a0ff57da1a",
 			"Type": 6,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
@@ -605,6 +625,11 @@
 		},
 		{
 			"Name": "3a2e7c6c-4214-4969-87ba-684322bb7931",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cef41f7a-0189-4b46-9ad2-7fec2023b74f",
 			"Type": 9,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
@@ -964,17 +989,17 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "2a084984-c77b-463d-8978-eb8442ef99b9",
+			"Name": "47dfe3bf-3346-4821-8e34-459080fc0c98",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "16ea55ca-d243-47d0-8fbe-ccb35567762a",
+			"Name": "13ad3c57-1936-47cc-b670-7968aa7a6074",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "c86acae0-715f-431c-bec4-227eecd107aa",
+			"Name": "0652d5a9-1acc-44ae-9d30-482f050701c7",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		}
@@ -982,8 +1007,8 @@
 	"Dependencies": null,
 	"ConfigMacros": [
 		{
-			"MacroName": "GITHUB",
-			"Description": "Necessary for any queries within the Gravwell GitHub Kit to run properly",
+			"MacroName":"GITHUB",
+			"Description": "Tag used for Github data; necessary for any queries within the Gravwell GitHub Kit to run properly",
 			"DefaultValue": "github-audit",
 			"Value": "",
 			"Type": "STRING",
