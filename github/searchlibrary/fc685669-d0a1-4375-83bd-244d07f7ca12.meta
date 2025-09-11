@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Code Scan - New Alerts [table]",
+	"Description": "Shows a table when an alert appears in branch, or created for the first time.\n\ncode_scanning.alert_appeared_in_branch = Existing code scanning alerts appeared in a branch.\ncode_scanning.alert_created = Code scanning alerts were seen for the first time.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#code_scanning\n\nhttps://docs.github.com/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning",
+	"GUID": "fc685669-d0a1-4375-83bd-244d07f7ca12",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

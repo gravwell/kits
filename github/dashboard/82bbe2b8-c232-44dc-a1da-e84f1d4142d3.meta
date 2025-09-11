@@ -1,0 +1,74 @@
+{
+	"UUID": "82bbe2b8-c232-44dc-a1da-e84f1d4142d3",
+	"Name": "GitHub User Investigation",
+	"Description": "This Dashboard is intended to be used for user investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - GitHub - User - Investigation",
+				"color": null,
+				"reference": {
+					"id": "1017d2ee-f6d4-4346-b8a2-4a7eb24f4a4b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User - Investigation (Wildcard)",
+				"color": null,
+				"reference": {
+					"id": "64686975-b757-428a-9921-9965bcc01195",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17551827601310,
+				"title": "User Investigation",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17551828020081,
+				"title": "User Investigation (Wildcard)",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 5
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"github"
+	]
+}

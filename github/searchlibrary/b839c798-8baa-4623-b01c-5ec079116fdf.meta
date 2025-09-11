@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Business - High - Secret Scanning Disabled for Enterprise",
+	"Description": "Detects when secret scanning has been disabled for your enterprise.\n\nbusiness_secret_scanning.disable = Secret scanning was disabled for your enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_advanced_security\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise\n\nhttps://docs.github.com/code-security/secret-scanning/about-secret-scanning",
+	"GUID": "b839c798-8baa-4623-b01c-5ec079116fdf",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

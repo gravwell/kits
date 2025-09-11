@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - GitHub - Org - Low - New Secret Created",
+	"Description": "Detects when a new secret has been created for an organization.\n\norg.create_actions_secret = A GitHub Actions secret was created for an organization.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#org\n\nhttps://docs.github.com/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "27 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0b4bc62f-1ba8-437e-b1df-a1701fa4384f",
+	"SearchReference": "e7e6e5f7-1c3c-4f20-a384-a0791d83e928"
+}

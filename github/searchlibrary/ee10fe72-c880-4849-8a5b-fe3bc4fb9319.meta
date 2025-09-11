@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Repo - Low - Private Forking Disabled",
+	"Description": "Detects when a private repo is disabled.\n\nprivate_repository_forking.disable = An enterprise owner disabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are never allowed to be forked.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#private_repository_forking",
+	"GUID": "ee10fe72-c880-4849-8a5b-fe3bc4fb9319",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

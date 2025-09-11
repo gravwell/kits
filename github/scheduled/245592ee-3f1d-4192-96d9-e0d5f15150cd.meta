@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - GitHub - Org - Medium - Push Protection for Secret Scanning Disabled for New Repos",
+	"Description": "Detects when push protection for secret scanning was disabled for new repos in your org.\n\norg.secret_scanning_push_protection_new_repos_disable = Push protection for secret scanning was disabled for all new repositories in the organization.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/code-security/secret-scanning/push-protection-for-repositories-and-organizations",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "245592ee-3f1d-4192-96d9-e0d5f15150cd",
+	"SearchReference": "bdb9d8fc-d8e0-4822-9283-fc06b0827292"
+}

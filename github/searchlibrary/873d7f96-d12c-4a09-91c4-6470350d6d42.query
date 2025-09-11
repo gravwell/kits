@@ -1,0 +1,6 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "dependabot_security_updates.disable"
+    )
+| printf -e context "at %v, %v was %v by %v for %v org" @timestamp action operation_type actor org
+| $GITHUB_ALERT_META("High", "Dependabot Security Updates Disabled for All Existing Repos")

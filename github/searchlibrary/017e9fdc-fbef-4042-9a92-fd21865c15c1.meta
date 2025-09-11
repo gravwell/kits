@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Repo - High - Dependabot Vulnerability Alerts Disabled",
+	"Description": "Detects when Dependabot vulnerability alerts have been disabled for a repo.\n\nrepository_vulnerability_alerts.disable = Dependabot alerts was disabled.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alerts",
+	"GUID": "017e9fdc-fbef-4042-9a92-fd21865c15c1",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

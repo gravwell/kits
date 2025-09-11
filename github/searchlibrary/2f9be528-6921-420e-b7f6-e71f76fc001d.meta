@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Org - Low - Runner Group Renamed",
+	"Description": "Detects when a self-hosted runner group is renamed.\n\norg.runner_group_created = A self-hosted runner group was created.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization",
+	"GUID": "2f9be528-6921-420e-b7f6-e71f76fc001d",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

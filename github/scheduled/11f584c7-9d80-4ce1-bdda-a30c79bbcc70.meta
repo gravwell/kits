@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - GitHub - Org - Medium - Member Added After 7 Day Invitation Expiry",
+	"Description": "Detects any users added to GitHub Organization after Invitation Expired (7 Days).\n\norg.invite_member = A new user was invited to join an organization.\norg.add_member = A user joined an organization.\n\nReference(s):\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "11f584c7-9d80-4ce1-bdda-a30c79bbcc70",
+	"SearchReference": "97cdd070-7273-4c73-9fea-41f4f5a514eb"
+}

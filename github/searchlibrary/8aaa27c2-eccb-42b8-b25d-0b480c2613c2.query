@@ -1,0 +1,6 @@
+tag=$GITHUB_AUDIT json action repo 
+| eval in(action, 
+    "secret_scanning_alert.create"
+) 
+| stats count 
+| numbercard count

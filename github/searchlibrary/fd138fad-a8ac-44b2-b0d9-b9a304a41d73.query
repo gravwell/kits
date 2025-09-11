@@ -1,0 +1,3 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type repo visibility~"public" previous_visibility~"private"
+| printf -e context "at %v, %v was %v to change from %v to %v by %v for %v" @timestamp action operation_type previous_visibility visibility actor repo
+| $GITHUB_ALERT_META("High", "Repo changed from Private to Public")

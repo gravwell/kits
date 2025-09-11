@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - GitHub - Business - High - GitHub Advanced Security Disabled for New User Namespace Repos in Enterprise",
+	"Description": "Namespace Repos in Enterprise\nDetects when a high risk configuration has been changed to the Enterprise in GitHub Advanced Security (GHAS).\n\nbusiness_advanced_security.disabled_for_new_user_namespace_repos = GitHub Advanced Security was disabled for new user namespace repositories in your enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_advanced_security\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "3 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "eb1de8ac-87c4-4deb-b206-bce46b59d025",
+	"SearchReference": "fb9d2ec7-eaeb-4102-bb53-8bfd0a01d4fa"
+}

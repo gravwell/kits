@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - GitHub - Migration - Medium - Data Transfer Created",
+	"Description": "Detects when a migration has been initiated.\n\nmigration.create = A migration file was created for transferring data from a source location (such as a GitHub.com organization or a GitHub Enterprise Server instance) to a target GitHub Enterprise Server instance.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#migration",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4180fc34-7db6-4e99-a6b4-97ed7530c9a9",
+	"SearchReference": "fcf59035-7496-4516-844a-2e618343373f"
+}

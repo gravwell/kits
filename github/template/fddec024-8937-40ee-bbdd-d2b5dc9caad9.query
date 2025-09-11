@@ -1,0 +1,8 @@
+tag=$GITHUB json TIMESTAMP SRC actor action repo org business operation_type 
+| time -oformat "2006-01-02" TIMESTAMP date 
+| alias SRC src_ip
+| ip -categorize src_ip
+| eval (action != "api.request" )
+| grep -e actor "%%1%%"
+| sort desc
+| table -nt TIMESTAMP actor repo action operation_type src_ip src_ip_category

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - GitHub - Org - Medium - SSH Certificate Requirement Disabled",
+	"Description": "Detects when the SSH certificate requirement for an org has been disabled.\n\nssh_certificate_requirement.disable = The requirement for members to use SSH certificates to access an organization resources was disabled..\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#ssh_certificate_requirement\n\nhttps://docs.github.com/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities\n\nhttps://docs.github.com/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "59bd69be-fb34-4372-ae35-f517bf00e98d",
+	"SearchReference": "7f08172a-d13d-4444-8b0c-82035e7a3de6"
+}

@@ -1,0 +1,20 @@
+{
+	"UUID": "c48b0e19-a2f5-4e3a-af29-41e0bbf1339a",
+	"Name": "Template - GitHub - Actor - Investigation (Wildcard)",
+	"Description": "This is intended to be utilized if you're investigating an actor investigation for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%2%%",
+				"label": "actor",
+				"description": "Who are you searching? Not sure? Wildcard it with *",
+				"required": true,
+				"defaultValue": "*change_me*",
+				"previewValue": "*change_me*"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

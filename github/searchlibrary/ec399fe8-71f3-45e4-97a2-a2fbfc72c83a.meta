@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Merged by Repo [table]",
+	"Description": "Finds merged pull requests by repo\n\npull_request.merge = A pull request was merged.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request",
+	"GUID": "ec399fe8-71f3-45e4-97a2-a2fbfc72c83a",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
