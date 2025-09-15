@@ -13,52 +13,52 @@
 		"searches": [
 			{
 				"alias": "Merged",
-				"query": "tag=github-audit json action==\"pull_request.merge\"\n| stats count\n| gauge count",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.merge\"\n| stats count\n| gauge count",
 				"color": null
 			},
 			{
 				"alias": "Open",
-				"query": "tag=github-audit json action==\"pull_request.create\"\n| stats count\n| gauge count",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.create\"\n| stats count\n| gauge count",
 				"color": null
 			},
 			{
 				"alias": "Closed",
-				"query": "tag=github-audit json action==\"pull_request.close\"\n| stats count\n| gauge count",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.close\"\n| stats count\n| gauge count",
 				"color": null
 			},
 			{
 				"alias": "Reopened",
-				"query": "tag=github-audit json action==\"pull_request.reopen\"\n| stats count\n| gauge count",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.reopen\"\n| stats count\n| gauge count",
 				"color": null
 			},
 			{
 				"alias": "Review Requests",
-				"query": "tag=github-audit json action==\"pull_request.create_review_request\"\n| stats count\n| gauge count",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.create_review_request\"\n| stats count\n| gauge count",
 				"color": null
 			},
 			{
 				"alias": "Ready for Review",
-				"query": "tag=github-audit json action==\"pull_request.ready_for_review\"\n| stats count\n| gauge count",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.ready_for_review\"\n| stats count\n| gauge count",
 				"color": null
 			},
 			{
 				"alias": "Created by Repo",
-				"query": "tag=github-audit json action==\"pull_request.create\" repo\n| stats count by repo\n| table repo count",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.create\" repo\n| stats count by repo\n| table repo count",
 				"color": null
 			},
 			{
 				"alias": "Created by Repo",
-				"query": "tag=github-audit json action==\"pull_request.create\" repo\n| stats count by repo\n| chart count by repo",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.create\" repo\n| stats count by repo\n| chart count by repo",
 				"color": null
 			},
 			{
 				"alias": "Created by Actor, Repo",
-				"query": "tag=github-audit json action==\"pull_request.create\" actor repo\n| stats count by actor repo\n| table repo actor count",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.create\" actor repo\n| stats count by actor repo\n| table repo actor count",
 				"color": null
 			},
 			{
 				"alias": "Created by Actor, Repo",
-				"query": "tag=github-audit json action==\"pull_request.create\" actor repo \n| stats count by actor repo \n| chart count by actor repo",
+				"query": "tag=$GITHUB_AUDIT json action==\"pull_request.create\" actor repo \n| stats count by actor repo \n| chart count by actor repo",
 				"color": null
 			}
 		],

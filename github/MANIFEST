@@ -1051,14 +1051,6 @@
 			"Value": "",
 			"Type": "STRING",
 			"InstalledByID": ""
-		},
-		{
-			"MacroName": "GITHUB_ALERT_META",
-			"Description": "Configuration Macro used for alerting; necessary for alerts, and scheduled searches to work properly.",
-			"DefaultValue": "eval _alert_priority = \"%%1%%\"\n| eval _alert_name = \"%%2%%\"\n| enrich _alert_class github\n| eval if (match(repo,\".\")) {host = repo;} else {host = \"github\";}\n       _alert_header = \"| Context |\";\n       _alert_divider = \"|-----|\";\n       _alert_data = printf(\"|%v|\", context);\n| eval _alert_title = printf(\"%v Alert: %v on %v\",_alert_priority, _alert_name, host)\n| table _alert_title context",
-			"Value": "",
-			"Type": "STRING",
-			"InstalledByID": ""
 		}
 	]
-} 
+}

@@ -13,62 +13,62 @@
 		"searches": [
 			{
 				"alias": "Vulnerabilities Created",
-				"query": "tag=github-audit json action~\"repository_vulnerability_alert.create\" repo \n| stats count \n| numbercard count",
+				"query": "tag=$GITHUB_AUDIT json action~\"repository_vulnerability_alert.create\" repo \n| stats count \n| numbercard count",
 				"color": null
 			},
 			{
 				"alias": "Code Scanning Alerts",
-				"query": "tag=github-audit json action repo \n| eval in(action, \"code_scanning.alert_created\", \"code_scanning.alert_appeared_in_branch\") \n| stats count \n| numbercard count",
+				"query": "tag=$GITHUB_AUDIT json action repo \n| eval in(action, \"code_scanning.alert_created\", \"code_scanning.alert_appeared_in_branch\") \n| stats count \n| numbercard count",
 				"color": null
 			},
 			{
 				"alias": "Public Key Created",
-				"query": "tag=github-audit json action repo | eval in(action, \"public_key.create\") \n| stats count \n| numbercard count",
+				"query": "tag=$GITHUB_AUDIT json action repo | eval in(action, \"public_key.create\") \n| stats count \n| numbercard count",
 				"color": null
 			},
 			{
 				"alias": "Pull Requests Created",
-				"query": "tag=github-audit json action repo \n| eval in(action, \"pull_request.create\") \n| stats count \n| numbercard count",
+				"query": "tag=$GITHUB_AUDIT json action repo \n| eval in(action, \"pull_request.create\") \n| stats count \n| numbercard count",
 				"color": null
 			},
 			{
 				"alias": "Secret Scanning Alerts",
-				"query": "tag=github-audit json action repo | eval in(action, \"secret_scanning_alert.create\") \n| stats count \n| numbercard count",
+				"query": "tag=$GITHUB_AUDIT json action repo | eval in(action, \"secret_scanning_alert.create\") \n| stats count \n| numbercard count",
 				"color": null
 			},
 			{
 				"alias": "New Org Members",
-				"query": "tag=github-audit json action repo \n| eval in(action, \"org.add_member\") \n| stats count \n| numbercard count",
+				"query": "tag=$GITHUB_AUDIT json action repo \n| eval in(action, \"org.add_member\") \n| stats count \n| numbercard count",
 				"color": null
 			},
 			{
 				"alias": "Pull Requests by Repo",
-				"query": "tag=github-audit json action~\"pull_request.create\" repo \n| stats count by repo\n| chart count by repo",
+				"query": "tag=$GITHUB_AUDIT json action~\"pull_request.create\" repo \n| stats count by repo\n| chart count by repo",
 				"color": null
 			},
 			{
 				"alias": "Pull Requests by Actor",
-				"query": "tag=github-audit json action~\"pull_request.create\" actor\n| stats count by actor\n| chart count by actor",
+				"query": "tag=$GITHUB_AUDIT json action~\"pull_request.create\" actor\n| stats count by actor\n| chart count by actor",
 				"color": null
 			},
 			{
 				"alias": "Code Scanning Events",
-				"query": "tag=github-audit json action~\"code_scanning.\" repo actor ref \n| stats count by repo action actor ref \n| table",
+				"query": "tag=$GITHUB_AUDIT json action~\"code_scanning.\" repo actor ref \n| stats count by repo action actor ref \n| table",
 				"color": null
 			},
 			{
 				"alias": "Secret Scanning Alerts",
-				"query": "tag=github-audit json action~\"secret_scanning_alert\" actor repo \n| stats count by repo \n| table",
+				"query": "tag=$GITHUB_AUDIT json action~\"secret_scanning_alert\" actor repo \n| stats count by repo \n| table",
 				"color": null
 			},
 			{
 				"alias": "Repo Members Added",
-				"query": "tag=github-audit json action~\"repo.add_member\" repo actor user \n| table",
+				"query": "tag=$GITHUB_AUDIT json action~\"repo.add_member\" repo actor user \n| table",
 				"color": null
 			},
 			{
 				"alias": "Personal Access Token Granted or Requested",
-				"query": "tag=github-audit json @timestamp actor action operation_type user repository_selection\n| eval in(action,\n    \"personal_access_token\"\n    )\n| table",
+				"query": "tag=$GITHUB_AUDIT json @timestamp actor action operation_type user repository_selection\n| eval in(action,\n    \"personal_access_token\"\n    )\n| table",
 				"color": null
 			}
 		],
