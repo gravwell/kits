@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Flock Management - Low - Auto Commissioning Enabled",
+	"Description": "Detects when auto-commissioning has been enabled.\n\nEnable Flock Auto Commission = Enable the Auto Commission feature on a given Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#enable-flock-auto-commission",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "3fd693e3-c44f-4d07-bdb2-68472df1b306",
+	"SearchReference": "11ddbe6f-30a3-40fb-9ab3-fd8e75398bcd"
+}

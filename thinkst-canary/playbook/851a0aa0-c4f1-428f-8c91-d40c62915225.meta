@@ -1,0 +1,25 @@
+{
+	"UUID": "5cc61669-31a6-45d7-803e-6551318674f8",
+	"GUID": "851a0aa0-c4f1-428f-8c91-d40c62915225",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Low - Auto Commissioning Token Removed",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.360823047Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

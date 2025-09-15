@@ -1,0 +1,12 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "iana_ports",
+	"Description": "This resource is intended to be used for additional information about Ports, Protocols, etc. \n\nFormat: Name,Number,Protocol,Description,Assignee,Contact,Registration Date,Modification Date,Reference,Service Code,Unauthorized Use Reported,Assignment Notes\n\nUsage: lookup -r iana_ports \u003cEV_to_match\u003e \u003cCSV_field_to_match\u003e (Name as port_name Description as port_desc Protocol as port_protocol)\n\nReference(s):\nhttps://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Size": 1151351,
+	"Hash": "A0j6KMlN3Q4NYMaT/ZlSlw==",
+	"Data": ""
+}

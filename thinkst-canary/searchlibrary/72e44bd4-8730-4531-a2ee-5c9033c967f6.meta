@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - Flock Management - Low - Email(s) Added to Device Notifications List",
+	"Description": "Detects when email addresses have been added to the device notifications list.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+	"GUID": "72e44bd4-8730-4531-a2ee-5c9033c967f6",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

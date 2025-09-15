@@ -1,0 +1,12 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip message flock_id flock_name
+| eval in(action_type,
+    "user_delete"
+    )
+| eval actor=user
+| regex -e message "User \'(?<user>.*?)?\'"
+| regex -e message "(?<operation>deleted)"
+| ip user_ip
+| geoip user_ip.Location user_ip.City user_ip.Country user_ip.CountryName
+| eval (Country!="US"||CountryName!="United States")
+| printf -e context "at %v, %v was %v via %v action by %v from %v in %v, %v (%v)" timestamp user operation action_type actor user_ip City Country CountryName
+| $CANARY_ALERT_META("Canary"," User Management", "High", "Console User Deleted from Outside Country")

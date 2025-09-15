@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Canarytokens - Subcategory [chart]",
+	"Description": "Displays a chart of Triggered Canarytokens by Subcategory\n\nGET /api/v1/incidents/all = Returns all incidents.\n\nReference(s):\nhttps://docs.canary.tools/incidents/queries.html#all-incidents",
+	"GUID": "feee9a1c-37a3-416d-8a98-addb16fad38f",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

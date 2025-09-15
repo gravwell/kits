@@ -1,0 +1,25 @@
+{
+	"UUID": "6ac3aa0f-2b40-47bc-8f64-84296e637295",
+	"GUID": "9167c997-c3d3-4909-9b48-918990407d14",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Medium - API Key Deleted",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.362208172Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

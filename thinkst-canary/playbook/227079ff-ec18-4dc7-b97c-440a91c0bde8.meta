@@ -1,0 +1,25 @@
+{
+	"UUID": "6f929203-accc-4e3a-b323-266da823c910",
+	"GUID": "227079ff-ec18-4dc7-b97c-440a91c0bde8",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Low - Ignorelist IP/Port Removed",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.362437088Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

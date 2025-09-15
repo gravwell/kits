@@ -1,0 +1,400 @@
+{
+	"UUID": "63e6a9d0-088f-47cc-af61-a092f770492b",
+	"Name": "Canary Incident Overview",
+	"Description": "This Dashboard is a general overview of your Thinkst Canary Incident data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Canary - Incidents - All [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "a0cad0dd-15b6-4822-b382-772307ec1e45",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Acknowledged [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "ec6bbbbf-ec5b-4295-8ec6-2ab14caaf295",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Unacknowledged [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "38bac104-ee44-4446-90c5-5844ed484962",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - All [chart]",
+				"color": null,
+				"reference": {
+					"id": "02396591-fc71-454a-bb75-f7f41ac08ffb",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Unacknowledged [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "4b29f3e0-c74c-44d1-8671-80eaa676fbce",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Logtypes by Flock Name [pie]",
+				"color": null,
+				"reference": {
+					"id": "70cbb2e2-62b9-474d-bfcc-4d6df4e1d7ac",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Category by Flock Name [pie]",
+				"color": null,
+				"reference": {
+					"id": "0fcfb30d-0bb1-4c36-995a-a4da3222467d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Subcategory by Flock Name [pie]",
+				"color": null,
+				"reference": {
+					"id": "fa1f838d-fd57-4fab-8d18-e42d60b65087",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Total Events by Flock Name [pie]",
+				"color": null,
+				"reference": {
+					"id": "e67cf30f-90b5-4b13-ab6b-c08ab5194124",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Total Events by Category [pie]",
+				"color": null,
+				"reference": {
+					"id": "dcb0f392-724f-41d9-a47c-09b859e7351a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Total Events by Category Subcategory [pie]",
+				"color": null,
+				"reference": {
+					"id": "c573306a-b898-4f9c-a1d7-ad6a50e6603d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Total Events by Subcategory [pie]",
+				"color": null,
+				"reference": {
+					"id": "61e791c1-47ac-4c34-a55a-3d2c1d659982",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Category Subcategory by Flock Name [pie]",
+				"color": null,
+				"reference": {
+					"id": "ebe5f89d-8ff4-4434-bf49-3c3dbb40602f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - Response by Username [pie]",
+				"color": null,
+				"reference": {
+					"id": "6425664a-a800-44a5-a6d6-150d6bdeeb30",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Incidents - All [table]",
+				"color": null,
+				"reference": {
+					"id": "62772aa8-79a9-497f-b011-c817431a00eb",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17561395942890,
+				"title": "All Incidents",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17561396224801,
+				"title": "Acknowledged",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17561396434982,
+				"title": "Not Acknowledged",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17561415786243,
+				"title": "Incident Chart",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17563874831175,
+				"title": "Unacknowledged ",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17564014952386,
+				"title": "Logtype by Flock",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17564015574087,
+				"title": "Category by Flock",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 4,
+					"y": 4
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17564016001518,
+				"title": "Subcategory by Flock",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 4
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17564027693568,
+				"title": "Total Incident Events by Flock",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17564028357269,
+				"title": "Total Incident Events by Category",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 4,
+					"y": 10
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175640289270310,
+				"title": "Total Incident Events by Category, Subcategory",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 12,
+					"y": 10
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175640320214311,
+				"title": "Total Incident Events by Subcategory",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 8,
+					"y": 10
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175640813494812,
+				"title": "Category Subcategory by Flock",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 12,
+					"y": 4
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175648284610613,
+				"title": "Action by Username",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 12,
+					"y": 0
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175648298239914,
+				"title": "All Incidents",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 16,
+					"row": 11,
+					"x": 0,
+					"y": 17
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

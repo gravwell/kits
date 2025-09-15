@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Audit - Flocks - Count by Flock Name [pie]",
+	"Description": "Displays a chart of all events by flock name.\n\nReference(s):",
+	"GUID": "3ce456a0-56d8-4b9f-ae3a-bc32af615a45",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

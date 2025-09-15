@@ -1,0 +1,3 @@
+tag=$CANARY_AUDIT json flock_name action_type
+| eval flock_name!="null"
+| fdg -b -sg flock_name flock_name action_type

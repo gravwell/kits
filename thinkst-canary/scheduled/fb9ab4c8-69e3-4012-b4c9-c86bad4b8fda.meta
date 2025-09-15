@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Flock Management - Low - Settings Change Notifications Modified",
+	"Description": "Detects when flock settings change notifications have been modified (Enabled|Disabled) from Global|On|Off setting.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "fb9ab4c8-69e3-4012-b4c9-c86bad4b8fda",
+	"SearchReference": "9aa9fefb-cd2e-4448-b7a0-e214547323fa"
+}

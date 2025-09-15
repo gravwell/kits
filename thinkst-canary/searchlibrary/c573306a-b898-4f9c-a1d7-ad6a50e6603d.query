@@ -1,0 +1,12 @@
+tag=$CANARY_INCIDENT 
+    json 
+    summary 
+    description.flock_id 
+    description.flock_name
+    description.logtype as logtype
+    description.events_count
+| unique
+| lookup -r canary_logtypes logtype logtype (description as log_desc category as log_cat subcategory as log_subcat)
+| stats sum(events_count) by log_cat log_subcat
+| stats total(sum) by log_cat log_subcat
+| chart total by log_cat log_subcat

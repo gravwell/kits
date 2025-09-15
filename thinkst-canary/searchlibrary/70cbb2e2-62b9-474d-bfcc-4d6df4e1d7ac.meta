@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Logtype by Flock Name [pie]",
+	"Description": "All Incident Objects by Flock Name\n\nView canary_logtypes or reference(s) for additional information. \n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html#incident-objects",
+	"GUID": "70cbb2e2-62b9-474d-bfcc-4d6df4e1d7ac",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

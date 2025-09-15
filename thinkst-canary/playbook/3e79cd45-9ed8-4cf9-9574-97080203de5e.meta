@@ -1,0 +1,25 @@
+{
+	"UUID": "1eef0432-3f7d-446a-8be3-d1342fa4da75",
+	"GUID": "3e79cd45-9ed8-4cf9-9574-97080203de5e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Medium - Flock Modified from Outside Country",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.356588672Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

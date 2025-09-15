@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Summary by Flock Name [table]",
+	"Description": "Incident Summary by Flock Name\n\nGET /api/v1/incidents/acknowledged = Returns all acknowledged incidents.\nGET /api/v1/incidents/all = Returns all incidents.\nGET /api/v1/incidents/history/source = Returns a list of incident history for a source IP. If the `flock_id` is specified the history will be confined to the flock.\nGET /api/v1/incidents/search = Search for incidents by logtype or string. This works with pagination.\nGET /api/v1/incidents/unacknowledged = Returns all unacknowledged incidents.\n\nReference(s):\nhttps://docs.canary.tools/incidents/queries.html#queries",
+	"GUID": "0a8a8e36-04e8-4e3e-ac91-ab06b1f7c490",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

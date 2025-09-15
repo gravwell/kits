@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - User Management - Low - User Note Altered",
+	"Description": "Detects when a user note is altered.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user-note\n\nhttps://docs.canary.tools/users/management.html#remove-user-note",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "73c4be8c-baa6-45b5-afeb-dd833fb13b2a",
+	"SearchReference": "fee942f0-2019-4895-830b-9e162056623a"
+}

@@ -1,0 +1,25 @@
+{
+	"UUID": "fe2c4427-1ac8-42ef-bb7d-8c19ff42184e",
+	"GUID": "ff6f5983-c041-416d-89ca-f87eb9addbcc",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - User Management - High - Successful Login After Failure",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.36930213Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

@@ -1,0 +1,3 @@
+tag=$CANARY_AUDIT json action_type
+| stats unique_count by action_type
+| chart unique_count by action_type

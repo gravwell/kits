@@ -1,0 +1,18 @@
+{
+	"Name": "Search - Canary - User Management - High - Successful Login From Outside Country [heatmap]",
+	"Description": "Detects when a user attempts to login in from outside Country.\nDefault = US / United States\n\nuser_login = Displays when a user successfully logged onto the console.\n\n*Network Enrichment Kit is required*\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+	"GUID": "89c12889-43bc-4889-94dc-b2a29bb7ea41",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		}
+	}
+}

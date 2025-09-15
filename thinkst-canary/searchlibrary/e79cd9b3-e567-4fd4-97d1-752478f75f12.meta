@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Audit - Users - Count by User Logins [table]",
+	"Description": "Displays a table of user login events by count.\n\nReference(s):",
+	"GUID": "e79cd9b3-e567-4fd4-97d1-752478f75f12",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

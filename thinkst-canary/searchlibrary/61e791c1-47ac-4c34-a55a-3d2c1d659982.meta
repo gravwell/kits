@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Total Events by Subcategory [donut]",
+	"Description": "Total Event Count by subcategory\n\nView canary_logtypes resource or reference(s) for additional information. \n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html#incident-objects",
+	"GUID": "61e791c1-47ac-4c34-a55a-3d2c1d659982",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

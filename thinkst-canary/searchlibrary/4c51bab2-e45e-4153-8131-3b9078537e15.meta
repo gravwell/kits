@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Flock Management - Medium - Flock Modified from Outside Country [heatmap]",
+	"Description": "Detects when a flock has been modified from outside Country.\nDefault = US / United States\n\nflock_create = A Flock allows you to group Sensors and users. It allows you to configure settings that are specific only to the Flock, including notification channels and recipients.\n\nFlocks are defined by a unique flock_id which is returned in the response when calling this endpoint.\n\nflock_delete = Deleting a Flock will remove it from your Console. You can only delete an empty Flock, meaning you'll need to move (or remove) any Sensors from the Flock before deleting it.\n\nWARNING: You cannot delete the Default Flock, but you can Rename it if you want to.\n\nflock_move = Move a specified Sensor to a Flock. You'll need to delete all incidents before moving a Sensor between Flocks (this ensures that sensitive data isn't spilled across Flocks). If there are still incidents tied to the Sensor, you can specify clear_incidents=true to clear all of those incidents.\n\nflock_rename = Rename an existing Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html#assign-flock-managers",
+	"GUID": "4c51bab2-e45e-4153-8131-3b9078537e15",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

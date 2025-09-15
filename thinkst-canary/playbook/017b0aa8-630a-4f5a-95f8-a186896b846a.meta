@@ -1,0 +1,25 @@
+{
+	"UUID": "fd208ac7-3ff8-47cb-9b0d-963b5ccb4e83",
+	"GUID": "017b0aa8-630a-4f5a-95f8-a186896b846a",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Medium - Multiple Flock Actions",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.369051797Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

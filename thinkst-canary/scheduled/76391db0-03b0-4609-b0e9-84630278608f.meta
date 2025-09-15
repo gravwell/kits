@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Flock Management - Low - Device Settings Notifications Modified",
+	"Description": "Detects when device settings notifications have been modified.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "76391db0-03b0-4609-b0e9-84630278608f",
+	"SearchReference": "4e3abf82-cc39-4188-9ae5-2ac783127195"
+}

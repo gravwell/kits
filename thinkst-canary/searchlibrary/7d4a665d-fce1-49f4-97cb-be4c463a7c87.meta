@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Flock Management - Category [chart]",
+	"Description": "Displays a chart of Incidents by Flock Name, Category\n\nGET /api/v1/incidents/all = Returns all incidents.\n\nReference(s):\nhttps://docs.canary.tools/incidents/queries.html#all-incidents",
+	"GUID": "7d4a665d-fce1-49f4-97cb-be4c463a7c87",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - Flock Management - Low - Multiple Operational Email Notifications List Actions",
+	"Description": "Detects when email addresses have been added and removed from operational email list.\n\nList Operational Notification Emails = Retrieve the list of operational notification emails for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-operational-notification-emails",
+	"GUID": "4a599080-3af6-4741-af38-2b0718ff9f83",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

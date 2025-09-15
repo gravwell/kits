@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - User Management - High - Successful Login After Failure",
+	"Description": "Detects when a user successfully logins in after failing.\n\nuser_login_failed = Displays when a user failed to login.\nuser_login = Displays when a user successfully logged onto the console.\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+	"GUID": "348f042d-62cf-49f7-bf8c-1cb7088ab6e3",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

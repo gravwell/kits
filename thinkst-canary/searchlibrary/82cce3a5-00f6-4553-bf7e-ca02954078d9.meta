@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - User Management - High - Console User Added from Outside Country",
+	"Description": "Detects when a console user is added from an outside country.\nDefault = US / United States (If not within United States, change necessary)\n\nAdd User = Add a new user to your Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user",
+	"GUID": "82cce3a5-00f6-4553-bf7e-ca02954078d9",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

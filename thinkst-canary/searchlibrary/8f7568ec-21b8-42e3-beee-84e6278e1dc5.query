@@ -1,0 +1,10 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "api_flock_token_add"
+    )
+| regex -e message "(?<api_action>\w+?)?\s"
+| regex -e message "\w+\s(?<api_key_type>.*)?\sFlock\sAPI\s\w+"
+| regex -e message "b\'(?<api_key>.*?)?\'\)"
+| regex -e message "flock\:(?<flockID>.*)"
+| printf -e context "at %v, %v (%v) %v %v API Key via %v action of \"%v\" to %v Flock" timestamp user user_ip api_action api_key_type action_type api_key flockID
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "API Key Added")

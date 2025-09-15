@@ -1,0 +1,25 @@
+{
+	"UUID": "84f9ff5b-6ec4-46b9-9472-661fa0795cd5",
+	"GUID": "8f7b0a67-7a68-42a2-9df1-59d5335cb662",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - User Management - Medium - User 2FA Disabled",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.363143797Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

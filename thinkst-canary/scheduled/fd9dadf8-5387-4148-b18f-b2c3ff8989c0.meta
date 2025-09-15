@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Flock Management - Low - API Key Added",
+	"Description": "Detects when a flock api key has been added.\n\napi_flock_token_add = Create a new Flock specific API key.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html\n\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html#add-flock-api-keys",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "fd9dadf8-5387-4148-b18f-b2c3ff8989c0",
+	"SearchReference": "8f7568ec-21b8-42e3-beee-84e6278e1dc5"
+}

@@ -1,0 +1,11 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip message~"Access" flock_id flock_name
+| eval in(action_type,
+    "user_alter"
+    )
+| eval actor=user
+| regex -e message "User \'(?<user>.*?)?\'"
+| regex -e message "(?<msg>User.*?)?\. Access"
+| regex -e message "Access level set to \'(?<access_level>.*?)?\'"
+| regex -e message "edited\. (?<access_msg>.*)"
+| printf -e context "at %v, %v changed %v access level to \"%v\" in %v flock" timestamp actor user access_level flock_id
+| $CANARY_ALERT_META("Canary"," User Management", "High", "Console User Access Altered")

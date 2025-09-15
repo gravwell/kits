@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - User Management - Low - User 2FA Enabled",
+	"Description": "Detects when a user enabled 2FA.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#enable-user",
+	"GUID": "57128c0c-fc6d-4656-ade1-eea0bc5fb474",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

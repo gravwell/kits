@@ -1,0 +1,3 @@
+tag=$CANARY_AUDIT json timestamp action_type=="user_2fa_enable" user user_ip
+| printf -e context "at %v, %v perfomed by %v from %v" timestamp action_type user user_ip
+| table context

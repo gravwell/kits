@@ -1,0 +1,12 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "flock_alter_config"
+    )
+| eval message~"IP"
+| regex -e message "(?<operation>(Disabled))"
+| lower operation
+| regex -e message "(Disabled)\s(?<event_type>.*?)?\son"
+| stats unique_count by message
+| sort by timestamp desc
+| printf -e context "at %v, %v (%v) %v %v via %v action to %v Flock" timestamp user user_ip operation event_type action_type flock_name
+| $CANARY_ALERT_META("Canary"," Flock Management", "Medium", "IP Whitelist Disabled")

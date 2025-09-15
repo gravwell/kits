@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - Flock Management - Low - Multiple Device Notifications List Actions",
+	"Description": "Detects when email addresses have been added and removed from device notifications list.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+	"GUID": "8dfc4c20-48f7-438a-a43c-79500e2c749c",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

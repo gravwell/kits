@@ -1,0 +1,5 @@
+tag=$CANARY_AUDIT json action_type=="user_login" flock_id flock_name message timestamp user user_ip
+| ip user_ip as src_ip
+| geoip src_ip.Location src_ip.Country src_ip.CountryName src_ip.City
+| printf -e context "at %v, %v to %v:%v from %v (%v) located in %v,%v (%v)" timestamp message flock_id flock_name user_ip Location City Country CountryName
+| table context

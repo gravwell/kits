@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - User Management - User 2FA Enable [heatmap]",
+	"Description": "Displays a user 2FA enablement heatmap with timestamp, action type, user, and user source ip\n\nReference(s):\n",
+	"GUID": "047ea9ea-a62e-4d55-8b46-0392a7b28e63",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

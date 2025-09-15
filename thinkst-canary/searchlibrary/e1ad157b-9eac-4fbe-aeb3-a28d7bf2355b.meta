@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Canarytokens - Incident [table]",
+	"Description": "Displays a table of triggered canarytoken incidents.\n\nReference(s):",
+	"GUID": "e1ad157b-9eac-4fbe-aeb3-a28d7bf2355b",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

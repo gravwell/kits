@@ -1,0 +1,16 @@
+{
+	"Name": "expand_dns_events",
+	"Description": "this expands dns events in thinkst canary incidents",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "* * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "script",
+	"GUID": "f37acabe-5087-44ed-b87e-be631341e778",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

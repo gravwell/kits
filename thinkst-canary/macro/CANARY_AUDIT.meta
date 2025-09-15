@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_AUDIT",
+	"Description": "Configuration Macro; Tag used for Thinkst Canary Audit data; necessary for any queries within the Gravwell Thinkst Canary Kit to run properly",
+	"Labels": [
+		"canary",
+		"thinkst"
+	]
+}
