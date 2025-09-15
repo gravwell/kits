@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Flock Management - Low - Flock Renamed",
+	"Description": "Detects when a flock has been renamed.\n\nflock_rename = Rename an existing Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#rename-flock",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "8b005658-9273-4ec1-9b5c-f5c464ea0d75",
+	"SearchReference": "c6de659d-890a-4fa6-b9a7-6f60b8739c21"
+}

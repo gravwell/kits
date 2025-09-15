@@ -1,0 +1,14 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "flock_alter_config"
+    )
+| eval message ~"SMS"
+| regex -e message "(?<operation>\w+)"
+| lower operation
+| regex -e message "numbers\:\s(?<sms_list>.*?)?\;"
+| regex -e message "(added)\:\s(?<sms_added>.*)"
+| regex -e message "(?<event_type>notification SMS numbers.*?)?\:"
+| stats unique_count by timestamp
+| sort by timestamp desc
+| printf -e context "at %v, %v (%v) %v %v by adding %v to SMS List: \"%v\"" timestamp user user_ip operation event_type sms_added sms_list
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Number(s) Added to SMS Notifications List")

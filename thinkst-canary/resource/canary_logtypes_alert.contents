@@ -1,0 +1,94 @@
+vendor,product,logtype,description,category,subcategory
+Thinkst,Canary,1004,Canary Disconnected,Canary,Disconnected
+Thinkst,Canary,2000,FTP Login Attempt,Login Attempt,FTP
+Thinkst,Canary,3000,HTTP GET (Page Load),HTTP,GET
+Thinkst,Canary,3001,HTTP Login Attempt,HTTP,Login Attempt
+Thinkst,Canary,3002,HTTP POST,HTTP,POST
+Thinkst,Canary,3003,HTTP ERROR,HTTP,Error
+Thinkst,Canary,3004,HTTP Service Scan,HTTP,Service Scan
+Thinkst,Canary,3005,HTTP API Request,HTTP,API Request
+Thinkst,Canary,3006,HTTP POST ERROR PAGE,HTTP,Error
+Thinkst,Canary,4000,SSH NEW CONNECTION,Login Attempt,SSH
+Thinkst,Canary,4001,SSH REMOTE VERSION SENT,Login Attempt,SSH
+Thinkst,Canary,4002,SSH LOGIN ATTEMPT,Login Attempt,SSH
+Thinkst,Canary,5000,SMB FILE OPEN,Windows File Share,SMB
+Thinkst,Canary,5001,PORT SYN,Port Scan,Host
+Thinkst,Canary,5002,PORT SCAN NET,Port Scan,Host
+Thinkst,Canary,5003,Host Port Scan (generic),Port Scan,Host
+Thinkst,Canary,5004,NMAP OS Scan Detected,Port Scan,NMAP
+Thinkst,Canary,5005,NMAP NULL Scan Detected,Port Scan,NMAP
+Thinkst,Canary,5006,NMAP XMAS Scan Detected,Port Scan,NMAP
+Thinkst,Canary,5007,Consolidated Network Port Scan,Port Scan,Network
+Thinkst,Canary,5008,NMAP FIN Scan Detected,Port Scan,NMAP
+Thinkst,Canary,5009,PORT RUNFINGER SCAN,Port Scan,Runfinger
+Thinkst,Canary,5010,SMB LOGIN,Windows File Share,SMB
+Thinkst,Canary,5011,PORT RUNFINGER DIALECT,Port Scan,Runfinger
+Thinkst,Canary,5012,PORT RUNFINGER LANMAN,Port Scan,Runfinger
+Thinkst,Canary,5013,SMB GROUP ENUM,Windows File Share,SMB
+Thinkst,Canary,5014,SMB SHARE CONNECT,Windows File Share,SMB
+Thinkst,Canary,5015,SMB REGISTRY,Windows File Share,SMB
+Thinkst,Canary,6001,Telnet Login Attempt,Login Attempt,Telnet
+Thinkst,Canary,7001,HTTP Proxy Request,HTTP,Proxy Request
+Thinkst,Canary,8001,MySQL Login Attempt,Login Attempt,MySQL
+Thinkst,Canary,9001,MSSQL Login Attempt (SQL Server authentication),Login Attempt,MSSQL
+Thinkst,Canary,9002,MSSQL Login Attempt (Windows authentication),Login Attempt,MSSQL
+Thinkst,Canary,10001,TFTP Request,Network Service,TFTP
+Thinkst,Canary,11001,NTP Monlist Request,Network Service,NTP
+Thinkst,Canary,12001,VNC Login Attempt,Login Attempt,VNC
+Thinkst,Canary,13001,SNMP Request,Network Service,SNMP
+Thinkst,Canary,14001,RDP NEW CONNECTION,Login Attempt,RDP
+Thinkst,Canary,14002,RDP FAILED CONNECTION,Login Attempt,RDP
+Thinkst,Canary,14003,RDP CONFIRMED CONNECTION,Login Attempt,RDP
+Thinkst,Canary,14004,RDP LOGIN ATTEMPT,Login Attempt,RDP
+Thinkst,Canary,15001,SIP Request,Network Service,SIP
+Thinkst,Canary,16000,"Canarytoken triggered (DNS; generic)",Canarytoken,DNS
+Thinkst,Canary,16006,TOKENS DNS DESKTOPINI,Canarytoken,DNS
+Thinkst,Canary,16008,TOKENS DNS PDF ACROBAT_READER,Canarytoken,DNS
+Thinkst,Canary,16009,TOKENS DNS MSWORD MACRO,Canarytoken,DNS
+Thinkst,Canary,16010,TOKENS DNS MSEXCEL MACRO,Canarytoken,DNS
+Thinkst,Canary,16011,TOKENS DNS SENSITIVE CMD,Canarytoken,DNS
+Thinkst,Canary,16012,TOKENS DNS ACTIVE DIRECTORY LOGIN,Canarytoken,DNS
+Thinkst,Canary,17000,"Canarytoken triggered (HTTP; generic)",Canarytoken,HTTP
+Thinkst,Canary,17001,TOKENS HTTP REMOTE IMAGE,Canarytoken,HTTP
+Thinkst,Canary,17003,TOKENS HTTP CLONED SITE,Canarytoken,HTTP
+Thinkst,Canary,17004,TOKENS DOC MSWORD,Canarytoken,HTTP
+Thinkst,Canary,17005,TOKENS HTTP AWS S3,Canarytoken,HTTP
+Thinkst,Canary,17006,TOKENS HTTP GOOGLE DOCS,Canarytoken,HTTP
+Thinkst,Canary,17007,TOKENS HTTP GOOGLE SHEETS,Canarytoken,HTTP
+Thinkst,Canary,17008,TOKENS HTTP SIGNED EXE,Canarytoken,HTTP
+Thinkst,Canary,17009,TOKENS HTTP QR CODE,Canarytoken,HTTP
+Thinkst,Canary,17012,TOKENS HTTP AWS ID,Canarytoken,HTTP
+Thinkst,Canary,17016,TOKENS HTTP FAST REDIRECT,Canarytoken,HTTP
+Thinkst,Canary,17017,TOKENS HTTP SLOW REDIRECT,Canarytoken,HTTP
+Thinkst,Canary,17019,TOKENS HTTP OFFICE365 MAIL,Canarytoken,HTTP
+Thinkst,Canary,17020,TOKENS HTTP SLACK API,Canarytoken,HTTP
+Thinkst,Canary,17021,TOKENS HTTP GMAIL,Canarytoken,HTTP
+Thinkst,Canary,17022,TOKENS HTTP WIREGUARD,Canarytoken,Wireguard
+Thinkst,Canary,17023,TOKENS DOC MSEXCEL,Canarytoken,HTTP / DNS
+Thinkst,Canary,17024,TOKENS HTTP AZURE ID,Canarytoken,HTTP
+Thinkst,Canary,17025,TOKENS HTTP CLONED CSS,Canarytoken,HTTP
+Thinkst,Canary,17026,TOKENS HTTP AZURE ENTRA LOGIN,Canarytoken,HTTP
+Thinkst,Canary,17027,TOKENS HTTP CREDIT CARD,Canarytoken,HTTP
+Thinkst,Canary,17028,TOKENS HTTP PWA,Canarytoken,HTTP
+Thinkst,Canary,17029,TOKENS HTTP MYSQL DUMP,Canarytoken,HTTP
+Thinkst,Canary,18001,Modbus Query Function,Industrial Protocol,ModBus
+Thinkst,Canary,18002,Modbus Read Function,Industrial Protocol,ModBus
+Thinkst,Canary,18003,Modbus Write Function,Industrial Protocol,ModBus
+Thinkst,Canary,19001,Git Repository Clone Attempt,Repository,Git
+Thinkst,Canary,20001,TCP banner sent immediately on connection,Custom TCP,Banner
+Thinkst,Canary,20002,TCP banner sent after the client sent a line,Custom TCP,Banner
+Thinkst,Canary,20003,TCP banner keep alive connection made,Custom TCP,Banner
+Thinkst,Canary,20004,TCP banner keep alive secret received,Custom TCP,Banner
+Thinkst,Canary,20005,TCP banner keep alive data received,Custom TCP,Banner
+Thinkst,Canary,20006,TCP banner connection refused,Custom TCP,Banner
+Thinkst,Canary,21001,Redis Command,Database,Redis
+Thinkst,Canary,22011,Network Settings Roll-back,Canary,Settings Changed
+Thinkst,Canary,23001,Console Settings Changed,Console,Settings Changed
+Thinkst,Canary,23002,Canary Settings Changed,Canary,Settings Changed
+Thinkst,Canary,23003,Flock Settings Changed,Flock,Settings Changed
+Thinkst,Canary,28001,Mongo Command,Database,MongoDB
+Thinkst,Canary,28002,Mongo Auth Command,Database,MongoDB
+Thinkst,Canary,29001,WinRM Login Attempt,Login Attempt,WinRM
+Thinkst,Canary,30001,Local Tampering Detected,Canary,Local Tampering
+Thinkst,Canary,31001,LDAP Bind Attempt Detected,Login Attempt,LDAP
+Thinkst,Canary,32001,TN3270 Login Attempt,Login Attempt,TN3270

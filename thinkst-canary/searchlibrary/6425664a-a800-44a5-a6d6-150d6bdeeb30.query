@@ -1,0 +1,10 @@
+tag=$CANARY_AUDIT,$CANARY_INCIDENT
+| unique TIMESTAMP
+| json action_type flock_id flock_name message timestamp user description.acknowledged
+| eval in(action_type, 
+    "incident_acknowledge",
+    "incident_unacknowledge"
+    )
+| regex -e user "(?<username>.*?)?\@"
+| stats count(action_type) by username action_type
+| chart count by username action_type

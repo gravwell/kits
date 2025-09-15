@@ -1,0 +1,150 @@
+# Table of Contents
+- Alert Summary
+- Response Steps
+    1. Validate the Alert
+    2. Correlate with Change Management (if available)
+    3. Investigate the User Account
+    4. Investigate the Source IP
+    5. Look for Related Logins
+    6. Broader Contextual Review
+    7. Escalation Criteria
+    8. Document & Close
+
+***
+
+## Alert Summary
+- Description:
+	- Detects when email addresses have been removed from the device notifications list.
+- Reference(s):
+    - [Notifications](https://docs.canary.tools/flocks-settings/notifications.html)
+- Alert below 
+```query
+    tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+    | eval in(action_type, 
+        "flock_alter_config"
+        )
+    | regex -e message "(?<operation>\w+)"
+    | regex -e message "(?<operation>(Saved|Cleared|Disabled|Enabled))"
+    | regex -e message "(?<event_type>notification emails)?\:"
+    | regex -e message "emails\:\s(?<email_list>.*?)?\;"
+    | regex -e message "(removed)\:\s(?<emails_removed>.*)"
+    | printf -e context "at %v, %v (%v) %v %v via %v action where %v was removed from the email list: \"%v\" in %v Flock" timestamp user user_ip operation event_type action_type emails_removed email_list flock_name
+    | $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Email(s) Removed from Device Notifications List")
+```
+
+***
+
+## Response Steps
+### 1. Validate the Alert
+- Ensure the event actually occurred.
+- Sample Query: Validate the Alert
+```query
+    tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+    | eval in(action_type, 
+        "flock_alter_config"
+        )
+    | regex -e message "(?<operation>\w+)"
+    | regex -e message "(?<operation>(Saved|Cleared|Disabled|Enabled))"
+    | regex -e message "(?<event_type>notification emails)?\:"
+    | regex -e message "emails\:\s(?<email_list>.*?)?\;"
+    | regex -e message "(removed)\:\s(?<emails_removed>.*)"
+    | table flock_id flock_name action_type user user_ip message email_list emails_removed event_type operation timestamp
+```
+
+### 2. Correlate with Change Management (if available)
+- Look up related tickets/change requests.
+- Validate whether the activity matches an approved request.
+
+### 3. Investigate the User Account
+- Review the user's permissions, role, and previous actions.
+- Review other actions by the same user around the event within: 
+    - Thinkst Canary Logs 
+    - Firewall Logs
+    - Network Logs
+    - VPN Logs
+    - Proxy Logs
+    - IDS/IPS Logs 
+    - Host Logs 
+    - AV/EDR/XDR Logs 
+- Sample Query: View other categorical actions by user
+```query
+    tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+    | eval in(action_type, "flock_alter_config")
+    | grep -e user "username*"
+    | sort by TIMESTAMP desc
+    | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+
+### 4. Investigate the Source IP
+- Determine if the IP is internal or external. 
+    - You can add this to quickly determine whether it is PRIVATE or PUBLIC 
+    - [IP Module Documentation] (https://docs.gravwell.io/search/ip/ip.html)
+    - Sample Query: View other categorical actions by Source IP (replace #.#.#.# with IP)
+```query
+        tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+        | eval in(action_type, "flock_alter_config")
+        | sort by TIMESTAMP desc
+        | ip -categorize user_ip
+        | grep -e user_ip "#.#.#.#"
+        | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+- Determine more contextual information about the IP address
+    - It is highly recommended to have an IP lookup (uploaded resource) of your environment(s) IP Ranges to filter off of. 
+    - [IPLookup Module Documentation] (https://docs.gravwell.io/search/iplookup/iplookup.html) 
+    - Sample Query: Lookup IP Range against internal ranges
+```query
+        tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+        | eval in(action_type, "flock_alter_config")
+        | sort by TIMESTAMP desc
+        | grep -e user_ip "#.#.#.#"
+        | iplookup -r REPLACE_ME_WITH_YOUR_RESOURCE -e user_ip field_to_extract as new_EV_name
+        | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+- Determine if the IP Address is outside of the Country
+    - [GeoIP Module Documentation] (https://docs.gravwell.io/search/geoip/geoip.html)
+    - Sample Query: Show City, Country, & CountryName with GeoIP 
+```query
+        tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+        | eval in(action_type, "flock_alter_config")
+        | sort by TIMESTAMP desc
+        | grep -e user_ip "#.#.#.#"
+        | geoip user_ip.Location user_ip.City user_ip.Country user_ip.CountryName
+        | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+
+### 5. Look for Related Logins
+- Identify logins by the user (or potential users who logged in during that timeframe) or activity from the IP address prior to modification.
+- Sample Query: View logins, failed logins, and related activity (replace username & IP)
+```query
+    tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+    | eval (user=="username" || user_ip=="#.#.#.#" || action_type=="user_login" || action_type=="user_login_failed" || action_type=="flock_alter_config")
+    | ip -categorize user_ip
+    | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+
+### 6. Broader Contextual Review
+- Check if multiple actions were performed in a short time window. 
+- Look for anomalies like unusual flock names or unexpected users.
+- Sample Query: View all actions by user
+```query
+    tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+    | grep -e user "username*"
+    | sort by TIMESTAMP desc
+    | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+
+### 7. Escalation Criteria
+- Escalate if:
+    - Activity was not authorized or approved.
+    - Action was from an unusual IP (geolocation mismatch, external network) for the user's typical network interaction.
+    - Unauthorized or unusual activity is detected.
+
+### 8. Document & Close
+- Record findings in ticketing/IR platform.
+- If benign/authorized, close with justification.
+    - Submit tune requests; such as, updating the allow/block list to yield better alert results. 
+- If suspicious, escalate for containment & response.
+
+***
+
+**Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**

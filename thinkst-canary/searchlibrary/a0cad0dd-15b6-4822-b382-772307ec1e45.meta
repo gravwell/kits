@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - All [numbercard]",
+	"Description": "All Incidents\n\nGET /api/v1/incidents/all = Returns all incidents.\n\nReference(s):\nhttps://docs.canary.tools/incidents/queries.html#all-incidents",
+	"GUID": "a0cad0dd-15b6-4822-b382-772307ec1e45",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,3 @@
+tag=$CANARY_INCIDENT json summary description.flock_id description.flock_name
+| stats count(summary) by flock_name summary
+| table flock_id flock_name summary count

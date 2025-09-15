@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Flock Management - Low - Flock Note Altered",
+	"Description": "Detects when a flock note is altered.\n\nGet Flock Note = Retrieve a Flock's note.\nAdd Flock Note = Add a note to a specified Flock.\nDelete Flock Note = Delete a note for a specified Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/notes.html\n\nhttps://docs.canary.tools/flocks/notes.html#get-flock-note\n\nhttps://docs.canary.tools/flocks/notes.html#add-flock-note\n\nhttps://docs.canary.tools/flocks/notes.html#delete-flock-note",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "581193ea-beb6-47db-a96c-d5d08767c34d",
+	"SearchReference": "1b48bfc5-bf6c-4a59-b862-930134d70a7a"
+}

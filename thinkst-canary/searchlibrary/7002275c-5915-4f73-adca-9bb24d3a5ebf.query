@@ -1,0 +1,13 @@
+tag=$CANARY_INCIDENT,$CANARY_AUDIT
+| unique
+| json description.acknowledged action_type description.logtype
+| eval result = 
+    (acknowledged=="True") ? "Acknowledged" : 
+    ((acknowledged=="False") ? "Not Acknowledged" :
+    ((action_type=="incident_unacknowledge") ? "Unacknowledged" : ""))
+| eval result!=""
+| lookup -r canary_logtypes logtype logtype (description as log_desc category as log_cat subcategory as log_subcat)
+| lower log_cat log_subcat
+| grep -e log_cat "canarytoken"
+| stats count by log_subcat result
+| chart count by log_subcat result

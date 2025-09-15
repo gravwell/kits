@@ -1,0 +1,220 @@
+# Table of Contents
+- Alert Summary
+- Response Steps
+    1. Validate the Alert
+    2. Correlate with Change Management (if available)
+    3. Investigate the User Account
+    4. Investigate the Source IP
+    5. Look for Related Logins
+    6. Broader Contextual Review
+    7. Escalation Criteria
+    8. Document & Close
+
+***
+
+## Alert Summary
+- Description:
+	- This was built to dynamically create Thinkst Canary Incident Alerts based on all of the Incident Objects.
+    - This Macro contains several different macros available for your individualized specific use cases. This Macro combined all of them into one that will fire if any Incident Object is triggered. 
+    - $CANARY\_INCIDENT: standardizes all Thinkst Canary tagging for incidents (tag=thinkst-incident; used in $CANARY\_INCIDENT\_BASE and all Query Library/Scheduled Searches/Dashboards)
+    - $CANARY\_INCIDENT\_BASE: standardizes base search for all Thinkst Canary Incident Objects returning any "open" (Not Acknowledged) Incidents
+    - $CANARY\_RISK\_SCORE: standardizes risk score based on incident category/subcategory, events\_count, and username implicated (*if available*) then converts the risk score into priority buckets. (Critical|High|Medium|Low)
+    - $CANARY\_INCIDENT\_META: standardizes output for Thinkst Canary Incidents that are being alerted upon. 
+
+- Reference(s):
+    - [Incident Objects](https://docs.canary.tools/incidents/incident-objects.html)
+    - [Basic Structure](https://docs.canary.tools/incidents/incident-objects.html#basic-structure)
+
+- Alert below 
+```query
+    $CANARY_INCIDENT_ALERT
+```
+
+***
+
+## Response Steps
+### 1. Validate the Alert
+- Ensure the event actually occurred.
+- Utilize the "Canary Incident Search" Dashboard
+- This allows you to search any incident with search the following options:
+    - result = "%%1%%"
+    - flock =\_id "%%2%%"
+    - flock =\_name "%%3%%"
+    - src =\_host "%%4%%"
+    - src =\_port "%%5%%"
+    - dst =\_host "%%6%%"
+    - dst =\_port "%%7%%"
+    - log =\_cat "%%8%%"
+    - log =\_subcat "%%9%%"
+    - log =\_desc "%%10%%"
+    - \_alert =\_title "%%11%%"
+    - \_alert =\_priority "%%12%%"
+- The Macro underboard is:
+    - $CANARY\_INCIDENT\_SEARCH(result[string], flock\_id[string], flock\_name[string], src\_host[string], src\_port[string], dst\_host[string], dst\_port[string], log\_cat[string], log\_subcat[string], log\_desc[string], _alert\_title[string], _alert\_priority[string])
+- which will display everything in a table.
+    - **Everyone of those search options can handle wildcards and must be filled out**
+- Sample Query: Display All Incidents
+```query
+    $CANARY_INCIDENT_SEARCH("*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*")
+```
+
+***
+
+### 2. Correlate with Change Management (if available)
+- Look up related tickets/change requests.
+- Validate whether the activity matches an approved request.
+
+***
+
+### 3. Investigate the User Account
+- Review the user's permissions, role, and previous actions.
+- Review other actions by the same user around the event within: 
+    - Thinkst Canary Logs 
+    - Firewall Logs
+    - Network Logs
+    - VPN Logs
+    - Proxy Logs
+    - IDS/IPS Logs 
+    - Host Logs 
+    - AV/EDR/XDR Logs 
+- Sample Query: View other categorical actions by user
+```query
+    tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+    | grep -e user "username*"
+    | sort by TIMESTAMP desc
+    | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+
+***
+
+### 4. Investigate the Source IP
+- Determine if the IP is internal or external. 
+    - You can add this to quickly determine whether it is PRIVATE or PUBLIC 
+    - [IP Module Documentation] (https://docs.gravwell.io/search/ip/ip.html)
+    - Sample Query: View other categorical actions by Source IP (replace #.#.#.# with IP)
+```query
+        tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+        | sort by TIMESTAMP desc
+        | ip -categorize user_ip
+        | grep -e user_ip "#.#.#.#"
+        | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+- Determine more contextual information about the IP address
+    - It is highly recommended to have an IP lookup (uploaded resource) of your environment(s) IP Ranges to filter off of. 
+    - [IPLookup Module Documentation] (https://docs.gravwell.io/search/iplookup/iplookup.html) 
+    - Sample Query: Lookup IP Range against internal ranges
+```query
+        tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+        | sort by TIMESTAMP desc
+        | grep -e user_ip "#.#.#.#"
+        | iplookup -r REPLACE_ME_WITH_YOUR_RESOURCE -e user_ip field_to_extract as new_EV_name
+        | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+- Determine if the IP Address is outside of the Country
+    - [GeoIP Module Documentation] (https://docs.gravwell.io/search/geoip/geoip.html)
+    - Sample Query: Show City, Country, & CountryName with GeoIP 
+```query
+        tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+        | sort by TIMESTAMP desc
+        | grep -e user_ip "#.#.#.#"
+        | geoip user_ip.Location user_ip.City user_ip.Country user_ip.CountryName
+        | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+
+- Sample Query: Display All Incidents involving Source Host of "1.1.1.1" that have not been acknowledged
+```query
+    $CANARY_INCIDENT_SEARCH("Not Acknowledged", "*", "*", "1.1.1.1", "*", "*", "*", "*", "*", "*", "*", "*")
+```
+
+- Sample Query: Display All Incidents involving Source Host of "1.1.1.1" against "2.2.2.2" that have been unacknowledged
+```query
+    $CANARY_INCIDENT_SEARCH("Unacknowledged", "*", "*", "1.1.1.1", "*", "2.2.2.2", "*", "*", "*", "*", "*", "*")
+```
+
+- Sample Query: Display All Incidents involving Source Host of "1.1.1.1" against "2.2.2.2" over port 22 that have been acknowledged
+```query
+    $CANARY_INCIDENT_SEARCH("Acknowledged", "*", "*", "1.1.1.1", "*", "2.2.2.2", "22", "*", "*", "*", "*", "*")
+```
+
+***
+
+### 5. Look for Related Logins (_if internal IP or user_)
+- Identify logins by the user (or potential users who logged in during that timeframe) or activity from the IP address prior to modification.
+- Sample Query: View logins, failed logins, and related activity (replace username & IP)
+```query
+    tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+    | eval (user=="username" || user_ip=="#.#.#.#" || action_type=="user_login" || action_type=="user_login_failed" || action_type=="user_2fa_disable")
+    | ip -categorize user_ip
+    | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+
+***
+
+### 6. Broader Contextual Review
+- Check if multiple actions were performed in a short time window. 
+- Look for anomalies like unusual flock names or unexpected users.
+- Sample Query: View all actions by user
+```query
+    tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+    | grep -e user "username*"
+    | sort by TIMESTAMP desc
+    | table TIMESTAMP flock_id flock_name action_type user user_ip message
+```
+
+***
+
+### 7. Escalation Criteria
+- Escalate if:
+    - Activity was not authorized or approved.
+    - Action was from an unusual IP (geolocation mismatch, external network) for the user's typical network interaction.
+    - Unauthorized or unusual activity is detected.
+
+***
+
+### 8. Document & Close
+- Record findings in ticketing/IR platform.
+- If benign/authorized, close with justification.
+    - Submit tune requests; such as, updating the allow/block list to yield better alert results. 
+- If suspicious, escalate for containment & response.
+
+***
+
+Examples for other search options
+- Sample Query: Display All Incidents that have been acknowledged
+```query
+    $CANARY_INCIDENT_SEARCH("Acknowledged", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*")
+```
+
+- Sample Query: Display All Incidents that have not been acknowledged
+```query
+    $CANARY_INCIDENT_SEARCH("Not Acknowledged", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*")
+```
+
+- Sample Query: Display All Incidents that have been unacknowledged
+```query
+    $CANARY_INCIDENT_SEARCH("Unacknowledged", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*")
+```
+
+- Sample Query: Display All Canarytoken Incidents that have not been acknowledged
+```query
+    $CANARY_INCIDENT_SEARCH("Not Acknowledged", "*", "*", "*", "*", "*", "*", "canarytoken", "*", "*", "*", "*")
+```
+
+- Sample Query: Display All HTTP Canarytoken Incidents that have not been acknowledged
+```query
+    $CANARY_INCIDENT_SEARCH("Not Acknowledged", "*", "*", "*", "*", "*", "*", "canarytoken", "http", "*", "*", "*")
+```
+
+- Sample Query: Display All Wireguard Canarytoken Incidents
+```query
+    $CANARY_INCIDENT_SEARCH("*", "*", "*", "*", "*", "*", "*", "canarytoken", "wireguard", "*", "*", "*")
+```
+
+- Sample Query: Display All Login Attempt Incidents
+```query
+    $CANARY_INCIDENT_SEARCH("*", "*", "*", "*", "*", "*", "*", "login attempt", "*", "*", "*", "*")
+```
+
+***
+
+**Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**

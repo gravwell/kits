@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Audit - Users - Unique Count by Users, Action Type [table]",
+	"Description": "Displays a table of \"user\" events by action type for each user with a unique count.\n\nReference(s):",
+	"GUID": "6a55d184-c04e-4801-9494-3d97374a4436",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

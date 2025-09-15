@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Total Events by Flock Name [pie]",
+	"Description": "Total Event Count by Flock Name\n\nView canary_logtypes resource or reference(s) for additional information. \n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html#incident-objects",
+	"GUID": "e67cf30f-90b5-4b13-ab6b-c08ab5194124",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

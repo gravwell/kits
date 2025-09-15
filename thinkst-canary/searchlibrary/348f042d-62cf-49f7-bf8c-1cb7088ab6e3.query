@@ -1,0 +1,13 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip message flock_id flock_name
+| eval in(action_type, "user_login", "user_login_failed")
+| unique timestamp user
+| sort by timestamp
+| eval result = (action_type=="user_login_failed") ? "failure" : ((action_type=="user_login") ? "success" : "")
+| diff TIMESTAMP by result
+| stats -b total(diff) as login_attempt_duration count(result) as attempts by user result over 5m 
+| ip user_ip
+| printf -e context "at %v, %v attempted to login with a %v result from %v totalling %v attempts over %v" timestamp user result user_ip attempts login_attempt_duration
+| transaction -fsep " - " user user_ip
+| regex -e transaction "fail.*\n{1,}.*success"
+| eval context = transaction
+| $CANARY_ALERT_META("Canary"," User Management", "High", "Successful Login After Failure")

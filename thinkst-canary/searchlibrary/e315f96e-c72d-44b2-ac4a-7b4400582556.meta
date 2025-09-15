@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Audit - Users - Unique Count by User Logins [pie]",
+	"Description": "Displays a chart of unique user login events by count.\n\nReference(s):",
+	"GUID": "e315f96e-c72d-44b2-ac4a-7b4400582556",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

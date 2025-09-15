@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Flock Management - Medium - IP Whitelist Cleared",
+	"Description": "Detects when IP Whitelist has been cleared.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists#remove-an-ignored-ip\n\nhttps://docs.canary.tools/flocks-settings/info#fetch-ignore-list-info",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "37 */2 * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "82ee73c0-929c-415d-8211-13c2973a644b",
+	"SearchReference": "b02aba28-ddd4-440a-9ee6-9a3d772774b3"
+}

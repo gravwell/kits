@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - Flock Management - Low - Multiple Ignorelist IP/Port Actions",
+	"Description": "Detects when an IP/Port has been added and removed from the ignorelist.\n\nDisable Ignore List = Disable the ignore list.\nEnable Ignore List = Enable the ignore list.\nRemove an Ignored IP = Remove an ignored IP from the ignore list.\nSet Ignore List = Set a list of IPs to ignore.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#disable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#enable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#remove-an-ignored-ip\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#set-ignore-list",
+	"GUID": "4e0e79f2-b452-49c3-bfee-e51051ce26a2",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

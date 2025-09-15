@@ -1,0 +1,6 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip flock_id flock_name
+| eval in(action_type, 
+    "user_2fa_enable"
+    )
+| printf -e context "at %v, %v perfomed by %v from %v" timestamp action_type user user_ip
+| $CANARY_ALERT_META("Canary"," User Management", "Medium", "User 2FA Enabled")

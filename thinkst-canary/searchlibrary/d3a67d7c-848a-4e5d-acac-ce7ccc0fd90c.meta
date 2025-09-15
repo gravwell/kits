@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - Flock Management - Low - Operational Email Notifications Modified",
+	"Description": "Detects when operational email settings notifications have been modified (Enabled|Disabled).\n\nDisable Operational Notification Emails = Disable operational notification emails for a Flock.\n\nEnable Operational Notification Emails = Enable operational notification emails for a Flock. If enabled, Canary Disconnects/Reconnects, Canary Settings Changed, Console Settings Changed and Flock Settings Changed alerts will be emailed to the Operational Email Notifications addresses only.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#disable-operational-notification-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#enable-operational-notification-emails",
+	"GUID": "d3a67d7c-848a-4e5d-acac-ce7ccc0fd90c",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

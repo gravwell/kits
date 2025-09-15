@@ -1,0 +1,13 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "flock_alter_config"
+    )
+| eval message ~"operational email notifications"
+| regex -e message "(?<operation>\w+)"
+| lower operation
+| regex -e message "notifications\:\s(?<email_list>.*?)?\;"
+| regex -e message "added\:\s(?<emails_added>.*)"
+| regex -e message "removed\:\s(?<emails_removed>.*)"
+| regex -e message "(?<event_type>oper.*?)?\:"
+| printf -e context "at %v, %v (%v) %v %v via %v action where \"%v\" added and \"%v\" was removed from email list: \"%v\" in %v Flock" timestamp user user_ip operation event_type action_type emails_added emails_removed email_list flock_name
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Multiple Operational Email Notifications List Actions")

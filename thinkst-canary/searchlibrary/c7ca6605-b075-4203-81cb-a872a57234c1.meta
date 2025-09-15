@@ -1,0 +1,18 @@
+{
+	"Name": "Search - Canary - User Management - High - Login Attempt From Outside Country [heatmap]",
+	"Description": "Detects when a user attempts to login in from outside Country.\nDefault = US / United States\n\nuser_login_failed = Displays when a user failed to login.\n\n*Network Enrichment Kit is required*\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+	"GUID": "c7ca6605-b075-4203-81cb-a872a57234c1",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		}
+	}
+}

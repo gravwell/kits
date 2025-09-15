@@ -1,0 +1,10 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip message
+| eval in(action_type,
+    "user_login_failed"
+    )
+| ip user_ip
+| geoip user_ip.Location user_ip.City user_ip.Country user_ip.CountryName
+| eval (Country!="US"||CountryName!="United States")
+| stats unique_count by user Location over 1h
+| diff user Location by timestamp
+| heatmap

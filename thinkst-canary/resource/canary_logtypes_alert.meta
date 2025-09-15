@@ -1,0 +1,12 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "canary_logtypes_alert",
+	"Description": "This is intended to be used as a lookup file for the Thinkst Canary Kit or standalone searches regarding Thinkst Canary logtypes.\nFormat: vendor,product,logtype,description,category,subcategory",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Size": 5811,
+	"Hash": "Te13pba3BbRb3FHiQ8cvDw==",
+	"Data": ""
+}

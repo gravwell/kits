@@ -1,0 +1,94 @@
+logtype,description,category,subcategory
+1004,Canary Disconnected,Canary,Disconnected
+2000,FTP Login Attempt,Login Attempt,FTP
+3000,HTTP GET (Page Load),HTTP,GET
+3001,HTTP Login Attempt,HTTP,Login Attempt
+3002,HTTP POST,HTTP,POST
+3003,HTTP ERROR,HTTP,Error
+3004,HTTP Service Scan,HTTP,Service Scan
+3005,HTTP API Request,HTTP,API Request
+3006,HTTP POST ERROR PAGE,HTTP,Error
+4000,SSH NEW CONNECTION,Login Attempt,SSH
+4001,SSH REMOTE VERSION SENT,Login Attempt,SSH
+4002,SSH LOGIN ATTEMPT,Login Attempt,SSH
+5000,SMB FILE OPEN,Windows File Share,SMB
+5001,PORT SYN,Port Scan,Host
+5002,PORT SCAN NET,Port Scan,Host
+5003,Host Port Scan (generic),Port Scan,Host
+5004,NMAP OS Scan Detected,Port Scan,NMAP
+5005,NMAP NULL Scan Detected,Port Scan,NMAP
+5006,NMAP XMAS Scan Detected,Port Scan,NMAP
+5007,Consolidated Network Port Scan,Port Scan,Network
+5008,NMAP FIN Scan Detected,Port Scan,NMAP
+5009,PORT RUNFINGER SCAN,Port Scan,Runfinger
+5010,SMB LOGIN,Windows File Share,SMB
+5011,PORT RUNFINGER DIALECT,Port Scan,Runfinger
+5012,PORT RUNFINGER LANMAN,Port Scan,Runfinger
+5013,SMB GROUP ENUM,Windows File Share,SMB
+5014,SMB SHARE CONNECT,Windows File Share,SMB
+5015,SMB REGISTRY,Windows File Share,SMB
+6001,Telnet Login Attempt,Login Attempt,Telnet
+7001,HTTP Proxy Request,HTTP,Proxy Request
+8001,MySQL Login Attempt,Login Attempt,MySQL
+9001,MSSQL Login Attempt (SQL Server authentication),Login Attempt,MSSQL
+9002,MSSQL Login Attempt (Windows authentication),Login Attempt,MSSQL
+10001,TFTP Request,Network Service,TFTP
+11001,NTP Monlist Request,Network Service,NTP
+12001,VNC Login Attempt,Login Attempt,VNC
+13001,SNMP Request,Network Service,SNMP
+14001,RDP NEW CONNECTION,Login Attempt,RDP
+14002,RDP FAILED CONNECTION,Login Attempt,RDP
+14003,RDP CONFIRMED CONNECTION,Login Attempt,RDP
+14004,RDP LOGIN ATTEMPT,Login Attempt,RDP
+15001,SIP Request,Network Service,SIP
+16000,"Canarytoken triggered (DNS; generic)",Canarytoken,DNS
+16006,TOKENS DNS DESKTOPINI,Canarytoken,DNS
+16008,TOKENS DNS PDF ACROBAT_READER,Canarytoken,DNS
+16009,TOKENS DNS MSWORD MACRO,Canarytoken,DNS
+16010,TOKENS DNS MSEXCEL MACRO,Canarytoken,DNS
+16011,TOKENS DNS SENSITIVE CMD,Canarytoken,DNS
+16012,TOKENS DNS ACTIVE DIRECTORY LOGIN,Canarytoken,DNS
+17000,"Canarytoken triggered (HTTP; generic)",Canarytoken,HTTP
+17001,TOKENS HTTP REMOTE IMAGE,Canarytoken,HTTP
+17003,TOKENS HTTP CLONED SITE,Canarytoken,HTTP
+17004,TOKENS DOC MSWORD,Canarytoken,HTTP
+17005,TOKENS HTTP AWS S3,Canarytoken,HTTP
+17006,TOKENS HTTP GOOGLE DOCS,Canarytoken,HTTP
+17007,TOKENS HTTP GOOGLE SHEETS,Canarytoken,HTTP
+17008,TOKENS HTTP SIGNED EXE,Canarytoken,HTTP
+17009,TOKENS HTTP QR CODE,Canarytoken,HTTP
+17012,TOKENS HTTP AWS ID,Canarytoken,HTTP
+17016,TOKENS HTTP FAST REDIRECT,Canarytoken,HTTP
+17017,TOKENS HTTP SLOW REDIRECT,Canarytoken,HTTP
+17019,TOKENS HTTP OFFICE365 MAIL,Canarytoken,HTTP
+17020,TOKENS HTTP SLACK API,Canarytoken,HTTP
+17021,TOKENS HTTP GMAIL,Canarytoken,HTTP
+17022,TOKENS HTTP WIREGUARD,Canarytoken,Wireguard
+17023,TOKENS DOC MSEXCEL,Canarytoken,HTTP / DNS
+17024,TOKENS HTTP AZURE ID,Canarytoken,HTTP
+17025,TOKENS HTTP CLONED CSS,Canarytoken,HTTP
+17026,TOKENS HTTP AZURE ENTRA LOGIN,Canarytoken,HTTP
+17027,TOKENS HTTP CREDIT CARD,Canarytoken,HTTP
+17028,TOKENS HTTP PWA,Canarytoken,HTTP
+17029,TOKENS HTTP MYSQL DUMP,Canarytoken,HTTP
+18001,Modbus Query Function,Industrial Protocol,ModBus
+18002,Modbus Read Function,Industrial Protocol,ModBus
+18003,Modbus Write Function,Industrial Protocol,ModBus
+19001,Git Repository Clone Attempt,Repository,Git
+20001,TCP banner sent immediately on connection,Custom TCP,Banner
+20002,TCP banner sent after the client sent a line,Custom TCP,Banner
+20003,TCP banner keep alive connection made,Custom TCP,Banner
+20004,TCP banner keep alive secret received,Custom TCP,Banner
+20005,TCP banner keep alive data received,Custom TCP,Banner
+20006,TCP banner connection refused,Custom TCP,Banner
+21001,Redis Command,Database,Redis
+22011,Network Settings Roll-back,Canary,Settings Changed
+23001,Console Settings Changed,Console,Settings Changed
+23002,Canary Settings Changed,Canary,Settings Changed
+23003,Flock Settings Changed,Flock,Settings Changed
+28001,Mongo Command,Database,MongoDB
+28002,Mongo Auth Command,Database,MongoDB
+29001,WinRM Login Attempt,Login Attempt,WinRM
+30001,Local Tampering Detected,Canary,Local Tampering
+31001,LDAP Bind Attempt Detected,Login Attempt,LDAP
+32001,TN3270 Login Attempt,Login Attempt,TN3270

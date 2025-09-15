@@ -1,0 +1,4 @@
+tag=$CANARY_AUDIT json flock_name
+| eval flock_name!="null"
+| stats unique_count as count
+| numbercard count

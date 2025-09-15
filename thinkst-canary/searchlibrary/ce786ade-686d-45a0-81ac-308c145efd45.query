@@ -1,0 +1,11 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "flock_alter_config"
+    )
+| regex -e message "(?<operation>\w+)"
+| regex -e message "(?<operation>(Saved|Cleared|Disabled|Enabled))"
+| regex -e message "(?<event_type>notification emails)?\:"
+| regex -e message "emails\:\s(?<email_list>.*?)?\;"
+| regex -e message "(removed)\:\s(?<emails_removed>.*)"
+| printf -e context "at %v, %v (%v) %v %v via %v action where %v was removed from the email list: \"%v\" in %v Flock" timestamp user user_ip operation event_type action_type emails_removed email_list flock_name
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Email(s) Removed from Device Notifications List")

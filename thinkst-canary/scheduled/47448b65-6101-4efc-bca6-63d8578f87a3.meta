@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Flock Management - Low - Number(s) Removed from SMS Notification List",
+	"Description": "Detects when number(s) have been removed from SMS Notification List.\n\nList Notification Numbers = Retrieve the list of notification numbers for a Flock.\nSet Notification Numbers = Set the SMS notification list for a Flock\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-notification-numbers\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#set-notification-numbers",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "47448b65-6101-4efc-bca6-63d8578f87a3",
+	"SearchReference": "044eb29a-5c72-4b4b-92af-3ace4fa4dd2d"
+}

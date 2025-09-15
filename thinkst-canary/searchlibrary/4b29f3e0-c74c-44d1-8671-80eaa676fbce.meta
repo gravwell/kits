@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Unacknowledged [numbercard]",
+	"Description": "Unacknowledged Incidents\n\nGET /api/v1/incidents/unacknowledged = Returns all unacknowledged incidents.\n\nReference(s):\nhttps://docs.canary.tools/incidents/queries.html#unacknowledged-incidents",
+	"GUID": "4b29f3e0-c74c-44d1-8671-80eaa676fbce",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

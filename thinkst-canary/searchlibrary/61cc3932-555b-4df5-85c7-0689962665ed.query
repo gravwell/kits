@@ -1,0 +1,4 @@
+tag=$CANARY_AUDIT json user user_ip
+| ip user_ip
+| geoip user_ip.Location user_ip.City user_ip.Country user_ip.CountryName
+| heatmap

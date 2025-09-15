@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Response by Username [pie]",
+	"Description": "Incident Response Action (Acknowledged, Unacknowledged) Incidents by User\n\nGET /api/v1/incidents/acknowledged = Returns all acknowledged incidents.\n\nReference(s):\nhttps://docs.canary.tools/incidents/queries.html#acknowledged-incidents",
+	"GUID": "6425664a-a800-44a5-a6d6-150d6bdeeb30",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

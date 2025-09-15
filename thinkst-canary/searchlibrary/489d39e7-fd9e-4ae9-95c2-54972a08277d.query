@@ -1,0 +1,4 @@
+tag=$CANARY_AUDIT json flock_name
+| unique TIMESTAMP
+| stats count by flock_name
+| numbercard count

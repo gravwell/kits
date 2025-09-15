@@ -1,0 +1,12 @@
+{
+	"Name": "Alert - Canary - Flock Management - Low - Auto Commissioning Enabled",
+	"Description": "Detects when auto-commissioning has been enabled.\n\nEnable Flock Auto Commission = Enable the Auto Commission feature on a given Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#enable-flock-auto-commission",
+	"GUID": "11ddbe6f-30a3-40fb-9ab3-fd8e75398bcd",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,6 @@
+tag=$CANARY_AUDIT json TIMESTAMP TAG flock_id flock_name user user_ip action_type message
+| unique TIMESTAMP
+| eval in(action_type, 
+    "incident_acknowledge"
+    )
+| table

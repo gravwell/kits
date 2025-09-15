@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_INCIDENT_META",
+	"Description": "This macro standardizes output for Thinkst Canary Incidents that are being alerted upon. It dynamically changes values in the _alert_title based on the $CANARY_INCIDENT_OPEN \u0026 $CANARY_RISK_SCORE.\n\ne.g. $CANARY_INCIDENT_OPEN $CANARY_RISK_SCORE $CANARY_INCIDENT_META\n$CANARY_INCIDENT_SEARCH(\"\") $CANARY_RISK_SCORE $CANARY_INCIDENT_META",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

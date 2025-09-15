@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Category by Flock Name [donut]",
+	"Description": "All Incident Categories by Flock Name\n\nView canary_logtypes resource or reference(s) for additional information. \n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html#incident-objects",
+	"GUID": "0fcfb30d-0bb1-4c36-995a-a4da3222467d",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
