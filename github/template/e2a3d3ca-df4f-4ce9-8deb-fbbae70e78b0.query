@@ -1,5 +1,5 @@
-tag=$GITHUB json TIMESTAMP SRC actor action repo org business operation_type
+tag=$GITHUB_AUDIT json actor action repo org business operation_type
 | time -oformat "2006-01-02" TIMESTAMP date
 | alias SRC src_ip
 | grep -e src_ip "%%1%%"
-| table
+| table TIMESTAMP src_ip actor action repo org business operation_type
