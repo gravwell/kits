@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "a4f327b9-6dd9-4d27-87bf-35920585e200",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a delete action in invoked on a codespace for a repo.\n\ncodespaces.destroy = A user deleted a codespace.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces\n\nhttps://docs.github.com/codespaces/developing-in-codespaces/deleting-a-codespace",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "560feb9e-55c3-4bc6-8c3a-603817a6536b",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "7457d7b2-bd56-4dce-b925-b5c4889da78c",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:46:45.426418963Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Codespaces - Medium - Delete Action Invoked",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "b70370cc-943a-44be-94e2-003135aed4e8",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

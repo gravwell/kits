@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "3ec090f8-7394-43ca-a090-fe1bc2bd0e19",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a high risk configuration has been changed to the Enterprise in GitHub Advanced Security (GHAS).\n\nbusiness_advanced_security.disabled = GitHub Advanced Security was disabled for your enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_advanced_security\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "d6dfe37a-a995-4750-965a-fa4d3ac139fe",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "026120dc-a36b-48c8-a5a3-cdd73215f334",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T13:18:46.636889297Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Business - High - GitHub Advanced Security for Enterprise Disabled",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "7901daab-a9b5-4249-856f-c919ba9bebb0",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

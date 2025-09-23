@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "0d8ec0a1-7924-4d33-933d-900263012a9a",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when Dependabot alerts have been disabled for any new repos.\n\ndependabot_alerts_new_repos.disable = Dependabot alerts were disabled for all new repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#dependabot_alerts_new_repos",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "d84ddf7c-11cd-4c6d-9260-d61083e3a932",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "7af0516d-047f-43af-88b3-edc7b7942e71",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:55:56.189100134Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - High - Dependabot Alerts Disabled for Any New Repos",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "97e05dc0-1bb7-4c20-8e99-b5d87a34310f",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

@@ -1,13 +1,13 @@
 {
 	"UUID": "1017d2ee-f6d4-4346-b8a2-4a7eb24f4a4b",
-	"Name": "Template - GitHub - User - Investigation (No API Requests)",
-	"Description": "This is intended to be utilized if you're investigating an user investigation for possible malignant actions.",
+	"Name": "Template - GitHub - User/Actor - Unique Repo Interactions [numbercard]",
+	"Description": "This is intended to quickly show the unique number of repo interactions performed by an actor/user when you're investigating an actor/user for possible malicious actions.",
 	"Data": {
 		"variables": [
 			{
 				"name": "%%1%%",
-				"label": "user",
-				"description": "Who do you suspect performed the actions that you are investigating? (You must type in the user name fully without wildcards)",
+				"label": "actor/user",
+				"description": "Who are you investigating/searching for? This is searching for them as either the actor or the user.",
 				"required": true,
 				"defaultValue": "change_me",
 				"previewValue": "change_me"

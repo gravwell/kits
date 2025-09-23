@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "4dddd3d3-c357-46fe-b39c-34bfe29d5788",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when push protection for secret scanning was disabled for new repos in your enterprise.\n\nbusiness_secret_scanning_push_protection.disabled_for_new_repos = Push protection for secret scanning was disabled for new repositories in your enterprise.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_push_protection\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "24c4742e-05ea-4c10-992d-bd38ade1f308",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "9e257d9f-b30a-427a-a97a-fbc74a4b59e9",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:46:01.304350554Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Business - Medium - Push Protection Bypass Disabled for New Repos",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "07486729-ae4e-4e14-96c1-e97cda884e40",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

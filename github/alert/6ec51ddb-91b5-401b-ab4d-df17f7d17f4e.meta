@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "8a95d5b1-8517-4b7c-9509-05a17ceaee2b",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when SAML (Security Assertion Markup Language aka single sign-on) has been disabled.\n\norg.disable_saml = SAML single sign-on was disabled for an organization.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "c7a3ba6e-f415-491a-b8d9-4546fcd8c099",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "6ec51ddb-91b5-401b-ab4d-df17f7d17f4e",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:02:55.775843259Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - High - SAML (single sign-on) Disabled",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "e3ec1f80-f6f2-4125-8d3d-214e3bac3066",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

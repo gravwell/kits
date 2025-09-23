@@ -1,0 +1,20 @@
+{
+	"UUID": "495f63c9-e075-4d8f-8b46-c02748428d78",
+	"Name": "Template - GitHub - IP - Unique Repos by Actor IP [table]",
+	"Description": "This is intended to quickly show the table of repos interacted with by an IP Address when you're investigating an IP Address for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%2%%",
+				"label": "IP Address",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": "#.#.#.#",
+				"previewValue": "#.#.#.#"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

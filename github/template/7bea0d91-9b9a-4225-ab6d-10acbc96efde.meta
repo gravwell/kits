@@ -1,0 +1,20 @@
+{
+	"UUID": "7bea0d91-9b9a-4225-ab6d-10acbc96efde",
+	"Name": "Template - GitHub - IP - Unique Operation Types by Actor IP [numbercard]",
+	"Description": "This is intended to quickly show the unique count of operation types interacted with by an IP Address when you're investigating an IP Address for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%2%%",
+				"label": "IP Address",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": "#.#.#.#",
+				"previewValue": "#.#.#.#"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

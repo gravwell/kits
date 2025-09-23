@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "6c78f136-d738-4015-81ba-b2b4765d48e7",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when GitHub App Installed.\n\nintegration_installation.create = A GitHub App was installed.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#integration_installation\n\nhttps://docs.github.com/apps/using-github-apps/authorizing-github-apps",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "1189f614-6de7-4e38-9d0f-888a4b2eea86",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "3e651b7d-e6df-4424-b7bd-d2c0829cdf05",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:51:46.00579963Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Integration - Low - App Installed",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "e7d84680-444b-441d-b8c0-7d8e6fc0fd3b",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

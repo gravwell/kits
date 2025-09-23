@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "c53ecb40-bca6-4f8b-88e3-accb9ac6cbad",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when push protection for secret scanning was disabled for your enterprise.\n\nbusiness_secret_scanning_push_protection.disable = Push protection for secret scanning was disabled for your enterprise.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_push_protection\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "1e74e7b7-81d0-49f2-ab63-236a50d7ca5a",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "ae8b2fc3-b11b-4b71-8041-5a2e192845d7",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:45:06.159807417Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Business - Medium - Push Protection Bypass Disabled",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "ff9622b6-6feb-444e-b908-5bd24b64631e",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

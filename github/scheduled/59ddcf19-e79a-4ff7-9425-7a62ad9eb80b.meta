@@ -1,0 +1,15 @@
+{
+	"Name": "AlertFlow - GitHub - Org - High - OAuth Restrictions Disabled",
+	"Description": "Detects when OAuth (third-party application access) restrictions have been disabled.\n\norg.disable_oauth_app_restrictions = Third-party application access restrictions for an organization were disabled.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "3 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "59ddcf19-e79a-4ff7-9425-7a62ad9eb80b",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

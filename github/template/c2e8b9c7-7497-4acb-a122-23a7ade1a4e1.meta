@@ -1,0 +1,20 @@
+{
+	"UUID": "c2e8b9c7-7497-4acb-a122-23a7ade1a4e1",
+	"Name": "Template - GitHub - User/Actor - Actions \u0026 Operation Types [table]",
+	"Description": "This is intended to quickly show the table of actions and operation types performed by an actor/user when you're investigating an actor/user for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "actor/user",
+				"description": "Who are you investigating/searching for? This is searching for them as either the actor or the user.",
+				"required": true,
+				"defaultValue": "change_me",
+				"previewValue": "change_me"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

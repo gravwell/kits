@@ -1,0 +1,15 @@
+{
+	"Name": "AlertFlow - GitHub - Org - Medium - Member Added After 7 Day Invitation Expiry",
+	"Description": "Detects any users added to GitHub Organization after Invitation Expired (7 Days).\n\norg.invite_member = A new user was invited to join an organization.\norg.add_member = A user joined an organization.\n\nReference(s):\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "15 */2 * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "1d4850bf-f4a3-4d0d-93d0-57d10ba9f3f4",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

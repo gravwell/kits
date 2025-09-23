@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "11bc4b66-5aea-41c1-8d03-eecc705948bd",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a delete action in invoked on a environment.\n\nenvironment.delete = An environment was deleted.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#environment\n\nhttps://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "c133d15c-44e7-4280-98b8-b15eecb763e0",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "3ed912ab-07db-446f-8119-179aea8c2519",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:50:06.126586625Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Environment - Medium - Delete Action Invoked",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "79de16ff-92f4-4b87-a2e9-9fc631233ce9",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

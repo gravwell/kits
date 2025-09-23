@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "94227a17-e439-4756-b779-108970128794",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when an invitation for a user was created, accepted, rejected, or cancelled.\n\nrepository_invitation.create = An invitation to join a repository was sent.\nrepository_invitation.accept = An invitation to join a repository was accepted.\nrepository_invitation.reject = An invitation to join a repository was declined.\nrepository_invitation.cancel = An invitation to join a repository was canceled.\n\nReference(s):\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "091cdc09-2404-43cc-8da6-da444413bad1",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "515fba65-3625-4346-9042-777f5ce60197",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:21:09.208489751Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - Low - Invitation Actions",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "3c03938b-8bff-4b01-86a2-cb4838b722d1",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

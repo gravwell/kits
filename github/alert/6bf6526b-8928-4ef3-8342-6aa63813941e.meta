@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "1d4850bf-f4a3-4d0d-93d0-57d10ba9f3f4",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects any users added to GitHub Organization after Invitation Expired (7 Days).\n\norg.invite_member = A new user was invited to join an organization.\norg.add_member = A user joined an organization.\n\nReference(s):\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "11f584c7-9d80-4ce1-bdda-a30c79bbcc70",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "6bf6526b-8928-4ef3-8342-6aa63813941e",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:09:12.590455295Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - Medium - Member Added After 7 Day Invitation Expiry",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "42f25638-b8e3-42c1-b4cd-767078c149fb",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

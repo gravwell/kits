@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "ccebd4e0-a2f5-4ea5-b002-9206aced1a53",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a self-hosted runner group is removed.\n\norg.runner_group_created = A self-hosted runner group was removed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "4da2d12f-d810-4788-9a3f-bc87e2daeff4",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "19cbefe3-2e4e-44ce-add9-44d42e982226",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:07:44.238752254Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - Low - Runner Group Removed",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "6153aa41-830d-4880-932d-641ef8f94636",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "91304058-e5d6-4a56-ad1d-78f8d6983dbc",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a new org has been invited and added to Enterprise.\n\norg.invite_to_business = An organization was invited to join an enterprise.\nbusiness.add_organization = An organization was added to an enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "ed2286aa-3023-4fdd-ac31-e643437270f6",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "5aea175b-ad5f-4da8-b414-2774e2035aa3",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:44:13.801419295Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Business - Low - New Org Added to Enterprise",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "89f11f44-c327-44d5-9ac1-aea319eaabe6",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

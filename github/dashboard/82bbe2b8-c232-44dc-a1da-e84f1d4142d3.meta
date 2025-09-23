@@ -1,7 +1,7 @@
 {
 	"UUID": "82bbe2b8-c232-44dc-a1da-e84f1d4142d3",
-	"Name": "GitHub User Investigation",
-	"Description": "This Dashboard is intended to be used for user investigations.",
+	"Name": "GitHub IP Investigation",
+	"Description": "This Dashboard is intended to be used for IP Address investigations.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,7 +12,18 @@
 		},
 		"searches": [
 			{
-				"alias": "Template - GitHub - User - Investigation",
+				"alias": "Template - GitHub - IP - Unique Actors by Actor IP [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "a92718fa-65e8-48fe-93d9-7484ab26aa40",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Unique Repo Interactions [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "1017d2ee-f6d4-4346-b8a2-4a7eb24f4a4b",
@@ -23,10 +34,142 @@
 				}
 			},
 			{
-				"alias": "Template - GitHub - User - Investigation (Wildcard)",
+				"alias": "Template - GitHub - IP - Unique Repos by Actor IP [numbercard]",
 				"color": null,
 				"reference": {
-					"id": "64686975-b757-428a-9921-9965bcc01195",
+					"id": "987518a0-9280-418c-a5c9-75d80070303b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Unique Actions by Actor IP [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "ed4df048-84d7-4bca-ab3f-09764b8d1fbb",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Unique Operation Types by Actor IP [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "7bea0d91-9b9a-4225-ab6d-10acbc96efde",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Unique Pull Request Actions by Actor IP [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "70b64089-0696-4674-b32a-178b3c038a30",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Unique Actors by Actor IP [table]",
+				"color": null,
+				"reference": {
+					"id": "9474d0ff-86cc-407a-9c1a-c1bc2f8b1e8d",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Unique Repos by Actor IP [table]",
+				"color": null,
+				"reference": {
+					"id": "495f63c9-e075-4d8f-8b46-c02748428d78",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Unique Actions by Actor IP [table]",
+				"color": null,
+				"reference": {
+					"id": "3c1c7cde-c254-4c63-ab16-0f123010745d",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Unique Operation Types by Actor IP [table]",
+				"color": null,
+				"reference": {
+					"id": "e80db52f-5e20-4492-9be3-742ed224967b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Unique Pull Request Actions by Actor IP [table]",
+				"color": null,
+				"reference": {
+					"id": "a284206a-a603-4b59-98c3-d30e277a8bad",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Investigation (API Requests)",
+				"color": null,
+				"reference": {
+					"id": "e2a3d3ca-df4f-4ce9-8deb-fbbae70e78b0",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Investigation (w/o API Requests)",
+				"color": null,
+				"reference": {
+					"id": "db9a7760-a92f-4b39-a864-f2a0ff57da1a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Actor IP [pointmap]",
+				"color": null,
+				"reference": {
+					"id": "e43aa4ab-1818-49cd-8e3a-e3b795ea67df",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - IP - Actor IP [heatmap]",
+				"color": null,
+				"reference": {
+					"id": "214bd1d8-68ac-4b94-aeb3-ad9c5a94bcc1",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -36,31 +179,229 @@
 		],
 		"tiles": [
 			{
-				"id": 17551827601310,
-				"title": "User Investigation",
-				"renderer": "table",
+				"id": 17583030144150,
+				"title": "Unique Actors",
+				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 12,
-					"row": 5,
+					"col": 3,
+					"row": 4,
 					"x": 0,
 					"y": 0
 				},
 				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "15",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17583030746931,
+				"title": "Unique Repos",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 4,
+					"x": 3,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "15",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17583035664512,
+				"title": "Unique Actions",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "15",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 17583039988033,
+				"title": "Unique Operation Types",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "15",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17583040334234,
+				"title": "Unique Pull Requests",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 4,
+					"y": 10
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "12",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 17583040885825,
+				"title": "Actors",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 5,
+					"x": 0,
+					"y": 14
+				},
+				"searchesIndex": 6,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17551828020081,
-				"title": "User Investigation (Wildcard)",
+				"id": 17583055449846,
+				"title": "Repos",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 5,
+					"x": 3,
+					"y": 14
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17583055924367,
+				"title": "Actions",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 19
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17583056397778,
+				"title": "Operation Types",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 19
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17583056936519,
+				"title": "Pull Requests",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 8,
+					"y": 14
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175830626043110,
+				"title": "API Requests",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
 					"col": 12,
-					"row": 5,
+					"row": 8,
 					"x": 0,
-					"y": 5
+					"y": 24
 				},
-				"searchesIndex": 1,
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175830631248311,
+				"title": "No API Requests",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 10,
+					"x": 0,
+					"y": 32
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175830772932612,
+				"title": "Actor IP Pointmap",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 42
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175830779424613,
+				"title": "Actor IP Heatmap",
+				"renderer": "heatmap",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 42
+				},
+				"searchesIndex": 14,
 				"rendererOptions": {}
 			}
 		],

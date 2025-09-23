@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "b516357b-bcee-4cec-aaed-2edc3d46a1c0",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a repo is transferred to another repo network.\n\nrepo.transfer_outgoing = A repository was transferred to another repository network.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "dd906495-481e-41e1-a125-f69b784bcd45",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "b8c58a51-5961-4e07-80c4-a42640e49aae",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:28:43.977472045Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - Medium - Repo Transferred to Another Repo Network",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "9e9472fe-003c-499c-be72-41ef862a588d",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

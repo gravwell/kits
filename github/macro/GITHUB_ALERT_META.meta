@@ -1,6 +1,6 @@
 {
 	"Name": "GITHUB_ALERT_META",
-	"Description": "Usage $GITHUB_ALERT_META(priority[string], message[string]) i.e. $GITHUB_ALERT_META(\"Medium\", \"GitHub Account Changed\")",
+	"Description": "Usage $GITHUB_ALERT_META(priority[string], message[string]) \ni.e. $GITHUB_ALERT_META(\"Medium\", \"GitHub Account Changed\")",
 	"Labels": [
 		"github"
 	]
