@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Repo - Medium - Repo Transferred to Another Repo Network",
+ "Description": "Detects when a repo is transferred to another repo network.\n\nrepo.transfer_outgoing = A repository was transferred to another repository network.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "15 */2 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "b516357b-bcee-4cec-aaed-2edc3d46a1c0",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

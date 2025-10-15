@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "43c64609-e468-44da-9aa8-282ee38b3767",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when Dependabot Security Updates have been disabled for all existing repos in organization.\n\ndependabot_security_updates.disable = Dependabot security updates were disabled for all existing repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#dependabot_security_updates",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "9400e195-4fa9-4814-9e39-2ebe627db969",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "da97165a-88b3-4527-abf1-ee7fd111126d",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:56:43.44420692Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - High - Dependabot Security Updates Disabled for All Existing Repos",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "f39ad8b3-f5e2-456e-8608-adf06d6fe375",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

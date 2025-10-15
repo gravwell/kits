@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Org - Low - New Member Added to Org",
+ "Description": "Detects when a new member has been invited and added to org.\n\norg.add_member = A user joined an organization.\norg.invite_member = A new user was invited to join an organization.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "27 */4 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "0466e706-46b0-4290-9351-4d74fde89c1c",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

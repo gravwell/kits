@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "0717b339-5820-47c2-bef4-56c78fe6953b",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when the push protection bypass list was modified for your org.\n\norg_secret_scanning_push_protection_bypass_list.add = A role or team was added to the push protection bypass list at the organization level.\norg_secret_scanning_push_protection_bypass_list.disable = Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Specific roles or teams\" to \"Anyone with write access\" at the organization level.\norg_secret_scanning_push_protection_bypass_list.enable = Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Anyone with write access\" to \"Specific roles or teams\" at the organization level.\norg_secret_scanning_push_protection_bypass_list.remove = A role or team was removed from the push protection bypass list at the organization level.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org_secret_scanning_push_protection_bypass_list\n\nhttps://docs.github.com/code-security/secret-scanning/protecting-pushes-with-secret-scanning",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "f4c3674c-4ce1-47ba-ba9c-7b1506175ac8",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "e3fee189-d9ab-4325-8de9-aa125a34bf8f",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:10:35.715668208Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - Medium - Push Protection Bypass List Modified",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "ff7dda4e-5525-4791-9d2c-ae4e25c9a64e",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

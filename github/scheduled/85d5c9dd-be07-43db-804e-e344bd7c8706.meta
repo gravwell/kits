@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Business - High - Dependabot Alerts Disabled",
+ "Description": "Detects when Dependabots alerts have been disabled for the enterprise.\n\nbusiness_dependabot_alerts.disable = Dependabot alerts were disabled for your enterprise.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_dependabot_alerts",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "3 * * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "85d5c9dd-be07-43db-804e-e344bd7c8706",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

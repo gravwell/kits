@@ -1,0 +1,22 @@
+{
+	"UUID": "194456cd-4d6c-4137-853e-7ccfe6283801",
+	"GUID": "8613e16c-abf7-4bde-bd46-cf04e8ecb31e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Org - High - Dependabot Security Updates Disabled for All Existing Repos",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.605263000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

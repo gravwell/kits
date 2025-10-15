@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Codespaces - Medium - Group Policy Deleted",
+ "Description": "Detects when a delete action in invoked on a codespace.\n\ncodespaces.policy_group_deleted = Policies were removed from codespaces in an organization or enterprise.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces",
+ "GUID": "8691d883-4789-4e1a-8359-25032b62e06b",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

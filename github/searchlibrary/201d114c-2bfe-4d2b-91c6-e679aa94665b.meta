@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Codespaces - Medium - Delete Action Invoked",
+ "Description": "Detects when a delete action in invoked on a codespace for a repo.\n\ncodespaces.destroy = A user deleted a codespace.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces\n\nhttps://docs.github.com/codespaces/developing-in-codespaces/deleting-a-codespace",
+ "GUID": "201d114c-2bfe-4d2b-91c6-e679aa94665b",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

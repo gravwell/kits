@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Environment - Medium - Delete Action Invoked",
+ "Description": "Detects when a delete action in invoked on a environment.\n\nenvironment.delete = An environment was deleted.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#environment\n\nhttps://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "15 */2 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "11bc4b66-5aea-41c1-8d03-eecc705948bd",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

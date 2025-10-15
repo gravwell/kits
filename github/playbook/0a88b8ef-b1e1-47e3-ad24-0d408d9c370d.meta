@@ -1,0 +1,22 @@
+{
+	"UUID": "c7e9e674-2c18-4903-81d4-d2fca4306674",
+	"GUID": "0a88b8ef-b1e1-47e3-ad24-0d408d9c370d",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Business - Low - New Org Added to Enterprise",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.602088000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

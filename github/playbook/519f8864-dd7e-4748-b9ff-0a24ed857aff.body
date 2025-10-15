@@ -1,0 +1,141 @@
+# Table of Contents
+- Alert Summary
+- Response Steps
+    1. Validate the Alert
+    2. Correlate with Change Management (if available)
+    3. Investigate the User Account
+    4. Investigate the Source IP
+    5. Look for Related Logins
+    6. Broader Contextual Review
+    7. Escalation Criteria
+    8. Document & Close
+
+***
+
+## Alert Summary
+- Description:
+	- Detects when a webhook was modified.
+	- hook.active\_changed = A hook's active status was updated.
+	- hook.config\_changed = A hook's configuration was changed.
+	- hook.create = A new hook was added.
+	- hook.destroy = A hook was deleted.
+	- hook.events\_changed = A hook's configured events were changed.
+- Reference(s):
+    - [Hook](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#hook)
+    - [About Webhooks](https://docs.github.com/get-started/exploring-integrations/about-webhooks)
+- Alert below 
+```query
+    tag=$GITHUB_AUDIT json @timestamp actor action~"hook." operation_type org repo
+    | printf -e context "at %v, %v was %v by %v in %v org" @timestamp action operation_type actor org
+    | $GITHUB_ALERT_META("Low", "Webhook Modified")
+```
+
+***
+
+## Response Steps
+### 1. Validate the Alert
+- Ensure the event actually occurred.
+- Sample Query: Validate the Alert
+```query
+    tag=$GITHUB_AUDIT json @timestamp actor action~"hook." operation_type org repo
+    | table @timestamp org repo actor action operation_type
+```
+
+### 2. Correlate with Change Management (if available)
+- Look up related tickets/change requests.
+- Validate whether the activity matches an approved request.
+
+### 3. Investigate the User Account
+- Review the user's permissions, role, and previous actions.
+- Review other actions by the same user around the event within: 
+    - GitHub Audit Logs
+    - Firewall Logs
+    - Network Logs
+    - VPN Logs
+    - Proxy Logs
+    - IDS/IPS Logs 
+    - Host Logs 
+    - AV/EDR/XDR Logs 
+- Sample Query: View other categorical actions by actor
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor user invitee actor_ip action operation_type user_agent
+    | # no action filter inferred
+    | grep -e actor "username*"
+    | sort by @timestamp desc
+    | table @timestamp org repo actor actor_ip user invitee action operation_type user_agent
+```
+
+### 4. Investigate the Source IP
+- Determine if the IP is internal or external. 
+    - You can add this to quickly determine whether it is PRIVATE or PUBLIC 
+    - [IP Module Documentation] (https://docs.gravwell.io/search/ip/ip.html)
+    - Sample Query: View other categorical actions by Source IP (replace #.#.#.# with IP)
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+        | # no action filter inferred
+        | sort by @timestamp desc
+        | ip -categorize actor_ip
+        | grep -e actor_ip "#.#.#.#" 
+        | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+- Determine more contextual information about the IP address
+    - It is highly recommended to have an IP lookup (uploaded resource) of your environment(s) IP Ranges to filter off of. 
+    - [IPLookup Module Documentation] (https://docs.gravwell.io/search/iplookup/iplookup.html) 
+    - Sample Query: Lookup IP Range against internal ranges
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type
+        | # no action filter inferred
+        | sort by @timestamp desc
+        | grep -e actor_ip "#.#.#.#"
+        | iplookup -r REPLACE_ME_WITH_YOUR_RESOURCE -e actor_ip field_to_extract as new_EV_name
+        | table @timestamp org repo actor actor_ip action operation_type
+```
+- Determine if the IP Address is outside of the Country
+    - [GeoIP Module Documentation] (https://docs.gravwell.io/search/geoip/geoip.html)
+    - Sample Query: Show City, Country, & CountryName with GeoIP 
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type
+        | # no action filter inferred
+        | sort by @timestamp desc
+        | grep -e actor_ip "#.#.#.#"
+        | geoip actor_ip.Location actor_ip.City actor_ip.Country actor_ip.CountryName
+        | table @timestamp org repo actor actor_ip action operation_type
+```
+
+### 5. Look for Related Logins
+- Identify logins or auth events by the actor (or from the IP) prior to modification.
+- Sample Query: View logins, failed logins, and related activity (replace username & IP)
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+    | eval (actor=="username" || actor_ip=="#.#.#.#")
+    | sort by @timestamp desc
+    | ip -categorize actor_ip
+    | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+
+### 6. Broader Contextual Review
+- Check if multiple actions were performed in a short time window. 
+- Look for anomalies like unusual repositories, organizations, or unexpected actors.
+- Sample Query: View all actions by actor
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+    | grep -e actor "username*"
+    | sort by @timestamp desc
+    | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+
+### 7. Escalation Criteria
+- Escalate if:
+    - Activity was not authorized or approved.
+    - Action was from an unusual IP (geolocation mismatch, external network) for the user's typical network interaction.
+    - Unauthorized or unusual activity is detected.
+
+### 8. Document & Close
+- Record findings in ticketing/IR platform.
+- If benign/authorized, close with justification.
+    - Submit tune requests; such as, updating the allow/block list to yield better alert results. 
+- If suspicious, escalate for containment & response.
+
+***
+
+**Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**

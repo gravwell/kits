@@ -1,0 +1,4 @@
+tag=$GITHUB_AUDIT json action repo 
+| eval in(action, "pull_request.create") 
+| stats count 
+| numbercard count

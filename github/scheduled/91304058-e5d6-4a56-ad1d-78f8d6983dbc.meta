@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Business - Low - New Org Added to Enterprise",
+ "Description": "Detects when a new org has been invited and added to Enterprise.\n\norg.invite_to_business = An organization was invited to join an enterprise.\nbusiness.add_organization = An organization was added to an enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "27 */4 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "91304058-e5d6-4a56-ad1d-78f8d6983dbc",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

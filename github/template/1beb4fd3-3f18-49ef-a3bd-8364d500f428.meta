@@ -1,0 +1,20 @@
+{
+	"UUID": "1beb4fd3-3f18-49ef-a3bd-8364d500f428",
+	"Name": "Template - GitHub - User/Actor - Action Count by Repo [numbercard]",
+	"Description": "This is intended to quickly show the total number of actions per repo performed by an actor/user when you're investigating an actor/user for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "actor/user",
+				"description": "Who are you investigating/searching for? This is searching for them as either the actor or the user.",
+				"required": true,
+				"defaultValue": "change_me",
+				"previewValue": "change_me"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

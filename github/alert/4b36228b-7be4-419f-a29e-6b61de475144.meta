@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "0ce69524-1cec-455b-aff4-20ff235bf388",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a repo that was private was changed to public.\n\nrepo.access = The visibility of a repository changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "b148d84f-b15a-40d0-8184-cb10eee2ce0d",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "4b36228b-7be4-419f-a29e-6b61de475144",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:17:19.550104048Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - High - Repo changed from Private to Public",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "584e00d8-85ed-40d7-b62c-776c3041fb6e",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

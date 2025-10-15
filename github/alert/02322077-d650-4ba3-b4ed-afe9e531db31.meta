@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "75acb719-8baa-480c-9005-973f3cd7a169",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when the SSH certificate requirement for an org has been disabled.\n\nssh_certificate_requirement.disable = The requirement for members to use SSH certificates to access an organization resources was disabled..\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#ssh_certificate_requirement\n\nhttps://docs.github.com/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities\n\nhttps://docs.github.com/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "59bd69be-fb34-4372-ae35-f517bf00e98d",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "02322077-d650-4ba3-b4ed-afe9e531db31",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:14:13.520765128Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - Medium - SSH Certificate Requirement Disabled",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "4d30462d-21fc-477f-9f8c-c6e018e74b4b",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

@@ -1,0 +1,6 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "private_repository_forking.enable"
+    )
+| printf -e context "at %v, %v was %v by %v for %v in %v" @timestamp action operation_type actor repo org
+| $GITHUB_ALERT_META("Low", "Private Forking Enabled")

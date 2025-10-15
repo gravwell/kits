@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Repo - Low - New Secret Created",
+ "Description": "Detects when a new secret has been created for a repo.\n\nrepo.create_actions_secret = A GitHub Actions secret was created for a repository.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo\n\nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#repo\n\nhttps://docs.github.com/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "27 */4 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "cf62fe00-abd8-4ce2-a820-72813f667cf0",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Org - Medium - Org Transfer Between Enterprise Accounts",
+ "Description": "Detects when an org has been transferred between enterprises.\n\norg.transfer = An organization was transferred between enterprise accounts.\norg.transfer_outgoing = An organization was transferred between enterprise accounts.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "15 */2 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "a275c3d0-47bb-4ad9-b89f-699c8be37985",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,15 @@
+{
+	"Name": "AlertFlow - GitHub - Repo - High - Secret Scanning Disabled for a Repo",
+	"Description": "Detects when secret scanning has been disabled for a repo.\n\nrepository_secret_scanning.disable = Secret scanning was disabled for a repository.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_secret_scanning\n\nhttps://docs.github.com/code-security/secret-scanning/about-secret-scanning",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "3 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "57c725a8-5645-49ce-ba72-49ddc741643a",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

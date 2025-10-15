@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Merged by Actor, Repo [Pie]",
+	"Description": "Finds merged pull requests by actor repo\n\npull_request.merge = A pull request was merged.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request",
+	"GUID": "dbec1400-1728-456e-80ac-8a1b1861f11a",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "github_info",
+	"Description": "This is intended to be used as a lookup file for the GitHub Kit or standalone searches.\n\nAll data sourced from https://api.github.com/meta\n\nCSV Format Current is company,category,value\n\nCurrent Categories:\nssh_key_fingerprints\nssh_keys\nhooks\nweb\napi\ngit\ngithub_enterprise_importer\npackages\npages\nimporter\nactions\nactions_macos\ncodespaces\ndependabot\ncopilot\ndomains\nwebsite\ncodespaces\ncopilot\npackages\nactions\nactions_inbound\nfull_domains\nwildcard_domains\nartifact_attestations\nservices",
+	"Labels": [
+		"github"
+	],
+	"Size": 216415,
+	"Hash": "Ha8wmnOV75mHxcLPAhih+w==",
+	"Data": ""
+}

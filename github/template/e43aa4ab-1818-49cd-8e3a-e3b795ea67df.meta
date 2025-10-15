@@ -1,0 +1,20 @@
+{
+	"UUID": "e43aa4ab-1818-49cd-8e3a-e3b795ea67df",
+	"Name": "Template - GitHub - IP - Actor IP [pointmap]",
+	"Description": "This is intended to quickly show the location(s) of all actor IP actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%2%%",
+				"label": "IP Address",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": "#.#.#.#",
+				"previewValue": "#.#.#.#"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

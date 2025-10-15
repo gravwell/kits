@@ -1,0 +1,22 @@
+{
+	"UUID": "eff327e4-2c45-4d52-a901-e3bec83338e4",
+	"GUID": "2daa622a-6bce-4ff2-ad00-e786f5717ffa",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Repo - High - GitHub Advanced Security Disabled for a Repo",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.610922000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

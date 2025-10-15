@@ -1,0 +1,22 @@
+{
+	"UUID": "f36d2a5b-4ec2-4988-8a31-a9ed61fa0a3a",
+	"GUID": "b70b6347-a042-4447-996d-a327a0adf95e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Org - Medium - Push Protection for Secret Scanning Disabled",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.609663000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

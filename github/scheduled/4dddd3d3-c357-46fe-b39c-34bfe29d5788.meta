@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Business - Medium - Push Protection Bypass Disabled for New Repos",
+ "Description": "Detects when push protection for secret scanning was disabled for new repos in your enterprise.\n\nbusiness_secret_scanning_push_protection.disabled_for_new_repos = Push protection for secret scanning was disabled for new repositories in your enterprise.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_secret_scanning_push_protection\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "15 */2 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "4dddd3d3-c357-46fe-b39c-34bfe29d5788",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

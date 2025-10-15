@@ -1,0 +1,22 @@
+{
+	"UUID": "e853c17f-da2e-4eda-9a81-6371eb2ccd19",
+	"GUID": "49592ecc-e8e9-4d4b-a08a-768718d30816",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Business - High - GitHub Advanced Security for New Enterprise Repos Disabled",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.601116000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

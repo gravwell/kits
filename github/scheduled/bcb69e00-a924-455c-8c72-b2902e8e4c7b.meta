@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Repo - High - Dependabot Vulnerability Alerts Disabled",
+ "Description": "Detects when Dependabot vulnerability alerts have been disabled for a repo.\n\nrepository_vulnerability_alerts.disable = Dependabot alerts was disabled.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alerts",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "3 * * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "bcb69e00-a924-455c-8c72-b2902e8e4c7b",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

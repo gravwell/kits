@@ -1,0 +1,11 @@
+tag=$GITHUB_AUDIT json actor user repo
+| eval if (!has(repo) || repo == "") {repo = "No Data";}
+| eval if (!has(actor) || actor == "") {actor = "No Data";}
+| eval if (!has(user) || user == "") {user = "No Data";}
+| eval (actor~"%%1%%"||user~"%%1%%")
+| fuse actor user 
+| time -oformat "2006-01-02" TIMESTAMP date
+| time -oformat "15:04:05" TIMESTAMP time
+| alias SRC src_ip
+| stats count by repo 
+| numbercard count

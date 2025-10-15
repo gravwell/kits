@@ -1,0 +1,5 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type user repository_selection
+| eval in(action,
+    "personal_access_token"
+    )
+| table

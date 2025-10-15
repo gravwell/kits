@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - GitHub - Repo - High - Force Push",
+	"Description": "Detects when a repo was force pushed which isn't usually common within a production environment.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-server@3.17/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/viewing-push-logs",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "3 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0e93b2ed-367c-4f7a-8ec8-492c4f4dbc0f",
+	"SearchReference": "cef41f7a-0189-4b46-9ad2-7fec2023b74f"
+}

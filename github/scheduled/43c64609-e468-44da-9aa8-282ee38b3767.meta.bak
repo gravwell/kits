@@ -1,0 +1,15 @@
+{
+	"Name": "AlertFlow - GitHub - Org - High - Dependabot Security Updates Disabled for All Existing Repos",
+	"Description": "Detects when Dependabot Security Updates have been disabled for all existing repos in organization.\n\ndependabot_security_updates.disable = Dependabot security updates were disabled for all existing repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#dependabot_security_updates",
+	"Labels": [
+		"github"
+	],
+	"Schedule": "3 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "43c64609-e468-44da-9aa8-282ee38b3767",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

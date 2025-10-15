@@ -1,0 +1,22 @@
+{
+	"UUID": "1df7477f-163e-4257-8b9e-e8a4f283fce1",
+	"GUID": "0049c5b6-7f82-44b1-9e28-46acd96f1739",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - User - Medium - Secret Scanning Push Protection Bypass Detected",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.615510000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

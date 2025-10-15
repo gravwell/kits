@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Org - Low - New Member Added to Org",
+ "Description": "Detects when a new member has been invited and added to org.\n\norg.add_member = A user joined an organization.\norg.invite_member = A new user was invited to join an organization.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+ "GUID": "bf21465d-9a03-4b22-87b9-1a23cb30004b",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Org - Low - Runner Group Renamed",
+ "Description": "Detects when a self-hosted runner group is renamed.\n\norg.runner_group_created = A self-hosted runner group was created.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "27 */4 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "a4afeed1-f5d3-4755-8bbd-cdbb66c27ad6",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "ccceb43f-42a4-4756-b79a-615b9b9b07b5",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a new secret has been created for an organization.\n\norg.create_actions_secret = A GitHub Actions secret was created for an organization.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#org\n\nhttps://docs.github.com/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "0b4bc62f-1ba8-437e-b1df-a1701fa4384f",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "c718b5d0-c0ca-480d-a779-def32bb692f1",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:04:33.025730054Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - Low - New Secret Created",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "248fab26-f996-4e8e-a0dc-e1ca7bf40f82",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

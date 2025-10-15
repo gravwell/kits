@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Created by Actor, Repo [Pie]",
+	"Description": "Finds created pull requests by actor, repo\n\npull_request.create = A pull request was created.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request",
+	"GUID": "280e440c-0de5-4967-8d09-6c9b07907e2f",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

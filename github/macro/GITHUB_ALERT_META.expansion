@@ -1,0 +1,9 @@
+eval _alert_priority = "%%1%%"
+| eval _alert_name = "%%2%%"
+| enrich _alert_class github
+| eval if (match(repo,".")) {host = repo;} else {host = "github";}
+       _alert_header = "| Context |";
+       _alert_divider = "|-----|";
+       _alert_data = printf("|%v|", context);
+| eval _alert_title = printf("%v Alert: %v on %v",_alert_priority, _alert_name, host)
+| table _alert_title context

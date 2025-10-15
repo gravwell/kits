@@ -1,0 +1,22 @@
+{
+	"UUID": "a3b4b8fa-96c3-44bf-a0d0-45586fc050dd",
+	"GUID": "13b68138-e4f9-41d8-8a20-c69371431d26",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Environment - Low - New Secret Created",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.603432000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

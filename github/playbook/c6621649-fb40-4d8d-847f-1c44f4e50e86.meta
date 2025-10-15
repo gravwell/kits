@@ -1,0 +1,22 @@
+{
+	"UUID": "f2c5778c-44db-4f1a-a9b5-8c60293b3963",
+	"GUID": "c6621649-fb40-4d8d-847f-1c44f4e50e86",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Repo - High - Force Push",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.610707000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

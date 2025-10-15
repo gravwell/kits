@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Org - High - Dependabot Alerts Disabled for Any New Repos",
+	"Description": "Detects when Dependabot alerts have been disabled for any new repos.\n\ndependabot_alerts_new_repos.disable = Dependabot alerts were disabled for all new repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#dependabot_alerts_new_repos",
+	"GUID": "a5981fc2-b450-4a83-bcd4-92dbacdc38e0",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

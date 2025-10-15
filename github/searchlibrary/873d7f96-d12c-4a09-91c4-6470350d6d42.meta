@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Org - High - Dependabot Security Updates Disabled for All Existing Repos",
+ "Description": "Detects when Dependabot Security Updates have been disabled for all existing repos in organization.\n\ndependabot_security_updates.disable = Dependabot security updates were disabled for all existing repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#dependabot_security_updates",
+ "GUID": "873d7f96-d12c-4a09-91c4-6470350d6d42",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

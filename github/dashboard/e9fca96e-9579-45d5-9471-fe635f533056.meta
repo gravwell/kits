@@ -1,0 +1,491 @@
+{
+	"UUID": "e9fca96e-9579-45d5-9471-fe635f533056",
+	"Name": "GitHub User/Actor Investigation",
+	"Description": "This Dashboard is intended to be used for user \u0026 actor investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - GitHub - User/Actor - Total Repo Interactions [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "c48b0e19-a2f5-4e3a-af29-41e0bbf1339a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Unique Repo Interactions [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1017d2ee-f6d4-4346-b8a2-4a7eb24f4a4b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Total Actions [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "64686975-b757-428a-9921-9965bcc01195",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Total Actions by Repo [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1beb4fd3-3f18-49ef-a3bd-8364d500f428",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Operation Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "fb2ba694-b499-4629-b876-c5f54b2dfad2",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Alerts [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "0f55ee70-4ccd-41d0-84f0-f2bb97cd2f1a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Unique Repo Interactions [table]",
+				"color": null,
+				"reference": {
+					"id": "a0cfd9a6-f425-43d5-9acb-3c310fe38f13",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Alerts [table]",
+				"color": null,
+				"reference": {
+					"id": "252bf79e-51dc-4f0c-913d-92f2dd74df6e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - All Non-API Events [table]",
+				"color": null,
+				"reference": {
+					"id": "a5181346-9eb7-4181-b260-52b8558d47ae",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - All API Events [table]",
+				"color": null,
+				"reference": {
+					"id": "103c21e7-075d-48dc-8a00-d4585d75212a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Repo Interactions [table]",
+				"color": null,
+				"reference": {
+					"id": "bb73b58e-8304-40bb-88be-380c86b9dba3",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Actions \u0026 Operation Types [table]",
+				"color": null,
+				"reference": {
+					"id": "c2e8b9c7-7497-4acb-a122-23a7ade1a4e1",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Actions [table]",
+				"color": null,
+				"reference": {
+					"id": "b005a2ec-09ca-4b7c-9357-4c9ecee19e26",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Operation Types [table]",
+				"color": null,
+				"reference": {
+					"id": "7c7db814-c5b6-4517-be66-9099a24873aa",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Interactions with Applications [table]",
+				"color": null,
+				"reference": {
+					"id": "8abbfecd-0186-423a-94d4-9baebcc7c986",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Unique IP Addresses [table]",
+				"color": null,
+				"reference": {
+					"id": "18f308e0-d0ee-4925-aa15-a601d57df6e0",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - GitHub - User/Actor - Unique IP Addresses [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1cfcf7a5-0df7-4a9f-9724-143d81099a4a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17582127677160,
+				"title": "Total Repo Interactions",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "12",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17582129795421,
+				"title": "Unique Repo Interactions",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "12",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17582131633152,
+				"title": "Count by Actions",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "12",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17582135450543,
+				"title": "Action Count by Repo",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "12",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17582253677144,
+				"title": "Count by Operation Type",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "12",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17582254538275,
+				"title": "Alerts",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "12",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17582255135396,
+				"title": "Unique Repo Interactions",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17582255696207,
+				"title": "Alerts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 5,
+					"y": 4
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17582256278498,
+				"title": "All Non-API Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17582256559399,
+				"title": "All API Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175822571001810,
+				"title": "Repo Interactions",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 14
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175822578741911,
+				"title": "Actions \u0026 Operation Types",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 14
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175822583323612,
+				"title": "Actions",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 19
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175822587930513,
+				"title": "Operation Types",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 19
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175822595226514,
+				"title": "Applications",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 8,
+					"x": 0,
+					"y": 25
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175822717295515,
+				"title": "Unique IP Addresses",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 33
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175822736890216,
+				"title": "Unique IP Addresses",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 8,
+					"y": 25
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "12",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "50"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"github"
+	]
+}

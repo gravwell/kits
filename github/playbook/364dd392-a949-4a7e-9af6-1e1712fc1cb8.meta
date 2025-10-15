@@ -1,0 +1,22 @@
+{
+	"UUID": "d6f840c8-1ef5-4c94-9931-43545fdc97a3",
+	"GUID": "364dd392-a949-4a7e-9af6-1e1712fc1cb8",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Org - High - 2FA Disabled",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.604581000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

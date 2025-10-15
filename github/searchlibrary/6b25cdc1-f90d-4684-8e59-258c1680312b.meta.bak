@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Integration - Low - App Installed",
+	"Description": "Detects when GitHub App Installed.\n\nintegration_installation.create = A GitHub App was installed.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#integration_installation\n\nhttps://docs.github.com/apps/using-github-apps/authorizing-github-apps",
+	"GUID": "6b25cdc1-f90d-4684-8e59-258c1680312b",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

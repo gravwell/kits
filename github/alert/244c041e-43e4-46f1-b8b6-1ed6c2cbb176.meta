@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "15fdb94e-b590-44ad-8b22-1e77adf0416c",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when there is a change to the GitHub Account Plan.\n\naccount.plan_change = The account's plan changed.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#account\n\nhttps://docs.github.com/billing/managing-the-plan-for-your-github-account/about-billing-for-plans",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "8835c5b2-6ccf-491a-9066-d0616df55d43",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "244c041e-43e4-46f1-b8b6-1ed6c2cbb176",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T13:16:49.918707174Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Account - Medium - Plan Changed",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "3bbe55d2-0874-4dbb-9367-a345d889b9e6",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

@@ -1,0 +1,256 @@
+{
+	"UUID": "6bb43cae-037e-4477-b727-fb401ee8d246",
+	"Name": "GitHub Pull Requests",
+	"Description": "This Dashboard is a general overview of all Pull Requests over the past 7 days",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Merged",
+				"query": "tag=github-audit json action==\"pull_request.merge\"\n| stats count\n| gauge count",
+				"color": null
+			},
+			{
+				"alias": "Open",
+				"query": "tag=github-audit json action==\"pull_request.create\"\n| stats count\n| gauge count",
+				"color": null
+			},
+			{
+				"alias": "Closed",
+				"query": "tag=github-audit json action==\"pull_request.close\"\n| stats count\n| gauge count",
+				"color": null
+			},
+			{
+				"alias": "Reopened",
+				"query": "tag=github-audit json action==\"pull_request.reopen\"\n| stats count\n| gauge count",
+				"color": null
+			},
+			{
+				"alias": "Review Requests",
+				"query": "tag=github-audit json action==\"pull_request.create_review_request\"\n| stats count\n| gauge count",
+				"color": null
+			},
+			{
+				"alias": "Ready for Review",
+				"query": "tag=github-audit json action==\"pull_request.ready_for_review\"\n| stats count\n| gauge count",
+				"color": null
+			},
+			{
+				"alias": "Created by Repo",
+				"query": "tag=github-audit json action==\"pull_request.create\" repo\n| stats count by repo\n| table repo count",
+				"color": null
+			},
+			{
+				"alias": "Created by Repo",
+				"query": "tag=github-audit json action==\"pull_request.create\" repo\n| stats count by repo\n| chart count by repo",
+				"color": null
+			},
+			{
+				"alias": "Created by Actor, Repo",
+				"query": "tag=github-audit json action==\"pull_request.create\" actor repo\n| stats count by actor repo\n| table repo actor count",
+				"color": null
+			},
+			{
+				"alias": "Created by Actor, Repo",
+				"query": "tag=github-audit json action==\"pull_request.create\" actor repo \n| stats count by actor repo \n| chart count by actor repo",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 6024058075275239,
+				"title": "Merged",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275240,
+				"title": "Open",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275241,
+				"title": "Closed",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275242,
+				"title": "Reopened",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275243,
+				"title": "Review Requests",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275244,
+				"title": "Ready for Review",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275245,
+				"title": "Created by Repo",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6024058075275246,
+				"title": "Created by Repo",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6024058075275247,
+				"title": "Created by Actor, Repo",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6024058075275248,
+				"title": "Created by Actor, Repo",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"github"
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"UUID": "d11c9d9f-7c52-40e3-9fba-2088c5679878",
+	"GUID": "6b1026d3-ca8b-4c28-9cc4-25b74cbbb1b0",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Org - Medium - Member Added After 7 Day Invitation Expiry",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.608773000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

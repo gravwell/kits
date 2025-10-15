@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Repo - Low - Private Forking Enabled",
+ "Description": "Detects when a private repo is enabled.\n\nprivate_repository_forking.enable = An enterprise owner enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#private_repository_forking",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "27 */4 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "fead1192-dbc2-4914-b5b3-fbd2d43245e2",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

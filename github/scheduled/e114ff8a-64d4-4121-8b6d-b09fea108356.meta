@@ -1,0 +1,15 @@
+{
+ "Name": "Flow - GitHub - Environment - Low - New Secret Created",
+ "Description": "Detects when a new secret has been created for an environment.\n\nenvironment.create_actions_secret = A secret was created for a GitHub Actions environment.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#environment\n\nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#environment\n\nhttps://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets",
+ "Labels": [
+  "github"
+ ],
+ "Schedule": "27 */4 * * *",
+ "DefaultDeploymentRules": {
+  "Disabled": false,
+  "RunImmediately": false
+ },
+ "ScheduledType": "flow",
+ "GUID": "e114ff8a-64d4-4121-8b6d-b09fea108356",
+ "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

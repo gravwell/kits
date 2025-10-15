@@ -1,0 +1,18 @@
+{
+	"UUID": "18f308e0-d0ee-4925-aa15-a601d57df6e0",
+	"Name": "Template - GitHub - User/Actor - Unique IP Addresses [table]",
+	"Description": "This is intended to quickly show the unique number of IP Addresses used by an actor/user when you're investigating an actor/user for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "actor/user",
+				"description": "Who are you investigating/searching for? This is searching for them as either the actor or the user.",
+				"required": true,
+				"defaultValue": "change_me",
+				"previewValue": "change_me"
+			}
+		]
+	},
+	"Labels": null
+}
