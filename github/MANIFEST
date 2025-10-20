@@ -739,6 +739,11 @@
    "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
   },
   {
+   "Name": "GRAVWELL_INSTANCE",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
    "Name": "6bb43cae-037e-4477-b727-fb401ee8d246",
    "Type": 3,
    "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -2199,6 +2204,14 @@
    "MacroName": "GITHUB_ALERT_RECIPIENT",
    "Description": "Configuration Macro; Necessary for alerts within the GitHub Kit to run properly",
    "DefaultValue": "replace_me@with_valid_recipient.address",
+   "Value": "",
+   "Type": "STRING",
+   "InstalledByID": ""
+  },
+  {
+   "MacroName": "GRAVWELL_INSTANCE",
+   "Description": "Configuration Macro; Necessary for alerts within the GitHub Kit to run properly",
+   "DefaultValue": "https://<change_me_to_your_specific_url>:<change_to_your_specific_port>/",
    "Value": "",
    "Type": "STRING",
    "InstalledByID": ""
