@@ -1,16 +1,16 @@
 {
-	"Name": "ScheduledSearch - GitHub - Repo - High - Repo changed from Private to Public",
-	"Description": "Detects when a repo that was private was changed to public.\n\nrepo.access = The visibility of a repository changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
-	"Labels": [
-		"github"
-	],
-	"Schedule": "3 * * * *",
-	"Duration": -3600,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "b148d84f-b15a-40d0-8184-cb10eee2ce0d",
-	"SearchReference": "fd138fad-a8ac-44b2-b0d9-b9a304a41d73"
+  "Name": "ScheduledSearch - GitHub - Repo - High - Repo changed from Private to Public",
+  "Description": "Detects when a repo that was private was changed to public.\n\nrepo.access = The visibility of a repository changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "3 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "b148d84f-b15a-40d0-8184-cb10eee2ce0d",
+  "SearchReference": "fd138fad-a8ac-44b2-b0d9-b9a304a41d73"
 }

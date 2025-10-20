@@ -1,15 +1,15 @@
 {
- "Name": "Flow - GitHub - Codespaces - Medium - Group Policy Deleted",
- "Description": "Detects when a delete action in invoked on a codespace.\n\ncodespaces.policy_group_deleted = Policies were removed from codespaces in an organization or enterprise.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces",
- "Labels": [
-  "github"
- ],
- "Schedule": "15 */2 * * *",
- "DefaultDeploymentRules": {
-  "Disabled": false,
-  "RunImmediately": false
- },
- "ScheduledType": "flow",
- "GUID": "87dc9708-bacd-4e95-bc89-eea8f0af7f92",
- "SearchReference": "00000000-0000-0000-0000-000000000000"
+  "Name": "Flow - GitHub - Codespaces - Medium - Group Policy Deleted",
+  "Description": "Detects when a delete action in invoked on a codespace.\n\ncodespaces.policy_group_deleted = Policies were removed from codespaces in an organization or enterprise.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "15 */2 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "87dc9708-bacd-4e95-bc89-eea8f0af7f92",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
 }

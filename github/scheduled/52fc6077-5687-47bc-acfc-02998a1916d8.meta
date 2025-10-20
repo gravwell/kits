@@ -1,16 +1,16 @@
 {
-	"Name": "ScheduledSearch - GitHub - Org - High - Dependabot Alerts Disabled for All Existing Repos in Org",
-	"Description": "Detects when Dependabot alerts have been disabled for all existing repos in org.\n\ndependabot_alerts.disable = Dependabot alerts were disabled for all existing repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#dependabot_alerts",
-	"Labels": [
-		"github"
-	],
-	"Schedule": "3 * * * *",
-	"Duration": -3600,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "52fc6077-5687-47bc-acfc-02998a1916d8",
-	"SearchReference": "f2c77052-e50a-48ff-a1af-56fa133c27d3"
+  "Name": "ScheduledSearch - GitHub - Org - High - Dependabot Alerts Disabled for All Existing Repos in Org",
+  "Description": "Detects when Dependabot alerts have been disabled for all existing repos in org.\n\ndependabot_alerts.disable = Dependabot alerts were disabled for all existing repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#dependabot_alerts",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "3 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "52fc6077-5687-47bc-acfc-02998a1916d8",
+  "SearchReference": "f2c77052-e50a-48ff-a1af-56fa133c27d3"
 }

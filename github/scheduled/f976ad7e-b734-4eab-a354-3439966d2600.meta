@@ -1,15 +1,15 @@
 {
- "Name": "Flow - GitHub - Vuln - Medium - Vulnerability Alert Modified",
- "Description": "Detects when a vulnerability alert rule has been created, enabled, force enabled, disabled, force_disabled, deleted, or updated for a repo.\n\nvulnerability_alert_rule.create = A Dependabot rule was created.\nvulnerability_alert_rule.enable = A Dependabot rule was enabled for a single repository or enabled by default for an organization.\nvulnerability_alert_rule.force_enable = A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.\nvulnerability_alert_rule.disable = A Dependabot rule was disabled for a single repository or disabled by default for an organization.\nvulnerability_alert_rule.force_disable = A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.\nvulnerability_alert_rule.delete = A Dependabot rule was deleted.\nvulnerability_alert_rule.update = A Dependabot rule's conditions, actions, or metadata changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alerts",
- "Labels": [
-  "github"
- ],
- "Schedule": "15 */2 * * *",
- "DefaultDeploymentRules": {
-  "Disabled": false,
-  "RunImmediately": false
- },
- "ScheduledType": "flow",
- "GUID": "f976ad7e-b734-4eab-a354-3439966d2600",
- "SearchReference": "00000000-0000-0000-0000-000000000000"
+  "Name": "Flow - GitHub - Vuln - Medium - Vulnerability Alert Modified",
+  "Description": "Detects when a vulnerability alert rule has been created, enabled, force enabled, disabled, force_disabled, deleted, or updated for a repo.\n\nvulnerability_alert_rule.create = A Dependabot rule was created.\nvulnerability_alert_rule.enable = A Dependabot rule was enabled for a single repository or enabled by default for an organization.\nvulnerability_alert_rule.force_enable = A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.\nvulnerability_alert_rule.disable = A Dependabot rule was disabled for a single repository or disabled by default for an organization.\nvulnerability_alert_rule.force_disable = A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.\nvulnerability_alert_rule.delete = A Dependabot rule was deleted.\nvulnerability_alert_rule.update = A Dependabot rule's conditions, actions, or metadata changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alerts",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "15 */2 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "f976ad7e-b734-4eab-a354-3439966d2600",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
 }

@@ -1,16 +1,16 @@
 {
-	"Name": "ScheduledSearch - GitHub - Business - High - GitHub Advanced Security Disabled for User Namespace Repos in Enterprise",
-	"Description": "Detects when a high risk configuration has been changed to the Enterprise in GitHub Advanced Security (GHAS).\n\nbusiness_advanced_security.user_namespace_repos_disabled = GitHub Advanced Security was disabled for user namespace repositories in your enterprise.\n\nReference: https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_advanced_security\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
-	"Labels": [
-		"github"
-	],
-	"Schedule": "3 * * * *",
-	"Duration": -3600,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "684976e1-cb52-4133-9d01-8c194659008d",
-	"SearchReference": "8d4f8cad-0a79-40f5-a51f-846f20f83e9c"
+  "Name": "ScheduledSearch - GitHub - Business - High - GitHub Advanced Security Disabled for User Namespace Repos in Enterprise",
+  "Description": "Detects when a high risk configuration has been changed to the Enterprise in GitHub Advanced Security (GHAS).\n\nbusiness_advanced_security.user_namespace_repos_disabled = GitHub Advanced Security was disabled for user namespace repositories in your enterprise.\n\nReference: https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_advanced_security\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "3 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "684976e1-cb52-4133-9d01-8c194659008d",
+  "SearchReference": "8d4f8cad-0a79-40f5-a51f-846f20f83e9c"
 }

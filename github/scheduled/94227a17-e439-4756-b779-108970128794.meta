@@ -1,15 +1,15 @@
 {
- "Name": "Flow - GitHub - Repo - Low - Invitation Actions",
- "Description": "Detects when an invitation for a user was created, accepted, rejected, or cancelled.\n\nrepository_invitation.create = An invitation to join a repository was sent.\nrepository_invitation.accept = An invitation to join a repository was accepted.\nrepository_invitation.reject = An invitation to join a repository was declined.\nrepository_invitation.cancel = An invitation to join a repository was canceled.\n\nReference(s):\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
- "Labels": [
-  "github"
- ],
- "Schedule": "27 */4 * * *",
- "DefaultDeploymentRules": {
-  "Disabled": false,
-  "RunImmediately": false
- },
- "ScheduledType": "flow",
- "GUID": "94227a17-e439-4756-b779-108970128794",
- "SearchReference": "00000000-0000-0000-0000-000000000000"
+  "Name": "Flow - GitHub - Repo - Low - Invitation Actions",
+  "Description": "Detects when an invitation for a user was created, accepted, rejected, or cancelled.\n\nrepository_invitation.create = An invitation to join a repository was sent.\nrepository_invitation.accept = An invitation to join a repository was accepted.\nrepository_invitation.reject = An invitation to join a repository was declined.\nrepository_invitation.cancel = An invitation to join a repository was canceled.\n\nReference(s):\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "27 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "94227a17-e439-4756-b779-108970128794",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
 }

@@ -1,16 +1,16 @@
 {
-	"Name": "ScheduledSearch - GitHub - Codespaces - Medium - Delete Action Invoked",
-	"Description": "Detects when a delete action in invoked on a codespace for a repo.\n\ncodespaces.destroy = A user deleted a codespace.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces\n\nhttps://docs.github.com/codespaces/developing-in-codespaces/deleting-a-codespace",
-	"Labels": [
-		"github"
-	],
-	"Schedule": "15 */2 * * *",
-	"Duration": -7200,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "560feb9e-55c3-4bc6-8c3a-603817a6536b",
-	"SearchReference": "201d114c-2bfe-4d2b-91c6-e679aa94665b"
+  "Name": "ScheduledSearch - GitHub - Codespaces - Medium - Delete Action Invoked",
+  "Description": "Detects when a delete action in invoked on a codespace for a repo.\n\ncodespaces.destroy = A user deleted a codespace.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces\n\nhttps://docs.github.com/codespaces/developing-in-codespaces/deleting-a-codespace",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "15 */2 * * *",
+  "Duration": -7200,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "560feb9e-55c3-4bc6-8c3a-603817a6536b",
+  "SearchReference": "201d114c-2bfe-4d2b-91c6-e679aa94665b"
 }

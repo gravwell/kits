@@ -1,14 +1,14 @@
 {
-	"Name": "ScheduledSearch - GitHub - Business - Low - New Org Added to Enterprise",
-	"Description": "Detects when a new org has been invited and added to Enterprise.\n\norg.invite_to_business = An organization was invited to join an enterprise.\nbusiness.add_organization = An organization was added to an enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
-	"Labels": null,
-	"Schedule": "27 */4 * * *",
-	"Duration": -14400,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "ed2286aa-3023-4fdd-ac31-e643437270f6",
-	"SearchReference": "59a69e00-835a-4a41-8a2f-0b8a7974e970"
+  "Name": "ScheduledSearch - GitHub - Business - Low - New Org Added to Enterprise",
+  "Description": "Detects when a new org has been invited and added to Enterprise.\n\norg.invite_to_business = An organization was invited to join an enterprise.\nbusiness.add_organization = An organization was added to an enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+  "Labels": null,
+  "Schedule": "27 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "ed2286aa-3023-4fdd-ac31-e643437270f6",
+  "SearchReference": "59a69e00-835a-4a41-8a2f-0b8a7974e970"
 }

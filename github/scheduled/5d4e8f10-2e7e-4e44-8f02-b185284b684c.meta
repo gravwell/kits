@@ -1,15 +1,15 @@
 {
- "Name": "Flow - GitHub - Repo - High - Secret Scanning Disabled for All New Repos",
- "Description": "Detects when secret scanning has been disabled for all new repos.\n\nsecret_scanning_new_repos.disable = Secret scanning was disabled for all new repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_new_repos\n\nhttps://docs.github.com/code-security/secret-scanning/about-secret-scanning",
- "Labels": [
-  "github"
- ],
- "Schedule": "3 * * * *",
- "DefaultDeploymentRules": {
-  "Disabled": false,
-  "RunImmediately": false
- },
- "ScheduledType": "flow",
- "GUID": "5d4e8f10-2e7e-4e44-8f02-b185284b684c",
- "SearchReference": "00000000-0000-0000-0000-000000000000"
+  "Name": "Flow - GitHub - Repo - High - Secret Scanning Disabled for All New Repos",
+  "Description": "Detects when secret scanning has been disabled for all new repos.\n\nsecret_scanning_new_repos.disable = Secret scanning was disabled for all new repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_new_repos\n\nhttps://docs.github.com/code-security/secret-scanning/about-secret-scanning",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "3 * * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "5d4e8f10-2e7e-4e44-8f02-b185284b684c",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
 }

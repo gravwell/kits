@@ -1,15 +1,15 @@
 {
- "Name": "Flow - GitHub - Repo - Low - New Runner Registered",
- "Description": "Detects when a self-hosted runner is registered.\n\nrepo.register_self_hosted_runner = A new self-hosted runner was registered.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo\n\nhttps://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization",
- "Labels": [
-  "github"
- ],
- "Schedule": "27 */4 * * *",
- "DefaultDeploymentRules": {
-  "Disabled": false,
-  "RunImmediately": false
- },
- "ScheduledType": "flow",
- "GUID": "c6bfc9e7-6d43-4bb2-a0fd-663848c479eb",
- "SearchReference": "00000000-0000-0000-0000-000000000000"
+  "Name": "Flow - GitHub - Repo - Low - New Runner Registered",
+  "Description": "Detects when a self-hosted runner is registered.\n\nrepo.register_self_hosted_runner = A new self-hosted runner was registered.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo\n\nhttps://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "27 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "c6bfc9e7-6d43-4bb2-a0fd-663848c479eb",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
 }

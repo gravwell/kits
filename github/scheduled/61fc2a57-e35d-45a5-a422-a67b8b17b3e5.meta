@@ -1,15 +1,15 @@
 {
- "Name": "Flow - GitHub - Org - Medium - Push Protection for Secret Scanning Disabled",
- "Description": "Detects when push protection for secret scanning was disabled for your org.\n\norg.secret_scanning_push_protection_disable = Push protection for secret scanning was disabled.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/code-security/secret-scanning/protecting-pushes-with-secret-scanning",
- "Labels": [
-  "github"
- ],
- "Schedule": "15 */2 * * *",
- "DefaultDeploymentRules": {
-  "Disabled": false,
-  "RunImmediately": false
- },
- "ScheduledType": "flow",
- "GUID": "61fc2a57-e35d-45a5-a422-a67b8b17b3e5",
- "SearchReference": "00000000-0000-0000-0000-000000000000"
+  "Name": "Flow - GitHub - Org - Medium - Push Protection for Secret Scanning Disabled",
+  "Description": "Detects when push protection for secret scanning was disabled for your org.\n\norg.secret_scanning_push_protection_disable = Push protection for secret scanning was disabled.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/code-security/secret-scanning/protecting-pushes-with-secret-scanning",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "15 */2 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "61fc2a57-e35d-45a5-a422-a67b8b17b3e5",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
 }
