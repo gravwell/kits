@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Secret Scan - New Alerts [numbercard]",
+	"Description": "Detects when GitHub detected a secret and created an alert.\n\nsecret_scanning_alert.create = GitHub detected a secret and created a secret scanning alert.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_alert\n\nhttps://docs.github.com/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning",
+	"GUID": "8aaa27c2-eccb-42b8-b25d-0b480c2613c2",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

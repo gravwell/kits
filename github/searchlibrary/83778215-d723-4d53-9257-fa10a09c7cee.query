@@ -1,0 +1,3 @@
+tag=$GITHUB_AUDIT json @timestamp actor action~"hook." operation_type org repo
+| printf -e context "at %v, %v was %v by %v in %v org" @timestamp action operation_type actor org
+| $GITHUB_ALERT_META("Low", "Webhook Modified")

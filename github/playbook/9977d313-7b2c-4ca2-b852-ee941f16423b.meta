@@ -1,0 +1,22 @@
+{
+	"UUID": "41e6497c-a564-485c-b81f-a7ccb41d9b3a",
+	"GUID": "9977d313-7b2c-4ca2-b852-ee941f16423b",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Integration - Low - App Installed",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.604099000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

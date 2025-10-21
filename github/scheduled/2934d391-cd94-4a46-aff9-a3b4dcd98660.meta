@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - GitHub - Hook - Low - Webhook Modified",
+  "Description": "Detects when a webhook was modified.\n\nhook.active_changed = A hook's active status was updated.\nhook.config_changed = A hook's configuration was changed.\nhook.create = A new hook was added.\nhook.destroy = A hook was deleted.\nhook.events_changed = A hook's configured events were changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#hook\n\nhttps://docs.github.com/get-started/exploring-integrations/about-webhooks",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "27 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "2934d391-cd94-4a46-aff9-a3b4dcd98660",
+  "SearchReference": "83778215-d723-4d53-9257-fa10a09c7cee"
+}

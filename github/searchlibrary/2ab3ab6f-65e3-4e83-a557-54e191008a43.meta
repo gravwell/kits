@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Org - Medium - Push Protection for Secret Scanning Disabled",
+ "Description": "Detects when push protection for secret scanning was disabled for your org.\n\norg.secret_scanning_push_protection_disable = Push protection for secret scanning was disabled.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/code-security/secret-scanning/protecting-pushes-with-secret-scanning",
+ "GUID": "2ab3ab6f-65e3-4e83-a557-54e191008a43",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

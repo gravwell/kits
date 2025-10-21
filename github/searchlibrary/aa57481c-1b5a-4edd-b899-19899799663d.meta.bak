@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Business - High - GitHub Advanced Security for Enterprise Disabled",
+	"Description": "Detects when a high risk configuration has been changed to the Enterprise in GitHub Advanced Security (GHAS)\n\nbusiness_advanced_security.disabled = GitHub Advanced Security was disabled for your enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_advanced_security\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+	"GUID": "aa57481c-1b5a-4edd-b899-19899799663d",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

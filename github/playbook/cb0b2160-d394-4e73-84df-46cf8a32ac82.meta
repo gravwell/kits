@@ -1,0 +1,22 @@
+{
+	"UUID": "9e571651-0b0a-4507-a46d-f37b2327e43e",
+	"GUID": "cb0b2160-d394-4e73-84df-46cf8a32ac82",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Repo - High - Secret Scanning Disabled for a Repo",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.611771000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

@@ -1,0 +1,7 @@
+{
+	"Name": "GRAVWELL_INSTANCE",
+	"Description": "Configuration Macro; Necessary for alerts within the GitHub Kit to run properly; https://<change_me_to_your_specific_url>:<change_to_your_specific_port>/",
+	"Labels": [
+		"gravwell"
+	]
+}

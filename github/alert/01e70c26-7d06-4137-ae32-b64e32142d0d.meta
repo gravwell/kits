@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "2a76b9a1-58b0-4cc6-99be-2012ab71bd8a",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a user accepted a transferred repo.\n\nrepo.transfer = A user accepted a request to receive a transferred repository.\nrepo.transfer_outgoing = A repository was transferred to another repository network.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "a339c20f-c14d-448d-954c-073147eccd2c",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "01e70c26-7d06-4137-ae32-b64e32142d0d",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:29:30.048077719Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - Medium - User Accepted Repo Transfer Request",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "09429bc5-9d53-446e-ad92-f602c77a24e3",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

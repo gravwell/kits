@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "f2e4de47-a8e9-4f18-a465-a67fe905ec01",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a high risk configuration has been changed for a repo.\n\nrepo.advanced_security_disabled = GitHub Advanced Security was disabled for a repository.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo\n\nhttps://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "1dee6c72-2224-4f35-9e73-e59dfc1307e8",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "7c73619b-3919-42dc-bf47-dae35eb152e3",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:16:39.437440793Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - High - GitHub Advanced Security Disabled for a Repo",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "4b3519a1-0c2c-464b-ae18-5f3cb0729ca1",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

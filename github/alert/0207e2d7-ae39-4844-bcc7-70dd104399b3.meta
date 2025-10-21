@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "e4556af4-dc81-45f8-8125-3190d1afd527",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a user bypasses the push protection on a secret detected by secret scanning.\n\nsecret_scanning_push_protection.bypass = Triggered when a user bypasses the push protection on a secret detected by secret scanning.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "513947b1-1c2d-44d0-a1b5-f63ba9ffc0ec",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "0207e2d7-ae39-4844-bcc7-70dd104399b3",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:31:02.804148887Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - User - Medium - Secret Scanning Push Protection Bypass Detected",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "6b4fdbd3-bf3f-4fc4-99a0-0f2202613977",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

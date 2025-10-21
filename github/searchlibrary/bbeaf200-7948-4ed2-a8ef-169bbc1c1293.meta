@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Review requests by Repo [table]",
+	"Description": "Finds pull requests with review requests by repo.\n\npull_request.create_review_request = A review was requested on a pull request.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request",
+	"GUID": "bbeaf200-7948-4ed2-a8ef-169bbc1c1293",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

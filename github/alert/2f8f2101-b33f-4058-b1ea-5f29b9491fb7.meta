@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "849815e0-5124-4fa0-8943-5dbbaca839a1",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a webhook was modified.\n\nhook.active_changed = A hook's active status was updated.\nhook.config_changed = A hook's configuration was changed.\nhook.create = A new hook was added.\nhook.destroy = A hook was deleted.\nhook.events_changed = A hook's configured events were changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#hook\n\nhttps://docs.github.com/get-started/exploring-integrations/about-webhooks",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "2934d391-cd94-4a46-aff9-a3b4dcd98660",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "2f8f2101-b33f-4058-b1ea-5f29b9491fb7",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:51:02.319152179Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Hook - Low - Webhook Modified",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "52d47ac2-dba4-4a0a-9213-4a2e820ca9f6",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

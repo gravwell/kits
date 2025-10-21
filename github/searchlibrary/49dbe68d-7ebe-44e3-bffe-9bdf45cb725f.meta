@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Org - High - Member Granted Owner Role",
+ "Description": "Detects when a member was granted the \"Owner\" role (admin) which may be indicative of privilege escalation.\n\norg.update_member = A person's role was changed from owner to member or member to owner.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+ "GUID": "49dbe68d-7ebe-44e3-bffe-9bdf45cb725f",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Org - Medium - Org Transfer Between Enterprise Accounts",
+ "Description": "Detects when an org has been transferred between enterprises.\n\norg.transfer = An organization was transferred between enterprise accounts.\norg.transfer_outgoing = An organization was transferred between enterprise accounts.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts",
+ "GUID": "5f5be915-2c2b-48b0-90c0-dea3fb2a8378",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

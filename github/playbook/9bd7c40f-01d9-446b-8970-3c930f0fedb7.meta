@@ -1,0 +1,22 @@
+{
+	"UUID": "877c92bc-9852-474a-b080-3f4f33835138",
+	"GUID": "9bd7c40f-01d9-446b-8970-3c930f0fedb7",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Vuln - Medium - Vulnerability Alert Modified",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.615722000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

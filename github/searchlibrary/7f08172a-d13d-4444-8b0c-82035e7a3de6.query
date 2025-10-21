@@ -1,0 +1,6 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "ssh_certificate_requirement.disable"
+    )
+| printf -e context "at %v, %v was %v by %v in %v org" @timestamp action operation_type actor org
+| $GITHUB_ALERT_META("Medium", "SSH Certificate Requirement Disabled")

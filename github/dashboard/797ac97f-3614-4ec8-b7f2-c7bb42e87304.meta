@@ -1,0 +1,258 @@
+{
+	"UUID": "797ac97f-3614-4ec8-b7f2-c7bb42e87304",
+	"Name": "GitHub Overview",
+	"Description": "This Dashboard is a general overview of your GitHub data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Vulnerabilities Created",
+				"query": "tag=github-audit json action~\"repository_vulnerability_alert.create\" repo \n| stats count \n| numbercard count",
+				"color": null
+			},
+			{
+				"alias": "Code Scanning Alerts",
+				"query": "tag=github-audit json action repo \n| eval in(action, \"code_scanning.alert_created\", \"code_scanning.alert_appeared_in_branch\") \n| stats count \n| numbercard count",
+				"color": null
+			},
+			{
+				"alias": "Public Key Created",
+				"query": "tag=github-audit json action repo | eval in(action, \"public_key.create\") \n| stats count \n| numbercard count",
+				"color": null
+			},
+			{
+				"alias": "Pull Requests Created",
+				"query": "tag=github-audit json action repo \n| eval in(action, \"pull_request.create\") \n| stats count \n| numbercard count",
+				"color": null
+			},
+			{
+				"alias": "Secret Scanning Alerts",
+				"query": "tag=github-audit json action repo | eval in(action, \"secret_scanning_alert.create\") \n| stats count \n| numbercard count",
+				"color": null
+			},
+			{
+				"alias": "New Org Members",
+				"query": "tag=github-audit json action repo \n| eval in(action, \"org.add_member\") \n| stats count \n| numbercard count",
+				"color": null
+			},
+			{
+				"alias": "Pull Requests by Repo",
+				"query": "tag=github-audit json action~\"pull_request.create\" repo \n| stats count by repo\n| chart count by repo",
+				"color": null
+			},
+			{
+				"alias": "Pull Requests by Actor",
+				"query": "tag=github-audit json action~\"pull_request.create\" actor\n| stats count by actor\n| chart count by actor",
+				"color": null
+			},
+			{
+				"alias": "Code Scanning Events",
+				"query": "tag=github-audit json action~\"code_scanning.\" repo actor ref \n| stats count by repo action actor ref \n| table",
+				"color": null
+			},
+			{
+				"alias": "Secret Scanning Alerts",
+				"query": "tag=github-audit json action~\"secret_scanning_alert\" actor repo \n| stats count by repo \n| table",
+				"color": null
+			},
+			{
+				"alias": "Repo Members Added",
+				"query": "tag=github-audit json action~\"repo.add_member\" repo actor user \n| table",
+				"color": null
+			},
+			{
+				"alias": "Personal Access Token Granted or Requested",
+				"query": "tag=github-audit json @timestamp actor action operation_type user repository_selection\n| eval in(action,\n    \"personal_access_token\"\n    )\n| table",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 1755191502751,
+				"title": "Vulnerabilities Created",
+				"renderer": "numbercard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755191520495,
+				"title": "Code Scanning Alerts",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755191712916,
+				"title": "Public Key Created",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755192109498,
+				"title": "Pull Requests Created",
+				"renderer": "numbercard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755192340873,
+				"title": "Secret Scanning Alerts",
+				"renderer": "numbercard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755192536942,
+				"title": "New Org Members",
+				"renderer": "numbercard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755193015411,
+				"title": "Pull Requests by Repo",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1755193066484,
+				"title": "Pull Requests by Actor",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1755193333907,
+				"title": "Code Scanning Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755193834826,
+				"title": "Secret Scanning Alerts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 9
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755194028561,
+				"title": "Repo Members Added",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 16
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1755194370765,
+				"title": "Personal Access Token Granted or Requested",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 16
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"github"
+	]
+}

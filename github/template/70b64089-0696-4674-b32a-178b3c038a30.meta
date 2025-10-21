@@ -1,0 +1,20 @@
+{
+	"UUID": "70b64089-0696-4674-b32a-178b3c038a30",
+	"Name": "Template - GitHub - IP - Unique Pull Request Actions by Actor IP [numbercard]",
+	"Description": "This is intended to quickly show the unique count of pull request actions performed with by an IP Address when you're investigating an IP Address for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%2%%",
+				"label": "IP Address",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": "#.#.#.#",
+				"previewValue": "#.#.#.#"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

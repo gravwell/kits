@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - GitHub - Repo - Low - Invitation Actions",
+  "Description": "Detects when an invitation for a user was created, accepted, rejected, or cancelled.\n\nrepository_invitation.create = An invitation to join a repository was sent.\nrepository_invitation.accept = An invitation to join a repository was accepted.\nrepository_invitation.reject = An invitation to join a repository was declined.\nrepository_invitation.cancel = An invitation to join a repository was canceled.\n\nReference(s):\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization\n\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "27 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "091cdc09-2404-43cc-8da6-da444413bad1",
+  "SearchReference": "eb6f3362-faf1-4b70-9b3d-a2ef26ca8e42"
+}

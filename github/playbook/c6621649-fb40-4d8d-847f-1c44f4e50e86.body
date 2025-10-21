@@ -1,0 +1,163 @@
+# Table of Contents
+- Alert Summary
+- Response Steps
+    1. Validate the Alert
+    2. Correlate with Change Management (if available)
+    3. Investigate the User Account
+    4. Investigate the Source IP
+    5. Look for Related Logins
+    6. Broader Contextual Review
+    7. Escalation Criteria
+    8. Document & Close
+
+***
+
+## Alert Summary
+- Description:
+	- Detects when a repo was force pushed which isn't usually common within a production environment.
+- Reference(s):
+    - [Viewing Push Logs](https://docs.github.com/en/enterprise-server@3.17/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/viewing-push-logs)
+- Alert below 
+```query
+    tag=$GITHUB json TIMESTAMP forced=="true" repo repository repository.owner organization head_commit.author.name head_commit.author.email head_commit.author.username head_commit.message head_commit.url
+    | alias name author_name
+    | alias username author_username
+    | alias email a_email
+    | json -e repository id as repo_id repository full_name as repo_name repository.created_at as repo_create_time pushed_at as repo_push_time repository.updated_at as repo_update_time 
+    | json -e owner name as repo_owner owner email as owner_email 
+    | json -e organization id as org_id repository login as org_name
+    | json pusher
+    | json -e pusher name as pusher_user pusher email as p_email
+    | json sender
+    | json -e sender id as sender_id sender login as sender_user
+    | regex -e a_email "(?<author_id>\d+?)?\W(?<author_email>.+)"
+    | regex -e p_email "(?<pusher_id>\d+?)?\W(?<pusher_email>.+)"
+    | time -oformat "Jan _2, 2006" repo_push_time date
+    | time -oformat "15:04:05" repo_push_time time
+    | printf -e context "On %v at %v, %v:%v (repo id: repo name) owned by %v (%v) in %v:%v org was force pushed by %v:%v (%v) located at %v with message:\"%v\"." date time repo_id repo_name org_id org_name repo_owner owner_email pusher_id pusher_user pusher_email url message
+    | $GITHUB_ALERT_META("High", "Force Push")
+```
+
+***
+
+## Response Steps
+### 1. Validate the Alert
+- Ensure the event actually occurred.
+- Sample Query: Validate the Alert
+```query
+    tag=$GITHUB json TIMESTAMP forced=="true" repo repository repository.owner organization head_commit.author.name head_commit.author.email head_commit.author.username head_commit.message head_commit.url
+    | alias name author_name
+    | alias username author_username
+    | alias email a_email
+    | json -e repository id as repo_id repository full_name as repo_name repository.created_at as repo_create_time pushed_at as repo_push_time repository.updated_at as repo_update_time 
+    | json -e owner name as repo_owner owner email as owner_email 
+    | json -e organization id as org_id repository login as org_name
+    | json pusher
+    | json -e pusher name as pusher_user pusher email as p_email
+    | json sender
+    | json -e sender id as sender_id sender login as sender_user
+    | regex -e a_email "(?<author_id>\d+?)?\W(?<author_email>.+)"
+    | regex -e p_email "(?<pusher_id>\d+?)?\W(?<pusher_email>.+)"
+    | time -oformat "Jan _2, 2006" repo_push_time date
+    | time -oformat "15:04:05" repo_push_time time
+    | table repo TIMESTAMP author_email author_id forced head_commit.author.email head_commit.author.name head_commit.author.username head_commit.message head_commit.url organization pusher_email pusher_id repository repository.owner
+```
+
+### 2. Correlate with Change Management (if available)
+- Look up related tickets/change requests.
+- Validate whether the activity matches an approved request.
+
+### 3. Investigate the User Account
+- Review the user's permissions, role, and previous actions.
+- Review other actions by the same user around the event within: 
+    - GitHub Audit Logs
+    - Firewall Logs
+    - Network Logs
+    - VPN Logs
+    - Proxy Logs
+    - IDS/IPS Logs 
+    - Host Logs 
+    - AV/EDR/XDR Logs 
+- Sample Query: View other categorical actions by actor
+```query
+    tag=$GITHUB json @timestamp org repo actor user invitee actor_ip action operation_type user_agent
+    | # no action filter inferred
+    | grep -e actor "username*"
+    | sort by @timestamp desc
+    | table @timestamp org repo actor actor_ip user invitee action operation_type user_agent
+```
+
+### 4. Investigate the Source IP
+- Determine if the IP is internal or external. 
+    - You can add this to quickly determine whether it is PRIVATE or PUBLIC 
+    - [IP Module Documentation] (https://docs.gravwell.io/search/ip/ip.html)
+    - Sample Query: View other categorical actions by Source IP (replace #.#.#.# with IP)
+```query
+        tag=$GITHUB json @timestamp org repo actor actor_ip action operation_type user_agent
+        | # no action filter inferred
+        | sort by @timestamp desc
+        | ip -categorize actor_ip
+        | grep -e actor_ip "#.#.#.#" 
+        | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+- Determine more contextual information about the IP address
+    - It is highly recommended to have an IP lookup (uploaded resource) of your environment(s) IP Ranges to filter off of. 
+    - [IPLookup Module Documentation] (https://docs.gravwell.io/search/iplookup/iplookup.html) 
+    - Sample Query: Lookup IP Range against internal ranges
+```query
+        tag=$GITHUB json @timestamp org repo actor actor_ip action operation_type
+        | # no action filter inferred
+        | sort by @timestamp desc
+        | grep -e actor_ip "#.#.#.#"
+        | iplookup -r REPLACE_ME_WITH_YOUR_RESOURCE -e actor_ip field_to_extract as new_EV_name
+        | table @timestamp org repo actor actor_ip action operation_type
+```
+- Determine if the IP Address is outside of the Country
+    - [GeoIP Module Documentation] (https://docs.gravwell.io/search/geoip/geoip.html)
+    - Sample Query: Show City, Country, & CountryName with GeoIP 
+```query
+        tag=$GITHUB json @timestamp org repo actor actor_ip action operation_type
+        | # no action filter inferred
+        | sort by @timestamp desc
+        | grep -e actor_ip "#.#.#.#"
+        | geoip actor_ip.Location actor_ip.City actor_ip.Country actor_ip.CountryName
+        | table @timestamp org repo actor actor_ip action operation_type
+```
+
+### 5. Look for Related Logins
+- Identify logins or auth events by the actor (or from the IP) prior to modification.
+- Sample Query: View logins, failed logins, and related activity (replace username & IP)
+```query
+    tag=$GITHUB json @timestamp org repo actor actor_ip action operation_type user_agent
+    | eval (actor=="username" || actor_ip=="#.#.#.#")
+    | sort by @timestamp desc
+    | ip -categorize actor_ip
+    | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+
+### 6. Broader Contextual Review
+- Check if multiple actions were performed in a short time window. 
+- Look for anomalies like unusual repositories, organizations, or unexpected actors.
+- Sample Query: View all actions by actor
+```query
+    tag=$GITHUB json @timestamp org repo actor actor_ip action operation_type user_agent
+    | grep -e actor "username*"
+    | sort by @timestamp desc
+    | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+
+### 7. Escalation Criteria
+- Escalate if:
+    - Activity was not authorized or approved.
+    - Action was from an unusual IP (geolocation mismatch, external network) for the user's typical network interaction.
+    - Unauthorized or unusual activity is detected.
+
+### 8. Document & Close
+- Record findings in ticketing/IR platform.
+- If benign/authorized, close with justification.
+    - Submit tune requests; such as, updating the allow/block list to yield better alert results. 
+- If suspicious, escalate for containment & response.
+
+***
+
+**Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**
