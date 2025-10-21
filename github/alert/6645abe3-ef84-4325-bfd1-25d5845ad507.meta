@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "bc97abfb-9c07-4867-bfd9-673842272fc2",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a member was granted the \"Owner\" role (admin) which may be indicative of privilege escalation.\n\norg.update_member = A person's role was changed from owner to member or member to owner.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "9ae1345f-6955-46ef-9059-e36e640203e0",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "6645abe3-ef84-4325-bfd1-25d5845ad507",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:00:41.133477502Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - High - Member Granted Owner Role",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "c6b375f2-cdb6-4182-821c-06d9209bee8b",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

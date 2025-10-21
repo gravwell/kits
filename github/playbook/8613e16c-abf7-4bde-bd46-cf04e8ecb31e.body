@@ -1,0 +1,142 @@
+# Table of Contents
+- Alert Summary
+- Response Steps
+    1. Validate the Alert
+    2. Correlate with Change Management (if available)
+    3. Investigate the User Account
+    4. Investigate the Source IP
+    5. Look for Related Logins
+    6. Broader Contextual Review
+    7. Escalation Criteria
+    8. Document & Close
+
+***
+
+## Alert Summary
+- Description:
+	- Detects when Dependabot Security Updates have been disabled for all existing repos in organization.
+	- dependabot\_security\_updates.disable = Dependabot security updates were disabled for all existing repositories.
+- Reference(s):
+    - [Dependabot Security Updates](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#dependabot_security_updates)
+- Alert below 
+```query
+    tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
+    | eval in(action, 
+        "dependabot_security_updates.disable"
+        )
+    | printf -e context "at %v, %v was %v by %v for %v org" @timestamp action operation_type actor org
+    | $GITHUB_ALERT_META("High", "Dependabot Security Updates Disabled for All Existing Repos")
+```
+
+***
+
+## Response Steps
+### 1. Validate the Alert
+- Ensure the event actually occurred.
+- Sample Query: Validate the Alert
+```query
+    tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
+    | eval in(action, 
+        "dependabot_security_updates.disable"
+        )
+    | table @timestamp org repo actor action operation_type
+```
+
+### 2. Correlate with Change Management (if available)
+- Look up related tickets/change requests.
+- Validate whether the activity matches an approved request.
+
+### 3. Investigate the User Account
+- Review the user's permissions, role, and previous actions.
+- Review other actions by the same user around the event within: 
+    - GitHub Audit Logs
+    - Firewall Logs
+    - Network Logs
+    - VPN Logs
+    - Proxy Logs
+    - IDS/IPS Logs 
+    - Host Logs 
+    - AV/EDR/XDR Logs 
+- Sample Query: View other categorical actions by actor
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor user invitee actor_ip action operation_type user_agent
+    | eval in(action, "dependabot_security_updates.disable")
+    | grep -e actor "username*"
+    | sort by @timestamp desc
+    | table @timestamp org repo actor actor_ip user invitee action operation_type user_agent
+```
+
+### 4. Investigate the Source IP
+- Determine if the IP is internal or external. 
+    - You can add this to quickly determine whether it is PRIVATE or PUBLIC 
+    - [IP Module Documentation] (https://docs.gravwell.io/search/ip/ip.html)
+    - Sample Query: View other categorical actions by Source IP (replace #.#.#.# with IP)
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+        | eval in(action, "dependabot_security_updates.disable")
+        | sort by @timestamp desc
+        | ip -categorize actor_ip
+        | grep -e actor_ip "#.#.#.#" 
+        | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+- Determine more contextual information about the IP address
+    - It is highly recommended to have an IP lookup (uploaded resource) of your environment(s) IP Ranges to filter off of. 
+    - [IPLookup Module Documentation] (https://docs.gravwell.io/search/iplookup/iplookup.html) 
+    - Sample Query: Lookup IP Range against internal ranges
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type
+        | eval in(action, "dependabot_security_updates.disable")
+        | sort by @timestamp desc
+        | grep -e actor_ip "#.#.#.#"
+        | iplookup -r REPLACE_ME_WITH_YOUR_RESOURCE -e actor_ip field_to_extract as new_EV_name
+        | table @timestamp org repo actor actor_ip action operation_type
+```
+- Determine if the IP Address is outside of the Country
+    - [GeoIP Module Documentation] (https://docs.gravwell.io/search/geoip/geoip.html)
+    - Sample Query: Show City, Country, & CountryName with GeoIP 
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type
+        | eval in(action, "dependabot_security_updates.disable")
+        | sort by @timestamp desc
+        | grep -e actor_ip "#.#.#.#"
+        | geoip actor_ip.Location actor_ip.City actor_ip.Country actor_ip.CountryName
+        | table @timestamp org repo actor actor_ip action operation_type
+```
+
+### 5. Look for Related Logins
+- Identify logins or auth events by the actor (or from the IP) prior to modification.
+- Sample Query: View logins, failed logins, and related activity (replace username & IP)
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+    | eval (actor=="username" || actor_ip=="#.#.#.#" || in(action, "dependabot_security_updates.disable"))
+    | sort by @timestamp desc
+    | ip -categorize actor_ip
+    | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+
+### 6. Broader Contextual Review
+- Check if multiple actions were performed in a short time window. 
+- Look for anomalies like unusual repositories, organizations, or unexpected actors.
+- Sample Query: View all actions by actor
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+    | grep -e actor "username*"
+    | sort by @timestamp desc
+    | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+
+### 7. Escalation Criteria
+- Escalate if:
+    - Activity was not authorized or approved.
+    - Action was from an unusual IP (geolocation mismatch, external network) for the user's typical network interaction.
+    - Unauthorized or unusual activity is detected.
+
+### 8. Document & Close
+- Record findings in ticketing/IR platform.
+- If benign/authorized, close with justification.
+    - Submit tune requests; such as, updating the allow/block list to yield better alert results. 
+- If suspicious, escalate for containment & response.
+
+***
+
+**Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**

@@ -1,0 +1,20 @@
+{
+	"UUID": "252bf79e-51dc-4f0c-913d-92f2dd74df6e",
+	"Name": "Template - GitHub - User/Actor - Alerts [table]",
+	"Description": "This is intended to quickly show the table of alerts created/modified/generated/deleted/etc. by an actor/user when you're investigating an actor/user for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "actor/user",
+				"description": "Who are you investigating/searching for? This is searching for them as either the actor or the user.",
+				"required": true,
+				"defaultValue": "change_me",
+				"previewValue": "change_me"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

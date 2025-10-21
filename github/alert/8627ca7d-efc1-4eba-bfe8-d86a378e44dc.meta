@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "2f6d022c-cb6a-44f8-9777-521d9873e36d",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a self-hosted runner is removed.\n\nrepo.remove_self_hosted_runner = A self-hosted runner was removed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo\n\nhttps://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "816f2350-7182-4e4d-960f-eea1ac8280d1",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "8627ca7d-efc1-4eba-bfe8-d86a378e44dc",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:25:40.638251252Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - Low - Runner Removed from Repo",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "ad87d9dd-eec5-4689-b899-02b32d6a3af7",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

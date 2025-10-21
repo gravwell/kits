@@ -1,0 +1,20 @@
+{
+	"UUID": "3c1c7cde-c254-4c63-ab16-0f123010745d",
+	"Name": "Template - GitHub - IP - Unique Actions by Actor IP [table]",
+	"Description": "This is intended to quickly show the table of actions interacted with by an IP Address when you're investigating an IP Address for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%2%%",
+				"label": "IP Address",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": "#.#.#.#",
+				"previewValue": "#.#.#.#"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

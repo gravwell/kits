@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Business - High - Dependabot Alerts Disabled",
+ "Description": "Detects when Dependabots alerts have been disabled for the enterprise.\n\nbusiness_dependabot_alerts.disable = Dependabot alerts were disabled for your enterprise.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_dependabot_alerts",
+ "GUID": "1207bfc8-cb22-4a77-a0fc-bca8f1e5cb1b",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

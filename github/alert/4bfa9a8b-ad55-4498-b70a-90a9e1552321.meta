@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "9aec4c35-374a-42ea-b198-fc98e08cc86e",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a private repo is disabled.\n\nprivate_repository_forking.disable = An enterprise owner disabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are never allowed to be forked.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#private_repository_forking",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "7110b433-982d-4451-a566-cb49e924ba8e",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "4bfa9a8b-ad55-4498-b70a-90a9e1552321",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:24:09.43589396Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - Low - Private Forking Disabled",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "82e91c14-d5d6-4ba0-abe1-99bcfc150566",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

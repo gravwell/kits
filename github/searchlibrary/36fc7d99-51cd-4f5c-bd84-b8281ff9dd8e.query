@@ -1,0 +1,3 @@
+tag=$GITHUB_AUDIT json action=="pull_request.close" repo
+| stats count by repo
+| chart count by repo

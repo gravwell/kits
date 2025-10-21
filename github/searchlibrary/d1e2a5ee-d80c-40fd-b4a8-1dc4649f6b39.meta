@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Repo - Medium - Push Protection Bypass List Modified",
+ "Description": "Detects when the push protection bypass list was modified for your repo.\n\nrepository_secret_scanning_push_protection_bypass_list.add = A role or team was added to the push protection bypass list at the repository level.\nrepository_secret_scanning_push_protection_bypass_list.disable = Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Specific roles or teams\" to \"Anyone with write access\" at the repository level.\nrepository_secret_scanning_push_protection_bypass_list.enable = Push protection settings for \"Users who can bypass push protection for secret scanning\" changed from \"Anyone with write access\" to \"Specific roles or teams\" at the repository level.\nrepository_secret_scanning_push_protection_bypass_list.remove = A role or team was removed from the push protection bypass list at the repository level.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_secret_scanning_push_protection_bypass_list\n\nhttps://docs.github.com/code-security/secret-scanning/protecting-pushes-with-secret-scanning",
+ "GUID": "d1e2a5ee-d80c-40fd-b4a8-1dc4649f6b39",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

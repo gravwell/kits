@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Repo - Medium - User Accepted Repo Transfer Request",
+ "Description": "Detects when a user accepted a transferred repo.\n\nrepo.transfer = A user accepted a request to receive a transferred repository.\nrepo.transfer_outgoing = A repository was transferred to another repository network.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+ "GUID": "e23787d2-71bb-4674-8b62-234dd1e46370",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

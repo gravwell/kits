@@ -1,0 +1,20 @@
+{
+	"UUID": "a5181346-9eb7-4181-b260-52b8558d47ae",
+	"Name": "Template - GitHub - User/Actor - All Non-API Events [table]",
+	"Description": "This is intended to quickly show the table of all non-api events performed by an actor/user when you're investigating an actor/user for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "actor/user",
+				"description": "Who are you investigating/searching for? This is searching for them as either the actor or the user.",
+				"required": true,
+				"defaultValue": "change_me",
+				"previewValue": "change_me"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

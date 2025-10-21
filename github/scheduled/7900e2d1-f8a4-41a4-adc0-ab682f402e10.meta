@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - GitHub - Repo - High - Secret Scanning Disabled for All New Repos",
+  "Description": "Detects when secret scanning has been disabled for all new repos.\n\nsecret_scanning_new_repos.disable = Secret scanning was disabled for all new repositories.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_new_repos\n\nhttps://docs.github.com/code-security/secret-scanning/about-secret-scanning",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "3 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "7900e2d1-f8a4-41a4-adc0-ab682f402e10",
+  "SearchReference": "a39c9cbc-2210-4fc3-9841-36aa81d09951"
+}

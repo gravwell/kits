@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Repo - High - Repo changed from Private to Public",
+ "Description": "Detects when a repo that was private was changed to public.\n\nrepo.access = The visibility of a repository changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+ "GUID": "fd138fad-a8ac-44b2-b0d9-b9a304a41d73",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

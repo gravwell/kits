@@ -1,0 +1,22 @@
+{
+	"UUID": "df500234-9e2c-4ed7-b289-4517ed0b0191",
+	"GUID": "844b0567-7dc6-45b3-8a45-1774413e0852",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Business - Medium - Push Protection Bypass Disabled",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.602759000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "f976ad7e-b734-4eab-a354-3439966d2600",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a vulnerability alert rule has been created, enabled, force enabled, disabled, force_disabled, deleted, or updated for a repo.\n\nvulnerability_alert_rule.create = A Dependabot rule was created.\nvulnerability_alert_rule.enable = A Dependabot rule was enabled for a single repository or enabled by default for an organization.\nvulnerability_alert_rule.force_enable = A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.\nvulnerability_alert_rule.disable = A Dependabot rule was disabled for a single repository or disabled by default for an organization.\nvulnerability_alert_rule.force_disable = A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.\nvulnerability_alert_rule.delete = A Dependabot rule was deleted.\nvulnerability_alert_rule.update = A Dependabot rule's conditions, actions, or metadata changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alerts",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "2f412139-4526-4dfa-8f17-df78e8e030e3",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "333d851a-2cb2-4d43-b716-83768f31d27e",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:31:49.867477173Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Vuln - Medium - Vulnerability Alert Modified",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "eb7f7018-bb06-4968-a45c-de941aa755a8",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

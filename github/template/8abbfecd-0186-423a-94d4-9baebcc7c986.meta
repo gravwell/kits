@@ -1,0 +1,18 @@
+{
+	"UUID": "8abbfecd-0186-423a-94d4-9baebcc7c986",
+	"Name": "Template - GitHub - User/Actor - Interactions with Applications [table]",
+	"Description": "This is intended to quickly show the table of interactions with applications performed by an actor/user when you're investigating an actor/user for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "actor/user",
+				"description": "Who are you investigating/searching for? This is searching for them as either the actor or the user.",
+				"required": true,
+				"defaultValue": "change_me",
+				"previewValue": "change_me"
+			}
+		]
+	},
+	"Labels": null
+}

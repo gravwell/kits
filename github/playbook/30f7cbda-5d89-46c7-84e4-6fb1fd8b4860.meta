@@ -1,0 +1,22 @@
+{
+	"UUID": "ba245085-71b9-422b-bcf3-6b648060aae5",
+	"GUID": "30f7cbda-5d89-46c7-84e4-6fb1fd8b4860",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Business - High - Secret Scanning Disabled for New Repos in Enterprise",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.601799000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

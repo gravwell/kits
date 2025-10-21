@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Migration - Medium - Data Transfer Created",
+	"Description": "Detects when a migration has been initiated.\n\nmigration.create = A migration file was created for transferring data from a source location (such as a GitHub.com organization or a GitHub Enterprise Server instance) to a target GitHub Enterprise Server instance.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#migration",
+	"GUID": "fcf59035-7496-4516-844a-2e618343373f",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

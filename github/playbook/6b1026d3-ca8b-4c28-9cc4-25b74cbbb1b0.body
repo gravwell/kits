@@ -1,0 +1,167 @@
+# Table of Contents
+- Alert Summary
+- Response Steps
+    1. Validate the Alert
+    2. Correlate with Change Management (if available)
+    3. Investigate the User Account
+    4. Investigate the Source IP
+    5. Look for Related Logins
+    6. Broader Contextual Review
+    7. Escalation Criteria
+    8. Document & Close
+
+***
+
+## Alert Summary
+- Description:
+	- Detects any users added to GitHub Organization after Invitation Expired (7 Days).
+	- org.invite\_member = A new user was invited to join an organization.
+	- org.add\_member = A user joined an organization.
+- Reference(s):
+    - [Inviting Users To Join Your Organization](https://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)
+    - [Inviting Users To Join Your Organization](https://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)
+    - [Org](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org)
+- Alert below 
+```query
+    tag=$GITHUB_AUDIT json @timestamp actor action invitation_id user org repo
+    | eval in(action, "org.add_member", "org.invite_member")
+    | stats min(@timestamp) as start_ts max(@timestamp) as end_ts by invitation_id
+    | diff end_ts start_ts as duration_ms
+    | eval 
+        seconds_total = floor(duration_ms / 1000); 
+        days = floor(seconds_total / 86400); 
+        seconds_total = seconds_total - days * 86400;
+        hours = floor(seconds_total / 3600);
+        seconds_total = seconds_total - hours * 3600;
+        minutes = floor(seconds_total / 60);
+        seconds = seconds_total - minutes * 60;
+    | eval days >= 7
+    | time -oformat "2006-01-02 15:04:05" @timestamp time
+    | printf -e context "%v performed %v in %v org on %v where %v was added %v days %v hours %v minutes %v seconds later with %v Invite ID" actor action org time user days hours minutes seconds invitation_id
+    | table context
+    | $GITHUB_ALERT_META("Medium", "Member Added After 7 Day Invitation Expiry")
+```
+
+***
+
+## Response Steps
+### 1. Validate the Alert
+- Ensure the event actually occurred.
+- Sample Query: Validate the Alert
+```query
+    tag=$GITHUB_AUDIT json @timestamp actor action invitation_id user org repo
+    | eval in(action, "org.add_member", "org.invite_member")
+    | stats min(@timestamp) as start_ts max(@timestamp) as end_ts by invitation_id
+    | diff end_ts start_ts as duration_ms
+    | eval 
+        seconds_total = floor(duration_ms / 1000); 
+        days = floor(seconds_total / 86400); 
+        seconds_total = seconds_total - days * 86400;
+        hours = floor(seconds_total / 3600);
+        seconds_total = seconds_total - hours * 3600;
+        minutes = floor(seconds_total / 60);
+        seconds = seconds_total - minutes * 60;
+    | eval days >= 7
+    | time -oformat "2006-01-02 15:04:05" @timestamp time
+    | table context
+    | table @timestamp org repo actor user action invitation_id seconds_total
+```
+
+### 2. Correlate with Change Management (if available)
+- Look up related tickets/change requests.
+- Validate whether the activity matches an approved request.
+
+### 3. Investigate the User Account
+- Review the user's permissions, role, and previous actions.
+- Review other actions by the same user around the event within: 
+    - GitHub Audit Logs
+    - Firewall Logs
+    - Network Logs
+    - VPN Logs
+    - Proxy Logs
+    - IDS/IPS Logs 
+    - Host Logs 
+    - AV/EDR/XDR Logs 
+- Sample Query: View other categorical actions by actor
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor user invitee actor_ip action operation_type user_agent
+    | eval in(action, "org.add_member")
+    | grep -e actor "username*"
+    | sort by @timestamp desc
+    | table @timestamp org repo actor actor_ip user invitee action operation_type user_agent
+```
+
+### 4. Investigate the Source IP
+- Determine if the IP is internal or external. 
+    - You can add this to quickly determine whether it is PRIVATE or PUBLIC 
+    - [IP Module Documentation] (https://docs.gravwell.io/search/ip/ip.html)
+    - Sample Query: View other categorical actions by Source IP (replace #.#.#.# with IP)
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+        | eval in(action, "org.add_member")
+        | sort by @timestamp desc
+        | ip -categorize actor_ip
+        | grep -e actor_ip "#.#.#.#" 
+        | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+- Determine more contextual information about the IP address
+    - It is highly recommended to have an IP lookup (uploaded resource) of your environment(s) IP Ranges to filter off of. 
+    - [IPLookup Module Documentation] (https://docs.gravwell.io/search/iplookup/iplookup.html) 
+    - Sample Query: Lookup IP Range against internal ranges
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type
+        | eval in(action, "org.add_member")
+        | sort by @timestamp desc
+        | grep -e actor_ip "#.#.#.#"
+        | iplookup -r REPLACE_ME_WITH_YOUR_RESOURCE -e actor_ip field_to_extract as new_EV_name
+        | table @timestamp org repo actor actor_ip action operation_type
+```
+- Determine if the IP Address is outside of the Country
+    - [GeoIP Module Documentation] (https://docs.gravwell.io/search/geoip/geoip.html)
+    - Sample Query: Show City, Country, & CountryName with GeoIP 
+```query
+        tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type
+        | eval in(action, "org.add_member")
+        | sort by @timestamp desc
+        | grep -e actor_ip "#.#.#.#"
+        | geoip actor_ip.Location actor_ip.City actor_ip.Country actor_ip.CountryName
+        | table @timestamp org repo actor actor_ip action operation_type
+```
+
+### 5. Look for Related Logins
+- Identify logins or auth events by the actor (or from the IP) prior to modification.
+- Sample Query: View logins, failed logins, and related activity (replace username & IP)
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+    | eval (actor=="username" || actor_ip=="#.#.#.#" || in(action, "org.add_member"))
+    | sort by @timestamp desc
+    | ip -categorize actor_ip
+    | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+
+### 6. Broader Contextual Review
+- Check if multiple actions were performed in a short time window. 
+- Look for anomalies like unusual repositories, organizations, or unexpected actors.
+- Sample Query: View all actions by actor
+```query
+    tag=$GITHUB_AUDIT json @timestamp org repo actor actor_ip action operation_type user_agent
+    | grep -e actor "username*"
+    | sort by @timestamp desc
+    | table @timestamp org repo actor actor_ip action operation_type user_agent
+```
+
+### 7. Escalation Criteria
+- Escalate if:
+    - Activity was not authorized or approved.
+    - Action was from an unusual IP (geolocation mismatch, external network) for the user's typical network interaction.
+    - Unauthorized or unusual activity is detected.
+
+### 8. Document & Close
+- Record findings in ticketing/IR platform.
+- If benign/authorized, close with justification.
+    - Submit tune requests; such as, updating the allow/block list to yield better alert results. 
+- If suspicious, escalate for containment & response.
+
+***
+
+**Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**

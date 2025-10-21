@@ -1,0 +1,22 @@
+{
+	"UUID": "194a74ea-5bcd-4251-83a5-c90363fc27e4",
+	"GUID": "63505ec1-0a4f-438a-bfb1-bef057aa4a09",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Org - Medium - Org Transfer Between Enterprise Accounts",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.608953000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "aad5a940-756c-44bc-ba9d-05e101e5b63a",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a repo's custom domain was modified.\n\nrepo.pages_cname = A GitHub Pages custom domain was modified in a repository.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "e52714aa-5354-4104-91df-4821c6b21f8d",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "184ece13-6130-42fc-9f34-0fbcf4f2af1d",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:20:23.062781883Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - Low - CNAME Modified",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "c36403ac-a173-41e3-84e1-baceaa34441a",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

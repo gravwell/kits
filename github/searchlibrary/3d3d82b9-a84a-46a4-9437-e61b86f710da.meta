@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Repo - Low - New Runner Registered",
+ "Description": "Detects when a self-hosted runner is registered.\n\nrepo.register_self_hosted_runner = A new self-hosted runner was registered.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo\n\nhttps://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization",
+ "GUID": "3d3d82b9-a84a-46a4-9437-e61b86f710da",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "59ddcf19-e79a-4ff7-9425-7a62ad9eb80b",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when OAuth (third-party application access) restrictions have been disabled.\n\norg.disable_oauth_app_restrictions = Third-party application access restrictions for an organization were disabled.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "cb3df06a-1775-40e4-86ad-9e38d45ebd70",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "ad578ae3-1ee6-45e0-95de-78630a4757c9",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:01:23.39279605Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - High - OAuth Restrictions Disabled",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "00571b84-f22d-4924-9b23-246e9e8054e4",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

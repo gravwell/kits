@@ -1,0 +1,9 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "repository_secret_scanning_push_protection_bypass_list.add",
+    "repository_secret_scanning_push_protection_bypass_list.disable",
+    "repository_secret_scanning_push_protection_bypass_list.enable",
+    "repository_secret_scanning_push_protection_bypass_list.remove"
+    )
+| printf -e context "at %v, %v was %v by %v for %v in %v" @timestamp action operation_type actor repo org
+| $GITHUB_ALERT_META("Medium", "Push Protection Bypass List Modified")

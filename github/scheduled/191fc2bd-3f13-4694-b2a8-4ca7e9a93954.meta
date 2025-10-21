@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - GitHub - Migration - Medium - Data Transfer Created",
+  "Description": "Detects when a migration has been initiated.\n\nmigration.create = A migration file was created for transferring data from a source location (such as a GitHub.com organization or a GitHub Enterprise Server instance) to a target GitHub Enterprise Server instance.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#migration",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "15 */2 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "191fc2bd-3f13-4694-b2a8-4ca7e9a93954",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

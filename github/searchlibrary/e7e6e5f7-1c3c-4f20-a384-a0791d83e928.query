@@ -1,0 +1,6 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
+| eval in(action, 
+    "org.create_actions_secret"
+    )
+| printf -e context "at %s, %s was %s by %s for %v org" @timestamp action operation_type actor org
+| $GITHUB_ALERT_META("Low", "New Secret Created")

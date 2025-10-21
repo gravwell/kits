@@ -1,0 +1,22 @@
+{
+	"UUID": "fea9170d-7810-4a23-87d5-699226381b71",
+	"GUID": "dd142052-8fae-4ec3-8f4c-67de3f69cfaf",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Org - Low - Runner Added to Group",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.607711000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

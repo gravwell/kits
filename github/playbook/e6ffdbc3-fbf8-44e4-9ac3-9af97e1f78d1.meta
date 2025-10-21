@@ -1,0 +1,22 @@
+{
+	"UUID": "f7834b08-54c4-4b1e-90e6-afce41842499",
+	"GUID": "e6ffdbc3-fbf8-44e4-9ac3-9af97e1f78d1",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Repo - Low - Runner Removed from Repo",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.613690000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "9c1853e9-0f53-4671-8d8f-40f6a21d6e0c",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when secret scanning has been disabled for new repos in your enterprise.\n\nbusiness_secret_scanning.disabled_for_new_repos = Secret scanning was disabled for new repositories in your enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_advanced_security\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise\n\nhttps://docs.github.com/code-security/secret-scanning/about-secret-scanning",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "f4c9df25-d8d7-422a-9f31-ed469e95d609",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "7fdbc1bf-14c2-4f03-b4a7-7b76a587517a",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:43:26.951055677Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Business - High - Secret Scanning Disabled for New Repos in Enterprise",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "f2833346-505b-40ba-be93-e1d18a7dec29",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

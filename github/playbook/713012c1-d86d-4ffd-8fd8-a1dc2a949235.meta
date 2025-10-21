@@ -1,0 +1,22 @@
+{
+	"UUID": "c119a9f3-b506-4f92-a06b-fce2a7b19b41",
+	"GUID": "713012c1-d86d-4ffd-8fd8-a1dc2a949235",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Org - Medium - SSH Certificate Requirement Disabled",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.610126000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

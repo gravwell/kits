@@ -1,0 +1,22 @@
+{
+	"UUID": "1af27279-ceca-43fe-83f4-a0960dfe411f",
+	"GUID": "ec6ab6ad-b931-4ea7-b22c-9548b6b3dbdd",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Org - High - Dependabot Alerts Disabled for Any New Repos",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.604961000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

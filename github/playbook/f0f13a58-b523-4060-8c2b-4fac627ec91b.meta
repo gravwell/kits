@@ -1,0 +1,22 @@
+{
+	"UUID": "78b55209-90ad-475a-af1a-1ff544e2415b",
+	"GUID": "f0f13a58-b523-4060-8c2b-4fac627ec91b",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Repo - Low - Invitation Actions",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.612235000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

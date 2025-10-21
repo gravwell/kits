@@ -1,0 +1,11 @@
+{
+ "Name": "AlertQuery - GitHub - Org - High - GitHub Advanced Security Configuration Changed",
+ "Description": "Detects when a high risk configuration has been changed to the Organization in GitHub Advanced Security (GHAS).\n\norg.advanced_security_disabled_for_new_repos = GitHub Advanced Security was disabled for new repositories in an organization.\norg.advanced_security_disabled_on_all_repos = GitHub Advanced Security was disabled for all repositories in an organization.\norg.advanced_security_policy_selected_member_disabled = An enterprise owner prevented GitHub Advanced Security features from being enabled for repositories owned by the organization.\n\nReference(s): https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+ "GUID": "3a2e7c6c-4214-4969-87ba-684322bb7931",
+ "Labels": [
+  "github"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

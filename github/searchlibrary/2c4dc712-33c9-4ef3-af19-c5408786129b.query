@@ -1,0 +1,3 @@
+tag=$GITHUB_AUDIT json action~"pull_request.create" actor
+| stats count by actor
+| chart count by actor

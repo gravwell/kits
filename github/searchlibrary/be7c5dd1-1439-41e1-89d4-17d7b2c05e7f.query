@@ -1,0 +1,3 @@
+tag=$GITHUB_AUDIT json action=="pull_request.reopen" actor repo
+| stats count by actor repo
+| table repo actor count
