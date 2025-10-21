@@ -1,0 +1,6 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type repo
+| eval in(action, 
+    "repo.register_self_hosted_runner"
+    )
+| printf -e context "at %v, %v was %v by %v in %v" @timestamp action operation_type actor repo
+| $GITHUB_ALERT_META("Low", "New Runner Registered")

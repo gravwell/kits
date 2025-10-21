@@ -1,0 +1,20 @@
+{
+	"UUID": "db9a7760-a92f-4b39-a864-f2a0ff57da1a",
+	"Name": "Template - GitHub - IP - Investigation (w/o API Requests)",
+	"Description": "This is intended to be utilized if you're investigating an IP Investigation for possible nefarious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%2%%",
+				"label": "IP Address",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": "#.#.#.#",
+				"previewValue": "#.#.#.#"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

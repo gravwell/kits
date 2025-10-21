@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Ready for Review by Repo [Pie]",
+	"Description": "Finds pull requests that are ready to be reviewed by repo.\n\npull_request.ready_for_review = A pull request was marked as ready for review.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request",
+	"GUID": "d2e8117e-01f5-4789-9025-d6d74277e208",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

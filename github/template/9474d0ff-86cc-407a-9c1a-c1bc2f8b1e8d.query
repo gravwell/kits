@@ -1,0 +1,4 @@
+tag=$GITHUB_AUDIT json SRC actor actor_ip action!~"api"
+| eval actor_ip~"%%2%%"
+| unique actor
+| table actor_ip actor

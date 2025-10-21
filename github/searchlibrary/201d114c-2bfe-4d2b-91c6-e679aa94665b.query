@@ -1,0 +1,7 @@
+tag=$GITHUB_AUDIT json @timestamp actor action operation_type repository owner repo
+| eval in(action, 
+    "codespaces.delete", 
+    "codespaces.destroy"
+    )
+| printf -e context "at %s, %s was %s by %s for %s owned by %v" @timestamp action operation_type actor repository owner
+| $GITHUB_ALERT_META("Medium", "Delete Action Invoked")

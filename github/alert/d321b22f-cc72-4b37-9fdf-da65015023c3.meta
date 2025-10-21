@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "790b0136-a23c-48e8-8cf8-cf7c720e84a0",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a high risk configuration has been changed to the Organization in GitHub Advanced Security (GHAS). \n\norg.advanced_security_disabled_for_new_repos = GitHub Advanced Security was disabled for new repositories in an organization.\norg.advanced_security_disabled_on_all_repos = GitHub Advanced Security was disabled for all repositories in an organization.\norg.advanced_security_policy_selected_member_disabled = An enterprise owner prevented GitHub Advanced Security features from being enabled for repositories owned by the organization.\n\nReference(s): https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "b865e819-40ca-48c7-8c8a-5e7cfdee3a38",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "d321b22f-cc72-4b37-9fdf-da65015023c3",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:59:23.165421091Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - High - GitHub Advanced Security Configuration Changed",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "ef6160b6-2be4-4aa2-bf08-cc5af874ed09",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

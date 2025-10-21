@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - GitHub - Repo - Low - Private Forking Cleared",
+  "Description": "Detects when a private repo is cleared.\n\nprivate_repository_forking.clear = An enterprise owner cleared the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#private_repository_forking",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "27 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "6cbff850-522d-44bb-8a0c-9384f0808eaa",
+  "SearchReference": "f2f5d9e1-7b1a-44e2-9afa-1cced942e447"
+}

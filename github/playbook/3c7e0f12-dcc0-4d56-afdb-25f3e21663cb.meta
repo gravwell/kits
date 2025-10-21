@@ -1,0 +1,22 @@
+{
+	"UUID": "28f51c46-4e27-445e-913c-5f13bd002bc0",
+	"GUID": "3c7e0f12-dcc0-4d56-afdb-25f3e21663cb",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Repo - High - Dependabot Vulnerability Alerts Disabled",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.610510000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

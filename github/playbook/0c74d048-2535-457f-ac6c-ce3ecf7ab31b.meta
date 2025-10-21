@@ -1,0 +1,22 @@
+{
+	"UUID": "fef514e6-8cc2-4e94-97ab-8769b44a03f9",
+	"GUID": "0c74d048-2535-457f-ac6c-ce3ecf7ab31b",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Business - High - GitHub Advanced Security Disabled for New User Namespace Repos in Enterprise",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.600412000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

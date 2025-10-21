@@ -1,0 +1,6 @@
+tag=$GITHUB_AUDIT json @timestamp actor action repo operation_type
+| eval in(action, 
+    "business_advanced_security.disabled_for_new_user_namespace_repos"
+    )
+| printf -e context "at %s, %s was %s by %s in %s" @timestamp action operation_type actor repo
+| $GITHUB_ALERT_META("High", "GitHub Advanced Security Disabled for New User Namespace Repos in Enterprise")

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - SSH - Public Key Created [numbercard]",
+	"Description": "Detects when an SSH key is added to user account or deploy key added to a repo.\n\npublic_key.create\nAn SSH key was added to a user account or a deploy key was added to a repository.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#public_key\n\nhttps://docs.github.com/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account",
+	"GUID": "b68d8b25-cd30-4edc-8470-32c116ca2754",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

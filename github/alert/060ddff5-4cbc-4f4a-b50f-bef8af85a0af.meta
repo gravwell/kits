@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "686c338c-9042-43dc-a35a-24194063dc8a",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a personal access token was granted or requested.\n\npersonal_access_token.access_granted = A fine-grained personal access token was granted access to resources.\npersonal_access_token.request_created = Triggered when a fine-grained personal access token was created to access organization resources and the organization requires approval before the token can access organization resources.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#personal_access_token\n\nhttps://docs.github.com/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "ee986238-8788-4bcd-91d0-56733efc9bdb",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "060ddff5-4cbc-4f4a-b50f-bef8af85a0af",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:30:15.268324879Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Token - High - Personal Access Token (PAT) Granted or Created",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "9740200e-f1fb-4bd9-9d0e-83c2f0890cf1",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

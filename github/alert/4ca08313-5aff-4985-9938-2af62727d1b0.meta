@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "5e841d27-9a79-4846-aead-02980430af48",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when push protection for secret scanning was disabled for new repos in your org.\n\norg.secret_scanning_push_protection_new_repos_disable = Push protection for secret scanning was disabled for all new repositories in the organization.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/code-security/secret-scanning/push-protection-for-repositories-and-organizations",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "245592ee-3f1d-4192-96d9-e0d5f15150cd",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "4ca08313-5aff-4985-9938-2af62727d1b0",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:12:05.28928193Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - Medium - Push Protection for Secret Scanning Disabled for New Repos",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "14d0ab47-75f8-491f-be8f-f452b3f1a75e",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

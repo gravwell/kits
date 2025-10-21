@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "38874fd5-6c74-4a7c-82e8-9f6bb8b4cc79",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a private repo is cleared.\n\nprivate_repository_forking.clear = An enterprise owner cleared the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#private_repository_forking",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "6cbff850-522d-44bb-8a0c-9384f0808eaa",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "3a714b42-a02d-4a24-8c6e-8fc01c225ea8",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:23:27.826769135Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - Low - Private Forking Cleared",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "b5067e72-eace-491c-9087-4a88e9af410e",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

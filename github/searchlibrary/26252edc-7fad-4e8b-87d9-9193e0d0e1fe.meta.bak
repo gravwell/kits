@@ -1,0 +1,11 @@
+{
+	"Name": "Alert - GitHub - Project - Medium - Delete Action Invoked",
+	"Description": "Detects when a delete action in invoked on a project.\n\nproject.delete = A project board was deleted.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#project\n\nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#project",
+	"GUID": "26252edc-7fad-4e8b-87d9-9193e0d0e1fe",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

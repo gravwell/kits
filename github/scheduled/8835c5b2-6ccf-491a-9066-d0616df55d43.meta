@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - GitHub - Account - Medium - Plan Changed",
+  "Description": "Detects when there is a change to the GitHub Account Plan.\n\naccount.plan_change = The account's plan changed.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#account\n\nhttps://docs.github.com/billing/managing-the-plan-for-your-github-account/about-billing-for-plans",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "15 */2 * * *",
+  "Duration": -7200,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "8835c5b2-6ccf-491a-9066-d0616df55d43",
+  "SearchReference": "85a35f61-7245-4dad-92ae-f3c20307ed5e"
+}

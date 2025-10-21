@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "b0979eda-72e2-4891-aa79-073f1b21ed75",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a high risk configuration has been changed to the Enterprise in GitHub Advanced Security (GHAS).\n\nbusiness_advanced_security.user_namespace_repos_disabled = GitHub Advanced Security was disabled for user namespace repositories in your enterprise.\n\nReference: https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#business_advanced_security\n\nhttps://docs.github.com/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "684976e1-cb52-4133-9d01-8c194659008d",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "c33e4ec3-68dc-485e-8afe-970276ac7a38",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T13:18:22.226236425Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Business - High - GitHub Advanced Security Disabled for User Namespace Repos in Enterprise",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "6e2057ae-6109-42e6-83bc-e8431e39883c",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

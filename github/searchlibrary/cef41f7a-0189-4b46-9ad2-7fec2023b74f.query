@@ -1,0 +1,17 @@
+tag=$GITHUB json TIMESTAMP forced=="true" repo repository repository.owner organization head_commit.author.name head_commit.author.email head_commit.author.username head_commit.message head_commit.url
+| alias name author_name
+| alias username author_username
+| alias email a_email
+| json -e repository id as repo_id repository full_name as repo_name repository.created_at as repo_create_time pushed_at as repo_push_time repository.updated_at as repo_update_time 
+| json -e owner name as repo_owner owner email as owner_email 
+| json -e organization id as org_id repository login as org_name
+| json pusher
+| json -e pusher name as pusher_user pusher email as p_email
+| json sender
+| json -e sender id as sender_id sender login as sender_user
+| regex -e a_email "(?<author_id>\d+?)?\W(?<author_email>.+)"
+| regex -e p_email "(?<pusher_id>\d+?)?\W(?<pusher_email>.+)"
+| time -oformat "Jan _2, 2006" repo_push_time date
+| time -oformat "15:04:05" repo_push_time time
+| printf -e context "On %v at %v, %v:%v (repo id: repo name) owned by %v (%v) in %v:%v org was force pushed by %v:%v (%v) located at %v with message:\"%v\"." date time repo_id repo_name org_id org_name repo_owner owner_email pusher_id pusher_user pusher_email url message
+| $GITHUB_ALERT_META("High", "Force Push")

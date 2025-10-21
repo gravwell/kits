@@ -1,0 +1,11 @@
+tag=$GITHUB_AUDIT json SRC user actor actor_ip repo action~"api" operation_type
+| eval if (!has(actor_ip) || actor_ip == "") {actor_ip = "No Data";}
+| eval if (!has(user) || user == "") {user = "No Data";}
+| eval actor_ip~"%%2%%"
+| ip actor_ip
+| geoip actor_ip.Location actor_ip.City actor_ip.Country actor_ip.CountryName
+| eval if (!has(City) || City == "") {City = "{null}";}
+| eval if (!has(Country) || Country == "") {Country = "{null}";}
+| eval if (!has(CountryName) || CountryName == "") {CountryName = "{null}";}
+| stats unique_count by action
+| table TIMESTAMP actor_ip actor repo action operation_type City Country CountryName Location

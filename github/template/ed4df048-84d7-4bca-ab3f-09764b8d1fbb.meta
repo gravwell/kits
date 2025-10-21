@@ -1,0 +1,20 @@
+{
+	"UUID": "ed4df048-84d7-4bca-ab3f-09764b8d1fbb",
+	"Name": "Template - GitHub - IP - Unique Actions by Actor IP [numbercard]",
+	"Description": "This is intended to quickly show the unique count of actions interacted with by an IP Address when you're investigating an IP Address for possible malicious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%2%%",
+				"label": "IP Address",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": "#.#.#.#",
+				"previewValue": "#.#.#.#"
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

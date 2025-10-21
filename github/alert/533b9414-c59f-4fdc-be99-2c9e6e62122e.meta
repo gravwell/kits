@@ -1,0 +1,51 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "66596f68-28ec-4d40-ace5-0ac05dd8fae8",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a member was downgraded from the \"Owner\" role (admin) which may be indicative of persistence via account manipulation.\n\norg.update_member = A person's role was changed from owner to member or member to owner.\n\nReference(s):\nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "1262208e-090a-4479-a497-ec7e178eda2a",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "533b9414-c59f-4fdc-be99-2c9e6e62122e",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:02:09.940454127Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - High - Owner Role Downgraded",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "off"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "20edf96e-21ee-4d75-9e5e-82e778baa7cb",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

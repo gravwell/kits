@@ -1,0 +1,4 @@
+tag=$GITHUB_AUDIT json action repo 
+| eval in(action, "code_scanning.alert_created", "code_scanning.alert_appeared_in_branch") 
+| stats count 
+| numbercard count

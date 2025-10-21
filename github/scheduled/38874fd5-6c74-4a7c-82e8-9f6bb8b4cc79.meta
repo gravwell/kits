@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - GitHub - Repo - Low - Private Forking Cleared",
+  "Description": "Detects when a private repo is cleared.\n\nprivate_repository_forking.clear = An enterprise owner cleared the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#private_repository_forking",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "27 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "38874fd5-6c74-4a7c-82e8-9f6bb8b4cc79",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "bcb69e00-a924-455c-8c72-b2902e8e4c7b",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when Dependabot vulnerability alerts have been disabled for a repo.\n\nrepository_vulnerability_alerts.disable = Dependabot alerts was disabled.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alerts",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "03be0a35-74c8-454e-95dc-fb825a0d01cf",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "1bca24b7-8868-4c7e-9b04-65f5ea8ad699",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:15:52.365679508Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - High - Dependabot Vulnerability Alerts Disabled",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "379b6d0d-e6d9-4647-8a54-0fcbbd79ba30",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

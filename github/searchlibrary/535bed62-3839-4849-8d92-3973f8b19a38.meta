@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Secret Scan - Any Alerts [table]",
+	"Description": "Detects when GitHub detected a secret and created an alert.\n\nsecret_scanning_alert.create = GitHub detected a secret and created a secret scanning alert.\nsecret_scanning_alert.public_leak = A secret scanning alert was leaked in a public repo.\nsecret_scanning_alert.reopen = A secret scanning alert was reopened.\nsecret_scanning_alert.report = A leaked secret was reported to the secret's provider by secret scanning.\nsecret_scanning_alert.resolve = A secret scanning alert was resolved.\nsecret_scanning_alert.revoke = A secret scanning alert was revoked.\nsecret_scanning_alert.validate = A secret scanning alert was validated.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_alert\n\nhttps://docs.github.com/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning",
+	"GUID": "535bed62-3839-4849-8d92-3973f8b19a38",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

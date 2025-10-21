@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "34d51956-858f-4089-85f9-7ee6e2599756",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when an SSH certificate authority for an org has been created.\n\nssh_certificate_authority.create = An SSH certificate authority for an organization or enterprise was created.\nssh_certificate_authority.destroy = An SSH certificate authority for an organization or enterprise was deleted.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#ssh_certificate_authority\n\nhttps://docs.github.com/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities\n\nhttps://docs.github.com/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "3ef767a8-88ab-4558-b768-66216943bb8b",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "436ebb92-ea60-4c6d-a13b-e7d6f66691e2",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:13:20.864360632Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - Medium - SSH Certificate Authority Changed",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "4c12ff1a-66f4-480a-bfb3-40d825ffe449",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "57c725a8-5645-49ce-ba72-49ddc741643a",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when secret scanning has been disabled for a repo.\n\nrepository_secret_scanning.disable = Secret scanning was disabled for a repository.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_secret_scanning\n\nhttps://docs.github.com/code-security/secret-scanning/about-secret-scanning",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "4001c89d-e07e-4cbf-be0d-e4f2f69a3cbc",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "61fb30f3-9c52-49b5-b0e8-636da15bfb6e",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:18:02.806842638Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Repo - High - Secret Scanning Disabled for a Repo",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "cc3b06ff-eaee-42ef-97b1-983e7115efb5",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

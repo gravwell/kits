@@ -1,0 +1,11 @@
+{
+	"Name": "Search - GitHub - Pull Request - Reopened [numbercard]",
+	"Description": "Finds reopened pull requests.\n\npull_request.reopen = A pull request was reopened after previously being closed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#pull_request\n\nhttps://docs.github.com/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request",
+	"GUID": "53f33201-fd54-4476-a2e7-afdbfa76d729",
+	"Labels": [
+		"github"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

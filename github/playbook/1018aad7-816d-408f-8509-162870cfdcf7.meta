@@ -1,0 +1,22 @@
+{
+	"UUID": "7c8ad404-dca8-439c-88f6-9c7af5b502e1",
+	"GUID": "1018aad7-816d-408f-8509-162870cfdcf7",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - GitHub - Business - High - Secret Scanning Disabled for Enterprise",
+	"Desc": "",
+	"Labels": ["github", "github"],
+	"LastUpdated": "2025-10-14T21:25:16.601502000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

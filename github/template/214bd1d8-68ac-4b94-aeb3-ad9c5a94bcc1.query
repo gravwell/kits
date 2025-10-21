@@ -1,0 +1,6 @@
+tag=$GITHUB_AUDIT json actor_ip
+| eval actor_ip~"%%2%%"
+| ip actor_ip
+| geoip actor_ip.Location actor_ip.Lat actor_ip.Long 
+| eval (Lat!="0" && Long !="0")
+| heatmap -lat Lat -long Long

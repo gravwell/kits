@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - GitHub - Repo - High - Dependabot Vulnerability Alerts Disabled",
+  "Description": "Detects when Dependabot vulnerability alerts have been disabled for a repo.\n\nrepository_vulnerability_alerts.disable = Dependabot alerts was disabled.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repository_vulnerability_alerts",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "3 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "03be0a35-74c8-454e-95dc-fb825a0d01cf",
+  "SearchReference": "017e9fdc-fbef-4042-9a92-fd21865c15c1"
+}

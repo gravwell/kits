@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - GitHub - Org - High - 2FA Disabled",
+  "Description": "Detects when two-factor authentication (2FA) has been disabled.\n\norg.disable_two_factor_requirement = A two-factor authentication requirement was disabled for the organization.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "3 * * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "6b705c18-ae66-43f5-b0ca-7db507b3ed94",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

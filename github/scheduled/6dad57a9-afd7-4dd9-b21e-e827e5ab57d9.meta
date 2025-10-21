@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - GitHub - Org - Low - Runner Group Config Modified",
+  "Description": "Detects when a self-hosted runner group's configuration was modified.\n\norg.runner_group_updated = The configuration of a self-hosted runner group was changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization",
+  "Labels": [
+    "github"
+  ],
+  "Schedule": "27 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "6dad57a9-afd7-4dd9-b21e-e827e5ab57d9",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

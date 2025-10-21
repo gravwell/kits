@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "a275c3d0-47bb-4ad9-b89f-699c8be37985",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when an org has been transferred between enterprises.\n\norg.transfer = An organization was transferred between enterprise accounts.\norg.transfer_outgoing = An organization was transferred between enterprise accounts.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#org\n\nhttps://docs.github.com/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "52fb56ee-e458-4094-8489-15ae7d805a1e",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "0b2383fc-0855-4baa-bf52-230ce8fc6900",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T15:09:53.267414883Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Org - Medium - Org Transfer Between Enterprise Accounts",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "518715c0-a94e-473c-86a3-43e83df9692d",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

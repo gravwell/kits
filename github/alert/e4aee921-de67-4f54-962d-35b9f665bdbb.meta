@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "87dc9708-bacd-4e95-bc89-eea8f0af7f92",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a delete action in invoked on a codespace.\n\ncodespaces.policy_group_deleted = Policies were removed from codespaces in an organization or enterprise.\n\nReference(s): \nhttps://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "cb8e05b8-a443-41f1-a506-d18c5f1289fb",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "e4aee921-de67-4f54-962d-35b9f665bdbb",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"github"
+	],
+	"LastUpdated": "2025-09-23T14:47:43.343914128Z",
+	"MaxEvents": 16,
+	"Name": "Alert - GitHub - Codespaces - Medium - Group Policy Deleted",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "repo",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "4f80e28e-0ec7-495c-9717-654bf4dc2079",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}
