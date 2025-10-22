@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - Flock Management - Low - Flock Moved",
-	"Description": "Detects when a flock has been moved.\n\nflock_move = Move a specified Sensor to a Flock. You'll need to delete all incidents before moving a Sensor between Flocks (this ensures that sensitive data isn't spilled across Flocks). If there are still incidents tied to the Sensor, you can specify clear_incidents=true to clear all of those incidents.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#move-sensor-to-flock",
-	"GUID": "d4261702-5be2-4aab-98d8-0435e2b1bd91",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - Flock Management - Low - Flock Moved",
+ "Description": "Detects when a flock has been moved.\n\nflock_move = Move a specified Sensor to a Flock. You'll need to delete all incidents before moving a Sensor between Flocks (this ensures that sensitive data isn't spilled across Flocks). If there are still incidents tied to the Sensor, you can specify clear_incidents=true to clear all of those incidents.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#move-sensor-to-flock",
+ "GUID": "d4261702-5be2-4aab-98d8-0435e2b1bd91",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

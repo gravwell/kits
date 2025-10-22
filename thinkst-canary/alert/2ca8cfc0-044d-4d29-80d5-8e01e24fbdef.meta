@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "e0b7b32a-3bc4-4300-b097-2d8006dbd27b",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a user note is altered.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user-note\n\nhttps://docs.canary.tools/users/management.html#remove-user-note",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "73c4be8c-baa6-45b5-afeb-dd833fb13b2a",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "2ca8cfc0-044d-4d29-80d5-8e01e24fbdef",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - User Management - Low - User Note Altered",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "5f604f8a-6d88-4be8-a63f-319fb8ae4f0f",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

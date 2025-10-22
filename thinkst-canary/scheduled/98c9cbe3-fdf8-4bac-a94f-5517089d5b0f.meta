@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - Flock Management - Low - Auto Commissioning Token Removed",
-	"Description": "Detects when an auto-commissioning token has been removed.\n\nRemove a Flock Auto Commission Token = Remove token and disable Auto Commission on a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#remove-a-flock-auto-commission-token",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "49 */4 * * *",
-	"Duration": -14400,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "98c9cbe3-fdf8-4bac-a94f-5517089d5b0f",
-	"SearchReference": "79e09128-65c1-4783-8c34-4fdab557a80f"
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Auto Commissioning Token Removed",
+  "Description": "Detects when an auto-commissioning token has been removed.\n\nRemove a Flock Auto Commission Token = Remove token and disable Auto Commission on a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#remove-a-flock-auto-commission-token",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "98c9cbe3-fdf8-4bac-a94f-5517089d5b0f",
+  "SearchReference": "79e09128-65c1-4783-8c34-4fdab557a80f"
 }

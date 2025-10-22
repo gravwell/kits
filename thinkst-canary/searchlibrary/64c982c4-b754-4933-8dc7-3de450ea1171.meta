@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - Flock Management - Medium - IP Whitelist Modified",
-	"Description": "Detects when IP Whitelist have been modified from Enabled|Disabled|Cleared to another option.\n\nDisable Ignore List = Disable the ignore list.\nEnable Ignore List = Enable the ignore list.\nRemove an Ignored IP = Remove an ignored IP from the ignore list.\nSet Ignore List = Set a list of IPs to ignore.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#disable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#enable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#remove-an-ignored-ip\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#set-ignore-list",
-	"GUID": "64c982c4-b754-4933-8dc7-3de450ea1171",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - Flock Management - Medium - IP Whitelist Modified",
+ "Description": "Detects when IP Whitelist have been modified from Enabled|Disabled|Cleared to another option.\n\nDisable Ignore List = Disable the ignore list.\nEnable Ignore List = Enable the ignore list.\nRemove an Ignored IP = Remove an ignored IP from the ignore list.\nSet Ignore List = Set a list of IPs to ignore.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#disable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#enable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#remove-an-ignored-ip\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#set-ignore-list",
+ "GUID": "64c982c4-b754-4933-8dc7-3de450ea1171",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

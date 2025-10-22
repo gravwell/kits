@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - Flock Management - Low - Admin API Key Added",
-	"Description": "Detects when an admin flock api key has been added.\n\napi_flock_token_add = Create a new Flock specific API key.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html\n\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html#add-flock-api-keys",
-	"GUID": "6b41814e-bf98-4ad7-9f18-cd0c9d0a7e0c",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - Flock Management - Low - Admin API Key Added",
+ "Description": "Detects when an admin flock api key has been added.\n\napi_flock_token_add = Create a new Flock specific API key.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html\n\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html#add-flock-api-keys",
+ "GUID": "6b41814e-bf98-4ad7-9f18-cd0c9d0a7e0c",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

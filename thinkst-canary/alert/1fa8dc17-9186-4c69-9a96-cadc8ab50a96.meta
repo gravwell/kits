@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "3558e033-ef4e-48f5-8bcf-1bbdc71b9c12",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a user disabled 2FA.\n\nDisable User = Disables a specified user. This user will not be able to login.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#disable-user",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "4c9aa512-0f15-4c2f-b10d-dbd79b5118a3",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "1fa8dc17-9186-4c69-9a96-cadc8ab50a96",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - User Management - Medium - User 2FA Disabled",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "e094fe05-9afb-41c1-81e1-e86804825f06",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

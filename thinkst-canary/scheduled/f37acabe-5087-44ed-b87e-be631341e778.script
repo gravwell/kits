@@ -1,8 +1,0 @@
-var events = entry["description.events"]
-if events != nil {
-    for idx, ev in enumerate(events) {
-        entry[sprintf("canarytoken%d", idx)] = ev["canarytoken"]
-        entry[sprintf("hostname%d", idx)] = ev["hostname"]
-        entry[sprintf("src_host%d", idx)] = ev["src_host"]
-    }
-}

@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - User Management - High - Successful Login From Outside Country",
-	"Description": "Detects when a user attempts to login in from outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nuser_login = Displays when a user successfully logged onto the console.\n\n*Network Enrichment Kit is required*\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "6 * * * *",
-	"Duration": -3600,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "24178140-8c5f-4be2-9102-a4850b26994a",
-	"SearchReference": "70c57d1e-45a9-42f1-ae32-71f64f538299"
+  "Name": "ScheduledSearch - Canary - User Management - High - Successful Login From Outside Country",
+  "Description": "Detects when a user attempts to login in from outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nuser_login = Displays when a user successfully logged onto the console.\n\n*Network Enrichment Kit is required*\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "6 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "24178140-8c5f-4be2-9102-a4850b26994a",
+  "SearchReference": "70c57d1e-45a9-42f1-ae32-71f64f538299"
 }

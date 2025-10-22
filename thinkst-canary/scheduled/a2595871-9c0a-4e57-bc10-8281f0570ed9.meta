@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - User Management - High - Brute Force Attempts from Outside Country",
-	"Description": "Detects when a user account is being brute forced from an Outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/queries.html\n\nhttps://docs.canary.tools/console/audit-trail.html \n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "6 * * * *",
-	"Duration": -3600,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "a2595871-9c0a-4e57-bc10-8281f0570ed9",
-	"SearchReference": "859dd0b1-e4f8-4dd9-a426-754e393c6f99"
+  "Name": "ScheduledSearch - Canary - User Management - High - Brute Force Attempts from Outside Country",
+  "Description": "Detects when a user account is being brute forced from an Outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/queries.html\n\nhttps://docs.canary.tools/console/audit-trail.html \n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "6 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a2595871-9c0a-4e57-bc10-8281f0570ed9",
+  "SearchReference": "859dd0b1-e4f8-4dd9-a426-754e393c6f99"
 }

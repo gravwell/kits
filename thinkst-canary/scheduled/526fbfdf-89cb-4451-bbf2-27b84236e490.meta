@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - User Management - Medium - Console User Deleted",
+  "Description": "Detects when a console user is deleted.\n\nRemove User = Remove a user from the Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#remove-user",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "37 */2 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "526fbfdf-89cb-4451-bbf2-27b84236e490",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

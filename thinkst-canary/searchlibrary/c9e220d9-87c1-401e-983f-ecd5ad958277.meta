@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - Flock Management - Medium - IP Whitelist Disabled",
-	"Description": "Detects when IP Whitelist has been disabled.\n\nDisable Ignore List = Disable the ignore list.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists#disable-ignore-list\n\nhttps://docs.canary.tools/flocks-settings/default-ignore-list#disable-ignore-list",
-	"GUID": "c9e220d9-87c1-401e-983f-ecd5ad958277",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - Flock Management - Medium - IP Whitelist Disabled",
+ "Description": "Detects when IP Whitelist has been disabled.\n\nDisable Ignore List = Disable the ignore list.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists#disable-ignore-list\n\nhttps://docs.canary.tools/flocks-settings/default-ignore-list#disable-ignore-list",
+ "GUID": "c9e220d9-87c1-401e-983f-ecd5ad958277",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

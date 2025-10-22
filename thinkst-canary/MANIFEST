@@ -1,1416 +1,2054 @@
 {
-	"ID": "io.gravwell.thinkstcanary",
-	"Name": "Thinkst Canary",
-	"Desc": "The Thinkst Canary Kit by Gravwell provides a baseline set of queries, alerts, scheduled searches, and dashboards for your Thinkst Canary data.",
-	"Readme": "# Thinkst Canary Kit for Gravwell — README\n\nA comprehensive toolkit for interacting with Thinkst Canary data in Gravwell. This kit includes queries, alerts, scheduled searches, resources, templates, and dashboards to help streamline your Thinkst Canary data analysis.\n\n***\n\n## Table of Contents\n\n1. [Data Ingestion](#1-data-ingestion)  \n2. [Download, Install and Configure the Gravwell Fetcher](#2-download-install-and-configure-the-gravwell-fetcher)  \n\t- [Example Gravwell Fetcher Conf (repo)](#21-example-gravwell-fetcher-conf-repo)  \n\t- [Gravwell Fetcher Example Config for Thinkst Canary](#22-gravwell-fetcher-example-config-for-thinkst-canary)  \n3. [Tags](#3-tags)  \n4. [Query Library](#4-query-library)  \n5. [Naming Schema](#5-naming-schema)  \n6. [Resources](#6-resources)  \n7. [Alerts](#7-alerts)  \n8. [Scheduled Searches](#8-scheduled-searches)  \n9. [Playbooks](#9-playbooks)  \n10. [Searches](#10-searches)  \n11. [Templates](#11-templates)  \n12. [Dashboards](#12-dashboards)  \n13. [Useful Resources \u0026 References](#13-useful-resources--references)  \n14. [Notes](#14-notes)  \n15. [Image credits](#15-image-credits)  \n\n***\n\n## 1) Data Ingestion\n\nI used the [Gravwell Fetcher] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for data ingestion. \n\nBelow is a quick reference list of the resources used.\n- [Gravwell Fetcher] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md): A powerful data fetcher ingester for Gravwell that collects data from various security and productivity services including Duo, Thinkst Canary, Okta, and Asana.\n- [Example Fetcher Config] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example): The fetcher uses a configuration file (gravwell_fetcher.conf) to manage its settings. This is a detailed explanation of all configuration options.\n- [thinkst.go] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/thinkst.go): This file implements the Config definitions and parsing from thinkstConfig.go when you build Fetcher.\n- [thinkstConfig.go] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/thinkstConfig.go): This file defines the configuration data structures and parsing for the Thinkst Canary integrations in Fetcher.\n\n***\n\n## 2) Download, Install and Configure the Gravwell Fetcher\n\n**Summary:** The Gravwell Fetcher provides a lightweight Go-based fetcher that polls external APIs (including Thinkst Canary endpoints) and ingests events into Gravwell. \nThe Fetcher includes an [example configuration file] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example) which you need to copy and adapt for your environment prior to running the fetcher. See the [README] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for further information. \n\n### Basic installation steps (example)\n\n1. Clone the Gravwell repo (or just the experiment):  \n`git clone https://github.com/gravwell/gravwell.git`\n\n2. Change directory to the fetcher experiment:\n`cd gravwell/experiments/gravwell_fetcher`\n\n3. Build the fetcher binary (standard Go build):\n`go build -o gravwell_fetcher`\n\n4. Copy the example config to a location you will edit, e.g. /etc/gravwell/gravwell\\_fetcher.conf or /opt/gravwell/etc/gravwell\\_fetcher.conf:\n`cp gravwell_fetcher.conf.example /etc/gravwell/gravwell_fetcher.conf`\n\n5. Edit /etc/gravwell/gravwell\\_fetcher.conf and replace the Thinkst Canary Domain and Token values (see example below).\n\n\n6. Run the fetcher (from the built binary). Typical invocation (binary + config file):\n`./gravwell_fetcher -config /etc/gravwell/gravwell_fetcher.conf`\n\n*Important:* the canonical example config shipped with the experiment is gravwell_fetcher.conf.example — copy it and update the values.\n\n2.1 Example Gravwell Fetcher Conf (repo)\n- The repository contains experiments/gravwell_fetcher/gravwell_fetcher.conf.example which is the canonical example used by this kit. Use that file as the starting point and replace the Thinkst Canary Domain, Token, and any Ingester/connection settings as appropriate.\n\n2.2 Gravwell Fetcher Example Config for Thinkst Canary\n```query\n\t[Global]\n\tIngester-UUID=\"00000000-0000-0000-0000-0000000000\"\n\tConnection-Timeout = 0\n\tInsecure-Skip-TLS-Verify=false\n\t#Cleartext-Backend-Target=127.0.0.1:4023\n\t#Encrypted-Backend-Target=127.1.1.1:4024\n\t#Pipe-Backend-Target=/opt/gravwell/comms/pipe\n\t#Ingest-Cache-Path=/opt/gravwell/cache/netflow.cache\n\t#Max-Ingest-Cache=1024\n\tLog-Level=INFO\n\tLog-File=/opt/gravwell/log/gravwell_fetcher.log\n\n\t[ThinkstConf \"thinkst-audit\"]\n\tThinkstAPI=\"audit\"\n\tToken=\"REPLACE_WITH_YOUR_TOKEN\"\n\tDomain=\"REPLACE_WITH_YOUR_CANARY_DOMAIN.canary.tools\"\n\tStartTime=\"2025-01-01T00:00:01.000Z\"\n\tTag-Name=\"thinkst-audit\"\n\n\t[ThinkstConf \"thinkst-incident\"]\n\tThinkstAPI=\"incident\"\n\tToken=\"REPLACE_WITH_YOUR_TOKEN\"\n\tDomain=\"REPLACE_WITH_YOUR_CANARY_DOMAIN.canary.tools\"\n\tStartTime=\"2025-01-01T00:00:01.000Z\"\n\tTag-Name=\"thinkst-incident\"\n```\n***\n\n3) Tags \u0026 Macros\n- thinkst-audit: used to tag Canary audit trail events.\n\t- Usage: tag=thinkst-audit\n- thinkst-incident: used to tag Canary incident events.\n\t- Usage: tag=thinkst-incident\n- $CANARY\\_AUDIT: Configuration Macro; Tag used for Thinkst Canary Audit data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.\n\t- Usage: tag=$CANARY\\_AUDIT\n- $CANARY\\_INCIDENT: Configuration Macro; Tag used for Thinkst Canary Incident data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.\n\t- Usage: tag=$CANARY\\_INCIDENT\n- $CANARY\\_INCIDENT\\_ALERT: This was built to dynamically create Thinkst Canary Incident Alerts based on all of the Incident Objects.\n\t- The alert titled \"Alert - Thinkst - Canary - Incident\" is fully dependent on this macro.\n\t- The scheduled search titled \"ScheduledSearch - Thinkst - Canary - Incident\" is fully dependent on this macro via the \"Alert - Thinkst - Canary - Incident\" query in the Query Library.\n\t- Usage: $CANARY_INCIDENT_ALERT\n- $CANARY\\_INCIDENT\\_SEARCH: This was built to search any and all Thinkst Canary Incident Alerts created from the $CANARY\\_INCIDENT\\_ALERT Macro.\n\t- **Everyone of those search options can handle wildcards and must be filled out**\n\t- Usage: $CANARY\\_INCIDENT\\_SEARCH(result[string], flock\\_id[string], flock\\_name[string], src\\_host[string], src\\_port[string], dst\\_host[string], dst\\_port[string], log\\_cat[string], log\\_subcat[string], log\\_desc[string], \\_alert\\_title[string], \\_alert\\_priority[string])\n- $CANARY\\_INCIDENT\\_OPEN: This is a base Canary Incident query that was built to pivot off of for \"open\" (not acknowledged) alerts/incidents.\n\t- Usage: $CANARY\\_INCIDENT\\_OPEN \n\t- Examples: \n\t\t- Search for any \"open\" incidents containing \"#.#.#.#\" IP (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep \"#.#.#.#\"\n\t\t- Search for any \"open\" incidents containing \"#.#.#.#\" IP as Source Host (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep -e src_host \"#.#.#.#\"\n\t\t- Search for any \"open\" incidents containing \"username\" (Replace \"username\" with user in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep \"username\"\n- $CANARY\\_INCIDENT\\_CLOSED: This is a base Canary Incident query that was built to pivot off of for \"closed\" (acknowledged) alerts/incidents.\n\t- Usage: $CANARY\\_INCIDENT\\_CLOSED \n\t- Examples: \n\t\t- Search for any \"closed\" incidents containing \"#.#.#.#\" IP (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_CLOSED | grep \"#.#.#.#\"\n\t\t- Search for any \"closed\" incidents containing \"#.#.#.#\" IP as Source Host (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_CLOSED | grep -e src_host \"#.#.#.#\"\n\t\t- Search for any \"closed\" incidents containing \"username\" (Replace \"username\" with user in question)\n\t\t\t- $CANARY\\_INCIDENT\\_CLOSED | grep \"username\"\n- $CANARY\\_RISK\\_SCORE: This was built to dynamically calculate a risk score specifically for Thinkst Canary starting at \"30\" based on the incident category/subcategory, events\\_count within an incident, username implicated (higher for admin|root|etc.)\n\t- Critical \u003e= 90\n\t- High \u003e= 75\n\t- Medium \u003e= 55\n\t- Low =\u003c 55\n- Usage: $CANARY\\_INCIDENT\\_OPEN $CANARY\\_RISK\\_SCORE \n\t- $CANARY\\_INCIDENT\\_CLOSED $CANARY\\_RISK\\_SCORE \n- Examples: \n\t\t- Search for any \"open\" incidents containing \"#.#.#.#\" IP (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep \"#.#.#.#\" | $CANARY_RISK_SCORE\n\t\t- Search for any \"closed\" incidents containing \"#.#.#.#\" IP as Source Host (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_CLOSED | grep -e src_host \"#.#.#.#\" | $CANARY_RISK_SCORE\n\t\t- Search for any \"open\" incidents containing \"username\" (Replace \"username\" with user in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep \"username\" | $CANARY_RISK_SCORE\n- $CANARY\\_INCIDENT\\_META: This macro standardizes output for Thinkst Canary Incidents that are being alerted upon. \n\t- It dynamically changes values in the \\_alert\\_title based on the $CANARY\\_INCIDENT\\_OPEN \u0026 $CANARY\\_RISK\\_SCORE.\n\t- Usage: $CANARY\\_INCIDENT_OPEN $CANARY\\_RISK\\_SCORE $CANARY\\_INCIDENT\\_META\n\t- Example: $CANARY\\_INCIDENT\\_SEARCH(\"\") $CANARY\\_RISK\\_SCORE $CANARY\\_INCIDENT\\_META\n- $CANARY\\_INCIDENT\\_FULL: This allows you to search any incident with the following options:\n\t- DATA = \"%%1%%\" \"%%2%%\" \"%%3%%\" \"%%4%%\" \"%%5%%\"\n\t- All options must at least contain \"*\"\n\t- Usage: $CANARY\\_INCIDENT\\_FULL(DATA[string], DATA[string], DATA[string], DATA[string], DATA[string])\n\t- Examples: \n\t\t- Search any incidents or audit events for any references of IP1 of (\"#.#.#.#\"), IP2 of (\"#.#.#.#\"), with username of (\"username\"), against a canarytoken (\"canarytoken\") in flockname (\"flockname\") in DATA: $CANARY\\_INCIDENT\\_FULL(\"#.#.#.#\", \"#.#.#.#\", \"username\", \"canarytoken\", \"flockname\")\n\t\t- Search any \"Unknowledged\" incidents or audit events for any references of IP1 of (\"#.#.#.#\"), with username of (\"username\"), that mention port scanning (\"port scan\") in DATA: $CANARY\\_INCIDENT\\_FULL(\"Unacknowledged\", \"#.#.#.#\", \"username\", \"port scan\", \"\\*\")\n\n***\n\n4) Query Library\n- Purpose: Queries within the Query Library drive [dashboards](#12-dashboards) via [searches](#10-searches), [scheduled searches](#8-scheduled-searches) via [alerts](#7-alerts), and [playbooks](#9-playbooks). \n\t- Updating a query in the library updates dependent dashboards scheduled searches automatically.\n- Total queries: 132\n\t- 7. [Alerts](#7-alerts): 58\n\t- 10. [Searches](#10-searches): 74\n\n***\n\n5) Naming Schema\n- _QueryType - Company - Category - Severity/Priority - \\_\\_\\_\\_\\_Name - [Visualization - **if any**]_\n\t- Examples:\n\t\t- [Alerts](#7-alerts): _Alert - Canary - Bird Management - Low - Device Commissioned_\n\t\t- [Scheduled Searches](#8-scheduled-searches): _ScheduledSearch - Canary - Code Scan - New Alerts_\n        - [Playbook](#9-playbooks): _Playbook - Canary - Flock Management - Low - Note Added_\n\t\t- [Searches](#10-searches): _Search - Canary - Audit - Action Type - Count by Action Type [pie]_\n\t\t- [Templates](#11-templates): _Template - Canary - Category - TemplateName_\n\n***\n\n6) Resources\n- canary\\_logtypes: This is intended to be used as a lookup file for the Thinkst Canary Kit or standalone searches regarding Thinkst Canary logtypes.\n\t- Format: logtype,description,category,subcategory\n\t- Usage: | lookup -r canary\\_logtypes logtype logtype (description as log\\_desc category as log\\_cat subcategory as log\\_subcat)\n- canary\\_logtypes\\_alert: This is intended to be used as a lookup file for the Thinkst Canary Kit or standalone searches regarding Thinkst Canary logtypes.\n\t- Format: vendor,product,logtype,description,category,subcategory\n\t- Usage: | lookup -r canary\\_logtypes\\_alert logtype logtype (vendor as vendor product as product description as log\\_desc category as log\\_cat subcategory as log\\_subcat)\n- iana\\_ports: This resource is intended to be used for additional information about Ports, Protocols, etc. \n\t- Format: Name,Number,Protocol,Description,Assignee,Contact,Registration Date,Modification Date,Reference,Service Code,Unauthorized Use Reported,Assignment Notes\n\t- Usage: lookup -r iana\\_ports \u003cEV\\_to\\_match\u003e \u003cCSV\\_field\\_to\\_match\u003e (Name as port\\_name Description as port\\_desc Protocol as port\\_protocol)\n\t- Reference(s): [IANA Ports] (https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)\n- REPLACE\\_ME\\_WITH\\_YOUR_RESOURCE: This is used as a placeholder so playbook documentation doesn't show errors for an example query.\n\t- REPLACE with your actual resource name(s) and value(s) .\n- Example Gravwell Fetcher Conf — shipped with repo, replace domain/token before use.\n\n***\n\n7) Alerts\n- Purpose: Alerts are queries that feed the Scheduled Searches. \n\t- **IMPORTANT:** If you need to update or tune, this is where you perform that action.\n\t- **DISCLAIMER:** There are a few alert queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.\n- Total: 58\n- Naming Schema: _Alert - Canary - Category - Severity/Priority - AlertName_\n\n***\n\n8) Scheduled Searches\n- Purpose: Scheduled Searches are dependent on the [\"alerts\"](#7-alerts) queries titled _\"Alert - Canary - Category - Severity/Priority - AlertName\"_ within the [Query Library](#4-query-library).\n\t- **IMPORTANT:** If an [\"alert\"](#7-alerts) query is modified within the query library, it will be modified in the associated Scheduled Search. \n\t- **DISCLAIMER:** There are a few queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.\n- Total: 58\n- Naming Schema: _ScheduledSearch - Canary - Category - Severity/Priority - ScheduledSearchName_\n- Cron schedules:\n\t- High: 6 \\* \\* \\* \\*\n\t- Medium: 37 \\*/2 \\* \\* \\*\n\t- Low: 49 \\*/4 \\* \\* \\*\n\t- **Exception:** _ScheduledSearch - Thinkst - Canary - Incident_ runs every 30 minutes.\n\n***\n\n9) Playbooks\n- Purpose: Playbooks are intended to be utilized as investigation aids for [Alerts](#7-alerts)/[Scheduled Searches](#8-scheduled-searches). The playbooks contain sample queries to assist with the investigation.\n- Total: 60\n- Naming Schema: _Playbook - Canary - Category - Severity/Priority - PlaybookName_\n- **Disclaimer:** This is a guide to assist with investigation and is not a definitive security assessment.\n\n***\n\n10) Searches\n- Purpose: These queries within the Query Library drive [dashboards](#12-dashboards) to quickly view your Thinkst Canary in an easily digestable format. \n\t- **IMPORTANT:** If a \"search\" query is modified within the query library, it will be modified in the associated [Dashboard](#12-dashboards) panel displaying that search. \n\t- **DISCLAIMER:** There are a few searches which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those searches are failing; I'd suggest troubleshooting here.\n- Total: 74\n- Naming Schema: _Search - Canary - Category - Severity/Priority - SearchName_\n\n***\n\n11) Templates\n- Purpose: Templates are special objects which define a Gravwell query containing variables.\n- Total: 1\n- Naming Schema: _Template - Canary - Category - TemplateName_\n- Template - Canary - Incidents - Full Search\n    - This allows you to search any incident and search the following options:\n        - acknowledged = \"%%1%%\"\n        - flock\\_id = \"%%2%%\"\n        - flock\\_name = \"%%3%%\"\n        - src\\_host = \"%%4%%\"\n        - src\\_port = \"%%5%%\"\n        - dst\\_host = \"%%6%%\"\n        - dst\\_port = \"%%7%%\"\n        - log\\_cat = \"%%8%%\"\n        - log\\_subcat = \"%%9%%\"\n        - log\\_desc = \"%%10%%\"\n        - \\_alert\\_title = \"%%11%%\"\n        - \\_alert\\_priority = \"%%12%%\"\n\n***\n\n12) Dashboards\n- Canary Audit Overview: This Dashboard is a general overview of your Thinkst Canary Audit Trail data.\n- Canary Canarytokens Overview: This Dashboard is a general overview of your Thinkst Canary Canarytokens data.\n- Canary Flocks Overview: This Dashboard is a general overview of your Thinkst Canary Flocks data.\n- Canary Incident Overview: This Dashboard is a general overview of your Thinkst Canary Incident data.\n- Canary Incident Search: This Dashboard is intended to be used to search through any and all of your incidents.\n\n***\n\n13) Useful Resources \u0026 References\n- [Gravwell] (https://gravwell.io/)\n\t- [Fetcher] (https://github.com/gravwell/gravwell/tree/main/experiments/gravwell_fetcher)\n\t\t- [README] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md)\n\t\t- [gravwell_fetcher.conf.example] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example)\n\t- [Kits] (https://docs.gravwell.io/kits/kits.html)\n\t- [kitctl] (https://www.gravwell.io/blog/get-your-kits-into-git-with-kitctl): If you need to make custom modifications to the Thinkst Canary Kit; utilize this resource for reference on how to interact with Gravwell kits.\n- [Thinkst Canary] (https://canary.tools/)\n\t- [Endpoints] (https://docs.canary.tools/guide/list-of-endpoints.html)\n\t- [Incident Objects] (https://docs.canary.tools/incidents/incident-objects.html)\n\n***\n\n14) Notes\n- [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html): The Thinkst Canary Kit requires the Gravwell Network Enrichment Kit (currently version 19) for searches using [geoip] (https://docs.gravwell.io/search/geoip/geoip.html).\n\t- Any query containing \"from Outside Country\" is implicated in this so if those scheduled searches are failing; I'd suggest starting here. \n\n***\n\n15) Image credits\n- icon: [UXWing] (https://uxwing.com/sparrow-bird-icon/)\n- cover: [Microsoft Copilot] (https://copilot.microsoft.com/)\n- banner: [Microsoft Copilot] (https://copilot.microsoft.com/)",
-	"Version": 1,
-	"MinVersion": {
-		"Major": 0,
-		"Minor": 0,
-		"Point": 0
-	},
-	"MaxVersion": {
-		"Major": 0,
-		"Minor": 0,
-		"Point": 0
-	},
-	"Icon": "d5a9f0c9-eeda-43aa-a3e2-dc6a0653a4ad",
-	"Banner": "9748c321-8de9-4bbf-a2a7-1c953ae3616b",
-	"Cover": "dabb0326-42dc-42b3-9763-7d147d477c7a",
-	"Items": [
-		{
-			"Name": "Apache 2.0 License",
-			"Type": 10,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "iana_ports",
-			"Type": 1,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "REPLACE_ME_WITH_YOUR_RESOURCE",
-			"Type": 1,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "maxmind",
-			"Type": 1,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "canary_logtypes_alert",
-			"Type": 1,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "Example Gravwell Fetcher Conf",
-			"Type": 1,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "canary_logtypes",
-			"Type": 1,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "4ba6fc45-845a-42eb-ba82-f3f0482ec551",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "8985016f-eace-4f2a-8e58-9434c7599699",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3d46eafc-1bf0-400d-9a7f-67ff161125fc",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "8058c281-6eb0-4137-87a7-7bbdb8a60f49",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "73c4be8c-baa6-45b5-afeb-dd833fb13b2a",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fff21b74-2dda-4e9c-b33b-6429cedbe18b",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fd9dadf8-5387-4148-b18f-b2c3ff8989c0",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "76391db0-03b0-4609-b0e9-84630278608f",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "7a550362-fa2c-4a5f-97f2-0d470b75d3d1",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3fd693e3-c44f-4d07-bdb2-68472df1b306",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "47448b65-6101-4efc-bca6-63d8578f87a3",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "50ec121b-a153-4678-82fc-b9f9091733c5",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "18b22489-168e-4298-b8aa-79ffe2df62b4",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "04f9f4a6-9cc7-499e-b35e-2d459c688ea7",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "5eaa7bc1-f774-4f0b-a2b1-f01b72e0091c",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e9d5d192-1487-4c3d-8983-2fab73101fff",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "591030ec-d1dc-40b5-98a1-445512436986",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "79b34b35-2cee-43db-999e-4a1d0ec85963",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "9539e5ff-447f-4658-ae64-c69b7fe9d6ae",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c26bd104-acc2-484a-9971-012e15936445",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "36d25ea4-7270-473b-a436-1fa9f63f3a8b",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "36e4f43e-11ab-4a5b-9ad6-7cc53944f7c2",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "2ef81b4f-260b-4e3a-b3ab-ce1062bf35e1",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "9e13f9b3-14c8-4c4a-9f77-46b42b5bfa19",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "93fbd72a-dad4-492a-ba89-21de65c4c4f7",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e5e2def3-d202-4b00-8d05-72cbde32538d",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "05b201cc-352d-4803-86aa-673d03597651",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fb9ab4c8-69e3-4012-b4c9-c86bad4b8fda",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e7ead0b0-c500-4eee-aaee-9f6872af3c58",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "4c9aa512-0f15-4c2f-b10d-dbd79b5118a3",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "a2595871-9c0a-4e57-bc10-8281f0570ed9",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "310461ae-4b6f-4a79-88df-c0f12e106d3f",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "82ee73c0-929c-415d-8211-13c2973a644b",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "38ebd801-4ebd-4535-bd8e-da3b63c268c7",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "5210e00b-0588-4787-ba83-5594fdd53a0a",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c68a2906-20c1-44e9-85b2-cb20931560a8",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "a92d26d7-90fd-404b-b657-96389ed962c7",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "936d5001-11ce-4ea3-b4ee-bc599271ccb5",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "93712b4a-05b7-4b82-bf62-b7de880463e8",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "90bb805f-2488-410b-bf33-43dcfed2f4e9",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "24238712-2e51-484a-9200-7df730e8d86a",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "66af2b0e-3746-43c3-8e62-61b987fa2e71",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "98c9cbe3-fdf8-4bac-a94f-5517089d5b0f",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "1ad16a01-7697-4fee-a71a-380edc9054b3",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6e317cd7-88ec-4f76-95bc-f22bd13f42bc",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "26d18bc8-54ef-47d9-841f-2517781fa0cd",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "8b2432d1-e082-4d4f-bde8-fd7bdc8fc5e1",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "b5096ac3-4585-4065-b730-b9052a502fe3",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e49d137d-b7f6-4db3-aee4-d5c19890a80b",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "f93463d7-686e-4796-94f6-ee77c4907c0b",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "581193ea-beb6-47db-a96c-d5d08767c34d",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e9e12d51-4e4f-4198-8e8e-e1dfc2779f33",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "25c91034-7fb8-4e76-b49a-c02db38c7186",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e1eca7f6-f4c8-40a9-9e21-0b15913596c2",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "24178140-8c5f-4be2-9102-a4850b26994a",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "8b005658-9273-4ec1-9b5c-f5c464ea0d75",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "31b1747c-75c9-4ac7-bee0-6ff9d661cd12",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d4b996ff-d3ad-43a4-af1f-9fb12109d186",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "f37acabe-5087-44ed-b87e-be631341e778",
-			"Type": 2,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_INCIDENT",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_AUDIT",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_INCIDENT_FULL",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_ALERT_META",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_INCIDENT_ALERT",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_INCIDENT_SEARCH",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_RISK_SCORE",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_INCIDENT_OPEN",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_INCIDENT_META",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "CANARY_INCIDENT_CLOSED",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "05da1413-daae-44ca-a47b-9cb54a33d619",
-			"Type": 3,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6db5b6d6-617d-4393-a4ed-31880ccd1073",
-			"Type": 3,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "63e6a9d0-088f-47cc-af61-a092f770492b",
-			"Type": 3,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "db124d86-f447-4747-b5dc-dcac06373409",
-			"Type": 3,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "53dd7bec-fcbb-4c6f-a01a-3e5fe2a32ddf",
-			"Type": 3,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "b5a6f494-05c2-424b-b514-fae33e12e9f3",
-			"Type": 6,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "b58be5e6-81a0-4b9e-9f88-1220e272e03d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c6a459c2-1e43-41b3-a037-83a697af8280",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "489d39e7-fd9e-4ae9-95c2-54972a08277d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "dd674f80-bb9f-47f5-8650-ad0c0f487757",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "879d0342-4ee6-4eb5-8a04-792a63bf6c5a",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3ce456a0-56d8-4b9f-ae3a-bc32af615a45",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "61cc3932-555b-4df5-85c7-0689962665ed",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "a4e605a9-eda5-430a-8463-8929fad19eb5",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e67cf30f-90b5-4b13-ab6b-c08ab5194124",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "0fcfb30d-0bb1-4c36-995a-a4da3222467d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "ec6bbbbf-ec5b-4295-8ec6-2ab14caaf295",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "62772aa8-79a9-497f-b011-c817431a00eb",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "a0cad0dd-15b6-4822-b382-772307ec1e45",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "02396591-fc71-454a-bb75-f7f41ac08ffb",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "70cbb2e2-62b9-474d-bfcc-4d6df4e1d7ac",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6425664a-a800-44a5-a6d6-150d6bdeeb30",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fa1f838d-fd57-4fab-8d18-e42d60b65087",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "dcb0f392-724f-41d9-a47c-09b859e7351a",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "38bac104-ee44-4446-90c5-5844ed484962",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "61e791c1-47ac-4c34-a55a-3d2c1d659982",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "4b29f3e0-c74c-44d1-8671-80eaa676fbce",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "ebe5f89d-8ff4-4434-bf49-3c3dbb40602f",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c573306a-b898-4f9c-a1d7-ad6a50e6603d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "4222ce12-76f0-4551-a748-6399a87486d0",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "ca965e5b-bf87-4898-80c2-7d71474745ff",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "7002275c-5915-4f73-adca-9bb24d3a5ebf",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e1ad157b-9eac-4fbe-aeb3-a28d7bf2355b",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fca95b9e-3a54-4418-9836-efd92c99c721",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "2035736d-80da-4c0c-8049-78bbea3a838d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "feee9a1c-37a3-416d-8a98-addb16fad38f",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "789f8d0c-b68a-44a0-a457-ad573eb05756",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "403218bc-a021-4db9-900c-3a298cf0029f",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "82dc9e71-b6be-48ea-bff2-bc879200c7ef",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "7d4a665d-fce1-49f4-97cb-be4c463a7c87",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6543c324-fdf5-4db3-86bb-7c03f2a76b3d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "db8b745d-42ba-4a99-9e84-63711e7fed2f",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "61a514ba-29a5-499a-90ca-4d8559dedb03",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e6d04817-239d-4403-aebe-a6de091df20c",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6081a5c2-3976-4a52-a0a0-4ea44a3b82db",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "5c031848-90e6-4957-b2f5-7de611d71602",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3eb0e867-1f84-4b6c-a03e-4759b8b9369a",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "53a71171-c4e2-45fb-bb1c-3671c7fa048c",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "0a3b269f-e058-480d-8a65-d36adbe685e3",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "4c51bab2-e45e-4153-8131-3b9078537e15",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d3c01581-f2bf-4cc6-9c30-dd483bacdae8",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d8586562-16d7-42ca-99db-7ea5f90db50e",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e315f96e-c72d-44b2-ac4a-7b4400582556",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3612aac9-21db-4a41-b695-397ea71840ad",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "89c12889-43bc-4889-94dc-b2a29bb7ea41",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d8dc07c3-2d7e-496f-9952-406e01cf20a8",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "5a1209a0-3d29-4942-b120-9a0f9b3b75f3",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e5a1cb3d-1d5c-4bb6-bc2f-ef18ffea6bfa",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "0a8a8e36-04e8-4e3e-ac91-ab06b1f7c490",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6a55d184-c04e-4801-9494-3d97374a4436",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e6437858-7029-463e-8d4a-b33f603f9b22",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c7ca6605-b075-4203-81cb-a872a57234c1",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "157c46b9-fa93-41c7-9482-5e928ab7ff82",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "047ea9ea-a62e-4d55-8b46-0392a7b28e63",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "bec8539c-3dfb-416d-bd62-d58bfc88c8a0",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "9c735579-22ea-4f86-bc85-bd9c1a4070c5",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "f817e976-3424-4677-83fb-3b0caffb93f9",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "986da9b2-764c-4899-b001-b5be4e139273",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "2348d389-6be6-43d1-8859-f541eee7d45b",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "9a23c994-cc63-4d41-806a-8347d5055b0d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "daf4494f-0062-41c1-94db-1f125d307a01",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "f31985d0-9bd8-4aea-9241-7b4d85938e73",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "62b48313-2fcb-4d06-ac1c-afad0233f9b5",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c63339fb-2fb7-4cc2-8cf5-924ffbde535e",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "57b8d691-4d2e-4637-99f1-438a5d69acb3",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "05fe88f3-2a6c-45f4-8839-1f18838a9898",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "7bb4acdc-9639-4f62-b0ed-c22945590f7e",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "7e2991ef-ebc9-4bdf-9d8b-947b3a291b0d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "68b395d6-0f27-4a24-a3cf-d0185db1c605",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e79cd9b3-e567-4fd4-97d1-752478f75f12",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6b41814e-bf98-4ad7-9f18-cd0c9d0a7e0c",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "37e75f1b-a742-46f2-85e2-2031522189eb",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d3a67d7c-848a-4e5d-acac-ce7ccc0fd90c",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "72e44bd4-8730-4531-a2ee-5c9033c967f6",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fee942f0-2019-4895-830b-9e162056623a",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "4e0e79f2-b452-49c3-bfee-e51051ce26a2",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "8f7568ec-21b8-42e3-beee-84e6278e1dc5",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "4e3abf82-cc39-4188-9ae5-2ac783127195",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "67fdcc06-ab17-4eb7-80c8-394338aefd39",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "11ddbe6f-30a3-40fb-9ab3-fd8e75398bcd",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "044eb29a-5c72-4b4b-92af-3ace4fa4dd2d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c9e220d9-87c1-401e-983f-ecd5ad958277",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "a267f121-a7a4-47cd-974c-cdaa55974242",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "02d323f8-fb6e-47ab-b963-5c8b125d6450",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fcfe32f6-1065-4b56-a234-82ed24b2d59e",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d8866439-c457-443f-940b-5cae11b8aa9d",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e2c20939-1e28-4d61-b9e1-8140e5bd01c9",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "81792a94-5e39-42a7-9d3d-1611743b4854",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "57128c0c-fc6d-4656-ade1-eea0bc5fb474",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "a2a13936-58a4-4291-b410-ce3b1ef22e15",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "ce786ade-686d-45a0-81ac-308c145efd45",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "82cce3a5-00f6-4553-bf7e-ca02954078d9",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "4a599080-3af6-4741-af38-2b0718ff9f83",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "ba5ab7e4-8ec9-4e50-8efa-391ce7d0f3ad",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "df349f67-0ca2-417f-97f4-d493c441f3d9",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d73ceca4-adc2-4b59-858e-f87b86776ac4",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "70e4cb1f-fec7-4875-91b7-816203ab8bab",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "9aa9fefb-cd2e-4448-b7a0-e214547323fa",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "a1341e4c-77bd-4496-b42a-83eb8335a7ad",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "b36ae9fb-c541-49b8-b131-cbe8158fa881",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "859dd0b1-e4f8-4dd9-a426-754e393c6f99",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6c853449-4ff5-4d8a-ab05-a020f0ca426b",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "b02aba28-ddd4-440a-9ee6-9a3d772774b3",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3cb509c0-95e8-4e2d-ab7a-3babcab29e70",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "67089989-8053-48dc-9016-ef070fb853f9",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "56d428c4-aacf-4161-9013-e3ca8500f223",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "732a42f2-3090-44c5-ac20-f08c2e4e34d9",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "41714ce9-2685-4db7-a649-c0264098bfb0",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "64c982c4-b754-4933-8dc7-3de450ea1171",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "7e4aa781-0976-469d-9418-ce34752585c2",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "213cdc2c-97ca-4ff7-a647-93ce7c724390",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3ba9896e-4fcc-491b-90c3-74014cd76ee2",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "79e09128-65c1-4783-8c34-4fdab557a80f",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "29f5b2b3-fed8-4372-a069-487b0e8226c2",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "8dfc4c20-48f7-438a-a43c-79500e2c749c",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "0939e147-756a-4e2d-b0f3-569d6ddb9818",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "266c306a-ea49-468c-b341-cd77ff9cbf91",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "74abba01-c88b-4e1d-ba2f-05a3179ef463",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d4261702-5be2-4aab-98d8-0435e2b1bd91",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "348f042d-62cf-49f7-bf8c-1cb7088ab6e3",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "1b48bfc5-bf6c-4a59-b862-930134d70a7a",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "532ce6dc-31ad-4f3a-a46a-9170a2b6c102",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "9aa213b6-c64a-48a0-8d6c-b944cbaca073",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "352efb92-b53d-47c4-9a09-d40814b4f6ae",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "70c57d1e-45a9-42f1-ae32-71f64f538299",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c6de659d-890a-4fa6-b9a7-6f60b8739c21",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "740db86d-c01c-45a1-8486-1e64fa7d709a",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "35007ae4-eb46-40c6-afbc-07895f4e2f24",
-			"Type": 9,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d5a9f0c9-eeda-43aa-a3e2-dc6a0653a4ad",
-			"Type": 7,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "dabb0326-42dc-42b3-9763-7d147d477c7a",
-			"Type": 7,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "9748c321-8de9-4bbf-a2a7-1c953ae3616b",
-			"Type": 7,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "12052b2a-46ca-44a1-b83c-488ba894f2c7",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fb7667bd-4b82-4872-a5e3-e555c29950b7",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "25bb86a1-91c7-4f0c-9930-f04c66aae632",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "fb9a9848-d06e-49ff-9d84-43c32e72b310",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3e79cd45-9ed8-4cf9-9574-97080203de5e",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "ba1852d1-9637-43f6-a8b7-22dd88a7c8bf",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "bc2e8b48-1c80-48c3-bbee-b83d05c74810",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "1c3465cc-39c9-4eb8-bafb-711ad7916d92",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "519d1f17-77dd-4de3-80c9-4af72fd6d5bc",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "80f2633e-39d2-435c-9f0d-2d9cb48192e8",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "58286dcc-2662-46ff-bbf4-24c65b31c78e",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "14a8a9d1-7d43-439e-829c-94316dbda6b7",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "7cffa0d8-571b-41e4-a1aa-88a021ab1150",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "35c5473f-7f6f-45b2-af1f-5af190b2c258",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "39a5556b-fd8c-4def-a63c-93a169673ac9",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6bb5f2fd-f7c5-4ee5-82d6-3ed288440cab",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "be5bd494-f157-4a4a-8cd2-5d483dcb7b59",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3b2c2da0-237c-4e6f-b1df-18688a1fbf5a",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "2dc7c696-1127-45d0-818f-1bf2866feab0",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "271863ee-9784-4cc0-bab8-473393fdbd42",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "87588fd3-371c-41ef-a7e0-0c6c9c891952",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "d50543c0-8f48-4634-b128-ae5bbf752c10",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "851a0aa0-c4f1-428f-8c91-d40c62915225",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c01f0012-fd4b-4df0-a39f-8f54a6065d62",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e7bfd191-9bab-4cc1-98ab-5fddfca479ee",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "cc1124ba-8bb7-4f31-bab2-05e48d4b4f5a",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "48714aa2-8a84-463e-babd-2ea98900e911",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "6591cd43-57cb-45d1-96db-26bcbeba5025",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "9167c997-c3d3-4909-9b48-918990407d14",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "227079ff-ec18-4dc7-b97c-440a91c0bde8",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "1ff116d5-e22f-409b-b0c3-2765c147b2c6",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "8f7b0a67-7a68-42a2-9df1-59d5335cb662",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "c9f8b4d4-ee21-4632-adee-53a2ef4e7062",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "61bedb6b-5eac-4e92-b5cb-889649179bfe",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "244f2492-ad14-4dd5-8672-c8b23a74f3f8",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "eee37404-27c9-4ef6-a4f6-6dcbb1f5a79f",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e3d94996-d461-444b-bace-3c8bd3be2f28",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "948c4e9d-7465-4623-8177-50cf996e6d72",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "74725f1f-505d-4f69-b08c-f88e2be38094",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "aadf2dd1-1045-4217-91e9-6d25f20841d5",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e3ca90b7-d1fb-4d3b-aa57-7fce6e6a7ee8",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "03e165bf-0914-4836-8766-d6dc5ec24c08",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "dd4a4ec1-a27c-431b-b61a-a3268c49d216",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "3df2b9f2-5580-4ab0-90dc-b76343803cf0",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "83763bc1-3e64-4495-8d61-ba826dd4f38a",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "b7fdffa4-153f-4843-b844-e9fbdf88e977",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "205bcf53-e529-4c96-87f3-d5f65798c44d",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "cf413a66-6de6-492a-b46b-5fb769570fd2",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "0d4c662b-3bac-4505-b456-3e3caf386979",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "5c9cbe87-2dca-4726-91e9-1adf1b434910",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "22a242f2-52dc-42f6-afe5-9e902730a4a2",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "7752077d-2338-403a-a8d9-d032906f5196",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "e2944ed9-6ee8-4318-ad9f-54dd438f9839",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "90f039c8-1c23-4121-bcf0-93d3a7911cbb",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "43e6c362-0963-4725-9d5f-404219786ae8",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "017b0aa8-630a-4f5a-95f8-a186896b846a",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "ff6f5983-c041-416d-89ca-f87eb9addbcc",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "1ecd01f3-b507-4e09-b025-d27e5729aa47",
-			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		}
-	],
-	"Dependencies": null,
-	"ConfigMacros": [
-		{
-			"MacroName": "CANARY_AUDIT",
-			"Description": "Configuration Macro; Tag used for Thinkst Canary Audit data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.",
-			"DefaultValue": "thinkst-audit",
-			"Value": "",
-			"Type": "STRING",
-			"InstalledByID": ""
-		},
-		{
-			"MacroName": "CANARY_INCIDENT",
-			"Description": "Configuration Macro; Tag used for Thinkst Canary Incident data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.",
-			"DefaultValue": "thinkst-incident",
-			"Value": "",
-			"Type": "STRING",
-			"InstalledByID": ""
-		}
-	]
+ "ID": "io.gravwell.thinkstcanary",
+ "Name": "Thinkst Canary",
+ "Desc": "# Thinkst Canary Kit for Gravwell — README\n\nA toolkit for interacting with Thinkst Canary data in Gravwell. This kit includes queries, alerts, scheduled searches, resources, templates, and dashboards to help streamline your Thinkst Canary data analysis.\n\n***\n\n## Table of Contents\n\n1. [Data Ingestion](#1-data-ingestion)  \n2. [Download, Install and Configure the Gravwell Fetcher](#2-download-install-and-configure-the-gravwell-fetcher)  \n\t- [Example Gravwell Fetcher Conf (repo)](#21-example-gravwell-fetcher-conf-repo)  \n\t- [Gravwell Fetcher Example Config for Thinkst Canary](#22-gravwell-fetcher-example-config-for-thinkst-canary)  \n3. [Tags](#3-tags)  \n4. [Query Library](#4-query-library)  \n5. [Naming Schema](#5-naming-schema)  \n6. [Resources](#6-resources)  \n7. [Alerts](#7-alerts)  \n8. [Scheduled Searches](#8-scheduled-searches)  \n    8.1. [Flows](#8-1-flows)\n9. [Playbooks](#9-playbooks)  \n10. [Searches](#10-searches)  \n    10.1. [Alert Queries](#10-1-alert-queries)\n11. [Templates](#11-templates)  \n12. [Dashboards](#12-dashboards)  \n13. [Useful Resources \u0026 References](#13-useful-resources--references)  \n14. [Notes](#14-notes)  \n15. [Image credits](#15-image-credits)  \n\n***\n\n## 1) Data Ingestion\n\nI used the [Gravwell Fetcher] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for data ingestion. \n\nBelow is a quick reference list of the resources used.\n- [Gravwell Fetcher] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md): A powerful data fetcher ingester for Gravwell that collects data from various security and productivity services including Duo, Thinkst Canary, Okta, and Asana.\n- [Example Fetcher Config] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example): The fetcher uses a configuration file (gravwell_fetcher.conf) to manage its settings. This is a detailed explanation of all configuration options.\n- [thinkst.go] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/thinkst.go): This file implements the Config definitions and parsing from thinkstConfig.go when you build Fetcher.\n- [thinkstConfig.go] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/thinkstConfig.go): This file defines the configuration data structures and parsing for the Thinkst Canary integrations in Fetcher.\n\n***\n\n## 2) Download, Install and Configure the Gravwell Fetcher\n\n**Summary:** The Gravwell Fetcher provides a lightweight Go-based fetcher that polls external APIs (including Thinkst Canary endpoints) and ingests events into Gravwell. \nThe Fetcher includes an [example configuration file] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example) which you need to copy and adapt for your environment prior to running the fetcher. See the [README] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for further information. \n\n### Basic installation steps (example)\n\n1. Clone the Gravwell repo (or just the experiment):  \n    _git clone https://github.com/gravwell/gravwell.git_\n\n2. Change directory to the fetcher experiment:  \n_cd gravwell/experiments/gravwell\\_fetcher_\n\n3. Build the fetcher binary (standard Go build):  \n_go build -o gravwell\\_fetcher_\n\n4. Copy the example config to a location you will edit  \n    e.g. /etc/gravwell/gravwell\\_fetcher.conf or /opt/gravwell/etc/gravwell\\_fetcher.conf:  \n_cp gravwell\\_fetcher.conf.example /etc/gravwell/gravwell\\_fetcher.conf_\n\n5. Edit _/etc/gravwell/gravwell\\_fetcher.conf_ and replace the Thinkst Canary Domain and Token values (see example below).  \n\n6. Run the fetcher (from the built binary).  \n    Typical invocation (binary + config file):  \n    _./gravwell\\_fetcher -config /etc/gravwell/gravwell\\_fetcher.conf_\n\n**Important:** the canonical example config shipped with the experiment is gravwell_fetcher.conf.example — copy it and update the values.\n\n2.1 Example Gravwell Fetcher Conf (repo)\n- The repository contains _experiments/gravwell\\_fetcher/gravwell\\_fetcher.conf.example_ which is the canonical example used by this kit. Use that file as the starting point and replace the Thinkst Canary Domain, Token, and any Ingester/connection settings as appropriate.  \n\n2.2 Gravwell Fetcher Example Config for Thinkst Canary  \n\t\n```ini\n    [Global]  \n\tIngester-UUID=\"00000000-0000-0000-0000-0000000000\"  \n\tConnection-Timeout = 0  \n\tInsecure-Skip-TLS-Verify=false  \n\t#Cleartext-Backend-Target=127.0.0.1:4023  \n\t#Encrypted-Backend-Target=127.1.1.1:4024  \n\t#Pipe-Backend-Target=/opt/gravwell/comms/pipe  \n\t#Ingest-Cache-Path=/opt/gravwell/cache/thinkst.cache  \n\t#Max-Ingest-Cache=1024  \n\tLog-Level=INFO  \n\tLog-File=/opt/gravwell/log/thinkst_fetcher.log  \n\n\t[ThinkstConf \"thinkst-audit\"]\n\tThinkstAPI=\"audit\"\n\tToken=\"REPLACE_WITH_YOUR_TOKEN\"\n\tDomain=\"REPLACE_WITH_YOUR_CANARY_DOMAIN.canary.tools\"\n\tStartTime=\"2025-01-01T00:00:01.000Z\"\n\tTag-Name=\"thinkst-audit\"\n\n\t[ThinkstConf \"thinkst-incident\"]\n\tThinkstAPI=\"incident\"\n\tToken=\"REPLACE_WITH_YOUR_TOKEN\"\n\tDomain=\"REPLACE_WITH_YOUR_CANARY_DOMAIN.canary.tools\"\n\tStartTime=\"2025-01-01T00:00:01.000Z\"\n\tTag-Name=\"thinkst-incident\"\n```\n\t\n***\n\n3) Tags \u0026 Macros\n- thinkst-audit: used to tag Canary audit trail events.\n\t- Usage: tag=thinkst-audit\n\t- thinkst-incident: used to tag Canary incident events.\n\t- Usage: tag=thinkst-incident\n- $CANARY\\_AUDIT: Configuration Macro; Tag used for Thinkst Canary Audit data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.\n\t- Usage: tag=$CANARY\\_AUDIT\n\t- $CANARY\\_INCIDENT: Configuration Macro; Tag used for Thinkst Canary Incident data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.\n\t- Usage: tag=$CANARY\\_INCIDENT\n- $CANARY\\_INCIDENT\\_ALERT: This was built to dynamically create Thinkst Canary Incident Alerts based on all of the Incident Objects.\n\t- The alert titled \"Alert - Thinkst - Canary - Incident\" is fully dependent on this macro.\n\t- The scheduled search titled \"ScheduledSearch - Thinkst - Canary - Incident\" is fully dependent on this macro via the \"Alert - Thinkst - Canary - Incident\" query in the Query Library.\n\t- Usage: $CANARY\\_INCIDENT\\_ALERT\n- $CANARY\\_INCIDENT\\_SEARCH: This was built to search any and all Thinkst Canary Incident Alerts created from the $CANARY\\_INCIDENT\\_ALERT Macro.\n\t- **Everyone of those search options can handle wildcards and must be filled out**\n\t- Usage: $CANARY\\_INCIDENT\\_SEARCH(result[string], flock\\_id[string], flock\\_name[string], src\\_host[string], src\\_port[string], dst\\_host[string], dst\\_port[string], log\\_cat[string], log\\_subcat[string], log\\_desc[string], \\_alert\\_title[string], \\_alert\\_priority[string])\n- $CANARY\\_INCIDENT\\_OPEN: This is a base Canary Incident query that was built to pivot off of for \"open\" (not acknowledged) alerts/incidents.\n\t- Usage: $CANARY\\_INCIDENT\\_OPEN \n\t- Examples: \n\t\t- Search for any \"open\" incidents containing \"#.#.#.#\" IP (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep \"#.#.#.#\"\n\t\t- Search for any \"open\" incidents containing \"#.#.#.#\" IP as Source Host (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep -e src_host \"#.#.#.#\"\n\t\t- Search for any \"open\" incidents containing \"username\" (Replace \"username\" with user in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep \"username\"\n- $CANARY\\_INCIDENT\\_CLOSED: This is a base Canary Incident query that was built to pivot off of for \"closed\" (acknowledged) alerts/incidents.\n\t- Usage: $CANARY\\_INCIDENT\\_CLOSED \n\t- Examples: \n\t\t- Search for any \"closed\" incidents containing \"#.#.#.#\" IP (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_CLOSED | grep \"#.#.#.#\"\n\t\t- Search for any \"closed\" incidents containing \"#.#.#.#\" IP as Source Host (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_CLOSED | grep -e src_host \"#.#.#.#\"\n\t\t- Search for any \"closed\" incidents containing \"username\" (Replace \"username\" with user in question)\n\t\t\t- $CANARY\\_INCIDENT\\_CLOSED | grep \"username\"\n- $CANARY\\_RISK\\_SCORE: This was built to dynamically calculate a risk score specifically for Thinkst Canary starting at \"30\" based on the incident category/subcategory, events\\_count within an incident, username implicated (higher for admin|root|etc.)\n\t- Critical \u003e= 90\n\t- High \u003e= 75\n\t- Medium \u003e= 55\n\t- Low =\u003c 55\n\t- Usage: $CANARY\\_INCIDENT\\_OPEN $CANARY\\_RISK\\_SCORE \n- $CANARY\\_INCIDENT\\_CLOSED $CANARY\\_RISK\\_SCORE \n\t- Examples: \n\t\t- Search for any \"open\" incidents containing \"#.#.#.#\" IP (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep \"#.#.#.#\" | $CANARY_RISK_SCORE\n\t\t- Search for any \"closed\" incidents containing \"#.#.#.#\" IP as Source Host (Replace \"#.#.#.#\" with IP in question)\n\t\t\t- $CANARY\\_INCIDENT\\_CLOSED | grep -e src_host \"#.#.#.#\" | $CANARY_RISK_SCORE\n\t\t- Search for any \"open\" incidents containing \"username\" (Replace \"username\" with user in question)\n\t\t\t- $CANARY\\_INCIDENT\\_OPEN | grep \"username\" | $CANARY_RISK_SCORE\n- $CANARY\\_INCIDENT\\_META: This macro standardizes output for Thinkst Canary Incidents that are being alerted upon. \n\t- It dynamically changes values in the \\_alert\\_title based on the $CANARY\\_INCIDENT\\_OPEN \u0026 $CANARY\\_RISK\\_SCORE.\n\t- Usage: $CANARY\\_INCIDENT_OPEN $CANARY\\_RISK\\_SCORE $CANARY\\_INCIDENT\\_META\n\t- Example: $CANARY\\_INCIDENT\\_SEARCH(\"\") $CANARY\\_RISK\\_SCORE $CANARY\\_INCIDENT\\_META\n- $CANARY\\_INCIDENT\\_FULL: This allows you to search any incident with the following options:\n\t- DATA = \"%%1%%\" \"%%2%%\" \"%%3%%\" \"%%4%%\" \"%%5%%\"\n\t- All options must at least contain \"*\"\n\t- Usage: $CANARY\\_INCIDENT\\_FULL(DATA[string], DATA[string], DATA[string], DATA[string], DATA[string])\n\t- Examples: \n\t\t- Search any incidents or audit events for any references of IP1 of (\"#.#.#.#\"), IP2 of (\"#.#.#.#\"), with username of (\"username\"), against a canarytoken (\"canarytoken\") in flockname (\"flockname\") in DATA: $CANARY\\_INCIDENT\\_FULL(\"#.#.#.#\", \"#.#.#.#\", \"username\", \"canarytoken\", \"flockname\")\n\t\t- Search any \"Unknowledged\" incidents or audit events for any references of IP1 of (\"#.#.#.#\"), with username of (\"username\"), that mention port scanning (\"port scan\") in DATA: $CANARY\\_INCIDENT\\_FULL(\"Unacknowledged\", \"#.#.#.#\", \"username\", \"port scan\", \"\\*\")\n\n***\n\n4) Query Library\n- Purpose: Queries within the Query Library drive [dashboards](#12-dashboards) via [searches](#10-searches), [scheduled searches](#8-scheduled-searches) via [alert queries](#10-1-alert-query), and [playbooks](#9-playbooks). \n\t- Updating a query in the library updates dependent dashboards scheduled searches automatically.\n\t- Total queries: 133  \n        - [Alert Queries](#10-1-alert-query): 59  \n        - [Searches](#10-searches): 74  \n\n***\n\n5) Naming Schema\n- _QueryType - Company - Category - Severity/Priority - \\_\\_\\_\\_\\_Name [Visualization - **if any**]_\n\t- Examples:\n\t\t- [Alerts](#7-alerts): _Alert - Canary - Bird Management - Low - Device Commissioned_\n\t\t- [Scheduled Searches](#8-scheduled-searches): _ScheduledSearch - Canary - User Management - High - Login Attempt From Outside Country_\n\t\t- [Playbook](#9-playbooks): _Playbook - Canary - Flock Management - Low - Note Added_\n\t\t- [Searches](#10-searches): _Search - Canary - Audit - Action Type - Count by Action Type [pie]_\n        - [Alert Query](#10-1-alert-query): _AlertQuery - Canary - User Management - Medium - IP Whitelist Cleared_\n\t\t- [Templates](#11-templates): _Template - Canary - Category - TemplateName_\n\n***\n\n6) Resources\n- canary\\_logtypes: This is intended to be used as a lookup file for the Thinkst Canary Kit or standalone searches regarding Thinkst Canary logtypes.\n\t- Format: logtype,description,category,subcategory\n\t- Usage: | lookup -r canary\\_logtypes logtype logtype (description as log\\_desc category as log\\_cat subcategory as log\\_subcat)\n- canary\\_logtypes\\_alert: This is intended to be used as a lookup file for the Thinkst Canary Kit or standalone searches regarding Thinkst Canary logtypes.\n\t- Format: vendor,product,logtype,description,category,subcategory\n\t- Usage: | lookup -r canary\\_logtypes\\_alert logtype logtype (vendor as vendor product as product description as log\\_desc category as log\\_cat subcategory as log\\_subcat)\n- iana\\_ports: This resource is intended to be used for additional information about Ports, Protocols, etc. \n\t- Format: Name,Number,Protocol,Description,Assignee,Contact,Registration Date,Modification Date,Reference,Service Code,Unauthorized Use Reported,Assignment Notes\n\t- Usage: lookup -r iana\\_ports \u003cEV\\_to\\_match\u003e \u003cCSV\\_field\\_to\\_match\u003e (Name as port\\_name Description as port\\_desc Protocol as port\\_protocol)\n\t- Reference(s): [IANA Ports] (https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)\n- REPLACE\\_ME\\_WITH\\_YOUR_RESOURCE: This is used as a placeholder so playbook documentation doesn't show errors for an example query.\n\t- REPLACE with your actual resource name(s) and value(s) .\n\t- Example Gravwell Fetcher Conf — shipped with repo, replace domain/token before use.\n\n***\n\n7) Alerts\n- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.\n\t- Alerts are made up of Dispatchers and Consumers that ensure that when a dispatcher generates an event, all associated consumers are executed to process it. [Documentation](https://docs.gravwell.io/alerts/alerts.html)\n        - [Dispatchers](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers) = [Scheduled Searches](#8-scheduled-searches)\n            - Dispatchers generate events. A typical dispatcher would be a scheduled search that runs every hour looking for “bad” activity; every result returned by a scheduled search is considered an event.\n        - [Consumers](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer) = [Flows](#8-1-flows)\n            - Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.\n\t- Total: 59\n\t- Naming Schema: _Alert - Canary - Category - Severity/Priority - AlertName_\n\n***\n\n8) Scheduled Searches\n- Purpose: Scheduled Searches are dependent on the [alert query](#10-1-alert-query) queries titled _\"AlertQuery - Canary - Category - Severity/Priority - AlertName\"_ within the [Query Library](#4-query-library).\n\t- **IMPORTANT:** If an [Alert Query](#10-1-alert-query) is modified within the query library, it will be modified in the associated Scheduled Search. \n\t- **DISCLAIMER:** There are a few queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.\n\t- Total: 59\n\t- Naming Schema: _ScheduledSearch - Canary - Category - Severity/Priority - ScheduledSearchName_\n\t- Cron schedules:\n\t- High: 6 \\* \\* \\* \\*\n\t- Medium: 37 \\*/2 \\* \\* \\*\n\t- Low: 49 \\*/4 \\* \\* \\*\n\t- **Exception:** _ScheduledSearch - Thinkst - Canary - Incident_ runs every 30 minutes.\n\n\n***\n\n9) Playbooks\n- Purpose: Playbooks are intended to be utilized as investigation aids for [Alerts](#7-alerts). The playbooks contain sample queries to assist with the investigation.\n- Total: 59\n- Naming Schema: _Playbook - Canary - Category - Severity/Priority - PlaybookName_\n- **Disclaimer:** This is a guide to assist with investigation and is not a definitive security assessment.\n\n***\n\n10) Searches\n- Purpose: These queries within the Query Library drive [dashboards](#12-dashboards) to quickly view your Thinkst Canary in an easily digestable format. \n\t- **IMPORTANT:** If a \"search\" query is modified within the query library, it will be modified in the associated [Dashboard](#12-dashboards) panel displaying that search. \n\t- **DISCLAIMER:** There are a few searches which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those searches are failing; I'd suggest troubleshooting here.\n\t- Total: 74\n\t- Naming Schema: _Search - Canary - Category - Severity/Priority - SearchName_\n\n10.1) Alert Queries\n- **IMPORTANT:** If you need to update or tune, this is where you perform that action.\n\t- **DISCLAIMER:** There are a few alert queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.\n\t- Total: 59\n\t- Naming Schema: _AlertQuery - Canary - Category - Severity/Priority - AlertName_\n\n***\n\n11) Templates\n- Purpose: Templates are special objects which define a Gravwell query containing variables.\n- Total: 1\n- Naming Schema: _Template - Canary - Category - TemplateName_\n- Template - Canary - Incidents - Full Search\n\t- This allows you to search any incident and search the following options:\n\t    - acknowledged = \"%%1%%\"\n\t    - flock\\_id = \"%%2%%\"\n\t    - flock\\_name = \"%%3%%\"\n\t    - src\\_host = \"%%4%%\"\n\t    - src\\_port = \"%%5%%\"\n\t    - dst\\_host = \"%%6%%\"\n\t    - dst\\_port = \"%%7%%\"\n\t    - log\\_cat = \"%%8%%\"\n\t    - log\\_subcat = \"%%9%%\"\n\t    - log\\_desc = \"%%10%%\"\n\t    - \\_alert\\_title = \"%%11%%\"\n\t    - \\_alert\\_priority = \"%%12%%\"\n\n***\n\n12) Dashboards\n- Canary Audit Overview: This Dashboard is a general overview of your Thinkst Canary Audit Trail data.\n- Canary Canarytokens Overview: This Dashboard is a general overview of your Thinkst Canary Canarytokens data.\n- Canary Flocks Overview: This Dashboard is a general overview of your Thinkst Canary Flocks data.\n- Canary Incident Overview: This Dashboard is a general overview of your Thinkst Canary Incident data.\n- Canary Incident Search: This Dashboard is intended to be used to search through any and all of your incidents.\n\n***\n\n13) Useful Resources \u0026 References\n- [Gravwell] (https://gravwell.io/)\n\t- [Fetcher] (https://github.com/gravwell/gravwell/tree/main/experiments/gravwell_fetcher)\n\t\t- [README] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md)\n\t\t- [gravwell_fetcher.conf.example] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example)\n\t- [Kits] (https://docs.gravwell.io/kits/kits.html)\n\t- [kitctl] (https://www.gravwell.io/blog/get-your-kits-into-git-with-kitctl): If you need to make custom modifications to the Thinkst Canary Kit; utilize this resource for reference on how to interact with Gravwell kits.\n\t- [Thinkst Canary] (https://canary.tools/)\n\t- [Endpoints] (https://docs.canary.tools/guide/list-of-endpoints.html)\n\t- [Incident Objects] (https://docs.canary.tools/incidents/incident-objects.html)\n\n***\n\n14) Notes\n- [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html): The Thinkst Canary Kit requires the Gravwell Network Enrichment Kit (currently version 19) for searches using [geoip] (https://docs.gravwell.io/search/geoip/geoip.html).\n\t- Any query containing \"from Outside Country\" is implicated in this so if those scheduled searches are failing; I'd suggest starting here. \n\n***\n\n15) Image credits\n- icon: [UXWing] (https://uxwing.com/sparrow-bird-icon/)\n- cover: [Microsoft Copilot] (https://copilot.microsoft.com/)\n- banner: [Microsoft Copilot] (https://copilot.microsoft.com/)",
+ "Version": 1,
+ "MinVersion": {
+  "Major": 0,
+  "Minor": 0,
+  "Point": 0
+ },
+ "MaxVersion": {
+  "Major": 0,
+  "Minor": 0,
+  "Point": 0
+ },
+ "Icon": "d5a9f0c9-eeda-43aa-a3e2-dc6a0653a4ad",
+ "Banner": "9748c321-8de9-4bbf-a2a7-1c953ae3616b",
+ "Cover": "dabb0326-42dc-42b3-9763-7d147d477c7a",
+ "Items": [
+  {
+   "Name": "Example Gravwell Fetcher Conf",
+   "Type": 1,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "REPLACE_ME_WITH_YOUR_RESOURCE",
+   "Type": 1,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "canary_logtypes",
+   "Type": 1,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "canary_logtypes_alert",
+   "Type": 1,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "iana_ports",
+   "Type": 1,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "maxmind",
+   "Type": 1,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "00b7e6e2-7c31-4929-ae1d-a531638c6e59",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "04f9f4a6-9cc7-499e-b35e-2d459c688ea7",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "05b201cc-352d-4803-86aa-673d03597651",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0df76152-a6ae-40ea-99da-892f976b47ad",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "15b922db-bf9a-48c2-9989-cceea1503a6e",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "18b22489-168e-4298-b8aa-79ffe2df62b4",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1a028485-1070-4558-a1cc-17ff88dd1f9e",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1a1805e9-1d4a-4af9-8ed7-b81c090386f8",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1ad16a01-7697-4fee-a71a-380edc9054b3",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1b48c085-ae0a-4754-bf3c-eeab0eab0620",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1d31dee6-e213-4fae-88ae-edcc6d72fac7",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "24178140-8c5f-4be2-9102-a4850b26994a",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "24238712-2e51-484a-9200-7df730e8d86a",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "25c91034-7fb8-4e76-b49a-c02db38c7186",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "266176d8-776b-46d9-add7-40cab313a439",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "26d18bc8-54ef-47d9-841f-2517781fa0cd",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "2976d2f6-586c-4fb6-af39-777699042f4c",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "2abf0c09-0e80-4d5b-9441-2502f71ebeed",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "2ef81b4f-260b-4e3a-b3ab-ce1062bf35e1",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "310461ae-4b6f-4a79-88df-c0f12e106d3f",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "31b1747c-75c9-4ac7-bee0-6ff9d661cd12",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "31fba9f2-2154-4070-a468-2fcb9b9d0039",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "337c99f7-7548-4621-86a1-b47ff6ccd309",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3558e033-ef4e-48f5-8bcf-1bbdc71b9c12",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "36d25ea4-7270-473b-a436-1fa9f63f3a8b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "36e4f43e-11ab-4a5b-9ad6-7cc53944f7c2",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "38ebd801-4ebd-4535-bd8e-da3b63c268c7",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3a87d1e8-a888-45ac-b927-a140eb04677b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3d46eafc-1bf0-400d-9a7f-67ff161125fc",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3fd693e3-c44f-4d07-bdb2-68472df1b306",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4278f86e-b9e7-4df8-a516-eed302cd3e91",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "47448b65-6101-4efc-bca6-63d8578f87a3",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4a7b6aa8-482c-4c0a-8ff6-59d47af6ed5e",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4ba6fc45-845a-42eb-ba82-f3f0482ec551",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4c9aa512-0f15-4c2f-b10d-dbd79b5118a3",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "50ec121b-a153-4678-82fc-b9f9091733c5",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "518957e2-df2d-43bd-952a-cdd066595bb7",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "5210e00b-0588-4787-ba83-5594fdd53a0a",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "52697f53-c704-4c42-9ceb-9e1d979f91d2",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "526fbfdf-89cb-4451-bbf2-27b84236e490",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "54b13fe3-5db6-4b23-9dda-8a5cf9a3df3a",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "581193ea-beb6-47db-a96c-d5d08767c34d",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "591030ec-d1dc-40b5-98a1-445512436986",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "5eaa7bc1-f774-4f0b-a2b1-f01b72e0091c",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "66af2b0e-3746-43c3-8e62-61b987fa2e71",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "67fdf2c8-ada8-47fb-85cd-bd587e2028be",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "68b95d40-325a-42c8-a570-030494762abf",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6e317cd7-88ec-4f76-95bc-f22bd13f42bc",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6f867379-e2fd-4b28-84bd-54ffc4c7b933",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "71d37324-d469-4579-9cb1-475c95f33c63",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "721c0f5a-2827-40dc-a7e4-4a2807ac983b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "73c4be8c-baa6-45b5-afeb-dd833fb13b2a",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "758b2ce1-d77b-4166-ab09-c9b99fc22316",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "76391db0-03b0-4609-b0e9-84630278608f",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "79b34b35-2cee-43db-999e-4a1d0ec85963",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7a550362-fa2c-4a5f-97f2-0d470b75d3d1",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7c4faeef-afe5-4796-b45f-523560403403",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8058c281-6eb0-4137-87a7-7bbdb8a60f49",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "80ff04dd-24bb-458c-b2e0-347bff96faa0",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "82989840-7b41-415b-b2e8-6cb056d8d641",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "82ee73c0-929c-415d-8211-13c2973a644b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8985016f-eace-4f2a-8e58-9434c7599699",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8b005658-9273-4ec1-9b5c-f5c464ea0d75",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8b2432d1-e082-4d4f-bde8-fd7bdc8fc5e1",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8b91a5de-e588-4f0c-a13a-20e941fa7959",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "90bb805f-2488-410b-bf33-43dcfed2f4e9",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "936d5001-11ce-4ea3-b4ee-bc599271ccb5",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "93712b4a-05b7-4b82-bf62-b7de880463e8",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "93fbd72a-dad4-492a-ba89-21de65c4c4f7",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9539e5ff-447f-4658-ae64-c69b7fe9d6ae",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "98004bbf-ca37-45d4-bdf7-02bcc0f92f4a",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "98c9cbe3-fdf8-4bac-a94f-5517089d5b0f",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9a7e20a1-dc36-4c51-b161-cdc9ae275199",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9e13f9b3-14c8-4c4a-9f77-46b42b5bfa19",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a2595871-9c0a-4e57-bc10-8281f0570ed9",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a64d773c-8e42-4989-ac92-093238f9ad19",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a7e8410f-a29b-4dc8-a5ae-ede6b16ba758",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a92d26d7-90fd-404b-b657-96389ed962c7",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ac3d1246-2372-43e0-b1d5-6e0ab777269f",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "b45bd6a6-8974-4d0b-b9dc-157daee0b56c",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "b5096ac3-4585-4065-b730-b9052a502fe3",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "b6aa6999-ca9b-42ba-a280-1cc91e6b891c",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "bcfff3be-9fc8-4209-8e06-bca54e21724f",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c18d3052-5da6-4575-9736-803699ffc901",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c26bd104-acc2-484a-9971-012e15936445",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c68a2906-20c1-44e9-85b2-cb20931560a8",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "cc83ea0d-bde6-4025-a844-88293452fe8a",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "cf7ae1f8-5ca3-44ff-a80e-eb6f2f135f6c",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d018efb0-a090-4d70-8984-a463834249b3",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d2e4b77b-a8c8-4328-ad3a-20b27a2c1b15",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d4b996ff-d3ad-43a4-af1f-9fb12109d186",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d570a44a-9108-4ac3-99aa-a39050de877e",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d87e33ec-103c-4fe6-adc7-336cae44f182",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d9438dd0-b60a-4b0f-b9d7-cc9ceaab47f2",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "db76cada-b916-4c9a-a00c-33e570a5a5c7",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dcb3df1e-c4af-4eed-8275-a4c01752ac73",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dcf8a8c1-e6e1-4fc0-9fd0-364b2ee54ab6",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dd25e8ef-a4ef-4a90-a96b-e5fcd42abb9a",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dda6cdba-0675-4526-9356-d1854e3c0780",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e0b7b32a-3bc4-4300-b097-2d8006dbd27b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e1eca7f6-f4c8-40a9-9e21-0b15913596c2",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e20d502c-8dd8-439a-b31d-e1031c4a536b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e49d137d-b7f6-4db3-aee4-d5c19890a80b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e5e2def3-d202-4b00-8d05-72cbde32538d",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e7ead0b0-c500-4eee-aaee-9f6872af3c58",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e9d5d192-1487-4c3d-8983-2fab73101fff",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e9e12d51-4e4f-4198-8e8e-e1dfc2779f33",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ebb02d43-6a75-4502-9a4c-080941d8444c",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f30b52ab-8e82-4e12-a04f-6218a284d5fe",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f3b206dc-2c6f-4192-bd23-bade934a9b1f",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f7cbc189-4613-42ee-901d-67f3593ddbc0",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f882e47b-5596-48ed-aa11-66ae7053fae8",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f93463d7-686e-4796-94f6-ee77c4907c0b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f9ca6564-b34e-4130-8757-78eab7a498e9",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fb9ab4c8-69e3-4012-b4c9-c86bad4b8fda",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fc5e3497-36ab-49d4-bb7d-513a339e6f13",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fd9dadf8-5387-4148-b18f-b2c3ff8989c0",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fff21b74-2dda-4e9c-b33b-6429cedbe18b",
+   "Type": 2,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "05da1413-daae-44ca-a47b-9cb54a33d619",
+   "Type": 3,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "53dd7bec-fcbb-4c6f-a01a-3e5fe2a32ddf",
+   "Type": 3,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "63e6a9d0-088f-47cc-af61-a092f770492b",
+   "Type": 3,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6db5b6d6-617d-4393-a4ed-31880ccd1073",
+   "Type": 3,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "db124d86-f447-4747-b5dc-dcac06373409",
+   "Type": 3,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "b5a6f494-05c2-424b-b514-fae33e12e9f3",
+   "Type": 6,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9748c321-8de9-4bbf-a2a7-1c953ae3616b",
+   "Type": 7,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d5a9f0c9-eeda-43aa-a3e2-dc6a0653a4ad",
+   "Type": 7,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dabb0326-42dc-42b3-9763-7d147d477c7a",
+   "Type": 7,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_ALERT_META",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_ALERT_RECIPIENT",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_ALERT_SENDER",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_AUDIT",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_INCIDENT",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_INCIDENT_ALERT",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_INCIDENT_CLOSED",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_INCIDENT_FULL",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_INCIDENT_META",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_INCIDENT_OPEN",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_INCIDENT_SEARCH",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "CANARY_RISK_SCORE",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "GRAVWELL_INSTANCE",
+   "Type": 8,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "02396591-fc71-454a-bb75-f7f41ac08ffb",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "02d323f8-fb6e-47ab-b963-5c8b125d6450",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "044eb29a-5c72-4b4b-92af-3ace4fa4dd2d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "047ea9ea-a62e-4d55-8b46-0392a7b28e63",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "05fe88f3-2a6c-45f4-8839-1f18838a9898",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0939e147-756a-4e2d-b0f3-569d6ddb9818",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0a3b269f-e058-480d-8a65-d36adbe685e3",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0a8a8e36-04e8-4e3e-ac91-ab06b1f7c490",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0fcfb30d-0bb1-4c36-995a-a4da3222467d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "11ddbe6f-30a3-40fb-9ab3-fd8e75398bcd",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "157c46b9-fa93-41c7-9482-5e928ab7ff82",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1b48bfc5-bf6c-4a59-b862-930134d70a7a",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1be8db6f-9b09-4d25-8eb1-ada8c3d8a070",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "2035736d-80da-4c0c-8049-78bbea3a838d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "213cdc2c-97ca-4ff7-a647-93ce7c724390",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "2348d389-6be6-43d1-8859-f541eee7d45b",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "266c306a-ea49-468c-b341-cd77ff9cbf91",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "29f5b2b3-fed8-4372-a069-487b0e8226c2",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "348f042d-62cf-49f7-bf8c-1cb7088ab6e3",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "35007ae4-eb46-40c6-afbc-07895f4e2f24",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "352efb92-b53d-47c4-9a09-d40814b4f6ae",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3612aac9-21db-4a41-b695-397ea71840ad",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "37e75f1b-a742-46f2-85e2-2031522189eb",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "38bac104-ee44-4446-90c5-5844ed484962",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3ba9896e-4fcc-491b-90c3-74014cd76ee2",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3cb509c0-95e8-4e2d-ab7a-3babcab29e70",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3ce456a0-56d8-4b9f-ae3a-bc32af615a45",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3eb0e867-1f84-4b6c-a03e-4759b8b9369a",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "403218bc-a021-4db9-900c-3a298cf0029f",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "41714ce9-2685-4db7-a649-c0264098bfb0",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4222ce12-76f0-4551-a748-6399a87486d0",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "489d39e7-fd9e-4ae9-95c2-54972a08277d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4a599080-3af6-4741-af38-2b0718ff9f83",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4b29f3e0-c74c-44d1-8671-80eaa676fbce",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4c51bab2-e45e-4153-8131-3b9078537e15",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4e0e79f2-b452-49c3-bfee-e51051ce26a2",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4e3abf82-cc39-4188-9ae5-2ac783127195",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "532ce6dc-31ad-4f3a-a46a-9170a2b6c102",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "53a71171-c4e2-45fb-bb1c-3671c7fa048c",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "56d428c4-aacf-4161-9013-e3ca8500f223",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "57128c0c-fc6d-4656-ade1-eea0bc5fb474",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "57b8d691-4d2e-4637-99f1-438a5d69acb3",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "5a1209a0-3d29-4942-b120-9a0f9b3b75f3",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "5c031848-90e6-4957-b2f5-7de611d71602",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6081a5c2-3976-4a52-a0a0-4ea44a3b82db",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "61a514ba-29a5-499a-90ca-4d8559dedb03",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "61cc3932-555b-4df5-85c7-0689962665ed",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "61e791c1-47ac-4c34-a55a-3d2c1d659982",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "62772aa8-79a9-497f-b011-c817431a00eb",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "62b48313-2fcb-4d06-ac1c-afad0233f9b5",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6425664a-a800-44a5-a6d6-150d6bdeeb30",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "64c982c4-b754-4933-8dc7-3de450ea1171",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6543c324-fdf5-4db3-86bb-7c03f2a76b3d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "67089989-8053-48dc-9016-ef070fb853f9",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "67fdcc06-ab17-4eb7-80c8-394338aefd39",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "68b395d6-0f27-4a24-a3cf-d0185db1c605",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6a55d184-c04e-4801-9494-3d97374a4436",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6b41814e-bf98-4ad7-9f18-cd0c9d0a7e0c",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6c853449-4ff5-4d8a-ab05-a020f0ca426b",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7002275c-5915-4f73-adca-9bb24d3a5ebf",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "70c57d1e-45a9-42f1-ae32-71f64f538299",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "70cbb2e2-62b9-474d-bfcc-4d6df4e1d7ac",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "70e4cb1f-fec7-4875-91b7-816203ab8bab",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "72e44bd4-8730-4531-a2ee-5c9033c967f6",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "732a42f2-3090-44c5-ac20-f08c2e4e34d9",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "740db86d-c01c-45a1-8486-1e64fa7d709a",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "74abba01-c88b-4e1d-ba2f-05a3179ef463",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "789f8d0c-b68a-44a0-a457-ad573eb05756",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "79e09128-65c1-4783-8c34-4fdab557a80f",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7bb4acdc-9639-4f62-b0ed-c22945590f7e",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7d4a665d-fce1-49f4-97cb-be4c463a7c87",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7e2991ef-ebc9-4bdf-9d8b-947b3a291b0d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7e4aa781-0976-469d-9418-ce34752585c2",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "81792a94-5e39-42a7-9d3d-1611743b4854",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "82cce3a5-00f6-4553-bf7e-ca02954078d9",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "82dc9e71-b6be-48ea-bff2-bc879200c7ef",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "859dd0b1-e4f8-4dd9-a426-754e393c6f99",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "879d0342-4ee6-4eb5-8a04-792a63bf6c5a",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "89c12889-43bc-4889-94dc-b2a29bb7ea41",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8dfc4c20-48f7-438a-a43c-79500e2c749c",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8f7568ec-21b8-42e3-beee-84e6278e1dc5",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "986da9b2-764c-4899-b001-b5be4e139273",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9a23c994-cc63-4d41-806a-8347d5055b0d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9aa213b6-c64a-48a0-8d6c-b944cbaca073",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9aa9fefb-cd2e-4448-b7a0-e214547323fa",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9c735579-22ea-4f86-bc85-bd9c1a4070c5",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a0cad0dd-15b6-4822-b382-772307ec1e45",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a1341e4c-77bd-4496-b42a-83eb8335a7ad",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a267f121-a7a4-47cd-974c-cdaa55974242",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a2a13936-58a4-4291-b410-ce3b1ef22e15",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a4e605a9-eda5-430a-8463-8929fad19eb5",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "b02aba28-ddd4-440a-9ee6-9a3d772774b3",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "b36ae9fb-c541-49b8-b131-cbe8158fa881",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "b58be5e6-81a0-4b9e-9f88-1220e272e03d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ba5ab7e4-8ec9-4e50-8efa-391ce7d0f3ad",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "bec8539c-3dfb-416d-bd62-d58bfc88c8a0",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c573306a-b898-4f9c-a1d7-ad6a50e6603d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c63339fb-2fb7-4cc2-8cf5-924ffbde535e",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c6a459c2-1e43-41b3-a037-83a697af8280",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c6de659d-890a-4fa6-b9a7-6f60b8739c21",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c7ca6605-b075-4203-81cb-a872a57234c1",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c9e220d9-87c1-401e-983f-ecd5ad958277",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ca965e5b-bf87-4898-80c2-7d71474745ff",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ce786ade-686d-45a0-81ac-308c145efd45",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d3a67d7c-848a-4e5d-acac-ce7ccc0fd90c",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d3c01581-f2bf-4cc6-9c30-dd483bacdae8",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d4261702-5be2-4aab-98d8-0435e2b1bd91",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d73ceca4-adc2-4b59-858e-f87b86776ac4",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d8586562-16d7-42ca-99db-7ea5f90db50e",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d8866439-c457-443f-940b-5cae11b8aa9d",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d8dc07c3-2d7e-496f-9952-406e01cf20a8",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "daf4494f-0062-41c1-94db-1f125d307a01",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "db8b745d-42ba-4a99-9e84-63711e7fed2f",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dcb0f392-724f-41d9-a47c-09b859e7351a",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dd674f80-bb9f-47f5-8650-ad0c0f487757",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "df349f67-0ca2-417f-97f4-d493c441f3d9",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e1ad157b-9eac-4fbe-aeb3-a28d7bf2355b",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e2c20939-1e28-4d61-b9e1-8140e5bd01c9",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e315f96e-c72d-44b2-ac4a-7b4400582556",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e5a1cb3d-1d5c-4bb6-bc2f-ef18ffea6bfa",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e6437858-7029-463e-8d4a-b33f603f9b22",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e67cf30f-90b5-4b13-ab6b-c08ab5194124",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e6d04817-239d-4403-aebe-a6de091df20c",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e79cd9b3-e567-4fd4-97d1-752478f75f12",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ebe5f89d-8ff4-4434-bf49-3c3dbb40602f",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ec6bbbbf-ec5b-4295-8ec6-2ab14caaf295",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f31985d0-9bd8-4aea-9241-7b4d85938e73",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f817e976-3424-4677-83fb-3b0caffb93f9",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fa1f838d-fd57-4fab-8d18-e42d60b65087",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fca95b9e-3a54-4418-9836-efd92c99c721",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fcfe32f6-1065-4b56-a234-82ed24b2d59e",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fee942f0-2019-4895-830b-9e162056623a",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "feee9a1c-37a3-416d-8a98-addb16fad38f",
+   "Type": 9,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "Apache 2.0 License",
+   "Type": 10,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "017b0aa8-630a-4f5a-95f8-a186896b846a",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "03e165bf-0914-4836-8766-d6dc5ec24c08",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0d4c662b-3bac-4505-b456-3e3caf386979",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "12052b2a-46ca-44a1-b83c-488ba894f2c7",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "14a8a9d1-7d43-439e-829c-94316dbda6b7",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1c3465cc-39c9-4eb8-bafb-711ad7916d92",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1ecd01f3-b507-4e09-b025-d27e5729aa47",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1ff116d5-e22f-409b-b0c3-2765c147b2c6",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "205bcf53-e529-4c96-87f3-d5f65798c44d",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "227079ff-ec18-4dc7-b97c-440a91c0bde8",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "22a242f2-52dc-42f6-afe5-9e902730a4a2",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "244f2492-ad14-4dd5-8672-c8b23a74f3f8",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "25bb86a1-91c7-4f0c-9930-f04c66aae632",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "271863ee-9784-4cc0-bab8-473393fdbd42",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "2dc7c696-1127-45d0-818f-1bf2866feab0",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "35c5473f-7f6f-45b2-af1f-5af190b2c258",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "39a5556b-fd8c-4def-a63c-93a169673ac9",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3b2c2da0-237c-4e6f-b1df-18688a1fbf5a",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3df2b9f2-5580-4ab0-90dc-b76343803cf0",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3e79cd45-9ed8-4cf9-9574-97080203de5e",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "43e6c362-0963-4725-9d5f-404219786ae8",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "48714aa2-8a84-463e-babd-2ea98900e911",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "519d1f17-77dd-4de3-80c9-4af72fd6d5bc",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "556f15df-7832-46ac-b566-e27cfb55e155",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "58286dcc-2662-46ff-bbf4-24c65b31c78e",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "5c9cbe87-2dca-4726-91e9-1adf1b434910",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "61bedb6b-5eac-4e92-b5cb-889649179bfe",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6591cd43-57cb-45d1-96db-26bcbeba5025",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "6bb5f2fd-f7c5-4ee5-82d6-3ed288440cab",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "74725f1f-505d-4f69-b08c-f88e2be38094",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7752077d-2338-403a-a8d9-d032906f5196",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7cffa0d8-571b-41e4-a1aa-88a021ab1150",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "80f2633e-39d2-435c-9f0d-2d9cb48192e8",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "83763bc1-3e64-4495-8d61-ba826dd4f38a",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "851a0aa0-c4f1-428f-8c91-d40c62915225",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "87588fd3-371c-41ef-a7e0-0c6c9c891952",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8f7b0a67-7a68-42a2-9df1-59d5335cb662",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "90f039c8-1c23-4121-bcf0-93d3a7911cbb",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9167c997-c3d3-4909-9b48-918990407d14",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "948c4e9d-7465-4623-8177-50cf996e6d72",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "aadf2dd1-1045-4217-91e9-6d25f20841d5",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "b7fdffa4-153f-4843-b844-e9fbdf88e977",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ba1852d1-9637-43f6-a8b7-22dd88a7c8bf",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "bc2e8b48-1c80-48c3-bbee-b83d05c74810",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "be5bd494-f157-4a4a-8cd2-5d483dcb7b59",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c01f0012-fd4b-4df0-a39f-8f54a6065d62",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c9f8b4d4-ee21-4632-adee-53a2ef4e7062",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "cc1124ba-8bb7-4f31-bab2-05e48d4b4f5a",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "cf413a66-6de6-492a-b46b-5fb769570fd2",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d50543c0-8f48-4634-b128-ae5bbf752c10",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dd4a4ec1-a27c-431b-b61a-a3268c49d216",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e2944ed9-6ee8-4318-ad9f-54dd438f9839",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e3ca90b7-d1fb-4d3b-aa57-7fce6e6a7ee8",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e3d94996-d461-444b-bace-3c8bd3be2f28",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e7bfd191-9bab-4cc1-98ab-5fddfca479ee",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "eee37404-27c9-4ef6-a4f6-6dcbb1f5a79f",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fb7667bd-4b82-4872-a5e3-e555c29950b7",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fb9a9848-d06e-49ff-9d84-43c32e72b310",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ff6f5983-c041-416d-89ca-f87eb9addbcc",
+   "Type": 11,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0122b45b-9584-44ee-90a8-ffea622a6b21",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "019e5db0-a126-4f45-b9e2-91b97ebb9d0f",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "03f7a053-0d41-4212-9d36-6bc09c1c0cb6",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0b21b121-afb2-448c-bedc-61e5e24340b4",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "0c5e330a-77f5-49f6-a364-268985da214b",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "107c1608-ef8f-4af6-b61a-93e3e22acba5",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "11bc86b1-458e-4705-9b96-527edd82b024",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "11e061a1-a9d4-4567-a17f-4c3b1d944ac3",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "18348c11-2943-461b-b00a-8cd718a5f15d",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "1fa8dc17-9186-4c69-9a96-cadc8ab50a96",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "21e62ff2-0a2e-4f89-b9df-c6df0bc836db",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "224a46be-0ac2-4eb0-b4e1-9366d4ac01ee",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "23a5bd1a-6172-44fe-bfae-d89cd57fb0e3",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "27bfb67e-6a16-44fd-917c-bc60167c121c",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "2ca8cfc0-044d-4d29-80d5-8e01e24fbdef",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "3204f71e-2e13-404b-8b2a-40f04c840648",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "330140ea-5c85-4d53-b70c-e12062fa1ea3",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4464c04c-2980-4d06-8ea4-2a42d69225c8",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "4e7a1997-f55d-4f8e-a764-4972bb77cbcf",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "525388ac-2eca-47a4-822b-17c06607a99a",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "599cf499-e033-47b8-8599-0faf8f843538",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "5be0f0ae-921d-4d0a-b6b8-1692dbc7903a",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "5d599e9f-f5ff-42a1-acc2-73797f239f95",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "66a8cb83-f4ec-4c30-8f28-232cf3736d2e",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "710f79d8-00be-47e8-80fd-9cefa121703f",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "724fddfd-c39b-4bca-842a-d37d009230fe",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "75b4052f-c89d-428d-b53c-769c943c1b40",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "785be87b-9d24-47c2-9272-431ec667368d",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7dfb0428-8a26-4319-bb8f-8076b926f080",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "7fb10b86-ead5-457f-9580-b2f9912ec8d1",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "80175fe4-a4e4-4125-a38c-55f5747062a0",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "824628dd-03f3-4981-a8a8-df639db95cd2",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "858e9f16-2d51-4c49-9544-957460a3e7a3",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "867408d1-4cc9-4ae1-a3a7-0cf6497c755f",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "87b05586-5804-43c0-ba8c-d5a327dbcdb5",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "8f94f34d-692e-493c-8bc4-243810c9d399",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9640de4a-2127-4100-a04f-3f3d8a121a07",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "968f3718-7bdf-48d1-9bdb-e29027910f18",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9946ce8f-a3a2-47ee-a39e-a67da899fd66",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "9fb46101-bc0a-42cc-944a-244563618cf7",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a0cec2a1-e5ba-4560-af34-41daf1de8a6a",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "a69b7065-758d-4f2f-b55e-7f72c0d5dc35",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c03b1641-dc69-466f-8fc5-bccd57ce35fa",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c1ea4487-c0cb-4020-b034-0beee5b21980",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "c623e386-42cc-4089-8a08-7c2eff0a112d",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ca25772c-5301-4ec8-9d97-6a38349fd501",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "cb175ee9-cd2f-4e93-a834-d2e130b15f3b",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d001604d-61d0-4a9f-9579-acedbecaa383",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d337074d-db0e-4fb1-a79c-3af5ef404e2c",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d399eee6-4125-4af7-bb8d-b874ef5d4f46",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "d3d40a4f-c9dd-4888-8744-4fbbb8fb949b",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dbab028d-6254-4986-9cda-87f6466c40d8",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "dbafee36-e5a0-4f84-b61e-03315cccec47",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e03ca8ff-8fc1-4ede-a7f0-ed0b98d93632",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e55e568e-5c51-40bf-84db-21d517a067cb",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "e9d710eb-fb1a-47d1-b502-d90f1a2a89d8",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f0262f71-9f78-4ab4-bbb9-d3decd5d9cb5",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "f89f6048-9782-485f-aaca-779d985c0d8a",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "fb877883-c7ef-457c-bc0a-a3c5f9925ac2",
+   "Type": 12,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+ ],
+ "Dependencies": null,
+ "ConfigMacros": [
+  {
+   "MacroName": "CANARY_AUDIT",
+   "Description": "Configuration Macro; Tag used for Thinkst Canary Audit data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.",
+   "DefaultValue": "thinkst-audit",
+   "Value": "",
+   "Type": "STRING",
+   "InstalledByID": ""
+  },
+  {
+   "MacroName": "CANARY_INCIDENT",
+   "Description": "Configuration Macro; Tag used for Thinkst Canary Incident data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.",
+   "DefaultValue": "thinkst-incident",
+   "Value": "",
+   "Type": "STRING",
+   "InstalledByID": ""
+  },
+  {
+   "MacroName": "CANARY_ALERT_SENDER",
+   "Description": "Configuration Macro; Necessary for alerts within the Thinkst Canary Kit to run properly",
+   "DefaultValue": "replace_me@with_valid_sender.address",
+   "Value": "",
+   "Type": "STRING",
+   "InstalledByID": ""
+  },
+  {
+   "MacroName": "CANARY_ALERT_RECIPIENT",
+   "Description": "Configuration Macro; Necessary for alerts within the Thinkst Canary Kit to run properly",
+   "DefaultValue": "replace_me@with_valid_recipient.address",
+   "Value": "",
+   "Type": "STRING",
+   "InstalledByID": ""
+  },
+  {
+   "MacroName": "GRAVWELL_INSTANCE",
+   "Description": "Configuration Macro; Necessary for alerts within the Thinkst Canary Kit to run properly",
+   "DefaultValue": "https://<change_me_to_your_specific_url>:<change_to_your_specific_port>/",
+   "Value": "",
+   "Type": "STRING",
+   "InstalledByID": ""
+  }
+ ]
 }

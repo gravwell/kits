@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - User Management - Low - User Seasonal Effects Disabled",
-	"Description": "Detects when a disabled user seasonal effects in User Management.\n\nReference(s):",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "49 */4 * * *",
-	"Duration": -14400,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "25c91034-7fb8-4e76-b49a-c02db38c7186",
-	"SearchReference": "9aa213b6-c64a-48a0-8d6c-b944cbaca073"
+  "Name": "ScheduledSearch - Canary - User Management - Low - User Seasonal Effects Disabled",
+  "Description": "Detects when a disabled user seasonal effects in User Management.\n\nReference(s):",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "25c91034-7fb8-4e76-b49a-c02db38c7186",
+  "SearchReference": "9aa213b6-c64a-48a0-8d6c-b944cbaca073"
 }

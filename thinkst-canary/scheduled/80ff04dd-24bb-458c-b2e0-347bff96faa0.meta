@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Multiple Device Notifications List Actions",
+  "Description": "Detects when email addresses have been added and removed from device notifications list.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "80ff04dd-24bb-458c-b2e0-347bff96faa0",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "8b91a5de-e588-4f0c-a13a-20e941fa7959",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when IP Whitelist has been cleared.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists#remove-an-ignored-ip\n\nhttps://docs.canary.tools/flocks-settings/info#fetch-ignore-list-info",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "82ee73c0-929c-415d-8211-13c2973a644b",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "019e5db0-a126-4f45-b9e2-91b97ebb9d0f",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Medium - IP Whitelist Cleared",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "2a07140a-e91a-4af7-b5a8-cf81bc4b725e",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}
