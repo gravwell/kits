@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "d87e33ec-103c-4fe6-adc7-336cae44f182",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when operational email list has been modified.\n\nList Notification Numbers = Retrieve the list of notification numbers for a Flock.\nSet Notification Numbers = Set the SMS notification list for a Flock\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-notification-numbers\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#set-notification-numbers",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "79b34b35-2cee-43db-999e-4a1d0ec85963",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "e03ca8ff-8fc1-4ede-a7f0-ed0b98d93632",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Multiple SMS Notifications List Actions",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "6f7521fa-855c-4cd8-a19d-86a8ea889543",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

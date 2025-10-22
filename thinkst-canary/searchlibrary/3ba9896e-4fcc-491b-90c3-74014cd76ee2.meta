@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - Flock Management - Low - Email(s) Removed from Operational Email Notifications List",
-	"Description": "Detects when email(s) have been removed from operational email list.\n\nList Operational Notification Emails = Retrieve the list of operational notification emails for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-operational-notification-emails",
-	"GUID": "3ba9896e-4fcc-491b-90c3-74014cd76ee2",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - Flock Management - Low - Email(s) Removed from Operational Email Notifications List",
+ "Description": "Detects when email(s) have been removed from operational email list.\n\nList Operational Notification Emails = Retrieve the list of operational notification emails for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-operational-notification-emails",
+ "GUID": "3ba9896e-4fcc-491b-90c3-74014cd76ee2",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

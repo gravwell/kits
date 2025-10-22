@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - User Management - High - Login Attempt From Outside Country",
+  "Description": "Detects when a user attempts to login in from outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nuser_login_failed = Displays when a user failed to login.\n\n*Network Enrichment Kit is required*\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "6 * * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "2abf0c09-0e80-4d5b-9441-2502f71ebeed",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - User Management - Medium - User 2FA Disabled",
-	"Description": "Detects when a user disabled 2FA.\n\nDisable User = Disables a specified user. This user will not be able to login.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#disable-user",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "37 */2 * * *",
-	"Duration": -7200,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "4c9aa512-0f15-4c2f-b10d-dbd79b5118a3",
-	"SearchReference": "b36ae9fb-c541-49b8-b131-cbe8158fa881"
+  "Name": "ScheduledSearch - Canary - User Management - Medium - User 2FA Disabled",
+  "Description": "Detects when a user disabled 2FA.\n\nDisable User = Disables a specified user. This user will not be able to login.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#disable-user",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "37 */2 * * *",
+  "Duration": -7200,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "4c9aa512-0f15-4c2f-b10d-dbd79b5118a3",
+  "SearchReference": "b36ae9fb-c541-49b8-b131-cbe8158fa881"
 }

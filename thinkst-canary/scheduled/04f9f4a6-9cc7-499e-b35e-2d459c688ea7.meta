@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - Flock Management - Low - Ignorelist IP/Port Removed",
-	"Description": "Detects when an IP/Port has been removed from the ignorelist.\n\nDisable Ignore List = Disable the ignore list.\nEnable Ignore List = Enable the ignore list.\nRemove an Ignored IP = Remove an ignored IP from the ignore list.\nSet Ignore List = Set a list of IPs to ignore.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#disable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#enable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#remove-an-ignored-ip\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#set-ignore-list",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "49 */4 * * *",
-	"Duration": -14400,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "04f9f4a6-9cc7-499e-b35e-2d459c688ea7",
-	"SearchReference": "02d323f8-fb6e-47ab-b963-5c8b125d6450"
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Ignorelist IP/Port Removed",
+  "Description": "Detects when an IP/Port has been removed from the ignorelist.\n\nDisable Ignore List = Disable the ignore list.\nEnable Ignore List = Enable the ignore list.\nRemove an Ignored IP = Remove an ignored IP from the ignore list.\nSet Ignore List = Set a list of IPs to ignore.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#disable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#enable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#remove-an-ignored-ip\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#set-ignore-list",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "04f9f4a6-9cc7-499e-b35e-2d459c688ea7",
+  "SearchReference": "02d323f8-fb6e-47ab-b963-5c8b125d6450"
 }

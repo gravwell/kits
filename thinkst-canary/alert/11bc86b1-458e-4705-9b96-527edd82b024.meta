@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "dcb3df1e-c4af-4eed-8275-a4c01752ac73",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a read-only flock api key has been added.\n\napi_flock_token_add = Create a new Flock specific API key.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html\n\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html#add-flock-api-keys",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "591030ec-d1dc-40b5-98a1-445512436986",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "11bc86b1-458e-4705-9b96-527edd82b024",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Read-Only API Key Added",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "32e87abd-b773-4113-b832-ba426e4ec571",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

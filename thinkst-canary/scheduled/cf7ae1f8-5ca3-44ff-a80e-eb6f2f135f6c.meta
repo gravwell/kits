@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Multiple Operational Email Notifications List Actions",
+  "Description": "Detects when operational email list has been modified.\n\nList Operational Notification Emails = Retrieve the list of operational notification emails for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-operational-notification-emails",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "cf7ae1f8-5ca3-44ff-a80e-eb6f2f135f6c",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

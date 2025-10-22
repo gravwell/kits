@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "721c0f5a-2827-40dc-a7e4-4a2807ac983b",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when flock settings change notifications have been modified (Enabled|Disabled) from Global|On|Off setting.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "fb9ab4c8-69e3-4012-b4c9-c86bad4b8fda",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "a0cec2a1-e5ba-4560-af34-41daf1de8a6a",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Settings Change Notifications Modified",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "645261ec-ce74-4efe-9582-58190096d583",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

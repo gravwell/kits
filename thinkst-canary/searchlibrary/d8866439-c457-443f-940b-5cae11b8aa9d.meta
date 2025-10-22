@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - User Management - Medium - Console User Deleted",
-	"Description": "Detects when a console user is deleted.\n\nRemove User = Remove a user from the Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#remove-user",
-	"GUID": "d8866439-c457-443f-940b-5cae11b8aa9d",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - User Management - Medium - Console User Deleted",
+ "Description": "Detects when a console user is deleted.\n\nRemove User = Remove a user from the Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#remove-user",
+ "GUID": "d8866439-c457-443f-940b-5cae11b8aa9d",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

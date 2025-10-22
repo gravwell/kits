@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "337c99f7-7548-4621-86a1-b47ff6ccd309",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a flock has been created.\n\nflock_create = A Flock allows you to group Sensors and users. It allows you to configure settings that are specific only to the Flock, including notification channels and recipients.\n\nFlocks are defined by a unique flock_id which is returned in the response when calling this endpoint.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#create-flock",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "b5096ac3-4585-4065-b730-b9052a502fe3",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "867408d1-4cc9-4ae1-a3a7-0cf6497c755f",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Flock Created",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "5b0b8499-51fb-4715-bbbe-ce175e1b31d5",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

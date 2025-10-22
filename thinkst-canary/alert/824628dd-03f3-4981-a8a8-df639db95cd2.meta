@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "f3b206dc-2c6f-4192-bd23-bade934a9b1f",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when an IP/Port has been added to the ignorelist.\n\nDisable Ignore List = Disable the ignore list.\nEnable Ignore List = Enable the ignore list.\nRemove an Ignored IP = Remove an ignored IP from the ignore list.\nSet Ignore List = Set a list of IPs to ignore.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#disable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#enable-ignore-list\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#remove-an-ignored-ip\n\nhttps://docs.canary.tools/console-settings/ignore-lists.html#set-ignore-list",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "936d5001-11ce-4ea3-b4ee-bc599271ccb5",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "824628dd-03f3-4981-a8a8-df639db95cd2",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Ignorelist IP/Port Added",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "8f0f9b3d-d052-4518-bc51-a9a5caa01d50",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

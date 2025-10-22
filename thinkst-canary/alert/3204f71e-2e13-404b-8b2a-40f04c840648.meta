@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "15b922db-bf9a-48c2-9989-cceea1503a6e",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when IP Whitelist have been modified from Enabled|Disabled|Cleared to another option.\n\nDisable Ignore List = Disable the ignore list.\nEnable Ignore List = Enable the ignore list.\nRemove an Ignored IP = Remove an ignored IP from the ignore list.\nSet Ignore List = Set a list of IPs to ignore.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/flocks-settings/default-ignore-list#check-if-ip-ignoring-is-enabled\n\nhttps://docs.canary.tools/flocks-settings/default-ignore-list#enable-ignore-list\n\nhttps://docs.canary.tools/flocks-settings/info#fetch-ignore-list-info",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "26d18bc8-54ef-47d9-841f-2517781fa0cd",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "3204f71e-2e13-404b-8b2a-40f04c840648",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - IP Whitelist Enabled",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "89e62e72-67bb-4ccf-ae9a-68bb657d0232",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

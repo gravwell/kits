@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "a7e8410f-a29b-4dc8-a5ae-ede6b16ba758",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when auto-commissioning has been enabled.\n\nEnable Flock Auto Commission = Enable the Auto Commission feature on a given Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#enable-flock-auto-commission",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "3fd693e3-c44f-4d07-bdb2-68472df1b306",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "f0262f71-9f78-4ab4-bbb9-d3decd5d9cb5",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Auto Commissioning Enabled",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "a9bb28ca-f8eb-4319-a1ae-3617d6faf0cf",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Operational Email Notifications Modified",
+  "Description": "Detects when operational email settings notifications have been modified (Enabled|Disabled).\n\nDisable Operational Notification Emails = Disable operational notification emails for a Flock.\n\nEnable Operational Notification Emails = Enable operational notification emails for a Flock. If enabled, Canary Disconnects/Reconnects, Canary Settings Changed, Console Settings Changed and Flock Settings Changed alerts will be emailed to the Operational Email Notifications addresses only.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#disable-operational-notification-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#enable-operational-notification-emails",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "1b48c085-ae0a-4754-bf3c-eeab0eab0620",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

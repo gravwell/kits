@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - User Management - Low - Console User Added",
-	"Description": "Detects when a console user is added.\n\nAdd User = Add a new user to your Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "49 */4 * * *",
-	"Duration": -14400,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "1ad16a01-7697-4fee-a71a-380edc9054b3",
-	"SearchReference": "29f5b2b3-fed8-4372-a069-487b0e8226c2"
+  "Name": "ScheduledSearch - Canary - User Management - Low - Console User Added",
+  "Description": "Detects when a console user is added.\n\nAdd User = Add a new user to your Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "1ad16a01-7697-4fee-a71a-380edc9054b3",
+  "SearchReference": "29f5b2b3-fed8-4372-a069-487b0e8226c2"
 }

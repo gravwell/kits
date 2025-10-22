@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - User Management - Low - Console User Added",
-	"Description": "Detects when a console user is added.\n\nAdd User = Add a new user to your Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user",
-	"GUID": "29f5b2b3-fed8-4372-a069-487b0e8226c2",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - User Management - Low - Console User Added",
+ "Description": "Detects when a console user is added.\n\nAdd User = Add a new user to your Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user",
+ "GUID": "29f5b2b3-fed8-4372-a069-487b0e8226c2",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

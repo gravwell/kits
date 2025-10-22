@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "dcf8a8c1-e6e1-4fc0-9fd0-364b2ee54ab6",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a flock api key has been deleted.\n\napi_flock_token_add = Create a new Flock specific API key.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html\n\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html#add-flock-api-keys",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "a92d26d7-90fd-404b-b657-96389ed962c7",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "9946ce8f-a3a2-47ee-a39e-a67da899fd66",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Medium - API Key Deleted",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "67bdb22c-f0b1-4805-82c5-f3cc6f19fb69",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

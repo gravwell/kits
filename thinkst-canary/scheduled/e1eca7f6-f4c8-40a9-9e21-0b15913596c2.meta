@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - Flock Management - Low - Auto Commissioning Modified",
-	"Description": "Detects when auto-commissioning has been modified.\n\nEnable Flock Auto Commission = Enable the Auto Commission feature on a given Flock.\nDisable Flock Auto Commission = Disable the Auto Commission feature on a given Flock.\nGenerate a Flock Auto Commission Token = Create a new Auto Commission Token for a Flock (discarding the previous token).\nRemove a Flock Auto Commission Token = Remove token and disable Auto Commission on a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#enable-flock-auto-commission\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#disable-flock-auto-commission\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#generate-a-flock-auto-commission-token\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#remove-a-flock-auto-commission-token",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "49 */4 * * *",
-	"Duration": -14400,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "e1eca7f6-f4c8-40a9-9e21-0b15913596c2",
-	"SearchReference": "352efb92-b53d-47c4-9a09-d40814b4f6ae"
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Auto Commissioning Modified",
+  "Description": "Detects when auto-commissioning has been modified.\n\nEnable Flock Auto Commission = Enable the Auto Commission feature on a given Flock.\nDisable Flock Auto Commission = Disable the Auto Commission feature on a given Flock.\nGenerate a Flock Auto Commission Token = Create a new Auto Commission Token for a Flock (discarding the previous token).\nRemove a Flock Auto Commission Token = Remove token and disable Auto Commission on a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#enable-flock-auto-commission\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#disable-flock-auto-commission\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#generate-a-flock-auto-commission-token\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#remove-a-flock-auto-commission-token",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e1eca7f6-f4c8-40a9-9e21-0b15913596c2",
+  "SearchReference": "352efb92-b53d-47c4-9a09-d40814b4f6ae"
 }

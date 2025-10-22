@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "82989840-7b41-415b-b2e8-6cb056d8d641",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a flock note is altered.\n\nGet Flock Note = Retrieve a Flock's note.\nAdd Flock Note = Add a note to a specified Flock.\nDelete Flock Note = Delete a note for a specified Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/notes.html\n\nhttps://docs.canary.tools/flocks/notes.html#get-flock-note\n\nhttps://docs.canary.tools/flocks/notes.html#add-flock-note\n\nhttps://docs.canary.tools/flocks/notes.html#delete-flock-note",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "581193ea-beb6-47db-a96c-d5d08767c34d",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "858e9f16-2d51-4c49-9544-957460a3e7a3",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Flock Note Altered",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "0507e2a3-b6eb-4178-a6f6-ec1ce8e018d6",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

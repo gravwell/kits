@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Bird Management - Low - Device Commissioned",
+  "Description": "Detects when a bird has been decommissioned.\n\ndevice_commission = Decommission a Bird.\n\nWARNING: Decommissioning a Bird will completely remove the Bird from your Console. This means you'll need to re-register the Bird with your Console if you want it back.\n\nReference(s):\nhttps://docs.canary.tools/bird-management/registrations.html\n\nhttps://docs.canary.tools/bird-management/registrations.html#decommission-bird",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "266176d8-776b-46d9-add7-40cab313a439",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

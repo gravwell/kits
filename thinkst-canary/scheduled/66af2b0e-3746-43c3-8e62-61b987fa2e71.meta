@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - Flock Management - Low - Email(s) Removed from Operational Email Notifications List",
-	"Description": "Detects when email(s) have been removed from operational email list.\n\nList Operational Notification Emails = Retrieve the list of operational notification emails for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-operational-notification-emails",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "49 */4 * * *",
-	"Duration": -14400,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "66af2b0e-3746-43c3-8e62-61b987fa2e71",
-	"SearchReference": "3ba9896e-4fcc-491b-90c3-74014cd76ee2"
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Email(s) Removed from Operational Email Notifications List",
+  "Description": "Detects when email(s) have been removed from operational email list.\n\nList Operational Notification Emails = Retrieve the list of operational notification emails for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-operational-notification-emails",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "66af2b0e-3746-43c3-8e62-61b987fa2e71",
+  "SearchReference": "3ba9896e-4fcc-491b-90c3-74014cd76ee2"
 }

@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Auto Commissioning Token Generated",
+  "Description": "Detects when an auto-commissioning token has been generated.\n\nGenerate a Flock Auto Commission Token = Create a new Auto Commission Token for a Flock (discarding the previous token).\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#generate-a-flock-auto-commission-token",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "7c4faeef-afe5-4796-b45f-523560403403",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

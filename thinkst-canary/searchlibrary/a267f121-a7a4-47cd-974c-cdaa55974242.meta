@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - Flock Management - Low - Webhooks Modified",
-	"Description": "Detects when webhooks have been modified.\n\nDisable Flock Webhooks = Disable a Flock's webhooks.\nEnable Flock Webhooks = Enable a Flock's webhooks.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/webhooks.html\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#webhooks\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#disable-flock-webhooks\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#enable-flock-webhooks",
-	"GUID": "a267f121-a7a4-47cd-974c-cdaa55974242",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - Flock Management - Low - Webhooks Modified",
+ "Description": "Detects when webhooks have been modified.\n\nDisable Flock Webhooks = Disable a Flock's webhooks.\nEnable Flock Webhooks = Enable a Flock's webhooks.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/webhooks.html\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#webhooks\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#disable-flock-webhooks\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#enable-flock-webhooks",
+ "GUID": "a267f121-a7a4-47cd-974c-cdaa55974242",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

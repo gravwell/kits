@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - Flock Management - Low - Auto Commissioning Disabled",
-	"Description": "Detects when auto-commissioning has been disabled.\n\nDisable Flock Auto Commission = Disable the Auto Commission feature on a given Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#disable-flock-auto-commission",
-	"GUID": "56d428c4-aacf-4161-9013-e3ca8500f223",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - Flock Management - Low - Auto Commissioning Disabled",
+ "Description": "Detects when auto-commissioning has been disabled.\n\nDisable Flock Auto Commission = Disable the Auto Commission feature on a given Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#disable-flock-auto-commission",
+ "GUID": "56d428c4-aacf-4161-9013-e3ca8500f223",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

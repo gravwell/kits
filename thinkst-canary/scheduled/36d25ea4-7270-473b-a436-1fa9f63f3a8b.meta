@@ -1,17 +1,17 @@
 {
-	"Name": "ScheduledSearch - Canary - Flock Management - Low - Email(s) Removed from Device Notifications List",
-	"Description": "Detects when email addresses have been removed from the device notifications list.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Schedule": "49 */4 * * *",
-	"Duration": -14400,
-	"DefaultDeploymentRules": {
-		"Disabled": false,
-		"RunImmediately": false
-	},
-	"ScheduledType": "search",
-	"GUID": "36d25ea4-7270-473b-a436-1fa9f63f3a8b",
-	"SearchReference": "ce786ade-686d-45a0-81ac-308c145efd45"
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Email(s) Removed from Device Notifications List",
+  "Description": "Detects when email addresses have been removed from the device notifications list.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "36d25ea4-7270-473b-a436-1fa9f63f3a8b",
+  "SearchReference": "ce786ade-686d-45a0-81ac-308c145efd45"
 }

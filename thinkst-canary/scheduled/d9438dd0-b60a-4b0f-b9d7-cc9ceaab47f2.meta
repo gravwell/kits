@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Device Settings Notifications Modified",
+  "Description": "Detects when device settings notifications have been modified.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "d9438dd0-b60a-4b0f-b9d7-cc9ceaab47f2",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

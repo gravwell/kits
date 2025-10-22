@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - User Management - Low - User Seasonal Effects Enabled",
-	"Description": "Detects when a enabled user seasonal effects in User Management.\n\nReference(s):",
-	"GUID": "266c306a-ea49-468c-b341-cd77ff9cbf91",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - User Management - Low - User Seasonal Effects Enabled",
+ "Description": "Detects when a enabled user seasonal effects in User Management.\n\nReference(s):",
+ "GUID": "266c306a-ea49-468c-b341-cd77ff9cbf91",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }

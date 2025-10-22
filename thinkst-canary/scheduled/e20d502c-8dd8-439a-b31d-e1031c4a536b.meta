@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Flock Deleted",
+  "Description": "Detects when a flock has been deleted.\n\nflock_delete = Deleting a Flock will remove it from your Console. You can only delete an empty Flock, meaning you'll need to move (or remove) any Sensors from the Flock before deleting it.\n\nWARNING: You cannot delete the Default Flock, but you can Rename it if you want to.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#delete-flock",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "e20d502c-8dd8-439a-b31d-e1031c4a536b",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

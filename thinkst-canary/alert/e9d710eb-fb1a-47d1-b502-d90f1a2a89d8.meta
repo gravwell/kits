@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "71d37324-d469-4579-9cb1-475c95f33c63",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when an admin flock api key has been added.\n\napi_flock_token_add = Create a new Flock specific API key.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html\n\nhttps://docs.canary.tools/flocks-settings/flock-auth-token.html#add-flock-api-keys",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "4ba6fc45-845a-42eb-ba82-f3f0482ec551",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "e9d710eb-fb1a-47d1-b502-d90f1a2a89d8",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Admin API Key Added",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "43477cfc-8423-431a-a14e-2229c2884ce0",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

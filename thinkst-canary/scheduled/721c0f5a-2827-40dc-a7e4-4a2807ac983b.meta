@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Settings Change Notifications Modified",
+  "Description": "Detects when flock settings change notifications have been modified (Enabled|Disabled) from Global|On|Off setting.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "721c0f5a-2827-40dc-a7e4-4a2807ac983b",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

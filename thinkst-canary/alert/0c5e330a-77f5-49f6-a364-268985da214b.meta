@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "98004bbf-ca37-45d4-bdf7-02bcc0f92f4a",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a flock note has been deleted.\n\nflock_note_delete = Delete the note for a specified Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/notes.html\n\nhttps://docs.canary.tools/flocks/notes.html#delete-flock-note",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "e5e2def3-d202-4b00-8d05-72cbde32538d",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "0c5e330a-77f5-49f6-a364-268985da214b",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Note Deleted",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "6edd6d82-d0e3-4c89-bcae-fa07b47c2529",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

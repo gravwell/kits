@@ -1,12 +1,12 @@
 {
-	"Name": "Alert - Canary - User Management - Medium - Brute Force Attempts",
-	"Description": "Detects when a user account is being brute forced.\n\nReference(s):\nhttps://docs.canary.tools/users/queries.html\n\nhttps://docs.canary.tools/users/queries.html#get-user-auth\n\nhttps://docs.canary.tools/console/audit-trail.html\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
-	"GUID": "a2a13936-58a4-4291-b410-ce3b1ef22e15",
-	"Labels": [
-		"thinkst",
-		"canary"
-	],
-	"Metadata": {
-		"timeframe": null
-	}
+ "Name": "AlertQuery - Canary - User Management - Medium - Brute Force Attempts",
+ "Description": "Detects when a user account is being brute forced.\n\nReference(s):\nhttps://docs.canary.tools/users/queries.html\n\nhttps://docs.canary.tools/users/queries.html#get-user-auth\n\nhttps://docs.canary.tools/console/audit-trail.html\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+ "GUID": "a2a13936-58a4-4291-b410-ce3b1ef22e15",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
 }
