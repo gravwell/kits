@@ -1,0 +1,25 @@
+{
+	"UUID": "b1de4b96-c816-49de-9425-56799afcce25",
+	"GUID": "aadf2dd1-1045-4217-91e9-6d25f20841d5",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Bird Management - Low - Device Commissioned",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.36517413Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

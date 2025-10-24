@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - User Management - Low - User 2FA Enabled",
+  "Description": "Detects when a user enabled 2FA.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#enable-user",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "cc83ea0d-bde6-4025-a844-88293452fe8a",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,300 @@
+{
+	"UUID": "db124d86-f447-4747-b5dc-dcac06373409",
+	"Name": "Canary Canarytokens Overview",
+	"Description": "This Dashboard is a general overview of your Thinkst Canary Canarytokens data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Canary - Canarytokens - Deleted [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2035736d-80da-4c0c-8049-78bbea3a838d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Enabled [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "fca95b9e-3a54-4418-9836-efd92c99c721",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Disabled [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "ca965e5b-bf87-4898-80c2-7d71474745ff",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Created [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "dd674f80-bb9f-47f5-8650-ad0c0f487757",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Download [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "4222ce12-76f0-4551-a748-6399a87486d0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Updated [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "82dc9e71-b6be-48ea-bff2-bc879200c7ef",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Audit [table]",
+				"color": null,
+				"reference": {
+					"id": "789f8d0c-b68a-44a0-a457-ad573eb05756",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Incident [table]",
+				"color": null,
+				"reference": {
+					"id": "e1ad157b-9eac-4fbe-aeb3-a28d7bf2355b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "feee9a1c-37a3-416d-8a98-addb16fad38f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Copy of Search - Canary - Canarytokens - Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "403218bc-a021-4db9-900c-3a298cf0029f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Canarytokens - Subcategory, Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "7002275c-5915-4f73-adca-9bb24d3a5ebf",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17571017286391,
+				"title": "Deleted",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 2,
+					"y": 6
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571017695512,
+				"title": "Enabled",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 4,
+					"y": 6
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571017908713,
+				"title": "Disabled",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571018339943,
+				"title": "Created",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571018811084,
+				"title": "Downloaded",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 10,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571019138195,
+				"title": "Updated",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 8,
+					"y": 6
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571025621146,
+				"title": "Audit Table",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571026117097,
+				"title": "Incident Table",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 14,
+					"x": 0,
+					"y": 16
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571031865578,
+				"title": "All Incidents by Subcategory",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571032550549,
+				"title": "Incident Status",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175710341995710,
+				"title": "Incident Status by Subcategory",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

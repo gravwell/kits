@@ -1,0 +1,12 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "flock_alter_config"
+    )
+| regex -e message "(?<operation>(Enabled|Disabled))"
+| lower operation
+| eval message~"flock settings change notifications"
+| regex -e message "(Enabled|Disabled)\s(?<event_type>.*?)?\son"
+| stats unique_count by message
+| sort by timestamp desc
+| printf -e context "at %v, %v (%v) %v %v via %v action in %v Flock" timestamp user user_ip operation event_type action_type flock_name
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Settings Change Notifications Modified")

@@ -1,0 +1,8 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "api_flock_token_remove"
+    )
+| regex -e message "(?<api_action>\w+?)?\s"
+| regex -e message "b\'(?<api_key>.*?)?\'\)"
+| printf -e context "at %v, %v (%v) %v API Key of \"%v\" via %v action to %v Flock" timestamp user user_ip api_action api_key action_type flock_id
+| $CANARY_ALERT_META("Canary"," Flock Management", "Medium", "API Key Removed")

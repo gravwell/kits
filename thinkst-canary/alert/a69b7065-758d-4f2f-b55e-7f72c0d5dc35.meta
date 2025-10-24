@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "d018efb0-a090-4d70-8984-a463834249b3",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when webhooks have been modified.\n\nDisable Flock Webhooks = Disable a Flock's webhooks.\nEnable Flock Webhooks = Enable a Flock's webhooks.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/webhooks.html\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#webhooks\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#disable-flock-webhooks\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#enable-flock-webhooks",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "18b22489-168e-4298-b8aa-79ffe2df62b4",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "a69b7065-758d-4f2f-b55e-7f72c0d5dc35",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Webhooks Modified",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "f7593558-e7ba-41db-bf5c-ed69cb3226e5",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

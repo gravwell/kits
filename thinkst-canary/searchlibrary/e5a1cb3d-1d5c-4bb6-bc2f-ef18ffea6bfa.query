@@ -1,0 +1,3 @@
+tag=$CANARY_AUDIT json action_type flock_name
+| stats unique_count by flock_name
+| chart unique_count by flock_name

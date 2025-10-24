@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - User Management - Low - User Note Altered",
+ "Description": "Detects when a user note is altered.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user-note\n\nhttps://docs.canary.tools/users/management.html#remove-user-note",
+ "GUID": "fee942f0-2019-4895-830b-9e162056623a",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

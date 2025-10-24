@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Note Added",
+  "Description": "Detects when a flock note has been added.\n\nflock_note_add = Add a note to a specified Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/notes.html\n\nhttps://docs.canary.tools/flocks/notes.html#add-flock-note",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "db76cada-b916-4c9a-a00c-33e570a5a5c7",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

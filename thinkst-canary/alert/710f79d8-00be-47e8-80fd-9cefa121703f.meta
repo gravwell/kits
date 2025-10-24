@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "1d31dee6-e213-4fae-88ae-edcc6d72fac7",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a user account is being brute forced from an Outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/queries.html\n\nhttps://docs.canary.tools/console/audit-trail.html \n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "a2595871-9c0a-4e57-bc10-8281f0570ed9",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "710f79d8-00be-47e8-80fd-9cefa121703f",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - User Management - High - Brute Force Attempts from Outside Country",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "d4232899-a82b-48b4-a825-1a4b691d4592",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

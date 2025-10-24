@@ -1,0 +1,74 @@
+| eval
+    // 1) base risk (default then nested if/else)
+    base = 30.0;
+    if (has(log_cat) && log_cat == "Login Attempt") {
+        base = 50.0;
+    } else if (has(log_cat) && log_cat == "Port Scan") {
+        base = 40.0;
+    } else if (has(log_cat) && log_cat == "HTTP") {
+        if (has(log_subcat) && match(log_subcat, "(?i)(Error|Service Scan)")) {
+            base = 45.0;
+        } else {
+            base = 25.0;
+        }
+    } else if (has(log_cat) && log_cat == "Windows File Share") {
+        base = 55.0;
+    } else if (has(log_cat) && log_cat == "Canarytoken") {
+        base = 70.0;
+    } else if (has(log_cat) && log_cat == "Canary" && has(log_subcat) && log_subcat == "Disconnected") {
+        base = 20.0;
+    } else if (has(log_cat) && log_cat == "Canary" && has(log_subcat) && log_subcat == "Settings Changed") {
+        base = 65.0;
+    } else if (has(log_cat) && log_cat == "Industrial Protocol") {
+        base = 60.0;
+    } else if (has(log_cat) && log_cat == "Repository") {
+        base = 70.0;
+    } else if (has(log_cat) && log_cat == "Database") {
+        base = 55.0;
+    } else {
+        base = 30.0;
+    };
+
+    // 2) event-count component (safe cast + cap)
+    evcount = 0.0;
+    if (has("events_count")) {
+        // cast to float in case it's a string
+        evcount = float(events_count);
+    };
+    capped_ev = math_min(evcount, 50.0);
+    comp_events = capped_ev * 0.8;
+
+    // 3) unacked bump
+    comp_unacked = 0.0;
+    if (has("acknowledged") && ("acknowledged") == "False") {
+        comp_unacked = 10.0;
+    };
+
+    // 4) privileged username bump (case-insensitive)
+    comp_priv_user = 0.0;
+    if (has("username") && match(username, "(?i)(admin|root|svc|sql|system)")) {
+        comp_priv_user = 10.0;
+    };
+
+    // 5) raw score + clamp to [0,100]
+    risk_raw = base + comp_events + comp_unacked + comp_priv_user;
+    risk_score = math_round(math_min(math_max(risk_raw, 0.0), 100.0));
+
+    // 6) map into your alert EVs
+    _category = log_cat;
+    _subcategory = log_subcat;
+    _alert_name = log_desc;
+    _vendor = vendor;
+    _product = product;
+
+    // 7) priority buckets (Critical|High|Medium|Low)
+    _priority = "Low";
+    if (risk_score >= 90.0) {
+        _priority = "Critical";
+    } else if (risk_score >= 75.0) {
+        _priority = "High";
+    } else if (risk_score >= 55.0) {
+        _priority = "Medium";
+    };
+
+| eval _alert_priority = _priority

@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - User Management - Low - User Seasonal Effects Disabled",
+ "Description": "Detects when a disabled user seasonal effects in User Management.\n\nReference(s):",
+ "GUID": "9aa213b6-c64a-48a0-8d6c-b944cbaca073",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

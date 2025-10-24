@@ -1,0 +1,11 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip message flock_id flock_name
+| eval in(action_type,
+    "flock_note_add",
+    "flock_note_delete"
+    )
+| regex -e message "(?<operation>(Added|Removed))"
+| lower operation
+| regex -e message "(?<event_type>note)"
+| regex -e message "\'(?<note_msg>.*?)?\'"
+| printf -e context "at %v, %v (%v) %v %v of \"%v\" to %v Flock" timestamp user user_ip operation event_type note_msg flock_name
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Flock Note Altered")

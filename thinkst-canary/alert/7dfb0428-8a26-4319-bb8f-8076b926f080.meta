@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "b45bd6a6-8974-4d0b-b9dc-157daee0b56c",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a user attempts to login in from outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nuser_login = Displays when a user successfully logged onto the console.\n\n*Network Enrichment Kit is required*\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "24178140-8c5f-4be2-9102-a4850b26994a",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "7dfb0428-8a26-4319-bb8f-8076b926f080",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - User Management - High - Successful Login From Outside Country",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "1bb2933c-ad07-46d8-a6e5-f664f9f9e3b7",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

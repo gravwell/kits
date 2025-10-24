@@ -1,0 +1,314 @@
+# Thinkst Canary Kit for Gravwell — README
+
+A toolkit for interacting with Thinkst Canary data in Gravwell. This kit includes queries, alerts, scheduled searches, resources, templates, and dashboards to help streamline your Thinkst Canary data analysis.
+
+***
+
+## Table of Contents
+
+1. [Data Ingestion](#1-data-ingestion)  
+2. [Download, Install and Configure the Gravwell Fetcher](#2-download-install-and-configure-the-gravwell-fetcher)  
+	- [Example Gravwell Fetcher Conf (repo)](#21-example-gravwell-fetcher-conf-repo)  
+	- [Gravwell Fetcher Example Config for Thinkst Canary](#22-gravwell-fetcher-example-config-for-thinkst-canary)  
+3. [Tags](#3-tags)  
+4. [Query Library](#4-query-library)  
+5. [Naming Schema](#5-naming-schema)  
+6. [Resources](#6-resources)  
+7. [Alerts](#7-alerts)  
+8. [Scheduled Searches](#8-scheduled-searches)  
+    8.1. [Flows](#8-1-flows)
+9. [Playbooks](#9-playbooks)  
+10. [Searches](#10-searches)  
+    10.1. [Alert Queries](#10-1-alert-queries)
+11. [Templates](#11-templates)  
+12. [Dashboards](#12-dashboards)  
+13. [Useful Resources & References](#13-useful-resources--references)  
+14. [Notes](#14-notes)  
+15. [Image credits](#15-image-credits)  
+
+***
+
+## 1) Data Ingestion
+
+I used the [Gravwell Fetcher] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for data ingestion. 
+
+Below is a quick reference list of the resources used.
+- [Gravwell Fetcher] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md): A powerful data fetcher ingester for Gravwell that collects data from various security and productivity services including Duo, Thinkst Canary, Okta, and Asana.
+- [Example Fetcher Config] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example): The fetcher uses a configuration file (gravwell_fetcher.conf) to manage its settings. This is a detailed explanation of all configuration options.
+- [thinkst.go] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/thinkst.go): This file implements the Config definitions and parsing from thinkstConfig.go when you build Fetcher.
+- [thinkstConfig.go] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/thinkstConfig.go): This file defines the configuration data structures and parsing for the Thinkst Canary integrations in Fetcher.
+
+***
+
+## 2) Download, Install and Configure the Gravwell Fetcher
+
+**Summary:** The Gravwell Fetcher provides a lightweight Go-based fetcher that polls external APIs (including Thinkst Canary endpoints) and ingests events into Gravwell. 
+The Fetcher includes an [example configuration file] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example) which you need to copy and adapt for your environment prior to running the fetcher. See the [README] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for further information. 
+
+### Basic installation steps (example)
+
+1. Clone the Gravwell repo (or just the experiment):  
+    _git clone https://github.com/gravwell/gravwell.git_
+
+2. Change directory to the fetcher experiment:  
+_cd gravwell/experiments/gravwell\_fetcher_
+
+3. Build the fetcher binary (standard Go build):  
+_go build -o gravwell\_fetcher_
+
+4. Copy the example config to a location you will edit  
+    e.g. /etc/gravwell/gravwell\_fetcher.conf or /opt/gravwell/etc/gravwell\_fetcher.conf:  
+_cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
+
+5. Edit _/etc/gravwell/gravwell\_fetcher.conf_ and replace the Thinkst Canary Domain and Token values (see example below).  
+
+6. Run the fetcher (from the built binary).  
+    Typical invocation (binary + config file):  
+    _./gravwell\_fetcher -config /etc/gravwell/gravwell\_fetcher.conf_
+
+**Important:** the canonical example config shipped with the experiment is gravwell_fetcher.conf.example — copy it and update the values.
+
+2.1 Example Gravwell Fetcher Conf (repo)
+- The repository contains _experiments/gravwell\_fetcher/gravwell\_fetcher.conf.example_ which is the canonical example used by this kit. Use that file as the starting point and replace the Thinkst Canary Domain, Token, and any Ingester/connection settings as appropriate.  
+
+2.2 Gravwell Fetcher Example Config for Thinkst Canary  
+	
+```ini
+    [Global]  
+	Ingester-UUID="00000000-0000-0000-0000-0000000000"  
+	Connection-Timeout = 0  
+	Insecure-Skip-TLS-Verify=false  
+	#Cleartext-Backend-Target=127.0.0.1:4023  
+	#Encrypted-Backend-Target=127.1.1.1:4024  
+	#Pipe-Backend-Target=/opt/gravwell/comms/pipe  
+	#Ingest-Cache-Path=/opt/gravwell/cache/thinkst.cache  
+	#Max-Ingest-Cache=1024  
+	Log-Level=INFO  
+	Log-File=/opt/gravwell/log/thinkst_fetcher.log  
+
+	[ThinkstConf "thinkst-audit"]
+	ThinkstAPI="audit"
+	Token="REPLACE_WITH_YOUR_TOKEN"
+	Domain="REPLACE_WITH_YOUR_CANARY_DOMAIN.canary.tools"
+	StartTime="2025-01-01T00:00:01.000Z"
+	Tag-Name="thinkst-audit"
+
+	[ThinkstConf "thinkst-incident"]
+	ThinkstAPI="incident"
+	Token="REPLACE_WITH_YOUR_TOKEN"
+	Domain="REPLACE_WITH_YOUR_CANARY_DOMAIN.canary.tools"
+	StartTime="2025-01-01T00:00:01.000Z"
+	Tag-Name="thinkst-incident"
+```
+	
+***
+
+3) Tags & Macros
+- thinkst-audit: used to tag Canary audit trail events.
+	- Usage: tag=thinkst-audit
+	- thinkst-incident: used to tag Canary incident events.
+	- Usage: tag=thinkst-incident
+- $CANARY\_AUDIT: Configuration Macro; Tag used for Thinkst Canary Audit data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.
+	- Usage: tag=$CANARY\_AUDIT
+	- $CANARY\_INCIDENT: Configuration Macro; Tag used for Thinkst Canary Incident data; necessary for any queries utilizing this macro within the Gravwell Thinkst Canary Kit to run properly.
+	- Usage: tag=$CANARY\_INCIDENT
+- $CANARY\_INCIDENT\_ALERT: This was built to dynamically create Thinkst Canary Incident Alerts based on all of the Incident Objects.
+	- The alert titled "Alert - Thinkst - Canary - Incident" is fully dependent on this macro.
+	- The scheduled search titled "ScheduledSearch - Thinkst - Canary - Incident" is fully dependent on this macro via the "Alert - Thinkst - Canary - Incident" query in the Query Library.
+	- Usage: $CANARY\_INCIDENT\_ALERT
+- $CANARY\_INCIDENT\_SEARCH: This was built to search any and all Thinkst Canary Incident Alerts created from the $CANARY\_INCIDENT\_ALERT Macro.
+	- **Everyone of those search options can handle wildcards and must be filled out**
+	- Usage: $CANARY\_INCIDENT\_SEARCH(result[string], flock\_id[string], flock\_name[string], src\_host[string], src\_port[string], dst\_host[string], dst\_port[string], log\_cat[string], log\_subcat[string], log\_desc[string], \_alert\_title[string], \_alert\_priority[string])
+- $CANARY\_INCIDENT\_OPEN: This is a base Canary Incident query that was built to pivot off of for "open" (not acknowledged) alerts/incidents.
+	- Usage: $CANARY\_INCIDENT\_OPEN 
+	- Examples: 
+		- Search for any "open" incidents containing "#.#.#.#" IP (Replace "#.#.#.#" with IP in question)
+			- $CANARY\_INCIDENT\_OPEN | grep "#.#.#.#"
+		- Search for any "open" incidents containing "#.#.#.#" IP as Source Host (Replace "#.#.#.#" with IP in question)
+			- $CANARY\_INCIDENT\_OPEN | grep -e src_host "#.#.#.#"
+		- Search for any "open" incidents containing "username" (Replace "username" with user in question)
+			- $CANARY\_INCIDENT\_OPEN | grep "username"
+- $CANARY\_INCIDENT\_CLOSED: This is a base Canary Incident query that was built to pivot off of for "closed" (acknowledged) alerts/incidents.
+	- Usage: $CANARY\_INCIDENT\_CLOSED 
+	- Examples: 
+		- Search for any "closed" incidents containing "#.#.#.#" IP (Replace "#.#.#.#" with IP in question)
+			- $CANARY\_INCIDENT\_CLOSED | grep "#.#.#.#"
+		- Search for any "closed" incidents containing "#.#.#.#" IP as Source Host (Replace "#.#.#.#" with IP in question)
+			- $CANARY\_INCIDENT\_CLOSED | grep -e src_host "#.#.#.#"
+		- Search for any "closed" incidents containing "username" (Replace "username" with user in question)
+			- $CANARY\_INCIDENT\_CLOSED | grep "username"
+- $CANARY\_RISK\_SCORE: This was built to dynamically calculate a risk score specifically for Thinkst Canary starting at "30" based on the incident category/subcategory, events\_count within an incident, username implicated (higher for admin|root|etc.)
+	- Critical >= 90
+	- High >= 75
+	- Medium >= 55
+	- Low =< 55
+	- Usage: $CANARY\_INCIDENT\_OPEN $CANARY\_RISK\_SCORE 
+- $CANARY\_INCIDENT\_CLOSED $CANARY\_RISK\_SCORE 
+	- Examples: 
+		- Search for any "open" incidents containing "#.#.#.#" IP (Replace "#.#.#.#" with IP in question)
+			- $CANARY\_INCIDENT\_OPEN | grep "#.#.#.#" | $CANARY_RISK_SCORE
+		- Search for any "closed" incidents containing "#.#.#.#" IP as Source Host (Replace "#.#.#.#" with IP in question)
+			- $CANARY\_INCIDENT\_CLOSED | grep -e src_host "#.#.#.#" | $CANARY_RISK_SCORE
+		- Search for any "open" incidents containing "username" (Replace "username" with user in question)
+			- $CANARY\_INCIDENT\_OPEN | grep "username" | $CANARY_RISK_SCORE
+- $CANARY\_INCIDENT\_META: This macro standardizes output for Thinkst Canary Incidents that are being alerted upon. 
+	- It dynamically changes values in the \_alert\_title based on the $CANARY\_INCIDENT\_OPEN & $CANARY\_RISK\_SCORE.
+	- Usage: $CANARY\_INCIDENT_OPEN $CANARY\_RISK\_SCORE $CANARY\_INCIDENT\_META
+	- Example: $CANARY\_INCIDENT\_SEARCH("") $CANARY\_RISK\_SCORE $CANARY\_INCIDENT\_META
+- $CANARY\_INCIDENT\_FULL: This allows you to search any incident with the following options:
+	- DATA = "%%1%%" "%%2%%" "%%3%%" "%%4%%" "%%5%%"
+	- All options must at least contain "*"
+	- Usage: $CANARY\_INCIDENT\_FULL(DATA[string], DATA[string], DATA[string], DATA[string], DATA[string])
+	- Examples: 
+		- Search any incidents or audit events for any references of IP1 of ("#.#.#.#"), IP2 of ("#.#.#.#"), with username of ("username"), against a canarytoken ("canarytoken") in flockname ("flockname") in DATA: $CANARY\_INCIDENT\_FULL("#.#.#.#", "#.#.#.#", "username", "canarytoken", "flockname")
+		- Search any "Unknowledged" incidents or audit events for any references of IP1 of ("#.#.#.#"), with username of ("username"), that mention port scanning ("port scan") in DATA: $CANARY\_INCIDENT\_FULL("Unacknowledged", "#.#.#.#", "username", "port scan", "\*")
+
+***
+
+4) Query Library
+- Purpose: Queries within the Query Library drive [dashboards](#12-dashboards) via [searches](#10-searches), [scheduled searches](#8-scheduled-searches) via [alert queries](#10-1-alert-query), and [playbooks](#9-playbooks). 
+	- Updating a query in the library updates dependent dashboards scheduled searches automatically.
+	- Total queries: 133  
+        - [Alert Queries](#10-1-alert-query): 60  
+        - [Searches](#10-searches): 74  
+
+***
+
+5) Naming Schema
+- _QueryType - Company - Category - Severity/Priority - \_\_\_\_\_Name [Visualization - **if any**]_
+	- Examples:
+		- [Alerts](#7-alerts): _Alert - Canary - Bird Management - Low - Device Commissioned_
+		- [Scheduled Searches](#8-scheduled-searches): _ScheduledSearch - Canary - User Management - High - Login Attempt From Outside Country_
+		- [Playbook](#9-playbooks): _Playbook - Canary - Flock Management - Low - Note Added_
+		- [Searches](#10-searches): _Search - Canary - Audit - Action Type - Count by Action Type [pie]_
+        - [Alert Query](#10-1-alert-query): _AlertQuery - Canary - User Management - Medium - IP Whitelist Cleared_
+		- [Templates](#11-templates): _Template - Canary - Category - TemplateName_
+
+***
+
+6) Resources
+- canary\_logtypes: This is intended to be used as a lookup file for the Thinkst Canary Kit or standalone searches regarding Thinkst Canary logtypes.
+	- Format: logtype,description,category,subcategory
+	- Usage: | lookup -r canary\_logtypes logtype logtype (description as log\_desc category as log\_cat subcategory as log\_subcat)
+- canary\_logtypes\_alert: This is intended to be used as a lookup file for the Thinkst Canary Kit or standalone searches regarding Thinkst Canary logtypes.
+	- Format: vendor,product,logtype,description,category,subcategory
+	- Usage: | lookup -r canary\_logtypes\_alert logtype logtype (vendor as vendor product as product description as log\_desc category as log\_cat subcategory as log\_subcat)
+- iana\_ports: This resource is intended to be used for additional information about Ports, Protocols, etc. 
+	- Format: Name,Number,Protocol,Description,Assignee,Contact,Registration Date,Modification Date,Reference,Service Code,Unauthorized Use Reported,Assignment Notes
+	- Usage: lookup -r iana\_ports <EV\_to\_match> <CSV\_field\_to\_match> (Name as port\_name Description as port\_desc Protocol as port\_protocol)
+	- Reference(s): [IANA Ports] (https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
+- REPLACE\_ME\_WITH\_YOUR_RESOURCE: This is used as a placeholder so playbook documentation doesn't show errors for an example query.
+	- REPLACE with your actual resource name(s) and value(s) .
+	- Example Gravwell Fetcher Conf — shipped with repo, replace domain/token before use.
+
+***
+
+7) Alerts
+- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.
+	- Alerts are made up of Dispatchers and Consumers that ensure that when a dispatcher generates an event, all associated consumers are executed to process it. [Documentation](https://docs.gravwell.io/alerts/alerts.html)
+        - [Dispatchers](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers) = [Scheduled Searches](#8-scheduled-searches)
+            - Dispatchers generate events. A typical dispatcher would be a scheduled search that runs every hour looking for “bad” activity; every result returned by a scheduled search is considered an event.
+        - [Consumers](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer) = [Flows](#8-1-flows)
+            - Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.
+	- Total: 59
+	- Naming Schema: _Alert - Canary - Category - Severity/Priority - AlertName_
+
+***
+
+8) Scheduled Searches
+- Purpose: Scheduled Searches are dependent on the [alert query](#10-1-alert-query) queries titled _"AlertQuery - Canary - Category - Severity/Priority - AlertName"_ within the [Query Library](#4-query-library).
+	- **IMPORTANT:** If an [Alert Query](#10-1-alert-query) is modified within the query library, it will be modified in the associated Scheduled Search. 
+	- **DISCLAIMER:** There are a few queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.
+		- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.
+		- **Note:** Any query containing "from Outside Country" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.
+	- Total: 59
+	- Naming Schema: _ScheduledSearch - Canary - Category - Severity/Priority - ScheduledSearchName_
+	- Cron schedules:
+	- High: 6 \* \* \* \*
+	- Medium: 37 \*/2 \* \* \*
+	- Low: 49 \*/4 \* \* \*
+	- **Exception:** _ScheduledSearch - Thinkst - Canary - Incident_ runs every 30 minutes.
+
+
+***
+
+9) Playbooks
+- Purpose: Playbooks are intended to be utilized as investigation aids for [Alerts](#7-alerts). The playbooks contain sample queries to assist with the investigation.
+- Total: 59
+- Naming Schema: _Playbook - Canary - Category - Severity/Priority - PlaybookName_
+- **Disclaimer:** This is a guide to assist with investigation and is not a definitive security assessment.
+
+***
+
+10) Searches
+- Purpose: These queries within the Query Library drive [dashboards](#12-dashboards) to quickly view your Thinkst Canary in an easily digestable format. 
+	- **IMPORTANT:** If a "search" query is modified within the query library, it will be modified in the associated [Dashboard](#12-dashboards) panel displaying that search. 
+	- **DISCLAIMER:** There are a few searches which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.
+		- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.
+		- **Note:** Any query containing "from Outside Country" is implicated in this so if those searches are failing; I'd suggest troubleshooting here.
+	- Total: 74
+	- Naming Schema: _Search - Canary - Category - Severity/Priority - SearchName_
+
+10.1) Alert Queries
+- **IMPORTANT:** If you need to update or tune, this is where you perform that action.
+	- **DISCLAIMER:** There are a few alert queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.
+		- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.
+		- **Note:** Any query containing "from Outside Country" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.
+	- Total: 59
+	- Naming Schema: _AlertQuery - Canary - Category - Severity/Priority - AlertName_
+
+***
+
+11) Templates
+- Purpose: Templates are special objects which define a Gravwell query containing variables.
+- Total: 1
+- Naming Schema: _Template - Canary - Category - TemplateName_
+- Template - Canary - Incidents - Full Search
+	- This allows you to search any incident and search the following options:
+	    - acknowledged = "%%1%%"
+	    - flock\_id = "%%2%%"
+	    - flock\_name = "%%3%%"
+	    - src\_host = "%%4%%"
+	    - src\_port = "%%5%%"
+	    - dst\_host = "%%6%%"
+	    - dst\_port = "%%7%%"
+	    - log\_cat = "%%8%%"
+	    - log\_subcat = "%%9%%"
+	    - log\_desc = "%%10%%"
+	    - \_alert\_title = "%%11%%"
+	    - \_alert\_priority = "%%12%%"
+
+***
+
+12) Dashboards
+- Canary Audit Overview: This Dashboard is a general overview of your Thinkst Canary Audit Trail data.
+- Canary Canarytokens Overview: This Dashboard is a general overview of your Thinkst Canary Canarytokens data.
+- Canary Flocks Overview: This Dashboard is a general overview of your Thinkst Canary Flocks data.
+- Canary Incident Overview: This Dashboard is a general overview of your Thinkst Canary Incident data.
+- Canary Incident Search: This Dashboard is intended to be used to search through any and all of your incidents.
+
+***
+
+13) Useful Resources & References
+- [Gravwell] (https://gravwell.io/)
+	- [Fetcher] (https://github.com/gravwell/gravwell/tree/main/experiments/gravwell_fetcher)
+		- [README] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md)
+		- [gravwell_fetcher.conf.example] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example)
+	- [Kits] (https://docs.gravwell.io/kits/kits.html)
+	- [kitctl] (https://www.gravwell.io/blog/get-your-kits-into-git-with-kitctl): If you need to make custom modifications to the Thinkst Canary Kit; utilize this resource for reference on how to interact with Gravwell kits.
+	- [Thinkst Canary] (https://canary.tools/)
+	- [Endpoints] (https://docs.canary.tools/guide/list-of-endpoints.html)
+	- [Incident Objects] (https://docs.canary.tools/incidents/incident-objects.html)
+
+***
+
+14) Notes
+- [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html): The Thinkst Canary Kit requires the Gravwell Network Enrichment Kit (currently version 19) for searches using [geoip] (https://docs.gravwell.io/search/geoip/geoip.html).
+	- Any query containing "from Outside Country" is implicated in this so if those scheduled searches are failing; I'd suggest starting here. 
+
+***
+
+15) Image credits
+- icon: [UXWing] (https://uxwing.com/sparrow-bird-icon/)
+- cover: [Microsoft Copilot] (https://copilot.microsoft.com/)
+- banner: [Microsoft Copilot] (https://copilot.microsoft.com/)

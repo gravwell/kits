@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Multiple Device Notifications List Actions",
+  "Description": "Detects when email addresses have been added and removed from device notifications list.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "6e317cd7-88ec-4f76-95bc-f22bd13f42bc",
+  "SearchReference": "8dfc4c20-48f7-438a-a43c-79500e2c749c"
+}

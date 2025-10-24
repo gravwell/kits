@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Note Deleted",
+  "Description": "Detects when a flock note has been deleted.\n\nflock_note_delete = Delete the note for a specified Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/notes.html\n\nhttps://docs.canary.tools/flocks/notes.html#delete-flock-note",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */40 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "98004bbf-ca37-45d4-bdf7-02bcc0f92f4a",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

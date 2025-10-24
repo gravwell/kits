@@ -1,0 +1,13 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "flock_create",
+    "flock_delete",
+    "flock_move",
+    "flock_rename"
+    )
+| stats unique_count by action_type
+| sort by unique_count desc
+| ip user_ip
+| geoip user_ip.Location user_ip.City user_ip.Country user_ip.CountryName
+| eval (Country!="US"||CountryName!="United States")
+| heatmap 

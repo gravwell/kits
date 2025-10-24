@@ -1,0 +1,25 @@
+{
+	"UUID": "e9fa900f-2a55-4161-a8d3-56928c613e70",
+	"GUID": "5c9cbe87-2dca-4726-91e9-1adf1b434910",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - User Management - High - Successful Login After Failure From Outside Country",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.367687297Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

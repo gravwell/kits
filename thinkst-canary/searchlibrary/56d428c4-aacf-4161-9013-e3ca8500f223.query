@@ -1,0 +1,13 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
+| eval in(action_type, 
+   	"flock_alter_config"
+   	)
+| eval message~"autocommission"
+| regex -e message "(?<operation>\w+)"
+| eval operation ~"Disabled"
+| lower operation
+| regex -e message "(?<event_type>autocommission.*?)?\son"
+| stats unique_count by message
+| sort by TIMESTAMP desc
+| printf -e context "at %v, %v (%v) %v %v via %v action to %v with a count of %v" TIMESTAMP user user_ip operation event_type action_type flock_id unique_count
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Auto Commissioning Disabled")

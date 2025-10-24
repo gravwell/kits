@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Flock Moved",
+  "Description": "Detects when a flock has been moved.\n\nflock_move = Move a specified Sensor to a Flock. You'll need to delete all incidents before moving a Sensor between Flocks (this ensures that sensitive data isn't spilled across Flocks). If there are still incidents tied to the Sensor, you can specify clear_incidents=true to clear all of those incidents.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#move-sensor-to-flock",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e49d137d-b7f6-4db3-aee4-d5c19890a80b",
+  "SearchReference": "d4261702-5be2-4aab-98d8-0435e2b1bd91"
+}

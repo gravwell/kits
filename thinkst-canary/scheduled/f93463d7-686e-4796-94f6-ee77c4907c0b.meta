@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - Canary - User Management - High - Successful Login After Failure",
+  "Description": "Detects when a user successfully logins in after failing.\n\nuser_login_failed = Displays when a user failed to login.\nuser_login = Displays when a user successfully logged onto the console.\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "6 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "f93463d7-686e-4796-94f6-ee77c4907c0b",
+  "SearchReference": "348f042d-62cf-49f7-bf8c-1cb7088ab6e3"
+}

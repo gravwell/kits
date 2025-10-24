@@ -1,0 +1,4 @@
+tag=$CANARY_AUDIT json action_type
+| unique TIMESTAMP
+| stats count by action_type
+| numbercard count

@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "f882e47b-5596-48ed-aa11-66ae7053fae8",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when an auto-commissioning token has been removed.\n\nRemove a Flock Auto Commission Token = Remove token and disable Auto Commission on a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#remove-a-flock-auto-commission-token",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "98c9cbe3-fdf8-4bac-a94f-5517089d5b0f",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "724fddfd-c39b-4bca-842a-d37d009230fe",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Auto Commissioning Token Removed",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "7572c24b-3631-4d76-9a30-a10fee4a70b0",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

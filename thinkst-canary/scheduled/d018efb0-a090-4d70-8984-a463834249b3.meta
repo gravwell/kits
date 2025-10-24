@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Webhooks Modified",
+  "Description": "Detects when webhooks have been modified.\n\nDisable Flock Webhooks = Disable a Flock's webhooks.\nEnable Flock Webhooks = Enable a Flock's webhooks.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/webhooks.html\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#webhooks\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#disable-flock-webhooks\n\nhttps://docs.canary.tools/flocks-settings/webhooks.html#enable-flock-webhooks",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "d018efb0-a090-4d70-8984-a463834249b3",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

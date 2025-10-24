@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Multiple Operational Email Notifications List Actions",
+  "Description": "Detects when operational email list has been modified.\n\nList Operational Notification Emails = Retrieve the list of operational notification emails for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-operational-notification-emails",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "2ef81b4f-260b-4e3a-b3ab-ce1062bf35e1",
+  "SearchReference": "4a599080-3af6-4741-af38-2b0718ff9f83"
+}

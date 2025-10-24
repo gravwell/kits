@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "3a87d1e8-a888-45ac-b927-a140eb04677b",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when auto-commissioning has been modified.\n\nEnable Flock Auto Commission = Enable the Auto Commission feature on a given Flock.\nDisable Flock Auto Commission = Disable the Auto Commission feature on a given Flock.\nGenerate a Flock Auto Commission Token = Create a new Auto Commission Token for a Flock (discarding the previous token).\nRemove a Flock Auto Commission Token = Remove token and disable Auto Commission on a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#enable-flock-auto-commission\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#disable-flock-auto-commission\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#generate-a-flock-auto-commission-token\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#remove-a-flock-auto-commission-token",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "e1eca7f6-f4c8-40a9-9e21-0b15913596c2",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "7fb10b86-ead5-457f-9580-b2f9912ec8d1",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Auto Commissioning Modified",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "323060a9-a3dc-448f-b49c-3a7eb8f15bd4",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

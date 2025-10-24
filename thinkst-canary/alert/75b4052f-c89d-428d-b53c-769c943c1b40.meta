@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "a64d773c-8e42-4989-ac92-093238f9ad19",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a disabled user seasonal effects in User Management.\n\nReference(s):",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "25c91034-7fb8-4e76-b49a-c02db38c7186",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "75b4052f-c89d-428d-b53c-769c943c1b40",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - User Management - Low - User Seasonal Effects Disabled",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "d1b66842-3bd8-406d-be8b-ce3655074db0",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

@@ -1,0 +1,18 @@
+| printf -e context "At %v, there was a %v %v from %v to %v with %v event(s)." TIMESTAMP summary log_subcat src_host dst_host events_count
+| eval _alert_name = log_desc
+| enrich _alert_class canary
+| eval if (match(flock_name, ".") && flock_name != "null" && flock_name != "") {
+      flock_name = flock_name;
+  } else if (match(flock_id, ".") && flock_id != "null" && flock_id != "") {
+      flock_name = flock_id;
+  } else {
+      flock_name = "Canary";
+  }
+| eval _alert_header = "| Context |"
+| eval _alert_divider = "|-----|"
+| eval _alert_data = printf("|%v|", context)
+| eval _alert_title = printf(
+      "Alert: %v - %v - Incident: %v - %v - %v - %v - %v",
+      _vendor, _product, _category, _subcategory, _priority, _alert_name, flock_name
+  )
+| table _alert_title _alert_priority context

@@ -1,0 +1,25 @@
+{
+	"UUID": "3e70a2cc-2dfb-4b91-bc69-242e995942a2",
+	"GUID": "35c5473f-7f6f-45b2-af1f-5af190b2c258",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Low - Email(s) Added to Operational Email Notifications List",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.358673713Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

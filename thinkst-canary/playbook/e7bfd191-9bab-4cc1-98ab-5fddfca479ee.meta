@@ -1,0 +1,25 @@
+{
+	"UUID": "655197cc-04c5-4ff7-b017-604340b87cf7",
+	"GUID": "e7bfd191-9bab-4cc1-98ab-5fddfca479ee",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - User Management - High - Console User Added from Outside Country",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.36127613Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

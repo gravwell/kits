@@ -1,0 +1,12 @@
+tag=$CANARY_INCIDENT json 
+    summary~"Canarytoken"
+    description.flock_name
+    description.events_count
+    description.acknowledged
+    description.logtype
+    description.src_host
+    description.src_port
+    description.dst_host
+    description.dst_port
+| lookup -r canary_logtypes logtype logtype (description as log_desc category as log_cat subcategory as log_subcat)
+| table TIMESTAMP flock_name acknowledged logtype log_cat log_subcat log_desc src_host src_port dst_host dst_port events_count

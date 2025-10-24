@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - Flock Management - Low - Auto Commissioning Modified",
+ "Description": "Detects when auto-commissioning has been modified.\n\nEnable Flock Auto Commission = Enable the Auto Commission feature on a given Flock.\nDisable Flock Auto Commission = Disable the Auto Commission feature on a given Flock.\nGenerate a Flock Auto Commission Token = Create a new Auto Commission Token for a Flock (discarding the previous token).\nRemove a Flock Auto Commission Token = Remove token and disable Auto Commission on a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#enable-flock-auto-commission\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#disable-flock-auto-commission\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#generate-a-flock-auto-commission-token\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#remove-a-flock-auto-commission-token",
+ "GUID": "352efb92-b53d-47c4-9a09-d40814b4f6ae",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

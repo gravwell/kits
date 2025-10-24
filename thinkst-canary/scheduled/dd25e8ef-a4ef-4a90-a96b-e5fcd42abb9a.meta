@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - SMS Notifications Modified",
+  "Description": "Detects when sms settings notifications have been modified.\n\nDisable SMS Notifications = Disable SMS notifications for a Flock.\nEnable SMS Notifications = Enable SMS notifications for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#sms\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#disable-sms-notifications\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#enable-sms-notifications",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "dd25e8ef-a4ef-4a90-a96b-e5fcd42abb9a",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

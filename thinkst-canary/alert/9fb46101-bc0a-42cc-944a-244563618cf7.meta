@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "d2e4b77b-a8c8-4328-ad3a-20b27a2c1b15",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a user's access is altered.\n\nuser_alter = displays when a console user's access has been modified whether that be Admin to Regular, or Regular to Admin.\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "90bb805f-2488-410b-bf33-43dcfed2f4e9",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "9fb46101-bc0a-42cc-944a-244563618cf7",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - User Management - High - Console User Access Altered",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "a5b12862-e443-4e01-90b8-8632a2144a9e",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

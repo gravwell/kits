@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Flock Deleted",
+  "Description": "Detects when a flock has been deleted.\n\nflock_delete = Deleting a Flock will remove it from your Console. You can only delete an empty Flock, meaning you'll need to move (or remove) any Sensors from the Flock before deleting it.\n\nWARNING: You cannot delete the Default Flock, but you can Rename it if you want to.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#delete-flock",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e7ead0b0-c500-4eee-aaee-9f6872af3c58",
+  "SearchReference": "a1341e4c-77bd-4496-b42a-83eb8335a7ad"
+}

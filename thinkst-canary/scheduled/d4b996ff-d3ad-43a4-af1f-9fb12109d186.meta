@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - Thinkst - Canary - Incident",
+  "Description": "Detects when there is a Canary that has an incident.\n\nThis alert is a one size fits all alert. \n\nThis was built to dynamically create Thinkst Canary Incident Alerts based on all of the Incident Objects.\n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html\n\nhttps://docs.canary.tools/incidents/incident-objects.html#basic-structure\n\nhttps://help.canary.tools/hc/en-gb/sections/360001761498-Incidents",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "*/30 * * * *",
+  "Duration": -1800,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "d4b996ff-d3ad-43a4-af1f-9fb12109d186",
+  "SearchReference": "35007ae4-eb46-40c6-afbc-07895f4e2f24"
+}

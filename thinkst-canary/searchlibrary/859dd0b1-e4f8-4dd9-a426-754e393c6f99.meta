@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - User Management - High - Brute Force Attempts from Outside Country",
+ "Description": "Detects when a user account is being brute forced from an Outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/queries.html\n\nhttps://docs.canary.tools/console/audit-trail.html \n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+ "GUID": "859dd0b1-e4f8-4dd9-a426-754e393c6f99",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

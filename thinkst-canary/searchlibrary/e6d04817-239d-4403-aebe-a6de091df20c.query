@@ -1,0 +1,5 @@
+tag=$CANARY_AUDIT json action_type user
+| unique TIMESTAMP
+| eval action_type=="flock_note_add"
+| stats count
+| numbercard count

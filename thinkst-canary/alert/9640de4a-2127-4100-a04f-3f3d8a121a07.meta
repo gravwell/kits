@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "266176d8-776b-46d9-add7-40cab313a439",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a bird has been decommissioned.\n\ndevice_commission = Decommission a Bird.\n\nWARNING: Decommissioning a Bird will completely remove the Bird from your Console. This means you'll need to re-register the Bird with your Console if you want it back.\n\nReference(s):\nhttps://docs.canary.tools/bird-management/registrations.html\n\nhttps://docs.canary.tools/bird-management/registrations.html#decommission-bird",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "7a550362-fa2c-4a5f-97f2-0d470b75d3d1",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "9640de4a-2127-4100-a04f-3f3d8a121a07",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Bird Management - Low - Device Commissioned",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "a016eec2-b686-4769-a11a-e0aaec88c0f4",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

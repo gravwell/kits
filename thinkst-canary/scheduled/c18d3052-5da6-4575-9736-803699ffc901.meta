@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - User Management - Medium - Brute Force Attempts",
+  "Description": "Detects when a user account is being brute forced.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/queries.html\n\nhttps://docs.canary.tools/console/audit-trail.html \n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "6 * * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "c18d3052-5da6-4575-9736-803699ffc901",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,10 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip message flock_id flock_name
+| eval in(action_type,
+    "user_add"
+    )
+| eval actor=user
+| regex -e message "User \'(?<user>.*?)?\'"
+| regex -e message "(?<operation>added)"
+| ip user_ip
+| printf -e context "at %v, %v was %v via %v action by %v from %v" timestamp user operation action_type actor user_ip
+| $CANARY_ALERT_META("Canary"," User Management", "Low", "Console User Added")

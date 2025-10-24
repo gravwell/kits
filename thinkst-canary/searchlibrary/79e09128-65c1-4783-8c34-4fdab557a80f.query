@@ -1,0 +1,10 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+   	"flock_alter_config"
+   	)
+| eval message~"autocommission"
+| regex -e message "(?<operation>\w+)"
+| eval operation~"Removed"
+| regex -e message "(?<event_type>autocommission.*?)?\son"
+| printf -e context "at %v, %v (%v) %v %v via %v action to %v" timestamp user user_ip operation event_type action_type flock_id
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Auto Commissioning Token Removed")

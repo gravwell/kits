@@ -1,0 +1,11 @@
+tag=$CANARY_INCIDENT 
+    json 
+    summary 
+    description.flock_id 
+    description.flock_name
+    description.logtype as logtype
+    description.events_count
+| unique
+| stats sum(events_count) by logtype flock_name
+| stats total(sum) by flock_name
+| chart total by flock_name

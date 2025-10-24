@@ -1,0 +1,10 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "flock_alter_config"
+    )
+| eval message~"sms"
+| regex -e message "(?<operation>\w+)"
+| lower operation
+| regex -e message "(?<event_type>sms.*?)?\son"
+| printf -e context "at %v, %v (%v) %v %v via %v action in %v Flock" timestamp user user_ip operation event_type action_type flock_name
+| $CANARY_ALERT_META("Canary"," Flock Management", "Low", "SMS Notifications Modified")

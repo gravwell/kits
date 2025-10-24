@@ -1,0 +1,3 @@
+tag=$CANARY_AUDIT json action_type user
+| stats count by user
+| chart count by user

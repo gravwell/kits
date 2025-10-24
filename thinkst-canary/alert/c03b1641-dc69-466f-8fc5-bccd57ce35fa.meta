@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "ebb02d43-6a75-4502-9a4c-080941d8444c",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when there is a Canary that has an incident.\n\nThis alert is a one size fits all alert. \n\nThis was built to dynamically create Thinkst Canary Incident Alerts based on all of the Incident Objects.\n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html\n\nhttps://docs.canary.tools/incidents/incident-objects.html#basic-structure\n\nhttps://help.canary.tools/hc/en-gb/sections/360001761498-Incidents",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "d4b996ff-d3ad-43a4-af1f-9fb12109d186",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "c03b1641-dc69-466f-8fc5-bccd57ce35fa",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "thinkst"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Thinkst - Canary - Incident",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "d65cb42c-4506-4608-8866-922b5195d6f3",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

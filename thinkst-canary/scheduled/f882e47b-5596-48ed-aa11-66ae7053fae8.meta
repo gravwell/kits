@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Auto Commissioning Token Removed",
+  "Description": "Detects when an auto-commissioning token has been removed.\n\nRemove a Flock Auto Commission Token = Remove token and disable Auto Commission on a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/auto-commission.html\n\nhttps://docs.canary.tools/flocks-settings/auto-commission.html#remove-a-flock-auto-commission-token",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "f882e47b-5596-48ed-aa11-66ae7053fae8",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

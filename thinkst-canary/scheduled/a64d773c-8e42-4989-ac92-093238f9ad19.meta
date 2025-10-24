@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - User Management - Low - User Seasonal Effects Disabled",
+  "Description": "Detects when a disabled user seasonal effects in User Management.\n\nReference(s):",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "a64d773c-8e42-4989-ac92-093238f9ad19",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

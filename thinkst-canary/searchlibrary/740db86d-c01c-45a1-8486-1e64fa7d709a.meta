@@ -1,0 +1,18 @@
+{
+ "Name": "AlertQuery - Canary - User Management - High - Login Attempt From Outside Country",
+ "Description": "Detects when a user attempts to login in from outside Country.\nDefault = US / United States (If not within United States, change necessary)\n\nuser_login_failed = Displays when a user failed to login.\n\n*Network Enrichment Kit is required*\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+ "GUID": "740db86d-c01c-45a1-8486-1e64fa7d709a",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": {
+   "durationString": null,
+   "timeframe": "PT1H",
+   "timezone": null,
+   "start": null,
+   "end": null
+  }
+ }
+}

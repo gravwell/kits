@@ -1,0 +1,4 @@
+tag=$CANARY_AUDIT json action_type user
+| grep -e action_type "user"
+| stats unique_count as count by user action_type
+| table user action_type count

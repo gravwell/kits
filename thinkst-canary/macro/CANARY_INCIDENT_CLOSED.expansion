@@ -1,0 +1,30 @@
+tag=$CANARY_INCIDENT
+| unique TIMESTAMP
+| json 
+    TIMESTAMP
+    TAG
+    summary
+    description.flock_id 
+    description.flock_name
+    description.acknowledged
+    description.logtype
+    description.events_count
+    description.events_list
+    description.events
+    description.src_host
+    description.dst_host
+    description.events.[0] as event0
+    description.events.[0].INSTANCE_NAME as instance
+    description.events.[0].USERNAME as username
+    description.events.[0].type as type
+| eval logtype!=""
+| eval acknowledged=="True"
+| lower summary
+| lookup -r canary_logtypes_alert logtype logtype (
+    vendor as vendor
+    product as product
+    description as log_desc 
+    category as log_cat 
+    subcategory as log_subcat
+    )
+| lower log_cat log_subcat
