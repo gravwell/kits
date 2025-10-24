@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - Canary - Flock Management - Low - Multiple SMS Notifications List Actions",
+  "Description": "Detects when operational email list has been modified.\n\nList Notification Numbers = Retrieve the list of notification numbers for a Flock.\nSet Notification Numbers = Set the SMS notification list for a Flock\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#list-notification-numbers\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#set-notification-numbers",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "Duration": -14400,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "79b34b35-2cee-43db-999e-4a1d0ec85963",
+  "SearchReference": "81792a94-5e39-42a7-9d3d-1611743b4854"
+}

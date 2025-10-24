@@ -1,0 +1,236 @@
+{
+	"UUID": "6db5b6d6-617d-4393-a4ed-31880ccd1073",
+	"Name": "Canary Audit Overview",
+	"Description": "This Dashboard is a general overview of your Thinkst Canary Audit Trail data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Canary - Audit - Count by Flock Name [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "489d39e7-fd9e-4ae9-95c2-54972a08277d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Any Event [heatmap]",
+				"color": null,
+				"reference": {
+					"id": "61cc3932-555b-4df5-85c7-0689962665ed",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Action Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "a4e605a9-eda5-430a-8463-8929fad19eb5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Count by Flock Name [pie]",
+				"color": null,
+				"reference": {
+					"id": "3ce456a0-56d8-4b9f-ae3a-bc32af615a45",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "dd674f80-bb9f-47f5-8650-ad0c0f487757",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Unique Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "b58be5e6-81a0-4b9e-9f88-1220e272e03d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Count by Users [pie]",
+				"color": null,
+				"reference": {
+					"id": "879d0342-4ee6-4eb5-8a04-792a63bf6c5a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks \u0026 Actions [fdg]",
+				"color": null,
+				"reference": {
+					"id": "c6a459c2-1e43-41b3-a037-83a697af8280",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17570982423940,
+				"title": "Flock Events",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 13,
+					"row": 5,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": "40",
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 17570988921021,
+				"title": "Canary Audit Heatmap",
+				"renderer": "heatmap",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 12,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17570989671042,
+				"title": "Action Types",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 13,
+					"row": 16,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17570991825383,
+				"title": "Events by Flock",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17570995710584,
+				"title": "Total Events",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17570996323105,
+				"title": "Unique Events",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571000366696,
+				"title": "Events by User",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 4
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571002120547,
+				"title": "Flocks \u0026 Actions",
+				"renderer": "fdg",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 8,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Layout": "circular",
+					"Labels": "yes",
+					"IncludeOther": "no",
+					"CurveEdges": "yes"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

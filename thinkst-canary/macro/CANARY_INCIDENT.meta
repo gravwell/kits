@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_INCIDENT",
+	"Description": "Configuration Macro; Tag used for Thinkst Canary Incident data; necessary for any queries within the Gravwell Thinkst Canary Kit to run properly",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

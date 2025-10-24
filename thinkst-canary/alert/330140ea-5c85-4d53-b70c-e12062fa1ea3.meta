@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "fc5e3497-36ab-49d4-bb7d-513a339e6f13",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a flock has been moved.\n\nflock_move = Move a specified Sensor to a Flock. You'll need to delete all incidents before moving a Sensor between Flocks (this ensures that sensitive data isn't spilled across Flocks). If there are still incidents tied to the Sensor, you can specify clear_incidents=true to clear all of those incidents.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#move-sensor-to-flock",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "e49d137d-b7f6-4db3-aee4-d5c19890a80b",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "330140ea-5c85-4d53-b70c-e12062fa1ea3",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Flock Moved",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "67098252-57d4-4109-8384-87e10c2144b5",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - Flock Management - Low - Note Added",
+ "Description": "Detects when a flock note has been added.\n\nflock_note_add = Add a note to a specified Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/notes.html\n\nhttps://docs.canary.tools/flocks/notes.html#add-flock-note",
+ "GUID": "67089989-8053-48dc-9016-ef070fb853f9",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

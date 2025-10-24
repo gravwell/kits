@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - Bird Management - Low - Device Commissioned",
+ "Description": "Detects when a bird has been decommissioned.\n\ndevice_commission = Decommission a Bird.\n\nWARNING: Decommissioning a Bird will completely remove the Bird from your Console. This means you'll need to re-register the Bird with your Console if you want it back.\n\nReference(s):\nhttps://docs.canary.tools/bird-management/registrations.html\n\nhttps://docs.canary.tools/bird-management/registrations.html#decommission-bird",
+ "GUID": "67fdcc06-ab17-4eb7-80c8-394338aefd39",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

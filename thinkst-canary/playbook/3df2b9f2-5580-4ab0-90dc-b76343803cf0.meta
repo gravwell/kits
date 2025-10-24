@@ -1,0 +1,25 @@
+{
+	"UUID": "cfd6cdad-e8fd-4785-a8f4-54623c8a3377",
+	"GUID": "3df2b9f2-5580-4ab0-90dc-b76343803cf0",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Low - Number(s) Added to SMS Notification List",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.366277713Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

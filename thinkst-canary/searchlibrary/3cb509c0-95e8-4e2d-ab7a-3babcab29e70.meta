@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - User Management - High - Console User Deleted from Outside Country",
+ "Description": "Detects when a console user is deleted from an outside country.\nDefault = US / United States (If not within United States, change necessary)\n\nRemove User = Remove a user from the Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#remove-user",
+ "GUID": "3cb509c0-95e8-4e2d-ab7a-3babcab29e70",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

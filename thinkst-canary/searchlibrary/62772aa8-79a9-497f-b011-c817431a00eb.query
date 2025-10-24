@@ -1,0 +1,15 @@
+tag=$CANARY_INCIDENT,$CANARY_AUDIT 
+| unique TIMESTAMP
+| json 
+    TIMESTAMP
+    TAG
+    user
+    description.flock_id 
+    description.flock_name
+    description.acknowledged 
+    action_type 
+    description.logtype as logtype
+| lookup -r canary_logtypes logtype logtype (description as log_desc category as log_cat subcategory as log_subcat)
+| eval result = (acknowledged=="True") ? "Acknowledged" : ((acknowledged=="False") ? "Not Acknowledged" : ((action_type=="incident_unacknowledge") ? "Unacknowledged" : "")) 
+| eval result!=""
+| table TIMESTAMP TAG flock_name logtype log_desc log_cat log_subcat result

@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "80ff04dd-24bb-458c-b2e0-347bff96faa0",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when email addresses have been added and removed from device notifications list.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "6e317cd7-88ec-4f76-95bc-f22bd13f42bc",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "5d599e9f-f5ff-42a1-acc2-73797f239f95",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Multiple Device Notifications List Actions",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "f1df50af-a5ab-4b0c-8c84-e04930334ae6",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_INCIDENT_FULL",
+	"Description": "This allows you to search any incident with the following options:\n\nDATA = \"%%1%%\" \"%%2%%\" \"%%3%%\" \"%%4%%\" \"%%5%%\"\n\nAll options must at least contain \"*\"\n\n$CANARY_INCIDENT_FULL(\"*\", \"*\", \"*\", \"*\", \"*\")\n$CANARY_INCIDENT_FULL(DATA[string], DATA[string], DATA[string], DATA[string], DATA[string])",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

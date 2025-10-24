@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Full Search [table]",
+	"Description": "This allows you to search any incident and search the following options:\n\nacknowledged = \"%%1%%\"\nflock_id = \"%%2%%\"\nflock_name = \"%%3%%\"\nsrc_host = \"%%4%%\"\ndst_host = \"%%5%%\"\nlog_cat = \"%%6%%\"\nlog_subcat = \"%%7%%\"\nlog_desc = \"%%8%%\"\n_alert_title = \"%%9%%\"\n_alert_priority = \"%%10%%\"\n\n$CANARY_INCIDENT_FULL(\"acknowledged\",\"flock_id\",\"flock_name\",\"src_host\",\"dst_host\",\"log_cat\",\"log_subcat\",\"log_desc\",\"_alert_title\",\"_alert_priority\")\n$CANARY_INCIDENT_FULL(acknowledged[string],flock_id[string],flock_name[string],src_host[string],dst_host[string],log_cat[string],log_subcat[string],log_desc[string],_alert_title[string],_alert_priority[string])",
+	"GUID": "daf4494f-0062-41c1-94db-1f125d307a01",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,4 @@
+tag=$CANARY_AUDIT json action_type user
+| grep -e action_type "login"
+| stats count as count by user action_type
+| chart count by user action_type

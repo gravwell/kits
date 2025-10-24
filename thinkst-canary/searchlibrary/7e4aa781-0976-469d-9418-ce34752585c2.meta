@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - User Management - High - Console User Access Altered",
+ "Description": "Detects when a user's access is altered.\n\nuser_alter = displays when a console user's access has been modified whether that be Admin to Regular, or Regular to Admin.\n\nReference(s):\nhttps://docs.canary.tools/console/audit-trail.html#audit-trail\n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+ "GUID": "7e4aa781-0976-469d-9418-ce34752585c2",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

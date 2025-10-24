@@ -1,0 +1,12 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "Example Gravwell Fetcher Conf",
+	"Description": "This is intended to be utilized as an example Gravwell fetcher config file for Thinkst Canary. \n\nReplace your Thinkst Canary Domain and Token prior to building/running Fetcher.",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Size": 1078,
+	"Hash": "DixIbGsPVMWv6LgvLx35UA==",
+	"Data": ""
+}

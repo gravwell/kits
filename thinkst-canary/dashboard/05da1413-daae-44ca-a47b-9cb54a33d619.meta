@@ -1,0 +1,50 @@
+{
+	"UUID": "05da1413-daae-44ca-a47b-9cb54a33d619",
+	"Name": "Canary Incident Search",
+	"Description": "This Dashboard is intended to be used to search through any and all of your incidents.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Canary - Incidents - Full Search",
+				"color": null,
+				"reference": {
+					"id": "b5a6f494-05c2-424b-b514-fae33e12e9f3",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17570953375880,
+				"title": "Full Incident Search",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 12,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

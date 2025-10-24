@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Flock Created",
+  "Description": "Detects when a flock has been created.\n\nflock_create = A Flock allows you to group Sensors and users. It allows you to configure settings that are specific only to the Flock, including notification channels and recipients.\n\nFlocks are defined by a unique flock_id which is returned in the response when calling this endpoint.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#create-flock",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "337c99f7-7548-4621-86a1-b47ff6ccd309",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

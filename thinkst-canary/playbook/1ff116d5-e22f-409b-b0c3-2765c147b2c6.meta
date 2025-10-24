@@ -1,0 +1,25 @@
+{
+	"UUID": "75aaf81e-3804-4898-9360-9bfbc7d8baaa",
+	"GUID": "1ff116d5-e22f-409b-b0c3-2765c147b2c6",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - User Management - Medium - Brute Force Attempts",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.362677213Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

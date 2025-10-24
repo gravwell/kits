@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "1b48c085-ae0a-4754-bf3c-eeab0eab0620",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when operational email settings notifications have been modified (Enabled|Disabled).\n\nDisable Operational Notification Emails = Disable operational notification emails for a Flock.\n\nEnable Operational Notification Emails = Enable operational notification emails for a Flock. If enabled, Canary Disconnects/Reconnects, Canary Settings Changed, Console Settings Changed and Flock Settings Changed alerts will be emailed to the Operational Email Notifications addresses only.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#operational-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#disable-operational-notification-emails\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#enable-operational-notification-emails",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "3d46eafc-1bf0-400d-9a7f-67ff161125fc",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "599cf499-e033-47b8-8599-0faf8f843538",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Operational Email Notifications Modified",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "87f91cf4-2f8b-4731-ae6f-da7f784828f0",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

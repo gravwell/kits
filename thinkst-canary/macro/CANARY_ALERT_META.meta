@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_ALERT_META",
+	"Description": "Usage $CANARY_ALERT_META(vendor[string],category[string],priority[string],_alert_name[string]) \n\ne.g. $CANARY_ALERT_META(\"Canary\", \"Flock Management\", \"Low\", \"Admin API Key Added\") will be displayed as: \n\n\"Alert: Canary - Flock Management - Low - Admin API Key Added - Flock_Name\"\n\nFlock_Name will default to Canary if that field in null or empty; however, flock_name must be present within the search itself. ",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

@@ -1,0 +1,5 @@
+tag=$CANARY_AUDIT json timestamp action_type=="user_2fa_enable" user user_ip user_browser_agent id message
+| printf -e context "at %v, %v perfomed by %v from %v" timestamp action_type user user_ip
+| ip user_ip as src_ip
+| geoip src_ip.Location src_ip.City src_ip.Country src_ip.CountryName
+| heatmap

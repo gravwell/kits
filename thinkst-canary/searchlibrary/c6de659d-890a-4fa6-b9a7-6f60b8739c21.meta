@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - Flock Management - Low - Flock Renamed",
+ "Description": "Detects when a flock has been renamed.\n\nflock_rename = Rename an existing Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#rename-flock",
+ "GUID": "c6de659d-890a-4fa6-b9a7-6f60b8739c21",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

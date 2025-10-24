@@ -1,0 +1,3 @@
+tag=$CANARY_AUDIT grep "canarytoken"
+| json TIMESTAMP user action_type user_ip message
+| table

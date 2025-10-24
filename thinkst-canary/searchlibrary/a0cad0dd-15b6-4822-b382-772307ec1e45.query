@@ -1,0 +1,10 @@
+tag=$CANARY_INCIDENT,$CANARY_AUDIT
+| unique
+| json description.acknowledged action_type
+| eval result = 
+    (acknowledged=="True") ? "Acknowledged" : 
+    ((acknowledged=="False") ? "Not Acknowledged" :
+    ((action_type=="incident_unacknowledge") ? "Unacknowledged" : ""))
+| eval result!=""
+| stats count
+| numbercard count

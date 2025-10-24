@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "d9438dd0-b60a-4b0f-b9d7-cc9ceaab47f2",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when device settings notifications have been modified.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "76391db0-03b0-4609-b0e9-84630278608f",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "0b21b121-afb2-448c-bedc-61e5e24340b4",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - Device Settings Notifications Modified",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "4f5a1799-581b-4d21-b94a-8aed50933150",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

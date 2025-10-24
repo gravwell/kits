@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Incidents - Total Events by Category [donut]",
+	"Description": "Total Event Count by Category\n\nView canary_logtypes resource or reference(s) for additional information. \n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html#incident-objects",
+	"GUID": "dcb0f392-724f-41d9-a47c-09b859e7351a",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

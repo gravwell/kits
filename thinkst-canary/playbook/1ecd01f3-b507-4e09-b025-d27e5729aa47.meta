@@ -1,0 +1,25 @@
+{
+	"UUID": "77f0f939-21ac-4e1e-ab78-ad041a0fe4bf",
+	"GUID": "1ecd01f3-b507-4e09-b025-d27e5729aa47",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Thinkst - Canary - Incident",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.36291288Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell"
+	},
+	"Synced": false
+}

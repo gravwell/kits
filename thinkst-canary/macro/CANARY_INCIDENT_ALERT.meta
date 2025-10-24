@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_INCIDENT_ALERT",
+	"Description": "This was built to dynamically create Thinkst Canary Incident Alerts based on all of the Incident Objects.\n\nThis Macro contains several different macros available for your individualized specific use cases. This Macro combined all of them into one that will fire if any Incident Object is triggered. \n$CANARY_INCIDENT: standardizes all Thinkst Canary tagging for incidents (tag=thinkst-incident; used in $CANARY_INCIDENT_BASE and all Query Library/Scheduled Searches/Dashboards)\n$CANARY_INCIDENT_BASE: standardizes base search for all Thinkst Canary Incident Objects returning any \"open\" (Not Acknowledged) Incidents\n$CANARY_RISK_SCORE: standardizes risk score based on incident category/subcategory, events_count, and username implicated (*if available*) then converts the risk score into priority buckets. (Critical|High|Medium|Low)\n$CANARY_INCIDENT_META: standardizes output for Thinkst Canary Incidents that are being alerted upon. \n\nUsage: \n$CANARY_INCIDENT_ALERT\n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html\nhttps://docs.canary.tools/incidents/incident-objects.html#basic-structure",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

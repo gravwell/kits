@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_INCIDENT_CLOSED",
+	"Description": "This is a base Canary Incident query that was built to pivot off of for \"closed\" (acknowledged) alerts/incidents.",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

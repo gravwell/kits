@@ -1,0 +1,5 @@
+tag=$CANARY_AUDIT json action_type flock_name
+| unique TIMESTAMP
+| eval flock_name!="null"
+| stats count by flock_name
+| chart count by flock_name

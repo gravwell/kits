@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - Flock Management - Low - Settings Change Notifications Modified",
+ "Description": "Detects when flock settings change notifications have been modified (Enabled|Disabled) from Global|On|Off setting.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+ "GUID": "9aa9fefb-cd2e-4448-b7a0-e214547323fa",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

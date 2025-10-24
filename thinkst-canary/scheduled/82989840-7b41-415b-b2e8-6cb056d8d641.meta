@@ -1,0 +1,15 @@
+{
+  "Name": "Flow - Canary - Flock Management - Low - Flock Note Altered",
+  "Description": "Detects when a flock note is altered.\n\nGet Flock Note = Retrieve a Flock's note.\nAdd Flock Note = Add a note to a specified Flock.\nDelete Flock Note = Delete a note for a specified Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/notes.html\n\nhttps://docs.canary.tools/flocks/notes.html#get-flock-note\n\nhttps://docs.canary.tools/flocks/notes.html#add-flock-note\n\nhttps://docs.canary.tools/flocks/notes.html#delete-flock-note",
+  "Labels": [
+    "canary"
+  ],
+  "Schedule": "49 */4 * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "82989840-7b41-415b-b2e8-6cb056d8d641",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - Flock Management - Low - Email(s) Removed from Device Notifications List",
+ "Description": "Detects when email addresses have been removed from the device notifications list.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html",
+ "GUID": "ce786ade-686d-45a0-81ac-308c145efd45",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

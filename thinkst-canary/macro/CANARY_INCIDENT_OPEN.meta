@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_INCIDENT_OPEN",
+	"Description": "This is a base Canary Incident query that was built to pivot off of for \"open\" (not acknowledged) alerts/incidents.",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

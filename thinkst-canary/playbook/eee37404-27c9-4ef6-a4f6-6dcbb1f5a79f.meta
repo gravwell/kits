@@ -1,0 +1,25 @@
+{
+	"UUID": "9fefdcdd-42f4-4d02-9d70-37404d8061f4",
+	"GUID": "eee37404-27c9-4ef6-a4f6-6dcbb1f5a79f",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Medium - IP Whitelist Modified",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.364042338Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

@@ -1,0 +1,7 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| unique TIMESTAMP
+| eval in(action_type, 
+    "incident_acknowledge"
+    )
+| stats count by user
+| chart count by user

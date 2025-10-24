@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "c18d3052-5da6-4575-9736-803699ffc901",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when a user account is being brute forced.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/queries.html\n\nhttps://docs.canary.tools/console/audit-trail.html \n\nhttps://docs.canary.tools/console/audit-trail.html#fetch-audit-trail-logs",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "c26bd104-acc2-484a-9971-012e15936445",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "21e62ff2-0a2e-4f89-b9df-c6df0bc836db",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - User Management - Medium - Brute Force Attempts",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "6a67cb93-c0bd-4a5f-9c69-8b8114943380",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

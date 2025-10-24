@@ -1,0 +1,25 @@
+{
+	"UUID": "0a74a5eb-f93a-452a-9eae-318fba1c6691",
+	"GUID": "fb7667bd-4b82-4872-a5e3-e555c29950b7",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - Flock Management - Low - Note Added",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-15T16:46:39.76575792Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

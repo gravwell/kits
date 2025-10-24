@@ -1,0 +1,380 @@
+{
+	"UUID": "53dd7bec-fcbb-4c6f-a01a-3e5fe2a32ddf",
+	"Name": "Canary Flocks Overview",
+	"Description": "This Dashboard is a general overview of your Thinkst Canary Flocks data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Canary - Flocks - Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "d3c01581-f2bf-4cc6-9c30-dd483bacdae8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Flock Management - Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "7d4a665d-fce1-49f4-97cb-be4c463a7c87",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Flocks - Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "61a514ba-29a5-499a-90ca-4d8559dedb03",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Flock Management - Flock, Category, Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "6081a5c2-3976-4a52-a0a0-4ea44a3b82db",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Flocks - Flock, Subcategory, Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "0a3b269f-e058-480d-8a65-d36adbe685e3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks - Created [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "53a71171-c4e2-45fb-bb1c-3671c7fa048c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks - Deleted [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "6543c324-fdf5-4db3-86bb-7c03f2a76b3d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks - Moved [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5c031848-90e6-4957-b2f5-7de611d71602",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks - Renamed [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "3eb0e867-1f84-4b6c-a03e-4759b8b9369a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks - Notes Added [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "e6d04817-239d-4403-aebe-a6de091df20c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks - Notes Deleted [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "db8b745d-42ba-4a99-9e84-63711e7fed2f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks - Count by Flock Name [pie]",
+				"color": null,
+				"reference": {
+					"id": "3ce456a0-56d8-4b9f-ae3a-bc32af615a45",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Audit - Flocks \u0026 Actions [fdg]",
+				"color": null,
+				"reference": {
+					"id": "c6a459c2-1e43-41b3-a037-83a697af8280",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Canary - Flock Management - Medium - Flock Modified from Outside Country [heatmap]",
+				"color": null,
+				"reference": {
+					"id": "4c51bab2-e45e-4153-8131-3b9078537e15",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17571046718332,
+				"title": "All Incidents by Flock, Category",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 6,
+					"x": 4,
+					"y": 8
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571047366722,
+				"title": "All Incidents by Flock, Subcategory",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 6,
+					"x": 9,
+					"y": 8
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571047988253,
+				"title": "All Incidents by Flock, Status",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571049265853,
+				"title": "All Incidents by Flock, Category, Status",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 14
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571049697024,
+				"title": "All Incidents by Flock, Subcategory, Status",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 7,
+					"x": 6,
+					"y": 14
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571051139765,
+				"title": "Created",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571051712896,
+				"title": "Deleted",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571052184607,
+				"title": "Moved",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571052862398,
+				"title": "Renamed",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 2,
+					"y": 4
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17571053369319,
+				"title": "Notes Added",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175710536891510,
+				"title": "Notes Deleted",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 4,
+					"y": 4
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175710548203911,
+				"title": "Count by Flock Name",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 175710566286412,
+				"title": "Flocks \u0026 Actions",
+				"renderer": "fdg",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {
+					"Layout": "circular",
+					"Labels": "yes",
+					"IncludeOther": "no",
+					"CurveEdges": "yes"
+				}
+			},
+			{
+				"id": 175710576675913,
+				"title": "Flocked Modified",
+				"renderer": "heatmap",
+				"hideZoom": true,
+				"span": {
+					"col": 13,
+					"row": 11,
+					"x": 0,
+					"y": 21
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

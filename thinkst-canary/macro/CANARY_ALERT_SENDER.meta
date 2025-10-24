@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_ALERT_SENDER",
+	"Description": "This is the address to which Thinkst Canary Alert Flows will be sent from.",
+	"Labels": [
+		"canary",
+		"thinkst"
+	]
+}

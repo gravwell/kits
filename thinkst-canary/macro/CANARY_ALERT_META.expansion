@@ -1,0 +1,19 @@
+eval _vendor = "%%1%%" 
+| eval _category = "%%2%%" 
+| eval _priority = "%%3%%" 
+| eval _alert_name = "%%4%%" 
+| enrich _alert_class canary
+| eval if(match(flock_name,".") && flock_name != "null" && flock_name != ""){
+        flock_name = flock_name;
+    } else {
+        if(match(flock_id,".") && flock_id != "null" && flock_id != ""){
+            flock_name = flock_id;
+        } else {
+            flock_name = "Canary";
+        }
+    }
+    _alert_header = "| Context |";
+    _alert_divider = "|-----|";
+    _alert_data = printf("|%v|", context);
+| eval _alert_title = printf("Alert: %v - %v - %v - %v - %v", _vendor, _category, _priority, _alert_name, flock_name)
+| table _alert_title context

@@ -1,0 +1,25 @@
+{
+	"UUID": "e0fa1ea4-5b35-45b9-9227-5be3f3d76b27",
+	"GUID": "cf413a66-6de6-492a-b46b-5fb769570fd2",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Canary - User Management - Low - User Seasonal Effects Enabled",
+	"Desc": "",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-09-11T15:46:27.367207297Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

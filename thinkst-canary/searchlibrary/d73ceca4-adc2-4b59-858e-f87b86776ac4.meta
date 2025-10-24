@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - Flock Management - Low - Note Deleted",
+ "Description": "Detects when a flock note has been deleted.\n\nflock_note_delete = Delete the note for a specified Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/notes.html\n\nhttps://docs.canary.tools/flocks/notes.html#delete-flock-note",
+ "GUID": "d73ceca4-adc2-4b59-858e-f87b86776ac4",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

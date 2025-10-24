@@ -1,0 +1,12 @@
+{
+ "Name": "AlertQuery - Canary - Flock Management - Low - Flock Created",
+ "Description": "Detects when a flock has been created.\n\nflock_create = A Flock allows you to group Sensors and users. It allows you to configure settings that are specific only to the Flock, including notification channels and recipients.\n\nFlocks are defined by a unique flock_id which is returned in the response when calling this endpoint.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#create-flock",
+ "GUID": "74abba01-c88b-4e1d-ba2f-05a3179ef463",
+ "Labels": [
+  "thinkst",
+  "canary"
+ ],
+ "Metadata": {
+  "timeframe": null
+ }
+}

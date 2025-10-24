@@ -1,0 +1,51 @@
+{
+ "Can": {
+  "Delete": true,
+  "Modify": true,
+  "Share": true
+ },
+ "Consumers": [
+  {
+   "ID": "dd25e8ef-a4ef-4a90-a96b-e5fcd42abb9a",
+   "Type": "flow"
+  }
+ ],
+ "Description": "Detects when sms settings notifications have been modified.\n\nDisable SMS Notifications = Disable SMS notifications for a Flock.\nEnable SMS Notifications = Enable SMS notifications for a Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks-settings/notifications.html\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#sms\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#disable-sms-notifications\n\nhttps://docs.canary.tools/flocks-settings/notifications.html#enable-sms-notifications",
+ "Disabled": true,
+ "Dispatchers": [
+  {
+   "ID": "93fbd72a-dad4-492a-ba89-21de65c4c4f7",
+   "Type": "scheduledsearch"
+  }
+ ],
+ "GIDs": [],
+ "GUID": "4e7a1997-f55d-4f8e-a764-4972bb77cbcf",
+ "Global": true,
+ "IngestBlocked": false,
+ "Labels": [
+  "canary"
+ ],
+ "LastUpdated": "2025-10-09T00:00:00Z",
+ "MaxEvents": 16,
+ "Name": "Alert - Canary - Flock Management - Low - SMS Notifications Modified",
+ "SaveSearchDuration": 604800,
+ "SaveSearchEnabled": false,
+ "Schemas": {
+  "Simple": [],
+  "OCSF": {
+   "EventClass": "",
+   "Extensions": [],
+   "Profiles": []
+  },
+  "JSON": {},
+  "ActiveSchema": "simple"
+ },
+ "TargetTag": "_alerts",
+ "ThingUUID": "7528a52a-2c00-4068-a1f2-7ebc03f472a5",
+ "UID": 1,
+ "UserMetadata": {},
+ "WriteAccess": {
+  "Global": false,
+  "GIDs": []
+ }
+}

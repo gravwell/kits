@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - Canary - User Management - High - Console User Added from Outside Country",
+  "Description": "Detects when a console user is added from an outside country.\nDefault = US / United States (If not within United States, change necessary)\n\nAdd User = Add a new user to your Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#add-user",
+  "Labels": [
+    "thinkst",
+    "canary"
+  ],
+  "Schedule": "6 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "36e4f43e-11ab-4a5b-9ad6-7cc53944f7c2",
+  "SearchReference": "82cce3a5-00f6-4553-bf7e-ca02954078d9"
+}

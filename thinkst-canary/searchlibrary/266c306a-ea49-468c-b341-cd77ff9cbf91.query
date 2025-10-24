@@ -1,0 +1,6 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip flock_id flock_name
+| eval in(action_type, 
+    "user_seasonal_effects_enable"
+    )
+| printf -e context "at %v, %v action perfomed by %v from %v" timestamp action_type user user_ip
+| $CANARY_ALERT_META("Canary"," User Management", "Low", "User Seasonal Effects Enabled")

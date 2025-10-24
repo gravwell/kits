@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Audit - Users - Any Event [heatmap]",
+	"Description": "This displays a heatmap of any event with a user_ip.",
+	"GUID": "61cc3932-555b-4df5-85c7-0689962665ed",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
