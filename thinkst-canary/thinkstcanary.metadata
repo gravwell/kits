@@ -1,0 +1,8 @@
+{
+	"Tags": ["thinkst-audit", "thinkst-incident"],
+	"Assets": [
+		{ "Type": "image", "Source": "canary-cover.jpg", "Legend": "Thinkst Canary Cover", "Featured": true},
+		{ "Type": "image", "Source": "canary-banner.jpg", "Legend": "Thinkst Canary Banner", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
