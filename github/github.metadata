@@ -1,0 +1,8 @@
+{
+	"Tags": ["github", "github-audit"],
+	"Assets": [
+		{ "Type": "image", "Source": "github-cover.jpg", "Legend": "GitHub Cover", "Featured": true},
+		{ "Type": "image", "Source": "github-banner.jpg", "Legend": "GitHub Banner", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
