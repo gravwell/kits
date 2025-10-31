@@ -2166,7 +2166,7 @@
    "Description": "Configuration Macro; Necessary for queries within the GitHub Kit to run properly",
    "DefaultValue": "github",
    "Value": "",
-   "Type": "STRING",
+   "Type": "TAG",
    "InstalledByID": ""
   },
   {
@@ -2174,7 +2174,7 @@
    "Description": "Configuration Macro; Necessary for queries within the GitHub Kit to run properly",
    "DefaultValue": "github-audit",
    "Value": "",
-   "Type": "STRING",
+   "Type": "TAG",
    "InstalledByID": ""
   },
   {
