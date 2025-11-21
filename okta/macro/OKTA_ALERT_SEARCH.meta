@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_ALERT_SEARCH",
+	"Description": "This macro standardizes output for Okta Alerts that are being alerted upon and allows you to search based on any of the normalized fields; the key being _alert_title.",
+	"Labels": [
+		"okta"
+	]
+}

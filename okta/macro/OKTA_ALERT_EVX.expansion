@@ -1,0 +1,26 @@
+json
+    // Standard EVs
+    eventType
+    severity
+    outcome.result as outcomeResult
+    displayMessage as message
+    actor.alternateId as actorAltId
+    actor.displayName as actorName
+    client.ipAddress as clientIp
+    published
+
+    // EVs used in some variants
+    securityContext.isProxy as isProxy
+    debugContext.debugData.requestUri as requestUri
+    debugContext.debugData.behaviors as debugBehavior
+    debugContext.debugData.logOnlySecurityData as debugLogOnlySecData
+    debugContext.debugData.dtHash as dtHash
+    debugContext.debugData.threatSuspected as threatSuspect
+    outcome.reason as outcomeReason
+    target.alternateId as targetAltId
+    target.displayName as targetName
+    request.ipChain.ip as requestIp
+    actor.Id as actorId
+    actor.type as actorType
+    client.device as clientDevice
+    authenticationContext.externalSessionId as authExternalSessionId

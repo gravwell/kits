@@ -1,0 +1,12 @@
+// Search - Okta - System - Alert Catalog - Alert Title [Numbercard]
+$OKTA_ALERT_BASE
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+$OKTA_CATALOG_GATE
+$OKTA_NORMALIZE_IP
+$OKTA_NORMALIZE_ACTOR
+$OKTA_NORMALIZE_TARGET
+$OKTA_ALERT_SEARCH
+| stats count by _alert_title
+| numbercard count

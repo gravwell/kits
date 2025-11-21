@@ -1,0 +1,5 @@
+tag=$OKTA_USERS
+| json 
+    profile.department
+| stats unique_count(department) as count
+| numbercard count

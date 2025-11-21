@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Authentication - Password Last Changed \u003e= 30 Days [table]",
+	"Description": "Displays a numbercard of the last login to password changed average/mean.",
+	"GUID": "0b715ded-cd8c-4faa-92ce-11852c80f19c",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

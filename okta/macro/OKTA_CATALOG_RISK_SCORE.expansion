@@ -1,0 +1,93 @@
+// OKTA_CATALOG_RISK_SCORE
+| eval
+    // ---------- 0) normalize helpers ----------
+    et = eventType;
+    cat = category;
+    sub = subcategory;
+    // ---------- 1) base risk: Okta-focused ----------
+    base = 35.0;
+    // Application Key Category Modifications
+    if (match(et, "(?i)^(app|application)\\.(keys?|key_credential)(\\.|$).*\\.(create|delete|update|rotate|generate|revoke)$")) {
+        base = 90.0;
+    // OAuth2 Category Modifications
+    } else if (match(et, "(?i)^oauth2\\.(client|clients|scope|scopes|claim|claims)(\\.|$).*\\.(create|delete|update|rotate|revoke)$")) {
+        base = 85.0;
+    // Policy & Scheduled Execution Category Modifications
+    } else if (match(et, "(?i)^policy\\.(mapping|rule|evaluate|execute|scheduled)(\\.|$).*\\.(create|delete|update|enable|disable)$")
+        || match(et, "(?i)^application\\.(policy)(\\.|$).*\\.(create|delete|update|enable|disable)$")) {
+        base = 80.0;
+    // Access Control (Network Zones) Category Modifications
+    } else if (has(cat) && cat == "Access Control" && has(sub) && sub == "Network Zones"
+        && match(et, "(?i)^zone\\.(activate|deactivate|create|delete|update)$")) {
+        base = 75.0;
+    // Application Category Modifications
+    } else if (match(et, "(?i)^application\\..*\\.(grant|revoke|assign|unassign)$")) {
+        base = 70.0;
+    // Group Category Modifications
+    } else if (match(et, "(?i)^group\\.(rule|owner|role|profile|user)(\\.|$).*\\.(create|delete|update|assign|unassign)$")) {
+        base = 70.0;
+    // User Category Modifications
+    } else if (match(et, "(?i)^user\\.(credential|factor|grant|session)(\\.|$).*\\.(enroll|unenroll|reset|revoke|disable|enable|delete|create|update)$")) {
+        base = 80.0;
+    // Device Category Modifications
+    } else if (match(et, "(?i)^device\\.(platform_sso|token|local_account|user_os_account|enrollment)(\\.|$).*\\.(create|issue|register|sync|rotate|update|enable|disable)$")) {
+        base = 65.0;
+    // Hook Category Modifications
+    } else if (match(et, "(?i)^(hook|event\\.hook|inline\\.hook)\\..*\\.(create|delete|update|enable|disable)$")) {
+        base = 60.0;
+    // Directory/IdP/Linked Objects/Imports Category Modifications
+    } else if (match(et, "(?i)^(directory|idp|identity|linked_objects)\\..*\\.(create|delete|update|import|link|unlink|map|unmap)$")) {
+        base = 60.0;
+    // System Category Modifications
+    } else if (match(et, "(?i)^system\\.(rate_limit|api_token|email|brand|theme|custom_signout|well_known_uri)\\..*\\.(create|delete|update|enable|disable|set|unset|change)$")) {
+        base = 55.0;
+    } else {
+        base = 35.0;
+    };
+    // ---------- 2) bumps ----------
+    // 2a) Severity
+    sev_bump = 0.0;
+    if (has("severity") && match(severity, "(?i)ERROR")) { sev_bump = 10.0; }
+    else if (has("severity") && match(severity, "(?i)WARN")) { sev_bump = 5.0; }
+    // 2b) Outcome
+    res_bump = 0.0;
+    if (has("outcomeResult") && match(outcomeResult, "(?i)(SUCCESS|ALLOW)")) { res_bump = 5.0; }
+    // 2c) Proxy
+    proxy_bump = 0.0;
+    if (has("isProxy") && isProxy == "true") { proxy_bump = 5.0; }
+    // 2d) Modification
+    mod_bump = 0.0;
+    if (is_mod_final == 1) {
+        if (base < 60.0) { mod_bump = 15.0; }
+        else if (base < 80.0) { mod_bump = 8.0; }
+    }
+    // 2e) Privileged Actor (requires earlier lookups/regex)
+    actor_priv_bump = 0.0;
+    if (has("actor_weight")) { actor_priv_bump = float(actor_weight); }
+    else if (has("actorUserNorm") && actorUserNorm != "" &&
+             match(actorUserNorm, "(?i)(^root$|(^|[^a-z])admin([^a-z]|$)|(^|[^a-z])svc([^a-z]|$)|(^|[^a-z])sql([^a-z]|$)|(^|[^a-z])system([^a-z]|$))")) {
+        actor_priv_bump = 8.0;
+    }
+    // 2f) Protected target bumps (requires lookups/regex earlier)
+    target_priv_bump = 0.0;
+    if (has("target_weight")) { target_priv_bump = float(target_weight); }
+    else if (has("targetUserNorm") && targetUserNorm != "" &&
+             match(targetUserNorm, "(?i)(^root$|(^|[^a-z])admin([^a-z]|$)|(^|[^a-z])svc([^a-z]|$)|(^|[^a-z])sql([^a-z]|$)|(^|[^a-z])system([^a-z]|$))")) {
+        target_priv_bump = 12.0;
+    }
+    // ---------- 3) Final Score ----------
+    risk_raw   = base + mod_bump + sev_bump + res_bump + proxy_bump + actor_priv_bump + target_priv_bump;
+    risk_score = math_round( math_min( math_max(risk_raw, 0.0), 100.0 ) );
+    // ---------- 4) Core Alert EVs ----------
+    _category    = cat;
+    _subcategory = sub;
+    _alert_name = et;
+    if (has("message") && message != "" && message != "null") { _alert_name = message; }
+    _vendor  = "Okta";
+    _product = "System Log";
+    // ---------- 5) Priority Buckets ----------
+    _priority = "Low";
+    if (risk_score >= 90.0) { _priority = "Critical"; }
+    else if (risk_score >= 75.0) { _priority = "High"; }
+    else if (risk_score >= 55.0) { _priority = "Medium"; }
+| eval _alert_priority = _priority

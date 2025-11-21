@@ -1,0 +1,130 @@
+{
+	"UUID": "a2290fd6-ec6d-45df-ba09-1b7a56bdcdd8",
+	"Name": "Okta Actor/Target Overview",
+	"Description": "This Dashboard is a general overview of your Okta Actor/Target data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target [chart]",
+				"color": null,
+				"reference": {
+					"id": "ab8bef35-0085-44e6-94b9-84921f636359",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target [table]",
+				"color": null,
+				"reference": {
+					"id": "9fc8f842-0a0f-47cb-ae65-f62d61ddc564",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "325878f1-b349-4863-b244-07b4a02eb222",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target Result [table]",
+				"color": null,
+				"reference": {
+					"id": "6279d0b9-403f-4de4-9be7-0cb36489857a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 8581928240201670,
+				"title": "Category Actor/Target",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6574319166615297,
+				"title": "Category Actor/Target",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 8829130664633177,
+				"title": "Category Actor/Target by Result",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 5008922723066073,
+				"title": "Category Actor/Target by Result",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 7
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

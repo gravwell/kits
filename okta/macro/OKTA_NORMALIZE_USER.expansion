@@ -1,0 +1,9 @@
+| eval user = ""
+| eval if (has(actor) && actor != "" && actor != "null") { user = actor; }
+| eval if (has(target) && target != "" && target != "null") {
+    if (user != "") {
+        user = user + " " + target;
+    } else {
+        user = target;
+    }
+}

@@ -1,0 +1,5 @@
+// Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP
+$OKTA_ALERT_BASE
+$OKTA_FAILED_AUTH
+$OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
+| table published actor src eventType target outcomeResult outcomeReason category subcategory

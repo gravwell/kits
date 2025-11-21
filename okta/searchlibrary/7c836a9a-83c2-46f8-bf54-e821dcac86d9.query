@@ -1,0 +1,5 @@
+tag=$OKTA_USERS
+| json 
+    profile.state as state
+| stats count by state
+| numbercard count

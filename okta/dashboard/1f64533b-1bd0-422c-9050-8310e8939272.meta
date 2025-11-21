@@ -1,0 +1,501 @@
+{
+	"UUID": "1f64533b-1bd0-422c-9050-8310e8939272",
+	"Name": "Okta General Overview",
+	"Description": "This Dashboard is a general overview of your Okta Category, Event Type, \u0026 Actor/Target data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "thisMonth",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target [table]",
+				"color": null,
+				"reference": {
+					"id": "9fc8f842-0a0f-47cb-ae65-f62d61ddc564",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target Result [table]",
+				"color": null,
+				"reference": {
+					"id": "6279d0b9-403f-4de4-9be7-0cb36489857a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - System - Event Types - Count by Tag [pie]",
+				"color": null,
+				"reference": {
+					"id": "1295cce8-5fa4-4ca0-805c-84f844933599",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - System - Event Types - Count by Tag [table]",
+				"color": null,
+				"reference": {
+					"id": "0fdfad2c-2138-4985-a9e0-50952559863f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - System - Event Types - Count by Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "fd31169d-0ea3-43c8-8b32-3ac34222dec3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - System - Event Types - Count by Category [table]",
+				"color": null,
+				"reference": {
+					"id": "72328e47-b539-468b-b17c-763ef3fab35a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - System - Event Types - Count by Category, Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "143060c3-acef-4d04-8a71-8c5f5a8b7952",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - System - Event Types - Count by Category, Subcategory [table]",
+				"color": null,
+				"reference": {
+					"id": "313c06f2-9e8f-4fc1-b325-2fc7c463bf42",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "ba2624c4-7b49-430e-953a-f0d26454aefd",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category [table]",
+				"color": null,
+				"reference": {
+					"id": "3885aad7-7e1b-4ef5-9141-9d6e61a8b432",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "69391681-932e-4a0e-a438-ef71e2b0987b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category Result [table]",
+				"color": null,
+				"reference": {
+					"id": "04c60191-796a-4cbc-925e-9491d88aa2c0",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category Event Type [chart]",
+				"color": null,
+				"reference": {
+					"id": "3111dbcf-0467-4c76-af03-1ab2ccb292e2",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category Event Type [table]",
+				"color": null,
+				"reference": {
+					"id": "21cd89a7-a708-4b5c-9511-842352bcbc74",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category Event Type Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "dd83a1dd-6592-4d6b-94c1-9c2088627215",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category Event Type Result [table]",
+				"color": null,
+				"reference": {
+					"id": "1a2dce93-9c88-43d0-b920-f8fd46ca1e5f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category Actor/Target [chart]",
+				"color": null,
+				"reference": {
+					"id": "ab8bef35-0085-44e6-94b9-84921f636359",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - Category Actor/Target Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "325878f1-b349-4863-b244-07b4a02eb222",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17636982809230,
+				"title": "Count by Tag",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17636983177711,
+				"title": "Count by Tag",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17636983783712,
+				"title": "Count by Category",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17636984123203,
+				"title": "Count by Category",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 7
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17636985582514,
+				"title": "Count by Category, Subcategory",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 14
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17636986110145,
+				"title": "Count by Category, Subcategory",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 14
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17636987278756,
+				"title": "Category",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 20
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17636987898707,
+				"title": "Category",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 20
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17636989018808,
+				"title": "Category Result",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 27
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17636989518229,
+				"title": "Category Result",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 27
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176369904096910,
+				"title": "Category Event Type",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 35
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 176369909196611,
+				"title": "Category Event Type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 35
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176369912081112,
+				"title": "Category Event Type Result",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 42
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 176369916620413,
+				"title": "Category Event Type Result",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 42
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176369920702714,
+				"title": "Category Actor/Target",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 49
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 176369927482315,
+				"title": "Category Actor/Target",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 49
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176369930213916,
+				"title": "Category Actor/Target Result",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 56
+				},
+				"searchesIndex": 17,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 176369935358317,
+				"title": "Category Actor/Target Result",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 56
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

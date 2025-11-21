@@ -1,0 +1,213 @@
+{
+	"UUID": "657b43aa-250f-4524-ae1a-8d84dec57ee6",
+	"Name": "Okta Investigation",
+	"Description": "This dashboard is intended to be used for Okta investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P6MT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Okta - Investigation",
+				"color": null,
+				"reference": {
+					"id": "6a70c700-5ed9-40e5-abea-4016c095a03d",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - Investigation - Modification Alerts for Actor, Target, and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "3ba6dde2-cbed-4649-b878-2178e9883134",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - Investigation - Modification Alert Events for Actor, Target, and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "e62dc3f8-b439-45a4-be32-2d0dae93a5ac",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - Investigation - Catalog Alerts for Actor, Target, and/or IP",
+				"color": null,
+				"reference": {
+					"id": "d1f671ca-5acd-4784-9cbc-99c9872e8913",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - Investigation - Catalog Alert Events for Actor, Target, and/or IP",
+				"color": null,
+				"reference": {
+					"id": "4e99b606-4c9f-4517-bb8b-ef7ffd217fe2",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - Investigation - Authentication Events for Actor, Target, and/or IP",
+				"color": null,
+				"reference": {
+					"id": "eb5bbe3a-9992-4cc1-b3d2-13c816b07eb3",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP",
+				"color": null,
+				"reference": {
+					"id": "17f89c27-de74-458b-81e4-83098d882e1a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17635759186540,
+				"title": "All Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635789649481,
+				"title": "Modification Alerts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635790037262,
+				"title": "Modification Alert Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 20
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635790605573,
+				"title": "Catalog Alerts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 7
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635790839534,
+				"title": "Catalog Alert Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17636036393125,
+				"title": "Successful Authentication Events for Actor, Target, and/or IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 27
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17636051486456,
+				"title": "Successful Authentication Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 33
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17636051889467,
+				"title": "Failed Authentication Attempts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 39
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_USERS",
+	"Description": "Configuration Macro; Tag used for Okta Users data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates. ",
+	"Labels": [
+		"okta"
+	]
+}

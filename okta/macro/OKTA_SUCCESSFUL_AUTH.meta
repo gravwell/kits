@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_SUCCESSFUL_AUTH",
+	"Description": "This macro is used by \"Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP\" in the Okta Investigation Dashboard and can be reused when looking at successful authentication events as long as outcomeResult, and message are extracted.",
+	"Labels": [
+		"okta"
+	]
+}

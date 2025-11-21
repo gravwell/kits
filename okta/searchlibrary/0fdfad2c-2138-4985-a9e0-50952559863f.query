@@ -1,0 +1,4 @@
+tag=$OKTA_SYSTEM json eventType
+| stats count by TAG eventType
+| sort by count desc
+| table TAG eventType count

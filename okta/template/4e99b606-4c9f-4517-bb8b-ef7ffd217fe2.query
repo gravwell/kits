@@ -1,0 +1,8 @@
+// Template - Okta - Investigation - Catalog Alert Events for Actor, Target, and/or IP
+$OKTA_ALERT_BASE
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+$OKTA_CATALOG_GATE
+$OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
+| table published actorAltId actorName clientIp requestIp eventType targetAltId targetName outcomeResult outcomeReason _priority isProxy requestUri

@@ -1,0 +1,187 @@
+{
+	"UUID": "7a6f94c8-f959-4dd5-9b58-cb5ae0137b96",
+	"Name": "Okta User Location Overview",
+	"Description": "This Dashboard is a general overview of your Okta User Location data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P6MT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Okta - Users - User Country [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "ba6c1f9e-3728-45ad-9cdb-5d080fff5089",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Country [chart]",
+				"color": null,
+				"reference": {
+					"id": "6d57beef-f4be-483c-95b8-c3cb92ec6bfa",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User State [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "7c836a9a-83c2-46f8-bf54-e821dcac86d9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User State [chart]",
+				"color": null,
+				"reference": {
+					"id": "799ba52e-3c47-4b72-ac05-468e4f58887a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Timezone [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "db8ca78a-1260-4e56-9437-511b4bd96dcc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Timezone [chart]",
+				"color": null,
+				"reference": {
+					"id": "3f6b6dad-75f7-43e8-8844-b471e67abf10",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17635601835090,
+				"title": "User Country Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635602040401,
+				"title": "User Country Chart",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635602400212,
+				"title": "User State Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 5
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635602598703,
+				"title": "User State Chart",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 5
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17635602904414,
+				"title": "User Timezone Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17635603089575,
+				"title": "User Timezone Chart",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 13
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value",
+					"Orientation": "v"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

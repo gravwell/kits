@@ -1,0 +1,5 @@
+tag=$OKTA_USERS
+| json 
+    profile.title
+| stats unique_count(title) as count
+| numbercard count

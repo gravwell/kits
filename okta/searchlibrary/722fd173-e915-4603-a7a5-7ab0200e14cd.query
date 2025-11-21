@@ -1,0 +1,5 @@
+tag=$OKTA_USERS
+| json 
+    profile.department as department
+| stats count by department
+| chart count by department

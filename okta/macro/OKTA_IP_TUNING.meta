@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_IP_TUNING",
+	"Description": "Provides tuning for source IPs using okta_ip_allowlist.csv and okta_ip_denylist.csv.\n  - Allowlist: suppress (drop) matching rows per alert or globally, with optional expiry.\n  - Denylist: force-include matching rows (sets _force_alert=1) per alert or globally, with optional min_risk threshold; optionally bumps priority to at least High.\n\nReads:\n  clientIp (fallback requestIp), _alert_name, risk_score, published\n\nResources:\n  okta_ip_allowlist.csv : key,enabled,until_ymd,reason\n    - key format: \u003cip\u003e|\u003calert_name_or_*\u003e, enabled ∈ {0,1}, until_ymd = YYYYMMDD (blank = no expiry)\n  okta_ip_denylist.csv  : key,enabled,min_risk,reason\n    - key format: \u003cip\u003e|\u003calert_name_or_*\u003e, enabled ∈ {0,1}, min_risk empty/0 = always force\n\nWrites:\n  _force_alert (0/1), risk_score (may be raised), _priority (may be raised)\n\nBehavior:\n  1) Resolve src IP: clientIp else requestIp. Build composite keys \u003cip\u003e|\u003c_alert_name\u003e and \u003cip\u003e|*.\n  2) Allowlist hit (enabled \u0026 not expired) -\u003e drop row.\n  3) Denylist hit (enabled \u0026 meets min_risk if set) -\u003e _force_alert=1;\n     if desired, raise risk_score/_priority floor (e.g., to ≥75 =\u003e \"High\").\n  4) $OKTA_CATALOG_GATE will pass rows when _force_alert==1.\n\nPlacement:\n  After $OKTA_MOD_RISK_SCORE or $OKTA_CATALOG_RISK_SCORE, before $OKTA_CATALOG_GATE (if present),\n  before $OKTA_ALERT_META.",
+	"Labels": [
+		"okta"
+	]
+}

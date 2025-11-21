@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_NORMALIZE_IP",
+	"Description": "$OKTA_NORMALIZE_IP: This macro normalizes clientIp and requestIp into a new EV named src that is used to search both fields for a specific IP address. It must be run after $OKTA_ALERT_BASE or, after request.ipChain.ip and client.ipAddress have been extracted and renamed/aliased to requestIp and clientIp, respectively. It can be used in conjunction with $OKTA_NORMALIZE_ACTOR, $OKTA_NORMALIZE_TARGET, and/or $OKTA_NORMALIZE_USER.\n\nUsage:\n$OKTA_ALERT_BASE\n$OKTA_NORMALIZE_IP \n| grep -e src \"*\"",
+	"Labels": [
+		"okta"
+	]
+}

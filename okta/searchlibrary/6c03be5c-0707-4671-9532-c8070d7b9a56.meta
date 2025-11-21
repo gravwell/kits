@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Users - Status [chart]",
+	"Description": "Displays a chart of statuses by count.",
+	"GUID": "6c03be5c-0707-4671-9532-c8070d7b9a56",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

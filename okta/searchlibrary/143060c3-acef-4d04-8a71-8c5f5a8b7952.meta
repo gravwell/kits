@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - System - Event Types - Count by Category, Subcategory [chart]",
+	"Description": "Detects a chart of event types by category, subcategory.\n\nReference(s):\nhttps://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "143060c3-acef-4d04-8a71-8c5f5a8b7952",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

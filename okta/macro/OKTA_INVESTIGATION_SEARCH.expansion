@@ -1,0 +1,23 @@
+// Actor Search
+| eval actor = actorAltId;
+| eval if ((!has(actor) || actor == "" || actor == "null") &&
+           has(actorName) && actorName != "" && actorName != "null") {
+      actor = actorName;
+  }
+| grep -e actor "%%1%%"
+
+// Target Search
+| eval target = targetAltId;
+| eval if ((!has(target) || target == "" || target == "null") &&
+           has(targetName) && targetName != "" && targetName != "null") {
+      target = targetName;
+  }
+| grep -e target "%%2%%"
+
+// IP Search
+| eval src = clientIp;
+| eval if ((!has(src) || src == "" || src == "null") &&
+           has(requestIp) && requestIp != "" && requestIp != "null") {
+      src = requestIp;
+  }
+| grep -e src "%%3%%"

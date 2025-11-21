@@ -1,0 +1,5 @@
+tag=$OKTA_USERS
+| json 
+    profile.countryCode as countryCode
+| stats count by countryCode
+| numbercard count

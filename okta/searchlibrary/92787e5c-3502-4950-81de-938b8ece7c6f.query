@@ -1,0 +1,5 @@
+tag=$OKTA_USERS
+| json 
+    profile.division as division
+| stats count by division
+| numbercard count

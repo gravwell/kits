@@ -1,0 +1,9 @@
+// Template - Okta - Investigation - Authentication Events for Actor, Target, and/or IP by Country [table]
+$OKTA_ALERT_BASE
+$OKTA_NORMALIZE_IP
+$OKTA_COMBINED_AUTH
+$OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
+| geoip src.Location src.CountryName as Country
+| stats count(loginDisposition) as loginDispositionCount by src Country
+| sort by loginDispositionCount desc
+| table published actorAltId actorName targetAltId targetName src eventType outcomeResult outcomeReason loginDisposition loginDispositionCount Country category subcategory

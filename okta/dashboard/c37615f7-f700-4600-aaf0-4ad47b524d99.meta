@@ -1,0 +1,411 @@
+{
+	"UUID": "c37615f7-f700-4600-aaf0-4ad47b524d99",
+	"Name": "Okta User Authentication Overview",
+	"Description": "This Dashboard is a general overview of your Okta User Authentication data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P6MT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Okta - Authentication - Created to Activated Average [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "3ffd7959-dc10-4362-ac9d-86e4e6b5fd92",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Created to Last Updated Average [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "752af9fb-1d81-4b4c-b22e-2987a1fab5b1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Activated to Last Updated [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "093d40e8-0095-4563-876d-c229ade695aa",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Activated to Password Changed [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "15ebcd4b-d1ae-4b61-86d4-e500f0b36a87",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Last Login to Last Updated [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "871dd8c8-d37a-4295-8cf1-f46ad67ec2a9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Last Login to Password Changed [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "410dcf6d-f2b2-4a45-b8ba-1891c50b7aa7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Last Updated to Password Changed Average [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "b92ae85f-1fae-43d4-971a-6abae73dff8d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Login [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "35e5963e-0542-4dd8-a058-21b03cf97fb1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Login [chart]",
+				"color": null,
+				"reference": {
+					"id": "f2ea3c81-130e-40be-8d10-76606371e3c1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Provider Names [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5c38ffc8-7c8e-4bed-852a-291053760f7b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Provider Names [chart]",
+				"color": null,
+				"reference": {
+					"id": "ab3d97e4-d6c0-4a9b-9986-324eb0d297d4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Provider Types [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "a0db95af-e9ef-4e92-bd08-17048f458862",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Provider Types [chart]",
+				"color": null,
+				"reference": {
+					"id": "1d4fd539-669b-46e3-bca9-56c8e3facdbb",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Password Last Changed \u003e= 30 Days [table]",
+				"color": null,
+				"reference": {
+					"id": "0b715ded-cd8c-4faa-92ce-11852c80f19c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Authentication - Active Users Last Password Change [table]",
+				"color": null,
+				"reference": {
+					"id": "31f71f13-70d7-4943-9773-adff579065a3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17635710626420,
+				"title": "Created to Activated Average",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635711011451,
+				"title": "Created to Last Updated Average",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 3,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635716786952,
+				"title": "Activated to Last Updated Average",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635717132933,
+				"title": "Activated to Password Changed Average",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 3,
+					"x": 7,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635717758014,
+				"title": "Last Login to Last Updated Average",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635718082255,
+				"title": "Last Login to Password Changed Average",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 3,
+					"x": 7,
+					"y": 6
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635721904206,
+				"title": "Last Updated to Password Changed Average",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635724089627,
+				"title": "User Login Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 7,
+					"y": 9
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "20",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 17635730179358,
+				"title": "User Login Chart",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 11,
+					"y": 9
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17635736647019,
+				"title": "Provider Names Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176357370042810,
+				"title": "Provider Names Chart",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 3,
+					"y": 12
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"IncludeOther": "yes",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 176357384338611,
+				"title": "Provider Types Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 7,
+					"y": 12
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176357388963312,
+				"title": "Provider Types Chart",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 10,
+					"y": 12
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176357557961413,
+				"title": "Password Last Changed Over 30 Days Ago",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 8,
+					"x": 0,
+					"y": 16
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176357563314814,
+				"title": "Active Users Last Password Change Table",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 8,
+					"x": 7,
+					"y": 16
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

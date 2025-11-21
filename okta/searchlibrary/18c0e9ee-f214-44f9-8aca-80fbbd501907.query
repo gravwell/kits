@@ -1,0 +1,5 @@
+tag=$OKTA_USERS
+| json 
+    profile.employeeNumber as employeeNumber
+| stats count
+| numbercard count

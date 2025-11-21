@@ -1,0 +1,34 @@
+// OKTA_IP_TUNING
+// -------- IP tuning: allowlist & denylist ----------
+| eval src = clientIp;
+| eval if ((!has(src) || src == "" || src == "null") && has(requestIp) && requestIp != "" && requestIp != "null") { src = requestIp; }
+| eval if (!has(src) || src == "" || src == "null") { src = "-" ;}
+
+| eval ikey     = src + "|" + _alert_name;
+| eval ikey_any = src + "|*";
+
+// --- Allowlist lookups (exact + global) ---
+| lookup -r okta_ip_allowlist ikey     key (enabled as i_en  until_ymd as i_until  reason as i_reason)
+| lookup -r okta_ip_allowlist ikey_any key (enabled as ia_en until_ymd as ia_until reason as ia_reason)
+
+// Extract YYYYMMDD from published for simple ≤ compare
+| regex -e published "^(?P<_pubdate>\d{4}-\d{2}-\d{2})"
+| eval _pub_ymd = strings_replace(_pubdate, "-", "", -1)
+
+// Any allowlist hit -> drop row
+| eval _allow_ip = 0
+| eval if (has(i_en)  && int(i_en)==1  && (i_until==""  || int(_pub_ymd) <= int(i_until)))  { _allow_ip = 1 ;}
+| eval if (has(ia_en) && int(ia_en)==1 && (ia_until=="" || int(_pub_ymd) <= int(ia_until))) { _allow_ip = 1 ;}
+| grep -e _allow_ip "0"
+
+// --- Denylist lookups (exact + global) ---
+| lookup -r okta_ip_denylist ikey     key (enabled as di_en  min_risk as di_minrisk  reason as di_reason)
+| lookup -r okta_ip_denylist ikey_any key (enabled as dia_en min_risk as dia_minrisk reason as dia_reason)
+
+// Force include if enabled and (no threshold or meets threshold)
+| eval _force_alert = 0
+| eval if (has(di_en)  && int(di_en)==1  && (di_minrisk==""  || float(risk_score) >= float(di_minrisk)))  { _force_alert = 1 ;}
+| eval if (has(dia_en) && int(dia_en)==1 && (dia_minrisk=="" || float(risk_score) >= float(dia_minrisk))) { _force_alert = 1 ;}
+
+// Optional: nudge priority for deny hits
+| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High" ;}

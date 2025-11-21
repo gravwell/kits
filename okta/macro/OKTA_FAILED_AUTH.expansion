@@ -1,0 +1,6 @@
+// Failed Authentication Events
+| eval loginFailure =
+    has(outcomeResult) &&
+    match(outcomeResult, "(?i)(FAIL|DENY|ERROR|LOCK|TIMEOUT)") &&
+    has(message) &&
+    match(message, "(?i)(sign[- ]in|login|log in|authentication|mfa)")

@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_ALERT_SENDER",
+	"Description": "Configuration Macro: This is the address to which Okta Alert Flows will be sent from. Email Server Settings must be configured under Account \u003e Email Server \u003e Email Server Settings in order for your alerts to function properly. ",
+	"Labels": [
+		"okta"
+	]
+}

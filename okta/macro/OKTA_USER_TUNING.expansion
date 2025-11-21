@@ -1,0 +1,44 @@
+// OKTA_USER_TUNING
+// -------- user tuning: allowlist & denylist ----------
+| eval a = actorUserNorm; t = targetUserNorm;
+| eval if (!has("a") || a == "" || a == "null") { a = "-" ;}
+| eval if (!has("t") || t == "" || t == "null") { t = "-" ;}
+
+| eval akey     = a + "|" + _alert_name
+| eval tkey     = t + "|" + _alert_name
+| eval akey_any = a + "|*"
+| eval tkey_any = t + "|*"
+
+// --- Allowlist lookups (actor + target, exact + global) ---
+| lookup -r okta_user_allowlist akey     key (enabled as a_en until_ymd as a_until reason as a_reason)
+| lookup -r okta_user_allowlist akey_any key (enabled as aa_en until_ymd as aa_until reason as aa_reason)
+| lookup -r okta_user_allowlist tkey     key (enabled as t_en until_ymd as t_until reason as t_reason)
+| lookup -r okta_user_allowlist tkey_any key (enabled as tt_en until_ymd as tt_until reason as tt_reason)
+
+// Extract YYYYMMDD from published for simple ≤ compare
+| regex -e published "^(?P<_pubdate>\d{4}-\d{2}-\d{2})"
+| eval _pub_ymd = strings_replace(_pubdate, "-", "", -1)
+
+// Any allowlist hit -> drop row
+| eval _allow = 0
+| eval if (has("a_en")  && int(a_en)==1  && (a_until==""  || int(_pub_ymd) <= int(a_until)))  { _allow = 1 ;}
+| eval if (has("aa_en") && int(aa_en)==1 && (aa_until=="" || int(_pub_ymd) <= int(aa_until))) { _allow = 1 ;}
+| eval if (has("t_en")  && int(t_en)==1  && (t_until==""  || int(_pub_ymd) <= int(t_until)))  { _allow = 1 ;}
+| eval if (has("tt_en") && int(tt_en)==1 && (tt_until=="" || int(_pub_ymd) <= int(tt_until))) { _allow = 1 ;}
+| grep -e _allow "0"
+
+// --- Denylist lookups (actor + target, exact + global) ---
+| lookup -r okta_user_denylist akey     key (enabled as da_en min_risk as da_minrisk reason as da_reason)
+| lookup -r okta_user_denylist akey_any key (enabled as daa_en min_risk as daa_minrisk reason as daa_reason)
+| lookup -r okta_user_denylist tkey     key (enabled as dt_en min_risk as dt_minrisk reason as dt_reason)
+| lookup -r okta_user_denylist tkey_any key (enabled as dtt_en min_risk as dtt_minrisk reason as dtt_reason)
+
+// Force include if enabled and (no threshold or meets threshold)
+| eval _force_alert = 0
+| eval if (has("da_en")  && int(da_en)==1  && (da_minrisk==""  || float(risk_score) >= float(da_minrisk)))  { _force_alert = 1 ;}
+| eval if (has("daa_en") && int(daa_en)==1 && (daa_minrisk=="" || float(risk_score) >= float(daa_minrisk))) { _force_alert = 1 ;}
+| eval if (has("dt_en")  && int(dt_en)==1  && (dt_minrisk==""  || float(risk_score) >= float(dt_minrisk)))  { _force_alert = 1 ;}
+| eval if (has("dtt_en") && int(dtt_en)==1 && (dtt_minrisk=="" || float(risk_score) >= float(dtt_minrisk))) { _force_alert = 1 ;}
+
+// Optional: nudge priority for deny hits
+| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High" }

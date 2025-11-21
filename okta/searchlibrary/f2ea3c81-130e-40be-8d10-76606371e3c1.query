@@ -1,0 +1,9 @@
+tag=$OKTA_USERS
+| json
+    lastLogin
+| eval loginStatus = "Never logged in";
+    if (has(lastLogin) && lastLogin != "" && lastLogin != "null") {
+        loginStatus = "Has logged in";
+    }
+| stats count by loginStatus
+| chart count by loginStatus

@@ -1,0 +1,83 @@
+json
+    id
+    status
+    created
+    activated
+    statusChanged
+    lastLogin
+    lastUpdated
+    passwordChanged
+    type.id as typeId
+
+    // optional
+    realmId
+    transitioningToStatus
+
+    // profile EVs (default Okta user profile schema)
+    profile.profileUrl                       as profileUrl
+    profile.lastName                         as lastName
+    profile.zipCode                          as zipCode
+    profile.preferredLanguage
+    profile.city                             as city
+    profile.displayName                      as displayName
+    profile.timezone                         as timezone
+    profile.title                            as title
+    profile.locale                           as locale
+    profile.login                            as login
+    profile.employeeNumber                   as employeeNumber
+    profile.division                         as division
+    profile.honorificSuffix                  as honorificSuffix
+    profile.countryCode                      as countryCode
+    profile.state                            as state
+    profile.department                       as department
+    profile.email                            as email
+    profile.manager                          as manager
+    profile.nickName                         as nickName
+    profile.costCenter                       as costCenter
+    profile.secondEmail                      as secondEmail
+    profile.honorificPrefix                  as honorificPrefix
+    profile.managerId                        as managerId
+    profile.firstName                        as firstName
+    profile.primaryPhone                     as primaryPhone
+    profile.postalAddress                    as postalAddress
+    profile.mobilePhone                      as mobilePhone
+    profile.streetAddress                    as streetAddress
+    profile.organization                     as organization
+    profile.middleName                       as middleName
+    profile.userType                         as userType
+
+    // (optional) classification metadata
+    classification.type                      as classificationType
+    _embedded.classification.type            as embeddedClassificationType
+
+    // (optional) blocks metadata when expand=blocks
+    _embedded.blocks                         as embeddedBlocks
+
+    // credentials provider EVs
+    credentials.provider.type                as providerType
+    credentials.provider.name                as providerName
+
+    // optional credentials EVs
+    credentials.password                     as passwordObj
+    credentials.recovery_question.question   as recoveryQuestion
+    groupIds                                 as groupIds
+
+    // email EVs
+    credentials.emails.[0].value             as primaryEmail
+    credentials.emails.[0].status            as primaryEmailStatus
+    credentials.emails.[0].type              as primaryEmailType
+
+    credentials.emails.[1].value             as secondaryEmail
+    credentials.emails.[1].status            as secondaryEmailStatus
+    credentials.emails.[1].type              as secondaryEmailType
+
+    // link EVs
+    _links.self.href                         as selfHref
+    _links.activate.href                     as activateHref
+    _links.deactivate.href                   as deactivateHref
+    _links.resetPassword.href                as resetPasswordHref
+    _links.resetFactors.href                 as resetFactorsHref
+    _links.reactivate.href                   as reactivateHref
+    _links.suspend.href                      as suspendHref
+    _links.schema.href                       as schemaHref
+    _links.type.href                         as typeHref

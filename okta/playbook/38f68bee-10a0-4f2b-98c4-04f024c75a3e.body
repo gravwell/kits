@@ -1,0 +1,238 @@
+# Table of Contents
+- Alert Summary
+- Response Steps
+    1. Validate the Alert
+    2. Correlate with Change Management (if available)
+    3. Investigate the User Account
+    4. Investigate the Source IP
+    5. Look for Related Logins
+    6. Broader Contextual Review
+    7. Escalation Criteria
+    8. Document & Close
+
+***
+
+## Alert Summary
+Detects modification alerts that are configured within the okta\_alerts\_catalog lookup resource. 
+Overall, the query enriches raw Okta System Log events, computes a risk score in $OKTA\_MOD\_RISK\_SCORE, applies user/IP tuning (allow/deny) in $OKTA\_USER\_TUNING and $OKTA\_IP\_TUNING, and emits a consistent alert title, priority, and context in $OKTA\_ALERT\_META.  
+
+Inputs and dependencies:  
+Event source: Okta System Log (tag=$OKTA\_SYSTEM).  
+Dependencies & Lookups:  
+  - $OKTA\_ALERT\_BASE  
+    - tag=$OKTA\_SYSTEM
+  - $OKTA\_ALERT\_EVX: Performs Enumerated Value Extraction (EVX).
+  - $OKTA\_ENRICH\_COMMON: Performs Enumerated Value enrichment, normalization, and high priority user tuning control.
+    - okta\_eventTypes: Maps eventType to category, subcategory, is\_mod for risk categorization and alert naming scheme.
+    - okta\_privileged\_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.
+    - okta\_protected\_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.
+  - $OKTA\_MOD\_RISK\_SCORE: Performs risk calculations based on high priority user tuning control based on modification event types.
+    - Requires okta\_privileged\_actor and okta\_protected\_target to be run prior otherwise it will not work properly. 
+  - $OKTA\_IP\_TUNING: Provides a tuning control for IP addresses causing noisy false positives and true negatives. 
+    - okta\_ip\_allowlist.csv: Provides a tuning control to suppress alerts from known-good IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.
+    - okta\_ip\_denylist.csv: Provides a tuning control to force-include or escalate alerts from watchlisted IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.
+  - $OKTA\_USER\_TUNING: Provides a tuning control for end users causing noisy false positives and true negatives.
+    - okta\_user\_allowlist.csv: Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with expiry.
+    - okta\_user\_denylist.csv: Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk\_score >= min\_risk, per alert or globally.
+  - $OKTA\_ALERT\_META: Normalizes alert output (e.g. \_alert\_title, \_alert\_priority, and context)
+
+Reference(s):
+  - Okta 
+    - https://developer.okta.com/docs/reference/api/event-types/
+    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
+  - Sigma:
+    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta
+    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta
+  - Elastic:
+    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta
+    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta
+- Alert below  
+```query
+    $OKTA_MOD_ALERTS
+```
+
+***
+
+## Response Steps
+#### 1. Validate the Alert
+- Ensure the event actually occurred.
+- Replace the actor, target, and/or src wildcard ("*") with what you're searching for.
+- Sample Query: Run the base of the alert searching for the actor, target, and source IP from the \_alert\_title
+```query
+    // OKTA_MOD_ALERTS
+    $OKTA_ALERT_BASE
+    $OKTA_MOD_RISK_SCORE
+    $OKTA_IP_TUNING
+    $OKTA_USER_TUNING
+    $OKTA_NORMALIZE_IP
+    $OKTA_NORMALIZE_ACTOR
+    $OKTA_NORMALIZE_TARGET
+    // search for the actor 
+    | grep -e actor "*"
+    // search for the target
+    | grep -e target "*"
+    // search for the src (clientIp or requestIp)
+    | grep -e src "*"
+    | table published actor target src eventType outcomeResult outcomeReason category subcategory
+```
+
+- Sample Query: Find the alert by \_alert\_title
+```query
+// OKTA_MOD_ALERTS
+    $OKTA_ALERT_BASE
+    $OKTA_MOD_RISK_SCORE
+    $OKTA_IP_TUNING
+    $OKTA_USER_TUNING
+    $OKTA_ALERT_SEARCH
+    | grep -e _alert_title "*"
+    | table _alert_title published actor target src eventType outcomeResult outcomeReason category subcategory
+```
+
+***
+
+#### 2. Correlate with Change Management (if available)
+- Look up related tickets/change requests.
+- Validate whether the activity matches an approved request.
+
+***
+
+#### 3. Investigate the User Account
+- Review the user’s permissions, roles, and prior actions.
+- Review other actions by the same user around the event within:
+    - Thinkst Canary Logs
+    - Firewall Logs
+    - Network Logs
+    - IDS/IPS Logs
+    - Host Logs
+    - AV/EDR/XDR Logs
+- Replace the user wildcard ("*") with what you're searching for. 
+- Sample Query: Check to see if the user's access was recently changed and by who
+```query
+$OKTA_ALERT_BASE
+| eval in(eventType, 
+    "user.account.privilege.grant",
+    "user.account.privilege.revoke",
+    "group.privilege.grant",
+    "group.privilege.revoke",
+    "group.user\_membership.add",
+    "group.user\_membership.remove",
+    "workflows.user.role.user.add",
+    "workflows.user.role.user.remove",
+    "workflows.user.role.group.add",
+    "workflows.user.role.group.remove ",
+    "user.account.privilege.grant",
+    "user.account.privilege.revoke"
+    )
+$OKTA_NORMALIZE_IP
+$OKTA_NORMALIZE_ACTOR
+$OKTA_NORMALIZE_TARGET
+$OKTA_NORMALIZE_USER
+// search for the user 
+| grep -e user "*"
+| table published user actor target clientIp requestIp src eventType outcomeResult outcomeReason category subcategory
+```
+
+Sample Query: View other categorical actions by user
+```query
+$OKTA_ALERT_BASE
+$OKTA_NORMALIZE_IP
+$OKTA_NORMALIZE_ACTOR
+$OKTA_NORMALIZE_TARGET
+// search for the actor 
+| grep -e actor "*"
+| table published actor target src eventType outcomeResult outcomeReason category subcategory
+```
+
+***
+
+#### 4. Investigate the Source IP
+- Determine if the IP is internal or external.
+    - Determine what's normal for the environment.
+    - Determine what's normal for the user.
+- Replace the src wildcard ("*") with what you're searching for.
+- Sample Query: View all actions by Source IP (Replace #.#.#.# with IP in question)
+```query
+$OKTA_ALERT_BASE
+$OKTA_NORMALIZE_IP
+$OKTA_NORMALIZE_ACTOR
+$OKTA_NORMALIZE_TARGET
+// search for the src (clientIp or requestIp)
+| grep -e src "*"
+| table published actor target src eventType outcomeResult outcomeReason category subcategory
+```
+
+Sample Query: View other categorical actions by Source IP (Replace #.#.#.# with IP in question)
+```query
+$OKTA_ALERT_BASE
+$OKTA_NORMALIZE_IP
+$OKTA_NORMALIZE_ACTOR
+$OKTA_NORMALIZE_TARGET
+// search for the src (clientIp or requestIp)
+| grep -e src "*"
+| stats count by category subcategory eventType
+| table published actor target src eventType outcomeResult outcomeReason category subcategory count
+```
+
+***
+
+#### 5. Look for Related Logins
+- Identify logins by the user or from the IP address around the event.
+- Replace the actor, target, and/or src wildcard ("*") with what you're searching for.
+- Sample Query: View logins, failed logins, and similar categorical events during timeframe of the alert (Replace username & IP with user & IP in question)
+```query
+$OKTA_ALERT_BASE
+| eval in(eventType, 
+    "user.session.start",
+    "user.authentication.sso"
+    )
+$OKTA_NORMALIZE_IP
+$OKTA_NORMALIZE_ACTOR
+$OKTA_NORMALIZE_TARGET
+// search for the actor 
+| grep -e actor "*"
+// search for the target
+| grep -e target "*"
+// search for the src (clientIp or requestIp)
+| grep -e src "src"
+| table published actor target src eventType outcomeResult outcomeReason category subcategory
+```
+
+***
+
+#### 6. Broader Contextual Review
+- Check for multiple related events or anomalies regarding the user as either the actor/target.
+- Replace the user wildcard ("*") with what you're searching for.
+Sample Query: View all actions by user
+```query
+$OKTA_ALERT_BASE
+$OKTA_NORMALIZE_IP
+$OKTA_NORMALIZE_ACTOR
+$OKTA_NORMALIZE_TARGET
+$OKTA_NORMALIZE_USER
+// search for the user 
+| grep -e user "*"
+| sort by published desc
+| table published user actor target src eventType outcomeResult outcomeReason category subcategory
+```
+
+***
+
+#### 7. Escalation Criteria
+- Escalate if:
+    - Activity was not authorized or approved.
+    - Action was from an unusual IP (geolocation mismatch, external network) for the user's typical network interaction.
+    - Unauthorized or unusual activity is detected.
+
+***
+
+#### 8. Document & Close
+- Record findings in ticketing/IR platform.
+- If benign/authorized, close with justification.
+    - Submit tune requests; such as, updating the allow/block list to yield better alert results. 
+- If suspicious, escalate for containment & response.
+
+***
+
+**Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**
+
+***

@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "okta_privileged_actor",
+	"Description": "Provides a tuning opportunity for monitoring High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user without system, domain, root, etc. permissions within the environment.\n\nFields:\naccount,actor_weight,actor_label,notes",
+	"Labels": [
+		"okta"
+	],
+	"Size": 370,
+	"Hash": "P/7VzvYh5J1v81T9IB9LlA==",
+	"Data": ""
+}

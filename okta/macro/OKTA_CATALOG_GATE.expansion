@@ -1,0 +1,272 @@
+// OKTA_CATALOG_GATE
+/* ---------------- normalize locals used by gates ---------------- */
+| eval _msg = ""
+| eval if (has(message) && message!="" && message!="null") { _msg = message; }
+| eval if (_msg != "") {
+    _msg = strings_replace(_msg, "\u2014", "-", -1);
+    _msg = strings_replace(_msg, "\u2013", "-", -1);
+    _msg = strings_replace(_msg, "\u2019", "'", -1);
+    _msg = strings_replace(_msg, "\u2018", "'", -1);
+    _msg = strings_replace(_msg, "\u201C", "\"", -1);
+    _msg = strings_replace(_msg, "\u201D", "\"", -1);
+}
+
+| eval _actorName = ""; if (has(actorName) && actorName!="" && actorName!="null") { _actorName = actorName; }
+| eval _actorId   = ""; if (has(actorId)   && actorId!=""   && actorId!="null")   { _actorId   = actorId; }
+| eval _actorType = ""; if (has(actorType) && actorType!="" && actorType!="null") { _actorType = actorType; }
+| eval _clientDevice = ""; if (has(clientDevice) && clientDevice!="" && clientDevice!="null") { _clientDevice = clientDevice; }
+| eval _authExSeshId = ""; if (has(authExternalSessionId) && authExternalSessionId!="" && authExternalSessionId!="null") { _authExSeshId = authExternalSessionId; }
+
+/* ---------------- derive alert_name key ---------------- */
+| eval _alert_name = eventType
+| eval if (_msg != "") { _alert_name = _msg; }
+
+/* ===================== JOIN #1: alert_name = _alert_name ===================== */
+| lookup -r okta_alerts_catalog _alert_name alert_name (
+  description as d1 source as s1 source_url as su1 source_repo_url as sr1
+  eventType_regex as evrx1 stem_regex as stem1 method_regex as meth1 requestUri_regex as ruri1 displayMessage_regex as dmsg1
+  outcomeResult_regex as orx1 outcomeReason_regex as orea1 debugBehavior_regex as dbg1 debugLogOnlySecData_regex as dls1
+  dtHash_regex as dth1 actorId_regex as aid1 actorAltId_regex as aalt1 actorType_regex as atyp1 actorName_regex as aname1
+  authExSeshId_regex as aesi1 threatSuspect_regex as thr1 clientDevice_regex as cdev1
+  require_is_mod as rim1 require_is_proxy as rip1 min_risk as mr1 enabled as en1 notes as notes1
+)
+| eval _hit1 = 0
+| eval if (has(en1)) { _hit1 = 1; }
+
+/* ===================== JOIN #2: alert_name = eventType (fallback) ===================== */
+| lookup -r okta_alerts_catalog eventType alert_name (
+  description as d2 source as s2 source_url as su2 source_repo_url as sr2
+  eventType_regex as evrx2 stem_regex as stem2 method_regex as meth2 requestUri_regex as ruri2 displayMessage_regex as dmsg2
+  outcomeResult_regex as orx2 outcomeReason_regex as orea2 debugBehavior_regex as dbg2 debugLogOnlySecData_regex as dls2
+  dtHash_regex as dth2 actorId_regex as aid2 actorAltId_regex as aalt2 actorType_regex as atyp2 actorName_regex as aname2
+  authExSeshId_regex as aesi2 threatSuspect_regex as thr2 clientDevice_regex as cdev2
+  require_is_mod as rim2 require_is_proxy as rip2 min_risk as mr2 enabled as en2 notes as notes2
+)
+| eval _hit2 = 0
+| eval if (has(en2)) { _hit2 = 1; }
+
+/* ---------------- coalesce joined fields (prefer join #1, else join #2) ---------------- */
+| eval description          = ""
+| eval source               = ""
+| eval source_url           = ""
+| eval source_repo_url      = ""
+| eval eventType_regex      = ""
+| eval stem_regex           = ""
+| eval method_regex         = ""
+| eval requestUri_regex     = ""
+| eval displayMessage_regex = ""
+| eval outcomeResult_regex  = ""
+| eval outcomeReason_regex  = ""
+| eval debugBehavior_regex  = ""
+| eval debugLogOnlySecData_regex = ""
+| eval dtHash_regex         = ""
+| eval actorId_regex        = ""
+| eval actorAltId_regex     = ""
+| eval actorType_regex      = ""
+| eval actorName_regex      = ""
+| eval authExSeshId_regex   = ""
+| eval threatSuspect_regex  = ""
+| eval clientDevice_regex   = ""
+| eval require_is_mod       = ""
+| eval require_is_proxy     = ""
+| eval min_risk             = ""
+| eval enabled              = ""
+| eval notes                = ""
+
+/* fill from join #1 if present */
+| eval if (_hit1==1) {
+    description=d1; source=s1; source_url=su1; source_repo_url=sr1;
+    eventType_regex=evrx1; stem_regex=stem1; method_regex=meth1; requestUri_regex=ruri1; displayMessage_regex=dmsg1;
+    outcomeResult_regex=orx1; outcomeReason_regex=orea1; debugBehavior_regex=dbg1; debugLogOnlySecData_regex=dls1;
+    dtHash_regex=dth1; actorId_regex=aid1; actorAltId_regex=aalt1; actorType_regex=atyp1; actorName_regex=aname1;
+    authExSeshId_regex=aesi1; threatSuspect_regex=thr1; clientDevice_regex=cdev1;
+    require_is_mod=rim1; require_is_proxy=rip1; min_risk=mr1; enabled=en1; notes=notes1;
+}
+/* else fill from join #2 */
+| eval if (_hit1==0 && _hit2==1) {
+    description=d2; source=s2; source_url=su2; source_repo_url=sr2;
+    eventType_regex=evrx2; stem_regex=stem2; method_regex=meth2; requestUri_regex=ruri2; displayMessage_regex=dmsg2;
+    outcomeResult_regex=orx2; outcomeReason_regex=orea2; debugBehavior_regex=dbg2; debugLogOnlySecData_regex=dls2;
+    dtHash_regex=dth2; actorId_regex=aid2; actorAltId_regex=aalt2; actorType_regex=atyp2; actorName_regex=aname2;
+    authExSeshId_regex=aesi2; threatSuspect_regex=thr2; clientDevice_regex=cdev2;
+    require_is_mod=rim2; require_is_proxy=rip2; min_risk=mr2; enabled=en2; notes=notes2;
+}
+
+| eval __ASSUME_ENABLED = 1
+| eval __SKIP_EVENTTYPE_GATE = 1
+| eval __IGNORE_ALLOWLISTS = 1
+| eval __MIN_RISK_FLOOR = 0
+
+// ---------------- enabled + joined gate ----------------
+| eval _joined = 0
+| eval if (_hit1==1 || _hit2==1) { _joined = 1; }
+
+| eval _enabled = 0
+// explicit enabled from catalog
+| eval if (_joined==1 && has(enabled) && enabled!="" && enabled!="null") {
+    _en = strings_tolower(enabled);
+    if (match(_en, "^(1|true|yes)$")) { _enabled = 1; }
+}
+// assume-enabled path when catalog omits enabled
+| eval if (_joined==1 && (!has(enabled) || enabled=="" || enabled=="null") && int(__ASSUME_ENABLED)==1) {
+    _enabled = 1;
+}
+
+| eval pass = 1
+| eval _fail_reason = "ok"
+
+| eval if (_joined==0) {
+    pass = 0;
+    _fail_reason = "no_join";
+}
+
+| eval if (pass==1 && _joined==1 && _enabled==0) {
+    pass = 0;
+    _fail_reason = "disabled_in_catalog";
+}
+
+// ---------------- synthesized eventType gate (only when we have a hint) ----------------
+| eval _evrx = ""
+| eval if (has(eventType_regex) && eventType_regex!="") { _evrx = eventType_regex; }
+| eval if (_evrx=="" && has(stem_regex) && stem_regex!="" && has(method_regex) && method_regex!="") {
+    _evrx = "^(" + stem_regex + ")\\.(" + method_regex + ")$";
+}
+| eval if (_evrx=="" && has(stem_regex) && stem_regex!="") {
+    _evrx = "^(" + stem_regex + ")\\.[A-Za-z0-9_]+$";
+}
+| eval if (_evrx=="" && has(method_regex) && method_regex!="") {
+    _evrx = "^[A-Za-z0-9_.]+\\.(" + method_regex + ")$";
+}
+
+| eval _skip_ev_gate = 0
+| eval if (_evrx=="" || _evrx=="null") { _skip_ev_gate = 1; }
+| eval if (int(__SKIP_EVENTTYPE_GATE)==1) { _skip_ev_gate = 1; }
+
+| eval if (pass==1 && _skip_ev_gate==0 && !match(eventType, _evrx)) {
+    pass = 0;
+    _fail_reason = "eventType_mismatch";
+}
+
+// ---------------- field/regex gates ----------------
+| eval if (pass==1 && has(requestUri_regex)     && requestUri_regex     != "" && !(has(requestUri) && match(requestUri, requestUri_regex))) {
+    pass = 0;
+    _fail_reason = "requestUri_regex";
+}
+| eval if (pass==1 && has(displayMessage_regex) && displayMessage_regex != "" && !match(_msg, displayMessage_regex)) {
+    pass = 0;
+    _fail_reason = "displayMessage_regex";
+}
+
+| eval if (pass==1 && has(outcomeResult_regex)  && outcomeResult_regex  != "" && !(has(outcomeResult) && match(outcomeResult, outcomeResult_regex))) {
+    pass = 0;
+    _fail_reason = "outcomeResult_regex";
+}
+| eval if (pass==1 && has(outcomeReason_regex)  && outcomeReason_regex  != "" && !(has(outcomeReason) && match(outcomeReason, outcomeReason_regex))) {
+    pass = 0;
+    _fail_reason = "outcomeReason_regex";
+}
+
+| eval if (pass==1 && has(debugBehavior_regex)       && debugBehavior_regex       != "" && !(has(debugBehavior)       && match(debugBehavior,       debugBehavior_regex))) {
+    pass = 0;
+    _fail_reason = "debugBehavior_regex";
+}
+| eval if (pass==1 && has(debugLogOnlySecData_regex) && debugLogOnlySecData_regex != "" && !(has(debugLogOnlySecData) && match(debugLogOnlySecData, debugLogOnlySecData_regex))) {
+    pass = 0;
+    _fail_reason = "debugLogOnlySecData_regex";
+}
+| eval if (pass==1 && has(dtHash_regex)              && dtHash_regex              != "" && !(has(dtHash)              && match(dtHash,              dtHash_regex))) {
+    pass = 0;
+    _fail_reason = "dtHash_regex";
+}
+
+| eval if (pass==1 && has(actorId_regex)       && actorId_regex       != "" && !match(_actorId,       actorId_regex)) {
+    pass = 0;
+    _fail_reason = "actorId_regex";
+}
+| eval if (pass==1 && has(actorAltId_regex)    && actorAltId_regex    != "" && !(has(actorAltId)      && match(actorAltId,   actorAltId_regex))) {
+    pass = 0;
+    _fail_reason = "actorAltId_regex";
+}
+| eval if (pass==1 && has(actorType_regex)     && actorType_regex     != "" && !match(_actorType,     actorType_regex)) {
+    pass = 0;
+    _fail_reason = "actorType_regex";
+}
+| eval if (pass==1 && has(actorName_regex)     && actorName_regex     != "" && !match(_actorName,     actorName_regex)) {
+    pass = 0;
+    _fail_reason = "actorName_regex";
+}
+| eval if (pass==1 && has(authExSeshId_regex)  && authExSeshId_regex  != "" && !match(_authExSeshId,  authExSeshId_regex)) {
+    pass = 0;
+    _fail_reason = "authExSeshId_regex";
+}
+| eval if (pass==1 && has(threatSuspect_regex) && threatSuspect_regex != "" && !(has(threatSuspect)   && match(threatSuspect, threatSuspect_regex))) {
+    pass = 0;
+    _fail_reason = "threatSuspect_regex";
+}
+| eval if (pass==1 && has(clientDevice_regex)  && clientDevice_regex  != "" && !match(_clientDevice,  clientDevice_regex)) {
+    pass = 0;
+    _fail_reason = "clientDevice_regex";
+}
+
+// ---------------- boolean gates ----------------
+| eval _req_mod = 0
+| eval if (has(require_is_mod)) {
+    _rim = strings_tolower(require_is_mod);
+    if (match(_rim, "^(1|true|yes)$")) { _req_mod = 1; }
+}
+| eval _req_proxy = 0
+| eval if (has(require_is_proxy)) {
+    _rip = strings_tolower(require_is_proxy);
+    if (match(_rip, "^(1|true|yes)$")) { _req_proxy = 1; }
+}
+
+| eval if (pass==1 && _req_proxy==1 && !(has(isProxy) && isProxy=="true")) {
+    pass = 0;
+    _fail_reason = "require_is_proxy";
+}
+| eval if (pass==1 && _req_mod==1   && is_mod_final != 1) {
+    pass = 0;
+    _fail_reason = "require_is_mod";
+}
+
+// ---------------- min_risk gate (with __MIN_RISK_FLOOR override) ----------------
+| eval _mr = 0
+| eval if (has(min_risk) && min_risk!="" && min_risk!="null") { _mr = float(min_risk); }
+| eval _floor = float(__MIN_RISK_FLOOR)
+
+// no risk_score at all but catalog wants min_risk
+| eval if (pass==1 && _mr > 0 && !has("risk_score")) {
+    pass = 0;
+    _fail_reason = "min_risk_no_score";
+}
+
+// normal catalog min_risk check (no global floor)
+| eval if (pass==1 && _mr > 0 && _floor <= 0 && has("risk_score") && float(risk_score) < _mr) {
+    pass = 0;
+    _fail_reason = "min_risk";
+}
+
+// optional global floor override (if you ever bump __MIN_RISK_FLOOR > 0)
+| eval if (pass==1 && _mr > 0 && _floor > 0 && has("risk_score") && float(risk_score) < _floor) {
+    pass = 0;
+    _fail_reason = "min_risk_floor";
+}
+
+// ---------------- denylist override from tuning ----------------
+| eval if (has("_force_alert") && int(_force_alert)==1) {
+    pass = 1;
+    _fail_reason = "denylist_force";
+}
+
+// ---------------- final gate ----------------
+| eval _fail_reason != "no_join"
+
+// _alert_name normalization back to actual _alert_name
+| eval if (_alert_name == "(?i)Max sign in attempts exceeded") { _alert_name = "Okta User Account Locked Out"; }
+| eval if (_alert_name == "(?i)locked out|account locked") { _alert_name = "Attempts to Brute Force an Okta User Account"; }
+| eval if (_alert_name == "(?i)New sign\-on behavior") { _alert_name = "New Okta Authentication Behavior Detected"; }
+| eval if (_alert_name == "(?i)User reported suspicious activity") { _alert_name = "User Reported Suspicious Activity"; }
+| eval if (_alert_name == "(?i)unauthorized access to app") { _alert_name = "Okta Unauthorized Access to App"; }
+| eval if (_alert_name == "(?i)Max sign in attempts exceeded") { _alert_name = "Okta User Account Locked Out"; }
+| eval if (_alert_name == "(?i)single sign on|sso") { _alert_name = "Successful Application SSO from Rare Unknown Client Device"; }
+| eval if (_alert_name == "(?i)User Reported Suspicious Activity") { _alert_name = "Suspicious Activity Reported by Okta User"; }

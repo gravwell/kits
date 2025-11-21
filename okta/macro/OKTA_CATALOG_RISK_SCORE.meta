@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_CATALOG_RISK_SCORE",
+	"Description": "This is a dependency as a part of the $OKTA_CATALOG_ALERTS which all catalog alerts are built upon. It calculates a risk score based on the event type, category, and  subcategory with bumps for severity, outcome, proxy usage, modification event types, privileged \u0026 protected users then dumps it into a priority bucket. \n\nAdditional details:\n- Score is clamped to 0–100 and rounded\n\nPriority mapping:\n- Critical ≥ 90\n- High ≥ 75\n- Medium ≥ 55\n- Low \u003c 55\n\nUsage:\n$OKTA_ALERT_BASE $OKTA_CATALOG_RISK_SCORE\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n  - Sigma:\n    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta\n    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n  - Elastic:\n    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta\n    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"Labels": [
+		"okta"
+	]
+}

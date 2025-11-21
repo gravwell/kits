@@ -1,0 +1,738 @@
+{
+    "ID": "io.gravwell.okta",
+    "Name": "Okta",
+    "Desc": "The Okta Kit provides a baseline set of tags, macros, saved queries, lookup resources, alerts, scheduled searches, flows, playbooks, actionables, dashboard searches, alert queries, and dashboards for your Okta data.",
+    "Readme": "# Okta Kit for Gravwell — README\n\nA toolkit for interacting with Okta data in Gravwell. This kit includes queries, alerts, scheduled searches, resources, templates, and dashboards to help streamline your Okta data analysis.\n\n***\n\n## Table of Contents\n1. [Tags & Macros](#1-tags-&-macros)  \n    1.1. [Tags](#1-1-tags)  \n    1.2. [Macros](#1-2-macros)  \n2. [Query Library](#2-query-library)  \n3. [Naming Schema](#3-naming-schema)  \n4. [Resources](#4-resources)  \n    4.1. [Lookups](#4-1-lookups)  \n5. [Alerts](#5-alerts)  \n    5.1 [Dispatchers](#5-1-dispatchers)  \n    5.2 [Consumers](#5-2-consumers)\n6. [Scheduled Searches](#6-scheduled-searches)  \n\t6.1. [Flows](#6-1-flows)\n7. [Playbooks](#7-playbooks)  \n8. [Searches](#8-searches)  \n\t8.1. [Alert Queries](#8-1-alert-queries) \n9. [Templates](#9-templates)  \n10. [Dashboards](#10-dashboards)  \n\t10.1 [Actionables](#10-1-actionables)\n11. [Useful Resources & References](#11-useful-resources-&-references)  \n12. [Notes](#12-notes)  \n13. [Image credits](#13-image-credits)  \n\n## 1. [Tags & Macros](#1-tags-&-macros) \n#### 1.1. [Tags](#1-1-tags)\n- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.\n- [Documentation](https://docs.gravwell.io/ingesters/ingesters.html#tags)\n- The Okta Kit for Gravwell makes use of the following tags:\n    - okta-groups: Tag contains all of your Okta Group Log data.\n        - Usage: tag=okta-groups\n    - okta-users: Tag contains all of your Okta Users Log data.\n        - Usage: tag=okta-users\n    - okta-system: Tag contains all of your Okta System Log data.\n        - Usage: tag=okta-system\n\n#### 1.2. [Macros](#1-2-macros)\n- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.\n- [Documentation](https://docs.gravwell.io/search/macros.html)\n- The Okta Kit for Gravwell makes use of the following macros:\n    - Tags\n        - $OKTA: Configuration Macro; Tag used for querying all of your Okta data; necessary for any queries within the Gravwell Okta Kit to run properly.\n        - $OKTA\\_GROUPS: Configuration Macro; Tag used for Okta Groups data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates.\n        - $OKTA\\_USERS: Configuration Macro; Tag used for Okta Users data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates.\n        - $OKTA\\_SYSTEM: Configuration Macro; Tag used for Okta System Log data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboard, query library, scheduled searches, alerts, flows, and templates.\n    - EVX (Enumerated Value Extraction)\n        - $OKTA\\_USER\\_EVX: This macro extracts all possible Enumerated Values (EVs) from Okta User Logs.\n        - $OKTA\\_SYSTEM\\_EVX: This macro extracts all possible Enumerated Values (EVs) from Okta System Logs.\n    - Alert Components\n        - Alert Base\n            - $OKTA\\_ALERT\\_BASE: This is the base of which all alerts are built upon. This is necessary for the rest of the actual alerting logic to occur due to the Enumerated Value Extraction (EVX), EV enrichment and normalization performed by the dependencies listed below.\n            - $OKTA\\_ALERT\\_EVX: This macro extracts all of the necessary Enumerated Values (EVs) for the $OKTA\\_CATALOG\\_ALERTS and $OKTA\\_MOD\\_ALERTS macros from the Okta System Logs.\n            - $OKTA\\_ENRICH\\_COMMON: This is a dependency as a part of the $OKTA\\_ALERT\\_BASE which all alerts are built upon. This is necessary for the rest of the actual alerting logic to occur due to the Enumerated Value enrichment and normalization performed by the macro.\n        - Risk\n            - $OKTA\\_MOD\\_RISK\\_SCORE: This rule dynamically calculates an Okta risk score based on event type, category, subcategory, modifications, severity, outcome, and proxy usage for modification event types. This is a dependency as a part of the $OKTA\\_MOD\\_ALERTS which all modification event type alerts are built upon. It calculates a risk score based on the event type, category, and subcategory with bumps for severity, outcome, proxy usage, modification event types, privileged & protected users then dumps it into a priority bucket. \n            - $OKTA\\_CATALOG\\_RISK\\_SCORE: This is a dependency as a part of the $OKTA\\_CATALOG\\_ALERTS which all catalog alerts are built upon. It calculates a risk score based on the event type, category, and subcategory with bumps for severity, outcome, proxy usage, modification event types, privileged & protected users then dumps it into a priority bucket. \n        - Tuning\n            - $OKTA\\_IP\\_TUNING: Provides tuning for source IPs using okta\\_ip\\_allowlist.csv and okta\\_ip\\_denylist.csv.\n            - $OKTA\\_USER\\_TUNING: Provides tuning for users (actor/target) using okta\\_user\\_allowlist.csv and okta\\_user\\_denylist.csv, keyed on normalized usernames emitted by $OKTA\\_ENRICH\\_COMMON (actorUserNorm/targetUserNorm).\n        - Gating\n            - $OKTA\\_CATALOG\\_GATE: Catalog-driven gating dependency for Elastic and Sigma rulesets within $OKTA\\_CATALOG\\_ALERTS. \n        - Reporting & Searching\n            - $OKTA\\_ALERT\\_META: This macro standardizes output for Okta Alerts that are being alerted upon. It dynamically changes values in the \\_alert\\_title based on the core of the query. e.g. tag=$OKTA\\_SYSTEM $OKTA\\_ALERT\\_EVX $OKTA\\_RISK\\_SCORE $OKTA\\_ALERT\\_META\n            - $OKTA\\_ALERT\\_SEARCH: This macro enables you to search an alert by any of the Enumerated Values (EVs) created during the entire alert building query. The key fields to query to find more information typically are \\_alert\\_title, and context.\n            - $OKTA\\_NORMALIZE\\_IP: This macro normalizes clientIp and requestIp into a new EV named src that is used to search both fields for a specific IP address. It must be run after $OKTA\\_ALERT\\_BASE.\n            - $OKTA\\_NORMALIZE\\_ACTOR: This macro normalizes actorAltId and actorName into a new EV named actor that is used to search both fields for a specific actor. It must be run after $OKTA\\_ALERT\\_BASE.\n            - $OKTA\\_NORMALIZE\\_TARGET: This macro normalizes targetAltId and targetName into a new EV named target that is used to search both fields for a specific target. It must be run after $OKTA\\_ALERT\\_BASE.\n            - $OKTA\\_NORMALIZE\\_USER: This macro creates a new combined EV of actor and target meaning that you can search for a specific user as actor or target within the user EV without having to create an or statement for those EVs. This also means that you can independently query actor, target, and user which is useful in tracking a threat actor from the initial alert to other linked events. This macro must be used after both $OKTA\\_NORMALIZE\\_ACTOR, and $OKTA\\_NORMALIZE\\_TARGET.\n    - [Alert Queries](#8-1-alert-queries)  & [Scheduled Searches](#6-scheduled-searches) \n        - $OKTA\\_CATALOG\\_ALERTS: Detects Elastic & Sigma alerts that are configured within the okta\\_alerts\\_catalog lookup resource. \n        - $OKTA\\_MOD\\_ALERTS: Detects modification alerts that are configured within the okta\\_alerts\\_catalog lookup resource.\n    - [Flows](#6-1-flows)\n        - $GRAVWELL\\_INSTANCE: Configuration Macro; Necessary for alerts within the Okta Kit to link data to the notification email\n        - $OKTA\\_ALERT\\_RECIPIENT: Configuration Macro: This is the address to which Okta Alert Flows will be sent to. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.\n        - $OKTA\\_ALERT\\_SENDER: Configuration Macro: This is the address to which Okta Alert Flows will be sent from. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.\n    - [Dashboard](#10-dashboards) Components\n        - $OKTA\\_INVESTIGATION\\_SEARCH: This is intended to be used in the Okta Investigation Templates so the queries are clean and modular.\n        - Authentication\n            - $OKTA\\_FAILED\\_AUTH: This macro is used by \"Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP\" in the Okta Investigation Dashboard and can be reused when looking at failed authentication events as long as outcomeResult, and message are extracted.\n            - $OKTA\\_SUCCESSFUL\\_AUTH: This macro is used by \"Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP\" in the Okta Investigation Dashboard and can be reused when looking at successful authentication events as long as outcomeResult, and message are extracted.\n            - $OKTA\\_COMBINED\\_AUTH: This macro is used by \"Template - Okta - Investigation - Authentication Events for Actor, Target, and/or IP by Country [table]\" in the Okta Investigation Dashboard and can be reused when looking at authentication events as long as outcomeResult, and message are extracted.\n        - Reporting\n            - $OKTA\\_ALERT\\_INFO: This macro standardizes output for Okta Alerts that are being alerted upon. It dynamically changes values in the \\_alert\\_title based on the core of the query. This is used for the Okta Investigation Dashboard to simply show the Alert Title and Alert Priority without the context as that will be displayed in the Modification Alert Events and the Catalog Alert Events.\n\n***\n\n## 2. [Query Library](#2-query-library)  \n- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#10-searches), [scheduled searches](#8-scheduled-searches) via [alert queries](#10-1-alert-query), and [playbooks](#9-playbooks). \n- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)\n\t- Updating a query in the library updates dependent dashboards scheduled searches automatically.\n\t- Total queries: 43  \n\t    - [Alert Queries](#8-1-alert-query): 2  \n\t    - [Searches](#8-searches): 41   \n\n***\n\n## 3. [Naming Schema](#3-naming-schema)  \n- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  \n- _QueryType - Company - Category - Severity/Priority - \\_\\_\\_\\_\\_Name [Visualization - **if any**]_\n- Examples:\n    - [Alerts](#5-alerts): _Alert - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_\n    - [Scheduled Searches](#6-scheduled-searches): _ScheduledSearch - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_\n    - [Playbook](#7-playbooks): _Playbook - Okta - System - Event Types - Modification Alerts_\n    - [Searches](#8-searches): _Search - Okta - Authentication - Activated to Last Updated Average [numbercard]_\n    - [Alert Query](#8-1-alert-query): _AlertQuery - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_\n    - [Templates](#9-templates): _Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP_\n\n***\n\n## 4. [Resources](#4-resources)  \n- Purpose: Resources allow users to store persistent data for use in searches.\n- [Documentation](https://docs.gravwell.io/resources/resources.html)\n#### 4.1 [Lookups](#4-1-lookups)\n- Purpose: Lookup Resources are used by the lookup module to perform data enrichment and translation off of a static lookup table stored in a resource.\n- [Documentation](https://docs.gravwell.io/search/lookup/lookup.html)\n- Total: 8\n    - okta\\_alerts\\_catalog: This is a combination of Elastic and Sigma open source alerts cataloged for dashboards, macros, scheduled searches, alerts, and flows.\n    - okta\\_eventTypes: Provides additional information for Okta event types that are used for enrichment and normalization.\n    - okta\\_ip\\_allowlist: Provides a tuning control to suppress alerts from known-good source IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n    - okta\\_ip\\_denylist: Provides a tuning control to force-include or escalate alerts from watchlisted source IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n    - okta\\_privileged\\_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.\n    - okta\\_protected\\_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.\n    - okta\\_user\\_allowlist: Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with expiry.\n    - okta\\_user\\_denylist: Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk\\_score >= min\\_risk, per alert or globally.\n\n***\n\n## 5. [Alerts](#5-alerts)  \n- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.  \n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#alerts)\n\t- Alerts are made up of Dispatchers and Consumers that ensure that when a dispatcher generates an event, all associated consumers are executed to process it. \n    - [Documentation](https://docs.gravwell.io/alerts/alerts.html)\n- Total: 2\n    - Alert - Okta - System - Alert Catalog - Elastic & Sigma Rulesets\n    - Alert - Okta - System - Event Types - Modification Alerts\n- Naming Schema: _Alert - Okta - Category - Severity/Priority - AlertName_\n#### 5.1 [Dispatchers](#5-1-dispatchers)  \n- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs every hour looking for “bad” activity; every result returned by a scheduled search is considered an event.  \n    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)\n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)\n#### 5.2 [Consumers](#5-2-consumers)\n- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.\n    - Consumers = [Flows](#6-1-flows)\n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)  \n\n***\n\n## 6. [Scheduled Searches](#6-scheduled-searches)  \n- Purpose: Scheduled Searches are dependent on the [alert query](#10-1-alert-query) queries titled _\"AlertQuery - Okta - Category - Severity/Priority - AlertName\"_ within the [Query Library](#4-query-library).\n- [Documentation](https://docs.gravwell.io/scripting/scheduledsearch.html)\n\t- **IMPORTANT:** If an [Alert Query](#8-1-alert-query) is modified within the query library, it will be modified in the associated Scheduled Search. \n\t- **DISCLAIMER:** There are a few queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \\\"from Outside Country\\\" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.\n- Total: 2\n    - ScheduledSearch - Okta - System - Alert Catalog - Elastic & Sigma Rulesets\n    - ScheduledSearch - Okta - System - Event Types - Modification Alerts\n- Naming Schema: _ScheduledSearch - Okta - Category - Severity/Priority - ScheduledSearchName_\n\t- Cron schedules:\n\t- _ScheduledSearch - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_: 15 \\* \\* \\* \\*\n\t- _ScheduledSearch - Okta - System - Event Types - Modification Alerts_: 30 \\* \\* \\* \\*\n#### 6.1. [Flows](#6-1-flows)  \n- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.  \n- [Documentation](https://docs.gravwell.io/flows/flows.html)  \n- Total: 2  \n\t- _Flow - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_  \n\t- _Flow - Okta - System - Event Types - Modification Alerts_  \n- Dependencies: The above Flows have the following dependencies:  \n\t- Notification  \n        - $GRAVWELL\\_INSTANCE  \n\t    - $OKTA\\_ALERT\\_RECIPIENT  \n\t    - $OKTA\\_ALERT\\_SENDER  \n    - Flow - Okta - System - Alert Catalog - Elastic & Sigma Rulesets  \n        - ScheduledSearch - Okta - System - Alert Catalog - Elastic & Sigma Rulesets  \n            - AlertQuery - Okta - System - Alert Catalog - Elastic & Sigma Rulesets  \n                - $OKTA\\_CATALOG\\_ALERTS  \n                - $OKTA\\_ALERT\\_BASE  \n                - $OKTA\\_ALERT\\_EVX  \n                - $OKTA\\_ENRICH\\_COMMON  \n                - $OKTA\\_CATALOG\\_RISK\\_SCORE  \n                - $OKTA\\_IP\\_TUNING  \n                - $OKTA\\_USER\\_TUNING  \n                - $OKTA\\_CATALOG\\_GATE  \n                - $OKTA\\_ALERT\\_META  \n\t- Flow - Okta - System - Event Types - Modification Alerts  \n        - ScheduledSearch - Okta - System - Event Types - Modification Alerts  \n            - AlertQuery - Okta - System - Event Types - Modification Alerts  \n                - $OKTA\\_ALERT\\_BASE\n                - $OKTA\\_ALERT\\_EVX\n                - $OKTA\\_ENRICH\\_COMMON\n                - $OKTA\\_MOD\\_RISK\\_SCORE\n                - $OKTA\\_IP\\_TUNING\n                - $OKTA\\_USER\\_TUNING\n                - $OKTA\\_ALERT\\_META\n\n***\n\n## 7. [Playbooks](#7-playbooks)  \n- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.\n- [Documentation](https://docs.gravwell.io/gui/playbooks/playbooks.html)\n- Total: 3\n    - Okta Kit for Gravwell - README\n    - Playbook - Okta - System - Alert Catalog - Elastic & Sigma Rulesets\n    - Playbook - Okta - System - Event Types - Modification Alerts\n- Naming Schema: _Playbook - Okta - Category - Severity/Priority - PlaybookName_\n- **Disclaimer:** This is a guide to assist with investigation and is not a definitive security assessment.\n\n***\n\n## 8. [Searches](#8-searches)  \n- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view your Okta in an easily digestable format. \n- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)\n\t- **IMPORTANT:** If a \\\"search\\\" query is modified within the query library, it will be modified in the associated [Dashboard](#10-dashboards) panel displaying that search. \n\t- **DISCLAIMER:** There are a few searches which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \\\"from Outside Country\\\" is implicated in this so if those searches are failing; I'd suggest troubleshooting here.\n\t- Total: 47\n\t- Naming Schema: _Search - Okta - Category - Severity/Priority - SearchName [Visualization - **if any**]__  \n    \n#### 8.1. [Alert Queries](#8-1-alert-queries) \n- Alert Queries feed [Scheduled Searches](#6-scheduled-searches)\n**IMPORTANT:** If you need to update or tune, this is where you perform that action.\n\t- **DISCLAIMER:** There are a few alert queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.\n\t\t- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.\n\t\t- **Note:** Any query containing \\\"from Outside Country\\\" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.\n\t- Total: 2\n\t- Naming Schema: _AlertQuery - Okta - Category - Severity/Priority - AlertName_\n    \t- _AlertQuery - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_\n    \t- _AlertQuery - Okta - System - Event Types - Modification Alerts_\n***\n\n## 9. [Templates](#9-templates)  \n- Purpose: Templates are special objects which define a Gravwell query containing variables. \n- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)\n- Total: 32\n\t- Template - Okta - System - Event Types - Category Actor/Target [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Actor/Target [table]: Displays a table of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Actor/Target Result [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Actor/Target Result [table]: Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category [chart]: Displays a chart of events by category, and subcategory for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category [table]: Displays a table of events by category, and subcategory for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Result [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Result [table]: Displays a table of events by category, subcategory, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Event Type [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Event Type [table]: Displays a table of events by category, subcategory, and event type for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Event Type Result [chart]: Displays a chart of events by category, subcategory, event type, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Event Type Result [table]: Displays a table of events by category, subcategory, event type, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category [chart]: Displays a chart of events by category, and subcategory for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category [table]: Displays a table of events by category, and subcategory for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Result [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Result [table]: Displays a table of events by category, subcategory, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Event Type [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Event Type [table]: Displays a table of events by category, subcategory, and event type for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Event Type Result [chart]: Displays a chart of events by category, subcategory, event type, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Event Type Result [table]: Displays a table of events by category, subcategory, event type, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Actor/Target [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Actor/Target [table]: Displays a table of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Actor/Target Result [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\t- Template - Okta - System - Event Types - Category Actor/Target Result [table]: Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\t- Template - Okta - Investigation - All Events for Actor, Target, and/or IP: This template returns all Okta System Log events associated with a specific actor, target, and/or IP address.\n\t- Template - Okta - Investigation - Authentication Events for Actor, Target, and/or IP by Country [table]: This template returns all authentication events in the Okta System Logs associated with a specific actor, target, and/or IP address by Country.\n    - Template - Okta - Investigation - Modification Alerts for Actor, Target, and/or IP [table]: This template returns all Modification Alerts found within Okta System Log events associated with a specific actor, target, and/or IP address.\n\t- Template - Okta - Investigation - Modification Alert Events for Actor, Target, and/or IP [table]: This template returns all Modification Alert Events found within Okta System Log events associated with a specific actor, target, and/or IP address.\n\t- Template - Okta - Investigation - Catalog Alerts for Actor, Target, and/or IP: This template returns all Catalog Alerts found within Okta System Log events associated with a specific actor, target, and/or IP address.\n\t- Template - Okta - Investigation - Catalog Alert Events for Actor, Target, and/or IP: This template returns all Catalog Alert Events found within Okta System Log events associated with a specific actor, target, and/or IP address.\n\t- Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP: This template returns all successful authentication events in the Okta System Logs associated with a specific actor, target, and/or IP address.\n\t- Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP: This template returns all failed authentication attempts in the Okta System Logs associated with a specific actor, target, and/or IP address.\n***\n\n## 10. [Dashboards](#10-dashboards)\n- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time. \n- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)\n- Total: 8\n\t- Okta Actor/Target Overview: This Dashboard is a general overview of your Okta Actor/Target data.\n\t\t- Template - Okta - System - Event Types - Category Actor/Target [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Actor/Target [table]: Displays a table of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Actor/Target Result [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Actor/Target Result [table]: Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\t- Okta Category Overview: This Dashboard is a general overview of your Okta Category data.\n\t\t- Template - Okta - System - Event Types - Category [chart]: Displays a chart of events by category, and subcategory for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category [table]: Displays a table of events by category, and subcategory for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Result [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Result [table]: Displays a table of events by category, subcategory, and result for the category you enter into the variable.\n\t- Okta Event Type Overview: This Dashboard is a general overview of your Okta Event Type data.\n\t\t- Template - Okta - System - Event Types - Category Event Type [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Event Type [table]: Displays a table of events by category, subcategory, and event type for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Event Type Result [chart]: Displays a chart of events by category, subcategory, event type, and result for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Event Type Result [table]: Displays a table of events by category, subcategory, event type, and result for the category you enter into the variable.\n\t- Okta General Overview: This Dashboard is a general overview of your Okta Category, Event Type, & Actor/Target data.\n        - Search - Okta - System - Event Types - Count by Tag [chart]: This will display the amount of events consumed by Okta Tag in a pie chart over the specified timeframe. \n        - Search - Okta - System - Event Types - Count by Tag [table]: This will display the amount of events consumed by Okta Tag in a table over the specified timeframe. \n        - Search - Okta - System - Event Types - Count by Category [chart]: Displays a chart of event types by category.\n        - Search - Okta - System - Event Types - Count by Category [table]: Displays a table of event types by category.\n        - Search - Okta - System - Event Types - Count by Category, Subcategory [chart]: Displays a chart of event types by category, and subcategory.\n        - Search - Okta - System - Event Types - Count by Category, Subcategory [table]: Displays a table of event types by category, and subcategory.\n\t\t- Template - Okta - System - Event Types - Category [chart]: Displays a chart of events by category, and subcategory for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category [table]: Displays a table of events by category, and subcategory for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Result [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Result [table]: Displays a table of events by category, subcategory, and result for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Event Type [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Event Type [table]: Displays a table of events by category, subcategory, and event type for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Event Type Result [chart]: Displays a chart of events by category, subcategory, event type, and result for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Event Type Result [table]: Displays a table of events by category, subcategory, event type, and result for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Actor/Target [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Actor/Target [table]: Displays a table of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Actor/Target Result [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\t\t- Template - Okta - System - Event Types - Category Actor/Target Result [table]: Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\t- Okta Investigation: This dashboard is intended to be used for Okta investigations.\n\t\t- Template - Okta - Investigation - All Events for Actor, Target, and/or IP\n\t\t- Template - Okta - Investigation - Modification Alerts for Actor, Target, and/or IP [table]\n\t\t- Template - Okta - Investigation - Modification Alert Events for Actor, Target, and/or IP [table]\n\t\t- Template - Okta - Investigation - Catalog Alerts for Actor, Target, and/or IP\n\t\t- Template - Okta - Investigation - Catalog Alert Events for Actor, Target, and/or IP\n\t\t- Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP\n\t\t- Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP\n\t- Okta User Authentication Overview: This dashboard is a general overview of your Okta User Authentication data.\n\t\t- Search - Okta - Authentication - Created to Activated Average [numbercard]: Displays a numbercard of the created to activated average/mean.\n\t\t- Search - Okta - Authentication - Created to Last Updated Average [numbercard]: Displays a numbercard of the created to last updated average/mean.\n\t\t- Search - Okta - Authentication - Activated to Last Updated Average [numbercard]: Displays a numbercard of the activated to last updated average/mean.\n\t\t- Search - Okta - Authentication - Activated to Password Changed Average [numbercard]: Displays a numbercard of the activated to password changed average/mean.\n\t\t- Search - Okta - Authentication - Last Login to Last Updated Average [numbercard]: Displays a numbercard of the last login to last updated average/mean.\n\t\t- Search - Okta - Authentication - Last Login to Password Changed Average [numbercard]: Displays a numbercard of the last login to password changed average/mean.\n\t\t- Search - Okta - Authentication - Last Updated to Password Changed Average [numbercard]: Displays a numbercard of the last updated to password changed average/mean.\n\t\t- Search - Okta - Authentication - User Login [numbercard]: Displays a numbercard of the user logins by count.\n\t\t- Search - Okta - Authentication - User Login [chart]: Displays a chart of user logins by count.\n\t\t- Search - Okta - Authentication - Provider Names [numbercard]: Displays a numbercard of the credential provider names by count.\n\t\t- Search - Okta - Authentication - Provider Names [chart]: Displays a chart of credential provider names by count.\n\t\t- Search - Okta - Authentication - Provider Types [numbercard]: Displays a numbercard of the credential provider types by count.\n\t\t- Search - Okta - Authentication - Provider Types [chart]: Displays a chart of credential provider types by count.\n\t\t- Search - Okta - Authentication - Password Last Changed >= 30 Days [table]: Displays a numbercard of the last login to password changed average/mean.\n\t\t- Search - Okta - Authentication - Active Users Last Password Change [table]: Displays a numbercard of the last login to password changed average/mean.\n\t- Okta User Location Overview: This dashboard is a general overview of your Okta User Location data.\n\t\t- Search - Okta - Users - User Country [numbercard]: Displays a numbercard of the user's Country by count.\n\t\t- Search - Okta - Users - User Country [chart]: Displays a chart of the user's Country by count.\n\t\t- Search - Okta - Users - User State [numbercard]: Displays a numbercard of the user's State by count.\n\t\t- Search - Okta - Users - User State [chart]: Displays a chart of the user's State by count.\n\t\t- Search - Okta - Users - User Timezone [numbercard]: Displays a numbercard of the user's Timezone by count.\n\t\t- Search - Okta - Users - User Timezone [chart]: Displays a chart of the user's Timezone by count.\n\t- Okta User Overview: This dashboard is a general overview of your Okta User data.\n\t\t- Search - Okta - Users - Total Count [numbercard]: Displays a numbercard of total users.\n\t\t- Search - Okta - Users - Status [chart]: Displays a chart of statuses by count.\n\t\t- Search - Okta - Users - Status [numbercard]: Displays a numbercard of statuses by count.\n\t\t- Search - Okta - Users - Division [chart]: Displays a chart of divisions by count.\n\t\t- Search - Okta - Users - Division [numbercard]: Displays a numbercard of divisions by count.\n\t\t- Search - Okta - Users - Division Count [numbercard]: Displays a numbercard of divisions by unique_count.\n\t\t- Search - Okta - Users - Department [chart]: Displays a chart of departments by count.\n\t\t- Search - Okta - Users - Department [numbercard]: Displays a numbercard of departments by count.\n\t\t- Search - Okta - Users - Department Count [numbercard]: Displays a numbercard of departments by unique_count.\n\t\t- Search - Okta - Users - User Type [chart]: Displays a chart of user types by count.\n\t\t- Search - Okta - Users - User Type [numbercard]: Displays a numbercard of user types by count.\n\t\t- Search - Okta - Users - User Type Count [numbercard]: Displays a numbercard of user types by unique_count.\n\t\t- Search - Okta - Users - Job Title [chart]: Displays a chart of job title by count.\n\t\t- Search - Okta - Users - Job Title [numbercard]: Displays a numbercard of job titles by count.\n\t\t- Search - Okta - Users - Job Title Count [numbercard]: Displays a numbercard of job title by unique_count.\n\t\t- Search - Okta - Users - Manager [chart]: Displays a chart of manager by unique_count.\n\t\t- Search - Okta - Users - Manager [numbercard]: Displays a numbercard of manager by unique_count.\n\t\t- Search - Okta - Users - Manager Count [numbercard]: Displays a numbercard of manager by unique_count.  \n#### 10.1 [Actionables](#10-1-actionables)\n- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.\n- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)\n- Total: 3\n    - Okta Actor: Okta Actions on Actor to Launch the Okta Investigation Dashboard.\n    - Okta IP: Okta Actions on IP to Launch the Okta Investigation Dashboard.\n    - Okta Target: Okta Actions on Target to Launch the Okta Investigation Dashboard.\n\n***\n\n## 11. [Useful Resources & References](#11-useful-resources-&-references)  \n- [Okta](https://www.okta.com/) \n\t- [API Event Types](https://developer.okta.com/docs/reference/api/event-types/)\n\t- [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/)\n- [Sigma](https://sigmahq.io/)\n\t- [Detection.FYI Detection Rules](https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta)\n\t- [Sigma Detection Rules on GitHub](https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta)\n- [Elastic](https://www.elastic.co/)\n\t- [Detection.FYI Detection Rules](https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta)\n\t- [Elastic Detection Rules on GitHub](https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta)\n\n***\n\n## 12. [Notes](#12-notes)  \n- The Network Enrichment Kit (v19) is a **dependency**.\n\n***\n\n## 13. [Image credits](#13-image-credits)\n- icon: [UXWing] (https://uxwing.com/okta-icon/)\n- cover: [UXWing] (https://uxwing.com/okta-icon/)\n- banner: [UXWing] (https://uxwing.com/okta-icon/)",
+    "Version": 1,
+    "MinVersion":
+    {
+        "Major": 0,
+        "Minor": 0,
+        "Point": 0
+    },
+    "MaxVersion":
+    {
+        "Major": 0,
+        "Minor": 0,
+        "Point": 0
+    },
+    "Icon": "c7cccc24-b3b4-4381-8f49-252e5af2f1cf",
+    "Banner": "eabdba74-0766-42c8-b9f7-25e6d63fada8",
+    "Cover": "d96f0592-15b5-492b-9d4a-363b18e03953",
+    "Items":
+    [
+        {
+            "Name": "Apache 2.0 License",
+            "Type": 10,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_alerts_catalog",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_eventTypes",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_user_denylist",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_user_allowlist",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_protected_target",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_ip_denylist",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_privileged_actor",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_ip_allowlist",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "46063398-1d67-4591-aa8f-28e0450eb19d",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "bd52363c-e32f-4b4d-ad66-046037147f31",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "0ac35f09-fa74-49ee-977a-3b2fcb1b3b50",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6bbaf0a8-5a71-45e8-99f0-405ad8241b8b",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_ALERT_BASE",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_INVESTIGATION_SEARCH",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_FAILED_AUTH",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_ALERT_INFO",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_MOD_RISK_SCORE",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_IP_TUNING",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_USER_TUNING",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_CATALOG_GATE",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_CATALOG_RISK_SCORE",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_SUCCESSFUL_AUTH",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_SYSTEM",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_USERS",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "GRAVWELL_INSTANCE",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_ALERT_EVX",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_CATALOG_ALERTS",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_MOD_ALERTS",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_ALERT_SENDER",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_ENRICH_COMMON",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_NORMALIZE_TARGET",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_SYSTEM_EVX",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_GROUPS",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_NORMALIZE_IP",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_COMBINED_AUTH",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_NORMALIZE_ACTOR",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_ALERT_RECIPIENT",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_ALERT_SEARCH",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_ALERT_META",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_USER_EVX",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_NORMALIZE_USER",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "657b43aa-250f-4524-ae1a-8d84dec57ee6",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "1f64533b-1bd0-422c-9050-8310e8939272",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "a2290fd6-ec6d-45df-ba09-1b7a56bdcdd8",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "c37615f7-f700-4600-aaf0-4ad47b524d99",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "96362ec1-2a67-4b07-951d-b9cdf88c7020",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "8346559c-0d8d-4792-9e7b-c68e41082198",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "2554f31d-5ba4-4cc0-bfdc-7260e1470d26",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "7a6f94c8-f959-4dd5-9b58-cb5ae0137b96",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "17f89c27-de74-458b-81e4-83098d882e1a",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "3ba6dde2-cbed-4649-b878-2178e9883134",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4e99b606-4c9f-4517-bb8b-ef7ffd217fe2",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "e62dc3f8-b439-45a4-be32-2d0dae93a5ac",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "d1f671ca-5acd-4784-9cbc-99c9872e8913",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6a70c700-5ed9-40e5-abea-4016c095a03d",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "eb5bbe3a-9992-4cc1-b3d2-13c816b07eb3",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ba2624c4-7b49-430e-953a-f0d26454aefd",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ab8bef35-0085-44e6-94b9-84921f636359",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6279d0b9-403f-4de4-9be7-0cb36489857a",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "21cd89a7-a708-4b5c-9511-842352bcbc74",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "1a2dce93-9c88-43d0-b920-f8fd46ca1e5f",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "69391681-932e-4a0e-a438-ef71e2b0987b",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "04c60191-796a-4cbc-925e-9491d88aa2c0",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "9fc8f842-0a0f-47cb-ae65-f62d61ddc564",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "dd83a1dd-6592-4d6b-94c1-9c2088627215",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "325878f1-b349-4863-b244-07b4a02eb222",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "3885aad7-7e1b-4ef5-9141-9d6e61a8b432",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "3111dbcf-0467-4c76-af03-1ab2ccb292e2",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "29b12b24-877c-487c-a067-a02a733f18cb",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "82f7da73-2920-4225-982a-0934f37e9d18",
+            "Type": 5,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "79103823-fbc1-4907-a16a-24c57b50b1f9",
+            "Type": 5,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "b59d85f1-011d-4180-8c60-dd76ecde814d",
+            "Type": 5,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "fd31169d-0ea3-43c8-8b32-3ac34222dec3",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "0fdfad2c-2138-4985-a9e0-50952559863f",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "72328e47-b539-468b-b17c-763ef3fab35a",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "1295cce8-5fa4-4ca0-805c-84f844933599",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "313c06f2-9e8f-4fc1-b325-2fc7c463bf42",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "143060c3-acef-4d04-8a71-8c5f5a8b7952",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "410dcf6d-f2b2-4a45-b8ba-1891c50b7aa7",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ab3d97e4-d6c0-4a9b-9986-324eb0d297d4",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "b92ae85f-1fae-43d4-971a-6abae73dff8d",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "a0db95af-e9ef-4e92-bd08-17048f458862",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "5c38ffc8-7c8e-4bed-852a-291053760f7b",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "871dd8c8-d37a-4295-8cf1-f46ad67ec2a9",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "f2ea3c81-130e-40be-8d10-76606371e3c1",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "35e5963e-0542-4dd8-a058-21b03cf97fb1",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "752af9fb-1d81-4b4c-b22e-2987a1fab5b1",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "31f71f13-70d7-4943-9773-adff579065a3",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "093d40e8-0095-4563-876d-c229ade695aa",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "1d4fd539-669b-46e3-bca9-56c8e3facdbb",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "0b715ded-cd8c-4faa-92ce-11852c80f19c",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "3ffd7959-dc10-4362-ac9d-86e4e6b5fd92",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "15ebcd4b-d1ae-4b61-86d4-e500f0b36a87",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "8e4f336f-a99f-46fe-9779-d6cd31f01191",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "9e70cdfe-4e8e-4884-8d9a-d88031a1d70d",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "64aedb5c-3fd3-4003-8ad7-b2b24ff1853f",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6c03be5c-0707-4671-9532-c8070d7b9a56",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "87afea96-3af3-4da7-9a85-b6bb2612cf30",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "9cb440d8-d7d7-485a-9882-6e2dbada0de0",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "fffec025-50d6-44a6-92e9-6055afd4d7f6",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "765a6179-1862-405b-b48a-4434e919b021",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "0c1ab0d3-ab8d-460b-b809-a4708f146a53",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "e4f0ec4b-d6e5-4872-b89e-78d4d68bf8ea",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4f44df25-11f5-4733-89f9-a68f309503a8",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "57fbef18-044c-4fbd-9417-c332f47fe5ba",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "722fd173-e915-4603-a7a5-7ab0200e14cd",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "92787e5c-3502-4950-81de-938b8ece7c6f",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "7c25c0ca-989b-4a9a-aaa2-2224e9aeb508",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "18c0e9ee-f214-44f9-8aca-80fbbd501907",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4ef90d94-4295-43b5-8e64-15749f5fe038",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "9b6705e1-b927-47da-985f-6291f2141c65",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6d57beef-f4be-483c-95b8-c3cb92ec6bfa",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ba6c1f9e-3728-45ad-9cdb-5d080fff5089",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "3f6b6dad-75f7-43e8-8844-b471e67abf10",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "db8ca78a-1260-4e56-9437-511b4bd96dcc",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "799ba52e-3c47-4b72-ac05-468e4f58887a",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "7c836a9a-83c2-46f8-bf54-e821dcac86d9",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "7aa466cd-444f-4800-9ff1-0b211cfc4cf5",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6891c879-5215-4064-b3bb-b0dea413e0ec",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ce435158-0ea1-494f-a6fe-fd6155873f16",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "fc055c0e-84e0-440a-a56e-a6b4953e5f32",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "c7cccc24-b3b4-4381-8f49-252e5af2f1cf",
+            "Type": 7,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "d96f0592-15b5-492b-9d4a-363b18e03953",
+            "Type": 7,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "eabdba74-0766-42c8-b9f7-25e6d63fada8",
+            "Type": 7,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "c390632d-f96f-44f9-8ff5-3094066b063e",
+            "Type": 11,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "38f68bee-10a0-4f2b-98c4-04f024c75a3e",
+            "Type": 11,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "172a3b04-4db2-4ae0-9609-99bd7d2a07fe",
+            "Type": 11,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "3d24235b-0f55-40ab-bb02-f5818d8af11e",
+            "Type": 12,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "05b1e620-9663-4558-8c78-80a1dc9f30c0",
+            "Type": 12,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+    ],
+    "Dependencies":
+    [
+        {
+            "ID": "io.gravwell.networkenrichment",
+            "MinVersion": 19
+        }
+    ],
+    "ConfigMacros":
+    [
+        {
+            "MacroName": "OKTA_GROUPS",
+            "Description": "Configuration Macro; Tag used for Okta Groups data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates.",
+            "DefaultValue": "okta-groups",
+            "Value": "",
+            "Type": "TAG",
+            "InstalledByID": ""
+        },
+        {
+            "MacroName": "OKTA_USERS",
+            "Description": "Configuration Macro; Tag used for Okta Users data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates.",
+            "DefaultValue": "okta-users",
+            "Value": "",
+            "Type": "TAG",
+            "InstalledByID": ""
+        },
+        {
+            "MacroName": "OKTA_SYSTEM",
+            "Description": "Configuration Macro; Tag used for Okta System Log data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboard, query library, scheduled searches, alerts, flows, and templates.",
+            "DefaultValue": "okta-system",
+            "Value": "",
+            "Type": "TAG",
+            "InstalledByID": ""
+        },
+        {
+            "MacroName": "OKTA_ALERT_SENDER",
+            "Description": "Configuration Macro: This is the address to which Okta Alert Flows will be sent from. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.",
+            "DefaultValue": "replace_me@with_valid_sender.address",
+            "Value": "",
+            "Type": "TAG",
+            "InstalledByID": ""
+        },
+        {
+            "MacroName": "OKTA_ALERT_RECIPIENT",
+            "Description": "Configuration Macro: This is the address to which Okta Alert Flows will be sent to. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.",
+            "DefaultValue": "replace_me@with_valid_recipient.address",
+            "Value": "",
+            "Type": "TAG",
+            "InstalledByID": ""
+        },
+        {
+            "MacroName": "GRAVWELL_INSTANCE",
+            "Description": "Configuration Macro; Necessary for alerts within the Okta Kit to run properly",
+            "DefaultValue": "https://<change_me_to_your_specific_url>:<change_to_your_specific_port>/",
+            "Value": "",
+            "Type": "STRING",
+            "InstalledByID": ""
+        }
+    ]
+}

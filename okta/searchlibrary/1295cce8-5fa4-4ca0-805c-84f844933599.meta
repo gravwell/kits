@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - System - Event Types - Count by Tag [pie]",
+	"Description": "This will display the amount of events consumed by Okta Tag in a pie chart over the specified timeframe. ",
+	"GUID": "1295cce8-5fa4-4ca0-805c-84f844933599",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

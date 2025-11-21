@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_ALERT_META",
+	"Description": "This macro standardizes output for Okta Alerts that are being alerted upon. It dynamically changes values in the _alert_title based on the core of the query.",
+	"Labels": [
+		"okta"
+	]
+}

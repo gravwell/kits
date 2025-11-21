@@ -1,0 +1,6 @@
+// Successful Authentication Events
+| eval loginSuccess=
+    has(outcomeResult) &&
+    match(outcomeResult, "(?i)SUCCESS|ALLOW") &&
+    has(message) &&
+    match(message, "(?i)(sign[- ]in|login|logged in|session)")

@@ -1,0 +1,19 @@
+// OKTA_COMBINED_AUTH
+| eval
+    loginDisposition = "other";
+    if (
+        has(outcomeResult) &&
+        match(outcomeResult, "(?i)(SUCCESS|ALLOW)") &&
+        has(message) &&
+        match(message, "(?i)(sign[- ]in|login|logged in|session)")
+    ) {
+        loginDisposition = "success";
+    } else if (
+        has(outcomeResult) &&
+        match(outcomeResult, "(?i)(FAIL|DENY|ERROR|LOCK|TIMEOUT)") &&
+        has(message) &&
+        match(message, "(?i)(sign[- ]in|login|log in|authentication|mfa)")
+    ) {
+        loginDisposition = "failure";
+    }
+| eval loginDisposition != "other"

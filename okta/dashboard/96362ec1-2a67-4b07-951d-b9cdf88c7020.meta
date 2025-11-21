@@ -1,0 +1,130 @@
+{
+	"UUID": "96362ec1-2a67-4b07-951d-b9cdf88c7020",
+	"Name": "Okta Event Type Overview",
+	"Description": "This Dashboard is a general overview of your Okta Event Type data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Event Type [chart]",
+				"color": null,
+				"reference": {
+					"id": "3111dbcf-0467-4c76-af03-1ab2ccb292e2",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Event Type [table]",
+				"color": null,
+				"reference": {
+					"id": "21cd89a7-a708-4b5c-9511-842352bcbc74",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Event Type Result [table]",
+				"color": null,
+				"reference": {
+					"id": "1a2dce93-9c88-43d0-b920-f8fd46ca1e5f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - System - Event Types - ____ Category Event Type Result [chart]",
+				"color": null,
+				"reference": {
+					"id": "dd83a1dd-6592-4d6b-94c1-9c2088627215",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 4598158153329677,
+				"title": "Category Event Type",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 5810260264165167,
+				"title": "Category Event Type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 3697286418897575,
+				"title": "Category Event Type by Result",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 7
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 2511903617492900,
+				"title": "Category Event Type by Result",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

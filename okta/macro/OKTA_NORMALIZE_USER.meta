@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_NORMALIZE_USER",
+	"Description": "This macro creates a new combined EV of actor and target meaning that you can search for a specific user as actor or target within the user EV without having to create an or statement for those EVs. This also means that you can independently query actor, target, and user which is useful in tracking a threat actor from the initial alert to other linked events. This macro must be used after both $OKTA_NORMALIZE_ACTOR, and $OKTA_NORMALIZE_TARGET or after actor.alternateId, actor.displayName, target.alternateId and target.displayName have all been extracted renamed/aliased to actorAltId, actorName, targetAltId, and targetName, respectively; then again to actor and target, respectively. \n\nUsage:\n$OKTA_ALERT_BASE\n$OKTA_NORMALIZE_ACTOR\n$OKTA_NORMALIZE_TARGET\n$OKTA_NORMALIZE_USER\n| grep -e user \"*\"",
+	"Labels": [
+		"okta"
+	]
+}
