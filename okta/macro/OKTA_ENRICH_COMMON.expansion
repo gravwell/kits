@@ -4,8 +4,8 @@
 
 // -------- normalize privileged actor/target ----------
 | eval actorRaw = actorAltId; targetRaw = targetName; if (has("targetAltId") && targetAltId != "" && targetAltId != "null") { targetRaw = targetAltId; }
-| regex -e actorRaw  "^(?P<actorUser>[^@]+)"
-| regex -e targetRaw "^(?P<targetUser>[^@]+)"
+| eval actorUser = strings_replace(actorRaw, "@.+", "", -1)
+| eval targetUser = strings_replace(targetRaw, "@.+", "", -1)
 | eval actorUserNorm = strings_tolower(actorUser); targetUserNorm = strings_tolower(targetUser);
 | lookup -r okta_privileged_actor actorUserNorm account (actor_weight actor_label)
 | lookup -r okta_protected_target  targetUserNorm account (target_weight target_label)
