@@ -8,4 +8,5 @@ tag=$OKTA_USERS
         managerDisplay = firstName + " " + lastName;
     }
 | stats unique_count(managerDisplay) as count
-| numbercard count
+| alias count " "
+| numbercard " "

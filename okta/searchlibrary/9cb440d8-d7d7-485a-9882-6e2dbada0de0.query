@@ -2,4 +2,5 @@ tag=$OKTA_USERS
 | json 
     profile.division
 | stats unique_count(division) as count
-| numbercard count
+| alias count " "
+| numbercard " "

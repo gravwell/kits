@@ -9,4 +9,5 @@ $OKTA_NORMALIZE_ACTOR
 $OKTA_NORMALIZE_TARGET
 $OKTA_ALERT_SEARCH
 | stats count by _alert_title
-| numbercard count
+| alias count " "
+| numbercard " "

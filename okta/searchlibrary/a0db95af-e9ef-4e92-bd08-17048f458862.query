@@ -2,4 +2,5 @@ tag=$OKTA_USERS
 | json
     credentials.provider.type as providerType
 | stats count by providerType
-| numbercard count
+| alias count " "
+| numbercard " "
