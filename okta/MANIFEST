@@ -729,7 +729,7 @@
         {
             "MacroName": "GRAVWELL_INSTANCE",
             "Description": "Configuration Macro; Necessary for alerts within the Okta Kit to run properly",
-            "DefaultValue": "https://<change_me_to_your_specific_url>:<change_to_your_specific_port>/",
+            "DefaultValue": "https://<change_me_to_your_specific_url>:<change_to_your_specific_port>",
             "Value": "",
             "Type": "STRING",
             "InstalledByID": ""
