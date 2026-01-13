@@ -41,4 +41,4 @@
 | eval if (has("dtt_en") && int(dtt_en)==1 && (dtt_minrisk=="" || float(risk_score) >= float(dtt_minrisk))) { _force_alert = 1 ;}
 
 // Optional: nudge priority for deny hits
-| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High" }
+| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High" ;}

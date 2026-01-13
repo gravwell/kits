@@ -1,6 +1,6 @@
-tag=$OKTA_USERS
+tag=$OKTA_SYSTEM
 | json 
-    profile.state as state
+    client.geographicalContext.state as state
 | stats count by state
 | alias count " "
 | numbercard " "

@@ -1,5 +1,5 @@
-tag=$OKTA_USERS
+tag=$OKTA_SYSTEM
 | json
-    profile.countryCode
-| stats count by countryCode
-| chart count by countryCode
+    client.geographicalContext.country
+| stats count by country
+| chart count by country
