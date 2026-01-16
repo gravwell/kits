@@ -1,0 +1,36 @@
+{
+	"UUID": "4e99b606-4c9f-4517-bb8b-ef7ffd217fe2",
+	"Name": "Template - Okta - Investigation - Catalog Alert Events for Actor, Target, and/or IP",
+	"Description": "This template returns all Catalog Alert Events found within Okta System Log events associated with a specific actor, target, and/or IP address.\n\nIt extracts and normalizes key Okta fields and filters the results  based on user-supplied wildcard parameters:\n  - %%okta_actor%% - matches actor alternate ID or display name\n  - %%okta_target%% - matches target alternate ID or display name\n  - %%okta_ip%% - matches client IP or request IP\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n  - Sigma:\n    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta\n    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n  - Elastic:\n    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta\n    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "Okta Actor",
+				"description": "This is the user (actorAltId or actorName) who performed the action.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%2%%",
+				"label": "Okta Target",
+				"description": "This is the user (targetAltId or targetName) whom the action was performed against.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%3%%",
+				"label": "Okta IP",
+				"description": "This is either the clientIp or the requestIp from which the action was performed.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"okta"
+	]
+}

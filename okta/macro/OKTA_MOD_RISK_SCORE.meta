@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_MOD_RISK_SCORE",
+	"Description": "This rule dynamically calculates an Okta risk score based on event type, category, subcategory, modifications, severity, outcome, and proxy usage for modification event types.\n\nThis is a dependency as a part of the $OKTA_MOD_ALERTS which all modification event type alerts are built upon. It calculates a risk score based on the event type, category, and  subcategory with bumps for severity, outcome, proxy usage, modification event types, privileged \u0026 protected users then dumps it into a priority bucket. \n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n  - Sigma:\n    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta\n    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n  - Elastic:\n    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta\n    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"Labels": [
+		"okta"
+	]
+}

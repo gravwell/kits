@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "okta_user_allowlist",
+	"Description": "Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with optional expiry.\n\nFields: key,enabled,until_ymd,reason\n\nKey format: \u003cnormalized_user\u003e|\u003calert_name_or_*\u003e (uses actorUserNorm / targetUserNorm; until_ymd = YYYYMMDD; enabled = 1 or 0)\n\nExamples: This is currently what is in okta_user_allowlist.csv\nkey,enabled,until_ymd,reason\nalice|Alert - Okta - High - Okta Admin Role Assigned to a User or Group,1,20251231,\"temporary exception for migration\"\nbob|*,1,,\"permanent allow across all alerts\"\n\nReference(s):\n\nUsage:\n// OKTA_DYNAMIC + IP tuning\n$OKTA_ALERT_BASE\n$OKTA_ENRICH_COMMON\n$OKTA_RISK_SCORE_EXTENDED\n$OKTA_TUNE_IPLISTS\n$OKTA_CATALOG_GATE\n$OKTA_ALERT_META",
+	"Labels": [
+		"okta"
+	],
+	"Size": 192,
+	"Hash": "i6CpvZWVMyLI3O5vzu/WKg==",
+	"Data": ""
+}

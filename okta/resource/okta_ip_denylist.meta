@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "okta_ip_denylist",
+	"Description": "Provides a tuning control to force-include or escalate alerts for watchlisted source IPs, optionally only when risk_score \u003e= min_risk, per alert or globally.\n\nFields: key,enabled,min_risk,reason\n\nKey format: \u003cip\u003e|\u003calert_name_or_*\u003e (enabled = 1 or 0; empty min_risk or 0 = always force)\n\nExamples: This is currently what is in okta_ip_denylist.csv\nkey,enabled,min_risk,reason\n198.51.100.77|*,1,0,\"known bad egress\"\n203.0.113.99|Alert - Okta - Medium - App Assignment Changed,1,65,\"watchlist IP for this alert\"\n\nReference(s):\n\nUsage:\n// OKTA_STATIC + IP tuning\n$OKTA_ALERT_BASE\n$OKTA_ENRICH_COMMON\n$OKTA_RISK_SCORE_EXTENDED\n| eval _alert_name = \"Alert - Okta - High - Okta Admin Role Assigned to a User or Group\"\n$OKTA_TUNE_IPLISTS\n$OKTA_CATALOG_GATE\n$OKTA_ALERT_META",
+	"Labels": [
+		"okta"
+	],
+	"Size": 161,
+	"Hash": "vzkzH/vi9Tv0qBGiY0OhwA==",
+	"Data": ""
+}

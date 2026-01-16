@@ -1,0 +1,495 @@
+{
+	"UUID": "2554f31d-5ba4-4cc0-bfdc-7260e1470d26",
+	"Name": "Okta User Overview",
+	"Description": "This Dashboard is a general overview of your Okta User data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P6MT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Okta - Users - Total Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "18c0e9ee-f214-44f9-8aca-80fbbd501907",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9b6705e1-b927-47da-985f-6291f2141c65",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Status [chart]",
+				"color": null,
+				"reference": {
+					"id": "6c03be5c-0707-4671-9532-c8070d7b9a56",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Division [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "92787e5c-3502-4950-81de-938b8ece7c6f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Division [chart]",
+				"color": null,
+				"reference": {
+					"id": "0c1ab0d3-ab8d-460b-b809-a4708f146a53",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Department [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "4f44df25-11f5-4733-89f9-a68f309503a8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Department [chart]",
+				"color": null,
+				"reference": {
+					"id": "722fd173-e915-4603-a7a5-7ab0200e14cd",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "57fbef18-044c-4fbd-9417-c332f47fe5ba",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Type [chart]",
+				"color": null,
+				"reference": {
+					"id": "87afea96-3af3-4da7-9a85-b6bb2612cf30",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Job Title [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "8e4f336f-a99f-46fe-9779-d6cd31f01191",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Job Title [chart]",
+				"color": null,
+				"reference": {
+					"id": "4ef90d94-4295-43b5-8e64-15749f5fe038",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Division Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9cb440d8-d7d7-485a-9882-6e2dbada0de0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Department Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "fffec025-50d6-44a6-92e9-6055afd4d7f6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Title Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9e70cdfe-4e8e-4884-8d9a-d88031a1d70d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Type Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "7c25c0ca-989b-4a9a-aaa2-2224e9aeb508",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Manager Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "765a6179-1862-405b-b48a-4434e919b021",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Count by Manager [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "e4f0ec4b-d6e5-4872-b89e-78d4d68bf8ea",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Manager [chart]",
+				"color": null,
+				"reference": {
+					"id": "64aedb5c-3fd3-4003-8ad7-b2b24ff1853f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17635258764640,
+				"title": "Total Users",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635261179391,
+				"title": "User Status",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 16,
+					"row": 7,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635261837332,
+				"title": "User Status Chart",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 7,
+					"x": 16,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635264121333,
+				"title": "Division Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 16,
+					"row": 6,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635264499364,
+				"title": "Division Chart",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 6,
+					"x": 16,
+					"y": 10
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17635267320085,
+				"title": "Department Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 16,
+					"row": 6,
+					"x": 0,
+					"y": 16
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635267619226,
+				"title": "Department Chart",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 6,
+					"x": 16,
+					"y": 16
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17635271335977,
+				"title": "User Type Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 16,
+					"row": 6,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17635271711408,
+				"title": "User Type Chart",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 6,
+					"x": 16,
+					"y": 29
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17635278214899,
+				"title": "Title Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 16,
+					"row": 7,
+					"x": 0,
+					"y": 22
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "20",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 176352787832210,
+				"title": "Job Title Chart",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 7,
+					"x": 16,
+					"y": 22
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 176356110276711,
+				"title": "Total Divisions",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176356118461012,
+				"title": "Total Departments",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176356124892613,
+				"title": "Total Job Titles",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 12,
+					"y": 0
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176356150494614,
+				"title": "Total User Types",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 16,
+					"y": 0
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176356400394615,
+				"title": "Total Managers",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 20,
+					"y": 0
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176356420735716,
+				"title": "Manager Numbercard",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 16,
+					"row": 6,
+					"x": 0,
+					"y": 35
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {}
+			},
+			{
+				"id": 176356443676717,
+				"title": "Manager Chart",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 6,
+					"x": 16,
+					"y": 35
+				},
+				"searchesIndex": 17,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

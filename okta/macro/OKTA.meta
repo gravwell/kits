@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA",
+	"Description": "Configuration Macro; Tag used for querying all of your Okta data; necessary for any queries within the Gravwell Okta Kit to run properly.",
+	"Labels": [
+		"okta"
+	]
+}

@@ -1,0 +1,20 @@
+{
+	"UUID": "325878f1-b349-4863-b244-07b4a02eb222",
+	"Name": "Template - Okta - System - Event Types - Category Actor/Target Result [chart]",
+	"Description": "Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%okta_category%%",
+				"label": "Log Category",
+				"description": "Options: Access,Access Control,Application,Audit,Certification,Device,Directory,Group,Hooks,IAM,Integration,Lifecycle,Mim,Oauth2,Org,Org Management,PKI,PAM,Policy,Rate Limits,Security,System",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"okta"
+	]
+}

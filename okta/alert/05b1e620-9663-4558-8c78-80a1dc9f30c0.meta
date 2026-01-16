@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "0ac35f09-fa74-49ee-977a-3b2fcb1b3b50",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects modification alerts that are configured within the okta_alerts_catalog lookup resource. \nOverall, the query enriches raw Okta System Log events, computes a risk score in $OKTA_MOD_RISK_SCORE, applies user/IP tuning (allow/deny) in $OKTA_USER_TUNING and $OKTA_IP_TUNING, and emits a consistent alert title, priority, and context in $OKTA_ALERT_META.\n\nInputs and dependencies:\nEvent source: Okta System Log (tag=$OKTA_SYSTEM).\nDependencies \u0026 Lookups:\n  - $OKTA_ALERT_BASE\n    - tag=$OKTA_SYSTEM\n    - $OKTA_ALERT_EVX: Performs Enumerated Value Extraction (EVX).\n    - $OKTA_ENRICH_COMMON: Performs Enumerated Value enrichment, normalization, and high priority user tuning control.\n      - okta_eventTypes: Maps eventType to category, subcategory, is_mod for risk categorization and alert naming scheme.\n      - okta_privileged_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.\n      - okta_protected_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.\n  - $OKTA_MOD_RISK_SCORE: Performs risk calculations based on high priority user tuning control based on modification event types.\n    - Requires okta_privileged_actor and okta_protected_target to be run prior otherwise it will not work properly. \n  - $OKTA_IP_TUNING: Provides a tuning control for IP addresses causing noisy false positives and true negatives. \n    - okta_ip_allowlist.csv: Provides a tuning control to suppress alerts from known-good IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n    - okta_ip_denylist.csv: Provides a tuning control to force-include or escalate alerts from watchlisted IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n  - $OKTA_USER_TUNING: Provides a tuning control for end users causing noisy false positives and true negatives.\n    - okta_user_allowlist.csv: Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with expiry.\n    - okta_user_denylist.csv: Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score \u003e= min_risk, per alert or globally.\n  - $OKTA_ALERT_META: Normalized alert output (e.g. _alert_title, _alert_priority, and context)\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n  - Sigma:\n    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta\n    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n  - Elastic:\n    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta\n    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "bd52363c-e32f-4b4d-ad66-046037147f31",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "05b1e620-9663-4558-8c78-80a1dc9f30c0",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"okta"
+	],
+	"LastUpdated": "2025-11-20T14:16:58.28914996Z",
+	"MaxEvents": 75,
+	"Name": "Alert - Okta - System - Event Types - Modification Alerts",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "eventType",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "ef8b51d8-70b5-4e65-bc17-d298203dd0c7",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

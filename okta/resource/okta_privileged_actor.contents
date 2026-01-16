@@ -1,0 +1,9 @@
+account,actor_weight,actor_label,notes
+root,8,root,exact root
+admin,8,admin,generic admin
+administrator,8,administrator,windows-style admin
+system,8,system,SYSTEM token or system account
+sqladmin,8,sqladmin,database admin
+svc,8,svc,generic service account prefix
+svc_okta,8,svc_okta,example service account
+service-account,8,service-account,generic service account name

@@ -1,0 +1,12 @@
+tag=$OKTA_USERS
+| json
+    profile.firstName
+    profile.lastName
+    profile.manager
+| eval managerDisplay = manager;
+    if (!has(manager) || manager == "" || manager == "null" || match(manager, "(?i)^true$")) {
+        managerDisplay = firstName + " " + lastName;
+    }
+| stats unique_count(managerDisplay) as count
+| alias count " "
+| numbercard " "

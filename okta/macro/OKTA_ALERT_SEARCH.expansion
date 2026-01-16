@@ -1,0 +1,42 @@
+// OKTA_ALERT_SEARCH
+// ---------- standard context ----------
+| eval
+    // Defaults
+    _who = "unknown"; _name = ""; _ip = ""; _when = "";
+    _cat = "uncategorized"; _sub = ""; _verb = "action";
+    _out = ""; _msg = ""; _sev = ""; _uri = "";
+
+    // Who / name
+    if (has("actorAltId") && actorAltId != "" && actorAltId != "null") { _who = actorAltId; }
+    if (has("actorName") && actorName != "" && actorName != "null") { _name = printf(" (%v)", actorName); }
+
+    // IP (clientIp, else requestIp)
+    if (has("clientIp") && clientIp != "" && clientIp != "null") { _ip = printf(" from %v", clientIp); }
+    else if (has("requestIp") && requestIp != "" && requestIp != "null") { _ip = printf(" from %v", requestIp); }
+
+    // When
+    if (has("published") && published != "" && published != "null") { _when = printf("At %v, ", published); }
+
+    // Category / subcategory
+    if (has("category") && category != "" && category != "null") { _cat = category; }
+    if (has("subcategory") && subcategory != "" && subcategory != "null") { _sub = printf("/%v", subcategory); }
+
+    // Verb from eventType tail (regex may not match 2-part types; that's fine)
+    if (has("method") && method != "" && method != "null") { _verb = method; }
+
+    // Outcome / message / severity / URI
+    if (has("outcomeResult") && outcomeResult != "" && outcomeResult != "null") { _out = printf(" resulting in %v", outcomeResult); }
+    if (has("message") && message != "" && message != "null") { _msg = printf(" — %v", message); }
+    if (has("severity") && severity != "" && severity != "null") { _sev = printf(" [sev=%v]", severity); }
+    if (has("requestUri") && requestUri != "" && requestUri != "null") { _uri = printf(" [uri=%v]", requestUri); }
+
+    context = _when + _who + _name + _ip +
+              " performed " + _verb + " against " + _cat + _sub +
+              _out + _msg + _sev + _uri;
+| eval _alert_header = "| Context |"
+| eval _alert_divider = "|-----|"
+| eval _alert_data = printf("|%v|", context)
+| eval _alert_title = printf(
+    "Alert: %v - %v - %v - %v - %v - %v",
+    _vendor, _product, _category, _subcategory, _priority, _alert_name
+  )

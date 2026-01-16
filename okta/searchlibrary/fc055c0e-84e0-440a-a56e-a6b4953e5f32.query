@@ -1,0 +1,6 @@
+tag=$OKTA_USERS
+| json
+    created
+| time -oformat "2006-01-02" created createdDay
+| stats count by createdDay
+| chart count by createdDay

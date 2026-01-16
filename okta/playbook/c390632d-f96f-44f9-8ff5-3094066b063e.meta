@@ -1,0 +1,24 @@
+{
+	"UUID": "221089a9-0161-4bce-b60c-97e9f81cdabe",
+	"GUID": "c390632d-f96f-44f9-8ff5-3094066b063e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Okta Catalog Alerts Playbook",
+	"Desc": "",
+	"Labels": [
+		"okta"
+	],
+	"LastUpdated": "2025-11-21T03:40:24.832031344Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": false
+}

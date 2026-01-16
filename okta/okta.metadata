@@ -1,0 +1,40 @@
+{
+  "Tags": [
+    "okta-groups",
+    "okta-users",
+    "okta-system"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "okta-cover.jpg",
+      "Legend": "Okta Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "okta-banner.jpg",
+      "Legend": "Okta Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "okta-cover.jpg"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "okta-banner.jpg"
+    }
+  ],
+  "readme": "README.md"
+}

@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 9,
+	"ResourceName": "okta_eventTypes",
+	"Description": "This is intended to be used as a lookup file providing additional information regarding Okta event types. It is used within the Okta Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.\n\nfields:\ncategory,subcategory,eventType,description,is_mod\n  - category: this is the category of the eventType.\n  - subcategory: this is the subcategory within the category for the eventType.\n  - eventType: this is the eventType you will find at the references below and within your logs.\n  - description: this will give you more information about the eventType.\n  - is_mod: this field displays whether the field is a known modification eventType\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n\nUsage: lookup -r eventType eventType (category subcategory description)",
+	"Labels": [
+		"okta"
+	],
+	"Size": 238440,
+	"Hash": "rZZO3fILY6AiBJS7kT8vaQ==",
+	"Data": ""
+}

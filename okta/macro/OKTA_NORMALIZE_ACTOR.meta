@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_NORMALIZE_ACTOR",
+	"Description": "This macro normalizes actorAltId and actorName into a new EV named actor that is used to search both fields for a specific actor. It must be run after $OKTA_ALERT_BASE or, after actor.alternateId and actor.displayName have been extracted and renamed/aliased to actorAltId and actorName, respectively. It can be used in conjunction with $OKTA_NORMALIZE_IP, $OKTA_NORMALIZE_TARGET, and/or $OKTA_NORMALIZE_USER.\n\nUsage:\n$OKTA_ALERT_BASE\n$OKTA_NORMALIZE_ACTOR\n| grep -e actor \"*\"",
+	"Labels": [
+		"okta"
+	]
+}

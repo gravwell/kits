@@ -1,0 +1,5 @@
+tag=$OKTA_USERS
+| json
+    profile.timezone
+| stats count by timezone
+| chart count by timezone

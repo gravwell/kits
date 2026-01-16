@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Authentication - Last Login to Password Changed Average [numbercard]",
+	"Description": "Displays a numbercard of the last login to password changed average/mean.",
+	"GUID": "410dcf6d-f2b2-4a45-b8ba-1891c50b7aa7",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

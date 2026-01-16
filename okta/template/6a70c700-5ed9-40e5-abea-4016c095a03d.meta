@@ -1,0 +1,36 @@
+{
+	"UUID": "6a70c700-5ed9-40e5-abea-4016c095a03d",
+	"Name": "Template - Okta - Investigation - All Events for Actor, Target, and/or IP",
+	"Description": "This template returns all Okta System Log events associated with a specific actor, target, and/or IP address.\n\nIt extracts and normalizes key Okta fields and filters the results  based on user-supplied wildcard parameters:\n  - %%okta_actor%% - matches actor alternate ID or display name\n  - %%okta_target%% - matches target alternate ID or display name\n  - %%okta_ip%% - matches client IP or request IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "Okta Actor",
+				"description": "This is the user (actorAltId or actorName) who performed the action.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%2%%",
+				"label": "Okta Target",
+				"description": "This is the user (targetAltId or targetName) whom the action was performed against.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%3%%",
+				"label": "Okta IP",
+				"description": "This is either the clientIp or the requestIp from which the action was performed.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"okta"
+	]
+}

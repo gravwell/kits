@@ -1,0 +1,19 @@
+tag=$OKTA_USERS
+| json
+    activated
+    lastUpdated
+| time activated activatedTS
+| time lastUpdated lastUpdatedTS
+| eval
+    if (has(activatedTS) && has(lastUpdatedTS)) {
+        activatedToLastUpdatedSeconds = float(unix(lastUpdatedTS) - unix(activatedTS));
+    }
+| eval has(activatedToLastUpdatedSeconds)
+| stats mean(activatedToLastUpdatedSeconds) as meanSeconds
+| eval
+    days    = math_floor(meanSeconds / 86400.0);
+    hours   = math_floor(math_mod(meanSeconds, 86400.0) / 3600.0);
+    minutes = math_floor(math_mod(meanSeconds, 3600.0) / 60.0);
+    seconds = math_floor(math_mod(meanSeconds, 60.0));
+| numbercard
+    days hours minutes seconds

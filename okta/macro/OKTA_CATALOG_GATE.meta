@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_CATALOG_GATE",
+	"Description": "Catalog-driven gating dependency for Elastic and Sigma rulesets within $OKTA_CATALOG_ALERTS. Evaluates whether a parameter within okta_alerts_catalog is triggered and only passes rows that meet the rule set. Supports override from tuning macros via _force_alert. \n\nDependencies \u0026 Lookups:\n  - $OKTA_CATALOG_GATE: Performs lookups against Elastic and Sigma rulesets to determine if any have triggered the parameters.\n    - okta_alerts_catalog.csv: This is a combination of Elastic and Sigma open source alerts cataloged for dashboards, macros, scheduled searches, alerts, and flows.\n\nUsage:\n// OKTA_CATALOG_ALERTS\n$OKTA_ALERT_BASE\n$OKTA_CATALOG_RISK_SCORE\n$OKTA_IP_TUNING\n$OKTA_USER_TUNING\n$OKTA_CATALOG_GATE\n$OKTA_ALERT_META\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n  - Sigma:\n    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta\n    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n  - Elastic:\n    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta\n    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"Labels": [
+		"okta"
+	]
+}

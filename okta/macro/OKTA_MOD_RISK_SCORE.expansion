@@ -1,0 +1,77 @@
+// OKTA_MOD_RISK_SCORE
+| grep -e is_mod_final "1"
+
+| eval
+    // helpers
+    et  = eventType;
+    cat = category;
+    sub = subcategory;
+
+    // 1) base risk by eventType family
+    base = 25.0;
+
+    // Application Keys
+    if (match(et, "(?i)^(app|application)\\.(keys?|key_credential)(\\.|$).*\\.(create|delete|update|rotate|generate|revoke)$")) {
+        base = 90.0;
+    // OAuth2 clients/scopes/claims
+    } else if (match(et, "(?i)^oauth2\\.(client|clients|scope|scopes|claim|claims)(\\.|$).*\\.(create|delete|update|rotate|revoke)$")) {
+        base = 85.0;
+    // Policies & scheduled executions
+    } else if (match(et, "(?i)^policy\\.(mapping|rule|evaluate|execute|scheduled)(\\.|$).*(create|delete|update|enable|disable)$")
+           || match(et, "(?i)^application\\.policy(\\.|$).*(create|delete|update|enable|disable)$")) {
+        base = 80.0;
+    // Network zones (Access Control)
+    } else if (has(cat) && cat == "Access Control" && has(sub) && sub == "Network Zones"
+           && match(et, "(?i)^zone\\.(activate|deactivate|create|delete|update)$")) {
+        base = 75.0;
+    // Application grants/assign/unassign
+    } else if (match(et, "(?i)^application\\..*\\.(grant|revoke|assign|unassign)$")) {
+        base = 70.0;
+    // Group changes
+    } else if (match(et, "(?i)^group\\.(rule|owner|role|profile|user)(\\.|$).*(create|delete|update|assign|unassign)$")) {
+        base = 70.0;
+    // User creds/factors/grants/sessions
+    } else if (match(et, "(?i)^user\\.(credential|factor|grant|session)(\\.|$).*(enroll|unenroll|reset|revoke|disable|enable|delete|create|update)$")) {
+        base = 80.0;
+    // Device trust / PlatformSSO / local account / enrollment / token issuance
+    } else if (match(et, "(?i)^device\\.(platform_sso|token|local_account|user_os_account|enrollment)(\\.|$).*(create|issue|register|sync|rotate|update|enable|disable)$")) {
+        base = 65.0;
+    // Hooks lifecycle
+    } else if (match(et, "(?i)^(hook|event\\.hook|inline\\.hook)\\..*\\.(create|delete|update|enable|disable)$")) {
+        base = 60.0;
+    // Directory / IdP / linked objects / imports
+    } else if (match(et, "(?i)^(directory|idp|identity|linked_objects)\\..*\\.(create|delete|update|import|link|unlink|map|unmap)$")) {
+        base = 60.0;
+    // System settings (tokens/branding/email/URIs/etc.)
+    } else if (match(et, "(?i)^system\\.(rate_limit|api_token|email|brand|theme|custom_signout|well_known_uri)\\..*\\.(create|delete|update|enable|disable|set|unset|change)$")) {
+        base = 55.0;
+    };
+
+    // 2) bumps
+    sev_bump = (has("severity") && match(severity, "(?i)ERROR")) ? 10.0 : ((has("severity") && match(severity, "(?i)WARN")) ? 5.0 : 0.0);
+    res_bump = (has("outcomeResult") && match(outcomeResult, "(?i)(SUCCESS|ALLOW)")) ? 5.0 : 0.0;
+    proxy_bump = (has("isProxy") && isProxy == "true") ? 5.0 : 0.0;
+
+    // 3) total and clamp
+    risk_raw   = base + sev_bump + res_bump + proxy_bump;
+    risk_score = math_round( math_min( math_max(risk_raw, 0.0), 100.0 ) );
+
+    // 4) labels & alert name
+    _category    = cat;
+    _subcategory = sub;
+
+    _alert_name = et;
+    if (has("message") && message != "" && message != "null") { _alert_name = message; }
+
+    _vendor  = "Okta";
+    _product = "System Log";
+
+    // 5) priority buckets
+    _priority = "Informational";
+    if (risk_score >= 90.0) { _priority = "Critical"; }
+    else if (risk_score >= 80.0) { _priority = "High"; }
+    else if (risk_score >= 60.0) { _priority = "Medium"; }
+    else if (risk_score >= 45.0) { _priority = "Low"; }
+| eval _alert_priority = _priority
+
+| eval in(_priority, "Critical", "High", "Medium", "Low")

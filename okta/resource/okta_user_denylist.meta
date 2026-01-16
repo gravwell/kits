@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "okta_user_denylist",
+	"Description": "Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score \u003e= min_risk, per alert or globally.\n\nFields: key,enabled,min_risk,reason\n\nKey format: \u003cnormalized_user\u003e|\u003calert_name_or_*\u003e (enabled = 1 or 0; empty min_risk or 0 = always force)\n\nExamples: This is currently what is in okta_user_denylist.csv\nkey,enabled,min_risk,reason\nsvc-admin|*,1,0,\"always force include service admin\"\ncharlie|Alert - Okta - Medium - App Assignment Changed,1,65,\"repeat offender\"\n\nReference(s):\n\nUsage:\n// OKTA_DYNAMIC_PATTERN + IP tuning\n$OKTA_ALERT_BASE\n$OKTA_ENRICH_COMMON\n$OKTA_RISK_SCORE_EXTENDED\n$OKTA_TUNE_IPLISTS\n$OKTA_ALERT_META",
+	"Labels": [
+		"okta"
+	],
+	"Size": 158,
+	"Hash": "Zx4lHmm01KyrQCBbUEbxlA==",
+	"Data": ""
+}

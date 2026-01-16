@@ -1,0 +1,6 @@
+tag=$OKTA_SYSTEM
+| json 
+    client.geographicalContext.country as country
+| stats count by country
+| alias count " "
+| numbercard " "

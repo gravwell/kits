@@ -1,0 +1,8 @@
+// Template - Okta - Investigation - Catalog Alerts for Actor, Target, and/or IP
+$OKTA_ALERT_BASE
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+$OKTA_CATALOG_GATE
+$OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
+$OKTA_ALERT_INFO

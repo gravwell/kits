@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_ALERT_EVX",
+	"Description": "This macro extracts all of the necessary Enumerated Values (EVs) for the $OKTA_CATALOG_ALERTS and $OKTA_MOD_ALERTS macros from the Okta System Logs.\n\nInputs and Interdependencies:\n  - Required for:\n    - $OKTA_ALERT_BASE\n    - $OKTA_CATALOG_ALERTS\n    - $OKTA_MOD_ALERTS\n\nUsage:\ntag=$OKTA_SYSTEM\n$OKTA_ALERT_EVX\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"Labels": [
+		"okta"
+	]
+}

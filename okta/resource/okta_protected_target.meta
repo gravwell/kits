@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "okta_protected_target",
+	"Description": "Provides a tuning opportunity for monitoring High Privileged Target Accounts and weigh their severity/priority differently compared to an end user without system, domain, root, etc. permissions within the environment.",
+	"Labels": [
+		"okta"
+	],
+	"Size": 380,
+	"Hash": "+bt4dmWcgtNG+xPfo5llYg==",
+	"Data": ""
+}

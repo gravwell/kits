@@ -1,0 +1,19 @@
+tag=$OKTA_USERS
+| json
+    created
+    lastUpdated
+| time created createdTS
+| time lastUpdated lastUpdatedTS
+| eval
+    if (has(createdTS) && has(lastUpdatedTS)) {
+        createdToLastUpdatedSeconds = float(unix(lastUpdatedTS) - unix(createdTS));
+    }
+| eval has(createdToLastUpdatedSeconds)
+| stats mean(createdToLastUpdatedSeconds) as meanSeconds
+| eval
+    days    = math_floor(meanSeconds / 86400.0);
+    hours   = math_floor(math_mod(meanSeconds, 86400.0) / 3600.0);
+    minutes = math_floor(math_mod(meanSeconds, 3600.0) / 60.0);
+    seconds = math_floor(math_mod(meanSeconds, 60.0));
+| numbercard
+    days hours minutes seconds

@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "okta_ip_allowlist",
+	"Description": "Provides a tuning control to suppress alerts from known-good source IPs (resolved from clientIp, else requestIp), per alert or globally, with optional expiry.\n\nFields: key,enabled,until_ymd,reason\n\nKey format: \u003cip\u003e|\u003calert_name_or_*\u003e (until_ymd = YYYYMMDD; enabled = 1 or 0)\n\nExamples: This is currently what is in okta_ip_allowlist.csv\nkey,enabled,until_ymd,reason\n203.0.113.10|*,1,20251231,\"corp NAT — noisy\"\n2001:db8::42|Alert - Okta - High - Okta Admin Role Assigned to a User or Group,1,,\"okta admin jump host\"\n\nReference(s):\n\nUsage:\n// OKTA_BASELINE + IP tuning\n$OKTA_ALERT_BASE\n$OKTA_RISK_SCORE\n$OKTA_TUNE_IPLISTS\n$OKTA_ALERT_META",
+	"Labels": [
+		"okta"
+	],
+	"Size": 180,
+	"Hash": "+LlNEtcSSdziTldxFrHrfQ==",
+	"Data": ""
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - System - Event Types - Count by Category [table]",
+	"Description": "Detects a chart of event types by category.\n\nReference(s):\nhttps://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "72328e47-b539-468b-b17c-763ef3fab35a",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

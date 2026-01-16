@@ -1,0 +1,43 @@
+{
+	"UUID": "b59d85f1-011d-4180-8c60-dd76ecde814d",
+	"Name": "Okta IP",
+	"Description": "Okta actions on IP Addresses to Launch Okta Investigation Dashboard.",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Investigate",
+				"description": "This actionable will launch the Okta Investigation Dashboard to see if there are any modification and/or catalog alerts as well as show all successful and failed authentication events and attempts performed from this IP Address. ",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "657b43aa-250f-4524-ae1a-8d84dec57ee6",
+					"options": {
+						"variable": "%%3%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(\\d{1,3}\\.){3}\\d{1,3}/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"okta"
+	]
+}

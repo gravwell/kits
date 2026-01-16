@@ -1,0 +1,46 @@
+tag=$OKTA_USERS
+| json
+    status
+    passwordChanged
+    profile.firstName as firstName
+    profile.lastName  as lastName
+    profile.login     as login
+
+// Filter on only active users 
+| eval (
+      status == "ACTIVE" &&
+      has(passwordChanged) &&
+      passwordChanged != "" &&
+      passwordChanged != "null" &&
+      passwordChanged != "0"
+)
+
+// Prettify Name
+| eval
+    user = strings_trimspace(firstName + " " + lastName);
+    if (user == "") { user = login; }
+
+// Parse the passwordChanged timestamp
+| time passwordChanged passwordChangedTS
+
+// Compute seconds since last pw change
+| eval
+    if (has(passwordChangedTS)) {
+        secondsSincePasswordChanged = float(unix(NOW) - unix(passwordChangedTS));
+        daysSincePasswordChanged = secondsSincePasswordChanged / 86400.0;
+    }
+
+// Time Conversion
+| eval
+    days    = math_floor(secondsSincePasswordChanged / 86400.0);
+    hours   = math_floor(math_mod(secondsSincePasswordChanged, 86400.0) / 3600.0);
+    minutes = math_floor(math_mod(secondsSincePasswordChanged, 3600.0) / 60.0);
+    seconds = math_floor(math_mod(secondsSincePasswordChanged, 60.0));
+
+// Prettify Time
+| printf -e sinceStr "%dd %dh %dm %ds" days hours minutes seconds
+
+| alias sinceStr "Password Changed"
+| unique user
+| sort by daysSincePasswordChanged desc
+| table user login status "Password Changed"

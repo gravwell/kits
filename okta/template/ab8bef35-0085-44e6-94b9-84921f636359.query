@@ -1,0 +1,8 @@
+tag=$OKTA_SYSTEM json 
+    eventType 
+    actor.alternateId as actorAltId
+    target.alternateId as targetAltId
+| lookup -r okta_eventTypes eventType eventType (category subcategory)
+| grep -e category "%%okta_category%%"
+| stats count by category subcategory eventType actorAltId targetAltId
+| chart count by actorAltId targetAltId

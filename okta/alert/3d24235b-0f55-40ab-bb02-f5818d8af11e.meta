@@ -1,0 +1,56 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "6bbaf0a8-5a71-45e8-99f0-405ad8241b8b",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects Elastic \u0026 Sigma alerts that are configured within the okta_alerts_catalog lookup resource. \nOverall, the query enriches raw Okta System Log events, computes a risk score in $OKTA_RISK_SCORE_EXTENDED, applies user/IP tuning (allow/deny) in $OKTA_USER_TUNING and $OKTA_IP_TUNING, gates events against okta_alerts_catalog.csv in $OKTA_CATALOG_GATE, and emits a consistent alert title, priority, and context in $OKTA_ALERT_META.\n\nInputs and dependencies:\nEvent source: Okta System Log (tag=$OKTA_SYSTEM).\nDependencies \u0026 Lookups:\n  - $OKTA_ALERT_BASE\n    - tag=$OKTA_SYSTEM\n    - $OKTA_ALERT_EVX: Performs Enumerated Value Extraction (EVX).\n    - $OKTA_ENRICH_COMMON: Performs Enumerated Value enrichment, normalization, and high priority user tuning control.\n      - okta_eventTypes: Maps eventType to category, subcategory, is_mod for risk categorization and alert naming scheme.\n      - okta_privileged_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.\n      - okta_protected_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.\n  - $OKTA_CATALOG_RISK_SCORE: Performs risk calculations based on high priority user tuning control.\n    - Requires okta_privileged_actor and okta_protected_target to be run prior otherwise it will not work properly. \n  - $OKTA_IP_TUNING: Provides a tuning control for IP addresses causing noisy false positives and true negatives. \n    - okta_ip_allowlist.csv: Provides a tuning control to suppress alerts from known-good IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n    - okta_ip_denylist.csv: Provides a tuning control to force-include or escalate alerts from watchlisted IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n  - $OKTA_USER_TUNING: Provides a tuning control for end users causing noisy false positives and true negatives.\n    - okta_user_allowlist.csv: Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with expiry.\n    - okta_user_denylist.csv: Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score \u003e= min_risk, per alert or globally.\n  - $OKTA_CATALOG_GATE: Performs lookups against Elastic and Sigma rulesets to determine if any have triggered the parameters.\n    - okta_alerts_catalog.csv: This is a combination of Elastic and Sigma open source alerts cataloged for dashboards, macros, scheduled searches, alerts, and flows.\n  - $OKTA_ALERT_META: Normalized alert output (e.g. _alert_title, _alert_priority, and context)\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n  - Sigma:\n    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta\n    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n  - Elastic:\n    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta\n    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "46063398-1d67-4591-aa8f-28e0450eb19d",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "3d24235b-0f55-40ab-bb02-f5818d8af11e",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"okta"
+	],
+	"LastUpdated": "2025-11-20T14:16:47.923351636Z",
+	"MaxEvents": 75,
+	"Name": "Alert - Okta - System - Alert Catalog - Elastic \u0026 Sigma Rulesets",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "eventType",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"ThingUUID": "1fe2efe7-09f3-41b3-beac-5c9d7e274ee3",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

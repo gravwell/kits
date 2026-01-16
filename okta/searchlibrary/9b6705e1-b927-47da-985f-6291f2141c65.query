@@ -1,0 +1,6 @@
+tag=$OKTA_USERS
+| json 
+    status
+| stats count by status
+| alias count " "
+| numbercard " "

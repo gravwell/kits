@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_NORMALIZE_TARGET",
+	"Description": "This macro normalizes targetAltId and targetName into a new EV named target that is used to search both fields for a specific target. It must be run after $OKTA_ALERT_BASE or, after target.alternateId and target.displayName have been extracted and renamed/aliased to targetAltId and targetName, respectively. It can be used in conjunction with $OKTA_NORMALIZE_IP, $OKTA_NORMALIZE_ACTOR, and/or $OKTA_NORMALIZE_USER.\n\nUsage:\n$OKTA_ALERT_BASE\n$OKTA_NORMALIZE_TARGET\n| grep -e target \"*\"",
+	"Labels": [
+		"okta"
+	]
+}

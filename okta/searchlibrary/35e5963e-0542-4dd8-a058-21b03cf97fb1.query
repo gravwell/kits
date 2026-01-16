@@ -1,0 +1,17 @@
+tag=$OKTA_USERS
+| json
+    lastLogin
+| eval
+    // per-entry flags
+    hasLogin = 0;
+    neverLogin = 0;
+    if (has(lastLogin) && lastLogin != "" && lastLogin != "null") {
+        hasLogin = 1;
+    } else {
+        neverLogin = 1;
+    }
+// aggregate into yes/no totals
+| stats
+    sum(hasLogin) as yes
+    sum(neverLogin) as no
+| numbercard (yes "Has Logged In") (no "Never Logged In")

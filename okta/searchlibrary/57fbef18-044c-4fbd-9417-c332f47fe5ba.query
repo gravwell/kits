@@ -1,0 +1,6 @@
+tag=$OKTA_USERS
+| json 
+    profile.userType as userType
+| stats count by userType
+| alias count " "
+| numbercard " "

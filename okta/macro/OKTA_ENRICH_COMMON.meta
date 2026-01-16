@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_ENRICH_COMMON",
+	"Description": "This is a dependency as a part of the $OKTA_ALERT_BASE which all alerts are built upon. This is necessary for the rest of the actual alerting logic to occur due to the Enumerated Value enrichment and normalization performed by the macro.\n\nDependencies:\n  - Resource Lookups\n    - okta_eventTypes.csv: Provides additional information for Okta event types that are used for enrichment and normalization.\n    - okta_privileged_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.\n    - okta_protected_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.",
+	"Labels": [
+		"okta"
+	]
+}

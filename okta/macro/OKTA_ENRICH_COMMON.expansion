@@ -1,0 +1,19 @@
+// OKTA_ENRICH_COMMON
+// -------- lookups: event categorization ----------
+| lookup -r okta_eventTypes eventType eventType (category subcategory is_mod)
+
+// -------- normalize privileged actor/target ----------
+| eval actorRaw = actorAltId; targetRaw = targetName; if (has("targetAltId") && targetAltId != "" && targetAltId != "null") { targetRaw = targetAltId; }
+| eval actorUser = strings_replace(actorRaw, "@.+", "", -1)
+| eval targetUser = strings_replace(targetRaw, "@.+", "", -1)
+| eval actorUserNorm = strings_tolower(actorUser); targetUserNorm = strings_tolower(targetUser);
+| lookup -r okta_privileged_actor actorUserNorm account (actor_weight actor_label)
+| lookup -r okta_protected_target  targetUserNorm account (target_weight target_label)
+
+// -------- extract stem + method from eventType ----------
+| regex -e eventType "^(?P<stem>[A-Za-z0-9_.]+)\.(?P<method>[A-Za-z0-9_]+)$"
+
+// -------- modification flag (CSV + verb-tail fallback) ----------
+| eval is_mod_final = 0
+| eval if (has("is_mod") && is_mod == 1) { is_mod_final = 1; }
+| eval if (is_mod_final == 0 && match(eventType, "(?i)\.(create|delete|update|remove|add|assign|unassign|grant|revoke|enable|disable|activate|deactivate|rotate|generate|issue|reset|set|unset|change|map|unmap|link|unlink|clone|import|export|enroll|unenroll|provision|deprovision|migrate|rename|reassign|transfer|approve|deny|suspend|unsuspend|block|unblock)$")) { is_mod_final = 1; }

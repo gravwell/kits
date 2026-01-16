@@ -1,0 +1,24 @@
+{
+	"UUID": "fe74b6a3-0e2c-43a9-a8b6-8290a32c0720",
+	"GUID": "172a3b04-4db2-4ae0-9609-99bd7d2a07fe",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Okta Kit for Gravwell - README",
+	"Desc": "",
+	"Labels": [
+		"okta"
+	],
+	"LastUpdated": "2025-11-21T04:36:18.216053966Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": false
+}

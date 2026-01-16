@@ -1,0 +1,24 @@
+{
+	"UUID": "26c5154b-2189-46a7-9d52-c3d065170e3b",
+	"GUID": "38f68bee-10a0-4f2b-98c4-04f024c75a3e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Playbook - Okta - System - Event Types - Modification Alerts",
+	"Desc": "",
+	"Labels": [
+		"okta"
+	],
+	"LastUpdated": "2025-11-21T01:35:51.310845593Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": false
+}

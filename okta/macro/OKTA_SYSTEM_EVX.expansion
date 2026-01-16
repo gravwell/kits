@@ -1,0 +1,74 @@
+| json 
+    // actor EVs
+    actor.id as actorId
+    actor.type as actorType
+    actor.alternateId as actorAltId
+    actor.displayName as actorName
+    actor.detailEntry as actorDetail
+    // client EVs
+    client.userAgent.rawUserAgent as clientUserAgent
+    client.userAgent.os as clientOS
+    client.userAgent.browser as clientBrowser
+    client.zone as clientZone
+    client.device as clientDeviceType
+    client.id as clientId
+    client.ipAddress as clientIp
+    client.geographicalContext.city as clientCity
+    client.geographicalContext.state as clientState
+    client.geographicalContext.country as clientCountry
+    client.geographicalContext.postalCode as clientZIPCode
+    client.geographicalContext.geolocation.lat as clientLAT
+    client.geographicalContext.geolocation.lon as clientLON
+    // device EVs
+    device as device
+    // authentication EVs
+    authenticationContext.authenticationProvider as authProvider
+    authenticationContext.credentialProvider as credProvider
+    authenticationContext.credentialType as credType
+    authenticationContext.issuer as authIssuer
+    authenticationContext.interface as authInterface
+    authenticationContext.authenticationStep as authStep
+    authenticationContext.rootSessionId as authRootSessionId
+    authenticationContext.externalSessionId as authExternalSessionId
+    // event EVs
+    displayMessage as message
+    eventType
+    outcome.result as outcomeResult
+    outcome.reason as outcomeReason
+    published
+    // security context EVs
+    securityContext.asNumber as asNumber
+    securityContext.asOrg as asOrg
+    securityContext.isp as isp
+    securityContext.domain as domain
+    securityContext.isProxy as isProxy
+    // severity EVs
+    severity
+    // debug info EVs
+    debugContext.debugData.requestId as requestId
+    debugContext.debugData.dtHash as dtHash
+    debugContext.debugData.requestUri as requestUri
+    debugContext.debugData.url as url
+    // transaction & legacy info EVs
+    legacyEventType
+    transaction.type as transactionType
+    transaction.id as transactionId
+    transaction.detail as transactionDetail
+    uuid
+    version
+    // request EVs
+    request.ipChain.ip as requestIp
+    request.ipChain.geographicalContext.city as requestCity
+    request.ipChain.geographicalContext.state as requestState
+    request.ipChain.geographicalContext.country as requestCountry
+    request.ipChain.geographicalContext.postalCode as requestZIPCode
+    request.ipChain.geographicalContext.geolocation.lat as requestLAT
+    request.ipChain.geographicalContext.geolocation.lon as requestLON
+    request.ipChain.version as requestVersion
+    request.ipChain.source as requestSource
+    // target EVs
+    target.id as targetId
+    target.type as targetType
+    target.alternateId as targetAltId
+    target.displayName as targetName
+    target.detailEntry as targetDetail

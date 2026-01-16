@@ -1,0 +1,3 @@
+key,enabled,until_ymd,reason
+alice|Alert - Okta - High - Okta Admin Role Assigned to a User or Group,1,20251231,"temporary exception for migration"
+bob|*,1,,"permanent allow across all alerts"

@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 13,
+	"ResourceName": "okta_alerts_catalog",
+	"Description": "This is a combination of Elastic and Sigma open source alerts cataloged for dashboards, macros, scheduled searches, alerts, and flows.\n\nFields:\nalert_name, description, enabled, source, source_url, source_repo_url, references, notes,\neventType_regex, stem_regex, method_regex, requestUri_regex, displayMessage_regex,\noutcomeResult_regex, outcomeReason_regex, debugBehavior_regex, debugLogOnlySecData_regex,\ndtHash_regex, actorId_regex, actorAltId_regex, actorType_regex, actorName_regex,\nauthExSeshId_regex, threatSuspect_regex, clientDevice_regex,\nrequire_is_proxy, require_is_mod, min_risk\n\nReference(s):\n  Sigma:\n    https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta\n    https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n\n  Elastic:\n    https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta\n    https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"Labels": [
+		"okta"
+	],
+	"Size": 40468,
+	"Hash": "H6MAs3Aj2uLBYEMJDaVeEg==",
+	"Data": ""
+}

@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_SYSTEM",
+	"Description": "Configuration Macro; Tag used for Okta System Log data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboard, query library, scheduled searches, alerts, flows, and templates.",
+	"Labels": [
+		"okta"
+	]
+}
