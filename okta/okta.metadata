@@ -7,13 +7,13 @@
   "Assets": [
     {
       "Type": "image",
-      "Source": "okta-cover.jpg",
+      "Source": "okta-cover.png",
       "Legend": "Okta Cover",
       "Featured": true
     },
     {
       "Type": "image",
-      "Source": "okta-banner.jpg",
+      "Source": "okta-banner.png",
       "Legend": "Okta Banner",
       "Featured": true,
       "Banner": true
@@ -28,12 +28,12 @@
     {
       "context": "cover",
       "type": "image",
-      "file": "okta-cover.jpg"
+      "file": "okta-cover.png"
     },
     {
       "context": "banner",
       "type": "image",
-      "file": "okta-banner.jpg"
+      "file": "okta-banner.png"
     }
   ],
   "readme": "README.md"
