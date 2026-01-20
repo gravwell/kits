@@ -13,7 +13,7 @@
 # You can also just execute this file using bash
 #
 #
-OUT = okta.kit
+OUT="okta.kit"
 
 cmd=$(which kitctl)
 if [ "$?" != "0" ]; then
