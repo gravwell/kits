@@ -16,9 +16,7 @@ jobs:
   build-and-kits:
     #if: github.repository == 'skipping'
     name: kitctl build
-    runs-on:
-    - linux
-    - x64
+    runs-on: ubuntu-latest
     steps:
     - run: echo "Executing on  ${{ runner.os }} due to ${{ github.event_name }}"
     - run: echo "Branch is ${{ github.ref }} executing on  ${{ runner.os }} due to ${{ github.event_name }}"
