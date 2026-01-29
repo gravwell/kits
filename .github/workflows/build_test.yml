@@ -17,8 +17,6 @@ jobs:
     #if: github.repository == 'skipping'
     name: kitctl build
     runs-on:
-    - self-hosted
-    - backend-runner
     - linux
     - x64
     steps:
