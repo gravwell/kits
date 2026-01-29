@@ -1,0 +1,42 @@
+# This workflow is designed to setup a workspace and build each kit
+name: "Gravwell Kit Build Test"
+
+on:
+  pull_request: {}
+
+env:
+  CGO_ENABLED: 0
+  GOBIN: ${{ github.workspace }}/bin
+
+concurrency:
+  cancel-in-progress: true
+  group: "${{ github.workflow }}-${{ github.ref }}"
+
+jobs:
+  build-and-kits:
+    #if: github.repository == 'skipping'
+    name: kitctl build
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Executing on  ${{ runner.os }} due to ${{ github.event_name }}"
+    - run: echo "Branch is ${{ github.ref }} executing on  ${{ runner.os }} due to ${{ github.event_name }}"
+
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v6
+      with:
+        go-version: 1.25.6
+        cache: false
+
+    - name: build kitctl
+      run: go install github.com/gravwell/gravwell/v3/kitctl@latest
+
+    - name: build coredns kit
+      run: |
+        cd coredns
+        $GOBIN/kitctl pack coredns.kit
+
+    - name: Final status
+      run: echo "Status is ${{ job.status }} 🚀"
