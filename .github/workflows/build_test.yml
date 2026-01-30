@@ -18,25 +18,29 @@ jobs:
     name: kitctl build
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Executing on  ${{ runner.os }} due to ${{ github.event_name }}"
-    - run: echo "Branch is ${{ github.ref }} executing on  ${{ runner.os }} due to ${{ github.event_name }}"
+      - run: echo "Executing on  ${{ runner.os }} due to ${{ github.event_name }}"
+      - run: echo "Branch is ${{ github.ref }} executing on  ${{ runner.os }} due to ${{ github.event_name }}"
 
-    - name: Checkout repo
-      uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-    - name: Set up Go
-      uses: actions/setup-go@v6
-      with:
-        go-version: 1.25.6
-        cache: false
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: 1.25.6
+          cache: false
 
-    - name: build kitctl
-      run: go install github.com/gravwell/gravwell/v3/kitctl@latest
+      - name: build kitctl
+        run: go install github.com/gravwell/gravwell/v3/kitctl@latest
 
-    - name: build coredns kit
-      run: |
-        cd coredns
-        $GOBIN/kitctl pack coredns.kit
+      - name: Build all kits
+        run: |
+          for kit_dir in $(find . -maxdepth 2 -type f -name 'MANIFEST' | xargs -n 1 dirname | sed 's|^\./||' | sort); do
+            echo "--- Building kit in ${kit_dir} ---"
+            (
+              cd "${kit_dir}" && $GOBIN/kitctl pack "${kit_dir}.kit"
+            )
+          done
 
-    - name: Final status
-      run: echo "Status is ${{ job.status }} 🚀"
+      - name: Final status
+        run: echo "Status is ${{ job.status }} 🚀"
