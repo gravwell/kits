@@ -1,0 +1,28 @@
+{
+	"UUID": "ed92d07d-2598-40ba-81cd-e80b57b58b65",
+	"Name": "Template - Duo - MFA - Administrator - Admin Actions [table]",
+	"Description": "This displays a table of all Administrator Actions for the specified User, and IP Address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duoUser%%",
+				"label": "Duo User",
+				"description": "This queries both the Actor and Target EVs for any events involving the user you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%duoIP%%",
+				"label": "Duo IP Address",
+				"description": "This queries all IP fields for the IP you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

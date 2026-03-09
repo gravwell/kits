@@ -1,0 +1,44 @@
+tag=$DUO_ACTIVITY 
+$DUO_ACTIVITY_EVX 
+| eval
+    if (TAG == "duo-activity" && has(actorName) && actorName != "" && actorName != "null" && actorName != "nil") {
+        actor = actorName;
+    }
+| eval
+    if (TAG == "duo-activity" && has(actionName) && actionName != "" && actionName != "null" && actionName != "nil") {
+        eventType = actionName;
+    }
+| eval
+    if (TAG == "duo-activity" && has(targetName) && targetName != "" && targetName != "null" && targetName != "nil") {
+        target = targetName;
+    }
+    else if (TAG == "duo-activity" && has(oldTargetName) && oldTargetName != "" && oldTargetName != "null" && oldTargetName != "nil") {
+        target = oldTargetName;
+    }
+| eval  
+    if (TAG == "duo-activity" && has(activityIP) && activityIP != "" && activityIP != "null" && activityIP != "nil") {
+        src_ip = activityIP;
+    }
+| eval
+    if (TAG == "duo-activity" && has(activityResult) && activityResult != "" && activityResult != "null" && activityResult != "nil") {
+        outcome = activityResult;
+    }
+| regex -p -e actor "(?<username>.*?)?\@"
+
+| eval
+    if (TAG == "duo-activity" && !has(username) && username != "" && username != "null" && username != "nil") {
+        username = actor;
+    }
+
+| eval activityLocation = activityCity + ", " + activityState + ", " + activityCountry
+| eval 
+    has("username") && match(username, "%%duoUser%%") && !match(username, "(?i)^(null|nil|\"\")$") ||
+    has("actor") && match(actor, "%%duoUser%%") && !match(actor, "(?i)^(null|nil|\"\")$") ||
+    has("actorName") && match(actor, "%%duoUser%%") && !match(actor, "(?i)^(null|nil|\"\")$") ||
+    has("target") && match(target, "%%duoUser%%") && !match(target, "(?i)^(null|nil|\"\")$") ||
+    has("targetName") && match(targetName, "%%duoUser%%") && !match(targetName, "(?i)^(null|nil|\"\")$") ||
+    has("oldTargetName") && match(oldTargetName, "%%duoUser%%") && !match(oldTargetName, "(?i)^(null|nil|\"\")$") ||
+    has("src_ip") && match(src_ip, "%%duoIP%%") && !match(src_ip, "(?i)^(null|nil|\"\")$") ||
+    has("activityLocation") && match(activityLocation, "%%duoLocation%%") && !match(activityLocation, "(?i)^(null|nil|\"\")$") 
+| eval (actor ~ "%%duoUser%%" || username ~ "%%duoUser%%" || target ~ "%%duoUser%%") && (src_ip ~ "%%duoIP%%") && (activityLocation ~ "%%duoLocation%%")
+| table TIMESTAMP eventType actor actorName username target src_ip outcome activityLocation

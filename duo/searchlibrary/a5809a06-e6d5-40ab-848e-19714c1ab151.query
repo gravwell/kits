@@ -1,0 +1,6 @@
+// Search - Duo - Activity - User State [table]
+tag=$DUO_ACTIVITY
+| json
+    access_device.location.state as accessState
+| stats count by accessState
+| table accessState count

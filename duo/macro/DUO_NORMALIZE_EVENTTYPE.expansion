@@ -1,0 +1,19 @@
+// DUO_NORMALIZE_EVENTTYPE
+| eval 
+    if (TAG == "duo-auth" && has(authAction) && authAction != "" && authAction != "null" && authAction != "nil") {
+        eventType = authAction;
+    }
+    else if (TAG == "duo-activity" && has(actionName) && actionName != "" && actionName != "null" && actionName != "nil") {
+        eventType = actionName;
+    }
+    else if ((TAG == "duo-admin") && has(adminAction) && adminAction != "" && adminAction != "null" && adminAction != "nil") {
+        eventType = adminAction;
+    }
+    else if ((TAG == "duo-offline-enrollment") && has(action) && action != "" && action != "null" && action != "nil") {
+        eventType = action;
+    }
+    else if (TAG == "duo-telephony" && has(context) && context != "" && context != "null" && context != "nil") {
+        eventType = context;
+    }
+// Filter empty/null fields 1 liner
+| eval if (!has(eventType) || eventType == "" || eventType == "null") { eventType == "null"; }

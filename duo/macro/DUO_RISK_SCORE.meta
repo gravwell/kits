@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_RISK_SCORE",
+	"Description": "This rule dynamically calculates an Duo risk score based on event type, category, subcategory, modifications, and outcome for modification event types.\n\nThis is a dependency as a part of the $DUO_MOD_ALERT which all modification event type alerts are built upon. It calculates a risk score based on the event type, category, and  subcategory with bumps for outcome,  modification event types, privileged \u0026 protected users then dumps it into a priority bucket. \n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Activity Logs - https://duo.com/docs/adminapi#activity-logs\n- Duo Administrator Logs - https://duo.com/docs/adminapi#administrator-logs\n- Duo Authentication Logs - https://duo.com/docs/adminapi#authentication-logs\n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs\n- Duo Telephony Logs - https://duo.com/docs/adminapi#telephony-logs",
+	"Labels": [
+		"duo"
+	]
+}

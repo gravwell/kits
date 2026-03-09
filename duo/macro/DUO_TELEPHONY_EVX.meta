@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_TELEPHONY_EVX",
+	"Description": "This macro extracts all possible Enumerated Values (EVs) from Duo Telephony Logs.\n\nUsage:\ntag=$DUO_TELEPHONY\n$DUO_TELEPHONY_EVX\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Telephony Logs - https://duo.com/docs/adminapi#telephony-logs",
+	"Labels": [
+		"duo"
+	]
+}

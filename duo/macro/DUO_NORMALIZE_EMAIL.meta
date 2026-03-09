@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_NORMALIZE_EMAIL",
+	"Description": "This macro normalizes authEmail (Duo Authentication Logs), and adminEmail (Duo Admin Logs) into 1 Enumerated Value (EV) named email.\n\nUsage: \ntag=$DUO\n$DUO_EVX\n$DUO_NORMALIZE_EMAIL\n\nIMPORTANT: It must be run after $DUO, and $DUO_EVX.\n\nPlease Note: It can be used in conjunction with any of the other \"NORMALIZE\" macros. \n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Activity Logs - https://duo.com/docs/adminapi#activity-logs\n- Duo Administrator Logs - https://duo.com/docs/adminapi#administrator-logs\n- Duo Authentication Logs - https://duo.com/docs/adminapi#authentication-logs\n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs\n- Duo Telephony Logs - https://duo.com/docs/adminapi#telephony-logs",
+	"Labels": [
+		"duo"
+	]
+}

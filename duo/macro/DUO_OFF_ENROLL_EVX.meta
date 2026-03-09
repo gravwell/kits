@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_OFF_ENROLL_EVX",
+	"Description": "This macro extracts all possible Enumerated Values (EVs) from Duo Offline Enrollment Logs.\n\nUsage:\ntag=$DUO_OFF_ENROLL\n$DUO_OFF_ENROLL_EVX\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs",
+	"Labels": [
+		"duo"
+	]
+}

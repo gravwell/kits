@@ -1,0 +1,183 @@
+{
+	"UUID": "bce4d3ab-5b0c-434d-8ec9-df755000aaa1",
+	"Name": "Duo Category Overview",
+	"Description": "This Dashboard is a general overview of your Duo Category, Subcategory, and Event Type data based on the inputted variable.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Duo - System - Event Types - Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "627f5d4c-b536-40dc-b074-44d35dcba836",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Category [table]",
+				"color": null,
+				"reference": {
+					"id": "f4b8ad2a-06ad-455f-84a4-569863194a4e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Category, Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "fb20ca7e-e907-4636-8e02-16d704c9e43c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Category, Subcategory [table]",
+				"color": null,
+				"reference": {
+					"id": "f1a5c508-806f-4dbc-b645-26a0daf9596a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Category, Subcategory, Event Type [chart]",
+				"color": null,
+				"reference": {
+					"id": "c5df98e9-2d2c-4427-ad0f-8a988a1efe09",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Category, Subcategory, Event Type [table]",
+				"color": null,
+				"reference": {
+					"id": "826a5942-535e-403f-bc07-e4af4fe07aac",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17646999236390,
+				"title": "Category [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17646999554351,
+				"title": "Category [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17646999895272,
+				"title": "Category, Subcategory [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17647001351603,
+				"title": "Category, Subcategory [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17647001664634,
+				"title": "Category, Subcategory, Event Type [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17647002304585,
+				"title": "Category, Subcategory, Event Type [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 13
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"duo"
+	]
+}

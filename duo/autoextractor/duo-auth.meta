@@ -1,0 +1,17 @@
+{
+	"Name": "duo-auth",
+	"Desc": "Gravwell generated JSON extraction for tag duo-auth",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"duo-auth"
+	],
+	"Labels": [
+		"duo"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "603c88a7-501c-496c-bc8b-8659d31c3ee7",
+	"LastUpdated": "2026-03-04T17:34:05.709732632Z"
+}

@@ -1,0 +1,20 @@
+{
+	"UUID": "d3771a11-c238-4593-992b-6bb5d61b3f6a",
+	"Name": "Template - Duo - System - Event Types - Modification Alerts by User [numbercard]",
+	"Description": "Displays a numbercard by username (actor/actorName/target/targetName/oldTargetName).",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duoUser%%",
+				"label": "Duo User",
+				"description": "This queries both the Actor and Target EVs for any events involving the user you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

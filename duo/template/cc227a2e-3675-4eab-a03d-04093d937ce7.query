@@ -1,0 +1,14 @@
+// Template - Duo - System - Event Types - Modification Alerts by Location [numbercard]
+$DUO_ALERT_BASE
+$DUO_RISK_SCORE
+$DUO_TUNE_IP
+$DUO_TUNE_USER
+$DUO_ALERT_META
+| eval accessLocation = accessCity + ", " + accessState + ", " + accessCountry
+| eval authLocation = authCity + ", " + authState + ", " + authCountry
+| eval l = "";
+    if (has(accessLocation) && accessLocation != "" && accessLocation != "null") { l = accessLocation; }
+	else if (has(authLocation) && authLocation != "" && authLocation != "null") { l = authLocation; }
+| eval l ~ "%%duoLocation%%"
+| stats count as " " by l
+| numbercard " "

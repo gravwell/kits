@@ -1,0 +1,265 @@
+tag,log_source,category,subcategory,preEVX,evx,value,description,is_mod,risk_score,_priority
+duo-auth,Authentication,Security,Authentication,event_type,authAction,authentication,End-user authentication event (v2 Authentication Logs).,0,35.0,Informational
+duo-auth,Authentication,Lifecycle,Enrollment,event_type,authAction,enrollment,End-user enrollment-related event (v2 Authentication Logs).,1,70.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,admin_activate_duo_push,An administrator or user activates a 2FA device for Duo Push.,1,65.0,Medium
+duo-activity,Activity,IAM,Event,action.name,actionName,admin_factor_restrictions,An administrator updated factor restrictions.,0,50.0,Low
+duo-activity,Activity,IAM,Event,action.name,actionName,admin_login,Administrator logged in.,0,75.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,admin_reactivates_duo_push,Administrator reactivates an admin or user 2FA device for Duo Push.,0,55.0,Low
+duo-activity,Activity,IAM,Event,action.name,actionName,admin_reset_password,Administrator changed their own password.,1,100.0,Critical
+duo-activity,Activity,IAM,Event,action.name,actionName,admin_send_reset_password_email,Password reset email sent to administrator.,1,95.0,Critical
+duo-activity,Activity,Directory,Directory,action.name,actionName,azure_directory_create,Entra ID (Azure) directory created.,1,100.0,Critical
+duo-activity,Activity,Directory,Directory,action.name,actionName,azure_directory_delete,Entra ID (Azure) directory deleted.,1,100.0,Critical
+duo-activity,Activity,Directory,Directory,action.name,actionName,azure_directory_update,Entra ID (Azure) directory updated.,1,100.0,Critical
+duo-activity,Activity,Audit,Events,action.name,actionName,azure_sync_begin,Entra ID (Azure) sync began.,0,50.0,Low
+duo-activity,Activity,Audit,Events,action.name,actionName,azure_sync_fail,Entra ID (Azure) sync failed.,0,80.0,High
+duo-activity,Activity,Audit,Events,action.name,actionName,azure_sync_finish,Entra ID (Azure) sync finished.,0,50.0,Low
+duo-activity,Activity,IAM,Event,action.name,actionName,bypass_create,An administrator created one or more bypass codes.,1,100.0,Critical
+duo-activity,Activity,IAM,Event,action.name,actionName,bypass_delete,An administrator deleted a bypass code.,1,100.0,Critical
+duo-activity,Activity,IAM,Event,action.name,actionName,bypass_view,An administrator viewed a bypass code.,0,45.0,Low
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_add_authproxy,Added an Authentication Proxy for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_add_bridge_attribute,Added bridge attribute for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_add_email_domain,Added Single Sign-On Email Domain.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_add_ldap_authsource,Added Active Directory authentication source for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_add_ldap_authsource_and_accept_tcs,Added Active Directory authentication source for Single Sign-On and accepted terms & conditions.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_add_saml_authsource,Added SAML authentication source for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_create_launcher,Created Duo Central.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_create_routing_rule,Create routing rule for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_create_tiles,Added Duo Central tiles.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_delete_authproxy,Deleted Authentication Proxy for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_delete_bridge_attribute,Deleted bridge attribute for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_delete_email_domain,Deleted Single Sign-On Email Domain.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_delete_ldap_authsource,Deleted Active Directory authentication source for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_delete_routing_rule,Delete routing rule for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_delete_saml_authsource,Deleted SAML authentication source for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_delete_tile,Deleted Duo Central tile.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_disable_authsource,Disabled authentication source for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_enable_authsource,Enabled authentication source for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_enable_single_sign_on,Enabled Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_modify_tile,Modified Duo Central tile.,0,50.0,Low
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_oauth_cc_get_client_secret,Viewed OAuth 2.0 client credentials client secret.,0,45.0,Low
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_oauth_cc_reset_client_secret,Reset OAuth 2.0 client credentials client secret.,1,65.0,Medium
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_oidc_get_client_secret,Viewed OIDC relying party client secret.,0,45.0,Low
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_oidc_reset_client_secret,Reset OIDC relying party client secret.,1,65.0,Medium
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_update_bridge_attribute,Updated bridge attribute for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_update_launcher,Updated Duo Central.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_update_ldap_authsource,Updated Single Sign-On Active Directory configuration.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_update_oauth_client_credentials,Updated a generic OAuth 2.0 SSO integration.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_update_relying_party,Updated a generic OIDC SSO integration.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_update_routing_rule,Update routing rule for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_update_saml_authsource,Updated SAML authentication source for Single Sign-On.,1,100.0,Critical
+duo-activity,Activity,Application,Application,action.name,actionName,cloudsso_verify_email_domain,Verified Single Sign-On Email Domain.,0,45.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,deregister_devices,De-registering devices registered with Duo Desktop.,0,45.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,device_change_enrollment_summary_notification_answered,Device activity enrollment summary notification answered by user.,1,55.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,device_change_enrollment_summary_notification_answered_notify_admin,Device activity enrollment summary notification answered by user and email sent to admin.,1,55.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,device_change_enrollment_summary_notification_send,Device activity enrollment summary notification sent.,1,55.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,device_change_notification_answered,Device activity notification answered by user.,1,55.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,device_change_notification_answered_notify_admin,Device activity notification answered by user and email sent to admin.,1,55.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,device_change_notification_create,Device activity notification created.,1,72.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,device_change_notification_send,Device activity notification sent.,1,55.0,Low
+duo-activity,Activity,Group,Group Management,action.name,actionName,group_create,An administrator created a group.,1,72.0,Medium
+duo-activity,Activity,Group,Group Management,action.name,actionName,group_delete,An administrator deleted a group.,1,75.0,Medium
+duo-activity,Activity,Group,Group Management,action.name,actionName,group_update,An administrator updated a group.,1,70.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,hardtoken_create,Created a hardware token.,1,72.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,hardtoken_delete,Deleted a hardware token.,1,75.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,hardtoken_resync,Resynchronized a hardware token.,0,45.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,hardtoken_update,Modified a hardware token.,1,70.0,Medium
+duo-activity,Activity,Audit,Events,action.name,actionName,id_verification_cancel,An identity verification inquiry was canceled before completion.,0,45.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,id_verification_complete,A user completed an identity verification inquiry (see details for result).,0,45.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,id_verification_create,An identity verification inquiry has been created for a user.,1,72.0,Medium
+duo-activity,Activity,Audit,Events,action.name,actionName,id_verification_expire,An identity verification inquiry expired before completion.,0,45.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,id_verification_start,A user started fulfilling an identity verification inquiry.,0,45.0,Low
+duo-activity,Activity,Application,Application,action.name,actionName,integration_create,An administrator created an application.,1,72.0,Medium
+duo-activity,Activity,Application,Application,action.name,actionName,integration_delete,An administrator deleted an application.,1,75.0,Medium
+duo-activity,Activity,Group,Group Management,action.name,actionName,integration_group_policy_add,An administrator group policy was added to the application.,1,72.0,Medium
+duo-activity,Activity,Group,Group Management,action.name,actionName,integration_group_policy_remove,An administrator group policy was removed from the application.,1,75.0,Medium
+duo-activity,Activity,Application,Application,action.name,actionName,integration_policy_assign,An administrator assigned a policy to an application.,1,65.0,Medium
+duo-activity,Activity,Application,Application,action.name,actionName,integration_policy_unassign,An administrator unassigned a policy from an application.,1,65.0,Medium
+duo-activity,Activity,Integration,Integration,action.name,actionName,integration_skey_bulk_view,Secret keys presented in plain text.,0,45.0,Low
+duo-activity,Activity,Application,Application,action.name,actionName,integration_skey_view,Application's secret key viewed in plain text.,0,45.0,Low
+duo-activity,Activity,Application,Application,action.name,actionName,integration_update,An administrator updated an application.,1,70.0,Medium
+duo-activity,Activity,Audit,Events,action.name,actionName,log_export_start,Log export started.,1,55.0,Low
+duo-activity,Activity,Audit,Events,action.name,actionName,log_export_complete,Log export completed.,1,55.0,Low
+duo-activity,Activity,Audit,Events,action.name,actionName,log_export_failure,Log export failed.,1,65.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_activate_device_cache,Duo Trusted Endpoints device cache activated.,1,65.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_active_device_cache_add_devices,Devices added to an active Duo Trusted Endpoints device cache.,1,72.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_active_device_cache_delete_devices,Devices deleted from an active Duo Trusted Endpoints device cache.,1,75.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_active_device_cache_edit_devices,Devices edited in an active Duo Trusted Endpoints device cache.,0,45.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_add_devices,Devices added to a Duo Trusted Endpoints device cache.,1,72.0,Medium
+duo-activity,Activity,Integration,Integration,action.name,actionName,management_system_create,Duo Trusted Endpoints integration created.,1,72.0,Medium
+duo-activity,Activity,Integration,Integration,action.name,actionName,management_system_delete,Duo Trusted Endpoints integration deleted.,1,75.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_delete_devices,Devices deleted from a Duo Trusted Endpoints device cache.,1,75.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_device_cache_add_devices,Devices added to a Duo Trusted Endpoints device cache.,1,72.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_device_cache_create,Duo Trusted Endpoints device cache created.,1,72.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_device_cache_delete,Duo Trusted Endpoints device cache deleted.,1,75.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_device_cache_delete_devices,Devices deleted from Duo Trusted Endpoints device cache.,1,75.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_download_device_api_script,Duo Device API script downloaded.,0,45.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_pkcs12_enrollment,Duo Trusted Endpoints certificate enrolled.,0,45.0,Low
+duo-activity,Activity,Integration,Integration,action.name,actionName,management_system_sync_failure,Duo Trusted Endpoints integration sync failed.,0,55.0,Low
+duo-activity,Activity,Integration,Integration,action.name,actionName,management_system_sync_success,Duo Trusted Endpoints integration sync succeeded.,0,45.0,Low
+duo-activity,Activity,Integration,Integration,action.name,actionName,management_system_update,Duo Trusted Endpoints integration updated.,1,70.0,Medium
+duo-activity,Activity,Integration,Integration,action.name,actionName,management_system_view_password,Duo Trusted Endpoints integration password viewed.,0,45.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,management_system_view_token,Duo Trusted Endpoints integration token viewed.,0,45.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,phone_activation_code_regenerated,An activation code has been generated for a phone.,0,55.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,phone_associate,Existing phone has been added to a user.,0,52.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,phone_create,Added phone.,1,72.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,phone_delete,A phone with no users associated with it has been deleted.,1,75.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,phone_disassociate,An existing phone has been removed from a user but still has other users attached.,0,55.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,phone_new_sms_passcode,SMS code has been generated and sent to a user.,0,45.0,Low
+duo-activity,Activity,Device,Device,action.name,actionName,phone_update,Modified phone.,1,70.0,Medium
+duo-activity,Activity,Policy,Policy,action.name,actionName,policy_create,Created a policy.,1,72.0,Medium
+duo-activity,Activity,Policy,Policy,action.name,actionName,policy_delete,Deleted a policy.,1,75.0,Medium
+duo-activity,Activity,Policy,Policy,action.name,actionName,policy_update,Modified a policy.,1,70.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,u2ftoken_create,Created U2F token.,1,72.0,Medium
+duo-activity,Activity,Device,Device,action.name,actionName,u2ftoken_delete,Deleted U2F token.,1,75.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,user_adminapi_lockout,User was locked out from Admin API.,0,45.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,user_create,User created.,1,72.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,user_delete,User deleted.,1,75.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,user_import,User imported.,1,55.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,user_lockout_cleared,User had their locked out status cleared.,0,45.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,user_not_enrolled_lockout,"User was unenrolled beyond the number of days specified in the ""Unenrolled users"" setting.",0,45.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,user_pending_delete,Deleted user pending.,1,75.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,user_restore,Deleted user restored.,0,55.0,Low
+duo-activity,Activity,User,User Management,action.name,actionName,user_update,Existing user details updated.,1,70.0,Medium
+duo-activity,Activity,User,User Management,action.name,actionName,webauthncredential_create,Created WebAuthn authenticator and associated it with the user.,1,72.0,Medium
+duo-activity,Activity,Audit,Events,action.name,actionName,webauthncredential_delete,Deleted WebAuthn authenticator.,1,75.0,Medium
+duo-activity,Activity,Audit,Events,action.name,actionName,webauthncredential_rename,Renamed WebAuthn authenticator.,1,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,accepted_dtm_opt_in,Admin accepted Duo Trust Monitor terms,0,55.0,Low
+duo-admin,Administrator,Integration,API,action,adminAction,accountsapi_request_ip_denied,Accounts API request blocked due to IP restriction,0,65.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,activation_begin,New admin begins setup using activation link,1,65.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,activation_complete,New admin completes account setup,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,activation_create_link,New admin activation link created,1,82.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,activation_delete_link,Admin activation link deleted,1,85.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,activation_send_email,Emailed activation link to admin,1,65.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,activation_set_password,New admin sets login password during initial setup,1,65.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,ad_connection_config_download,Admin downloaded authproxy.cfg for an AD sync connection,0,45.0,Low
+duo-admin,Administrator,Directory,Active Directory,action,adminAction,ad_sync_begin,Active Directory Sync started,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,ad_sync_by_user_begin,Active Directory Sync of individual user started,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,ad_sync_by_user_finish,Active Directory Sync of individual user completed,0,55.0,Low
+duo-admin,Administrator,Directory,Active Directory,action,adminAction,ad_sync_config_download,Active Directory Sync configuration download,0,45.0,Low
+duo-admin,Administrator,Directory,Active Directory,action,adminAction,ad_sync_failed,Active Directory Sync failed,0,65.0,Medium
+duo-admin,Administrator,Directory,Active Directory,action,adminAction,ad_sync_finish,Active Directory Sync completed,0,55.0,Low
+duo-admin,Administrator,Security,MFA,action,adminAction,admin_2fa_error,Administrator issue completing secondary authentication,1,75.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_account_switch,Administrator switched to this account from another Duo account,0,55.0,Low
+duo-admin,Administrator,Security,MFA,action,adminAction,admin_activate_duo_push,Administrator activates an admin's 2FA device for Duo Push,1,75.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_activation_create,An admin activation link was created,1,82.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_activation_delete,An admin activation link was deleted,1,85.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_create,Added administrator,1,82.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_delete,Deleted administrator,1,85.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_lockout,Administrator locked out after too many failed login attempts,0,55.0,Low
+duo-admin,Administrator,Security,MFA,action,adminAction,admin_login_error,Administrator issue completing primary password or SAML authentication,1,95.0,Critical
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_login,Administrator logged in,0,75.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_purchase_hardtokens,Administrator purchased hardtokens,0,55.0,Low
+duo-admin,Administrator,Security,MFA,action,adminAction,admin_reactivates_duo_push,Administrator reactivates an admin's 2FA device for Duo Push,0,65.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_reset_password,Administrator changed password via emailed reset link,1,100.0,Critical
+duo-admin,Administrator,Directory,Directory,action,adminAction,admin_restore,Admin controlled by an admin directory sync restored from pending deletion,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_scso_enforcement_change,Updated Cisco Security Cloud Sign On (SCSO) enforcement status,1,70.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_self_activate,Administrator self-activated via activation link,1,75.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_send_reset_password_email,Password reset email sent to administrator,1,95.0,Critical
+duo-admin,Administrator,Application,Application,action,adminAction,admin_single_sign_on_cert_create,Generated a new certificate for admin SSO,1,95.0,Critical
+duo-admin,Administrator,Application,Application,action,adminAction,admin_single_sign_on_cert_delete,Deleted a certificate for admin SSO,1,100.0,Critical
+duo-admin,Administrator,Application,Application,action,adminAction,admin_single_sign_on_cert_update,Modified a certificate for admin SSO,1,100.0,Critical
+duo-admin,Administrator,Application,Application,action,adminAction,admin_single_sign_on_update,Modified admin SSO configuration,1,100.0,Critical
+duo-admin,Administrator,Directory,Directory,action,adminAction,admin_sync_create,Created an admin directory sync,1,82.0,High
+duo-admin,Administrator,Directory,Directory,action,adminAction,admin_sync_delete,Deleted an admin directory sync,1,85.0,High
+duo-admin,Administrator,Directory,Directory,action,adminAction,admin_sync_pause,Paused an admin directory sync,0,55.0,Low
+duo-admin,Administrator,Directory,Directory,action,adminAction,admin_sync_resume,Resumed an admin directory sync,0,55.0,Low
+duo-admin,Administrator,Application,Application,action,adminAction,admin_trust_verdict_update,Updated SSO trust verdict,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,admin_update_by_admin,Administrator updated by another administrator,1,80.0,High
+duo-admin,Administrator,Directory,Directory,action,adminAction,admin_update_by_sync,Administrator updated by an admin directory sync,1,80.0,High
+duo-admin,Administrator,Integration,API,action,adminAction,api_call_warning,API request made without sufficient permissions,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,backup_codes_send_email,Sent email to user with bypass code backup instructions,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,bypass_codes_remind_users,Sent email reminder to users of existing bypass codes,0,55.0,Low
+duo-admin,Administrator,Security,MFA,action,adminAction,change_paging_tokens_with_generation,Changed Authentication Log v2 next offset tokens with generation,1,70.0,Medium
+duo-admin,Administrator,Integration,API,action,adminAction,customer_public_key_download,Admin downloaded public key used for API access from Admin console,0,45.0,Low
+duo-admin,Administrator,Integration,API,action,adminAction,deviceapi_reset_identities,Device API reset identities,1,75.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,dng_coach_action,DNG Coach actions datapoint,0,55.0,Low
+duo-admin,Administrator,Policy,Policy,action,adminAction,duo_nla_create,Created a specific Duo NLA policy,1,82.0,High
+duo-admin,Administrator,Policy,Policy,action,adminAction,duo_nla_update,Updated a specific Duo NLA policy,1,80.0,High
+duo-admin,Administrator,Policy,Policy,action,adminAction,duo_policy_create,Created a Duo policy,1,82.0,High
+duo-admin,Administrator,Policy,Policy,action,adminAction,duo_policy_update,Updated a Duo policy,1,80.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,duo_multi_user_policy_create,Created a Duo Multi-User Policy,1,82.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,duo_multi_user_policy_update,Updated a Duo Multi-User Policy,1,80.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,duo_mobile_app_security_enable_rule,Duo Mobile App Security enabled,1,80.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,duo_mobile_app_security_disable_rule,Duo Mobile App Security disabled,1,80.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,duo_mobile_app_security_view_report,Viewed Duo Mobile app report,0,45.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,duotrust_update,Settings changed in Duo Trust Monitor,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,email_logins_enable,Email-based login to Admin console enabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,email_logins_disable,Email-based login to Admin console disabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,email_logins_view,Admin viewed Email Logins settings,0,45.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,enterprise_sessions_enable,Enabled Enterprise Sessions,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,enterprise_sessions_disable,Disabled Enterprise Sessions,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,error_sending_admin_activation_email,Error sending admin activation email,0,65.0,Medium
+duo-admin,Administrator,Group,Group Management,action,adminAction,group_directory_update,Group directory created updated or deleted,1,97.0,Critical
+duo-admin,Administrator,System,Org Management,action,adminAction,health_apply_quarantine,Duo Device Health app/agent quarantined,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,health_remove_quarantine,Duo Device Health app/agent quarantine removed,1,85.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,health_app_buffer,Duo Device Health app buffer,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,health_device_posture_view_soar_token,Viewed Device Posture token,0,45.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,health_device_posture_view_generated_token,Viewed Device Posture generated token,0,45.0,Low
+duo-admin,Administrator,Policy,Policy,action,adminAction,health_device_posture_update,Updated Device Posture policy,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,health_device_posture_condition_set,Device Posture condition set,1,65.0,Medium
+duo-admin,Administrator,System,Org Management,action,adminAction,identity_assurance_create,Identity verification flow created,1,82.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,identity_assurance_update,Identity verification flow updated,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,identity_assurance_delete,Identity verification flow deleted,1,85.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,identity_assurance_view,Identity verification flow viewed,0,45.0,Low
+duo-admin,Administrator,Application,Application,action,adminAction,integration_delete,Deleted an application integration,1,85.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,integration_new_user_policy,User policy created on an application,0,62.0,Medium
+duo-admin,Administrator,Application,Application,action,adminAction,integration_update,Updated an application integration,1,80.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,key_create,Created an application SDK key,1,82.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,key_delete,Deleted an application SDK key,1,85.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,key_view,Viewed an application SDK key,0,45.0,Low
+duo-admin,Administrator,Integration,API,action,adminAction,mintime_not_integer,Invalid type for mintime parameter in the API request,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,network_mapping_create,Created network mapping,1,82.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,network_mapping_delete,Deleted network mapping,1,85.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,network_mapping_update,Updated network mapping,1,80.0,High
+duo-admin,Administrator,Policy,Policy,action,adminAction,policy_create,Created a policy,1,82.0,High
+duo-admin,Administrator,Policy,Policy,action,adminAction,policy_delete,Deleted a policy,1,85.0,High
+duo-admin,Administrator,Policy,Policy,action,adminAction,policy_update,Updated a policy,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,protected_actions_enable,Protected Actions enabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,protected_actions_disable,Protected Actions disabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,protected_actions_view,Protected Actions settings viewed,0,45.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,recovery_codes_print,Printed recovery codes,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,restore_users,Restored users from deletion,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,risk_delivery_action,Risk delivery action performed,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,saml_idp_update,SAML IdP configuration updated,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,sensitive_action_notify_enable,Enabled sensitive action notifications,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,sensitive_action_notify_disable,Disabled sensitive action notifications,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,sensitive_action_notify_view,Viewed sensitive action notification settings,0,45.0,Low
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_application_cert_create,SSO application certificate created,1,82.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_application_cert_update,SSO application certificate updated,1,80.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_application_cert_delete,SSO application certificate deleted,1,85.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_application_update,SSO application updated,1,80.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_cert_create,SSO certificate created,1,82.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_cert_update,SSO certificate updated,1,80.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_cert_delete,SSO certificate deleted,1,85.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_update,SSO settings updated,1,80.0,High
+duo-admin,Administrator,Group,Group Management,action,adminAction,single_sign_on_update_groups,SSO groups updated,1,80.0,High
+duo-admin,Administrator,Application,Application,action,adminAction,single_sign_on_update_routing_rules,SSO routing rules updated,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,sms_logging_enable,SMS logging enabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,sms_logging_disable,SMS logging disabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,system_setting_update,System settings updated,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,trusted_devices_enable_byod,Trusted Devices BYOD enabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,trusted_devices_disable_byod,Trusted Devices BYOD disabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,trusted_devices_enable_login,Trusted Devices login enabled,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,trusted_devices_disable_login,Trusted Devices login disabled,1,80.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,user_activate_managed_by_admins,Managed by Admins activated for users,1,75.0,Medium
+duo-admin,Administrator,User,User Management,action,adminAction,user_activate_sms,SMS activated for a user,1,75.0,Medium
+duo-admin,Administrator,User,User Management,action,adminAction,user_auth_info_view,Viewed user authentication information,0,45.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,user_create,Created a user,1,82.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,user_delete,Deleted a user,1,85.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,user_directory_deactivate,Directory deactivated,1,75.0,Medium
+duo-admin,Administrator,User,User Management,action,adminAction,user_directory_reactivate,Directory reactivated,0,65.0,Medium
+duo-admin,Administrator,User,User Management,action,adminAction,user_directory_sync_create,Directory sync created,1,82.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,user_directory_sync_delete,Directory sync deleted,1,85.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,user_directory_sync_pause,Directory sync paused,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,user_directory_sync_resume,Directory sync resumed,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,user_directory_update,Directory updated,1,80.0,High
+duo-admin,Administrator,User,User Management,action,adminAction,user_lockout_threshold_changed,User lockout threshold changed,0,60.0,Medium
+duo-admin,Administrator,User,User Management,action,adminAction,user_pending_deletion,User pending deletion,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,user_reactivate,User reactivated,0,65.0,Medium
+duo-admin,Administrator,User,User Management,action,adminAction,user_restore,User restored,0,55.0,Low
+duo-admin,Administrator,User,User Management,action,adminAction,user_status_change,User status changed,1,70.0,Medium
+duo-admin,Administrator,User,User Management,action,adminAction,user_update,User updated,1,80.0,High
+duo-admin,Administrator,System,Org Management,action,adminAction,webauthn_analyze_data,Analyzed WebAuthn data,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,webauthn_authenticator_initialize,WebAuthn authenticator initialized,0,55.0,Low
+duo-admin,Administrator,System,Org Management,action,adminAction,webauthn_authenticator_update,WebAuthn authenticator updated,1,80.0,High
+duo-admin,Account,System,System API,action,adminAction,No event types,Account summary endpoint returns overall summary (no enumerated event types in docs).,0,55.0,Low

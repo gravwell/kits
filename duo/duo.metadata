@@ -1,0 +1,42 @@
+{
+  "Tags": [
+    "duo-activity",
+    "duo-admin",
+    "duo-auth",
+    "duo-telephony",
+    "duo-offline-enrollment"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "duo-cover.png",
+      "Legend": "Duo Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "duo-banner.png",
+      "Legend": "Duo Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "duo-cover.jpg"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "duo-banner.jpg"
+    }
+  ],
+  "readme": "README.md"
+}

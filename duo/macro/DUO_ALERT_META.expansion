@@ -1,0 +1,41 @@
+// DUO_ALERT_META
+// ---------- standard context ----------
+| eval
+    // Defaults
+    _who = "unknown"; _name = ""; _ip = ""; _when = "";
+    _cat = "uncategorized"; _sub = ""; _verb = "action";
+    _out = ""; _msg = ""; _sev = ""; _tx = ""; 
+
+    // Who / name (Duo: username)
+    if (has("username") && username != "" && username != "null") { _who = username; }
+    else if (!has("username") || username == "" || username == "null" || username == "nil") {_who = actor;}
+
+    // IP (prefer explicit ip; else access_device-derived IP aliases if present)
+    if (has("src_ip") && src_ip != "" && src_ip != "null") { _ip = printf(" \(%v\)", src_ip); }
+
+    // When (Duo: isotimestamp, else timestamp)
+    if (has("TIMESTAMP") && TIMESTAMP != "" && TIMESTAMP != "null") { _when = printf("At %v, ", TIMESTAMP); }
+    else if (has("isotimestamp") && isotimestamp != "" && isotimestamp != "null") { _when = printf("At %v, ", isotimestamp); }
+    else if (has("timestamp") && timestamp != "" && timestamp != "null") { _when = printf("At %v, ", timestamp); }
+    
+    // Category / subcategory from duo_eventType_risk lookup
+    if (has("category") && category != "" && category != "null") { _cat = category; }
+    if (has("subcategory") && subcategory != "" && subcategory != "null") { _sub = printf("/%v", subcategory); }
+
+    // TransactionId from DUO_NORMALIZE_TXID
+    if (has("transactionId") && transactionId != "" && transactionId != "null") { _tx = printf(" [txid=%v]", transactionId); }
+
+    // Description from duo_eventType_risk lookup
+    // if (has("description") && description != "" && description != "null") { _msg = printf(" — %v", description); }
+
+    // Outcome 
+    if (has("outcome") && outcome != "" && outcome != "outcome") { _out = printf(" resulting in %v", outcome); }
+
+    // Normalizing alert table fields
+    context = _when + _who + _ip + " performed " + eventType + " action against " + target + _cat + _sub + _out + _tx;
+    _alert_header = "| Context |";
+    _alert_divider = "|-----|";
+    _alert_data = printf("|%v|", context);
+    _alert_title = printf("Alert: %v - %v - %v - %v - %v - %v",
+        _vendor, _product, _category, _subcategory, _alert_priority, _alert_name
+        );

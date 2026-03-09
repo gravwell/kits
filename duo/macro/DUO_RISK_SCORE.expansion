@@ -1,0 +1,164 @@
+// DUO_RISK_SCORE
+| grep -e is_mod_final "1"
+| eval
+    // helpers
+    et = eventType;
+    cat = category;
+    sub = subcategory;
+
+    // 1) base risk by Duo eventType family
+    base = 25.0;
+
+    // ---- ADMINISTRATOR EVENTS ----
+    if (match(et, "(?i)^admin_(single_sign_on|login|logout|session)(_.+)?$")) {
+        base = 85.0;
+    } else if (match(et, "(?i)^admin_(sync|directory_sync|ad_sync)(_.+)?$")) {
+        base = 80.0;
+    } else if (match(et, "(?i)^admin_(user|role|permission|admin)(_.+)?$")) {
+        base = 90.0;
+    } else if (match(et, "(?i)^admin_(policy|integration|application|api)(_.+)?$")) {
+        base = 85.0;
+    } else if (match(et, "(?i)^admin_(device|endpoint|trusted_endpoint)(_.+)?$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^admin_.+$")) {
+        base = 65.0;
+
+    // ---- AUTH / ENROLLMENT SINGLETONS ----
+    } else if (match(et, "(?i)^authentication$")) {
+        base = 40.0;
+    } else if (match(et, "(?i)^enrollment$")) {
+        base = 70.0;
+
+    // ---- PREFIX FAMILIES ----
+    } else if (match(et, "(?i)^cloudsso_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^management_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^integration_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^single_.+$")) {
+        base = 45.0;
+    } else if (match(et, "(?i)^duo_.+$")) {
+        base = 50.0;
+
+    } else if (match(et, "(?i)^user_.+$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^group_.+$")) {
+        base = 65.0;
+    } else if (match(et, "(?i)^id_.+$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^identity_.+$")) {
+        base = 70.0;
+
+    } else if (match(et, "(?i)^device_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^phone_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^hardtoken_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^u2ftoken_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^webauthncredential_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^webauthn_.+$")) {
+        base = 60.0;
+
+    } else if (match(et, "(?i)^trusted_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^bypass_.+$")) {
+        base = 65.0;
+    } else if (match(et, "(?i)^policy_.+$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^protected_.+$")) {
+        base = 65.0;
+    } else if (match(et, "(?i)^sensitive_.+$")) {
+        base = 65.0;
+
+    } else if (match(et, "(?i)^activation_.+$")) {
+        base = 50.0;
+    } else if (match(et, "(?i)^ad_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^azure_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^health_.+$")) {
+        base = 45.0;
+    } else if (match(et, "(?i)^log_.+$")) {
+        base = 40.0;
+    } else if (match(et, "(?i)^network_.+$")) {
+        base = 45.0;
+    } else if (match(et, "(?i)^email_.+$")) {
+        base = 45.0;
+    } else if (match(et, "(?i)^sms_.+$")) {
+        base = 45.0;
+    } else if (match(et, "(?i)^key_.+$")) {
+        base = 45.0;
+
+    } else if (match(et, "(?i)^accountsapi_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^deviceapi_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^api_.+$")) {
+        base = 55.0;
+
+    } else if (match(et, "(?i)^backup_.+$")) {
+        base = 45.0;
+    } else if (match(et, "(?i)^recovery_.+$")) {
+        base = 45.0;
+    } else if (match(et, "(?i)^restore_.+$")) {
+        base = 55.0;
+
+    } else if (match(et, "(?i)^risk_.+$")) {
+        base = 65.0;
+    } else if (match(et, "(?i)^saml_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^system_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^enterprise_.+$")) {
+        base = 55.0;
+
+    } else if (match(et, "(?i)^change_.+$")) {
+        base = 50.0;
+    } else if (match(et, "(?i)^customer_.+$")) {
+        base = 40.0;
+    } else if (match(et, "(?i)^dng_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^duotrust_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^error_.+$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^mintime_.+$")) {
+        base = 30.0;
+
+    } else if (match(et, "(?i)^deregister_.+$")) {
+        base = 55.0;
+    } else if (match(et, "(?i)^accepted_.+$")) {
+        base = 30.0;
+
+    } else if (match(et, "(?i)^No event types$")) {
+        base = 0.0;
+    };
+
+    // 2) bumps   
+    res_bump = (has("outcome") && match(outcome, "(?i)^fraud$")) ? 15.0
+        : ((has("outcome") && match(outcome, "(?i)^(success|allow)$")) ? 5.0
+        : ((has("outcome") && match(outcome, "(?i)^(fail|failure|deny|error)$")) ? 10.0 : 0.0));
+
+    // 3) total and clamp
+    risk_raw   = base + res_bump;
+    risk_score = math_round( math_min( math_max(risk_raw, 0.0), 100.0 ) );
+
+    // 4) labels & alert name
+    _alert_name = description;
+    _category    = cat;
+    _subcategory = sub;
+    _vendor  = "Duo";
+    _product = "MFA";
+
+    // 5) priority buckets
+    priority = "Informational";
+    if (risk_score >= 90.0) { priority = "Critical"; }
+    else if (risk_score >= 80.0) { priority = "High"; }
+    else if (risk_score >= 60.0) { priority = "Medium"; }
+    else if (risk_score >= 45.0) { priority = "Low"; }
+
+| eval _alert_priority = priority;

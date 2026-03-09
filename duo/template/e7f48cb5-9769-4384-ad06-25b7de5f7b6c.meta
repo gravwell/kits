@@ -1,0 +1,36 @@
+{
+	"UUID": "e7f48cb5-9769-4384-ad06-25b7de5f7b6c",
+	"Name": "Template - Duo - System - Event Types - Modification Alerts by Priority [numbercard]",
+	"Description": "Displays a numbercard by Priority (_alert_priority).",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duoUser%%",
+				"label": "Duo User",
+				"description": "This queries both the Actor and Target EVs for any events involving the user you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%duoIP%%",
+				"label": "Duo IP",
+				"description": "This queries all IP fields for the IP you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%duoLocation%%",
+				"label": "Duo Location",
+				"description": "This queries an EV named accessLocation \u0026 authLocation (City, State, Country)",
+				"required": true,
+				"defaultValue": ",",
+				"previewValue": ","
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

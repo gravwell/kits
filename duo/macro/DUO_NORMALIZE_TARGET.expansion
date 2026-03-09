@@ -1,0 +1,32 @@
+// DUO_NORMALIZE_TARGET
+| eval 
+    if (TAG == "duo-auth" && has(authAppDestName) && authAppDestName != "" && authAppDestName != "null" && authAppDestName != "nil") {
+        target = authAppDestName;
+    }
+    else if (TAG == "duo-auth" && has(authUser) && authUser != "" && authUser != "null" && authUser != "nil") {
+        target = authUser;
+    }
+    else if (TAG == "duo-auth" && has(authName) && authName != "" && authName != "null" && authName != "nil") {
+        target = authName;
+    }
+    else if (TAG == "duo-activity" && has(targetName) && targetName != "" && targetName != "null" && targetName != "nil") {
+        target = targetName;
+    }
+    else if (TAG == "duo-activity" && has(oldTargetName) && oldTargetName != "" && oldTargetName != "null" && oldTargetName != "nil") {
+        target = oldTargetName;
+    }
+    else if (TAG == "duo-admin" && has(adminObject) && adminObject != "" && adminObject != "null" && adminObject != "nil") {
+        target = adminObject;
+    }
+    else if (TAG == "duo-admin" && has(username) && username != "" && username != "null" && username != "nil") {
+        target = username;
+    }
+    else if (TAG == "duo-admin" && has(adminEmail) && adminEmail != "" && adminEmail != "null" && adminEmail != "nil") {
+        target = adminEmail;
+    }
+    // else if (TAG == "duo-telephony" && has(phone) && phone != "" && phone != "null" && phone != "nil") {
+    //     target = phone;
+    // }
+    // else if (TAG == "duo-offline-enrollment" && has(username) && username != "" && username != "null" && username != "nil") {
+    //     target = username;
+    // }

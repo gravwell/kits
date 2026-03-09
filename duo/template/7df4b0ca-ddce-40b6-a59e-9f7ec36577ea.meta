@@ -1,0 +1,20 @@
+{
+	"UUID": "7df4b0ca-ddce-40b6-a59e-9f7ec36577ea",
+	"Name": "Template - Duo - MFA - Offline Enrollment - Enrollment Actions [table]",
+	"Description": "This displays a table of all Enrollment Actions for the specified User.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duoUser%%",
+				"label": "Duo User",
+				"description": "This queries both the Actor and Target EVs for any events involving the user you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

@@ -1,0 +1,7 @@
+// Search - Duo - Activity - User State [numbercard]
+tag=$DUO_ACTIVITY
+| json
+    access_device.location.state as accessState
+| stats count by accessState
+| alias count " " 
+| numbercard " "

@@ -1,0 +1,10 @@
+// Template - Duo - System - Event Types - Modification Alerts by Source IP Address [numbercard]
+$DUO_ALERT_BASE
+$DUO_RISK_SCORE
+$DUO_TUNE_IP
+$DUO_TUNE_USER
+$DUO_ALERT_META
+| eval 
+    has("src_ip") && match(src_ip, "%%duoIP%%") && !match(src_ip, "(?i)^(null|nil|\"\")$") 
+| stats count as " " by src_ip
+| numbercard " "

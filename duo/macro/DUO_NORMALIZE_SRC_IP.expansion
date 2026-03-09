@@ -1,0 +1,16 @@
+// DUO_NORMALIZE_SRC_IP
+| eval 
+    if (TAG == "duo-auth" && has(accessIP) && accessIP != "" && accessIP != "null" && accessIP != "nil") {
+        src_ip = accessIP;
+    }
+    else if (TAG == "duo-auth" && has(authIP) && authIP != "" && authIP != "null" && authIP != "nil") {
+        src_ip = authIP;
+    }
+    else if (TAG == "duo-activity" && has(activityIP) && activityIP != "" && activityIP != "null" && activityIP != "nil") {
+        src_ip = activityIP;
+    }
+    else if (TAG == "duo-admin" && has(adminIP) && adminIP != "" && adminIP != "null" && adminIP != "nil") {
+        src_ip = adminIP;
+    }
+// Filter empty/null fields 1 liner
+| eval if (!has(src_ip) || src_ip == "" || src_ip == "null") { src_ip == "null"; }

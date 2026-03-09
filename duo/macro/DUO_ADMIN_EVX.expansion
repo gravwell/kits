@@ -1,0 +1,10 @@
+// DUO_ADMIN_EVX
+| json
+    action 
+    description
+    isotimestamp
+    object
+    timestamp
+    username
+| unescape description
+| json -e description notes realname ip_address error email
