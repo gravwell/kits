@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType a0
+| eval (auditType == "EXECVE" &&
+    in(a0, "hostname", "id", "last", "uname", "users", "w", "who", "whoami")
+)

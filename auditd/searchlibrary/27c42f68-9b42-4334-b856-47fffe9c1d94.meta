@@ -1,0 +1,15 @@
+{
+	"Name": "Auditd System Information Discovery - Auditd",
+	"Description": "Detects System Information Discovery commands",
+	"GUID": "27c42f68-9b42-4334-b856-47fffe9c1d94",
+	"Labels": [
+		"linux",
+		"auditd",
+		"vm detection",
+		"system information",
+		"discovery",
+		"T1082",
+		"discovery"
+	],
+	"Metadata": {}
+}

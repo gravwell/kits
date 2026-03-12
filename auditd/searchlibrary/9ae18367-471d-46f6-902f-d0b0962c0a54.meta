@@ -1,0 +1,17 @@
+{
+	"Name": "Auditd Suspicious C2 Command Patterns",
+	"Description": "Detects suspicious command-and-control patterns in command execution. Works with standard auditd logs (PROCTITLE records) without requiring custom configuration. Detects: wget/curl piped to shell, downloads to suspicious locations (/tmp, /dev/shm), base64 decode to execution, nc/netcat reverse shells, SSH tunneling, suspicious nmap scans. Covers MITRE ATT\u0026CK techniques: Application Layer Protocol (T1071), Non-Application Layer Protocol (T1095), Data Encoding (T1132), Remote Services (T1021), Network Service Scanning (T1046).",
+	"GUID": "9ae18367-471d-46f6-902f-d0b0962c0a54",
+	"Labels": [
+		"T1071",
+		"T1095",
+		"T1132",
+		"T1021",
+		"T1046",
+		"command-and-control",
+		"discovery"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

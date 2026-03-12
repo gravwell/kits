@@ -1,0 +1,7 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "iam.amazonaws.com" eventName == "PutUserPolicy" userAgent requestParameters
+| eval (
+    requestParameters ~ "arn:aws:s3:::<YOUR-BUCKET-NAME>/*" &&
+    requestParameters ~ "s3:GetObject" &&
+    requestParameters ~ "Allow"
+    ) && (
+    userAgent ~ "S3 Browser")

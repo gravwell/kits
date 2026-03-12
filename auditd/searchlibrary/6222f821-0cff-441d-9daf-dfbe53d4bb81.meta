@@ -1,0 +1,15 @@
+{
+	"Name": "Auditd Disable System Firewall",
+	"Description": "Detects disabling of system firewalls which could be used by adversaries to bypass controls that limit usage of the network.",
+	"GUID": "6222f821-0cff-441d-9daf-dfbe53d4bb81",
+	"Labels": [
+		"linux",
+		"auditd",
+		"firewall",
+		"service",
+		"SERVICE_STOP",
+		"T1562.004",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

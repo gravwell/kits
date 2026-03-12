@@ -1,0 +1,12 @@
+{
+	"Name": "Auditd Audio capture via arecord",
+	"Description": "Detects audio recording using arecord/ecasound utilities",
+	"GUID": "f275a334-93ca-4c84-b892-d3dd702d1ef0",
+	"Labels": [
+		"linux",
+		"auditd",
+		"audio",
+		"T1123"
+	],
+	"Metadata": {}
+}

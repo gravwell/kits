@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Execution Volume Over Time",
+	"Description": "Look at total count of exe over a period of time",
+	"GUID": "3f79c068-400c-4d1d-90c6-6eedf9936be2",
+	"Labels": [
+		"linux",
+		"auditd",
+		"exe",
+		"monitoring",
+		"stats"
+	],
+	"Metadata": {}
+}

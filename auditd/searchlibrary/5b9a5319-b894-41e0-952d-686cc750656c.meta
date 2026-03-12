@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Linux Capabilities Discovery",
+	"Description": "Detects attempts to discover the files with setuid/setgid capability on them. That would allow adversary to escalate their privileges.",
+	"GUID": "5b9a5319-b894-41e0-952d-686cc750656c",
+	"Labels": [
+		"linux",
+		"auditd",
+		"getcap",
+		"EXECVE",
+		"T1123",
+		"T1548"
+	],
+	"Metadata": {}
+}

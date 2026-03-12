@@ -1,0 +1,19 @@
+{
+	"Name": "AWS IAM S3Browser LoginProfile Creation",
+	"Description": "Detects S3 Browser utility performing reconnaissance looking for existing IAM Users without a LoginProfile defined then (when found) creating a LoginProfile.",
+	"GUID": "595d804b-1a85-457b-b17f-fdf102107b1e",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"iam",
+		"T1059.009",
+		"T1078.004",
+		"execution",
+		"persistence",
+		"defense-evasion",
+		"initial-access",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

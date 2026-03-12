@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType exe == "/usr/bin/sudo" AUID cmd
+| hexlify -d cmd as decoded_cmd
+| regex "res=(?<sudo_status>success|failed)"
+| table AUID decoded_cmd

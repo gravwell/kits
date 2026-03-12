@@ -1,0 +1,61 @@
+# AWS CloudTrail Kit Documentation
+
+# Overview
+
+This kit provides detection, analysis, and investigation capabilities for AWS CloudTrail data. This playbook provides an overview of provided resources, and configuration recommendations for getting AWS CloudTrail data into Gravwell.
+
+# Components
+
+##Query Library
+
+Pre-built searches are provided with the kit. They can be sorted by kit, or searched for by label **aws_cloudtrail**
+- **Query Library - Detections**
+    - Labeled 'detections', these queries identify potential security threats and suspicious behavior in AWS CloudTrail logs.
+
+- **Query Library - Stats Queries**
+    - Labeled 'stats', these queries provide baseline analytics and trending information.
+
+## Dashboards
+
+Pre-built dashboards for visualizing AWS CloudTrail activity and security events.
+
+# Usage
+
+##Prerequisites to use provided queries
+
+1. AWS CloudTrail data must be ingested with appropriate tags 
+    ```
+    (`tag=aws-cloudtrail`)
+    ```
+
+## Searching Basics
+Using the cloudtrail reader (defined in ingester block), it's simple to query the data as json
+
+```
+tag=aws-cloudtrail json 
+```
+
+A sample query would look like this -
+```
+tag=aws-cloudtrail json eventSource eventName
+| eval (eventSource == "cloudtrail.amazonaws.com" && (
+    eventName == "StopLogging" ||
+    eventName == "UpdateTrail" ||
+    eventName == "DeleteTrail"
+    )
+)
+```
+
+
+# Investigation Workflow
+
+1. **Baseline Understanding**: Use stats queries to understand normal aws_cloudtrail activity
+2. **Detection Review**: Monitor detections for suspicious activity
+3. **Dashboard Analysis**: Use dashboards for visual correlation and trending
+4. **Deep Dive**: Use ad-hoc queries to investigate specific events
+
+
+# References
+
+- https://docs.gravwell.io/ingesters/s3.html#
+- https://docs.aws.amazon.com/cloudtrail/

@@ -1,0 +1,22 @@
+{
+	"UUID": "46b57003-7d43-49d3-a75c-f9ce3d804526",
+	"GUID": "6b23fe0f-86b0-4397-9feb-0ad1fbe87797",
+	"UID": 7,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "AWS GuardDuty - Readme",
+	"Desc": "",
+	"Labels": null,
+	"LastUpdated": "2026-03-09T09:39:00.885293335-06:00",
+	"Author": {
+		"Name": "Bronson Peto",
+		"Email": "bronson.peto@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

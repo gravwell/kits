@@ -1,0 +1,13 @@
+{
+	"Name": "AWS Activity Based on AWS Region",
+	"Description": "Review which AWS regions are being utilized. Leads to anomaly detection.",
+	"GUID": "484b99c3-e42c-4424-a5e7-830f6f17e61f",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats",
+		"region"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

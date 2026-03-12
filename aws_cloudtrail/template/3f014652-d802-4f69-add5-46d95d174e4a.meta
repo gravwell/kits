@@ -1,0 +1,26 @@
+{
+	"UUID": "3f014652-d802-4f69-add5-46d95d174e4a",
+	"Name": "AWS CloudTrail - Investigate IP Activity",
+	"Description": "Search for events by an IP address, subnet range. Can specify event types, or leave as * (wildcard) for all events.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%EVENT_TYPE%%",
+				"label": "EVENT_TYPE",
+				"description": "Search for specific events, or leave as * for all events.",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			},
+			{
+				"name": "%%SRC_IP%%",
+				"label": "Source IP Address",
+				"description": "Specify an IP address or subnet range to search against",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

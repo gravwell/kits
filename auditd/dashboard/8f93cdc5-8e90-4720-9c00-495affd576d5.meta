@@ -1,0 +1,156 @@
+{
+	"UUID": "8f93cdc5-8e90-4720-9c00-495affd576d5",
+	"Name": "Auditd - Command Execution",
+	"Description": "Overview of detailed information of EXE activity.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search 1",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType exe\n| count\n| chart count",
+				"color": null
+			},
+			{
+				"alias": "Search 2",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType exe\n| stats count by exe\n| sort by count desc\n| table exe count",
+				"color": null
+			},
+			{
+				"alias": "Auditd Program Executions in Suspicious Folders",
+				"color": null,
+				"reference": {
+					"id": "134308b2-90db-4b07-be6d-2e1dd4bc0c47",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=$AUDITD kv -q type == \"SYSCALL\" as auditType exe AUID EUID | regex -e exe \"^(/tmp/|/var/www/|/home/.*/public_html/|/usr/local/apache2/|/usr/local/httpd/|/var/apache/|/srv/www/|/home/httpd/html/|/srv/http/|/usr/share/nginx/html/|/var/lib/pgsql/data/|/usr/local/mysql/data/|/var/lib/mysql/|/var/vsftpd/|/etc/bind/|/var/named/)\"\n| stats count by AUID EUID exe\n| table AUID EUID exe count",
+				"color": null
+			},
+			{
+				"alias": "Search 5",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType exe AUID EUID\n| regex -e exe \"(nc|ncat|netcat|curl|wget|python|perl|ruby|php|bash|nmap|tcpdump|socat)\"\n| stats count by AUID EUID exe\n| sort by count desc\n| table AUID EUID exe count",
+				"color": null
+			},
+			{
+				"alias": "Search 6",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType exe AUID EUID\n| eval AUID != \"root\" \u0026\u0026 EUID == \"root\"\n| stats count by AUID exe\n| sort by count desc\n| table AUID exe count",
+				"color": null
+			},
+			{
+				"alias": "Search 7",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType exe AUID EUID\n| stats count by exe\n| eval count \u003c 5\n| sort by count asc\n| table AUID exe count",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 5121651487031027,
+				"title": "Execution Volume Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "yes"
+				}
+			},
+			{
+				"id": 2999141356367590,
+				"title": "Top Executables",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6695077140827256,
+				"title": "Execution From Suspicious Paths",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 7310958983626188,
+				"title": "Interesting Binaries",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 10,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 2345915646735498,
+				"title": "Root Execution by Privilege Escalation",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 4,
+					"y": 7
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 3213174380500936,
+				"title": "Low Frequency Executables",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 8,
+					"y": 7
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

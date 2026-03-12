@@ -1,0 +1,12 @@
+tag=$AUDITD kv -q type as auditType exe
+| eval (auditType == "SYSCALL")
+| regex "(?<key>network_connect_4)"
+| eval (
+    (strings_hassuffix(exe, "/telnet")) ||
+    (strings_hassuffix(exe, "/nmap")) ||
+    (strings_hassuffix(exe, "/nc")) ||
+    (strings_hassuffix(exe, "/ncat")) ||
+    (strings_hassuffix(exe, "/nc.openbsd"))
+    ) && (
+    key == "network_connect_4"
+    )

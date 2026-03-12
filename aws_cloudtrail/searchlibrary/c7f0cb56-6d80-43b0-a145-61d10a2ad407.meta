@@ -1,0 +1,16 @@
+{
+	"Name": "AWS KMS Imported Key Material Usage",
+	"Description": "Detects the import or deletion of key material in AWS KMS, which can be used as part of ransomware attacks. This activity is uncommon and provides a high certainty signal.",
+	"GUID": "c7f0cb56-6d80-43b0-a145-61d10a2ad407",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"kms",
+		"T1486",
+		"T1608.003",
+		"impact",
+		"resource-development"
+	],
+	"Metadata": {}
+}

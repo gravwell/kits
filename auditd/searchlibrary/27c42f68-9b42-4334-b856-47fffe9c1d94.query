@@ -1,0 +1,5 @@
+tag=$AUDITD kv -q type as auditType name a0 a1 a2
+| eval
+    (auditType == "PATH" && in(name, "/etc/lsb-release", "/etc/redhat-release", "/etc/issue")) ||
+    (auditType == "EXECVE" && in(a0, "uname", "uptime", "lsmod", "hostname", "env")) ||
+    (auditType == "EXECVE" && a0 == "kmod" && a1 == "list")

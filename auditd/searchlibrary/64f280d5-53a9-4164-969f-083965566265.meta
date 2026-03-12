@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Root EXE from privilege escalation",
+	"Description": "Looks for execution of exe as root from non-root users",
+	"GUID": "64f280d5-53a9-4164-969f-083965566265",
+	"Labels": [
+		"linux",
+		"auditd",
+		"stats",
+		"root",
+		"exe",
+		"privilege escalation"
+	],
+	"Metadata": {}
+}

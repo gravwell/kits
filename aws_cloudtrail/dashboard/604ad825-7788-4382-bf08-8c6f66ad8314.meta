@@ -1,0 +1,124 @@
+{
+	"UUID": "604ad825-7788-4382-bf08-8c6f66ad8314",
+	"Name": "AWS CloudTrail - Governance Dashboard",
+	"Description": "Low-frequency view to ensure compliance and clean-up",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P30DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search 1",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName userIdentity.arn userIdentity.userName as creatingIdentity requestParameters.userName as newUser\n| eval (eventName == \"CreateUser\" || eventName == \"CreateAccessKey\")\n| table eventName newUser creatingIdentity",
+				"color": null
+			},
+			{
+				"alias": "Search 2",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName == \"AssumeRole\" userIdentity.type != \"AWSService\" errorCode userIdentity.arn as assumerAsn responseElements.assumedRoleUser.arn as assumedAsn\n| eval ! has(errorCode)\n| table eventName assumerAsn assumedAsn",
+				"color": null
+			},
+			{
+				"alias": "Search 3",
+				"query": "tag=$AWS_CLOUDTRAIL json awsRegion\n| count by awsRegion\n| chart count by awsRegion",
+				"color": null
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName\n| eval eventName == \"ScheduleKeyDeletion\" || eventName == \"DisableKey\"\n| table eventName",
+				"color": null
+			},
+			{
+				"alias": "Search 5",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName requestParameters.routeTableId requestParameters.destinationCidrBlock\n| eval eventName == \"CreateRoute\" || eventName == \"DeleteRoute\" || eventName == \"ReplaceRoute\"\n| table eventName routeTableId destinationCidrBlock",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 4941749429013326,
+				"title": "IAM User Creation",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6972628499985877,
+				"title": "Role Assumption",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 5,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 7274677649496266,
+				"title": "Regional Activity",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 5,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"LogScale": "yes"
+				}
+			},
+			{
+				"id": 3855849191510600,
+				"title": "KMS Key Deletion",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1663763543980634,
+				"title": "Route Table Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 9,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

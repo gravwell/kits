@@ -1,0 +1,12 @@
+{
+	"Name": "AWS Bucket Deleted",
+	"Description": "Detects the deletion of S3 buckets in AWS CloudTrail logs. Monitoring the deletion of S3 buckets is critical for security and data integrity, as it may indicate potential data loss or unauthorized access attempts.",
+	"GUID": "7908d644-34bd-4719-8e91-873ac261fd2b",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

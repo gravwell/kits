@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "rds.amazonaws.com" eventName == "ModifyDBInstance" responseElements.pendingModifiedValues.masterUserPassword
+| eval has(masterUserPassword)

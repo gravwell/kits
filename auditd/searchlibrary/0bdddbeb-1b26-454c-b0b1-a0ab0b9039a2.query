@@ -1,0 +1,6 @@
+tag=$AUDITD kv -q type as auditType a0 a1 a2
+| eval (auditType == "EXECVE")
+| eval (
+    (a0 == "systemctl" && (a1 == "reload" || a1 == "restart" || a1 == "start")) ||
+    (a0 == "service" && (a2 == "reload" || a2 == "start" || a2 == "restart"))
+)

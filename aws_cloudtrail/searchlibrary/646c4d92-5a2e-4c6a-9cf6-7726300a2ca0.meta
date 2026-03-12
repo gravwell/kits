@@ -1,0 +1,14 @@
+{
+	"Name": "AWS LoadBalancer Security Group Modification",
+	"Description": "Detects changes to the security groups associated with an Elastic Load Balancer (ELB) or Application Load Balancer (ALB). This can indicate that a misconfiguration allowing more traffic into the system than required, or could indicate that an attacker is attempting to enable new connections into a VPC or subnet controlled by the account.",
+	"GUID": "646c4d92-5a2e-4c6a-9cf6-7726300a2ca0",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"elb",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "AWS Glue Development Endpoint Activity",
+	"Description": "Detects possible suspicious glue development endpoint activity.",
+	"GUID": "f5b01dd7-7f67-4575-a6e5-8706a75e9725",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"glue",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

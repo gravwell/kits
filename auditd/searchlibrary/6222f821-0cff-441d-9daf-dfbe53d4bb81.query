@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType
+| eval (auditType == "SERVICE_STOP")
+| regex "unit=(?P<unit>\S+)"
+| eval (unit=="ufw" || unit=="firewalld"|| unit=="iptables")

@@ -1,0 +1,8 @@
+tag=$AUDITD kv -q type as auditType a0 a1
+| eval auditType =="EXECVE"
+| eval (
+    (a0 == "chmod" && a1 == "777") ||
+    (a0 == "chmod" && a1 == "u+s") ||
+    (a0 == "cp" && a1 == "/bin/ksh") ||
+    (a0 == "cp" && a1 == "/bin/sh")
+)

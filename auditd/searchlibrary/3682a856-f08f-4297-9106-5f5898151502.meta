@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Auditing Configuration Changes",
+	"Description": "Detect changes in auditd configuration files",
+	"GUID": "3682a856-f08f-4297-9106-5f5898151502",
+	"Labels": [
+		"linux",
+		"auditd",
+		"file-integrity",
+		"configuration",
+		"T1562.006"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Account Created",
+	"Description": "Detects the creation of a new user account. Such accounts may be used for persistence that do not require persistent remote access tools to be deployed on the system.",
+	"GUID": "afea8245-b4f7-4db3-aa95-82e5bd7ab059",
+	"Labels": [
+		"linux",
+		"auditd",
+		"account",
+		"T1136.001",
+		"attack.persistence"
+	],
+	"Metadata": {}
+}

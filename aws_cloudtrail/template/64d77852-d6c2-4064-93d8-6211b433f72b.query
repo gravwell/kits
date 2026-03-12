@@ -1,0 +1,5 @@
+tag=$AWS_CLOUDTRAIL json eventSource eventName errorCode errorMessage userIdentity.userName
+| eval eventSource == "%%AWS_SERVICE%%"
+| eval has(errorCode)
+| count by userName errorCode errorMessage
+| table userName errorCode errorMessage count

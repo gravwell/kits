@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType SYSCALL
+| eval (auditType == "SYSCALL" && (SYSCALL=="mknod" || SYSCALL=="mknodat"))

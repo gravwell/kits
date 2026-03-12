@@ -1,0 +1,22 @@
+# Overview
+This kit provides an interface for reviewing logs that come from AWS GuardDuty. 
+
+# Components
+
+## __Macro__
+The most fundamental aspect of this kit is a macro _($GUARDUTY_ALERT)_ which summarizes the finding, and outputs text to quickly scan for information. The full events are accessible for in-depth review, and the macro can be customized with additional fields you'd like to see or to adjust formatting of the summarized output. 
+
+## __Queries__
+Included is a search for each severity as determined by GuardDuty. The web console shows CRITICAL / HIGH / MEDIUM / LOW, but each finding is based on a Severity score that ranges from 1 (Low) to 10 (Critical). The searches account for the severity ranges -- for example, high is:
+```
+severity_value >= 7 && severity_value <= 8.9
+```
+
+## __Dashboards__
+There are 2 dashboards included - 
+
+- Findings By Severity - 
+Provides an overview of findings over time and by severity. Allows you to quickly refresh as findings come in, and track them by severity.
+
+- Findings Overview - 
+Breaks down findings into details by finding type, resoures, accounts, regions,

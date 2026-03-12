@@ -1,0 +1,1 @@
+tag=$AUDITD kv -q -s type == "SYSCALL" as auditType exe AUID EUID | eval AUID != "root" && EUID == "root" | stats count by AUID exe | sort by count desc | table AUID exe count

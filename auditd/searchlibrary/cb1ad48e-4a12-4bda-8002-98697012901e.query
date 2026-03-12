@@ -1,0 +1,1 @@
+tag=$AUDITD kv -q -s type == "SYSCALL" as auditType exe AUID EUID | regex -e exe "(nc|ncat|netcat|curl|wget|python|perl|ruby|php|bash|nmap|tcpdump|socat)" | stats count by AUID EUID exe | sort by count desc | table AUID EUID exe count

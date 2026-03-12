@@ -1,0 +1,16 @@
+{
+	"Name": "Auditd Set file's access timestamp",
+	"Description": "Detect changes of attempts to stomp timestamp of a file",
+	"GUID": "31076086-b9ae-47fe-8872-23dd331c1e55",
+	"Labels": [
+		"linux",
+		"auditd",
+		"touch",
+		"EXECVE",
+		"timestamp",
+		"modify",
+		"T1070",
+		"attack.evasion"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Masquerading as Linux Crond Process",
+	"Description": "Masquerading occurs when the name or location of an executable, legitimate or malicious, is manipulated or abused for the sake of evading defenses and observation.\nSeveral different variations of this technique have been observed.\n",
+	"GUID": "5ea0db9f-fc11-472e-a900-406a307a37a3",
+	"Labels": [
+		"linux",
+		"auditd",
+		"masquerading",
+		"crond",
+		"T1036.003",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

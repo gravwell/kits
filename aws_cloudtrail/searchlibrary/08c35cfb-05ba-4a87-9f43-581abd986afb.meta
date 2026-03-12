@@ -1,0 +1,13 @@
+{
+	"Name": "AWS EFS Fileshare Modified or Deleted",
+	"Description": "Detects when a EFS Fileshare is modified or deleted. You can't delete a file system that is in use. If the file system has any mount targets, the adversary must first delete them, so deletion of a mount will occur before deletion of a fileshare.",
+	"GUID": "08c35cfb-05ba-4a87-9f43-581abd986afb",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"efs",
+		"impact"
+	],
+	"Metadata": {}
+}

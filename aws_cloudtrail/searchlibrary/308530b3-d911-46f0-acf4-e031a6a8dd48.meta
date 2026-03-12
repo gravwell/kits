@@ -1,0 +1,18 @@
+{
+	"Name": "AWS STS AssumeRole Misuse",
+	"Description": "Identifies the suspicious use of AssumeRole. Attackers could move laterally and escalate privileges.",
+	"GUID": "308530b3-d911-46f0-acf4-e031a6a8dd48",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"identity",
+		"T1548",
+		"T1550",
+		"T1550.001",
+		"lateral-movement",
+		"privilege-escalation",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

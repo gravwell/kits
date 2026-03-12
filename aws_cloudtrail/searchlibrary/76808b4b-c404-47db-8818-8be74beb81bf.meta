@@ -1,0 +1,15 @@
+{
+	"Name": "AWS User Login Profile Was Modified",
+	"Description": "Detects activity when someone is changing passwords on behalf of other users. An attacker with the 'iam:UpdateLoginProfile' permission on other users can change the password used to login to the AWS console on any user that already has a login profile setup.",
+	"GUID": "76808b4b-c404-47db-8818-8be74beb81bf",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"iam",
+		"T1098",
+		"persistence",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

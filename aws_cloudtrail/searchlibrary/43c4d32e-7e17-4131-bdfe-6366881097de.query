@@ -1,0 +1,8 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "elasticache.amazonaws.com" eventName
+| eval (
+    eventName == "DeleteCacheSecurityGroup" ||
+    eventName == "AuthorizeCacheSecurityGroupIngress" ||
+    eventName == "AuthorizeCacheSecurityGroupIngress" ||
+    eventName == "AuthorizeCacheSecurityGroupEgress" ||
+    eventName == "RevokeCacheSecurityGroupEgress"
+    )

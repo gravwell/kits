@@ -1,0 +1,7 @@
+tag=$AWS_CLOUDTRAIL json eventSource eventName
+| eval (eventSource == "cloudtrail.amazonaws.com" && (
+    eventName == "StopLogging" ||
+    eventName == "UpdateTrail" ||
+    eventName == "DeleteTrail"
+    )
+)

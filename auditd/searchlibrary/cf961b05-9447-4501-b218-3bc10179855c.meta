@@ -1,0 +1,11 @@
+{
+	"Name": "Auditd User Transition Counts",
+	"Description": "A count of how many sessions a user has transitioned to another user ID",
+	"GUID": "cf961b05-9447-4501-b218-3bc10179855c",
+	"Labels": [
+		"linux",
+		"auditd",
+		"user transition"
+	],
+	"Metadata": {}
+}

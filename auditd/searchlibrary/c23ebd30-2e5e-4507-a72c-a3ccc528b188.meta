@@ -1,0 +1,12 @@
+{
+	"Name": "Auditd Use Of Hidden Paths Or Files",
+	"Description": "Detects calls to hidden files or files located in hidden directories in NIX systems.",
+	"GUID": "c23ebd30-2e5e-4507-a72c-a3ccc528b188",
+	"Labels": [
+		"T1574.001",
+		"privilege-escalation",
+		"persistence",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Auditd EXE from interesting binaries",
+	"Description": "A table that shows binaries that are potentially interesting to review",
+	"GUID": "cb1ad48e-4a12-4bda-8002-98697012901e",
+	"Labels": [
+		"linux",
+		"auditd",
+		"stats",
+		"exe"
+	],
+	"Metadata": {}
+}

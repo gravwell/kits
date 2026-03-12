@@ -1,0 +1,3 @@
+tag=$AUDITD kv -q type as auditType exe syscall a0 a1 a2
+| eval (auditType == "EXECVE" && a0 == "arecord" && a1 == "-vv" && a2 == "-fdat") ||
+(auditType == "SYSCALL" && strings_hassuffix(exe,"ecasound") && syscall == "memfd_create")

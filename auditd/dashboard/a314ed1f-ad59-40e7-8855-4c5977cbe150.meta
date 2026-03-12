@@ -1,0 +1,93 @@
+{
+	"UUID": "a314ed1f-ad59-40e7-8855-4c5977cbe150",
+	"Name": "Auditd - Failed Operations",
+	"Description": "Looks for unsuccessful syscalls events. Shows denied access, blocked operations, permissions issues.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search 1",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType success == \"no\"\n| count\n| chart",
+				"color": null
+			},
+			{
+				"alias": "Search 2",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType success == \"no\" AUID\n| stats count by AUID\n// | sort by count desc\n| chart count by AUID",
+				"color": null
+			},
+			{
+				"alias": "Search 3",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType success == \"no\" exe\n| stats count by exe\n| sort by count desc\n| table exe count",
+				"color": null
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=$AUDITD kv -q -s type == \"SYSCALL\" as auditType success == \"no\" SYSCALL\n| stats count by SYSCALL\n| sort by count desc\n| table SYSCALL count",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 1166732928623563,
+				"title": "Failed Operations Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "yes"
+				}
+			},
+			{
+				"id": 8997419243802443,
+				"title": "Failed Operations by Executable",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 7040291158777694,
+				"title": "Failed Operations by Syscall Type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

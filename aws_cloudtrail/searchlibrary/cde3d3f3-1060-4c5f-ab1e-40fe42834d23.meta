@@ -1,0 +1,14 @@
+{
+	"Name": "AWS New Lambda Function URL Configuration Created",
+	"Description": "Detects when a user creates a Lambda function URL configuration, which could be used to expose the function to the internet and potentially allow unauthorized access to the function's IAM role for AWS API calls. This could give an adversary access to the privileges associated with the Lambda service role that is attached to that function.",
+	"GUID": "cde3d3f3-1060-4c5f-ab1e-40fe42834d23",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"lambda",
+		"initial-access",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

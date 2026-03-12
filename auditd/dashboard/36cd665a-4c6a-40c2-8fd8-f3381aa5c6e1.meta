@@ -1,0 +1,125 @@
+{
+	"UUID": "36cd665a-4c6a-40c2-8fd8-f3381aa5c6e1",
+	"Name": "Auditd - Privilege Escalation Risk",
+	"Description": "Check to understand if users/processes gaining elevated privileges inappropriately",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Sudo Failures",
+				"color": null,
+				"reference": {
+					"id": "78f95877-5787-4eae-83f7-85e94a1f894b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search 2",
+				"query": "tag=$AUDITD kv -q type as auditType exe == \"/usr/bin/sudo\" cmd AUID\n| grep \"res=failed\"\n| count auditType by AUID\n| table cmd AUID",
+				"color": null
+			},
+			{
+				"alias": "Search 3",
+				"query": "tag=$AUDITD kv -q type as auditType exe == \"/usr/bin/sudo\" cmd AUID acct\n| hexlify -d cmd as decoded_cmd\n| regex \"res=(?\u003csudo_status\u003esuccess|failed)\"\n| stats count by sudo_status over 1h\n| chart count by sudo_status",
+				"color": null
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=$AUDITD kv -q type as auditType exe == \"/usr/bin/sudo\" AUID cmd\n| hexlify -d cmd as decoded_cmd\n| regex \"res=(?\u003csudo_status\u003esuccess|failed)\"\n| eval sudo_status == \"failed\"\n| count by sudo_status\n| numbercard (count \"Sudo Failures\")",
+				"color": null
+			},
+			{
+				"alias": "Search 5",
+				"query": "tag=$AUDITD kv -q type as auditType exe == \"/usr/bin/sudo\" AUID cmd\n| hexlify -d cmd as decoded_cmd\n| regex \"res=(?\u003csudo_status\u003esuccess|failed)\"\n| eval sudo_status == \"failed\"\n| count by sudo_status\n| numbercard (count \"Sudo: \")",
+				"color": null
+			},
+			{
+				"alias": "Search 6",
+				"query": "tag=$AUDITD kv -q type as auditType exe == \"/usr/bin/sudo\" AUID cmd\n| hexlify -d cmd as decoded_cmd\n| regex \"res=(?\u003csudo_status\u003esuccess|failed)\"\n| count by AUID\n| chart count by AUID",
+				"color": null
+			},
+			{
+				"alias": "Search 7",
+				"query": "tag=$AUDITD kv -q type as auditType exe == \"/usr/bin/sudo\" AUID cmd\n| hexlify -d cmd as decoded_cmd\n| regex \"res=(?\u003csudo_status\u003esuccess|failed)\"\n| eval sudo_status == \"failed\"\n| table AUID decoded_cmd",
+				"color": null
+			},
+			{
+				"alias": "Search 8",
+				"query": "tag=$AUDITD kv -q type as auditType exe == \"/usr/bin/sudo\" AUID cmd \n| hexlify -d cmd as decoded_cmd \n| regex \"res=(?\u003csudo_status\u003efailed)\" \n| eval failure = printf(\"Failed sudo attempts for User: %s\", AUID)\n| count by failure\n| numbercard (count \"\")",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 7781937435392135,
+				"title": "Sudo Usage by User",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "yes",
+					"LogScale": "yes"
+				}
+			},
+			{
+				"id": 2711066158345474,
+				"title": "Failed Sudo Commands",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 8,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 5308951120894604,
+				"title": "Sudo Failures",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 3,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "20",
+					"NumberCardNumberFontSize": "40",
+					"NumberCardWidth": "50"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

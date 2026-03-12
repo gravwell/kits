@@ -1,0 +1,13 @@
+tag=$AUDITD kv -q type as auditType proctitle
+| eval auditType == "PROCTITLE"
+| hexlify -d proctitle
+| eval
+    match(proctitle, "(wget|curl).*(http|https|ftp).*(\||;|&&).*sh") ||
+    match(proctitle, "(wget|curl).*\\d+\\.\\d+\\.\\d+\\.\\d+") ||
+    match(proctitle, "base64.*(-d|--decode).*(\||;|&&).*(bash|sh|python)" ||
+    match(proctitle, "(nc|netcat|ncat).*-e.*(bash|sh)") ||
+    match(proctitle, "(wget|curl).*/tmp") ||
+    match(proctitle, "(wget|curl).*/dev/shm") ||
+    match(proctitle, "ssh.*-[DLR].*\\d+") ||
+    match(proctitle, "nmap.*(-sS|-sT|-sV|-O|-A)"))
+| table proctitle

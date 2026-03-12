@@ -1,0 +1,9 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "ecs.amazonaws.com" eventName requestParameters
+| json -e requestParameters -x container_item containerDefinitions as container_item
+| json -e container_item command
+| eval (
+    eventName == "DescribeTaskDefinition" ||
+    eventName == "RegisterTaskDefinition" ||
+    eventName == "RunTask"
+    ) && (
+    command ~ "$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI")

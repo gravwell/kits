@@ -1,0 +1,14 @@
+{
+	"Name": "AWS Modification or Deletion of an RDS Cluster",
+	"Description": "Detects modifications to an RDS cluster or its deletion, which may indicate potential data exfiltration attempts, unauthorized access, or exposure of sensitive information.",
+	"GUID": "339271f8-db27-4d27-92f0-dc75e317ebf0",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"rds",
+		"T1020",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

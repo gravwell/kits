@@ -1,0 +1,16 @@
+{
+	"Name": "AWS Route 53 Domain Transferred to Another Account",
+	"Description": "Detects when a request has been made to transfer a Route 53 domain to another AWS account.",
+	"GUID": "f2a14e73-3793-4e9e-b4c4-f6361b56e418",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"route53",
+		"T1098",
+		"persistence",
+		"credential-access",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

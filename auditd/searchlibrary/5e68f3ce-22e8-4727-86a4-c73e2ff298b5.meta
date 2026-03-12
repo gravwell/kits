@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Credentials In Files - Linux",
+	"Description": "Detecting attempts to extract passwords with grep",
+	"GUID": "5e68f3ce-22e8-4727-86a4-c73e2ff298b5",
+	"Labels": [
+		"linux",
+		"auditd",
+		"credential",
+		"T1552.001",
+		"credential-access"
+	],
+	"Metadata": {}
+}

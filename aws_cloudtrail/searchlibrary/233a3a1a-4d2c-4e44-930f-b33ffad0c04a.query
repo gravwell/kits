@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json userIdentity.type userIdentity.arn
+| count by arn
+| sort by count desc
