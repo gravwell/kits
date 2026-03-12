@@ -1,0 +1,7 @@
+{
+	"Name": "FORTINET_EVX",
+	"Description": "This macro is intended to be used with $FORTINET as it extracts every possible Enumerated Value (EV) for any of the Fortinet logs.\n\nUsage:\ntag=$FORTINET\n$FORTINET_EVX",
+	"Labels": [
+		"fortinet"
+	]
+}

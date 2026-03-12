@@ -1,0 +1,7 @@
+{
+	"Name": "FORTINET_TRAFFIC",
+	"Description": "Configuration Macro; Tag used for all Fortinet Traffic data; necessary for any queries within the Gravwell Fortinet Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$FORTINET_TRAFFIC",
+	"Labels": [
+		"fortinet"
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "fortinet_url_category",
+	"Description": "This is intended to be used as a lookup file providing additional information regarding Fortinet url categories. It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.\n\nfields:\ncategory,category_id,subcategory,subcategory_id,description,risk_score\n  - category: this is the url category for the event\n  - category_id: this is the url category id for the event\n  - subcategory: this is the log subcategory for the event\n  - subcategory_id: this is the log subcategory id for the event\n  - description: this is more information about the subcategory for the event\n  - risk_score: this is the associated risk score for the url category and subcategory\n\nReference(s):\n  - Fortinet \n    - https://community.fortinet.com/t5/FortiGate/Troubleshooting-Tip-FortiGate-session-table-information/ta-p/196988\n\nUsage: lookup -r fortinet_url_category subtype subcategory (category category_id subcategory subcategory_id description risk_score)",
+	"Labels": [
+		"fortinet"
+	],
+	"Size": 8390,
+	"Hash": "HPxULatwfupRQNU58G8Irg==",
+	"Data": ""
+}

@@ -1,0 +1,17 @@
+{
+	"Name": "fortinet-traffic",
+	"Desc": "Gravwell generated fields extraction for tag fortinet-traffic, args '-q'",
+	"Module": "kv",
+	"Tag": "",
+	"Tags": [
+		"fortinet-traffic"
+	],
+	"Labels": [
+		"fortinet"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "99853075-d4e9-4a66-8c0b-3e20a9ce8712",
+	"LastUpdated": "2026-03-10T15:13:29.30184146Z"
+}

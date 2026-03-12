@@ -1,0 +1,99 @@
+{
+	"UUID": "be1a32ef-6fc5-49df-ab79-24d2776d8005",
+	"Name": "Fortinet Traffic Overview",
+	"Description": "This Dashboard is a general overview of your Fortinet Traffic Data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Fortinet - Traffic - EV - Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "50882356-8daf-4780-9975-884b1aec9809",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Traffic - EV - Count [chart]",
+				"color": null,
+				"reference": {
+					"id": "3fe2fd6f-80f8-4b91-abd7-0b9df8ef10d8",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Traffic - EV - Count [table]",
+				"color": null,
+				"reference": {
+					"id": "81dd48b5-3db5-4182-9be5-3c18f1cfd5ca",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17707501130370,
+				"title": "Count [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17707501896221,
+				"title": "Count [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17707502220602,
+				"title": "Count [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

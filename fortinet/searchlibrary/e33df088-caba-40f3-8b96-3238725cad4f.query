@@ -1,0 +1,5 @@
+tag=$FORTINET kv -q
+    app
+    apprisk
+| stats count by app apprisk
+| chart count by app apprisk

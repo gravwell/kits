@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Fortinet - System - Log Types - Count by Tag [chart]",
+	"Description": "This will display the amount of events consumed by Fortinet Tag in a chart over the specified timeframe. ",
+	"GUID": "823cd5f7-8a65-46dd-9599-64fb0182850f",
+	"Labels": [
+		"fortinet"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

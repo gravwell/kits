@@ -1,0 +1,102 @@
+{
+	"UUID": "1667451f-8c1d-414e-90f0-66842fb6a2c4",
+	"Name": "Fortinet System Overview",
+	"Description": "This Dashboard is a general overview of your Fortinet System Data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Fortinet - System - EV - Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "87090152-4917-4b59-84f7-e0ee2ebd5f2b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - System - EV - Count [chart]",
+				"color": null,
+				"reference": {
+					"id": "affb2b96-36b8-4bd2-ad58-250ef61047e9",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - System - EV - Count [table]",
+				"color": null,
+				"reference": {
+					"id": "c459d930-b776-40a3-bb31-a4eee77342d1",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17707546227310,
+				"title": "Count [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17707546559741,
+				"title": "Count [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17707546785862,
+				"title": "Count [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

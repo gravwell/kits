@@ -1,0 +1,381 @@
+{
+	"UUID": "e42875e0-91cb-4aeb-85d8-6c262068d6a2",
+	"Name": "General Fortinet Overview",
+	"Description": "This Dashboard is a general overview of all of your Fortinet Data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Fortinet - System - Log Types - Count by Tag [pie]",
+				"color": null,
+				"reference": {
+					"id": "823cd5f7-8a65-46dd-9599-64fb0182850f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Fortinet - Firewall - System - Log Type - Count by Subtype [chart]",
+				"color": null,
+				"reference": {
+					"id": "ba8cf640-40ab-4cf9-a01c-2b443905ff55",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Fortinet - System - Log Types - Count by App Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "f7837614-eed8-4674-a91b-8aed683567d6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Fortinet - System - Log Types - Count by App [chart]",
+				"color": null,
+				"reference": {
+					"id": "7620f1cf-bd0b-4f74-8f2d-a3d8502aae9a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Fortinet - System - Log Types - Count by App Risk [chart]",
+				"color": null,
+				"reference": {
+					"id": "e33df088-caba-40f3-8b96-3238725cad4f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Fortinet - System - Log Types - Count by Service [chart]",
+				"color": null,
+				"reference": {
+					"id": "0a2bb881-aee8-44c2-8e2e-c179d2ce0c1d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Fortinet - System - Log Types - Count by App \u0026 Action [chart]",
+				"color": null,
+				"reference": {
+					"id": "9cf96d3a-aa33-47b4-a9f8-59416dbfca2c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17721610172251,
+				"title": "Count by Tag [pie]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17721611095031,
+				"title": "Count by Tag [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17721613014502,
+				"title": "Count by Subtype [pie]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17721613973173,
+				"title": "Count by Subtype [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17721621500094,
+				"title": "Count by App \u0026 Category [pie]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17721622043575,
+				"title": "Count by App \u0026 Category [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 13
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17721622405986,
+				"title": "Count by App [pie]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 20
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17721622963597,
+				"title": "Count by App [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 20
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17721623467208,
+				"title": "Count by App \u0026 Risk [pie]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 27
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17721624129879,
+				"title": "Count by App \u0026 Risk [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 27
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 177216258053010,
+				"title": "Count by App \u0026 Service [pie]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 35
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177216268067011,
+				"title": "Count by App \u0026 Service [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 35
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 177216310410412,
+				"title": "Count by App \u0026 Action [pie]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 43
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177216317445213,
+				"title": "Count by App \u0026 Action [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 43
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

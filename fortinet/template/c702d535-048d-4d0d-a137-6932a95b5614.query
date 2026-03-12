@@ -1,0 +1,6 @@
+tag=$FORTINET_UTM start=-%%time%% ax 
+    date time type subtype level srcip srcport dstip dstport rcvdbyte sentbyte action app appcat apprisk service
+| eval sentbyte = pretty_size(string(sentbyte))
+| eval rcvdbyte = pretty_size(string(rcvdbyte))
+| eval srcip~"%%ip%%" || dstip~"%%ip%%"
+| table date time type subtype level srcip srcport dstip dstport rcvdbyte sentbyte action app appcat apprisk service

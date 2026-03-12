@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Fortinet - System - Log Types - Count by App [chart]",
+	"Description": "Displays a chart of the different Fortinet by app. This query is used on the General Fortinet Overview dashboard. ",
+	"GUID": "7620f1cf-bd0b-4f74-8f2d-a3d8502aae9a",
+	"Labels": [
+		"fortinet"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

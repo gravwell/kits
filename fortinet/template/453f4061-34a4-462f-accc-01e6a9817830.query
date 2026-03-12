@@ -1,0 +1,4 @@
+tag=$FORTINET start=-%%time%% ax srcip dstip
+| eval srcip~"%%ip%%" || dstip~"%%ip%%"
+| stats count by TAG
+| chart count by TAG

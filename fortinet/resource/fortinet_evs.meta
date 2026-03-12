@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "fortinet_evs",
+	"Description": "This is intended to be used as a lookup file providing additional information regarding Fortinet enumerated values (EVs). It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.\n\nfields:\nev,description,example\n  - ev: this is the category of the Enumerated Value (EV) to match upon.\n  - description: this will give you more information about the ev.\n  - example: this field displays what the field should look like.\n\nReference(s):\n  - Fortinet \n    - https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/357866\n\nUsage: lookup -r fortinet_evs \u003cenumerated value that you want more information for\u003e ev (ev description example)",
+	"Labels": [
+		"fortinet"
+	],
+	"Size": 3892,
+	"Hash": "QC7NfJpX7uZphaZ3LRmjxg==",
+	"Data": ""
+}
