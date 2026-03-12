@@ -1,0 +1,7 @@
+{
+	"Name": "DUO",
+	"Description": "Configuration Macro; Tag used for all Duo data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$DUO\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Activity Logs - https://duo.com/docs/adminapi#activity-logs\n- Duo Administrator Logs - https://duo.com/docs/adminapi#administrator-logs\n- Duo Authentication Logs - https://duo.com/docs/adminapi#authentication-logs\n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs\n- Duo Telephony Logs - https://duo.com/docs/adminapi#telephony-logs",
+	"Labels": [
+		"duo"
+	]
+}

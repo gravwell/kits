@@ -1,0 +1,258 @@
+{
+	"UUID": "c960bdd4-0754-4144-aa63-93cf03ee1b6c",
+	"Name": "Duo User Location Overview",
+	"Description": "This Dashboard is a general overview of your Duo User Location data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Duo - Activity - User City [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5b004b57-20cb-4ee4-a9e1-991dd2946404",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - Activity - User Country [chart]",
+				"color": null,
+				"reference": {
+					"id": "5c714026-34f4-4436-8495-4edc927598b6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - Activity - User Country [table]",
+				"color": null,
+				"reference": {
+					"id": "9a1e90aa-c75a-45c5-b174-117bfc7d3d95",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - Activity - User State [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "4456c1a9-710a-46aa-b92d-3db0c1b8bc0e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - Activity - User State [chart]",
+				"color": null,
+				"reference": {
+					"id": "0d653119-a9f4-4e3a-a3ab-0f3a81a718dd",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - Activity - User State [table]",
+				"color": null,
+				"reference": {
+					"id": "a5809a06-e6d5-40ab-848e-19714c1ab151",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - Activity - User Country [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "28cf83eb-596e-443b-9b35-d2026428a5b1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - Activity - User City [chart]",
+				"color": null,
+				"reference": {
+					"id": "6b900b76-35a4-426b-a2da-7f77937d5485",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - Activity - User City [table]",
+				"color": null,
+				"reference": {
+					"id": "19f2d9ab-09dd-451d-83fb-c24e607c0c95",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17710245555891,
+				"title": "User Country [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17710248613891,
+				"title": "User Country [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17710249042682,
+				"title": "User Country [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17710249371293,
+				"title": "User State [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17710250032064,
+				"title": "User State [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17710250603615,
+				"title": "User State [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 13
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17710252166766,
+				"title": "User City [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 20
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17710253485417,
+				"title": "User City [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 23
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17710254189038,
+				"title": "User City [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 23
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"duo"
+	]
+}

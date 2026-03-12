@@ -1,0 +1,43 @@
+tag=$DUO_AUTH 
+$DUO_AUTH_EVX
+
+// Normalize eventType
+| eval 
+    if (TAG == "duo-auth" && has(authAction) && authAction != "" && authAction != "null" && authAction != "nil") {
+        eventType = authAction;
+    }
+// Normalize actor
+| eval 
+    if (TAG == "duo-auth" && has(authUser) && authUser != "" && authUser != "null" && authUser != "nil") {
+        actor = authUser;
+    }
+
+| regex -p -e actor "(?<username>.*?)?\@"
+
+// Normalize target
+| eval 
+    if (TAG == "duo-auth" && has(authAppDestName) && authAppDestName != "" && authAppDestName != "null" && authAppDestName != "nil") {
+        target = authAppDestName;
+    }
+    else if (TAG == "duo-auth" && has(authUser) && authUser != "" && authUser != "null" && authUser != "nil") {
+        target = authUser;
+    }
+    else if (TAG == "duo-auth" && has(authName) && authName != "" && authName != "null" && authName != "nil") {
+        target = authName;
+    }
+
+// Normalize src_ip 
+| eval 
+    if (TAG == "duo-auth" && has(accessIP) && accessIP != "" && accessIP != "null" && accessIP != "nil") {
+        src_ip = accessIP;
+    }
+    else if (TAG == "duo-auth" && has(authIP) && authIP != "" && authIP != "null" && authIP != "nil") {
+        src_ip = authIP;
+    }
+
+// Filter empty/null fields 1 liner
+| eval if (!has(src_ip) || src_ip == "" || src_ip == "null") { src_ip == "null"; }
+| eval accessLocation = accessCity + ", " + accessState + ", " + accessCountry
+| eval authLocation = authCity + ", " + authState + ", " + authCountry
+| eval (actor ~ "%%duoUser%%" || username ~ "%%duoUser%%" || target ~ "%%duoUser%%") && (accessIP ~ "%%duoIP%%" || authIP ~ "%%duoIP%%") && (accessLocation ~ "%%duoLocation%%" || authLocation ~ "%%duoLocation%%")
+| table TIMESTAMP eventType username actor target src_ip accessHost accessLocation authIP authLocation authAppDestName authResult authReason

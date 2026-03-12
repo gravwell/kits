@@ -1,0 +1,56 @@
+// DUO_AUTH_EVX
+| json
+    access_device.browser as accessBrowser
+    access_device.browser_version as accessBrowserVer
+    access_device.epkey as accessEPKey
+    access_device.flash_version as accessFlashVer
+    access_device.hostname as accessHost
+    access_device.ip as accessIP
+    access_device.is_encryption_enabled as accessEncEnabled
+    access_device.is_firewall_enabled as accessFWEnabled
+    access_device.is_password_set as accessPassSet
+    access_device.java_version as accessJavaVer
+    access_device.location.city as accessCity
+    access_device.location.country as accessCountry
+    access_device.location.state as accessState
+    access_device.os as accessOS
+    access_device.os_version as accessOSVer
+    access_device.security_agents as accessSecAgents
+    adaptive_trust_assessments.more_secure_auth.detected_attack_detectors as ataMoreSecureAttackDetectors
+    adaptive_trust_assessments.more_secure_auth.features_version as ataMoreSecureFeaturesVersion
+    adaptive_trust_assessments.more_secure_auth.model_version as ataMoreSecureModelVersion
+    adaptive_trust_assessments.more_secure_auth.policy_enabled as ataMoreSecurePolicyEnabled
+    adaptive_trust_assessments.more_secure_auth.reason as ataMoreSecureReason
+    adaptive_trust_assessments.more_secure_auth.trust_level as ataMoreSecureTrustLevel
+    adaptive_trust_assessments.remember_me.features_version as ataRememberMeFeaturesVersion
+    adaptive_trust_assessments.remember_me.model_version as ataRememberMeModelVersion
+    adaptive_trust_assessments.remember_me.policy_enabled as ataRememberMePolicyEnabled
+    adaptive_trust_assessments.remember_me.reason as ataRememberMeReason
+    adaptive_trust_assessments.remember_me.trust_level as ataRememberMeTrustLevel
+    alias as authAlias
+    application.destination_name as authAppDestName
+    application.key as authAppKey
+    application.name as authAppName
+    auth_device.ip as authIP
+    auth_device.key as authKey
+    auth_device.location.city as authCity
+    auth_device.location.country as authCountry
+    auth_device.location.state as authState
+    auth_device.name as authName
+    email as authEmail
+    event_type as authAction
+    factor as authFactor
+    isotimestamp
+    odd_software
+    passport_assessment.is_supported as paIsSupported
+    passport_assessment.reason as paReason
+    reason as authReason
+    result as authResult
+    timestamp
+    trusted_endpoint_status as trustStatus
+    trusted_session_info as trustSessionInfo
+    trusted_session_info.trusted_session_uuid as trustSessionUUID
+    txid
+    user.groups as userGroups
+    user.key as authUserKey
+    user.name as authUser

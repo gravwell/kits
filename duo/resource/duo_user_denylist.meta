@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "duo_user_denylist",
+	"Description": "Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score \u003e= min_risk, per alert or globally.\n\nFields: key,enabled,min_risk,reason,owner\n\nKey format: \u003cnormalized_user\u003e|\u003calert_name_or_*\u003e (enabled = 1 or 0; empty min_risk or 0 = always force)\n\nkey: this field is the offending user and alert name\nenabled: this field allows you to specify for all alerts or just for a specific alert; 0 = no, 1 = yes\nuntil_ymd: this field allows you to specify a date to compare against; used for short term testing primarily\nreason: this field allows you to give a reason why this user was added to the denylist\nowner: this field allows you to track who updated the denylist\n\nExamples: This is currently what is in duo_user_denylist.csv\nkey,enabled,min_risk,reason,owner\nsvc-admin|*,1,0,\"always force include service admin\",\"Gravwell Example\"\ncharlie|Alert - Duo - Medium - App Assignment Changed,1,65,\"repeat offender\",\"Gravwell Example\"\n\nReference(s):\n\nUsage:\n$DUO_ALERT_BASE\n$DUO_ALERT_ENRICH\n$DUO_RISK_SCORE\n$DUO_TUNE_IP\n$DUO_ALERT_META",
+	"Labels": [
+		"duo"
+	],
+	"Size": 201,
+	"Hash": "T6sYK3gC9jNy0Uk0yIapag==",
+	"Data": ""
+}

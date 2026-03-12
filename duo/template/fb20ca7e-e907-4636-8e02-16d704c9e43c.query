@@ -1,0 +1,7 @@
+tag=$DUO
+$DUO_EVX
+$DUO_NORMALIZE_EVENTTYPE
+| lookup -r duo_eventTypes eventType value (category subcategory description)
+| stats count by category subcategory
+| grep -e category "%%duo_subcategory%%"
+| chart count by category subcategory

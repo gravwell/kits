@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "duo_protected_target",
+	"Description": "Provides a tuning opportunity for monitoring High Privileged Target Accounts and weigh their severity/priority differently compared to an end user without system, domain, root, etc. permissions within the environment.",
+	"Labels": [
+		"duo"
+	],
+	"Size": 377,
+	"Hash": "dCsRV4FFTRZW/BuVcyUsSg==",
+	"Data": ""
+}

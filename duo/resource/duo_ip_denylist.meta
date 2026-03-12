@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "duo_ip_denylist",
+	"Description": "Provides a tuning control to force-include or escalate alerts for watchlisted source IPs, optionally only when risk_score \u003e= min_risk, per alert or globally.\n\nFields: key,enabled,min_risk,reason,owner\nkey: this field is the offending IP\nenabled: this field allows you to specify for all alerts or just for a specific alert\nmin_risk: this field assigns the min_risk associated with this alert\nreason: this field allows you to give a reason why this ip was added to the denylist\nowner: this field allows you to track who updated the denylist\n\nKey format: \u003cip\u003e|\u003calert_name_or_*\u003e (enabled = 1 or 0; empty min_risk or 0 = always force)\n\nExamples: This is currently what is in duo_ip_denylist.csv\nkey,enabled,min_risk,reason\n198.51.100.77|*,1,0,\"known bad egress\"\n203.0.113.99|Alert - Duo - High - Duo Admin Login Error,1,65,\"watchlist IP for this alert\"\n\nReference(s):\n\nUsage:\n$DUO_ALERT_BASE\n$DUO_ALERT_ENRICH\n$DUO_RISK_SCORE\n| eval _alert_name = \"Alert - Duo - High - Duo Admin Login Error\"\n$DUO_TUNE_IP\n$DUO_ALERT_META",
+	"Labels": [
+		"duo"
+	],
+	"Size": 201,
+	"Hash": "Mq7mRaGtfJFxoJyYNtvWFQ==",
+	"Data": ""
+}

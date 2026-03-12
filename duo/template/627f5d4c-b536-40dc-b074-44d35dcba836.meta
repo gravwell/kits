@@ -1,0 +1,20 @@
+{
+	"UUID": "627f5d4c-b536-40dc-b074-44d35dcba836",
+	"Name": "Template - Duo - System - Event Types - Category [chart]",
+	"Description": "Detects a chart of event types by category.\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Activity Logs - https://duo.com/docs/adminapi#activity-logs\n- Duo Administrator Logs - https://duo.com/docs/adminapi#administrator-logs\n- Duo Authentication Logs - https://duo.com/docs/adminapi#authentication-logs\n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs\n- Duo Telephony Logs - https://duo.com/docs/adminapi#telephony-logs",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duo_category%%",
+				"label": "Log Category",
+				"description": "Options: Activity, Administrator, Authentication",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

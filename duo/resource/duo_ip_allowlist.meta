@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 2,
+	"ResourceName": "duo_ip_allowlist",
+	"Description": "Provides a tuning control to suppress alerts from known-good source IPs (resolved from clientIp, else requestIp), per alert or globally, with optional expiry.\n\nFields: key,enabled,until_ymd,reason,owner\n\nKey format: \u003cip\u003e|\u003calert_name_or_*\u003e (until_ymd = YYYYMMDD; enabled = 1 or 0)\n\nkey: this field is the offending IP and alert name\nenabled: this field allows you to specify for all alerts or just for a specific alert; 0 = no, 1 = yes\nuntil_ymd: this field allows you to specify a date to compare against; used for short term testing primarily\nreason: this field allows you to give a reason why this ip was added to the denylist\nowner: this field allows you to track who updated the allowlist\n\nExamples: This is currently what is in duo_ip_allowlist.csv\nkey,enabled,until_ymd,reason,owner\n203.0.113.10|*,1,20251231,\"corp NAT — noisy\",\"Gravwell Example\"\n2001:db8::42|Alert - Duo - High - Duo Admin Role Assigned to a User or Group,1,,\"duo admin jump host\",\"Gravwell Example\"\n\nReference(s):\n\nUsage:\n$DUO_ALERT_BASE\n$DUO_RISK_SCORE\n$DUO_TUNE_IP\n$DUO_ALERT_META",
+	"Labels": [
+		"duo"
+	],
+	"Size": 221,
+	"Hash": "VkLZbmtv/BngfLSK9lMb0A==",
+	"Data": ""
+}

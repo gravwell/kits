@@ -1,0 +1,488 @@
+***
+
+A toolkit for interacting with Duo data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Duo analysis across Activity, Authentication, Administrator, Telephony, and Offline Enrollment log sources.
+
+***
+
+## Table of Contents
+0. [Data Ingestion](#0-data-ingestion)  
+1. [Tags & Macros](#1-tags--macros)  
+    1.1. [Tags](#1-1-tags)  
+    1.2. [Autoextractors](#1-2-autoextractors)  
+    1.3. [Macros](#1-3-macros)  
+2. [Query Library](#2-query-library)  
+3. [Naming Schema](#3-naming-schema)  
+4. [Resources](#4-resources)  
+    4.1. [Lookups](#4-1-lookups)  
+5. [Alerts](#5-alerts)  
+    5.1 [Dispatchers](#5-1-dispatchers)  
+    5.2 [Consumers](#5-2-consumers)
+6. [Scheduled Searches](#6-scheduled-searches)  
+    6.1. [Flows](#6-1-flows)
+7. [Playbooks](#7-playbooks)  
+8. [Searches](#8-searches)  
+    8.1. [Alert Queries](#8-1-alert-queries) 
+9. [Templates](#9-templates)  
+10. [Dashboards](#10-dashboards)  
+    10.1 [Actionables](#10-1-actionables)
+11. [Useful Resources & References](#11-useful-resources--references)  
+12. [Notes](#12-notes)  
+13. [Image credits](#13-image-credits)  
+
+## 0. [Data Ingestion](#0-data-ingestion)
+I used the [Gravwell Fetcher] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for data ingestion. 
+
+Below is a quick reference list of the resources used.
+- [Gravwell Fetcher](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md): A powerful data fetcher ingester for Gravwell that collects data from various security and productivity services including Duo, Duo, Okta, and Asana.
+- [Example Fetcher Config](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example): The fetcher uses a configuration file (gravwell_fetcher.conf) to manage its settings. This is a detailed explanation of all configuration options.
+- [duo.go](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/duo.go): This file implements the Config definitions and parsing from duoConfig.go when you build Fetcher.
+- [duoConfig.go](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/duoConfig.go): This file defines the configuration data structures and parsing for the Duo integrations in Fetcher.
+
+***
+
+## 0.1 Download, Install and Configure the Gravwell Fetcher
+
+**Summary:** The Gravwell Fetcher provides a lightweight Go-based fetcher that polls external APIs (including Duo endpoints) and ingests events into Gravwell. 
+The Fetcher includes an [example configuration file] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example) which you need to copy and adapt for your environment prior to running the fetcher. See the [README] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for further information. 
+
+### Basic installation steps (example)
+
+1. Clone the Gravwell repo (or just the Fetcher):  
+    _git clone https://github.com/gravwell/gravwell.git_  
+
+2. Change directory to the Gravwell Fetcher:  
+    _cd gravwell/experiments/gravwell\_fetcher_
+  
+3. Build the fetcher binary (standard Go build):  
+    _go build -o gravwell\_fetcher_
+  
+4. Copy the example config to a location you will edit  
+    e.g. /etc/gravwell/gravwell\_fetcher.conf or /opt/gravwell/etc/gravwell\_fetcher.conf:  
+_cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
+
+5. Edit _/etc/gravwell/gravwell\_fetcher.conf_ and replace the Duo Domain and Token values (see example below).  
+
+6. Run the fetcher (from the built binary).  
+    Typical invocation (binary + config file):  
+    _./gravwell\_fetcher -config /etc/gravwell/gravwell\_fetcher.conf_
+
+**Important:** the canonical example config shipped with the Gravwell Fetcher is gravwell_fetcher.conf.example — copy it and update the values.
+
+2.1 Example Gravwell Fetcher Conf (repo)
+- The repository contains _experiments/gravwell\_fetcher/gravwell\_fetcher.conf.example_ which is the canonical example used by this kit. Use that file as the starting point and replace the Duo Domain, Token, and any Ingester/connection settings as appropriate.  
+
+2.2 Gravwell Fetcher Example Config for Duo  
+    
+```ini
+    [Global]  
+    Ingester-UUID="00000000-0000-0000-0000-0000000000"  
+    Connection-Timeout = 0  
+    Insecure-Skip-TLS-Verify=false  
+    #Cleartext-Backend-Target=127.0.0.1:4023  
+    #Encrypted-Backend-Target=127.1.1.1:4024  
+    #Pipe-Backend-Target=/opt/gravwell/comms/pipe  
+    #Ingest-Cache-Path=/opt/gravwell/cache/duo.cache  
+    #Max-Ingest-Cache=1024  
+    Log-Level=INFO  
+    Log-File=/opt/gravwell/log/duo_fetcher.log  
+    
+    [DuoConf "duo-activity"]
+        StartTime="2025-01-01T00:00:01.000Z"
+        Domain="api-XXXXXXXX.duosecurity.com"
+        Key="REPLACE_WITH_YOUR_DUO_KEY"
+        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
+        DuoAPI="activity"
+        Tag-Name="duo-activity"
+    
+    [DuoConf "duo-admin"]
+        StartTime="2025-01-01T00:00:01.000Z"
+        Domain="api-XXXXXXXX.duosecurity.com"
+        Key="REPLACE_WITH_YOUR_DUO_KEY"
+        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
+        DuoAPI="admin"
+        Tag-Name="duo-admin"
+
+    [DuoConf "duo-auth"]
+        StartTime="2025-01-01T00:00:01.000Z"
+        Domain="api-XXXXXXXX.duosecurity.com"
+        Key="REPLACE_WITH_YOUR_DUO_KEY"
+        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
+        DuoAPI="authentication"
+        Tag-Name="duo-auth" 
+    
+    [DuoConf "duo-offline-enrollment"]
+        StartTime="2025-01-01T00:00:01.000Z"
+        Domain="api-XXXXXXXX.duosecurity.com"
+        Key="REPLACE_WITH_YOUR_DUO_KEY"
+        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
+        DuoAPI="offline-enrollment"
+        Tag-Name="duo-offline-enrollment" 
+    
+    [DuoConf "duo-telephony"]
+        StartTime="2025-01-01T00:00:01.000Z"
+        Domain="api-XXXXXXXX.duosecurity.com"
+        Key="REPLACE_WITH_YOUR_DUO_KEY"
+        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
+        DuoAPI="telephony"
+        Tag-Name="duo-telephony"
+```
+    
+***
+
+## 1. [Tags & Macros](#1-tags--macros)
+#### 1.1. [Tags](#1-1-tags)
+- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.
+- [Documentation](https://docs.gravwell.io/ingesters/ingesters.html#tags)
+- The Duo Kit for Gravwell makes use of the following tags:  
+    - duo-activity: Tag contains Duo Activity log data.  
+        - Usage:  
+        `tag=duo-activity`
+    - duo-admin: Tag contains Duo Administrator log data.  
+        - Usage:  
+        `tag=duo-admin`
+    - duo-auth: Tag contains Duo Authentication log data.  
+        - Usage:  
+        `tag=duo-auth`
+    - duo-offline-enrollment: Tag contains Duo Offline Enrollment log data.  
+        - Usage:  
+        `tag=duo-offline-enrollment`
+    - duo-telephony: Tag contains Duo Telephony log data.  
+        - Usage:  
+        `tag=duo-telephony`    
+
+#### 1.2. [Autoextractors](#1-2-autoextractors)
+- Purpose: Auto-extractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The “ax” module then automatically invokes the appropriate functionality of other modules.
+- [Documentation](https://docs.gravwell.io/configuration/autoextractors.html)
+- The Duo Kit for Gravwell makes use of the following autoextractors 
+- Total: ***5***
+    - duo-activity: Gravwell generated JSON extraction for tag duo-activity
+    - duo-admin: Gravwell generated JSON extraction for tag duo-admin
+    - duo-auth: Gravwell generated JSON extraction for tag duo-auth
+    - duo-offline-enrollment:Gravwell generated JSON extraction for tag duo-offline-enrollment
+    - duo-telephony: Gravwell generated JSON extraction for tag duo-telephony    
+
+#### 1.3. [Macros](#1-3-macros)
+- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.
+- [Documentation](https://docs.gravwell.io/search/macros.html)
+- The Duo Kit for Gravwell makes use of the following macros:
+- Total: ***31***
+    - Tags
+        - $DUO: Configuration Macro; Tag used for all Duo data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$DUO`
+        - $DUO\_ACTIVITY: Configuration Macro; Tag used for Duo Activity data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$DUO_ACTIVITY`
+            - Reference(s): [Duo Activity Logs](https://duo.com/docs/adminapi#activity-logs)
+        - $DUO\_ADMIN: Configuration Macro; Tag used for Duo Admin data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$DUO_ADMIN`
+            - Reference(s): [Duo Administrator Logs](https://duo.com/docs/adminapi#administrator-logs)
+        - $DUO\_AUTH: Configuration Macro; Tag used for Duo Authentication data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$DUO_AUTH`
+            - Reference(s): [Duo Authentication Logs](https://duo.com/docs/adminapi#authentication-logs)
+        - $DUO\_OFF\_ENROLL: Configuration Macro; Tag used for all Duo Offline Enrollment data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$DUO_OFFLINE_ENROLLMENT`
+            - Reference(s): [Duo Offline Enrollment Logs](https://duo.com/docs/adminapi#offline-enrollment-logs)
+        - $DUO\_TELEPHONY: Configuration Macro; Tag used for all Duo Telephony data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$DUO_TELEPHONY`
+            - Reference(s): [Duo Telephony Logs](https://duo.com/docs/adminapi#telephony-logs)
+    - EVX (Enumerated Value Extraction)
+        - $DUO\_EVX: This macro extracts all possible Enumerated Values (EVs) from all Duo Logs.
+            - Usage: `tag=$DUO $DUO_EVX`
+        - $DUO\_ACTIVITY\_EVX: This macro extracts all possible Enumerated Values (EVs) from Duo Activity Logs.
+            - Usage: `tag=$DUO_ACTIVITY $DUO_ACTIVITY_EVX`
+            - Reference(s): [Duo Activity Logs](https://duo.com/docs/adminapi#activity-logs)
+        - $DUO\_ADMIN\_EVX: This macro extracts all possible Enumerated Values (EVs) from Duo Admin Logs.
+            - Usage: `tag=$DUO_ADMIN $DUO_ADMIN_EVX`
+            - Reference(s): [Duo Administrator Logs](https://duo.com/docs/adminapi#administrator-logs)
+        - $DUO\_AUTH\_EVX: This macro extracts all possible Enumerated Values (EVs) from Duo Authentication Logs.
+            - Usage: `tag=$DUO_AUTH $DUO_AUTH_EVX`
+            - Reference(s): [Duo Authentication Logs](https://duo.com/docs/adminapi#authentication-logs)
+        - $DUO\_OFF\_ENROLL\_EVX: This macro extracts all possible Enumerated Values (EVs) from Duo Offline Enrollment Logs.
+            - Usage: `tag=$DUO_OFF_ENROLL $DUO_OFF_ENROLL_EVX`
+            - Reference(s): [Duo Offline Enrollment Logs](https://duo.com/docs/adminapi#offline-enrollment-logs)
+        - $DUO\_OFF\_ENROLL\_DESC\_EVX: This macro extracts all possible subfield (user_agent as enrollUserAgent, hostname as enrollHost, & factor as enrollFactor) Enumerated Values (EVs) from description EV in Duo Offline Enrollment Logs. This is intended to be used only with "ax" extractions.
+            - Usage: `tag=$DUO_OFF_ENROLL ax DUO_OFF_ENROLL_DESC_EVX`
+            - Reference(s): [Duo Offline Enrollment Logs](https://duo.com/docs/adminapi#offline-enrollment-logs)         
+        - $DUO\_TELEPHONY\_EVX: This macro extracts all possible Enumerated Values (EVs) from Duo Telephony Logs.
+            - Usage: `tag=$DUO_TELEPHONY $DUO_TELEPHONY_EVX`
+            - Reference(s): [Duo Telephony Logs](https://duo.com/docs/adminapi#telephony-logs)        
+    - Normalization
+        - $DUO\_NORMALIZE\_ACTOR: This macro normalizes actorEmail and actorName into a new EV named actor that is used to search both fields for a specific actor.
+            - Usage: `tag=$DUO $DUO_EVX $DUO_NORMALIZE_ACTOR | grep -e actor "*"`
+        - $DUO\_NORMALIZE\_EMAIL: This macro normalizes authEmail (Duo Authentication Logs), and adminEmail (Duo Admin Logs) into 1 Enumerated Value (EV) named email.
+            - Usage: `tag=$DUO $DUO_EVX $DUO_NORMALIZE_EMAIL`
+            - IMPORTANT: It must be run after $DUO, and $DUO_EVX. Please Note: It can be used in conjunction with any of the other "NORMALIZE" macros.
+        - $DUO\_NORMALIZE\_EVENTTYPE: This macro normalizes event_type (Duo Authentication Logs), actionName (Duo Activity Logs), context (Duo Telephony Logs), and action (Duo Admin and Duo Offline Enrollment Logs) into 1 Enumerated Value (EV) named eventType.
+            - Usage: `tag=$DUO $DUO_EVX $DUO_NORMALIZE_EVENTTYPE`
+            - ***IMPORTANT***: It must be run after $DUO, and $DUO_EVX. Please Note: It can be used in conjunction with any of the other "NORMALIZE" macros.
+        - $DUO\_NORMALIZE\_OUTCOME: This macro normalizes authResult (Duo Authentication Logs), activityResult (Duo Activity Logs), adminAction (Duo Admin Logs), context (Duo Telephony Logs), and action (Duo Offline Enrollment Logs) into 1 Enumerated Value (EV) named outcome.
+            - Usage: `tag=$DUO $DUO_EVX $DUO_NORMALIZE_OUTCOME`
+            - IMPORTANT: It must be run after $DUO, and $DUO_EVX. Please Note: It can be used in conjunction with any of the other "NORMALIZE" macros.
+        - $DUO\_NORMALIZE\_SRC\_IP: This macro normalizes accessIP/authIP (Duo Authentication Logs), activityIP (Duo Activity Logs), and adminIP (Duo Admin) into 1 Enumerated Value (EV) named src_ip.
+            - Usage: `tag=$DUO $DUO_EVX $DUO_NORMALIZE_SRC_IP`
+            - ***IMPORTANT***: It must be run after $DUO, and $DUO_EVX. Please Note: It can be used in conjunction with any of the other "NORMALIZE" macros.
+        - $DUO\_NORMALIZE\_TARGET: This macro normalizes targetEmail and targetName into a new EV named target that is used to search both fields for a specific target.
+            - Usage: `tag=$DUO $DUO_EVX $DUO_NORMALIZE_TARGET | grep -e target "*"`
+        - $DUO\_NORMALIZE\_TXID: This macro normalizes txid (Duo Authentication Logs), activity_id (Duo Activity Logs), actor (Duo Admin Logs), and txid (Duo Telephony and Duo Offline Enrollment Logs) into 1 Enumerated Value (EV) named transactionId.
+            - Usage: `tag=$DUO $DUO_EVX $DUO_NORMALIZE_ACTOR $DUO_NORMALIZE_TXID`
+            - IMPORTANT: It must be run after $DUO, and $DUO_EVX. Please Note: It can be used in conjunction with any of the other "NORMALIZE" macros.
+    - Alert Components
+        - Alert Base
+            - $DUO\_ALERT\_BASE: This is the base of which all alerts are built upon. This is necessary for the rest of the actual alerting logic to occur due to the Enumerated Value Extraction (EVX), EV enrichment and normalization performed by the dependencies listed below. Dependencies: $DUO\_EVX; $DUO\_ALERT\_ENRICH.
+            - $DUO\_ALERT\_ENRICH: This is a dependency as a part of the $DUO_ALERT_BASE which all alerts are built upon. This is necessary for the rest of the actual alerting logic to occur due to the Enumerated Value enrichment and normalization performed by the macro. Dependencies: Resource Lookups: duo\_eventTypes, duo\_privileged\_actor, duo\_protected\_target.
+        - Risk
+            - $DUO\_RISK\_SCORE: This rule dynamically calculates an Duo risk score based on event type, category, subcategory, modifications, and outcome for modification event types. This is a dependency as a part of the $DUO_MOD_ALERT which all modification event type alerts are built upon. It calculates a risk score based on the event type, category, and subcategory with bumps for outcome, modification event types, privileged & protected users then dumps it into a priority bucket.
+        - Tuning
+            - $DUO\_TUNE\_IP: Provides tuning for IP addresses (actor/target) using duo\_ip\_allowlist and duo\_ip\_denylist.
+            - $DUO\_TUNE\_USER: Provides tuning for users (actor/target) using duo\_user\_allowlist and duo\_user\_denylist.
+        - Reporting & Searching
+            - $DUO\_ALERT\_RECIPIENT: Configuration Macro: This is the address to which Duo Alert Flows will be sent to. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.
+            - $DUO\_ALERT\_SENDER: Configuration Macro: This is the address to which Duo Alert Flows will be sent from. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.
+            - $GRAVWELL\_INSTANCE: Configuration Macro; Necessary for url links within emails generated by alerts & flows within the Duo Kit to run properly.; https://<change\_me\_to\_your\_specific\_url>:<change\_to\_your\_specific\_port>
+            - $DUO\_ALERT\_META: This macro standardizes output for Duo Alerts that are being alerted upon. It dynamically changes values in the \_alert\_title based on the core of the query. 
+            - $DUO\_ALERT\_TABLE: This macro standardizes output for Duo Alerts that are being alerted upon. It dynamically changes values in the \_alert\_title based on the core of the query. 
+        - Alert Queries & Scheduled Searches
+            - $DUO\_MOD\_ALERT: Detects modification alerts that are configured within the duo\_eventTypes lookup resource.
+        
+***
+
+## 2. [Query Library](#2-query-library)
+- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-1-alert-queries), and [playbooks](#7-playbooks).
+- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
+    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.
+    - Total queries: ***19***
+        - [Alert Queries](#8-1-alert-queries): ***1***
+        - [Searches](#8-searches): ***18***
+
+***
+
+## 3. [Naming Schema](#3-naming-schema)
+- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.
+- _QueryType - Company - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - **if any**]_
+- Examples:
+    - Dashboards: _Dashboard - Duo - System - Overview_
+    - Templates: _Template - Duo - System - Event Types - Category [chart]_
+    - Searches: _Search - Duo - Activity - User Country [numbercard]_
+    - Alerts: _Alert - Duo - System - Event Types - High - Modification Alerts [EMAIL]_
+
+***
+
+## 4. [Resources](#4-resources)
+- Purpose: Resources allow users to store persistent data for use in searches.
+- [Documentation](https://docs.gravwell.io/resources/resources.html)
+
+#### 4.1 [Lookups](#4-1-lookups)
+- Purpose: Lookup Resources are used by the lookup module to perform data enrichment and translation off of a static lookup table stored in a resource.
+- [Documentation](https://docs.gravwell.io/search/lookup/lookup.html)
+- Total: ***11***
+    - duo\_activity\_evx\_enrichment
+        - This is intended to be used as a lookup file providing additional information regarding Duo Activity event types.
+        - Fields: category, subcategory, ev, preEVX, description, value, value_description
+        - Usage: `dump -r duo_activity_evx_enrichment | table`
+    - duo\_admin\_evx\_enrichment
+        - This is intended to be used as a lookup file providing additional information regarding Duo Admin event types.
+        - Fields: category, subcategory, ev, preEVX, description, value, value_description
+        - Usage: `dump -r duo_admin_evx_enrichment | table`
+    - duo\_auth\_evx\_enrichment
+        - This is intended to be used as a lookup file providing additional information regarding Duo Authentication event types.
+        - Fields: category, subcategory, ev, preEVX, description, value, value_description
+        - Usage: `dump -r duo_auth_evx_enrichment | table`
+    - duo\_eventType\_risk
+        - This is intended to be used as a lookup file providing additional information regarding Duo event types. It is used within the Duo Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.
+        - Fields: tag, log\_source, category, subcategory, preEVX, evx, value, description, is\_mod, risk\_score, \_priority
+        - Usage: `dump -r duo_eventType_risk | table`
+    - duo\_eventTypes
+        - This is intended to be used as a lookup file providing additional information regarding Duo event types. It is used within the Duo Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.
+        - Fields: tag, log\_source, category, subcategory, preEVX, evx, value, description, is\_mod
+        - Usage: `dump -r duo_eventTypes | table`
+    - duo\_ip\_allowlist
+        - Provides a tuning control to suppress alerts from known-good source IPs (resolved from clientIp, else requestIp), per alert or globally, with optional expiry.
+        - Fields: key, enabled, until\_ymd, reason, owner
+        - Key format: <ip>|<alert_name_or_*>
+        - Usage: `$DUO_ALERT_BASE $DUO_RISK_SCORE $DUO_TUNE_IP $DUO_TUNE_USER $DUO_ALERT_META $DUO_ALERT_TABLE`
+    - duo\_ip\_denylist
+        - Provides a tuning control to force-include or escalate alerts for watchlisted source IPs, optionally only when risk_score >= min_risk, per alert or globally.
+        - Fields: key, enabled, min\_risk, reason, owner
+        - Key format: <ip>|<alert_name_or_*>
+        - Usage: `$DUO_ALERT_BASE $DUO_RISK_SCORE $DUO_TUNE_IP $DUO_TUNE_USER $DUO_ALERT_META $DUO_ALERT_TABLE`
+    - duo\_privileged\_actor
+        - Provides a tuning opportunity for monitoring High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user without system, domain, root, etc. permissions within the environment.
+        - Fields: account, actor\_weight, actor\_label, notes
+        - Usage: `$DUO_ALERT_BASE $DUO_RISK_SCORE $DUO_TUNE_IP $DUO_TUNE_USER $DUO_ALERT_META $DUO_ALERT_TABLE`
+    - duo\_protected\_target
+        - Provides a tuning opportunity for monitoring High Privileged Target Accounts and weigh their severity/priority differently compared to an end user without system, domain, root, etc. permissions within the environment.
+        - Fields: account, target\_weight, target\_label, notes
+        - Usage: `$DUO_ALERT_BASE $DUO_RISK_SCORE $DUO_TUNE_IP $DUO_TUNE_USER $DUO_ALERT_META $DUO_ALERT_TABLE`
+    - duo\_user\_allowlist
+        - Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with optional expiry.
+        - Fields: key, enabled, until_ymd, reason, owner
+        - Key format: <normalized_user>|<alert_name_or_*>
+        - Usage: `$DUO_ALERT_BASE $DUO_RISK_SCORE $DUO_TUNE_IP $DUO_TUNE_USER $DUO_ALERT_META $DUO_ALERT_TABLE`
+    - duo\_user\_denylist
+        - Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score >= min_risk, per alert or globally.
+        - Fields: key, enabled, min_risk, reason, owner
+        - Key format: <normalized_user>|<alert_name_or_*>
+        - Usage: `$DUO_ALERT_BASE $DUO_RISK_SCORE $DUO_TUNE_IP $DUO_TUNE_USER $DUO_ALERT_META $DUO_ALERT_TABLE`
+
+***
+
+## 5. [Alerts](#5-alerts)
+- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.
+- [Documentation](https://docs.gravwell.io/alerts/alerts.html#alerts)
+- Total: ***3***
+    - Alert - Duo - System - Event Types - Modification Alerts [EMAIL]
+    - Alert - Duo - System - Event Types - Modification Alerts [Jira Service Management]
+    - Alert - Duo - System - Event Types - Modification Alerts [Jira Platform]
+- Naming Schema: _Alert - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - AlertName_
+
+#### 5.1 [Dispatchers](#5-1-dispatchers)
+- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.
+    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)
+- [Documentation](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)
+
+#### 5.2 [Consumers](#5-2-consumers)
+- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.
+    - Consumers = [Flows](#6-1-flows)
+- [Documentation](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)
+
+***
+
+## 6. [Scheduled Searches](#6-scheduled-searches)
+- Purpose: Scheduled Searches are typically dependent on “AlertQuery - Duo - …” queries within the [Query Library](#2-query-library).
+- [Documentation](https://docs.gravwell.io/scripting/scheduledsearch.html)
+- Total: ***1***
+    - ScheduledSearch - Duo - System - Event Types - Modification Alerts: Detects modification alerts that are configured within the duo\_eventTypes lookup resource. 
+- Naming Schema: _ScheduledSearch - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - ScheduledSearchName_
+    - Cron schedule: 30 * * * *
+
+#### 6.1. [Flows](#6-1-flows)
+- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.
+- [Documentation](https://docs.gravwell.io/flows/flows.html)
+- Total: ***3***
+    - Flow - Duo - System - Event Types - Modification Alerts [EMAIL]: This Flow is intended as a template to send Duo Modification Alerts from $DUO\_ALERT\_SENDER to $DUO\_ALERT\_RECIPIENT.
+    - Flow - Duo - System - Event Types - Modification Alerts [Jira Service Management]: This Flow is intended as a template to send Duo Modification Alerts over to your instance of Jira Service Management (JSM).
+    - Flow - Duo - System - Event Types - Modification Alerts [Jira Platform]: This Flow is intended as a template to send Duo Modification Alerts over to your specified project on Jira Platform.
+***
+
+## 7. [Playbooks](#7-playbooks)
+- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.
+- [Documentation](https://docs.gravwell.io/gui/playbooks/playbooks.html)
+- Total: ***1***
+    - Duo Kit for Gravwell - README
+- Naming Schema: _Playbook - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - PlaybookName_
+
+***
+
+## 8. [Searches](#8-searches)
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Duo data in an easily digestible format.
+- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
+- Total: ***18***
+    - Search - Duo - Activity - User City [chart]: Displays a chart of the user's City by count.
+    - Search - Duo - Activity - User City [numbercard]: Displays a numbercard of the user's City by count.
+    - Search - Duo - Activity - User City [table]: Displays a table of the user's City by count.
+    - Search - Duo - Activity - User Country [chart]: Displays a chart of the user's Country by count.
+    - Search - Duo - Activity - User Country [numbercard]: Displays a numbercard of the user's Country by count.
+    - Search - Duo - Activity - User Country [table]: Displays a table of the user's Country by count.
+    - Search - Duo - Activity - User State [chart]: Displays a chart of the user's State by count.
+    - Search - Duo - Activity - User State [numbercard]: Displays a numbercard of the user's State by count.
+    - Search - Duo - Activity - User State [table]: Displays a table of the user's State by count.
+    - Search - Duo - System - Event Types - Count by Category [chart]: Detects a chart of event types by category. 
+    - Search - Duo - System - Event Types - Count by Category [table]: Detects a table of event types by category. 
+    - Search - Duo - System - Event Types - Count by Category, Subcategory [chart]: Detects a chart of event types by category, and subcategory. 
+    - Search - Duo - System - Event Types - Count by Category, Subcategory [table]: Detects a table of event types by category, and subcategory. 
+    - Search - Duo - System - Event Types - Count by Category, Subcategory, Event Type [chart]: Detects a chart of event types by category, subcategory, and event type. 
+    - Search - Duo - System - Event Types - Count by Category, Subcategory, Event Type [table]: Detects a table of event types by category, subcategory, and event type. 
+    - Search - Duo - System - Event Types - Count by Tag [chart]: This will display the amount of events consumed by Duo Tag in a pie chart over the specified timeframe. 
+    - Search - Duo - System - Event Types - Count by Tag [table]: This will display the amount of events consumed by Duo Tag in a table over the specified timeframe. 
+    - Search - Duo - System - Event Types - Modification Alerts by Priority [numbercard]: Displays a numbercard of by Priority (_alert_priority).
+- Naming Schema: _Search - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - **if any**]_
+
+#### 8.1. [Alert Queries](#8-1-alert-queries)
+- Alert Queries feed [Scheduled Searches](#6-scheduled-searches)
+- IMPORTANT: If you need to update or tune, this is where you perform that action.
+- Total: ***1***
+    - AlertQuery - Duo - System - Event Types - Modification Alerts: Detects modification alerts that are configured within the duo\_eventTypes lookup resource. 
+- Naming Schema: _AlertQuery - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - AlertName_
+
+***
+
+## 9. [Templates](#9-templates)
+- Purpose: Templates are special objects which define a Gravwell query containing variables.
+- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)
+- Total: ***14***
+    - Template - Duo - MFA - Activity - User Activity [table]: This displays a table of all User Activity for the specified User, IP Address, and Location.
+    - Template - Duo - MFA - Administrator - Admin Actions [table]: This displays a table o all Administrator Actions for the specified User, and IP Address.
+    - Template - Duo - MFA - Authentication - User Auth [table]: This displays a table of all User Authentications for the specified User, IP Address, and Location.
+    - Template - Duo - MFA - Offline Enrollment - Enrollment Actions [table]: This displays a table of all Enrollment Actions for the specified User.
+    - Template - Duo - System - Event Types - Category [chart]: Detects a chart of event types by category. 
+    - Template - Duo - System - Event Types - Category [table]: Detects a table of event types by category. 
+    - Template - Duo - System - Event Types - Category, Subcategory [chart]: Detects a chart of event types by category, and subcategory. 
+    - Template - Duo - System - Event Types - Category, Subcategory [table]: Detects a table of event types by category, and subcategory. 
+    - Template - Duo - System - Event Types - Category, Subcategory, Event Type [chart]: Detects a chart of event types by category, subcategory, and event type. 
+    - Template - Duo - System - Event Types - Category, Subcategory, Event Type [table]: Detects a table of event types by category, subcategory, and event type. 
+    - Template - Duo - System - Event Types - Modification Alerts by Location [numbercard]: Displays a numbercard by Location (src_ip).
+    - Template - Duo - System - Event Types - Modification Alerts by Priority [numbercard]: Displays a numbercard of by Priority (_alert_priority).
+    - Template - Duo - System - Event Types - Modification Alerts by Source IP Address [numbercard]: Displays a numbercard by Source IP Address (src_ip).
+    - Template - Duo - System - Event Types - Modification Alerts by User [numbercard]: Displays a numbercard by username (actor/actorName/target/targetName/oldTargetName).
+
+***
+
+## 10. [Dashboards](#10-dashboards)
+- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.
+- [Documentation](https://docs.gravwell.io/gui/dashboards/dashboards.html)
+- Total: ***4***
+    - Duo User Location Overview: This Dashboard is a general overview of your Duo User Location data.
+    - Duo General Overview: This Dashboard is a general overview of your Duo Category, Subcategory, and Event Type data.
+    - Duo Investigation: This Dashboard is intended to be used for Duo investigations.
+    - Duo Category Overview: This Dashboard is a general overview of your Duo Category, Subcategory, and Event Type data based on the inputted variable.
+
+#### 10.1 [Actionables](#10-1-actionables)
+- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.
+- [Documentation](https://docs.gravwell.io/gui/actionables/actionables.html)
+- Total: ***3***
+    - Duo Target: Duo Actions on Target to Launch Duo Investigation Dashboard.
+    - Duo Actor: Duo Actions on Actor to Launch Duo Investigation Dashboard.
+    - Duo IP: Duo Actions on IP Addresses to Launch Duo Investigation Dashboard.
+
+***
+
+## 11. [Useful Resources & References](#11-useful-resources--references)
+- Gravwell
+    - [Gravwell Fetcher](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md)
+    - [Example Fetcher Config](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example)
+    - [duo.go](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/duo.go)
+    - [duoConfig.go](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/duoConfig.go)
+    - [Tags](https://docs.gravwell.io/ingesters/ingesters.html#tags)
+    - [Autoextractors](https://docs.gravwell.io/configuration/autoextractors.html)
+    - [Macros](https://docs.gravwell.io/search/macros.html)
+    - [Query Library](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
+    - [Resources](https://docs.gravwell.io/resources/resources.html)
+    - [Lookups](https://docs.gravwell.io/search/lookup/lookup.html)
+    - [Alerts](https://docs.gravwell.io/alerts/alerts.html#alerts)
+    - [Dispatchers](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)
+    - [Consumers](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)
+    - [Scheduled Searches](https://docs.gravwell.io/scripting/scheduledsearch.html)
+    - [Flows](https://docs.gravwell.io/flows/flows.html)
+    - [Playbooks](https://docs.gravwell.io/gui/playbooks/playbooks.html)
+    - [Searches](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
+    - [Templates](https://docs.gravwell.io/gui/templates/templates.html)
+    - [Dashboards](https://docs.gravwell.io/gui/dashboards/dashboards.html)
+    - [Actionables](https://docs.gravwell.io/gui/actionables/actionables.html)
+- Duo
+    - [Duo Admin API](https://duo.com/docs/adminapi)
+    - [Activity Logs](https://duo.com/docs/adminapi#activity-logs)
+    - [Administrator Logs](https://duo.com/docs/adminapi#administrator-logs)
+    - [Authentication Logs](https://duo.com/docs/adminapi#authentication-logs)
+    - [Offline Enrollment Logs](https://duo.com/docs/adminapi#offline-enrollment-logs)
+    - [Telephony Logs](https://duo.com/docs/adminapi#telephony-logs)
+
+***
+
+## 12. [Notes](#12-notes)
+
+***
+
+## 13. [Image credits](#13-image-credits)
+- [Duo](https://help.duo.com/s/article/2213?language=en_US)
+- Duo images are wholly owned by Duo and distributed according to the [Duo Deployment Signage](https://help.duo.com/s/article/2213?language=en_US) and are **NOT** subject to any Gravwell licensing.
+
+***

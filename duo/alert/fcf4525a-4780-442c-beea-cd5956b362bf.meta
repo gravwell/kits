@@ -1,0 +1,96 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "0d7ce2e7-fc5f-4bde-91df-5d7c5dc2574f",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects modification alerts that are configured within the duo_alerts_catalog lookup resource. \nOverall, the query enriches raw Duo System Log events, computes a risk score in $DUO_RISK_SCORE, applies user/IP tuning (allow/deny) in $DUO_USER_TUNING and $DUO_IP_TUNING, and emits a consistent alert title, priority, and context in $DUO_ALERT_META.\n\nInputs and dependencies:\nEvent source: Duo System Log (tag=$DUO).\nDependencies \u0026 Lookups:\n  - $DUO_ALERT_BASE\n    - tag=$DUO\n    - $DUO_ALERT_EVX: Performs Enumerated Value Extraction (EVX).\n    - $DUO_ENRICH_COMMON: Performs Enumerated Value enrichment, normalization, and high priority user tuning control.\n      - duo_eventTypes: Maps eventType to category, subcategory, is_mod for risk categorization and alert naming scheme.\n      - duo_privileged_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.\n      - duo_protected_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.\n  - $DUO_RISK_SCORE: Performs risk calculations based on high priority user tuning control based on modification event types.\n    - Requires duo_privileged_actor and duo_protected_target to be run prior otherwise it will not work properly. \n  - $DUO_TUNE_IP: Provides a tuning control for IP addresses causing noisy false positives and true negatives. \n    - duo_ip_allowlist.csv: Provides a tuning control to suppress alerts from known-good IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n    - duo_ip_denylist.csv: Provides a tuning control to force-include or escalate alerts from watchlisted IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n  - $DUO_TUNE_USER: Provides a tuning control for end users causing noisy false positives and true negatives.\n    - duo_user_allowlist.csv: Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with expiry.\n    - duo_user_denylist.csv: Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score \u003e= min_risk, per alert or globally.\n  - $DUO_ALERT_META: Normalized alert output (e.g. _alert_title, _alert_priority, and context)\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Activity Logs - https://duo.com/docs/adminapi#activity-logs\n- Duo Administrator Logs - https://duo.com/docs/adminapi#administrator-logs\n- Duo Authentication Logs - https://duo.com/docs/adminapi#authentication-logs\n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs\n- Duo Telephony Logs - https://duo.com/docs/adminapi#telephony-logs",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "6b3ba27c-ee57-46a3-ba88-c5d838cec230",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "fcf4525a-4780-442c-beea-cd5956b362bf",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"duo"
+	],
+	"LastUpdated": "2026-03-09T16:52:00.873439972Z",
+	"MaxEvents": 16,
+	"Name": "Alert - Duo - System - Event Types - Modification Alerts [Jira Service Management]",
+	"SaveSearchDuration": 0,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "_alert_title",
+				"Type": "string"
+			},
+			{
+				"Name": "_alert_priority",
+				"Type": "string"
+			},
+			{
+				"Name": "context",
+				"Type": "string"
+			},
+			{
+				"Name": "category",
+				"Type": "string"
+			},
+			{
+				"Name": "subcategory",
+				"Type": "string"
+			},
+			{
+				"Name": "_alert_name",
+				"Type": "string"
+			},
+			{
+				"Name": "actor",
+				"Type": "string"
+			},
+			{
+				"Name": "target",
+				"Type": "string"
+			},
+			{
+				"Name": "src_ip",
+				"Type": "string"
+			},
+			{
+				"Name": "outcome",
+				"Type": "string"
+			},
+			{
+				"Name": "transactionId",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts_duo",
+	"ThingUUID": "c618f557-8ab9-4634-ad04-aee09315d044",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

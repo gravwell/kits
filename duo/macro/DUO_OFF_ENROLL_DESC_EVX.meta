@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_OFF_ENROLL_DESC_EVX",
+	"Description": "This macro extracts all possible subfield (user_agent as enrollUserAgent, hostname as enrollHost, \u0026 factor as enrollFactor) Enumerated Values (EVs) from description EV in Duo Offline Enrollment Logs. This is intended to be used only with \"ax\" extractions.\n\nUsage:\ntag=$DUO_OFF_ENROLL ax\nDUO_OFF_ENROLL_DESC_EVX\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs",
+	"Labels": [
+		"duo"
+	]
+}

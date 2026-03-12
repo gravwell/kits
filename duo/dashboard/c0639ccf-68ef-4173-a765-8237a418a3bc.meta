@@ -1,0 +1,267 @@
+{
+	"UUID": "c0639ccf-68ef-4173-a765-8237a418a3bc",
+	"Name": "Duo General Overview",
+	"Description": "This Dashboard is a general overview of your Duo Category, Subcategory, and Event Type data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Duo - System - Event Types - Count by Tag [pie]",
+				"color": null,
+				"reference": {
+					"id": "2342392f-4ddd-40e6-b988-2cfeedcc4f59",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - System - Event Types - Count by Tag [table]",
+				"color": null,
+				"reference": {
+					"id": "885ef6cc-38a7-4b7b-8b61-8c45c2ce9e64",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - System - Event Types - Count by Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "2357035c-046f-4fa7-b4b0-89b24f1a8692",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - System - Event Types - Count by Category [table]",
+				"color": null,
+				"reference": {
+					"id": "cb13a718-ef58-4fba-90f4-5fdca4bca652",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - System - Event Types - Count by Category, Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "98aa8146-6cbb-4803-927f-1b1e436b02c8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - System - Event Types - Count by Category, Subcategory [table]",
+				"color": null,
+				"reference": {
+					"id": "0d5766b2-7d69-4aa2-93d0-ccb6c1be5ce6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - System - Event Types - Count by Category, Subcategory, Event Type [chart]",
+				"color": null,
+				"reference": {
+					"id": "f69e517f-bc46-4df7-a28f-1b7b2ab97db9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - System - Event Types - Count by Category, Subcategory, Event Type [table]",
+				"color": null,
+				"reference": {
+					"id": "8d0d19cb-0d15-48fe-bacd-a0fe0da58f66",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Duo - System - Event Types - Modification Alerts by Priority [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "a3188418-251d-4653-bcee-89c111678335",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17646970911130,
+				"title": "Count by Tag",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17646971210571,
+				"title": "Count by Tag",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17646971689972,
+				"title": "Count by Category",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17646972233783,
+				"title": "Count by Category",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17646973102764,
+				"title": "Count by Category, Subcategory",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17646973638465,
+				"title": "Count by Category, Subcategory",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 13
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17646973997736,
+				"title": "Count by Category, Subcategory, Event Type",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 20
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17646974392717,
+				"title": "Count by Category, Subcategory, Event Type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 20
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17730768898468,
+				"title": "Modification Alerts by Priority [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 27
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"duo"
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_NORMALIZE_TARGET",
+	"Description": "This macro normalizes targetEmail and targetName into a new EV named target that is used to search both fields for a specific target. It must be run after $DUO_ALERT_BASE or, after target.details.email and target.name have been extracted and renamed/aliased to targetEmail and targetName, respectively. It can be used in conjunction with $DUO_NORMALIZE_IP, $DUO_NORMALIZE_ACTOR, and/or $DUO_NORMALIZE_USER.\n\nUsage:\ntag=$DUO_ACTIVITY\n$DUO_ACTIVITY_EVX\n$DUO_NORMALIZE_TARGET\n| grep -e target \"*\"",
+	"Labels": [
+		"duo"
+	]
+}

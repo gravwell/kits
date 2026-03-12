@@ -1,0 +1,29 @@
+// Template - Duo - System - Event Types - Modification Alerts by Priority [numbercard]
+$DUO_ALERT_BASE
+$DUO_RISK_SCORE
+$DUO_TUNE_IP
+$DUO_TUNE_USER
+$DUO_ALERT_META
+| eval accessLocation = accessCity + ", " + accessState + ", " + accessCountry
+| eval authLocation = authCity + ", " + authState + ", " + authCountry
+| eval 
+    has("username") && match(username, "%%duoUser%%") && !match(username, "(?i)^(null|nil|\"\")$") ||
+    has("actor") && match(actor, "%%duoUser%%") && !match(actor, "(?i)^(null|nil|\"\")$") ||
+    has("actorName") && match(actor, "%%duoUser%%") && !match(actor, "(?i)^(null|nil|\"\")$") ||
+    has("target") && match(target, "%%duoUser%%") && !match(target, "(?i)^(null|nil|\"\")$") ||
+    has("targetName") && match(targetName, "%%duoUser%%") && !match(targetName, "(?i)^(null|nil|\"\")$") ||
+    has("oldTargetName") && match(oldTargetName, "%%duoUser%%") && !match(oldTargetName, "(?i)^(null|nil|\"\")$") ||
+    has("src_ip") && match(src_ip, "%%duoIP%%") && !match(src_ip, "(?i)^(null|nil|\"\")$") ||
+    has("accessLocation") && match(accessLocation, "%%duoLocation%%") && !match(accessLocation, "(?i)^(null|nil|\"\")$") ||
+    has("authLocation") && match(authLocation, "%%duoLocation%%") && !match(authLocation, "(?i)^(null|nil|\"\")$")
+| eval (actor ~ "%%duoUser%%" || username ~ "%%duoUser%%" || target ~ "%%duoUser%%") && (accessIP ~ "%%duoIP%%" || authIP ~ "%%duoIP%%") && (accessLocation ~ "%%duoLocation%%" || authLocation ~ "%%duoLocation%%")
+| eval
+    _priority_order = 4;
+    if (_alert_priority == "Critical")       { _priority_order = 0; }
+    else if (_alert_priority == "High")      { _priority_order = 1; }
+    else if (_alert_priority == "Medium")    { _priority_order = 2; }
+    else if (_alert_priority == "Low")       { _priority_order = 3; }
+    else if (_alert_priority == "Informational") { _priority_order = 4; }
+| sort by _priority_order
+| stats count as " " by _alert_priority
+| numbercard " "

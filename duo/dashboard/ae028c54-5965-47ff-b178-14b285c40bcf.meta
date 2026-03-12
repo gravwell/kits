@@ -1,0 +1,248 @@
+{
+	"UUID": "ae028c54-5965-47ff-b178-14b285c40bcf",
+	"Name": "Duo Investigation",
+	"Description": "This Dashboard is intended to be used for Duo investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Duo - MFA - Authentication - User Auth [table]",
+				"color": null,
+				"reference": {
+					"id": "f107384c-155a-4b90-8a84-05845ee7e366",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - MFA - Administrator - Admin Actions [table]",
+				"color": null,
+				"reference": {
+					"id": "ed92d07d-2598-40ba-81cd-e80b57b58b65",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - MFA - Activity - User Activity [table]",
+				"color": null,
+				"reference": {
+					"id": "fd59999a-7f7a-458a-8fb0-65078e3f47f9",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - MFA - Offline Enrollment - Enrollment Actions [table]",
+				"color": null,
+				"reference": {
+					"id": "7df4b0ca-ddce-40b6-a59e-9f7ec36577ea",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Modification Alerts by User [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "d3771a11-c238-4593-992b-6bb5d61b3f6a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Modification Alerts by Source IP Address [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "4398e728-e7af-434c-96f1-8a632d12e201",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Modification Alerts by Location [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "cc227a2e-3675-4eab-a03d-04093d937ce7",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Duo - System - Event Types - Modification Alerts by Priority [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "e7f48cb5-9769-4384-ad06-25b7de5f7b6c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17709369776620,
+				"title": "User Authentications [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17709987693191,
+				"title": "Admin Actions [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 15
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17710040197122,
+				"title": "User Activity [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 23
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17710096845473,
+				"title": "Enrollment Actions [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 30
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17730688467504,
+				"title": "Modification Alerts by User [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "50"
+				}
+			},
+			{
+				"id": 17730693840635,
+				"title": "Modification Alerts by Source IP Address [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "50"
+				}
+			},
+			{
+				"id": 17730697287756,
+				"title": "Modification Alerts by Location [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "20",
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "50"
+				}
+			},
+			{
+				"id": 17730706167927,
+				"title": "Modification Alerts by Priority [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"duo"
+	]
+}

@@ -1,0 +1,43 @@
+{
+	"UUID": "483e162c-e535-453f-8f53-e7da8e056d83",
+	"Name": "Duo IP",
+	"Description": "Duo Actions on IP Addresses to Launch Duo Investigation Dashboard.",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Investigate",
+				"description": "This actionable will launch the Duo Investigation Dashboard to see if there are any modification and/or catalog alerts as well as show all successful and failed authentication events and attempts performed from this IP Address. ",
+				"placeholder": "",
+				"command": {
+					"type": "dashboard",
+					"reference": "ae028c54-5965-47ff-b178-14b285c40bcf",
+					"options": {
+						"variable": "%%duoIP%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(\\d{1,3}\\.){3}\\d{1,3}/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

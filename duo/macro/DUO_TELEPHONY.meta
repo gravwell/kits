@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_TELEPHONY",
+	"Description": "Configuration Macro; Tag used for all Duo Telephony data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$DUO_TELEPHONY\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Telephony Logs - https://duo.com/docs/adminapi#telephony-logs",
+	"Labels": [
+		"duo"
+	]
+}

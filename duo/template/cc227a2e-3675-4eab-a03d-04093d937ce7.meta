@@ -1,0 +1,20 @@
+{
+	"UUID": "cc227a2e-3675-4eab-a03d-04093d937ce7",
+	"Name": "Template - Duo - System - Event Types - Modification Alerts by Location [numbercard]",
+	"Description": "Displays a numbercard by Location (src_ip).",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duoLocation%%",
+				"label": "Duo Location",
+				"description": "This queries an EV named accessLocation \u0026 authLocation (City, State, Country)",
+				"required": true,
+				"defaultValue": ",",
+				"previewValue": ","
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

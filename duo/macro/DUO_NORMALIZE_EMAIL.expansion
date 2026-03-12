@@ -1,0 +1,11 @@
+// DUO_NORMALIZE_EMAIL
+// Normalize Email
+| eval 
+    if (TAG == "duo-auth" && has(authEmail) && authEmail != "" && authEmail != "null" && authEmail != "nil") {
+        email = authEmail;
+    }
+    else if (TAG == "duo-admin" && has(adminEmail) && adminEmail != "" && adminEmail != "null" && adminEmail != "nil") {
+        email = adminEmail;
+    }
+// Filter empty/null fields 1 liner
+| eval if (!has(email) || email == "" || email == "null") { email == "null"; }

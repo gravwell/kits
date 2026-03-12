@@ -1,0 +1,136 @@
+// DUO_EVX
+| json
+    // Shared Duo EVs
+    timestamp 
+    isotimestamp
+    username
+    action
+    object
+    txid
+    description
+    
+    // Duo Authentication
+    access_device.browser as accessBrowser
+    access_device.browser_version as accessBrowserVer
+    access_device.epkey as accessEPKey
+    access_device.flash_version as accessFlashVer
+    access_device.hostname as accessHost
+    access_device.ip as accessIP
+    access_device.is_encryption_enabled as accessEncEnabled
+    access_device.is_firewall_enabled as accessFWEnabled
+    access_device.is_password_set as accessPassSet
+    access_device.java_version as accessJavaVer
+    access_device.location.city as accessCity
+    access_device.location.country as accessCountry
+    access_device.location.state as accessState
+    access_device.os as accessOS
+    access_device.os_version as accessOSVer
+    access_device.security_agents as accessSecAgents
+    adaptive_trust_assessments.more_secure_auth.detected_attack_detectors as ataMoreSecureAttackDetectors
+    adaptive_trust_assessments.more_secure_auth.features_version as ataMoreSecureFeaturesVersion
+    adaptive_trust_assessments.more_secure_auth.model_version as ataMoreSecureModelVersion
+    adaptive_trust_assessments.more_secure_auth.policy_enabled as ataMoreSecurePolicyEnabled
+    adaptive_trust_assessments.more_secure_auth.reason as ataMoreSecureReason
+    adaptive_trust_assessments.more_secure_auth.trust_level as ataMoreSecureTrustLevel
+    adaptive_trust_assessments.remember_me.features_version as ataRememberMeFeaturesVersion
+    adaptive_trust_assessments.remember_me.model_version as ataRememberMeModelVersion
+    adaptive_trust_assessments.remember_me.policy_enabled as ataRememberMePolicyEnabled
+    adaptive_trust_assessments.remember_me.reason as ataRememberMeReason
+    adaptive_trust_assessments.remember_me.trust_level as ataRememberMeTrustLevel
+    alias as authAlias
+    application.destination_name as authAppDestName
+    application.key as authAppKey
+    application.name as authAppName
+    auth_device.ip as authIP
+    auth_device.key as authKey
+    auth_device.location.city as authCity
+    auth_device.location.country as authCountry
+    auth_device.location.state as authState
+    auth_device.name as authName
+    email as authEmail
+    event_type as authAction
+    factor as authFactor
+    odd_software
+    passport_assessment.is_supported as paIsSupported
+    passport_assessment.reason as paReason
+    reason as authReason
+    result as authResult
+    trusted_endpoint_status as trustStatus
+    trusted_session_info as trustSessionInfo
+    trusted_session_info.trusted_session_uuid as trustSessionUUID
+    user.groups as userGroups
+    user.key as authUserKey
+    user.name as authUser
+
+    // Duo Activity
+    access_device.browser as activityBrowser
+    access_device.browser_version as activityBrowserVer
+    access_device.epkey as activityEPKey
+    access_device.ip.address as activityIP
+    access_device.location.city as activityCity
+    access_device.location.country as activityCountry
+    access_device.location.state as activityState
+    access_device.os as activityOS
+    access_device.os_version as activityOSVer
+    action.details as actionDetails
+    action.name as actionName
+    activity_id
+    actor.details as actorDetails
+    actor.details.created as actorCreated
+    actor.details.last_login as actorLastLogin
+    actor.details.status as actorStatus
+    actor.details.groups as actorGroups
+    actor.key as actorKey
+    actor.name as actorName
+    actor.type as actorType
+    akey as activityKey
+    application.key as activityAppKey
+    application.name as activityAppName
+    application.type as activityAppType
+    old_target.details as oldTargetDetails
+    old_target.details.authenticator_type as oldTargetAuthType
+    old_target.details.transport_types as oldTargetTransportType
+    old_target.details.passwordless_authorized as oldTargetNoPwAllow
+    old_target.details.browser as oldTargetBrowser
+    old_target.details.browser_version as oldTargetBrowserVer
+    old_target.details.credential_name as oldTargetCredName
+    old_target.key as oldTargetKey
+    old_target.name as oldTargetName
+    old_target.type as oldTargetType
+    outcome.result as activityResult
+    target.details as targetDetails
+    target.details.authenticator_type as targetAuthType
+    target.details.transport_types as targetTransportType
+    target.details.passwordless_authorized as targetNoPwAllow
+    target.details.browser as targetBrowser
+    target.details.browser_version as targetBrowserVer
+    target.details.credential_name as targetCredName
+    target.key as targetKey
+    target.name as targetName
+    target.type as targetType
+    ts as activityTs
+
+    // Duo Administrator
+    action as adminAction
+    description as adminDesc
+    description.notes as adminNotes
+    description.realname as adminRealname
+    description.ip_address as adminIP
+    description.error as adminError
+    description.email as adminEmail
+    description.role as adminRole
+    description.device as adminDevice
+    object as adminObject
+
+    // Duo Telephony
+    context 
+    credits
+    phone
+    telephony_id
+    ts
+    type
+
+    // Duo Offline Enrollment
+    description.user_agent as enrollUserAgent
+    description.hostname as enrollHost
+    description.factor as enrollFactor
