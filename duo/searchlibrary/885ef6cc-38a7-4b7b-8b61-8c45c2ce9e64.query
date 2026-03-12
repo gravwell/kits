@@ -1,0 +1,3 @@
+tag=$DUO
+| stats count by TAG
+| table TAG count

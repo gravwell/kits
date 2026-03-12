@@ -1,0 +1,18 @@
+// DUO_NORMALIZE_ACTOR
+| eval 
+    if (TAG == "duo-auth" && has(authUser) && authUser != "" && authUser != "null" && authUser != "nil") {
+        actor = authUser;
+    }
+    else if (TAG == "duo-activity" && has(actorName) && actorName != "" && actorName != "null" && actorName != "nil") {
+        actor = actorName;
+    }
+    else if (TAG == "duo-admin" && has(adminEmail) && adminEmail != "" && adminEmail != "null" && adminEmail != "nil") {
+        actor = adminEmail;
+    }
+    else if (TAG == "duo-admin" && has(adminRealname) && adminRealname != "" && adminRealname != "null" && adminRealname != "nil") {
+        actor = adminRealname;
+    }
+    else if (TAG == "duo-*" && has(username) && username != "" && username != "null" && username != "nil") {
+        actor = username;
+    }
+| regex -p -e actor "(?<username>.*?)?\@"

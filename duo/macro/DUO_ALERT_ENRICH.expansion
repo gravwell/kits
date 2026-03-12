@@ -1,0 +1,14 @@
+// DUO_ALERT_ENRICH
+$DUO_NORMALIZE_EVENTTYPE
+| lookup -r duo_eventTypes eventType value (tag log_source category subcategory preEVX evx value description is_mod)
+// -------- modification flag (CSV + verb-tail fallback) ----------
+| eval is_mod_final = 0
+| eval if (has("is_mod") && is_mod == 1) { is_mod_final = 1; }
+| eval if (is_mod_final == 0 && match(eventType, "(?i)\.(create|delete|update|remove|add|assign|unassign|grant|revoke|enable|disable|activate|deactivate|rotate|generate|issue|reset|set|unset|change|map|unmap|link|unlink|clone|import|export|enroll|unenroll|provision|deprovision|migrate|rename|reassign|transfer|approve|deny|suspend|unsuspend|block|unblock)$")) { is_mod_final = 1; }
+$DUO_NORMALIZE_ACTOR
+$DUO_NORMALIZE_TARGET
+$DUO_NORMALIZE_SRC_IP
+$DUO_NORMALIZE_TXID
+$DUO_NORMALIZE_OUTCOME
+| lookup -r duo_privileged_actor actor account (actor_weight actor_label)
+| lookup -r duo_protected_target  target account (target_weight target_label)

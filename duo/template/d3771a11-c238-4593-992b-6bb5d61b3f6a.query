@@ -1,0 +1,25 @@
+// Template - Duo - System - Event Types - Modification Alerts by User [numbercard]
+$DUO_ALERT_BASE
+$DUO_RISK_SCORE
+$DUO_TUNE_IP
+$DUO_TUNE_USER
+$DUO_ALERT_META
+| eval 
+    has("username") && match(username, "%%duoUser%%") && !match(username, "(?i)^(null|nil|\"\")$") ||
+    has("actor") && match(actor, "%%duoUser%%") && !match(actor, "(?i)^(null|nil|\"\")$") ||
+    has("actorName") && match(actor, "%%duoUser%%") && !match(actor, "(?i)^(null|nil|\"\")$") ||
+    has("target") && match(target, "%%duoUser%%") && !match(target, "(?i)^(null|nil|\"\")$") ||
+    has("targetName") && match(targetName, "%%duoUser%%") && !match(targetName, "(?i)^(null|nil|\"\")$") ||
+    has("oldTargetName") && match(oldTargetName, "%%duoUser%%") && !match(oldTargetName, "(?i)^(null|nil|\"\")$") ||
+    has("src_ip") && match(src_ip, "%%duoIP%%") && !match(src_ip, "(?i)^(null|nil|\"\")$") 
+
+| eval u = "" ;
+	if (has(username) && username != "" && username != "null") { u = username; }
+	else if (has(actor) && actor != "" && actor != "null") { u = actor; }
+	else if (has(actorName) && actorName != "" && actorName != "null") { u = actorName; }
+	else if (has(target) && target != "" && target != "null") { u = target; }
+	else if (has(targetName) && targetName != "" && targetName != "null") { u = targetName; }
+	else if (has(oldTargetName) && oldTargetName != "" && oldTargetName != "null") { u = oldTargetName; }
+| eval u ~ "%%duoUser%%"
+| stats count as " " by u
+| numbercard " "

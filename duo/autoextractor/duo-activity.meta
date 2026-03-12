@@ -1,0 +1,17 @@
+{
+	"Name": "duo-activity",
+	"Desc": "Gravwell generated JSON extraction for tag duo-activity",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"duo-activity"
+	],
+	"Labels": [
+		"duo"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "0a5a7910-7a86-4c8b-ac15-5850b168c609",
+	"LastUpdated": "2026-02-27T19:29:20.323332835Z"
+}

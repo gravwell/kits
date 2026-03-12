@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Duo - System - Event Types - Count by Category, Subcategory [chart]",
+	"Description": "Detects a chart of event types by category, and subcategory.\n\nReference(s):\n  - Duo \n    - https://duo.com/docs/adminapi\n  - Duo Activity Logs\n    - https://duo.com/docs/adminapi#activity-logs\n  - Duo Administrator Logs\n    - https://duo.com/docs/adminapi#administrator-logs\n  - Duo Authentication Logs\n    - https://duo.com/docs/adminapi-v1#authentication-logs\n    - https://duo.com/docs/adminapi#v2-authlogs",
+	"GUID": "98aa8146-6cbb-4803-927f-1b1e436b02c8",
+	"Labels": [
+		"duo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

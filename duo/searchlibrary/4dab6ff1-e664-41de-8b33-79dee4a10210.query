@@ -1,0 +1,3 @@
+// AlertQuery - Duo - System - Event Types - Modification Alerts
+$DUO_MOD_ALERT
+| table _alert_title _alert_priority context category subcategory _alert_name actor target src_ip outcome transactionId

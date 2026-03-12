@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_AUTH_EVX",
+	"Description": "This macro extracts all possible Enumerated Values (EVs) from Duo Authentication Logs.\n\nUsage:\ntag=$DUO_AUTH\n$DUO_AUTH_EVX\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Authentication Logs - https://duo.com/docs/adminapi#authentication-logs",
+	"Labels": [
+		"duo"
+	]
+}

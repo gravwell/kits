@@ -1,0 +1,20 @@
+{
+	"UUID": "4398e728-e7af-434c-96f1-8a632d12e201",
+	"Name": "Template - Duo - System - Event Types - Modification Alerts by Source IP Address [numbercard]",
+	"Description": "Displays a numbercard by Source IP Address (src_ip).",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duoIP%%",
+				"label": "Duo IP",
+				"description": "This queries all IP fields for the IP you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

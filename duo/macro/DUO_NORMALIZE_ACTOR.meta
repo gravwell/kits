@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_NORMALIZE_ACTOR",
+	"Description": "This macro normalizes actorEmail and actorName into a new EV named actor that is used to search both fields for a specific actor. It must be run after $DUO_ALERT_BASE or, after actor.details.email and actor.name have been extracted and renamed/aliased to actorEmail and actorName, respectively. It can be used in conjunction with $DUO_NORMALIZE_IP, $DUO_NORMALIZE_TARGET, and/or $DUO_NORMALIZE_USER.\n\nUsage:\ntag=$DUO_ACTIVITY\n$DUO_ACTIVITY_EVX\n$DUO_NORMALIZE_ACTOR\n| grep -e actor \"*\"",
+	"Labels": [
+		"duo"
+	]
+}

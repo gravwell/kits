@@ -1,0 +1,6 @@
+// DUO_OFF_ENROLL_DESC_EVX
+| unescape description
+| json -e description 
+    user_agent as enrollUserAgent
+    hostname as enrollHost
+    factor as enrollFactor

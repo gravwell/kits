@@ -1,0 +1,36 @@
+{
+	"UUID": "f107384c-155a-4b90-8a84-05845ee7e366",
+	"Name": "Template - Duo - MFA - Authentication - User Auth [table]",
+	"Description": "This displays a table of all User Authentications for the specified User, IP Address, and Location.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duoUser%%",
+				"label": "Duo User",
+				"description": "This queries both the Actor and Target EVs for any events involving the user you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%duoIP%%",
+				"label": "Duo IP Address",
+				"description": "This queries all IP fields for the IP you specify.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%duoLocation%%",
+				"label": "Duo Location",
+				"description": "This queries an EV named accessLocation \u0026 authLocation (City, State, Country)",
+				"required": true,
+				"defaultValue": ",",
+				"previewValue": ","
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_ADMIN_EVX",
+	"Description": "This macro extracts all possible Enumerated Values (EVs) from Duo Admin Logs.\n\nUsage:\ntag=$DUO_ADMIN\n$DUO_ADMIN_EVX\n\nReference(s):\n- Duo - https://duo.com/docs/adminapi\n- Duo Administrator Logs - https://duo.com/docs/adminapi#administrator-logs",
+	"Labels": [
+		"duo"
+	]
+}

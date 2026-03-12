@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_OFF_ENROLL",
+	"Description": "Configuration Macro; Tag used for all Duo Offline Enrollment data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$DUO_OFFLINE_ENROLLMENT\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs",
+	"Labels": [
+		"duo"
+	]
+}

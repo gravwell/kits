@@ -1,0 +1,7 @@
+// Search - Duo - Activity - User City [numbercard]
+tag=$DUO_ACTIVITY
+| json
+    access_device.location.city as accessCity
+| stats count by accessCity
+| alias count " " 
+| numbercard " "

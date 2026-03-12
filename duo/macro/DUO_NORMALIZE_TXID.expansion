@@ -1,0 +1,20 @@
+// DUO_NORMALIZE_TXID
+| eval 
+    if (TAG == "duo-auth" && has(txid) && txid != "" && txid != "null" && txid != "nil") {
+        transactionId = txid;
+    }
+    else if (TAG == "duo-activity" && has(activity_id) && activity_id != "" && activity_id != "null" && activity_id != "nil") {
+        transactionId = activity_id;
+    }
+    else if (TAG == "duo-admin" && has(actor) && actor != "" && actor != "null" && actor != "nil") {
+        transactionId = actor;
+    }
+    else if (TAG == "duo-telephony" && has(txid) && txid != "" && txid != "null" && txid != "nil") {
+        transactionId = txid;
+    }
+    else if (TAG == "duo-offline-enrollment" && has(txid) && txid != "" && txid != "null" && txid != "nil") {
+        transactionId = txid;
+    }
+
+// Filter empty/null fields 1 liner
+| eval if (has(transactionId) && transactionId == "" || transactionId == "null") { transactionId == "null"; }

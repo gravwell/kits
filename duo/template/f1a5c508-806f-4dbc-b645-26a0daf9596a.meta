@@ -1,0 +1,20 @@
+{
+	"UUID": "f1a5c508-806f-4dbc-b645-26a0daf9596a",
+	"Name": "Template - Duo - System - Event Types - Category, Subcategory [table]",
+	"Description": "Detects a table of event types by category, and subcategory.\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Activity Logs - https://duo.com/docs/adminapi#activity-logs\n- Duo Administrator Logs - https://duo.com/docs/adminapi#administrator-logs\n- Duo Authentication Logs - https://duo.com/docs/adminapi#authentication-logs\n- Duo Offline Enrollment Logs - https://duo.com/docs/adminapi#offline-enrollment-logs\n- Duo Telephony Logs - https://duo.com/docs/adminapi#telephony-logs",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%duo_subcategory%%",
+				"label": "Log Subcategory",
+				"description": "Options: API,API Keys,Account,Accounts API,Active Directory,Admin,Admin Activation,Admin Console Login,Auth,Auth Logs v2,Bypass Codes,Coach,Device Health,Device Posture,Devices,Devices API,Enrollment,Enterprise Sessions,Entra ID/Azure,Groups,Hardware Tokens,Identity Verification,Input Validation,Integrations,Log Export,Networks,Phones,Policy,Protected Actions,Recovery Codes,Recovery Codes / Backup,Risk,SAML,SDK Keys,SMS,Sensitive Actions,Single Sign-On,Single Sign-On / Duo Central,System Settings,Trust Monitor,Trusted Devices,Trusted Endpoints,U2F Tokens,Users,WebAuthn,WebAuthn Credentials",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"duo"
+	]
+}

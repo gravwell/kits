@@ -1,0 +1,8 @@
+tag=$DUO
+$DUO_EVX
+$DUO_NORMALIZE_EVENTTYPE
+| lookup -r duo_eventTypes eventType value (category subcategory description)
+| grep -e category "%%duo_eventType%%"
+| stats count by category subcategory eventType
+| sort by count desc
+| table category subcategory eventType description count

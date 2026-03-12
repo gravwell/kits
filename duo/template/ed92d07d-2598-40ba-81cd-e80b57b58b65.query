@@ -1,0 +1,49 @@
+tag=duo-admin 
+// DUO_ADMIN_EVX
+| json
+    action 
+    description
+    isotimestamp
+    object
+    timestamp
+    username
+| unescape description
+| json -e description notes realname ip_address error email
+| eval
+    if (TAG == "duo-admin" && has(email) && email != "" && email != "null" && email != "nil") {
+        actor = email;
+    }
+    else if (TAG == "duo-admin" && has(realname) && realname != "" && realname != "null" && realname != "nil") {
+        actor = realname; 
+    } 
+    else if (TAG == "duo-admin" && has(username) && username != "" && username != "null" && username != "nil") {
+        actor = username; 
+    } 
+    else if (TAG == "duo-admin" && has(object) && object != "" && object != "null" && object != "nil") {
+        actor = object; 
+    } 
+| eval  
+    if ((TAG == "duo-admin") && has(action) && action != "" && action != "null" && action != "nil") {
+        eventType = action;
+    }
+| eval
+    if (TAG == "duo-admin" && has(object) && object != "" && object != "null" && object != "nil") {
+        target = object;
+    }
+    else if (TAG == "duo-admin" && has(username) && username != "" && username != "null" && username != "nil") {
+        target = username;
+    }
+    else if (TAG == "duo-admin" && has(email) && email != "" && email != "null" && email != "nil") {
+        target = email;
+    }
+| eval
+    if (TAG == "duo-admin" && has(ip_address) && ip_address != "" && ip_address != "null" && ip_address != "nil") {
+        src_ip = ip_address;
+    }
+| eval
+    if (TAG == "duo-admin" && has(action) && action != "" && action != "null" && action != "nil") {
+        outcome = action;
+    }
+| regex -p -e actor "(?<username>.*?)?\@"
+| eval (username ~ "%%duoUser%%" || actor ~ "%%duoUser%%" || actor ~ "%%duoUser%%") && ip_address ~ "%%duoIP%%"
+| table TIMESTAMP eventType username target src_ip outcome

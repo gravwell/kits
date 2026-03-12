@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "duo_admin_evx_enrichment",
+	"Description": "This is intended to be used as a lookup file providing additional information regarding Duo Admin event types. It is used within the Duo Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.\n\nFields:\ncategory,subcategory,ev,preEVX,description,value,value_description\n  - category: this is the top-level grouping used to organize Duo EVs (e.g., admin, activity, authentication).\n  - subcategory: this is the secondary grouping within the category to further classify the EV (e.g., role, device, outcome).\n  - ev: this is the final enriched field name that will appear in Gravwell after EVX extraction.\n  - preEVX: this is the raw JSON field from Duo’s API response that we extract from (anything before \"as\" in your EVX mapper).\n  - description: this is a human-readable explanation of what the EV represents or how it is used.\n  - value: this is the enumerated value itself when Duo defines a fixed list (empty when the field is free-text or non-enumerated).\n  - value_description: this provides additional context or meaning for the enumerated value (empty for non-enumerated fields).\n\nReference(s):\n  - Duo \n    - https://duo.com/docs/adminapi\n  - Duo Administrator Logs\n    - https://duo.com/docs/adminapi#administrator-logs\n\nUsage: lookup -r duo_admin_evx_enrichment admin_eventType eventType (category subcategory description value value_description)",
+	"Labels": [
+		"duo"
+	],
+	"Size": 29034,
+	"Hash": "BRi/dV1cxfT04ij4I4qDDg==",
+	"Data": ""
+}

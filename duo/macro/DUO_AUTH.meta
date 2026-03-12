@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_AUTH",
+	"Description": "Configuration Macro; Tag used for Duo Authentication data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$DUO_AUTH\n\nReference(s): \n- Duo - https://duo.com/docs/adminapi \n- Duo Authentication Logs - https://duo.com/docs/adminapi#authentication-logs",
+	"Labels": [
+		"duo"
+	]
+}

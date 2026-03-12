@@ -1,0 +1,9 @@
+tag=$DUO_OFF_ENROLL
+$DUO_OFF_ENROLL_EVX
+| alias 
+    enrollUserAgent user_agent
+    enrollHost host 
+    enrollFactor factor
+| eval 
+    has("username") && match(username, "%%duoUser%%") && !match(username, "(?i)^(null|nil|\"\")$")
+| table TIMESTAMP username host action user_agent factor object

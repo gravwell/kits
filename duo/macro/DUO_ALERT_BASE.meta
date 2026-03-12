@@ -1,0 +1,7 @@
+{
+	"Name": "DUO_ALERT_BASE",
+	"Description": "This is the base of which all alerts are built upon. This is necessary for the rest of the actual alerting logic to occur due to the Enumerated Value Extraction (EVX), EV enrichment and normalization performed by the dependencies listed below.\n\nDependencies:\n$DUO_EVX: EV (Enumerated Value) extraction from the logs\n$DUO_ALERT_ENRICH: EV enrichment and normalization for later calculations and alert parameters.",
+	"Labels": [
+		"duo"
+	]
+}

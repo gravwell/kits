@@ -1,0 +1,204 @@
+category,subcategory,ev,preEVX,description,value,value_description
+authentication,device,auth_accessBrowser,access_device.browser,The web browser used for access.,,
+authentication,device,auth_accessBrowserVersion,access_device.browser_version,The browser version.,,
+authentication,device,auth_accessEPKey,access_device.epkey,The endpoint's unique identifier collected during authentication events.,,
+authentication,device,auth_accessFlashVersion,access_device.flash_version,"The Flash plugin version used, or "uninstalled" if not present.",
+authentication,device,auth_accessHostname,access_device.hostname,The hostname of the access device if present.,,
+authentication,device,auth_accessIP,access_device.ip,The access device's IP address if present.,,
+authentication,device,auth_accessEncryptionEnabled,access_device.is_encryption_enabled,Reports the disk encryption state as detected by Duo Desktop.,true,Disk encryption enabled. 
+authentication,device,auth_accessEncryptionEnabled,access_device.is_encryption_enabled,Reports the disk encryption state as detected by Duo Desktop.,false,Disk encryption disabled.
+authentication,device,auth_accessEncryptionEnabled,access_device.is_encryption_enabled,Reports the disk encryption state as detected by Duo Desktop.,unknown,Disk encryption status unknown.
+authentication,device,auth_accessFirewallEnabled,access_device.is_firewall_enabled,Reports the firewall state as detected by Duo Desktop.,false,Firewall disabled
+authentication,device,auth_accessFirewallEnabled,access_device.is_firewall_enabled,Reports the firewall state as detected by Duo Desktop.,true,Firewall enabled
+authentication,device,auth_accessFirewallEnabled,access_device.is_firewall_enabled,Reports the firewall state as detected by Duo Desktop.,unknown,Firewall status unknown
+authentication,device,auth_accessPasswordSet,access_device.is_password_set,Reports the system password state as detected by Duo Desktop.,false,Password not set
+authentication,device,auth_accessPasswordSet,access_device.is_password_set,Reports the system password state as detected by Duo Desktop.,true,Password set
+authentication,device,auth_accessPasswordSet,access_device.is_password_set,Reports the system password state as detected by Duo Desktop.,unknown,Password status unknown
+authentication,device,auth_accessJavaVersion,access_device.java_version,"The Java plugin version used, or "uninstalled" if not present.",
+authentication,device,auth_accessCity,access_device.location.city,The city name of the access device’s GeoIP location.,,
+authentication,device,auth_accessCountry,access_device.location.country,The country name of the access device’s GeoIP location.,,
+authentication,device,auth_accessState,access_device.location.state,The state/county/province of the access device’s GeoIP location.,,
+authentication,device,auth_accessOS,access_device.os,The device operating system name.,,
+authentication,device,auth_accessOSVersion,access_device.os_version,The device operating system version.,,
+authentication,device,auth_accessSecurityAgents,access_device.security_agents,Reports the security agents present on the endpoint as detected by Duo Desktop.,,
+authentication,adaptive_trust_assessments,auth_moreSecureAttackDetectors,adaptive_trust_assessments.more_secure_auth.detected_attack_detectors,List of risk-based authentication detections found during or after an authentication attempt.,,
+authentication,adaptive_trust_assessments,auth_moreSecureFeaturesVersion,adaptive_trust_assessments.more_secure_auth.features_version,The feature version for the risk-based authentication trust assessment.,,
+authentication,adaptive_trust_assessments,auth_moreSecureModelVersion,adaptive_trust_assessments.more_secure_auth.model_version,The model version for the risk-based authentication trust assessment.,,
+authentication,adaptive_trust_assessments,auth_moreSecurePolicyEnabled,adaptive_trust_assessments.more_secure_auth.policy_enabled,Indicates whether the risk-based authentication policy was enabled when evaluated.,false,Risk-based authentication policy was disabled.
+authentication,adaptive_trust_assessments,auth_moreSecurePolicyEnabled,adaptive_trust_assessments.more_secure_auth.policy_enabled,Indicates whether the risk-based authentication policy was enabled when evaluated.,true,Risk-based authentication policy was enabled.
+authentication,adaptive_trust_assessments,auth_moreSecureReason,adaptive_trust_assessments.more_secure_auth.reason,The reason behind the trust assessment level.,,
+authentication,adaptive_trust_assessments,auth_moreSecureTrustLevel,adaptive_trust_assessments.more_secure_auth.trust_level,The trust assessment level.,error,Error determining trust level.
+authentication,adaptive_trust_assessments,auth_moreSecureTrustLevel,adaptive_trust_assessments.more_secure_auth.trust_level,The trust assessment level.,low,Low trust detected.
+authentication,adaptive_trust_assessments,auth_moreSecureTrustLevel,adaptive_trust_assessments.more_secure_auth.trust_level,The trust assessment level.,normal,Normal trust.
+authentication,adaptive_trust_assessments,auth_moreSecureTrustLevel,adaptive_trust_assessments.more_secure_auth.trust_level,The trust assessment level.,unknown,Trust level unknown.
+authentication,adaptive_trust_assessments,auth_moreSecureTrustLevel,adaptive_trust_assessments.more_secure_auth.trust_level,The trust assessment level.,unset,Trust not set.
+authentication,adaptive_trust_assessments,auth_rememberMeFeaturesVersion,adaptive_trust_assessments.remember_me.features_version,The feature version for the remembered device trust assessment.,,
+authentication,adaptive_trust_assessments,auth_rememberMeModelVersion,adaptive_trust_assessments.remember_me.model_version,The model version for the remembered device trust assessment.,,
+authentication,adaptive_trust_assessments,auth_rememberMePolicyEnabled,adaptive_trust_assessments.remember_me.policy_enabled,Indicates whether policy was enabled for the remembered device trust assessment.,,
+authentication,adaptive_trust_assessments,auth_rememberMeReason,adaptive_trust_assessments.remember_me.reason,The reason behind the remembered device trust assessment level.,,
+authentication,adaptive_trust_assessments,auth_rememberMeTrustLevel,adaptive_trust_assessments.remember_me.trust_level,The trust assessment level for remembered devices.,,
+authentication,user,auth_alias,alias,The username alias used to log in.,,
+authentication,application,auth_applicationDestinationName,application.destination_name,The destination application name passed in by an OIDC Auth API application.,,
+authentication,application,auth_applicationKey,application.key,The application's integration key.,,
+authentication,application,auth_applicationName,application.name,The application's name.,,
+authentication,device,auth_authDeviceIP,auth_device.ip,The IP address of the authentication device.,,
+authentication,device,auth_authDeviceKey,auth_device.key,The Duo identifier of the authentication device.,,
+authentication,device,auth_authDeviceCity,auth_device.location.city,The city of the authentication device’s GeoIP location.,,
+authentication,device,auth_authDeviceCountry,auth_device.location.country,The country of the authentication device’s GeoIP location.,,
+authentication,device,auth_authDeviceState,auth_device.location.state,The state/county/province of the authentication device’s GeoIP location.,,
+authentication,device,auth_authDeviceName,auth_device.name,The name of the authentication device.,,
+authentication,user,auth_email,email,The email address of the user if known to Duo.,,
+authentication,event,auth_eventType,event_type,The type of activity logged.,,
+authentication,factor,auth_factor,factor,The authentication factor used.,,
+authentication,factor,auth_factor,factor,The authentication factor used.,bypass_code,Authentication factor was a bypass code.
+authentication,factor,auth_factor,factor,The authentication factor used.,Desktop Authenticator,Authentication factor was a desktop authenticator.
+authentication,factor,auth_factor,factor,The authentication factor used.,digipass_go_7_token,Authentication factor was a Digipass GO 7 token.
+authentication,factor,auth_factor,factor,The authentication factor used.,duo_mobile_passcode,Authentication factor was a Duo Mobile generated passcode.
+authentication,factor,auth_factor,factor,The authentication factor used.,duo_mobile_passcode_hotp,Authentication factor was a Duo Mobile HOTP passcode.
+authentication,factor,auth_factor,factor,The authentication factor used.,duo_mobile_passcode_totp,Authentication factor was a Duo Mobile TOTP passcode.
+authentication,factor,auth_factor,factor,The authentication factor used.,duo_push,Authentication factor was Duo Push.
+authentication,factor,auth_factor,factor,The authentication factor used.,Duo Mobile Inline Auth (passwordless),"Authentication factor was passwordless Duo Mobile Inline Auth."
+authentication,factor,auth_factor,factor,The authentication factor used.,Duo Push (passwordless),"Authentication factor was a passwordless Duo Push."
+authentication,factor,auth_factor,factor,The authentication factor used.,hardware_token,Authentication factor was a hardware token passcode.
+authentication,factor,auth_factor,factor,The authentication factor used.,not_available,Authentication factor was not available.
+authentication,factor,auth_factor,factor,The authentication factor used.,passcode,Authentication factor was a generic passcode.
+authentication,factor,auth_factor,factor,The authentication factor used.,Passwordless OS Enrollment,User completed passwordless OS logon enrollment.
+authentication,factor,auth_factor,factor,The authentication factor used.,Passwordless OS Logon,Authentication factor was passwordless OS logon.
+authentication,factor,auth_factor,factor,The authentication factor used.,phone_call,Authentication factor was a phone call.
+authentication,factor,auth_factor,factor,The authentication factor used.,Platform authenticator (2fa),"Authentication factor was a platform authenticator for 2FA."
+authentication,factor,auth_factor,factor,The authentication factor used.,Platform authenticator (passwordless),"Authentication factor was a passwordless platform authenticator."
+authentication,factor,auth_factor,factor,The authentication factor used.,remembered_device,Authentication factor was a remembered device token.
+authentication,factor,auth_factor,factor,The authentication factor used.,Remembered Device (passwordless),"Authentication factor was a passwordless remembered device token."
+authentication,factor,auth_factor,factor,The authentication factor used.,Roaming authenticator (2fa),"Authentication factor was a roaming authenticator for 2FA."
+authentication,factor,auth_factor,factor,The authentication factor used.,Roaming authenticator (passwordless),"Authentication factor was a passwordless roaming authenticator."
+authentication,factor,auth_factor,factor,The authentication factor used.,sms_passcode,Authentication factor was an SMS passcode.
+authentication,factor,auth_factor,factor,The authentication factor used.,sms_refresh,User requested a refresh batch of SMS passcodes.
+authentication,factor,auth_factor,factor,The authentication factor used.,trusted_mobile_authenticator,"Authentication factor was Duo Mobile Inline Auth (trusted mobile authenticator)."
+authentication,factor,auth_factor,factor,The authentication factor used.,trusted_network,Authentication factor was an authorized or trusted network.
+authentication,factor,auth_factor,factor,The authentication factor used.,u2f_token,Authentication factor was a U2F token.
+authentication,factor,auth_factor,factor,The authentication factor used.,verified_duo_push,Authentication factor was Verified Duo Push.
+authentication,factor,auth_factor,factor,The authentication factor used.,Verified Duo Push (passwordless),"Authentication factor was passwordless Verified Duo Push."
+authentication,factor,auth_factor,factor,The authentication factor used.,WebAuthn Chrome Touch ID,"Authentication factor was Apple Touch ID via Chrome (deprecated)."
+authentication,factor,auth_factor,factor,The authentication factor used.,WebAuthn Credential,Authentication factor was a WebAuthn authenticator.
+authentication,factor,auth_factor,factor,The authentication factor used.,WebAuthn Security Key,Authentication factor was a WebAuthn or FIDO2 security key.
+authentication,factor,auth_factor,factor,The authentication factor used.,yubikey_passcode,Authentication factor was a Yubikey OTP token passcode.
+authentication,time,auth_isotimestamp,isotimestamp,The ISO8601 timestamp of the event.,,
+authentication,software,auth_oodSoftware,ood_software,"If authentication was denied due to out-of-date software, shows the name of the software, i.e. "Chrome", "Flash", etc. No value if authentication was successful or authentication denial was not due to out-of-date software.",,
+authentication,duo_passport,auth_passportSupported,passport_assessment.is_supported,Indicates whether the authentication supported Duo Passport.,false,Duo Passport not supported.
+authentication,duo_passport,auth_passportSupported,passport_assessment.is_supported,Indicates whether the authentication supported Duo Passport.,true,Duo Passport supported.
+authentication,duo_passport,auth_passportReason,passport_assessment.reason,The reason Duo Passport could or could not be used for the authentication.,,Returns a reason on why Duo Passport could not be used for that authentication.
+authentication,duo_passport,auth_passportReason,passport_assessment.reason,The reason Duo Passport could or could not be used for the authentication.,supported,Returns supported if auth_passportSupported = true.
+authentication,success,auth_reason,reason,"Authentication succeeded because policy allows unenrolled users.",allow_unenrolled_user,"Allowed (unenrolled user)"
+authentication,success,auth_reason,reason,"Authentication succeeded because unenrolled user was on trusted network.",allow_unenrolled_user_on_trusted_network,"Unenrolled + trusted network"
+authentication,success,auth_reason,reason,"Authentication succeeded due to policy allowing it.",allowed_by_policy,"Allowed by policy"
+authentication,success,auth_reason,reason,"Authentication trusted due to RBRD session.",authentication_trusted_by_risk_based_remembered_devices,"Trusted via RBRD"
+authentication,success,auth_reason,reason,"Authentication trusted via Duo Passport RBRD.",authentication_trusted_by_risk_based_remembered_devices_via_passport,"Trusted via Passport RBRD"
+authentication,success,auth_reason,reason,"Authentication succeeded because Bluetooth proximity verified.",bluetooth_verified,"Bluetooth verified"
+authentication,success,auth_reason,reason,"Authentication succeeded because a bypass code was used.",bypass_user,"Bypass code success"
+authentication,success,auth_reason,reason,"Authentication succeeded due to remembered device token.",remembered_device,"Trusted remembered device"
+authentication,success,auth_reason,reason,"Authentication succeeded due to Passport remembered device.",remembered_device_via_passport,"Passport RBRD trusted"
+authentication,success,auth_reason,reason,"Endpoint check bypassed due to trusted network exception.",trusted_endpoints_bypassed_by_network_exception,"TE bypassed because network trusted"
+authentication,success,auth_reason,reason,"Authentication succeeded because user was in a trusted location.",trusted_location,"Trusted location"
+authentication,success,auth_reason,reason,"Authentication succeeded because user was on trusted network.",trusted_network,"Trusted network"
+authentication,success,auth_reason,reason,"Authentication succeeded because user approved push.",user_approved,"Push approved by user"
+authentication,success,auth_reason,reason,"Authentication succeeded due to valid Duo Desktop signature.",valid_duo_desktop_signature,"Valid Duo Desktop signature"
+authentication,success,auth_reason,reason,"Authentication succeeded because a valid passcode was used.",valid_passcode,"Correct passcode"
+authentication,success,auth_reason,reason,"Authentication succeeded because Verified Duo Push code matched.",verification_code_correct,"Correct Verified Duo Push code"
+authentication,failure,reason,anonymous_ip,"Authentication denied because the request came from an anonymous IP address.","anonymous_ip","Anonymous IP detected"
+authentication,failure,reason,ble_not_used,"Authentication denied because BLE was required but not used.","ble_not_used","Bluetooth Low Energy not used"
+authentication,failure,reason,blocked_registration,"Authentication denied due to blocked registration attempt.","blocked_registration","Registration blocked"
+authentication,failure,reason,call_not_answered,"Authentication denied because the call was not answered.","call_not_answered","Phone call not answered"
+authentication,failure,reason,call_timed_out,"Authentication denied because the call authentication timed out.","call_timed_out","Phone call timed out"
+authentication,failure,reason,could_not_determine_if_endpoint_was_trusted,"Authentication denied because endpoint trust could not be determined.","could_not_determine_if_endpoint_was_trusted","Endpoint trust undetermined"
+authentication,failure,reason,country_code_mismatch,"Authentication denied due to country code mismatch.","country_code_mismatch","Geo mismatch"
+authentication,failure,reason,credential_denied,"Authentication denied because credentials were not accepted.","credential_denied","Credential rejected"
+authentication,failure,reason,denied_by_policy,"Authentication denied due to a policy restriction.","denied_by_policy","Denied by policy"
+authentication,failure,reason,denied_network,"Authentication denied because the client's network was blocked.","denied_network","Network denied"
+authentication,failure,reason,deny_unenrolled_user,"Authentication denied because user is not enrolled.","deny_unenrolled_user","Unenrolled user denied"
+authentication,failure,reason,device_distance_disparity,"Authentication denied due to distance difference anomaly.","device_distance_disparity","Impossible travel/distance"
+authentication,failure,reason,device_health_data_missing,"Authentication denied due to missing device health data.","device_health_data_missing","Missing health data"
+authentication,failure,reason,device_registration_failed,"Authentication denied because device registration failed.","device_registration_failed","Device registration failed"
+authentication,failure,reason,device_registration_not_supported,"Authentication denied because device registration was not supported.","device_registration_not_supported","Registration unsupported"
+authentication,failure,reason,duo_desktop_auth_biometrics_required,"Authentication denied because biometric verification was required.","duo_desktop_auth_biometrics_required","Biometrics required"
+authentication,failure,reason,duo_desktop_missing_signature,"Authentication denied because Duo Desktop signature was missing.","duo_desktop_missing_signature","Missing signature"
+authentication,failure,reason,duo_desktop_registration_not_supported,"Authentication denied because Duo Desktop registration not supported.","duo_desktop_registration_not_supported","Duo Desktop registration unsupported"
+authentication,failure,reason,duo_mobile_version_restricted,"Authentication denied because Duo Mobile version was restricted.","duo_mobile_version_restricted","Restricted Duo Mobile version"
+authentication,failure,reason,encrypted_secret_missing,"Authentication denied because encrypted secret was missing.","encrypted_secret_missing","Missing encrypted secret"
+authentication,failure,reason,endpoint_failed_duo_desktop_verification,"Authentication denied due to failed Duo Desktop verification.","endpoint_failed_duo_desktop_verification","Endpoint failed Duo Desktop verification"
+authentication,failure,reason,endpoint_failed_microsoft_verification,"Authentication denied because endpoint failed Microsoft verification.","endpoint_failed_microsoft_verification","Endpoint failed Microsoft verification"
+authentication,failure,reason,endpoint_failed_verification_by_amp,"Authentication denied due to AMP verification failure.","endpoint_failed_verification_by_amp","Endpoint failed AMP verification"
+authentication,failure,reason,endpoint_health_data_missing,"Authentication denied because endpoint health data was missing.","endpoint_health_data_missing","Missing endpoint health data"
+authentication,failure,reason,endpoint_health_duo_desktop_data_missing,"Authentication denied because Duo Desktop health data missing.","endpoint_health_duo_desktop_data_missing","Missing Duo Desktop health data"
+authentication,failure,reason,endpoint_health_duo_desktop_missing,"Authentication denied because Duo Desktop health data was not provided.","endpoint_health_duo_desktop_missing","Duo Desktop health missing"
+authentication,failure,reason,endpoint_is_blacklisted,"Authentication denied because endpoint was blacklisted.","endpoint_is_blacklisted","Blacklisted endpoint"
+authentication,failure,reason,endpoint_is_not_healthy,"Authentication denied due to failing health checks.","endpoint_is_not_healthy","Endpoint failed health checks"
+authentication,failure,reason,endpoint_is_not_in_management_system,"Authentication denied because endpoint not in management system.","endpoint_is_not_in_management_system","Endpoint not managed"
+authentication,failure,reason,endpoint_failed_google_verification,"Authentication denied due to endpoint failing Google verification.","endpoint_failed_google_verification","Endpoint failed Google verification"
+authentication,failure,reason,endpoint_is_not_trusted,"Authentication denied because endpoint not trusted.","endpoint_is_not_trusted","Untrusted endpoint"
+authentication,failure,reason,endpoint_verification_failed,"Authentication denied due to endpoint failing verification.","endpoint_verification_failed","Endpoint verification failed"
+authentication,failure,reason,factor_restricted,"Authentication denied because the factor used was not allowed.","factor_restricted","Disallowed factor"
+authentication,failure,reason,failed_device_health_verification,"Authentication denied due to failed device health verification.","failed_device_health_verification","Device health check failed"
+authentication,failure,reason,failed_to_contact_with_device_health,"Authentication denied because Duo could not contact device health service.","failed_to_contact_with_device_health","Device health service unreachable"
+authentication,failure,reason,frequent_attempts,"Authentication denied due to excessive attempts.","frequent_attempts","Too many attempts"
+authentication,failure,reason,health_requirements_not_met,"Authentication denied because required security health conditions were not met.","health_requirements_not_met","Health requirements not met"
+authentication,failure,reason,invalid_device_identifier,"Authentication denied because the device identifier was invalid.","invalid_device_identifier","Invalid device ID"
+authentication,failure,reason,invalid_duo_desktop_auth_keypair_type,"Authentication denied due to invalid keypair type.","invalid_duo_desktop_auth_keypair_type","Invalid Duo Desktop keypair"
+authentication,failure,reason,invalid_duo_desktop_signature,"Authentication denied due to invalid Duo Desktop signature.","invalid_duo_desktop_signature","Invalid signature"
+authentication,failure,reason,invalid_management_certificate_collection_state,"Authentication denied due to invalid management certificate state.","invalid_management_certificate_collection_state","Invalid certificate collection"
+authentication,failure,reason,invalid_device,"Authentication denied because the device was invalid.","invalid_device","Invalid device"
+authentication,failure,reason,invalid_parent_param,"Authentication denied due to invalid parent parameter.","invalid_parent_param","Invalid parent parameter"
+authentication,failure,reason,invalid_passcode,"Authentication denied because the passcode was invalid.","invalid_passcode","Incorrect passcode"
+authentication,failure,reason,invalid_redirect_uri,"Authentication denied due to invalid redirect URI.","invalid_redirect_uri","Invalid redirect URI"
+authentication,failure,reason,invalid_referring_hostname_provided,"Authentication denied because the referring hostname provided was invalid.","invalid_referring_hostname_provided","Referrer mismatch"
+authentication,failure,reason,invalid_signature,"Authentication denied due to invalid signature.","invalid_signature","Invalid signature provided"
+authentication,failure,reason,known_malicious_device,"Authentication denied because the endpoint is known malicious.","known_malicious_device","Known malicious endpoint"
+authentication,failure,reason,location_restricted,"Authentication denied due to location restriction.","location_restricted","Restricted location"
+authentication,failure,reason,locked_out,"Authentication denied because the user is locked out.","locked_out","User lockout"
+authentication,failure,reason,more_secure_auth_required,"Authentication denied because more secure authentication was required.","more_secure_auth_required","More secure auth required"
+authentication,failure,reason,no_activated_duo_mobile_account,"Authentication denied because no activated Duo Mobile account exists.","no_activated_duo_mobile_account","Duo Mobile not activated"
+authentication,failure,reason,no_disk_encryption,"Authentication denied because disk encryption was not enabled.","no_disk_encryption","No disk encryption"
+authentication,failure,reason,no_duo_certificate_present,"Authentication denied because no Duo certificate was present.","no_duo_certificate_present","Duo certificate missing"
+authentication,failure,reason,no_keys_pressed,"Authentication denied because no keys were pressed during approval.","no_keys_pressed","No keypress during auth"
+authentication,failure,reason,no_user_allowed,"Authentication denied because no user was allowed.","no_user_allowed","User not permitted"
+authentication,failure,reason,not_signed_with_oldest_key,"Authentication denied because authentication was not signed with the oldest required key.","not_signed_with_oldest_key","Key signing requirement failure"
+authentication,failure,reason,no_referring_hostname_provided,"Authentication denied because no referring hostname was provided.","no_referring_hostname_provided","Missing referrer"
+authentication,failure,reason,no_response,"Authentication denied because no response was received.","no_response","User did not respond"
+authentication,failure,reason,no_screen_lock,"Authentication denied because the device lacked screen lock.","no_screen_lock","Screen lock disabled"
+authentication,failure,reason,no_web_referer_match,"Authentication denied due to mismatch in web referrer host.","no_web_referer_match","Web referer mismatch"
+authentication,failure,reason,ofac_location,"Authentication denied because the location is restricted by OFAC.","ofac_location","OFAC location restriction"
+authentication,failure,reason,out_of_date,"Authentication denied due to out-of-date software.","out_of_date","Software out of date"
+authentication,failure,reason,passkey_not_supported,"Authentication denied because passkeys are not supported.","passkey_not_supported","Passkey unsupported"
+authentication,failure,reason,platform_restricted,"Authentication denied because the platform was not allowed.","platform_restricted","Platform restricted"
+authentication,failure,reason,policy_has_no_authentication_methods_enabled,"Authentication denied because policy has no authentication methods enabled.","policy_has_no_authentication_methods_enabled","Policy misconfiguration"
+authentication,failure,reason,queued_inflight_auth_expired,"Authentication denied because inflight queued auth expired.","queued_inflight_auth_expired","Queued authentication expired"
+authentication,failure,reason,rooted_device,"Authentication denied because the device was rooted.","rooted_device","Rooted device"
+authentication,failure,reason,session_trust_browser_extension_is_not_registered,"Authentication denied because the Duo Session Trust browser extension is not registered.","session_trust_browser_extension_is_not_registered","Browser extension not registered"
+authentication,failure,reason,software_restricted,"Authentication denied because of a software restriction.","software_restricted","Software restricted by policy"
+authentication,failure,reason,suspected_fraud,"Authentication denied because Duo suspected fraudulent activity.","suspected_fraud","Fraud suspected"
+authentication,failure,reason,touch_id_disabled,"Authentication denied because biometric auth (Touch ID/Face ID) was disabled.","touch_id_disabled","Biometrics disabled"
+authentication,failure,reason,unsigned_with_conflict,"Authentication denied because signature was unsigned with conflict.","unsigned_with_conflict","Conflicting unsigned signature"
+authentication,failure,reason,user_cancelled,"Authentication denied because the user cancelled the authentication request.","user_cancelled","User cancelled"
+authentication,failure,reason,user_cancelled_passkeys,"Authentication denied because the user cancelled the passkey prompt.","user_cancelled_passkeys","User cancelled passkey prompt"
+authentication,failure,reason,user_cant_use_pwl_push,"Authentication denied because the user cannot use passwordless Duo Push.","user_cant_use_pwl_push","Passwordless push unavailable"
+authentication,failure,reason,user_disabled,"Authentication denied because the user account is disabled.","user_disabled","User disabled"
+authentication,failure,reason,user_has_no_allowed_authentication_methods,"Authentication denied because the user has no allowed authentication methods.","user_has_no_allowed_authentication_methods","No allowed auth methods"
+authentication,failure,reason,user_locked_out_too_many_invalid_enrollment_codes,"Authentication denied because user was locked out due to too many invalid enrollment codes.","user_locked_out_too_many_invalid_enrollment_codes","Locked out due to invalid enrollment codes"
+authentication,failure,reason,user_mistake,"Authentication denied because the user indicated the login request was a mistake.","user_mistake","User marked as mistake"
+authentication,failure,reason,user_not_in_permitted_group,"Authentication denied because the user is not in a permitted group.","user_not_in_permitted_group","User not in permitted group"
+authentication,failure,reason,user_provided_invalid_certificate,"Authentication denied because an invalid certificate was provided.","user_provided_invalid_certificate","Invalid certificate"
+authentication,failure,reason,verification_code_incorrect,"Authentication denied due to incorrect Verified Duo Push code.","verification_code_incorrect","Incorrect verification code"
+authentication,failure,reason,verification_code_missing,"Authentication denied because Verified Duo Push code was missing.","verification_code_missing","Missing verification code"
+authentication,failure,reason,version_restricted,"Authentication denied because the software version was restricted.","version_restricted","Software version restricted"
+authentication,fraud,reason,user_marked_fraud,user_marked_fraud,"Authentication marked as fraudulent by the user.","user_marked_fraud"
+authentication,error,reason,error,error,"Returned when authentication fails due to an unspecified internal error.","error"
+authentication,outcome,result,success,"Authentication succeeded.","success","Authentication success"
+authentication,outcome,result,denied,"Authentication was denied.","denied","Access denied"
+authentication,outcome,result,failure,"Authentication failed.","failure","Authentication failure"
+authentication,outcome,result,fraud,"Authentication marked as fraud.","fraud","Fraudulent activity"
+authentication,time,auth_timestamp,timestamp,The Unix timestamp of the event.,,
+authentication,device,auth_trustedEndpointStatus,trusted_endpoint_status,Whether the endpoint passed a Duo trusted endpoint check.,,
+authentication,device,auth_trustedSessionUUID,trusted_session_info.trusted_session_uuid,The unique identifier for tracking a trusted session.,,
+authentication,event,auth_txid,txid,The transaction ID of the event.,,
+authentication,user,auth_userGroups,user.groups,Duo group membership information for the user.,,
+authentication,user,auth_userKey,user.key,The user’s Duo user_id.,,
+authentication,user,auth_userName,user.name,The user’s username.,,
