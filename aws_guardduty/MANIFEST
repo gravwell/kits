@@ -116,7 +116,7 @@
 			"Description": "Tag for AWS GuardDuty",
 			"DefaultValue": "aws-guardduty",
 			"Value": "",
-			"Type": "STRING",
+			"Type": "TAG",
 			"InstalledByID": ""
 		}
 	]
