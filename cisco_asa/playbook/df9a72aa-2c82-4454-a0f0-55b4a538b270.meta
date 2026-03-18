@@ -1,0 +1,25 @@
+{
+	"UUID": "701191db-7a6b-4c5d-903d-26a695f13cfa",
+	"GUID": "df9a72aa-2c82-4454-a0f0-55b4a538b270",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Cisco ASA Kit for Gravwell - README",
+	"Desc": "A toolkit for interacting with Cisco ASA data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Cisco analysis and monitoring across Authentication, Config, Events (catch-all), System, Threat, Traffic, and VPN log sources.",
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	],
+	"LastUpdated": "2026-03-17T20:54:34.521972008Z",
+	"Author": {
+		"Name": "Kyle Mallett",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

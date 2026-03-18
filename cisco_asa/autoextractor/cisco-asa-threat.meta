@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-asa-threat",
+	"Desc": "Gravwell generated fields extraction for tag cisco-asa-threat, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-asa-threat"
+	],
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "1403b87f-e4ef-43bf-a150-05cff69218ff",
+	"LastUpdated": "2026-03-17T13:51:48.986857753Z"
+}

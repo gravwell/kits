@@ -1,0 +1,7 @@
+tag=$CISCO_ASA_THREAT ax msg severity
+| eval (msg ~ "%%user%%" %%boolean%% msg ~ "%%ip%%")
+$CISCO_ASA_SEVERITY
+| sort by _severity_order
+| stats count by severity
+| alias count " "
+| numbercard " "

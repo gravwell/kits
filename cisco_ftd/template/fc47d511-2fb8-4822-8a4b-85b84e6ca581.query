@@ -1,0 +1,6 @@
+tag=$CISCO_FTD ax msg severity
+| eval (msg ~ "%%user%%" %%boolean%% msg ~ "%%ip%%")
+$CISCO_FTD_SEVERITY
+| sort by _severity_order
+| stats count by severity
+| numbercard (count "")

@@ -1,0 +1,37 @@
+{
+	"UUID": "f540cb33-74bc-4f30-ad22-4e430728ab67",
+	"Name": "Template - Cisco - FTD - Firewall - Traffic - Event Count by Severity [numbercard]",
+	"Description": "Displays a numbercard of Traffic events performed by the user and/or ip.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This is the user that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This is the ip address that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%boolean%%",
+				"label": "boolean",
+				"description": "AND (\u0026\u0026), OR (||)",
+				"required": true,
+				"defaultValue": "||",
+				"previewValue": "||"
+			}
+		]
+	},
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

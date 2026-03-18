@@ -1,0 +1,67 @@
+{
+	"UUID": "9f94162b-c38a-41fe-b594-1739af6ee761",
+	"Name": "Cisco FTD IP",
+	"Description": "Cisco FTD actions on IP Addresses to Launch Cisco FTD Investigation Dashboards.",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Investigate",
+				"description": "This actionable will launch the Cisco ASA Investigation Dashboard to see events performed involving this IP Address. ",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "1c340e6a-7268-46a7-8f36-f59405ff64fe",
+					"options": {
+						"variable": "%%ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "Investigate",
+				"description": "Cisco FTD actions on IP Addresses to Launch Cisco FTD Security Events Investigation Dashboard.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "656036bf-a5f7-4092-9606-d3d97d15c758",
+					"options": {
+						"variable": "%%ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(\\d{1,3}\\.){3}\\d{1,3}/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

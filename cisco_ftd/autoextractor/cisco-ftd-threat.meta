@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-ftd-threat",
+	"Desc": "Gravwell generated fields extraction for tag cisco-ftd-threat, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-ftd-threat"
+	],
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "141df200-a130-4157-af9e-9b3126f7651b",
+	"LastUpdated": "2026-03-17T13:51:48.987082753Z"
+}

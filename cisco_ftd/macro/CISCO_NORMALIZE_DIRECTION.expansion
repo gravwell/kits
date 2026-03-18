@@ -1,0 +1,4 @@
+// CISCO_NORMALIZE_DIRECTION
+| eval 
+    if(has(SecIntMatchingIP) && (SecIntMatchingIP != "" || SecIntMatchingIP != "null" || SecIntMatchingIP != "nil") && SecIntMatchingIP == "Source") { Direction = "Inbound";}
+    else if(has(SecIntMatchingIP) && (SecIntMatchingIP != "" || SecIntMatchingIP != "null" || SecIntMatchingIP != "nil") && SecIntMatchingIP == "Destination") { Direction = "Outbound";}

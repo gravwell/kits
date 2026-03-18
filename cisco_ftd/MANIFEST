@@ -1,0 +1,588 @@
+{
+	"ID": "io.gravwell.cisco_ftd",
+	"Name": "Cisco FTD",
+	"Desc": "A toolkit for interacting with Cisco FTD data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Cisco analysis and monitoring across Authentication, Config, Connection, Events (catch-all), File, Intrusion, Malware, System, Threat, Traffic, and VPN log sources.",
+	"Readme": "***\n\nA toolkit for interacting with Cisco FTD data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Cisco FTD analysis across Authentication, Config, Events (catch-all), System, Threat, Traffic, and VPN log sources.\n\n***\n\n## Table of Contents  \n0. [Data Ingestion](#0-data-ingestion)  \n    0.1. [Simple Relay Ingester](#0-1-simple-relay-ingester)  \n    0.2. [Install \u0026 Configure Simple Relay](#0-2-install--configure)  \n1. [Tags \u0026 Macros](#1-tags--macros)  \n    1.1. [Tags](#1-1-tags)  \n    1.2. [Autoextractors](#1-2-autoextractors)  \n    1.3. [Macros](#1-3-macros)  \n2. [Query Library](#2-query-library)  \n3. [Naming Schema](#3-naming-schema)  \n4. [Resources](#4-resources)  \n    4.1. [Lookups](#4-1-lookups)  \n5. [Alerts](#5-alerts)  \n    5.1 [Dispatchers](#5-1-dispatchers)  \n    5.2 [Consumers](#5-2-consumers)\n6. [Scheduled Searches](#6-scheduled-searches)  \n    6.1. [Flows](#6-1-flows)\n7. [Playbooks](#7-playbooks)  \n8. [Searches](#8-searches)  \n    8.1. [Dashboard Searches](#8-2-dashboard-searches)  \n    8.2. [Alert Queries](#8-1-alert-queries)  \n9. [Templates](#9-templates)  \n10. [Dashboards](#10-dashboards)  \n    10.1 [Actionables](#10-1-actionables)\n11. [Useful Resources \u0026 References](#11-useful-resources--references)  \n12. [Notes](#12-notes)  \n13. [Image credits](#13-image-credits)  \n\n***\n\n## 0. [Data Ingestion](#0-data-ingestion)\n\nBefore you can use the kit, you'll need to get logs flowing from your Cisco FTD Firewall(s) into Gravwell. The recommended method is via syslog forwarding. Gravwell can receive syslog using the [Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html) ingester.\n\n#### 0.1 [Simple Relay Ingester](#0-1-simple-relay-ingester)\n\n- Simple Relay is the go-to ingester for text based data sources that can be delivered over plaintext TCP, encrypted TCP, or plaintext UDP network connections via either IPv4 or IPv6.\n    - [Documentation](https://docs.gravwell.io/ingesters/simple_relay.html)\n\n#### 0.2 [Install \u0026 Configure Simple Relay](#0-2-install--configure)\n\n- Deploy Simple Relay on a server which is accessible from the FTD device(s) and can route to the Gravwell indexer(s). Configure it with the correct _Ingest-Secret_ and point either _Cleartext-Backend-Target_ or _Encrypted-Backend-Target_ at the indexer address(es). See [Documentation](https://docs.gravwell.io/ingesters/simple_relay.html).\n- Drop the following config snippet into a new file named \u003ckbd\u003e/opt/gravwell/etc/simple\\_relay.conf.d/cisco\\_firewall.conf\u003c/kbd\u003e then restart the ingester with \u003ckbd\u003esudo systemctl restart gravwell\\_simple\\_relay.service\u003c/kbd\u003e. This will make it start listening for incoming syslog on TCP the configured port, with special rules to route Cisco FTD and Cisco FTD events into different Gravwell tags.\n```ini\n[Listener \"syslogtcp_cisco_ftd\"]\n    Bind-String=\"tcp://0.0.0.0:6901\"\n    Reader-Type=rfc5424\n    Tag-Name=cisco-ftd-events\n    Assume-Local-Timezone=true\n    Preprocessor=\"Cisco FTD 43000X Router\"\n    Preprocessor=\"Cisco FTD Class Router\"\n\n# Route 43000X security-event syslogs \n[preprocessor \"Cisco FTD 43000X Router\"]\n    Type=regexrouter\n    Drop-Misses=false\n    Regex=`%FTD-[0-7]-(?P\u003cmsgid\u003e43000[0-9]):`\n    Route-Extraction=msgid\n    Route=430001:cisco-ftd-intrusion\n    Route=430002:cisco-ftd-connection\n    Route=430003:cisco-ftd-connection\n    Route=430004:cisco-ftd-file\n    Route=430005:cisco-ftd-malware\n\n# Route non-43000X messages by 3-digit class prefix\n[preprocessor \"Cisco FTD Class Router\"]\n    Type=regexrouter\n    Drop-Misses=false\n    # Match any FTD message id EXCEPT 43000X (handled above).\n    Regex=`%FTD-[0-7]-(?P\u003cclass\u003e(?!43000)\\d{3})\\d{3}:`\n    Route-Extraction=class\n\n    # auth\n    Route=109:cisco-ftd-auth\n    Route=113:cisco-ftd-auth\n\n    # config\n    Route=111:cisco-ftd-config\n    Route=112:cisco-ftd-config\n    Route=208:cisco-ftd-config\n    Route=308:cisco-ftd-config\n\n    # vpn\n    Route=213:cisco-ftd-vpn\n    Route=316:cisco-ftd-vpn\n    Route=320:cisco-ftd-vpn\n    Route=402:cisco-ftd-vpn\n    Route=403:cisco-ftd-vpn\n    Route=404:cisco-ftd-vpn\n    Route=501:cisco-ftd-vpn\n    Route=602:cisco-ftd-vpn\n    Route=603:cisco-ftd-vpn\n    Route=611:cisco-ftd-vpn\n    Route=702:cisco-ftd-vpn\n    Route=713:cisco-ftd-vpn\n    Route=714:cisco-ftd-vpn\n    Route=715:cisco-ftd-vpn\n    Route=716:cisco-ftd-vpn\n    Route=718:cisco-ftd-vpn\n    Route=720:cisco-ftd-vpn\n    Route=722:cisco-ftd-vpn\n\n    # traffic\n    Route=106:cisco-ftd-traffic\n    Route=108:cisco-ftd-traffic\n    Route=201:cisco-ftd-traffic\n    Route=202:cisco-ftd-traffic\n    Route=204:cisco-ftd-traffic\n    Route=302:cisco-ftd-traffic\n    Route=303:cisco-ftd-traffic\n    Route=304:cisco-ftd-traffic\n    Route=305:cisco-ftd-traffic\n    Route=314:cisco-ftd-traffic\n    Route=405:cisco-ftd-traffic\n    Route=406:cisco-ftd-traffic\n    Route=407:cisco-ftd-traffic\n    Route=500:cisco-ftd-traffic\n    Route=502:cisco-ftd-traffic\n    Route=607:cisco-ftd-traffic\n    Route=608:cisco-ftd-traffic\n    Route=609:cisco-ftd-traffic\n    Route=616:cisco-ftd-traffic\n    Route=620:cisco-ftd-traffic\n    Route=703:cisco-ftd-traffic\n    Route=710:cisco-ftd-traffic\n\n    # threat\n    Route=400:cisco-ftd-threat\n    Route=401:cisco-ftd-threat\n    Route=420:cisco-ftd-threat\n    Route=733:cisco-ftd-threat\n\n    # system\n    Route=101:cisco-ftd-system\n    Route=102:cisco-ftd-system\n    Route=103:cisco-ftd-system\n    Route=104:cisco-ftd-system\n    Route=105:cisco-ftd-system\n    Route=199:cisco-ftd-system\n    Route=210:cisco-ftd-system\n    Route=211:cisco-ftd-system\n    Route=214:cisco-ftd-system\n    Route=216:cisco-ftd-system\n    Route=306:cisco-ftd-system\n    Route=307:cisco-ftd-system\n    Route=311:cisco-ftd-system\n    Route=315:cisco-ftd-system\n    Route=414:cisco-ftd-system\n    Route=604:cisco-ftd-system\n    Route=605:cisco-ftd-system\n    Route=606:cisco-ftd-system\n    Route=610:cisco-ftd-system\n    Route=612:cisco-ftd-system\n    Route=614:cisco-ftd-system\n    Route=615:cisco-ftd-system\n    Route=701:cisco-ftd-system\n    Route=709:cisco-ftd-system\n    Route=711:cisco-ftd-system\n    Route=741:cisco-ftd-system\n```\n\n- Ensure that the server running Simple Relay allows incoming connections on the configured port, and that any firewalls between the Cisco Firewall device and the Simple Relay system allow the configured port traffic.  \n- Configure log forwarding as described in the Cisco Firewall documentation, defining the syslog server profile to point at the Simple Relay server on the configured port.  \n- Once the changes have been committed, logs should begin flowing into Gravwell. You can check by running the folowing query:  \n\n```\ntag=$CISCO_FTD limit 10\n```\n- If any results appear, logs are coming in properly.  \n\n***\n\n## 1. [Tags \u0026 Macros](#1-tags--macros)\n\n#### 1.1. [Tags](#1-1-tags)\n\n- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.\n- [Documentation](https://docs.gravwell.io/ingesters/ingesters.html#tags)\n- Total: ***11***\n- The Cisco FTD Kit for Gravwell makes use of the following tags:  \n    - cisco-ftd-auth: Configuration Macro; Tag used for all Cisco FTD Authentication data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage: `tag=cisco-ftd-auth`  \n    - cisco-ftd-config: Configuration Macro; Tag used for all Cisco FTD Config data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage: `tag=cisco-ftd-config`\n    - cisco-ftd-conn: Configuration Macro; Tag used for all Cisco FTD Connection data (FTD-#-430002 \u0026 FTD-#-430003); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.\n        - Usage: `tag=cisco-ftd-conn`\n    - cisco-ftd-events: Configuration Macro; Tag used for all Cisco FTD Events data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage: `tag=cisco-ftd-events`  \n    - cisco-ftd-file: Configuration Macro; Tag used for all Cisco FTD File data (FTD-#-430004); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.\n        - Usage: `tag=cisco-ftd-file`  \n    - cisco-ftd-intrusion: Configuration Macro; Tag used for all Cisco FTD File (FTD-#-430001) data; necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.  \n        - Usage: `tag=cisco-ftd-intrusion`  \n    - cisco-ftd-malware: Configuration Macro; Tag used for all Cisco FTD Malware data (FTD-#-430005); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.\n        - Usage: `tag=cisco-ftd-malware`  \n    - cisco-ftd-system: Configuration Macro; Tag used for all Cisco FTD System data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage: `tag=cisco-ftd-system`  \n    - cisco-ftd-threat: Configuration Macro; Tag used for all Cisco FTD Threat data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage: `tag=cisco-ftd-threat`  \n    - cisco-ftd-traffic: Configuration Macro; Tag used for all Cisco FTD Traffic data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage: `tag=cisco-ftd-traffic`  \n    - cisco-ftd-vpn: Configuration Macro; Tag used for all Cisco FTD VPN data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage: `tag=cisco-ftd-vpn`  \n\n#### 1.2. [Autoextractors](#1-2-autoextractors)\n\n- Purpose: Auto-extractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The “ax” module then automatically invokes the appropriate functionality of other modules.\n- [Documentation](https://docs.gravwell.io/configuration/autoextractors.html)\n- The Cisco FTD Kit for Gravwell makes use of the following autoextractors:  \n- Total: ***11***\n\t- cisco-ftd-auth: Gravwell generated field extraction for tag cisco-ftd-auth, args '-p -e DATA'\n\t- cisco-ftd-config: Gravwell generated field extraction for tag cisco-ftd-config, args '-p -e DATA'\n\t- cisco-ftd-conn: Gravwell generated field extraction for tag cisco-ftd-conn, args '-p -e DATA'\n\t- cisco-ftd-events: Gravwell generated field extraction for tag cisco-ftd-events, args '-p -e DATA'\n\t- cisco-ftd-file: Gravwell generated field extraction for tag cisco-ftd-file, args '-p -e DATA'\n\t- cisco-ftd-intrusion: Gravwell generated field extraction for tag cisco-ftd-intrusion, args '-p -e DATA'\n\t- cisco-ftd-malware: Gravwell generated field extraction for tag cisco-ftd-malware, args '-p -e DATA'\n\t- cisco-ftd-system: Gravwell generated field extraction for tag cisco-ftd-system, args '-p -e DATA'\n\t- cisco-ftd-threat: Gravwell generated field extraction for tag cisco-ftd-threat, args '-p -e DATA'\n\t- cisco-ftd-traffic: Gravwell generated field extraction for tag cisco-ftd-traffic, args '-p -e DATA'\n\t- cisco-ftd-vpn: Gravwell generated field extraction for tag cisco-ftd-vpn, args '-p -e DATA'  \n\n#### 1.3. [Macros](#1-3-macros)\n\n- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.\n- [Documentation](https://docs.gravwell.io/search/macros.html)\n- The Cisco FTD Kit for Gravwell makes use of the following macros:\n- Total: ***20***\n    - Tags\n        - $CISCO\\_FTD: Configuration Macro; Tag used for all Cisco FTD data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_FTD\\_AUTH: Configuration Macro; Tag used for all Cisco FTD Authentication data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_FTD\\_CONFIG: Configuration Macro; Tag used for all Cisco FTD Configuration data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_FTD\\_CONN: Configuration Macro; Tag used for all Cisco FTD Connection data (FTD-#-430002 \u0026 FTD-#-430003); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.\n        - $CISCO\\_FTD\\_EVENTS: Configuration Macro; Tag used for all Cisco FTD Events data that don't fall into the other tags; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_FTD\\_FILE: Configuration Macro; Tag used for all Cisco FTD Connection data (FTD-#-430004); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.\n        - $CISCO\\_FTD\\_INTRUSION: Configuration Macro; Tag used for all Cisco FTD File (FTD-#-430001) data; necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.  \n        - $CISCO\\_FTD\\_MALWARE: Configuration Macro; Tag used for all Cisco FTD File (FTD-#-430005) data; necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.  \n        - $CISCO\\_FTD\\_SYSTEM: Configuration Macro; Tag used for all Cisco FTD System data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_FTD\\_THREAT: Configuration Macro; Tag used for all Cisco FTD Threat data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_FTD\\_TRAFFIC: Configuration Macro; Tag used for all Cisco FTD Traffic data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_FTD\\_VPN: Configuration Macro; Tag used for all Cisco FTD VPN data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n        - $CISCO\\_SECURITY: Configuration Macro; Tag used for all Cisco FTD Security Events (FTD-#-430001 to FTD-#-430005); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates. \n    - Enumerated Value Extraction (EVX)\n        - $CISCO\\_FTD\\_CONN\\_EVX: This macro extracts all of the known Enumerated Values (EVs) for all Cisco FTD Connection data (FTD-#-430002 \u0026 FTD-#-430003); necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n        - $CISCO\\_FTD\\_FILE\\_EVX: This macro extracts all of the known Enumerated Values (EVs) for all Cisco FTD File data (FTD-#-430004); necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n        - $CISCO\\_FTD\\_INTRUSION\\_EVX: This macro extracts all of the known Enumerated Values (EVs) for all Cisco FTD Intrusion data (FTD-#-430001); necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n        - $CISCO\\_FTD\\_MALWARE\\_EVX: This macro extracts all of the known Enumerated Values (EVs) for all Cisco FTD Malware data (FTD-#-430005); necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n        - $CISCO\\_SECURITY\\_EVX: This macro extracts all of the known Enumerated Values (EVs) for all Cisco FTD Security Events (FTD-#-430001 to FTD-#-430005); necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n    - Normalization\n        - $CISCO\\_FTD\\_SEVERITY: This macro creates an Enumerated Value (EV) named \\_severity\\_order and then orders events by severity. \n        - $CISCO\\_FTD\\_SEVERITY\\_ORDER: This macro creates an Enumerated Value (EV) named \\_severity\\_order and then orders events by severity. \n        - $CISCO\\_NORMALIZE\\_DIRECTION: This macro normalizes Direction from SecIntMatchingIP.\n        \n***\n\n## 2. [Query Library](#2-query-library)\n- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-1-alert-queries), and [playbooks](#7-playbooks).\n- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)\n    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.\n    - Total queries: ***12***\n        - [8.1 Dashboard Searches](#8-2-dashboard-searches): ***12***  \n        - [8.2 Alert Queries](#8-1-alert-queries): ***0***  \n\n***\n\n## 3. [Naming Schema](#3-naming-schema)\n- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.\n- _QueryType - Company - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - **if any**]_\n- Examples:\n    - Templates: _Template - Cisco - FTD - Firewall - Authentication - Event Count by Severity [numbercard]_\n    - Searches: _Search - Cisco - FTD - Firewall - Event Types - Count by Category [chart]_\n\n***\n\n## 4. [Resources](#4-resources)\n- Purpose: Resources allow users to store persistent data for use in searches.\n- [Documentation](https://docs.gravwell.io/resources/resources.html)\n- Total: ***1***\n\n#### 4.1 [Lookups](#4-1-lookups)\n- Purpose: Lookup Resources are used by the lookup module to perform data enrichment and translation off of a static lookup table stored in a resource.\n- [Documentation](https://docs.gravwell.io/search/lookup/lookup.html)\n- Total: ***1***\n    - cisco\\_ftd\\_syslog\\_messages\n        - This is intended to be used as a lookup file providing additional information regarding all Cisco Adaptive Security Appliance (FTD) SysLog Messages. It is used within the Cisco FTD Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.\n        - fields: cisco\\_id,msg\\_id,description,error\\_msg,explanation,recommended\\_action,sev\\_id,severity,risk\\_score\n            - cisco\\_id: this is the full Cisco Syslog Message ID (e.g. %FTD-1-101001) which breaks out into %{Cisco Firewall Appliance}-{Cisco Assigned Severity}-{Cisco Message ID}\n            - msg\\_id: this is the Cisco Syslog Message ID which is part of the full Cisco Syslog Message ID\n            - description: this is the short description of the Cisco Syslog message often seen on the Cisco firewall appliance itself\n            - error\\_msg: this is the full Cisco Message compromised of {cisco\\_id}: {description}\n            - explanation: this is a more detailed explanation of the Cisco Syslog Message\n            - recommended\\_action: this is the Cisco Recommended Action provided within their documentation\n            - sev\\_id: this the Cisco assigned severity (id) provided within their documentation\n            - severity: this the Cisco assigned severity (name) provided within their documentation \n            - risk\\_score: this is a Gravwell assigned value for dashboards, queries, and alerting purposes\n            - category: this is a broad functional grouping assigned to the Cisco FTD error messages that is used within the Cisco FTD General Overview Dashboard to group data together  \n            - subcategory: this is a more specific grouping assigned to the Cisco FTD error messages that is used within the Cisco FTD General Overview Dashboard to group data together  \n        - Usage: `dump -r cisco_ftd_syslog_messages | table`\n\n***\n\n## 5. [Alerts](#5-alerts)\n- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.\n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#alerts)\n- Total: ***0***\n\n#### 5.1 [Dispatchers](#5-1-dispatchers)\n- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.\n    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)\n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)\n\n#### 5.2 [Consumers](#5-2-consumers)\n- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.\n    - Consumers = [Flows](#6-1-flows)\n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)\n\n***\n\n## 6. [Scheduled Searches](#6-scheduled-searches)\n- Purpose: Scheduled Searches are typically dependent on “AlertQuery - Cisco FTD - …” queries within the [Query Library](#2-query-library).\n- [Documentation](https://docs.gravwell.io/scripting/scheduledsearch.html)\n- Total: ***0***\n\n#### 6.1. [Flows](#6-1-flows)\n- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.\n- [Documentation](https://docs.gravwell.io/flows/flows.html)\n- Total: ***0***\n\n***\n\n## 7. [Playbooks](#7-playbooks)\n\n- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.\n- [Documentation](https://docs.gravwell.io/gui/playbooks/playbooks.html)\n- Total: ***1***\n    - Cisco FTD Kit for Gravwell - README\n\n***\n\n## 8. [Searches](#8-searches)\n\n- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Cisco FTD data in an easily digestible format or [scheduled searches](#6-scheduled-searches) to ultimately feed [alerts](#5-alerts).  \n- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)\n- Total: ***12***\n\n#### 8.1 [Dashboard Searches](#8-1-dashboard-searches)\n- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Cisco FTD data in an easily digestible format.\n- Total: ***12***  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Category [chart]_: Displays a chart of event types (error message) by Category.  \n\t- _Search - Cisco - FTD - Firewall - Security - Count by ApplicationProtocol [chart]_: Displays a chart of event count by ApplicationProtocol.  \n\t- _Search - Cisco - FTD - Firewall - Security - Count by DstIP [chart]_: Displays a chart of event count by DstIP.  \n\t- _Search - Cisco - FTD - Firewall - Security - Count by SSLActualAction [chart]_: Displays a chart of event count by SSLActualAction.  \n\t- _Search - Cisco - FTD - Firewall - Security - Count by SrcIP [chart]_: Displays a chart of event count by SrcIP.  \n\t- _Search - Cisco - FTD - Firewall - Security - Count by Tag [chart]_: Displays a chart of event types (error message) by Tag.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Category \u0026 Subcategory [chart]_: Displays a chart of event types (error message) by Category \u0026 Subcategory.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Category \u0026 Subcategory [numbercard]_: Displays a numbercard of event types (error message) by Category \u0026 Subcategory.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Category [numbercard]_: Displays a numbercard of event types (error message) by Category.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Category, Subcategory \u0026 Severity [chart]_: Displays a chart of event types (error message) by Category, Subcategory \u0026 Severity.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Category, Subcategory \u0026 Severity [numbercard]_: Displays a numbercard of event types (error message) by Category, Subcategory \u0026 Severity.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Severity [chart]_: Displays a chart of event types (error message) by Severity.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Severity [numbercard]_: Displays a numbercard of event types (error message) by Severity.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Subcategory [chart]_: Displays a chart of event types (error message) by Subcategory.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Subcategory [numbercard]_: Displays a numbercard of event types (error message) by Subcategory.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Tag [chart]_: Displays a chart of event types (error message) by Tag.  \n    - _Search - Cisco - FTD - Firewall - Event Types - Count by Tag [numbercard]_: Displays a numbercard of event types (error message) by Tag.  \n- Naming Schema: _Search - Cisco FTD - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - **if any**]_\n\n#### 8.2. [Alert Queries](#8-2-alert-queries)\n- Purpose: These queries within the Query Library drive [scheduled searches](#6-scheduled-searches) which ultimately feed [alerts](#5-alerts).  \n- IMPORTANT: If you need to update or tune, this is where you perform that action.\n- Total: ***0***\n\n***\n\n## 9. [Templates](#9-templates)\n- Purpose: Templates are special objects which define a Gravwell query containing variables.\n- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)\n- Total: ***36***\n\t- _Template - Cisco - FTD - Firewall - Connection - Event Count by Severity [chart]_: Displays a chart of Connection Events by severity performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Connection - Events by User and/or IP [table]_: Displays a table of Connection Events performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - File - Event Count by Severity [chart]_: Displays a chart of File Events by severity performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - File - Events by User and/or IP [table]_: Displays a table of File Events performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Intrusion - Event Count by Severity [chart]_: Displays a chart of Intrusion Events by severity performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Intrusion - Events by User and/or IP [table]_: Displays a table of Intrusion Events performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Malware - Event Count by Severity [chart]_: Displays a chart of Malware Events by severity performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Malware - Events by User and/or IP [table]_: Displays a table of Malware Events performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Security - Count by Severity [numbercard]_: Displays a numbercard of Security Events performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Security - Event Count by Severity [chart]_: Displays a chart of Security Events by severity performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Security - Event Count by Tag [chart]_: Displays a chart of Security Events by TAG performed by the specified user and/or ip.  \n\t- _Template - Cisco - FTD - Firewall - Security - Events by User and/or IP [table]_: Displays a table of Security Events performed by the specified user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Authentication - Event Count by Severity [chart]_: Displays a chart of Authentication events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Authentication - Event Count by Severity [numbercard]_: Displays a numbercard of Authentication events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Authentication - Events by User and/or IP [table]_: Displays a table of Authentication events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Combined - Event Count by Severity [chart]_: Displays a chart of all events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Combined - Event Count by Severity [numbercard]_: Displays a numbercard of all events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Combined - Events by User and/or IP [table]_: Displays a table of all events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Config - Event Count by Severity [chart]_: Displays a chart of Config events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Config - Event Count by Severity [numbercard]_: Displays a numbercard of Config events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Config - Events by User and/or IP [table]_: Displays a table of Config events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Events - Event Count by Severity [chart]_: Displays a chart of events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Events - Event Count by Severity [numbercard]_: Displays a numbercard of events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Events - Events by User and/or IP [table]_: Displays a table of events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - System - Event Count by Severity [chart]_: Displays a chart of System events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - System - Event Count by Severity [numbercard]_: Displays a numbercard of System events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - System - Events by User and/or IP [table]_: Displays a table of System events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Threat - Event Count by Severity [chart]_: Displays a chart of Threat events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Threat - Event Count by Severity [numbercard]_: Displays a numbercard of Threat events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Threat - Events by User and/or IP [table]_: Displays a table of Threat events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Traffic - Event Count by Severity [chart]_: Displays a chart of Traffic events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Traffic - Event Count by Severity [numbercard]_: Displays a numbercard of Traffic events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - Traffic - Events by User and/or IP [table]_: Displays a table of Traffic events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - VPN - Event Count by Severity [chart]_: Displays a chart of VPN events performed by the user and/or ip.  \n    - _Template - Cisco - FTD - Firewall - VPN - Event Count by Severity [numbercard]_: Displays a numbercard of VPN events performed by the user and/or ip. \t  \n    - _Template - Cisco - FTD - Firewall - VPN - Events by User and/or IP [table]_: Displays a table of VPN events performed by the user and/or ip.  \n\n***\n\n## 10. [Dashboards](#10-dashboards)\n- Purpose: Dashboards are Gravwell's way of showing the results from multiple searches at the same time.\n- [Documentation](https://docs.gravwell.io/gui/dashboards/dashboards.html)\n- Total: ***3***\n    - Cisco FTD General Overview: This Dashboard is a general overview of your Cisco FTD data.\n    - Cisco FTD Investigation: This Dashboard is intended to be used for Cisco FTD investigations.\n    - Cisco FTD Security Events Investigation: This Dashboard is intended to be used for Cisco FTD Security Event investigations.\n\n#### 10.1 [Actionables](#10-1-actionables)\n- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.\n- [Documentation](https://docs.gravwell.io/gui/actionables/actionables.html)\n- Total: ***1***\n    - Cisco FTD IP: Cisco FTD Actions on IP to Launch Cisco FTD Investigation Dashboard or Cisco FTD Security Event Investigation Dashboard.\n\n***\n\n## 11. [Useful Resources \u0026 References](#11-useful-resources--references)\n- Gravwell\n    - [Actionables](https://docs.gravwell.io/gui/actionables/actionables.html)  \n    - [Alerts](https://docs.gravwell.io/alerts/alerts.html#alerts)  \n    - [Autoextractors](https://docs.gravwell.io/configuration/autoextractors.html)  \n    - [Consumers](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)  \n    - [Dashboards](https://docs.gravwell.io/gui/dashboards/dashboards.html)  \n    - [Dispatchers](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)  \n    - [Flows](https://docs.gravwell.io/flows/flows.html)  \n    - [Lookup Module](https://docs.gravwell.io/search/lookup/lookup.html)  \n    - [Macros](https://docs.gravwell.io/search/macros.html)  \n    - [Playbooks](https://docs.gravwell.io/gui/playbooks/playbooks.html)  \n    - [Query Library](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)  \n    - [regexrouter Preprocessor](https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html)  \n    - [Resources](https://docs.gravwell.io/resources/resources.html)  \n    - [Scheduled Searches](https://docs.gravwell.io/scripting/scheduledsearch.html)  \n    - [Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html)  \n    - [Tags](https://docs.gravwell.io/ingesters/ingesters.html#tags)  \n    - [Templates](https://docs.gravwell.io/gui/templates/templates.html)  \n- Cisco Adaptive Security Appliance (FTD)\n    - [Cisco Secure Firewall FTD Series Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/about.html)\n    - [Cisco Security Event Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/security-event-syslog-messages.html)\n    - [Cisco FTD Syslog Messages 101001 to 199021](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs1.html)\n    - [Cisco FTD Syslog Messages 201002 to 219002](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs2.html)\n    - [Cisco FTD Syslog Messages 302003 to 341011](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs3.html)\n    - [Cisco FTD Syslog Messages 401001 to 450002](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs4.html)\n    - [Cisco FTD Syslog Messages 500001 to 520025](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs5.html)\n    - [Cisco FTD Syslog Messages 602101 to 622102](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs6.html)\n    - [Cisco FTD Syslog Messages 701001 to 714011](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs7.html)\n    - [Cisco FTD Syslog Messages 715001 to 721019](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs8.html)\n    - [Cisco FTD Syslog Messages 722001 to 776254](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs9.html)\n    - [Cisco FTD Syslog Messages 778001 to 8300006](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs10.html)\n    - [Cisco FTD Messages Listed by Severity Level](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs-sev-level.html)\n    - [Cisco FTD Index](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/fptd_syslog_guide_index.html)\n\n***\n\n## 12. [Notes](#12-notes)\n\n***\n\n## 13. [Image credits](#13-image-credits)\n- [Banner](https://uxwing.com/cisco-icon/)\n- [Cover](https://uxwing.com/cisco-icon/)\n- [Icon](https://uxwing.com/cisco-icon/)\n\n***",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 99,
+		"Point": 0
+	},
+	"Icon": "e0b98ad2-b2a7-4b24-8374-72f247a18822",
+	"Banner": "8b713d4b-635b-4a4d-8eba-85ca1a3adb6d",
+	"Cover": "151fc05a-6912-4b5d-a31a-10ef6b0bc68a",
+	"Items": [
+		{
+			"Name": "Apache 2.0 License",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco_ftd_syslog_messages",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_MALWARE_EVX",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_CONN",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_SEVERITY_ORDER",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_FILE",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_SECURITY_EVX",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_AUTH",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_CONFIG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_TRAFFIC",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_VPN",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_FILE_EVX",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_INTRUSION",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_NORMALIZE_DIRECTION",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_EVENTS",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_SYSTEM",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_THREAT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_SECURITY",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_INTRUSION_EVX",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_MALWARE",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_CONN_EVX",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_FTD_SEVERITY",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "656036bf-a5f7-4092-9606-d3d97d15c758",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1c340e6a-7268-46a7-8f36-f59405ff64fe",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "79f2b584-46cf-4043-b205-29e3c32e881d",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d0712c55-49b5-4aa4-8392-a23eef6f92a8",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b5006de7-61c4-4158-b8e2-4c0f6cbd11f8",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "95219292-01db-4917-be7b-aedac9e180dc",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b7960811-47a5-4fba-b0d9-639052e426e0",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a228d48f-333f-4a2f-bd5a-e8e27a569d61",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d61a67de-3562-460e-9c3e-95b69b27c9b3",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "02453c60-0220-4ec1-a26c-fb26c72c508c",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9a11072f-cbe0-4365-b228-def2e0847c01",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "085b0270-ed97-4948-b8b7-1362a29721b5",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c35ffd0d-fad5-4c04-add8-f3e1bc1d0f09",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f540cb33-74bc-4f30-ad22-4e430728ab67",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "34b167be-27dd-4cf5-9e08-0eb320b3d446",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a420dbb4-8bd3-4681-9fca-e9a30dbde982",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c74ca09a-4833-4255-868f-79c41fa1db66",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "29d2f863-d259-486d-90cc-e2fb1e79aa13",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "039e3c93-204a-4f68-9e02-443cc39169e4",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "73333f31-0a91-48ac-8d74-4c042a47d7bf",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "dda4d8e9-e845-410e-b105-fe0928573033",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e32ea44e-483b-48bb-a58e-5cc68eb3487c",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "eeacd085-5bd8-4784-8f0c-0f63f74b5377",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b4141bd3-e5d1-48b4-9a8e-4ae1d614e65f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7ce003ec-c88f-48e7-b252-35fbf7d39997",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "55b3c1f4-02ae-4879-bbdb-a59c1d2e562a",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f5864c31-63a7-4c44-8fdd-56fccb53a40a",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8f985b19-f67e-48e8-af69-e8a33756c988",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "da038943-250c-4907-a73b-ce6cf00246af",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8cd23b13-862b-487d-b8d6-5dc0b11c4c0d",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d8e6ccdb-eca3-4e65-a8bb-feee724b78b4",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ad54a83b-4452-49bb-b7b4-60b3e278ab48",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "55d3b87e-37cf-4afb-86a2-d3e74694ef22",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fc47d511-2fb8-4822-8a4b-85b84e6ca581",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "075e2192-37ae-41ce-9190-a13e2bcf3d1f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1f24de97-1e5c-43f4-8cd7-177524dcd8e8",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a6c91109-88b9-4a56-bdb2-563fdbdf3f06",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0fdb9df1-441a-461e-bbf5-5d434dbdae70",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "573dc727-4a09-4614-bf5a-4da54d7bf33a",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9f94162b-c38a-41fe-b594-1739af6ee761",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c21e1a11-72e8-4661-8409-fea6b856fad5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "96e4c994-6e65-4a9b-99bf-5032380926a8",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "11d63825-1e4f-40ab-ac01-8d53adfdcda7",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fe8d2808-b1f6-40cc-b388-d2f08806a5a1",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b223686f-337b-4708-a6d3-6e639cbaa21a",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "44b010d7-c224-4194-9644-8cdcde33c1b5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "75bbe0bc-a839-40b0-95df-f1955d0453d9",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "aa7015e6-e70f-43d2-960c-dc86cd8735d5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "90d24c27-9b9c-4f94-9066-968088a981c7",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e79f7735-b1c3-4bb0-94d5-4a66feeae168",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "adb28bc0-6bd7-4564-b4d9-3cac9118c39d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d87b5ce9-3c9b-4e77-a569-057872a8a500",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "da83d755-35ff-455b-8e27-fa2fa36af4fe",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a707ee59-8b9f-4c75-b3e0-4ce63c1f45d8",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "49a2863c-e896-4c69-9f15-32bb57664809",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f6e8836d-35d9-4c35-b8b3-3e0a993aa9e2",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d8399ba2-280c-4a51-bc46-14e4995f320d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8b713d4b-635b-4a4d-8eba-85ca1a3adb6d",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e0b98ad2-b2a7-4b24-8374-72f247a18822",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "151fc05a-6912-4b5d-a31a-10ef6b0bc68a",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8da73867-990a-4185-8c2b-5a1c60e39786",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-auth",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-threat",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-file",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-config",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-intrusion",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-connection",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-system",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-malware",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-traffic",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-events",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-ftd-vpn",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "CISCO_FTD_AUTH",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Authentication data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-auth",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_CONFIG",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Config data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-config",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_CONN",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Connection data (FTD-#-430002 \u0026 FTD-#-430003); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-connection",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_EVENTS",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Events data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-events",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_FILE",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Connection data (FTD-#-430004); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-file",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_INTRUSION",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Intrusion (FTD-#-430001) data; necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-intrusion",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_MALWARE",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Malware data (FTD-#-430005); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-malware",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_SYSTEM",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD System data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-system",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_THREAT",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Threat data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-threat",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_TRAFFIC",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD Traffic data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-traffic",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_FTD_VPN",
+			"Description": "Configuration Macro; Tag used for all Cisco FTD VPN data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.",
+			"DefaultValue": "cisco-ftd-vpn",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
+	]
+}
