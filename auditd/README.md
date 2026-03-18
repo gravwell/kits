@@ -1,0 +1,8 @@
+This kit is designed to provide an out-of-the-box experience for working with Auditd logs. \n\nIt provides the following utilities:
+- Queries
+- Detections
+- Stats
+- Dashboards
+- Actionables
+- Templates
+- Macros

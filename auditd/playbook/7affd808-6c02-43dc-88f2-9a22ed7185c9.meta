@@ -1,9 +1,9 @@
 {
-	"UUID": "8ad5a796-587d-49f7-9e1f-2d7196a5733b",
+	"UUID": "07f74f5b-553b-4344-8a4b-1920c247e583",
 	"GUID": "7affd808-6c02-43dc-88f2-9a22ed7185c9",
-	"UID": 2,
+	"UID": 7,
 	"GIDs": [],
-	"Global": false,
+	"Global": true,
 	"WriteAccess": {
 		"Global": false,
 		"GIDs": []
@@ -11,12 +11,12 @@
 	"Name": "Auditd - Integration Guide",
 	"Desc": "",
 	"Labels": null,
-	"LastUpdated": "2026-03-02T18:49:13.880531465Z",
+	"LastUpdated": "2026-03-05T14:48:13.525909674-07:00",
 	"Author": {
 		"Name": "Bronson Peto",
 		"Email": "bronson.peto@gravwell.io",
 		"Company": "",
 		"URL": ""
 	},
-	"Synced": false
+	"Synced": true
 }
