@@ -10,7 +10,9 @@
 	},
 	"Name": "Auditd - Kit Overview",
 	"Desc": "",
-	"Labels": null,
+	"Labels": [
+		"auditd"
+	],
 	"LastUpdated": "2026-03-04T11:48:57.286059039-07:00",
 	"Author": {
 		"Name": "Bronson Peto",

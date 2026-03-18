@@ -10,7 +10,9 @@
 	},
 	"Name": "Auditd - Integration Guide",
 	"Desc": "",
-	"Labels": null,
+	"Labels": [
+		"auditd"
+	],
 	"LastUpdated": "2026-03-05T14:48:13.525909674-07:00",
 	"Author": {
 		"Name": "Bronson Peto",

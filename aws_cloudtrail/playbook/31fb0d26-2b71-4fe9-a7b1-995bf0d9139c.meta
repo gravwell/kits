@@ -10,7 +10,9 @@
 	},
 	"Name": "AWS CloudTrail - Readme",
 	"Desc": "",
-	"Labels": null,
+	"Labels": [
+		"aws_cloudtrail"
+	],
 	"LastUpdated": "2026-03-18T10:13:46.526987988-06:00",
 	"Author": {
 		"Name": "Bronson Peto",

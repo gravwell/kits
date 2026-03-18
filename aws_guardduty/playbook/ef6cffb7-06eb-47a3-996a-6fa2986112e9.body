@@ -8,7 +8,7 @@ The most fundamental aspect of this kit is a macro _($GUARDUTY_ALERT)_ which sum
 
 ## __Queries__
 Included is a search for each severity as determined by GuardDuty. The web console shows CRITICAL / HIGH / MEDIUM / LOW, but each finding is based on a Severity score that ranges from 1 (Low) to 10 (Critical). The searches account for the severity ranges -- for example, high is:
-```
+```ini
 severity_value >= 7 && severity_value <= 8.9
 ```
 

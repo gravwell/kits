@@ -1,5 +1,5 @@
 {
-	"UUID": "5bab2529-3067-449b-be2c-729b4e930ac1",
+	"UUID": "43b99073-3965-42ca-bc57-41836551a2b2",
 	"GUID": "26cac820-9fe7-4b0d-92d6-96fa655cd933",
 	"UID": 7,
 	"GIDs": [],
@@ -10,8 +10,10 @@
 	},
 	"Name": "AWS GuardDuty -  Integration Guide",
 	"Desc": "",
-	"Labels": null,
-	"LastUpdated": "2026-03-09T10:38:36.566828297-06:00",
+	"Labels": [
+		"aws_guardduty"
+	],
+	"LastUpdated": "2026-03-18T09:56:41.88168616-06:00",
 	"Author": {
 		"Name": "Bronson Peto",
 		"Email": "bronson.peto@gravwell.io",
