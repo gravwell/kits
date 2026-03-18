@@ -4,8 +4,12 @@ The standard method to collect Auditd logs is using the gravwell-file-follower.
 
 File Follower can be installed following instructions in the [file follower](https://docs.gravwell.io/ingesters/file_follow.html). File follower will need to be configured to point to your current Gravwell environment.
 
-**Sample File Follower Configuration pointing to Gravwell Environment**  
-Create or edit: `/opt/gravwell/etc/file_follow.conf`
+**Sample File Follower Configuration pointing to Gravwell Environment**
+Create or edit:
+```ini
+/opt/gravwell/etc/file_follow.conf
+```
+
 ```ini
 Ingest-Secret = IngestSecrets
 Insecure-Skip-TLS-Verify = false
@@ -21,8 +25,11 @@ Max-Files-Watched=64
 
 Setup the well configuration in your Gravwell indexers.
 
-**Sample well config:**  
-Create or edit: `/opt/gravwell/etc/gravwell.conf.d/auditd-well.conf`
+**Sample well config:**
+Create or edit:
+```ini
+/opt/gravwell/etc/gravwell.conf.d/auditd-well.conf
+```
 ```ini
 [Storage-Well "auditd"]
     Location=/opt/gravwell/storage/auditd
@@ -37,8 +44,11 @@ Create or edit: `/opt/gravwell/etc/gravwell.conf.d/auditd-well.conf`
 
 Setup the file follower configuration file.
 
-**Sample File Follower configuration:**  
-Create or edit: `/opt/gravwell/etc/file_follow.conf.d/auditd.conf`
+**Sample File Follower configuration:**
+Create or edit:
+```ini
+/opt/gravwell/etc/file_follow.conf.d/auditd.conf
+```
 ```ini
 [Follower "auditd"]
   Base-Directory = "/var/log/audit"
