@@ -24,19 +24,19 @@ Pre-built dashboards for visualizing AWS CloudTrail activity and security events
 ##Prerequisites to use provided queries
 
 1. AWS CloudTrail data must be ingested with appropriate tags 
-    ```
-    (`tag=aws-cloudtrail`)
-    ```
 
+    ```shell
+    (tag=aws-cloudtrail)
+    ```
 ## Searching Basics
 Using the cloudtrail reader (defined in ingester block), it's simple to query the data as json
 
-```
+```json
 tag=aws-cloudtrail json 
 ```
 
 A sample query would look like this -
-```
+```json
 tag=aws-cloudtrail json eventSource eventName
 | eval (eventSource == "cloudtrail.amazonaws.com" && (
     eventName == "StopLogging" ||
