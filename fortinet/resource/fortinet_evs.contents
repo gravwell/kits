@@ -1,0 +1,57 @@
+ev,description,example
+date,"Day, month, and year when the log message was recorded.",date=2017-11-15
+direction,Indicates message/packets direction.,direction=incoming
+time,Hour clock when the log message was recorded.,time=11:44:16
+duration,"Duration of the session, in seconds.",duration=2
+sessionid,ID for the session.,sessionid=8058
+vd,Name of the virtual domain in which the log message was recorded.,"vd=""vdom1"""
+transport,NAT source port.,transport=40772
+srcip,"IP address of the traffic’s origin. The source varies by the direction:
+In HTTP requests, this is the web browser or other client.
+In HTTP responses, this is the physical server.",srcip=10.1.100.155
+transip,NAT source IP.,transip=172.16.200.2
+srcport,Port number of the traffic's origin.,srcport=40772
+srccountry,Name of the source country.,"srccountry=""Reserved"""
+srcintf,Interface name of the traffic's origin.,"srcintf=""port12"""
+srcname,Name of the source.,"srcname=""pc1"""
+srcintfrole,Name of the source interface.,"srcintfrole=""undefined"""
+devtype,Device type of the source.,"devtype=""Linux PC"""
+osname,OS of the source.,"osname=""Linux"""
+mastersrcmac,The master MAC address for a host that has multiple network interfaces.,"mastersrcmac=""a2:e9:00:ec:40:01"""
+srcmac,MAC address associated with the source IP address.,"srcmac=""a2:e9:00:ec:40:01"""
+srcserver,Server of the source.,srcserver=0
+devid,Serial number of the device for the traffic's origin.,"devid=""FGVM02Q105060010"""
+dstip,Destination IP address for the web.,dstip=35.197.51.42
+dstport,Port number of the traffic's destination.,dstport=443
+dstcountry,Name of the destination country.,"dstcountry=""United States"""
+dstintf,Interface of the traffic's destination.,"dstintf=""port11"""
+dstname,Name of the destination.,"dstname=""fortiguard.com"""
+dstinfrole,Name of the destination interface.,"dstintfrole=""undefined"""
+app,Name of the application.,"app=""HTTPS.BROWSER"""
+appcat,Category of the application.,"appcat=""Web.Client"""
+service,Name of the service.,"service=""HTTPS"""
+appid,ID of the application.,appid=40568
+apprisk,Risk level of the application.,"apprisk=""medium"""
+countapp,Number of App Ctrl logs associated with the session.,countapp=1
+rcvdbyte,Number of bytes received.,rcvdbyte=39898
+rcvdpkt,Number of packets received.,rcvdpkt=37
+sentbyte,Number of bytes sent.,sentbyte=1850
+sentpkt,Number of packets sent.,sentpkt=25
+action,"Status of the session. Uses following definitions:
+Deny: blocked by firewall policy
+Start: session start log (special option to enable logging at start of a session). This means firewall allowed.
+All Others: allowed by Firewall Policy and the status indicates how it was closed.",action=close
+policyid,Name of the firewall policy governing the traffic which caused the log message.,policyid=1
+poluuid,UUID for the firewall policy.,"poluuid=""707a0d88-c972-51e7-bbc7-4d421660557b"""
+policytype,,"policytype=""policy"""
+policymode,Firewall policy mode.,"policymode=""learn"""
+level,Security level rating.,"level=""notice"""
+eventtime,"Epoch time the log was triggered by FortiGate. If you convert the epoch time to human readable time, it might not match the Date and Time in the header owing to a small delay between the time the log was triggered and recorded. The Log Time field is the same for the same log among all log devices, but the Date and Time might differ.",eventtime=1510775056
+proto,tcp: The protocol used by web traffic (tcp by default),proto=6
+type,Log type. See Type,"type=""traffic"""
+logid,Log ID. See Log ID definitions,"logid=""0000000013"""
+subtype,Subtype of the traffic. See Subtype.,"subtype=""forward"""
+trandisp,NAT translation type.,"trandisp=""snat"""
+utmaction,Security action performed by UTM.,"utmaction=""allow"""
+utmref,UTM reference number.,utmref=0-220586
+utmref,UTM reference number.,utmref=0-220586

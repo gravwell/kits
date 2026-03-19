@@ -1,0 +1,4 @@
+tag=$FORTINET kv -q
+    level
+| stats count by level
+| chart count by level

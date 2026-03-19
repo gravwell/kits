@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Fortinet - System - Log Types - Count by Subtype [chart]",
+	"Description": "Displays a chart of the different Fortinet by log subtype. This query is used on the General Fortinet Overview dashboard. ",
+	"GUID": "ba8cf640-40ab-4cf9-a01c-2b443905ff55",
+	"Labels": [
+		"fortinet"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

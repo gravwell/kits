@@ -1,0 +1,28 @@
+{
+	"UUID": "ae99d9b3-66a2-4e3c-844c-202f7eb04618",
+	"Name": "Template - Fortinet - Investigation - Traffic - All Events for IP [table]",
+	"Description": "This template returns a table of all Traffic events found within the Fortinet Traffic logs for IP in either the srcip or the dstip Enumerated Values (EVs).",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This is either the srcip or the dstip from which the action was performed.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%time%%",
+				"label": "Time",
+				"description": "s: sec; m:min; h:hr; d:day; y:year",
+				"required": true,
+				"defaultValue": "24h",
+				"previewValue": "24h"
+			}
+		]
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

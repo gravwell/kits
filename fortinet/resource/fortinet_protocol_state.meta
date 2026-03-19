@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "fortinet_protocol_state",
+	"Description": "This is intended to be used as a lookup file providing additional information regarding Fortinet protocol states. It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.\n\nfields:\nstate,description\n  - state: this is the protocol state name for the event\n  - description: this is more information about the priority for the event\n\nReference(s):\n  - Fortinet \n    - https://community.fortinet.com/t5/FortiGate/Troubleshooting-Tip-FortiGate-session-table-information/ta-p/196988\n\nUsage: lookup -r fortinet_protocol_state proto_state state (state description)",
+	"Labels": [
+		"fortinet"
+	],
+	"Size": 2799,
+	"Hash": "CJqMwkZ/T4KKqzrHo5ZMbA==",
+	"Data": ""
+}

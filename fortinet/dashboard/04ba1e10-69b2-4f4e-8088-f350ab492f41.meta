@@ -1,0 +1,125 @@
+{
+	"UUID": "04ba1e10-69b2-4f4e-8088-f350ab492f41",
+	"Name": "Fortinet UTM Overview",
+	"Description": "This Dashboard is a general overview of your Fortinet UTM Data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Fortinet - UTM - EV - Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bd6e9a3c-3349-4574-b963-dcb6ff54ea50",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - UTM - EV - Count [chart]",
+				"color": null,
+				"reference": {
+					"id": "611adfd5-7955-4920-ab5e-bb827b5a311b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - UTM - EV - Count [table]",
+				"color": null,
+				"reference": {
+					"id": "ce0e05df-27df-4b71-b5b5-7bae1a286aa8",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17707540613430,
+				"title": "Count [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17707540944901,
+				"title": "Count [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17707541206992,
+				"title": "Count [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 6,
+					"y": 7
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721418047853,
+				"title": "Count [linechart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 17
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

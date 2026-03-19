@@ -1,0 +1,41 @@
+{
+  "Tags": [
+    "fortinet-events",
+    "fortinet-system",
+    "fortinet-traffic",
+    "fortinet-utm"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "fortinet-cover.png",
+      "Legend": "Fortinet Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "fortinet-banner.png",
+      "Legend": "Fortinet Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "fortinet-cover.jpg"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "fortinet-banner.jpg"
+    }
+  ],
+  "readme": "README.md"
+}

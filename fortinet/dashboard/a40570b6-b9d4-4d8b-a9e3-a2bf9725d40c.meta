@@ -1,0 +1,277 @@
+{
+	"UUID": "a40570b6-b9d4-4d8b-a9e3-a2bf9725d40c",
+	"Name": "Fortinet Investigation",
+	"Description": "This dashboard is intended to be used for Fortinet investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Fortinet - Investigation - Traffic - All Events for IP",
+				"color": null,
+				"reference": {
+					"id": "ae99d9b3-66a2-4e3c-844c-202f7eb04618",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - UTM - All Events for IP",
+				"color": null,
+				"reference": {
+					"id": "c702d535-048d-4d0d-a137-6932a95b5614",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - Event Types - Count by Tag [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "b8584072-73cc-46bb-9d32-28281424618e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - Traffic - Subtypes for IP [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "8c8a83fa-5835-42f8-b07b-1e988eeccb8b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - UTM - Subtypes for IP [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5cb323b3-ff94-4876-b3bc-54cec6539c6a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - Event Types - Count by Tag [chart]",
+				"color": null,
+				"reference": {
+					"id": "453f4061-34a4-462f-accc-01e6a9817830",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - System - Types \u0026 Subtypes for IP [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bf8107a9-c348-4f96-8cfd-d0da9238d901",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - Events - Types \u0026 Subtypes for IP [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2592df6e-5910-4319-93d9-098f9541d861",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - System - All Events for IP [table]",
+				"color": null,
+				"reference": {
+					"id": "036db8c5-13c7-4136-9c81-8b60f3227121",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Investigation - Event - All Events for IP [table]",
+				"color": null,
+				"reference": {
+					"id": "b8ad7892-d237-49d7-8cdc-9a39b0d95b80",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17721650117600,
+				"title": "All Traffic Events for IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 23
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721656583211,
+				"title": "All UTM Events for IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 16
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721660661752,
+				"title": "Count of All Events for IP by Tag [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721666130273,
+				"title": "Traffic Types \u0026 Subtypes for IP [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 10,
+					"x": 7,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721668295764,
+				"title": "Threat Types \u0026 Subtypes for IP [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721674345165,
+				"title": "Count by Tag [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17721675246896,
+				"title": "System Types \u0026 Subtypes for IP [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 7,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721675684247,
+				"title": "Event Types \u0026 Subtypes for IP [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 3,
+					"y": 9
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721680360278,
+				"title": "All System Events for IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 31
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17721683483589,
+				"title": "All Events for IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 37
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

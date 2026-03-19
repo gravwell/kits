@@ -1,0 +1,5 @@
+tag=$FORTINET_SYSTEM start=-%%time%% ax type subtype srcip dstip
+| eval srcip~"%%ip%%" || dstip~"%%ip%%"
+| stats count by type subtype
+| alias count " "
+| numbercard " "

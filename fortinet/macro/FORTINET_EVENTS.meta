@@ -1,0 +1,7 @@
+{
+	"Name": "FORTINET_EVENTS",
+	"Description": "Configuration Macro; Tag used for all Fortinet Events data; necessary for any queries within the Gravwell Fortinet Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$FORTINET_EVENTS",
+	"Labels": [
+		"fortinet"
+	]
+}
