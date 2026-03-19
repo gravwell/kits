@@ -1,6 +1,6 @@
 {
-	"ID": "io.gravwell.cloudtrail",
-	"Name": "AWS CloudTrail",
+	"ID": "io.gravwell.aws_cloudtrail",
+	"Name": "AWS CloudTrail Detection Kit",
 	"Desc": "Provides tools, utilities, and detections to enable use of AWS CloudTrail logs.",
 	"Readme": "This kit is designed to provide an out-of-the-box experience for working with AWS CloudTrail logs.\n\n It provides the following utilities:\n - Queries\n- Detections\n- Stats\n- Dashboards\n- Actionables\n- Templates\n\nRefer to playbooks for implementation guides, and a kit overview for more detail on components.",
 	"Version": 1,
@@ -11,8 +11,8 @@
 	},
 	"MaxVersion": {
 		"Major": 5,
-		"Minor": 9,
-		"Point": 0
+		"Minor": 99,
+		"Point": 99
 	},
 	"Icon": "1feb95d8-73a7-410b-93bc-105c48ba5dc3",
 	"Banner": "10e6bfe7-eccc-47c8-9e22-7147f39d9973",
