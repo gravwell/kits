@@ -1,0 +1,43 @@
+{
+	"UUID": "dbf5d89f-f36d-4382-92d1-8c1e335562f6",
+	"Name": "Palo Alto User",
+	"Description": "Palo Alto Actions on src/dst user",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Investigate",
+				"description": "This actionable will launch the Palo Alto Investigations Dashboard to see if there are any events performed by this user. ",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "fe0de242-49f7-4c50-9860-26a51ff9ef56",
+					"options": {
+						"variable": "%%user%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/[,]\\b([A-Za-z][A-Za-z0-9_-]{1,31}[._][A-Za-z][A-Za-z0-9_-]{1,31})\\b/gm",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

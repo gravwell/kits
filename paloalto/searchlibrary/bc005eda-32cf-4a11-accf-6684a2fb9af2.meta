@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Applications [table]",
+	"Description": "Displays a table of sanctioned SaaS applications with session counts and total traffic volume.\n\nDependencies\n- Dashboard: Palo Alto SaaS Overview",
+	"GUID": "bc005eda-32cf-4a11-accf-6684a2fb9af2",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,5 @@
+// Template - Palo Alto - NGFW - Threat - Subtype - Count by Subtypes for User & IP [numbercard]
+tag=$PAN_THREAT ax
+| eval (srcuser~"%%user%%" || dstuser~"%%user%%") && (src~"%%ip%%" || natsrc~"%%ip%%" || dst~"%%ip%%" || natdst~"%%ip%%" || xff_ip~"%%ip%%")
+| stats count by subtype
+| numbercard (count "")

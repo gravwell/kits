@@ -1,0 +1,6 @@
+// Template - Palo Alto - NGFW - Traffic - Category - Count by Category [chart]
+tag=$PAN_TRAFFIC ax 
+| eval (srcuser~"%%user%%" || dstuser~"%%user%%") && (src~"%%ip%%" || natsrc~"%%ip%%" || dst~"%%ip%%" || natdst~"%%ip%%" || xff_ip~"%%ip%%")
+| alias src "Source" dst "Destination" category_of_app "Category"
+| stats count by Category
+| chart count by Category

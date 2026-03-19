@@ -1,0 +1,28 @@
+{
+	"UUID": "ecd856f4-ee40-4cc9-a327-5f85ed518a13",
+	"Name": "Template - Palo Alto - NGFW - GlobalProtect - Events - All VPN Events for User \u0026 IP [table]",
+	"Description": "Displays a table of GlobalProtect sessions associated with the specified IP address including user and machine information.\n\nDependencies\n- Dashboard: Palo Alto Investigations",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This variable for the User allows you to query the relevant EVs such as srcuser and dstuser (if applicable).",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This variable for the IP Address allows you to query the relevant EVs such as src, natsrc, dst, natdst, xff_ip, private_ip, and public_ip (if applicable).",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

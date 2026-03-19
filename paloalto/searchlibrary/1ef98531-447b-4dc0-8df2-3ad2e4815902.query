@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Config - Events - Count by Client [chart]
+tag=$PAN_CONFIG ax client
+| stats count by client
+| chart count by client

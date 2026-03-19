@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Threat - Events - Count by Threat Destination Location [chart]
+tag=$PAN_THREAT ax subtype dstloc
+| stats count by dstloc
+| chart count by dstloc

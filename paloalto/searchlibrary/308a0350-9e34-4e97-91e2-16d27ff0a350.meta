@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Traffic - SaaS - Unsanctioned Applications [table]",
+	"Description": "Displays a table of unsanctioned SaaS applications with session counts and total traffic volume.\n\nDependencies\n- Dashboard: Palo Alto SaaS Overview",
+	"GUID": "308a0350-9e34-4e97-91e2-16d27ff0a350",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

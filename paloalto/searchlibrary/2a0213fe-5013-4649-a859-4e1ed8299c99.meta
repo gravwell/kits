@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Sanctioned Category [chart]",
+	"Description": "Displays a chart of the most frequently observed sanctioned SaaS application categories.\n\nDependencies\n- Dashboard: Palo Alto SaaS Overview",
+	"GUID": "2a0213fe-5013-4649-a859-4e1ed8299c99",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

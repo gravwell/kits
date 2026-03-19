@@ -1,47 +1,85 @@
 {
 	"UUID": "6ce64d08-9962-4e1b-9654-78c0e2ac3a09",
 	"Name": "Palo Alto GlobalProtect Overview",
-	"Description": "Information about clients connecting via GlobalProtect VPN",
+	"Description": "This dashboard is a general overview of your Palo Alto GlobalProtect VPN and client(s) data.",
 	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
 		"searches": [
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_GLOBALPROTECT ax stage==\"connected\" srcuser machinename client_os_ver | stats count by srcuser machinename client_os_ver | alias srcuser User machinename \"Client System\" client_os_ver \"Client OS\" | table User \"Client System\" \"Client OS\" count",
-				"alias": "GlobalProtect Users"
+				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "847bc392-e6f0-4aa3-ba1f-db7b9608c672",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_GLOBALPROTECT ax stage==\"login\" status | stats count by status | numbercard (count \"\")",
-				"alias": "Login Attempts"
+				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [chart]",
+				"color": null,
+				"reference": {
+					"id": "d625b9af-4e63-40df-9392-62cbd04c8213",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_GLOBALPROTECT ax stage==\"login\" status==\"failure\" srcuser srcregion public_ip public_ipv6 | alias srcuser User srcregion Region public_ip \"IPv4\" public_ipv6 IPv6 | stats count as failures by User Region IPv4 IPv6| table User Region IPv4 IPv6 failures",
-				"alias": "Failed Logins"
+				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Authentication - Failed Logins [table]",
+				"color": null,
+				"reference": {
+					"id": "029d59e0-bf7b-4fb0-a783-df0a644ca5b9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_GLOBALPROTECT ax stage==\"login\" status | stats count by status | chart count by status",
-				"alias": "Login Events"
+				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Diagnostics - Average Latency [chart]",
+				"color": null,
+				"reference": {
+					"id": "a787167f-da7d-4c92-b2fd-09698f21e49b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_GLOBALPROTECT ax eventid==\"gateway-tunnel-latency\" description | regex -e description \"Pre-tunnel latency: (?P\u003cpre\u003e[^,]+), Post-tunnel latency: (?P\u003cpost\u003e[^,]+)\"\n/* We use toDuration to go from a string to a Duration */\n| eval pre = duration(pre);\n post = duration(post);\n| stats mean(pre) as pre mean(post) as post\n/* At this point, pre and post are in nanoseconds. Let's convert them to milliseconds */\n| eval $(Pre-tunnel Latency) = pre / 1000000; $(Post-tunnel Latency) = post / 1000000;\n| chart \"Pre-tunnel Latency\" \"Post-tunnel Latency\" ",
-				"alias": "Average Latency",
-				"color": null
+				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Session - GlobalProtect Users [table]",
+				"color": null,
+				"reference": {
+					"id": "45a0354b-4971-4917-a273-a16dd78b5ee3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
+				"id": 1648584113923,
 				"title": "GlobalProtect Users",
 				"renderer": "table",
-				"searchesIndex": 0,
+				"hideZoom": true,
 				"span": {
 					"col": 8,
 					"row": 7,
 					"x": 4,
 					"y": 0
 				},
+				"searchesIndex": 4,
 				"rendererOptions": {
 					"IncludeOther": "yes",
 					"Stack": "grouped",
@@ -51,19 +89,20 @@
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
 					"LogScale": "no"
-				},
-				"id": 1648584113923
+				}
 			},
 			{
+				"id": 1648584574137,
 				"title": "Login Attempts",
 				"renderer": "numberCard",
-				"searchesIndex": 1,
+				"hideZoom": true,
 				"span": {
 					"col": 4,
 					"row": 3,
 					"x": 0,
 					"y": 0
 				},
+				"searchesIndex": 0,
 				"rendererOptions": {
 					"IncludeOther": "yes",
 					"Stack": "grouped",
@@ -73,19 +112,20 @@
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
 					"LogScale": "no"
-				},
-				"id": 1648584574137
+				}
 			},
 			{
+				"id": 1648584815238,
 				"title": "Failed Logins",
 				"renderer": "table",
-				"searchesIndex": 2,
+				"hideZoom": true,
 				"span": {
 					"col": 8,
 					"row": 7,
 					"x": 4,
 					"y": 7
 				},
+				"searchesIndex": 2,
 				"rendererOptions": {
 					"IncludeOther": "yes",
 					"Stack": "grouped",
@@ -95,21 +135,22 @@
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
 					"LogScale": "no"
-				},
-				"id": 1648584815238
+				}
 			},
 			{
+				"id": 1648584817463,
 				"title": "Login Events",
 				"renderer": "lineChart",
-				"searchesIndex": 3,
+				"hideZoom": true,
 				"span": {
 					"col": 4,
 					"row": 6,
 					"x": 0,
 					"y": 3
 				},
+				"searchesIndex": 1,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"Stack": "grouped",
 					"Smoothing": "normal",
 					"Orientation": "v",
@@ -117,26 +158,29 @@
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
 					"LogScale": "no"
-				},
-				"id": 1648584817463
+				}
 			},
 			{
+				"id": 1648585687063,
 				"title": "Average Latency",
 				"renderer": "categoryBarChart",
-				"searchesIndex": 4,
+				"hideZoom": true,
 				"span": {
 					"col": 4,
 					"row": 5,
 					"x": 0,
 					"y": 9
 				},
-				"rendererOptions": {},
-				"id": 1648585687063
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Orientation": "v",
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			}
 		],
-		"timeframe": {
-			"timeframe": "PT1H"
-		},
+		"linkZooming": false,
+		"grid": {},
 		"version": 2
 	},
 	"Labels": [

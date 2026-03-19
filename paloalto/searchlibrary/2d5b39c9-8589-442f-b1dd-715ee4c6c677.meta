@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - Events - Scans Detected [table]",
+	"Description": "Displays a table of detected scan events grouped by source and threat ID.\n\nDependencies\n- Dashboard: Palo Alto Threat Overview",
+	"GUID": "2d5b39c9-8589-442f-b1dd-715ee4c6c677",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

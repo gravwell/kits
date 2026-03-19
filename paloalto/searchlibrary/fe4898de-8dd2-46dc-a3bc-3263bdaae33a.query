@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Traffic - SaaS - Count by Application [chart]
+tag=$PAN_TRAFFIC ax subtype=="end" is_saas_of_app=="yes" app
+| stats count by app
+| chart count by app

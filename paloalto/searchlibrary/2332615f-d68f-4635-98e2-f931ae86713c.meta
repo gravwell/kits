@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Traffic - SaaS - SaaS Event Count [numbercard]",
+	"Description": "Displays a numbercard of SaaS event counts by type. \n\nDependencies\n- Dashboard: Palo Alto User Behavior Overview",
+	"GUID": "2332615f-d68f-4635-98e2-f931ae86713c",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

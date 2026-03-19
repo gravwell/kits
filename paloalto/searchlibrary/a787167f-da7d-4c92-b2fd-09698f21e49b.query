@@ -1,0 +1,10 @@
+// Search - Palo Alto - NGFW - GlobalProtect - Diagnostics - Average Latency [chart]
+tag=$PAN_GLOBALPROTECT ax eventid=="gateway-tunnel-latency" description
+| regex -e description "Pre-tunnel latency: (?P<pre>[^,]+), Post-tunnel latency: (?P<post>[^,]+)"
+/* We use toDuration to go from a string to a Duration */
+| eval pre = duration(pre);
+ post = duration(post);
+| stats mean(pre) as pre mean(post) as post
+/* At this point, pre and post are in nanoseconds. Let's convert them to milliseconds */
+| eval $(Pre-tunnel Latency) = pre / 1000000; $(Post-tunnel Latency) = post / 1000000;
+| chart "Pre-tunnel Latency" "Post-tunnel Latency"

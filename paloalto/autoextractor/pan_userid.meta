@@ -1,12 +1,17 @@
 {
-	"Name": "Palo Alto userid",
-	"Desc": "Palo Alto userid log format",
+	"Name": "Palo Alto User ID Logs",
+	"Desc": "Gravwell generated CSV extraction for Palo Alto User ID Logs",
 	"Module": "csv",
-	"Tag": "pan_userid",
-	"Labels": null,
-	"UID": 2,
+	"Tag": "",
+	"Tags": [
+		"pan_userid"
+	],
+	"Labels": [
+		"palo"
+	],
+	"UID": 1,
 	"GIDs": null,
-	"Global": false,
-	"UUID": "626adfdc-4a6f-4c6f-b573-e069db2c888a",
-	"LastUpdated": "2022-03-31T16:30:55.425802727Z"
+	"Global": true,
+	"UUID": "bff71940-e4e0-44db-be61-c648023ddc4d",
+	"LastUpdated": "2026-03-18T14:37:09.439407544Z"
 }

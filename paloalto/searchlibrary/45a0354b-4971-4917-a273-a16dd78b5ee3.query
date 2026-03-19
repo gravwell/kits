@@ -1,0 +1,5 @@
+// Search - Palo Alto - NGFW - GlobalProtect - Session - GlobalProtect Users [table]
+tag=$PAN_GLOBALPROTECT ax stage=="connected" srcuser machinename client_os_ver
+| stats count by srcuser machinename client_os_ver
+| alias srcuser User machinename "Client System" client_os_ver "Client OS"
+| table User "Client System" "Client OS" count

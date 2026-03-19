@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - WildFire - Count by File Type [chart]",
+	"Description": "Displays a chart of WildFire submission counts by file type.\n\nDependencies\n- Dashboard: Palo Alto Wildfire Overview",
+	"GUID": "eb5f3a03-f3fc-479e-a4fb-babff92baf97",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
