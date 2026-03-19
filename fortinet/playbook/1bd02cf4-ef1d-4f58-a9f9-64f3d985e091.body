@@ -1,0 +1,512 @@
+<km>
+***
+
+A toolkit for interacting with Fortinet data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, and dashboards to help streamline Fortinet firewall data analysis across System, Event, UTM, and Traffic log types.
+
+***
+
+## Table of Contents
+0. [Configure Log Forwarding](#0-log-forwarding)
+1. [Tags & Macros](#1-tags--macros)  
+    1.1. [Tags](#1-1-tags)  
+    1.2. [Autoextractors](#1-2-autoextractors)  
+    1.3. [Macros](#1-3-macros)  
+2. [Query Library](#2-query-library)  
+3. [Naming Schema](#3-naming-schema)  
+4. [Resources](#4-resources)  
+    4.1. [Lookups](#4-1-lookups)  
+5. [Alerts](#5-alerts)  
+    5.1 [Dispatchers](#5-1-dispatchers)  
+    5.2 [Consumers](#5-2-consumers)
+6. [Scheduled Searches](#6-scheduled-searches)  
+    6.1. [Flows](#6-1-flows)
+7. [Playbooks](#7-playbooks)  
+8. [Searches](#8-searches)  
+    8.1. [Alert Queries](#8-1-alert-queries) 
+9. [Templates](#9-templates)  
+10. [Dashboards](#10-dashboards)  
+    10.1 [Actionables](#10-1-actionables)
+11. [Useful Resources & References](#11-useful-resources--references)  
+12. [Notes](#12-notes)  
+13. [Image credits](#13-image-credits)  
+
+***
+
+# 0. Configure Log Forwarding
+
+Before you can use the kit, you'll need to get logs flowing from your Fortinet FortiGate / FortiOS 7.6.6 device into Gravwell. Our recommended method is via syslog forwarding. Gravwell can receive syslog data using the Simple Relay ingester. Configuration of Simple Relay is described below.
+
+You can also send logs via the HTTP ingester; instructions for that are in the "Install & Configure HTTP Ingester" section below. Note that FortiOS remote logging targets are documented as including syslog servers (and other Fortinet products), but do not document a generic "HTTP POST logs to arbitrary endpoint" as a log target. For HTTP ingestion, use an intermediate syslog-to-HTTP relay. ([Log settings and targets](https://docs.fortinet.com/document/fortigate/7.6.6/administration-guide/250999/log-settings-and-targets))
+
+## Install & Configure Simple Relay
+
+1. Deploy the Simple Relay ingester on a server which is both accessible from the FortiGate device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the Gravwell Simple Relay documentation for more information. ([Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html))
+2. Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/simple\_relay.conf.d/fortinet.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_simple\_relay.service</kbd> to restart the ingester. This will make it start listening for incoming syslog on port 6701, with special rules to route Fortinet traffic to different Gravwell tags.
+    - The routing is implemented using Gravwell's regexrouter preprocessor (supports named capture groups and preprocessor chaining). ([regexrouter](https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html))
+
+```ini
+    [Listener "syslogtcp_fortinet"]
+        Bind-String="tcp://0.0.0.0:6701"
+        Reader-Type=rfc5424
+        Tag-Name=fortinet-events
+        Assume-Local-Timezone=true
+        Preprocessor="Fortinet Type Router"
+        Preprocessor="Fortinet System Router"
+
+    [preprocessor "Fortinet Type Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`\btype="(?P<type>traffic|utm|event?)?\"`
+        #Regex=`^[^.]+\s[^.]+\s[^.]+\stype\=\"(?<type>.+?)?\"`
+        Route-Extraction=type
+        Route=traffic:fortinet-traffic
+        Route=utm:fortinet-utm
+        # event -> stays on default tag fortinet-events
+
+    [preprocessor "Fortinet System Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`\bsubtype="(?P<subtype>.+?)?\"`
+        Route-Extraction=subtype
+        Route=system:fortinet-system
+```
+
+3. Ensure that the server running Simple Relay allows incoming connections on TCP port 6701, and that any firewalls between the FortiGate and the Simple Relay system allow TCP/6701 traffic.
+
+4. Configure remote syslog logging on the FortiGate as described in the Fortinet documentation. Fortinet documents syslog as a supported remote logging target and documents selecting formats such as ***default*** or ***rfc5424***. ([Log settings and targets](https://docs.fortinet.com/document/fortigate/7.6.6/administration-guide/250999/log-settings-and-targets))
+
+Recommended FortiGate syslog settings:
+- Use ***mode reliable*** (RFC6587 over TCP). ([config log syslogd setting](https://docs.fortinet.com/document/fortigate/7.6.6/cli-reference/141516630/config-log-syslogd-setting))
+- Use ***format rfc5424*** (best timestamp framing) or ***format default*** (simple key=value).
+- Point the syslog server to the Simple Relay host on port 6701.
+
+Example FortiGate CLI pattern:
+
+```shell
+config log syslogd setting
+    set status enable
+    set server <SIMPLE_RELAY_IP>
+    set mode reliable
+    set port 6701
+    set format rfc5424
+end
+```
+
+## Recommended: Enable UTM Extended Logging
+
+FortiOS supports "[UTM extended logging](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/496081)" for UTM log types when sending to *reliable Syslog servers over TCP*. Extended logging adds HTTP header information to the ***rawdata*** field in UTM logs (for example: Method, X-Forwarded-For, Request/Response Content-Type, Referer, User-Agent). The full ***rawdata*** field (up to 20KB) is only sent to reliable syslog servers; other logging destinations (disk, FortiAnalyzer, UDP syslog) keep a maximum of 2KB total log length and discard the rest. ([UTM extended logging](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/630151/utm-extended-logging))
+
+To enable extended UTM logging globally, FortiOS provides the ***extended-utm-log*** setting under ***config log setting***. ([config log setting](https://docs.fortinet.com/document/fortigate/7.6.6/cli-reference/196223761/config-log-setting))
+
+```shell
+config log setting
+    set extended-utm-log enable
+end
+```
+
+Note: enabling extended UTM logging can significantly increase individual UTM log entry size (because of ***rawdata***). Size your pipeline (network, relay, and ingest capacity) accordingly. ([UTM extended logging](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/630151/utm-extended-logging))
+
+## Recommended: Fortinet Storage Well Configuration
+
+- Fortinet Storage Well configuration, copy to /opt/gravwell/etc/gravwell.conf.d/fortinet.conf, change ownership to gravwell:gravwell, and then restart Gravwell.
+- Adapt data retention according to your environment's requirements. 
+```ini
+# Fortinet 
+[Storage-Well "fortinet"]
+    Location=/opt/gravwell/storage/fortinet
+    Tags=fortinet*
+    Accelerator-Name=fulltext #fulltext is the most resilent to varying data types
+    Accelerator-Args="-ignoreFloat" #tell the fulltext accelerator to not index timestamps, syslog entries are easy to ID
+    Accelerator-Engine-Override=bloom #The bloom engine is effective and fast with minimal disk overhead
+    #this well to delete old data when the disk reaches 90% full
+    Hot-Storage-Reserve=10 # adapt this for your environment's requirements
+    Delete-Cold-Data=true # adapt this for your environment's requirements
+```
+
+Once the changes have been committed/applied, logs should begin flowing into Gravwell. You can check by running the following queries:
+
+```gravwell
+tag=fortinet-traffic
+| limit 20
+```
+
+```gravwell
+tag=fortinet-utm
+| limit 20
+```
+
+```gravwell
+tag=fortinet-system
+| limit 20
+```
+
+```gravwell
+tag=fortinet-events
+| limit 20
+```
+
+If any results appear, logs are coming in properly as expected.
+
+***
+
+## Install & Configure HTTP Ingester
+
+Deploy the HTTP Ingester on a server which is both accessible from the syslog-to-HTTP relay and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the Gravwell HTTP ingester documentation for more information. ([HTTP ingester](https://docs.gravwell.io/v5.7.9/ingesters/http.html))
+
+Drop the following config snippet into a new file named <km>/opt/gravwell/etc/gravwell\_http\_ingester.conf.d/fortinet.conf<km> on the ingester machine, then restart the HTTP ingester to apply changes. By default, the HTTP ingester listens on port 8080; this config adds an HTTP endpoint at _/fortinet/logs_, with HTTP basic authentication in place, and routes Fortinet logs into the correct tags using the same regexrouter rules as the Simple Relay configuration above. ([HTTP ingester](https://docs.gravwell.io/v5.7.9/ingesters/http.html), [regexrouter](https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html))
+
+```ini
+[Listener "fortinet"]
+    AuthType=basic
+    Username=fortinet
+    Password=CHANGE_ME
+    URL="/fortinet/logs"
+    Tag-Name=fortinet-events
+    Assume-Local-Timezone=true
+    Preprocessor="Fortinet Type Router"
+    Preprocessor="Fortinet System Router"
+
+[preprocessor "Fortinet Type Router"]
+    Type=regexrouter
+    Drop-Misses=false
+    Regex=`\btype="(?P<type>traffic|utm|event?)?\"`
+    #Regex=`^[^.]+\s[^.]+\s[^.]+\stype\=\"(?<type>.+?)?\"`
+    Route-Extraction=type
+    Route=traffic:fortinet-traffic
+    Route=utm:fortinet-utm
+
+[preprocessor "Fortinet System Router"]
+    Type=regexrouter
+    Drop-Misses=false
+    Regex=`\bsubtype="\bsubtype="(?P<subtype>.+?)?\"`
+    Route-Extraction=subtype
+    Route=system:fortinet-system
+```
+
+Ensure that the server running the HTTP Ingester allows incoming connections on port 8080, and that any firewalls between the relay system and the ingester system allow TCP/8080 traffic.
+
+To send FortiGate logs into the HTTP ingester, configure the FortiGate to forward logs to syslog (as documented), then use a syslog-to-HTTP relay (e.g., rsyslog/syslog-ng) to POST the syslog message body to ***http://<HTTP_INGESTER_HOST>:8080/fortinet/logs*** using the basic authentication credentials configured above.
+
+If you are using the HTTP ingester path, you can still (and should) enable UTM extended logging on the FortiGate to enrich the UTM payload (the syslog-to-HTTP relay will forward whatever FortiGate sends). Extended logging details and constraints are documented here: ([UTM extended logging](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/630151/utm-extended-logging)).
+
+You can validate ingestion by running the same queries listed in the Simple Relay section.
+
+***
+
+## 1. [Tags & Macros](#1-tags--macros)
+
+#### 1.1. [Tags](#1-1-tags)
+
+- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.
+- [Documentation](https://docs.gravwell.io/ingesters/ingesters.html#tags)
+- The Fortinet Kit for Gravwell makes use of the following tags:
+    - fortinet: Tag contains all Fortinet data (all log types).
+        - Usage: tag=fortinet-*
+    - fortinet-system: Tag contains Fortinet System log data.
+        - Usage: tag=fortinet-system
+    - fortinet-events: Tag contains Fortinet Events log data.
+        - Usage: tag=fortinet-events
+    - fortinet-utm: Tag contains Fortinet UTM log data.
+        - Usage: tag=fortinet-utm
+    - fortinet-traffic: Tag contains Fortinet Traffic log data.
+        - Usage: tag=fortinet-traffic
+
+#### 1.2. [Autoextractors](#1-2-autoextractors)
+
+- Purpose: Auto-extractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The “ax” module then automatically invokes the appropriate functionality of other modules.
+- [Documentation](https://docs.gravwell.io/configuration/autoextractors.html)
+- The Fortinet Kit for Gravwell makes use of the following autoextractors:
+    - fortinet-events
+        - Auto-generated fields extraction for tag fortinet-events
+    - fortinet-system
+        - Auto-generated fields extraction for tag fortinet-system
+    - fortinet-traffic
+        - Auto-generated fields extraction for tag fortinet-traffic
+    - fortinet-utm
+        - Auto-generated fields extraction for tag fortinet-utm
+
+#### 1.3. [Macros](#1-3-macros)
+
+- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.
+- [Documentation](https://docs.gravwell.io/search/macros.html)
+- The Fortinet Kit for Gravwell makes use of the following macros:
+    - Tags
+        - $FORTINET: Configuration Macro; Tag used for querying all Fortinet data; necessary for any queries within the Gravwell Fortinet Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$FORTINET`
+        - $FORTINET\_SYSTEM: Configuration Macro; Tag used for Fortinet System data; necessary for any queries within the Gravwell Fortinet Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$FORTINET_SYSTEM`
+        - $FORTINET\_EVENTS: Configuration Macro; Tag used for Fortinet Events data; necessary for any queries within the Gravwell Fortinet Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$FORTINET_EVENTS`
+        - $FORTINET\_UTM: Configuration Macro; Tag used for Fortinet UTM data; necessary for any queries within the Gravwell Fortinet Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$FORTINET_UTM`
+        - $FORTINET\_TRAFFIC: Configuration Macro; Tag used for Fortinet Traffic data; necessary for any queries within the Gravwell Fortinet Kit to run properly for dashboards, query library, and templates.
+            - Usage: `tag=$FORTINET_TRAFFIC`
+    - EVX (Enumerated Value Extraction)
+        - $FORTINET\_EVX: This macro is intended to be used with $FORTINET as it extracts every possible Enumerated Value (EV) for any of the Fortinet logs.
+            - Usage: `tag=$FORTINET $FORTINET_EVX`
+    - Alert Components
+    - Dashboard Components
+
+***
+
+## 2. [Query Library](#2-query-library)
+
+- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-1-alert-queries), and [playbooks](#7-playbooks).
+- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
+    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.
+    - Total queries: ***0***
+
+***
+
+## 3. [Naming Schema](#3-naming-schema)
+
+- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.
+- _QueryType - Company - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - **if any**]_
+- Examples:
+    - Dashboards: _Dashboard - Fortinet - Traffic - Overview_
+    - Templates: _Template - Fortinet - Traffic - EV - Count [chart]_
+
+***
+
+## 4. [Resources](#4-resources)
+- Purpose: Resources allow users to store persistent data for use in searches.
+- [Documentation](https://docs.gravwell.io/resources/resources.html)
+
+#### 4.1 [Lookups](#4-1-lookups)
+- Purpose: Lookup Resources are used by the lookup module to perform data enrichment and translation off of a static lookup table stored in a resource.
+- [Documentation](https://docs.gravwell.io/search/lookup/lookup.html)
+- Total: 7
+    - fortinet\_evs  
+        - This is intended to be used as a lookup file providing additional information regarding Fortinet enumerated values (EVs). It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.  
+        - Fields: ev, description, example  
+            - ev: the Enumerated Value (EV) name/category to match upon  
+            - description: additional information about the EV  
+            - example: example value format  
+        - Reference(s):  
+            - [Fortinet Log Message Reference](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/357866)
+        - Usage: `dump -r fortinet_evs | table`
+
+    - fortinet\_protocol\_state  
+        - This is intended to be used as a lookup file providing additional information regarding Fortinet protocol states. It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.  
+        - Fields: state, description  
+            - state: protocol state name for the event  
+            - description: more information about the state  
+        - Reference(s):  
+            - [Fortinet Troubleshooting Tip](https://community.fortinet.com/t5/FortiGate/Troubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)  
+        - Usage: `dump -r fortinet_protocol_state | table`
+
+    - fortinet\_log\_types  
+        - This is intended to be used as a lookup file providing additional information regarding Fortinet log types. It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.  
+        - Fields: category, subcategory, description  
+            - category: log category for the event  
+            - subcategory: log subcategory for the event  
+            - description: more information about the subcategory  
+        - Reference(s): [Fortinet Log Message Reference](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/160372)          
+        - Usage: `dump -r fortinet_log_types | table`
+
+    - fortinet\_priority  
+        - This is intended to be used as a lookup file providing additional information regarding Fortinet priority levels. It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.  
+        - Fields: priority, name, description  
+            - priority: priority level for the event  
+            - name: priority name for the event  
+            - description: more information about the priority  
+        - Reference(s): [Fortinet Priority Levels](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/446022/fortios-priority-levels)  
+        - Usage: `dump -r fortinet_priority | table`
+
+    - fortinet\_protocols  
+        - This is intended to be used as a lookup file providing additional information regarding Fortinet protocols. It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.  
+        - Fields: proto\_id, protocol, proto\_state, state, description, expiry\_timer  
+            - proto\_id: protocol id for the event  
+            - protocol: protocol name  
+            - proto\_state: protocol state for the event  
+            - state: protocol state name for the event  
+            - description: more information about the protocol/state  
+            - expiry\_timer: default expiry timer for that protocol and state  
+        - Reference(s):  
+            - [Fortinet Troubleshooting Tip](https://community.fortinet.com/t5/FortiGate/Troubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)  
+        - Usage: `dump -r fortinet_protocols | table`
+
+    - fortinet\_log\_ids  
+        - This is intended to be used as a lookup file providing additional information regarding Fortinet log types and subtypes. It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.  
+        - Fields: category, category\_id, subcategory, subcategory\_id, name, description, risk\_score  
+            - category: log category for the event  
+            - category\_id: log category id for the event  
+            - subcategory: log subcategory for the event  
+            - subcategory\_id: log subcategory id for the event  
+            - name: log subcategory name  
+            - description: more information about the subcategory  
+            - risk\_score: associated risk score for the log category/subcategory  
+        - Reference(s):  
+            - [Fortinet Log ID Numbers](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/034314/log-id-numbers)  
+            - [Fortinet Log ID Definitions](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/656858/log-id-definitions)  
+            - [Fortinet Log Message Reference](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/160372)  
+        
+        - Usage: `dump -r fortinet_log_ids | table`
+
+    - fortinet\_url\_category  
+        - This is intended to be used as a lookup file providing additional information regarding Fortinet url categories. It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.  
+        
+        - Fields: category, category\_id, subcategory, subcategory\_id, description, risk\_score  
+            - category: url category for the event  
+            - category\_id: url category id for the event  
+            - subcategory: log subcategory for the event  
+            - subcategory\_id: log subcategory id for the event  
+            - description: more information about the subcategory  
+            - risk\_score: associated risk score for the url category/subcategory  
+        - Reference(s):  
+            - [Fortinet Troubleshooting Tip](https://community.fortinet.com/t5/FortiGate/Troubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)  
+        
+        - Usage: `dump -r fortinet_url_category | table`
+
+***
+
+## 5. [Alerts](#5-alerts)
+- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.
+- [Documentation](https://docs.gravwell.io/alerts/alerts.html#alerts)
+- Total: ***0***
+- Naming Schema: _Alert - Fortinet - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - AlertName_
+
+#### 5.1 [Dispatchers](#5-1-dispatchers)
+- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.
+    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)
+- [Documentation](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)
+
+#### 5.2 [Consumers](#5-2-consumers)
+- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.
+    - Consumers = [Flows](#6-1-flows)
+- [Documentation](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)
+
+***
+
+## 6. [Scheduled Searches](#6-scheduled-searches)
+- Purpose: Scheduled Searches are typically dependent on “AlertQuery - Fortinet - …” queries within the [Query Library](#2-query-library).
+- [Documentation](https://docs.gravwell.io/scripting/scheduledsearch.html)
+- Total: ***0***
+- Naming Schema: _ScheduledSearch - Fortinet - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - ScheduledSearchName_
+- Cron schedules:
+
+#### 6.1. [Flows](#6-1-flows)
+- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.
+- [Documentation](https://docs.gravwell.io/flows/flows.html)
+- Total: ***0***
+- Dependencies:
+
+***
+
+## 7. [Playbooks](#7-playbooks)
+- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.
+- [Documentation](https://docs.gravwell.io/gui/playbooks/playbooks.html)
+- Total: ***1***
+    - Fortinet Kit for Gravwell - README
+- Naming Schema: _Playbook - Fortinet - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - PlaybookName_
+- Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.
+
+***
+
+## 8. [Searches](#8-searches)
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Fortinet data in an easily digestible format.
+- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
+- Total: ***0***
+- Naming Schema: _Search - Fortinet - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - **if any**]_
+
+#### 8.1. [Alert Queries](#8-1-alert-queries)
+- Alert Queries feed [Scheduled Searches](#6-scheduled-searches)
+- IMPORTANT: If you need to update or tune, this is where you perform that action.
+- Total: ***0***
+- Naming Schema: _AlertQuery - Fortinet - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - AlertName_
+
+***
+
+## 9. [Templates](#9-templates)
+- Purpose: Templates are special objects which define a Gravwell query containing variables.
+- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)
+- Total: 15
+- ***General Disclaimer*** for all Templates  
+    - Fortinet EV 0 must be populated with a variable.  
+    - Fortinet EV 1 & Fortinet EV 2 may be left empty.
+- Template - Fortinet - Events - EV - Count [table]  
+    - Displays a table of the specified Fortinet Events grouped by the specified Enumerated Values (EVs). Used on the Fortinet Events Overview dashboard.  
+- Template - Fortinet - Events - EV - Count [chart]  
+    - Displays a chart of the specified Fortinet Events grouped by the specified Enumerated Values (EVs). Used on the Fortinet Events Overview dashboard.  
+- Template - Fortinet - Events - EV - Count [numbercard]  
+    - Displays a numbercard of the specified Fortinet Events grouped by the specified Enumerated Values (EVs). Used on the Fortinet Events Overview dashboard.  
+- Template - Fortinet - Traffic - EV - Count [chart]  
+    - Displays a chart of the specified Fortinet Traffic events grouped by the specified Enumerated Values (EVs). Used on the Fortinet Traffic Overview dashboard.  
+- Template - Fortinet - Traffic - EV - Count [table]  
+    - Displays a table of the specified Fortinet Traffic events grouped by the specified Enumerated Values (EVs). Used on the Fortinet Traffic Overview dashboard.  
+- Template - Fortinet - Traffic - EV - Count [numbercard]  
+    - Displays a numbercard of the specified Fortinet Traffic events grouped by the specified Enumerated Values (EVs). Used on the Fortinet Traffic Overview dashboard.  
+- Template - Fortinet - UTM - EV - Count [table]  
+    - Displays a table of the specified Fortinet UTM events grouped by the specified Enumerated Values (EVs). Used on the Fortinet UTM Overview dashboard.  
+- Template - Fortinet - UTM - EV - Count [numbercard]  
+    - Displays a numbercard of the specified Fortinet UTM events grouped by the specified Enumerated Values (EVs). Used on the Fortinet UTM Overview dashboard.  
+- Template - Fortinet - UTM - EV - Count [chart]  
+    - Displays a chart of the specified Fortinet UTM events grouped by the specified Enumerated Values (EVs). Used on the Fortinet UTM Overview dashboard.  
+- Template - Fortinet - System - EV - Count [chart]  
+    - Displays a chart of the specified Fortinet System events grouped by the specified Enumerated Values (EVs). Used on the Fortinet System Overview dashboard.  
+- Template - Fortinet - System - EV - Count [table]  
+    - Displays a table of the specified Fortinet System events grouped by the specified Enumerated Values (EVs). Used on the Fortinet System Overview dashboard.  
+- Template - Fortinet - System - EV - Count [numbercard]  
+    - Displays a numbercard of the specified Fortinet System events grouped by the specified Enumerated Values (EVs). Used on the Fortinet System Overview dashboard.  
+- Template - Fortinet - General - EV - Count [chart]  
+    - Displays a chart of Fortinet events grouped by the specified Enumerated Values (EVs) across all Fortinet log types. Used on the General Fortinet Overview dashboard.  
+- Template - Fortinet - General - EV - Count [numbercard]  
+    - Displays a numbercard of Fortinet events grouped by the specified Enumerated Values (EVs) across all Fortinet log types. Used on the General Fortinet Overview dashboard.  
+- Template - Fortinet - General - EV - Count [table]  
+    - Displays a table of Fortinet events grouped by the specified Enumerated Values (EVs) across all Fortinet log types. Used on the General Fortinet Overview dashboard.  
+
+***
+
+## 10. [Dashboards](#10-dashboards)
+- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.
+- [Documentation](https://docs.gravwell.io/gui/dashboards/dashboards.html
+- Total: ***5***
+    - Fortinet System Overview  
+        - This Dashboard is a general overview of your Fortinet System Data.  
+    - Fortinet Events Overview  
+        - This Dashboard is a general overview of your Fortinet Events Data.  
+    - Fortinet UTM Overview  
+        - This Dashboard is a general overview of your Fortinet UTM Data.  
+    - Fortinet Traffic Overview  
+        - This Dashboard is a general overview of your Fortinet Traffic Data.  
+    - General Fortinet Overview  
+        - This Dashboard is a general overview of all of your Fortinet Data.  
+- All of the Dashboards accept up to 3 input variables. 
+    - EV0 must be populated
+    - EV1 & EV2 may be empty and that is depicted in the defaults as "ev1" & "ev2"
+
+#### 10.1 [Actionables](#10-1-actionables)
+- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.
+- [Documentation](https://docs.gravwell.io/gui/actionables/actionables.html
+- Total: ***0***
+
+***
+
+## 11. [Useful Resources & References](#11-useful-resources--references)
+- Gravwell
+    - [Tags](https://docs.gravwell.io/ingesters/ingesters.html#tags)
+    - [Macros](https://docs.gravwell.io/search/macros.html)
+    - [Resources](https://docs.gravwell.io/resources/resources.html)
+    - [Lookup module](https://docs.gravwell.io/search/lookup/lookup.html)
+    - [Templates](https://docs.gravwell.io/gui/templates/templates.html)
+    - [Dashboards](https://docs.gravwell.io/gui/dashboards/dashboards.html)
+
+- Fortinet (FortiGate / FortiOS Log Reference)
+    - [FortiOS Log Message Reference (general)](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/)
+    - [FortiOS Priority Levels](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/446022/fortios-priority-levels)
+    - [Log ID Numbers](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/034314/log-id-numbers)
+    - [Log ID Definitions](https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/656858/log-id-definitions)
+    - [Session table / protocol state reference](https://community.fortinet.com/t5/FortiGate/Troubleshooting-Tip-FortiGate-session-table-information/ta-p/196988)
+
+***
+
+## 12. [Notes](#12-notes)
+
+***
+
+## 13. [Image credits](#13-image-credits)
+- icon: [Fortinet](https://icons.fortinet.com/#Fortinet-logomark-rgb-red)
+- cover: [Fortinet](https://icons.fortinet.com/#Fortinet-logo-rgb-black-red)
+- banner: [Fortinet](https://icons.fortinet.com/#Fortinet-logo-rgb-black-red)
+- Fortinet images are wholly owned by Fortinet and distributed according to the [Fortinet Brand Guidelines](https://www.fortinet.com/content/dam/maindam/CORPORATE/01_BRANDING/current/FTNT-Brand-Guidelines.pdf) and are **NOT** subject to any Gravwell licensing.
+</km>

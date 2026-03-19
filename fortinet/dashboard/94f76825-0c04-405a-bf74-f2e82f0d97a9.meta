@@ -1,0 +1,102 @@
+{
+	"UUID": "94f76825-0c04-405a-bf74-f2e82f0d97a9",
+	"Name": "Fortinet Events Overview",
+	"Description": "This Dashboard is a general overview of your Fortinet Events Data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Fortinet - Events - EV - Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "14d907e9-e04b-4732-829d-d06b86f921bb",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Events - EV - Count [chart]",
+				"color": null,
+				"reference": {
+					"id": "e4a8d7ba-24cd-451d-acf9-890eed121026",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Fortinet - Events - EV - Count [table]",
+				"color": null,
+				"reference": {
+					"id": "bd9b43f0-8a58-42e0-8959-3634ad8359c6",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17707539325300,
+				"title": "Count [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17707539678441,
+				"title": "Count [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17707540075492,
+				"title": "Count [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 7
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

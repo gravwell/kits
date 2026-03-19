@@ -1,0 +1,36 @@
+{
+	"UUID": "05efe598-5075-441f-862c-fa56375e3f4a",
+	"Name": "Template - Fortinet - General - EV - Count [table]",
+	"Description": "Displays a table of the Fortinet events grouped by the specified Enumerated Values (EVs) across all Fortinet log types. Used on the General Fortinet Overview dashboard.\n\nFortinet EV 0 must be populated with a variable.\nFortinet EV 1 \u0026 Fortinet EV 2 may be left empty.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ev0%%",
+				"label": "Fortinet EV 0",
+				"description": "Any extracted Traffic EV; Top Options: type,subtype,level,srcip,srcport,dstip,dstport,authproto,action,policyid,alert,status,profile",
+				"required": true,
+				"defaultValue": "type",
+				"previewValue": "type"
+			},
+			{
+				"name": "%%ev1%%",
+				"label": "Fortinet EV 1",
+				"description": "Any extracted Traffic EV; Top Options: type,subtype,level,srcip,srcport,dstip,dstport,authproto,action,policyid,alert,status,profile",
+				"required": true,
+				"defaultValue": "subtype",
+				"previewValue": "subtype"
+			},
+			{
+				"name": "%%ev2%%",
+				"label": "Fortinet EV 2",
+				"description": "Any extracted Traffic EV; Top Options: type,subtype,level,srcip,srcport,dstip,dstport,authproto,action,policyid,alert,status,profile",
+				"required": true,
+				"defaultValue": "ev2",
+				"previewValue": "ev2"
+			}
+		]
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

@@ -1,0 +1,36 @@
+state,description
+may-dirty,Session details are allowed to be altered.
+dirty,The session has been altered (requires may-dirty).
+npu,The session goes through an acceleration chip (should be an ASIC).
+npd,The session is denied for hardware acceleration.
+npr,The session is eligible for hardware acceleration (more info with npu info: offload=x/y).
+rem,The session is allowed to be reset in case of a memory shortage.
+eph,The session is ephemeral.
+oe,The session is part of the IPsec tunnel (from the originator).
+re,The session is part of the IPsec tunnel (from the responder).
+local,The session is attached to the local FortiGate IP stack.
+br,The session is bridged (VDOM is in transparent mode).
+redir,The session is redirected to an internal FGT proxy.
+wccp,The session is intercepted by wccp process.
+nlb,The session is from a load-balanced vip.
+log,The session is being logged.
+log-start,"The session is being logged when it starts as well (generate two logs for one session, start & end)."
+os,The session is shaped in the original direction.
+rs,The session is shaped by the reply direction.
+ndr,The session is inspected by the IPS signature.
+nds,The session is inspected by an IPS anomaly.
+auth,The session is subject to authentication.
+authed,The session was successfully authenticated.
+block,The session was re-evaluated to block (policy changed).
+ext,(deprecated) The session is handled by a session helper.
+app_ntf,Session matched a policy entry that contains 'set block-notification enable'.
+F00,"After enabling the traffic log-in policy, the session will have this flag."
+pol_sniff,"After enabling packet capture in policy, the session will have this flag."
+rst_tcp,Flag visible when firewall policy has 'timeout-send-rst enabled'.
+synced,"The session has been synchronized to HA peers, as seen on session-pickup enabled master."
+syn_ses,"The session has been synchronized from the master to this peer, as seen on session-pickup enabled slave/backup/ha-peer device."
+need_sync,"With 30sec ha sync delay. The session will be synced when reaching 30 seconds of lifetime."
+complex,The session is handled by a session helper.
+app_valid,"The relevant rule has an app control profile applied, and FortiGate IPSengine was able to identify the application. (The session will have a field such as app= indicating the application)."
+intree,"Indicates that the session is a child session. The child session is created by session helpers like RPC, SIP, and FTP. The child session's serial number is the same as the parent session."
+hlife,This indicates the traffic is matching a policy that has the command 'set schedule-timeout enable' configured. This is usually used along with the scheduler to close the session once it reaches the end time in the schedule.

@@ -1,0 +1,5 @@
+tag=$FORTINET ax
+| eval ev1 = " "
+| eval ev2 = " "
+| stats count by %%ev0%% %%ev1%% %%ev2%%
+| chart count by %%ev0%% %%ev1%% %%ev2%%
