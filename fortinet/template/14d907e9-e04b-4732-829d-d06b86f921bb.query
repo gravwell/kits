@@ -1,0 +1,6 @@
+tag=$FORTINET_EVENTS ax
+| eval ev1 = " "
+| eval ev2 = " "
+| stats count by "%%ev0%%" "%%ev1%%" "%%ev2%%"
+| alias count " "
+| numbercard " "

@@ -13,7 +13,7 @@
 # You can also just execute this file using bash
 #
 #
-OUT="fortinet.kit"
+OUT = "fortinet.kit"
 
 cmd=$(which kitctl)
 if [ "$?" != "0" ]; then
@@ -24,4 +24,3 @@ fi
 
 set -e
 $cmd pack $OUT
-

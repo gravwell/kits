@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Fortinet - System - Log Types - Count by App \u0026 Category [chart]",
+	"Description": "Displays a chart of the different Fortinet by app \u0026 category. This query is used on the General Fortinet Overview dashboard. ",
+	"GUID": "f7837614-eed8-4674-a91b-8aed683567d6",
+	"Labels": [
+		"fortinet"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

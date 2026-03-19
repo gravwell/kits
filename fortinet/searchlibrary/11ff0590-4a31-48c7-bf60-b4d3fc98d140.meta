@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Fortinet - System - Log Types - Count by Level [chart]",
+	"Description": "Displays a chart of the different Fortinet by level. This query is used on the General Fortinet Overview dashboard. ",
+	"GUID": "11ff0590-4a31-48c7-bf60-b4d3fc98d140",
+	"Labels": [
+		"fortinet"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"Name": "FORTINET",
+	"Description": "Configuration Macro; Tag used for all Fortinet data; necessary for any queries within the Gravwell Fortinet Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$FORTINET",
+	"Labels": [
+		"fortinet"
+	]
+}

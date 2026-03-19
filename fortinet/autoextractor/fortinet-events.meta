@@ -1,0 +1,17 @@
+{
+	"Name": "fortinet-events",
+	"Desc": "Gravwell generated fields extraction for tag fortinet-events, args '-q'",
+	"Module": "kv",
+	"Tag": "",
+	"Tags": [
+		"fortinet-events"
+	],
+	"Labels": [
+		"fortinet"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "abb872f0-84a3-4992-bf94-377854543471",
+	"LastUpdated": "2026-03-10T15:13:29.302340543Z"
+}

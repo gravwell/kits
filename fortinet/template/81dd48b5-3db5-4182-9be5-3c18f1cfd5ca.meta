@@ -1,0 +1,36 @@
+{
+	"UUID": "81dd48b5-3db5-4182-9be5-3c18f1cfd5ca",
+	"Name": "Template - Fortinet - Traffic - EV - Count [table]",
+	"Description": "Displays a table of the specified Fortinet Traffic events grouped by the specified Enumerated Values (EVs). Used on the Fortinet Traffic Overview dashboard.\n\nFortinet EV 0 must be populated with a variable.\nFortinet EV 1 \u0026 Fortinet EV 2 may be left empty.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ev0%%",
+				"label": "Fortinet EV 0",
+				"description": "Any extracted Traffic EV; Top Options: subtype,level,srcip,srcport,dstip,dstport,proto,action,policyid,policytype,service",
+				"required": true,
+				"defaultValue": "subtype",
+				"previewValue": "subtype"
+			},
+			{
+				"name": "%%ev1%%",
+				"label": "Fortinet EV 1",
+				"description": "Any extracted Traffic EV; Top Options: subtype,level,srcip,srcport,dstip,dstport,proto,action,policyid,policytype,service",
+				"required": true,
+				"defaultValue": "ev1",
+				"previewValue": "level"
+			},
+			{
+				"name": "%%ev2%%",
+				"label": "Fortinet EV 2",
+				"description": "Any extracted Traffic EV; Top Options: subtype,level,srcip,srcport,dstip,dstport,proto,action,policyid,policytype,service",
+				"required": true,
+				"defaultValue": "ev2",
+				"previewValue": "action"
+			}
+		]
+	},
+	"Labels": [
+		"fortinet"
+	]
+}

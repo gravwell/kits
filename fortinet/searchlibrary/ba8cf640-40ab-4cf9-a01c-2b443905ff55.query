@@ -1,0 +1,5 @@
+tag=$FORTINET kv -q 
+    type as cat
+    subtype as subcat
+| stats count by cat subcat
+| chart count by cat subcat

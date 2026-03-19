@@ -1,0 +1,6 @@
+tag=$FORTINET_TRAFFIC start=-%%time%% ax 
+    date time type subtype level srcip srcport srccountry dstip dstport dstcountry rcvdbyte sentbyte action utmaction app appcat apprisk service
+| eval sentbyte = pretty_size(string(sentbyte))
+| eval rcvdbyte = pretty_size(string(rcvdbyte))
+| eval srcip~"%%ip%%" || dstip~"%%ip%%"
+| table date time type subtype level srcip srcport srccountry dstip dstport dstcountry rcvdbyte sentbyte action utmaction app appcat apprisk service

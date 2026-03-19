@@ -1,0 +1,5 @@
+tag=$FORTINET kv -q
+    app
+    appcat
+| stats count by app appcat
+| chart count by app appcat

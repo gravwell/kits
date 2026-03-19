@@ -1,0 +1,5 @@
+tag=$FORTINET kv -q
+    app
+    action
+| stats count by app action
+| chart count by app action

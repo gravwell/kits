@@ -1,0 +1,8 @@
+priority,name,description
+0,Emergency,The system is unusable or not responding.
+1,Alert,Immediate action required. Used in security logs.
+2,Critical,Functionality is affected.
+3,Error,An error exists and functionality could be affected.
+4,Warning,Functionality could be affected.
+5,Notification,Information about normal events.
+6,Information,General information about system operations. Used in event logs to record configuration changes.

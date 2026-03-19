@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "fortinet_priority",
+	"Description": "This is intended to be used as a lookup file providing additional information regarding Fortinet priority levels (EV = level). It is used within the Fortinet Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.\n\nfields:\npriority,name,description\n  - priority: this is the priority level for the event\n  - name: this is the priority name for the event\n  - description: this is more information about the priority for the event\n\nReference(s):\n  - Fortinet \n    - https://docs.fortinet.com/document/fortigate/7.6.5/fortios-log-message-reference/446022/fortios-priority-levels\n\nUsage: lookup -r fortinet_priority level priority (priority name description)",
+	"Labels": [
+		"fortinet"
+	],
+	"Size": 445,
+	"Hash": "zAInQpW1mMgEtgnec5R/GA==",
+	"Data": ""
+}
