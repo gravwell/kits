@@ -1,0 +1,5 @@
+tag=$AUDITD kv -q type as auditType a0 a1
+| eval auditType == "EXECVE" && (
+    in(a0, "shutdown", "reboot", "halt", "poweroff") ||
+    (in(a0, "init", "telinit") && in(a1, "0", "6"))
+    )

@@ -1,0 +1,10 @@
+{
+	"Name": "AWS Role Assumptionn",
+	"Description": "Shows who is pivoting into which roles",
+	"GUID": "89d6ef57-8ae6-4d90-83fc-8ec888611ac1",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats"
+	],
+	"Metadata": {}
+}

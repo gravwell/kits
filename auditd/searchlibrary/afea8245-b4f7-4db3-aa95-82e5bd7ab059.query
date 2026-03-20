@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType ID as user exe
+| eval (((auditType == "SYSCALL") && (exe ~ "/useradd")) || ((auditType == "ADD_USER")))

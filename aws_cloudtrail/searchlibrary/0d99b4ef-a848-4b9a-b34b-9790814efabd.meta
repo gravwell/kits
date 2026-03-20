@@ -1,0 +1,23 @@
+{
+	"Name": "AWS Suspicious SAML Activity",
+	"Description": "Identifies when suspicious SAML activity has occurred in AWS. An adversary could gain backdoor access via SAML.",
+	"GUID": "0d99b4ef-a848-4b9a-b34b-9790814efabd",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"sts",
+		"iam",
+		"saml",
+		"T1078",
+		"T1548",
+		"T1550",
+		"T1550.001",
+		"defense-evasion",
+		"initial-access",
+		"lateral-movement",
+		"persistence",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

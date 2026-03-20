@@ -1,0 +1,15 @@
+{
+	"Name": "AWS Snapshot Backup Exfiltration",
+	"Description": "Detects the modification of an EC2 snapshot's permissions to enable access from another account",
+	"GUID": "28b0cff9-3aed-4c34-87c9-cebdd719f6ca",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ec2",
+		"snapshot",
+		"T1537",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "AWS Top Talkers by IAM Role",
+	"Description": "Identifies which automated role may be spamming APIs",
+	"GUID": "618b3804-0319-4700-8ddd-d84fd53cb1eb",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats",
+		"role"
+	],
+	"Metadata": {}
+}

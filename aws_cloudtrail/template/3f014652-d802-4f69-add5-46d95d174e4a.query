@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json userIdentity.userName as username eventName userIdentity.type as type sourceIPAddress
+| grep eventName == "%%EVENT_TYPE%%"
+| ip sourceIPAddress ~ "%%SRC_IP%%"

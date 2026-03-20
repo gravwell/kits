@@ -1,0 +1,12 @@
+{
+	"Name": "AWS Top Error Generators",
+	"Description": "Identifies which AWS service (e.g., DynamoDB, Lambda) is failing the most.",
+	"GUID": "330fd409-c419-43ff-b087-3f01d50db339",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats",
+		"error",
+		"service"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType exe AUID
+| eval auditType == "SYSCALL"
+| lookup -v -r exe_baseline exe exe
+| table AUID exe

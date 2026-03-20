@@ -1,0 +1,16 @@
+{
+	"Name": "Auditd File or Folder Permissions Change",
+	"Description": "Detects file and folder permission changes.",
+	"GUID": "a65e318d-91d1-4384-8ed9-d0f36e7daf75",
+	"Labels": [
+		"linux",
+		"auditd",
+		"file",
+		"permissions",
+		"chmod",
+		"chown",
+		"T1222.002",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

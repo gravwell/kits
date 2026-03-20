@@ -1,0 +1,14 @@
+{
+	"Name": "AWS New Network Route Added",
+	"Description": "Detects the addition of a new network route to a route table in AWS.",
+	"GUID": "03c3066b-f971-42c0-89a1-995167bd5180",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ec2",
+		"T1562.007",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

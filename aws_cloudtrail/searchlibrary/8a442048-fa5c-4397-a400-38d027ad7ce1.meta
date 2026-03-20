@@ -1,0 +1,10 @@
+{
+	"Name": "AWS Route Table Changes",
+	"Description": "Review events for route creation, deletion, replacement",
+	"GUID": "8a442048-fa5c-4397-a400-38d027ad7ce1",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats"
+	],
+	"Metadata": {}
+}

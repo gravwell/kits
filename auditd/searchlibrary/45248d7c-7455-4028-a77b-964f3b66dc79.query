@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType comm exe SRC
+| eval (auditType == "SYSCALL" && (comm == "sudoedit" || exe == "/usr/bin/sudoedit"))
+| stats count by SRC
+| eval (count > 50)

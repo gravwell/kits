@@ -1,0 +1,10 @@
+{
+	"Name": "Auditd BPFDoor Abnormal Process ID or Lock File Accessed",
+	"Description": "Detects presence of IOCs related to BPFDoor malware being present",
+	"GUID": "02da6786-82ec-472a-975f-de74b078244c",
+	"Labels": [
+		"T1106",
+		"T1059"
+	],
+	"Metadata": {}
+}

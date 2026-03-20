@@ -1,0 +1,16 @@
+{
+	"Name": "Auditd Loading of Kernel Module via Insmod",
+	"Description": "Detects loading of kernel modules with insmod command. Loadable Kernel Modules (LKMs) are pieces of code that can be loaded and unloaded into the kernel upon demand. Adversaries may use LKMs to obtain persistence within the system or elevate the privileges.",
+	"GUID": "eb200857-eb07-4218-8c65-f6f3234a4540",
+	"Labels": [
+		"linux",
+		"auditd",
+		"kernel module",
+		"insmod",
+		"kmod",
+		"T1547.006",
+		"persistence",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

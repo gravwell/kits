@@ -1,0 +1,16 @@
+{
+	"Name": "AWS Potential Malicious Usage of CloudTrail System Manager",
+	"Description": "Detect when System Manager successfully executes commands against an instance.",
+	"GUID": "ec38021b-cc2d-4107-95a0-e9b29b0c5a02",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ssm",
+		"T1566",
+		"T1566.002",
+		"privilege-escalation",
+		"initial-access"
+	],
+	"Metadata": {}
+}

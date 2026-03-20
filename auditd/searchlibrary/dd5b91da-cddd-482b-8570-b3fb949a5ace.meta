@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Modify System Firewall",
+	"Description": "Detects the removal of system firewall rules. Adversaries may only delete or modify a specific system firewall rule to bypass controls limiting network usage or access.\nDetection rules that match only on the disabling of firewalls will miss this.\n",
+	"GUID": "dd5b91da-cddd-482b-8570-b3fb949a5ace",
+	"Labels": [
+		"auditd",
+		"linux",
+		"firewall",
+		"T1562.004",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

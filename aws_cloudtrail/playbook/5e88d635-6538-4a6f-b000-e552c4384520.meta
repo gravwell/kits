@@ -1,0 +1,24 @@
+{
+	"UUID": "aa3317a5-795d-41a0-84ef-ef39e2313577",
+	"GUID": "5e88d635-6538-4a6f-b000-e552c4384520",
+	"UID": 7,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "AWS CloudTrail - Integration Guide",
+	"Desc": "",
+	"Labels": [
+		"aws_cloudtrail"
+	],
+	"LastUpdated": "2026-03-18T10:13:46.656297265-06:00",
+	"Author": {
+		"Name": "Bronson Peto",
+		"Email": "bronson.peto@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

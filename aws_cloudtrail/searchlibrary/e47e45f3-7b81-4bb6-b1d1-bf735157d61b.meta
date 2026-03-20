@@ -1,0 +1,13 @@
+{
+	"Name": "AWS EnableRegion Command Monitoring",
+	"Description": "Detects the use of the EnableRegion command in AWS CloudTrail logs. While AWS has 30+ regions, some of them are enabled by default, others must be explicitly enabled in each account separately. There may be situations where security monitoring does not cover some new AWS regions. Monitoring the EnableRegion command is important for identifying potential persistence mechanisms employed by adversaries, as enabling additional regions can facilitate continued access and operations within an AWS environment.",
+	"GUID": "e47e45f3-7b81-4bb6-b1d1-bf735157d61b",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"region",
+		"persistence"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,9 @@
+{
+	"Ingesters": ["s3"],
+	"Tags": ["aws-guardduty"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "AWS GuardDuty", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "AWS GuardDuty", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}

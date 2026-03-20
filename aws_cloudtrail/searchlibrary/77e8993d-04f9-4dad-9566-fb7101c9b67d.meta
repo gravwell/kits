@@ -1,0 +1,16 @@
+{
+	"Name": "AWS Console GetSigninToken Potential Abuse",
+	"Description": "Detects potentially suspicious events involving 'GetSigninToken'. An adversary using the 'aws_consoler' tool can leverage this console API to create temporary federated credential that help obfuscate which AWS credential is compromised (the original access key) and enables the adversary to pivot from the AWS CLI to console sessions without the need for MFA using the new access key issued in this request.",
+	"GUID": "77e8993d-04f9-4dad-9566-fb7101c9b67d",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"signin",
+		"T1021.007",
+		"T1550.001",
+		"lateral-movement",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,7 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "securityhub.amazonaws.com" eventName
+| eval (
+    eventName == "BatchUpdateFindings" ||
+    eventName == "DeleteInsight" ||
+    eventName == "UpdateFindings" ||
+    eventName == "UpdateInsight"
+    )

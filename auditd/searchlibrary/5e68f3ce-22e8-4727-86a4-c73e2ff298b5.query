@@ -1,0 +1,3 @@
+tag=$AUDITD kv -q type as auditType a0 as cmd a1 as flags a2 as grep_text a3 as search_file
+| eval ((auditType == "EXECVE") && (cmd == "grep"))
+| grep "password"

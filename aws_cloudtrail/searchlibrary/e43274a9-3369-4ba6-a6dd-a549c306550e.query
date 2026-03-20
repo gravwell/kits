@@ -1,0 +1,5 @@
+tag=$AWS_CLOUDTRAIL json eventName eventSource
+| eval (
+    eventSource == "ec2.amazonaws.com" &&
+    eventName == "CreateNetworkAclEntry"
+    )

@@ -1,0 +1,14 @@
+{
+	"Name": "AWS RDS Master Password Change",
+	"Description": "Detects the change of database master password. It may be a part of data exfiltration.",
+	"GUID": "42089e7f-a724-4ff3-a821-cda83ad06e75",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"rds",
+		"T1020",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

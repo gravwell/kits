@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "signin.amazonaws.com" eventName userAgent
+| eval (eventName == "GetSigninToken" && userAgent !~ "Jersey/")

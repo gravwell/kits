@@ -1,0 +1,19 @@
+{
+	"Name": "AWS STS GetSessionToken Misuse",
+	"Description": "Identifies the suspicious use of GetSessionToken. Tokens could be created and used by attackers to move laterally and escalate privileges.",
+	"GUID": "12624060-0628-4b13-b88c-9bbea3520420",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"sts",
+		"sessiontoken",
+		"T1548",
+		"T1550",
+		"T1550.001",
+		"lateral-movement",
+		"privilege-escalation",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

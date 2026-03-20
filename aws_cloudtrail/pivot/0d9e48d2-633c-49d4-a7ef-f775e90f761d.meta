@@ -1,0 +1,41 @@
+{
+	"UUID": "0d9e48d2-633c-49d4-a7ef-f775e90f761d",
+	"Name": "AWS CloudTrail Service",
+	"Description": "Search logs for an AWS service",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Errors",
+				"description": "Search errors of an AWS service",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "64d77852-d6c2-4064-93d8-6211b433f72b",
+					"options": {
+						"variable": "%%AWS_SERVICE%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/(?\u003cservice\u003e\\b[a-zA-Z0-9.-]+\\.amazonaws\\.com\\b)/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

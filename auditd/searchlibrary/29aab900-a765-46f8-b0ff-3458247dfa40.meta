@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Hidden Files and Directories",
+	"Description": "Detects adversary creating hidden file or directory, by detecting directories or files with . as the first character",
+	"GUID": "29aab900-a765-46f8-b0ff-3458247dfa40",
+	"Labels": [
+		"linux",
+		"auditd",
+		"hidden file",
+		"hidden directory",
+		"T1564.001",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

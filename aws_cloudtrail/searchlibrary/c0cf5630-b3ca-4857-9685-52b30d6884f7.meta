@@ -1,0 +1,15 @@
+{
+	"Name": "AWS ElastiCache Security Group Created",
+	"Description": "Detects when an ElastiCache security group has been created.",
+	"GUID": "c0cf5630-b3ca-4857-9685-52b30d6884f7",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"elasticache",
+		"T1136",
+		"T1136.003",
+		"persistence"
+	],
+	"Metadata": {}
+}

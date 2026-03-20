@@ -1,0 +1,12 @@
+{
+	"Name": "AWS Top API Callers",
+	"Description": "Top API callers by principal",
+	"GUID": "233a3a1a-4d2c-4e44-930f-b33ffad0c04a",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats",
+		"callers",
+		"api"
+	],
+	"Metadata": {}
+}

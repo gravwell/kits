@@ -1,0 +1,1 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "elasticfilesystem.amazonaws.com" eventName == "DeleteFileSystem"

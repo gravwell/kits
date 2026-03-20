@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType SYSCALL a0
+| eval (auditType=="SYSCALL")
+| eval (SYSCALL=="syslog")
+| eval ((a0 == "4") || (a0 == "5") || (a0 == "6"))

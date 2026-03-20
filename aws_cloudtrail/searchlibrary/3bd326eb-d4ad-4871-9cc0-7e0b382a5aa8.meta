@@ -1,0 +1,15 @@
+{
+	"Name": "AWS IAM Backdoor Users Keys",
+	"Description": "Detects AWS API key creation for a user by another user. Backdoored users can be used to obtain persistence in the AWS environment. Also with this alert, you can detect a flow of AWS keys in your org.",
+	"GUID": "3bd326eb-d4ad-4871-9cc0-7e0b382a5aa8",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"iam",
+		"T1098",
+		"persistence",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

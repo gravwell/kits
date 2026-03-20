@@ -1,0 +1,18 @@
+{
+	"UUID": "55d26fbd-1451-445a-96a0-1f1af59ee1f5",
+	"Name": "AWS CloudTrail - User Activity Search",
+	"Description": "Specify an IAM username to review activity for. Includes event name, source IP address, and user agent.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%target_user%%",
+				"label": "target_user",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

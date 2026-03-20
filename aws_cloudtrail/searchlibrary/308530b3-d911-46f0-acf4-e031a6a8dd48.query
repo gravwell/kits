@@ -1,0 +1,5 @@
+tag=$AWS_CLOUDTRAIL json userIdentity.type as identityType userIdentity.sessionContext.sessionIssuer.type as issuerType
+| eval (
+    identityType == "AssumedRole" ||
+    issuerType == "Role"
+    )

@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Steganography Hide Files with Steghide",
+	"Description": "Detects embedding of files with usage of steghide binary, the adversaries may use this technique to prevent the detection of hidden information.",
+	"GUID": "1c267369-9bfb-457b-b5c5-bcac0ffa6efd",
+	"Labels": [
+		"linux",
+		"auditd",
+		"steganography",
+		"embed",
+		"T1027.003",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

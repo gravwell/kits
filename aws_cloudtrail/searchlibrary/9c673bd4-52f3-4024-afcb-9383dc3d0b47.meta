@@ -1,0 +1,14 @@
+{
+	"Name": "AWS Potential Bucket Enumeration on AWS",
+	"Description": "Looks for potential enumeration of AWS buckets via ListBuckets.",
+	"GUID": "9c673bd4-52f3-4024-afcb-9383dc3d0b47",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"T1580",
+		"T1619",
+		"discovery"
+	],
+	"Metadata": {}
+}

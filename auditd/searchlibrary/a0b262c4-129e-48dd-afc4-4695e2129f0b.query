@@ -1,0 +1,6 @@
+tag=$AUDITD kv -q type as auditType nametype name
+| eval (auditType == "PATH" && nametype == "CREATE") && (
+    (strings_hasprefix(name, "/usr/lib/systemd/system/") ||
+    strings_hasprefix(name,"/etc/systemd/system/")) ||
+    (name ~ "/.config/systemd/user/")
+    )

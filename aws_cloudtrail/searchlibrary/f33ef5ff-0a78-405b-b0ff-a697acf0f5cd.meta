@@ -1,0 +1,14 @@
+{
+	"Name": "AWS SES Identity Has Been Deleted",
+	"Description": "Detects an instance of an SES identity being deleted via the 'DeleteIdentity' event. This may be an indicator of an adversary removing the account that carried out suspicious or malicious activities",
+	"GUID": "f33ef5ff-0a78-405b-b0ff-a697acf0f5cd",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ses",
+		"T1070",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

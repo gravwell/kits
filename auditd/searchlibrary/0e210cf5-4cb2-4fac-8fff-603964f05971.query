@@ -1,0 +1,6 @@
+tag=$AUDITD kv -q type as auditType exe == "/usr/bin/sudo"
+| regex "msg='(?P<nested_msg>[^']+)'\x1d(?P<audit_suffix>.*)"
+| kv -e nested_msg res
+| kv -e audit_suffix UID AUID
+| eval  res == "failed"
+| table AUID exe res UID

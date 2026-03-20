@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType exe AUID
+| eval auditType == "SYSCALL"
+| unique exe
+| table -save exe_baseline -csv exe

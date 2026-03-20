@@ -1,0 +1,15 @@
+{
+	"Name": "Auditd System Shutdown/Reboot - Linux",
+	"Description": "Adversaries may shutdown/reboot systems to interrupt access to, or aid in the destruction of, those systems.",
+	"GUID": "6db39815-52d4-42c5-aa0e-404555c9b624",
+	"Labels": [
+		"linux",
+		"auditd",
+		"system",
+		"shutdown",
+		"reboot",
+		"T1529",
+		"impact"
+	],
+	"Metadata": {}
+}

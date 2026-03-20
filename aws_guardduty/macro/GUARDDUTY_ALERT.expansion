@@ -1,0 +1,10 @@
+| eval description = strings_replace(description, "\\n", "\n", -1)
+| printf -e context 
+"(Severity: %v) %%1%% Severity GuardDuty finding
+Account ID: %v\n
+Type: %v
+Title: %v\n
+Description:
+%v"
+    severity_value  accountId type title description 
+| table context

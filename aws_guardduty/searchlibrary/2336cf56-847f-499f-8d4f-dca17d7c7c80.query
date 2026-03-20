@@ -1,0 +1,3 @@
+tag=$AWS_GUARDDUTY  json accountId type title description severity as severity_value
+| eval severity_value >= 7 && severity_value <= 8.9
+$GUARDDUTY_ALERT("High")

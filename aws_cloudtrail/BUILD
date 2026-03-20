@@ -13,7 +13,7 @@
 # You can also just execute this file using bash
 #
 #
-OUT="duo.kit"
+OUT="aws_cloudtrail.kit"
 
 cmd=$(which kitctl)
 if [ "$?" != "0" ]; then

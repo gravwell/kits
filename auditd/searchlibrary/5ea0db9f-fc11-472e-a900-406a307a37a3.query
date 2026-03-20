@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType a0 as cmd a1 as target a2 as crond
+| eval (auditType == "EXECVE" && cmd == "cp" && target == "/bin/sh" && strings_hassuffix(crond, "/crond"))

@@ -1,0 +1,5 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "rds.amazonaws.com" eventName
+| eval (
+    eventName == "ModifyDBCluster" ||
+    eventName == "DeleteDBCluster"
+    )

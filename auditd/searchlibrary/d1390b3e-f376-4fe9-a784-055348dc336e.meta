@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Unix Shell Configuration Modification",
+	"Description": "Detect unix shell configuration modification. Adversaries may establish persistence through executing malicious commands triggered when a new shell is opened.",
+	"GUID": "d1390b3e-f376-4fe9-a784-055348dc336e",
+	"Labels": [
+		"linux",
+		"auditd",
+		"shell configuration",
+		"T1546.004",
+		"privilege-escalation",
+		"persistence"
+	],
+	"Metadata": {}
+}

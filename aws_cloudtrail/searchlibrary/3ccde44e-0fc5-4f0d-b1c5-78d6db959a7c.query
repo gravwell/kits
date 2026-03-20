@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json eventName userIdentity.arn userIdentity.userName as creatingIdentity requestParameters.userName as newUser
+| eval (eventName == "CreateUser" || eventName == "CreateAccessKey")
+| table eventName newUser creatingIdentity

@@ -1,0 +1,18 @@
+{
+	"UUID": "27e23512-9aec-45d5-bffe-67b4dfa987df",
+	"Name": "AWS CloudTrail - Search ARN Activity",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ARN%%",
+				"label": "ARN",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

@@ -1,0 +1,4 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "eks.amazonaws.com" eventName
+| eval (
+    eventName == "CreateCluster" ||
+    eventName == "DeleteCluster")

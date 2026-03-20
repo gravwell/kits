@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType name
+| eval (auditType == "PATH" && (name == "/etc/pam.d/system-auth" || name == "/etc/pam.d/password-auth")) || (auditType == "TTY" || auditType == "USER_TTY")

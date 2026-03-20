@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd EXE Baseline",
+	"Description": "Query all SYSCALL events for EXE, and save them to a resource that can be used to look for anomalous exe paths. Run against a known good timeframe of activity, and the results will be saved to a resource titled \"exe_baseline\"",
+	"GUID": "d766fb77-9fd4-4303-8110-3325843c2fee",
+	"Labels": [
+		"linux",
+		"auditd",
+		"baseline",
+		"exe",
+		"stats"
+	],
+	"Metadata": {}
+}

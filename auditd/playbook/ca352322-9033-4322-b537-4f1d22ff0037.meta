@@ -1,0 +1,24 @@
+{
+	"UUID": "8f4be0ec-ad96-432f-aca9-08c14afef968",
+	"GUID": "ca352322-9033-4322-b537-4f1d22ff0037",
+	"UID": 7,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Auditd - Kit Overview",
+	"Desc": "",
+	"Labels": [
+		"auditd"
+	],
+	"LastUpdated": "2026-03-04T11:48:57.286059039-07:00",
+	"Author": {
+		"Name": "Bronson Peto",
+		"Email": "bronson.peto@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

@@ -1,0 +1,14 @@
+{
+	"Name": "AWS ECS Task Definition That Queries The Credential Endpoint",
+	"Description": "Detects when an Elastic Container Service (ECS) Task Definition includes a command to query the credential endpoint. This can indicate a potential adversary adding a backdoor to establish persistence or escalate privileges.",
+	"GUID": "9ce70ee6-4864-4b8e-8872-d2beaa4e6453",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ecs",
+		"T1525",
+		"persistence"
+	],
+	"Metadata": {}
+}

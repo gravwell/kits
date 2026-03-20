@@ -1,0 +1,17 @@
+{
+	"Name": "AWS Identity Center Identity Provider Change",
+	"Description": "Detects a change in the AWS Identity Center (FKA AWS SSO) identity provider. A change in identity provider allows an attacker to establish persistent access or escalate privileges via user impersonation.",
+	"GUID": "5932d6c3-4f9f-4b82-8520-9c93255b0d20",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"iam",
+		"sso",
+		"T1556",
+		"persistence",
+		"credential-access",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

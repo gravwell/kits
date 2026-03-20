@@ -1,0 +1,5 @@
+tag=$AUDITD kv -q type as auditType a0 SYSCALL euid
+| eval (auditType == "SYSCALL" &&
+    (SYSCALL == "execve" || SYSCALL == "execveat") &&
+    euid == "33"
+)

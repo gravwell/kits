@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Split A File Into Pieces - Linux",
+	"Description": "Detection use of the command `split` to split files into parts and possible transfer.",
+	"GUID": "d4168279-b590-49d5-b6fa-409ad9aaaeda",
+	"Labels": [
+		"linux",
+		"auditd",
+		"file",
+		"split",
+		"T1030",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType comm exe
+| eval (auditType == "SYSCALL" && comm == "insmod" && exe == "/usr/bin/kmod")

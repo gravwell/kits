@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json eventName userIdentity.arn
+| count eventName by arn
+| chart count by arn

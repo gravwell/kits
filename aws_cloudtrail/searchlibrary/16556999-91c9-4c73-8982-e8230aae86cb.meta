@@ -1,0 +1,17 @@
+{
+	"Name": "AWS Role Assumption (Non-Service)",
+	"Description": "Detects when roles are assumed by non-service principals (users or other roles). This can indicate lateral movement, privilege escalation, or unauthorized access. Excludes normal service-to-service role assumptions.",
+	"GUID": "16556999-91c9-4c73-8982-e8230aae86cb",
+	"Labels": [
+		"aws_cloudtrail",
+		"detection",
+		"identity",
+		"role-assumption",
+		"T1550.001",
+		"T1078",
+		"T1078.004",
+		"lateral-movement",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,41 @@
+{
+	"UUID": "984cefd5-ff64-467f-92e7-1a6a2c6edf92",
+	"Name": "AWS CloudTrail - ARN",
+	"Description": "",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "ARN Activity",
+				"description": "Review activity of an ARN",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "27e23512-9aec-45d5-bffe-67b4dfa987df",
+					"options": {
+						"variable": "%%ARN%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/(?\u003carn\u003earn:aws[a-zA-Z0-9-]*:[a-zA-Z0-9-]*:[a-zA-Z0-9-]*:[0-9]*:[a-zA-Z0-9-/_.:]+)/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

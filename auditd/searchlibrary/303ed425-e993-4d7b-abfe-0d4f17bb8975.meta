@@ -1,0 +1,15 @@
+{
+	"Name": "Auditd Linux Network Service Scanning - Auditd",
+	"Description": "Detects enumeration of local or remote network services.",
+	"GUID": "303ed425-e993-4d7b-abfe-0d4f17bb8975",
+	"Labels": [
+		"auditd",
+		"linux",
+		"network discovery",
+		"nmap",
+		"nc",
+		"T1046",
+		"discovery"
+	],
+	"Metadata": {}
+}

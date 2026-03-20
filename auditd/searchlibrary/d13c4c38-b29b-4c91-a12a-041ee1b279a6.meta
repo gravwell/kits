@@ -1,0 +1,15 @@
+{
+	"Name": "Auditd Steganography Extract Files with Steghide",
+	"Description": "Detects extraction of files with usage of steghide binary, the adversaries may use this technique to prevent the detection of hidden information.",
+	"GUID": "d13c4c38-b29b-4c91-a12a-041ee1b279a6",
+	"Labels": [
+		"auditd",
+		"linux",
+		"steganography",
+		"extract",
+		"embed",
+		"T1027.003",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "AWS Throttling Events",
+	"Description": "Looks for events that contain error codes for throttling or rate exceeded",
+	"GUID": "1e2fdf16-78c6-4363-b2f0-cec891cb0104",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats",
+		"throttling"
+	],
+	"Metadata": {}
+}

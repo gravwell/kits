@@ -1,0 +1,127 @@
+{
+	"UUID": "9ace7235-4b11-478d-87e7-25a9d4dc10bd",
+	"Name": "AWS CloudTrail - High Security Concerns",
+	"Description": "Data that indicates activity that is likely suspicious and should be reviewed.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search 1",
+				"query": "tag=$AWS_CLOUDTRAIL json userIdentity.type == \"Root\"",
+				"color": "#b92727"
+			},
+			{
+				"alias": "Search 2",
+				"query": "tag=$AWS_CLOUDTRAIL json userIdentity.type == \"Root\" eventName eventTime\n| table eventName eventTime",
+				"color": "#b92727"
+			},
+			{
+				"alias": "Search 3",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName responseElements.ConsoleLogin\n| eval (eventName == \"ConsoleLogin\" \u0026\u0026 ConsoleLogin == \"Failure\")",
+				"color": null
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName responseElements.ConsoleLogin errorMessage\n| eval (eventName == \"ConsoleLogin\" \u0026\u0026 ConsoleLogin == \"Failure\")\n| count by errorMessage\n| chart count by errorMessage",
+				"color": null
+			},
+			{
+				"alias": "Search 5",
+				"query": "tag=$AWS_CLOUDTRAIL json errorCode userIdentity.type userIdentity.arn\n| eval errorCode == \"AccessDenied\" || errorCode == \"UnauthorizedOperation\"\n| count by arn over 6h\n| chart count by arn",
+				"color": null
+			},
+			{
+				"alias": "Search 6",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName userIdentity.arn\n| eval eventName == \"PutBucketPolicy\" || eventName == \"DeleteBucketPolicy\"\n| table eventName arn",
+				"color": null
+			},
+			{
+				"alias": "Search 7",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName userIdentity.arn\n| eval eventName == \"AuthorizeSecurityGroupIngress\" || eventName == \"RevokeSecurityGroupIngress\"\n| table eventName arn",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 4085615787268278,
+				"title": "Root Account Activity",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 7112527655500024,
+				"title": "Failed Console Logins",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 7,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 638231788312014,
+				"title": "Unauthorized API Calls",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 8,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 8388275368314628,
+				"title": "Bucket Policy Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 3451596370654597,
+				"title": "Security Group Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 7,
+					"y": 4
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

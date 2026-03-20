@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Clipboard Collection",
+	"Description": "Detects attempts to collect data stored in the clipboard from users with the usage of xclip tool.",
+	"GUID": "54465fd1-656d-4ca0-bb93-296229ff56c2",
+	"Labels": [
+		"linux",
+		"auditd",
+		"clipboard",
+		"T1115",
+		"TA0009"
+	],
+	"Metadata": {}
+}

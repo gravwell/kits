@@ -1,0 +1,1 @@
+tag=$AUDITD kv -q -s type == "SYSCALL" as auditType exe | stats count by exe | sort by count desc | table exe count

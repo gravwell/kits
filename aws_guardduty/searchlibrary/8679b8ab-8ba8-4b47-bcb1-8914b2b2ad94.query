@@ -1,0 +1,12 @@
+tag=$AWS_GUARDDUTY  json accountId type title description severity as severity_value severity_rating
+| eval
+    if (severity_value >= 9) {
+        severity_rating = "Critical";
+    } else if (severity_value >= 7 && severity_value <= 8.9) {
+        severity_rating = "High";
+    } else if (severity_value >= 4 && severity_value <= 6.9) {
+        severity_rating = "Medium";
+    } else {
+        severity_rating = "Low";
+    }
+| count by severity_rating
