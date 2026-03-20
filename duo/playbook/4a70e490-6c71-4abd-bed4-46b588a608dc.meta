@@ -1,24 +1,22 @@
 {
-	"UUID": "8f4be0ec-ad96-432f-aca9-08c14afef968",
-	"GUID": "ca352322-9033-4322-b537-4f1d22ff0037",
-	"UID": 7,
+	"UUID": "dd0d9497-08b7-45c7-a051-359c49960906",
+	"GUID": "4a70e490-6c71-4abd-bed4-46b588a608dc",
+	"UID": 2,
 	"GIDs": [],
 	"Global": true,
 	"WriteAccess": {
 		"Global": false,
 		"GIDs": []
 	},
-	"Name": "Auditd - Kit Overview",
+	"Name": "Duo - Integration Guide",
 	"Desc": "",
-	"Labels": [
-		"auditd"
-	],
-	"LastUpdated": "2026-03-04T11:48:57.286059039-07:00",
+	"Labels": null,
+	"LastUpdated": "2026-03-09T20:08:32.255816893Z",
 	"Author": {
         "Name": "Gravwell",
         "Email": "info@gravwell.io",
         "Company": "Gravwell",
         "URL": "gravwell.io"
 	},
-	"Synced": true
+	"Synced": false
 }

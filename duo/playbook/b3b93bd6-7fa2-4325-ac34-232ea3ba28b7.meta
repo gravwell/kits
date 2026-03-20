@@ -1,24 +1,22 @@
 {
-	"UUID": "8f4be0ec-ad96-432f-aca9-08c14afef968",
-	"GUID": "ca352322-9033-4322-b537-4f1d22ff0037",
-	"UID": 7,
+	"UUID": "67c71bcc-7034-4c4d-a3e2-7f23922e6191",
+	"GUID": "b3b93bd6-7fa2-4325-ac34-232ea3ba28b7",
+	"UID": 2,
 	"GIDs": [],
 	"Global": true,
 	"WriteAccess": {
 		"Global": false,
 		"GIDs": []
 	},
-	"Name": "Auditd - Kit Overview",
+	"Name": "Duo - Readme",
 	"Desc": "",
-	"Labels": [
-		"auditd"
-	],
-	"LastUpdated": "2026-03-04T11:48:57.286059039-07:00",
+	"Labels": null,
+	"LastUpdated": "2026-03-09T20:08:32.252879385Z",
 	"Author": {
         "Name": "Gravwell",
         "Email": "info@gravwell.io",
         "Company": "Gravwell",
         "URL": "gravwell.io"
 	},
-	"Synced": true
+	"Synced": false
 }
