@@ -1,0 +1,13 @@
+{
+	"Name": "AWS GuardDuty Important Change",
+	"Description": "Detects updates of the GuardDuty list of trusted IPs, perhaps to disable security alerts against malicious IPs.",
+	"GUID": "88e92d51-8378-4f93-8002-b8f906b117c8",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"T1562.001",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

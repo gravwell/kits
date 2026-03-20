@@ -1,0 +1,3 @@
+tag=$AUDITD kv -q type as auditType name as fileName
+| eval (auditType == "PATH" && ((fileName ~ "/etc/audit/") ||
+    (fileName == "/etc/libaudit.conf") || (fileName ~ "/etc/audisp/")))

@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd System Owner or User Discovery - Linux",
+	"Description": "Detects the execution of host or user discovery utilities such as \"whoami\", \"hostname\", \"id\", etc. Adversaries may use the information from System Owner/User Discovery during automated discovery to shape follow-on behaviors, including whether or not the adversary fully infects the target and/or attempts specific actions.",
+	"GUID": "e6932301-c12a-48ff-b6bf-f15a47c0b872",
+	"Labels": [
+		"linux",
+		"auditd",
+		"user",
+		"discovery",
+		"owner",
+		"T1033"
+	],
+	"Metadata": {}
+}

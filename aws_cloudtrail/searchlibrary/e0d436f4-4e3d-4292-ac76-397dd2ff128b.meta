@@ -1,0 +1,13 @@
+{
+	"Name": "AWS Human vs Automation",
+	"Description": "Low confidence overview of activity that is automated (SDK) vs potentially human (MFA Authenticated), or unknown",
+	"GUID": "e0d436f4-4e3d-4292-ac76-397dd2ff128b",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats",
+		"human",
+		"automation",
+		"sdk"
+	],
+	"Metadata": {}
+}

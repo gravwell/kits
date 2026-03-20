@@ -1,0 +1,18 @@
+{
+	"Name": "AWS Malicious Usage Of IMDS Credentials Outside Of AWS Infrastructure",
+	"Description": "Detects when an instance identity has taken an action that isn't inside SSM. This can indicate that a compromised EC2 instance is being used as a pivot point.",
+	"GUID": "a9ee217f-6e74-4de3-a145-f816e20b6367",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"imds",
+		"T1078",
+		"T1078.002",
+		"privilege-escalation",
+		"defense-evasion",
+		"initial-access",
+		"persistence"
+	],
+	"Metadata": {}
+}

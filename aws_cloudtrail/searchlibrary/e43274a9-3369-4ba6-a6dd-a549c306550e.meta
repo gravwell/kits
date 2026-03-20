@@ -1,0 +1,14 @@
+{
+	"Name": "AWS New Network ACL Entry Added",
+	"Description": "Detects that network ACL entries have been added to a route table which could indicate that new attack vectors have been opened up in the AWS account.",
+	"GUID": "e43274a9-3369-4ba6-a6dd-a549c306550e",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ec2",
+		"T1562.007",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

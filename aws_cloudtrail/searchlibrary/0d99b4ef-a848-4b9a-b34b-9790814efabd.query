@@ -1,0 +1,8 @@
+tag=$AWS_CLOUDTRAIL json eventSource eventName
+| eval (
+    eventSource == "sts.amazonaws.com" &&
+    eventName == "AssumeRoleWithSAML"
+    ) || (
+    eventSource == "iam.amazonaws.com" &&
+    eventName == "UpdateSAMLProvider"
+    )

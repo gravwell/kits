@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType a0 as cmd a1 as fileName
+| eval (auditType == "EXECVE")
+| eval (cmd == "mkdir" || cmd == "nano" || cmd == "touch" || cmd == "vi" || cmd ==  "vim")
+| regex "(^|\/)\.[^.\/]"

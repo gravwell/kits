@@ -1,0 +1,3 @@
+tag=$AUDITD kv -q -s type == "SYSCALL" as auditType exe
+| count
+| chart count

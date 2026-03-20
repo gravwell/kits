@@ -1,0 +1,4 @@
+tag=$AUDITD kv -q type as auditType a0
+| eval (auditType == "EXECVE")
+| eval (a0 == "iptables" || a0 == "firewall-cmd" || a0 == "ufw" || a0 == "nft")
+| grep "DROP" "remove" "delete" "flush"

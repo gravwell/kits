@@ -1,0 +1,10 @@
+{
+	"Name": "AWS Resource Churn EC2",
+	"Description": "Looks at ec2 information for RunInstances vs TerminateInstances",
+	"GUID": "3c379dd3-10f1-42e4-bb29-c6366b3020ee",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats"
+	],
+	"Metadata": {}
+}

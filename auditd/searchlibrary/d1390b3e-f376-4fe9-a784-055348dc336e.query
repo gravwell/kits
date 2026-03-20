@@ -1,0 +1,29 @@
+tag=$AUDITD kv -q type as auditType name
+| eval (auditType == "PATH")
+| eval (
+    name == "/etc/shells" ||
+    name == "/etc/profile" ||
+    name ~ "/etc/profile.d/" ||
+    name == "/etc/bash.bashrc" ||
+    name == "/etc/bashrc" ||
+    name == "/etc/zsh/zprofile" ||
+    name == "/etc/zsh/zshrc" ||
+    name == "/etc/zsh/zlogin" ||
+    name == "/etc/zsh/zlogout" ||
+    name == "/etc/csh.cshrc" ||
+    name == "/etc/csh.login" ||
+    name == "/root/.bashrc" ||
+    name == "/root/.bash_profile" ||
+    name == "/root/.profile" ||
+    name == "/root/.zshrc" ||
+    name == "/root/.zprofile" ||
+    name ~ "/home/.*/.bashrc" ||
+    name ~ "/home/.*/.zshrc" ||
+    name ~ "/home/.*/.bash_profile" ||
+    name ~ "/home/.*/.zprofile" ||
+    name ~ "/home/.*/.profile" ||
+    name ~ "/home/.*/.bash_login" ||
+    name ~ "/home/.*/.bash_logout" ||
+    name ~ "/home/.*/.zlogin" ||
+    name ~ "/home/.*/.zlogout"
+)

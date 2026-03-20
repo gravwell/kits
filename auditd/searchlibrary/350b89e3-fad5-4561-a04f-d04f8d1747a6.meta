@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Detect binary padding techniques",
+	"Description": "Detects use of dd shell redirects, or truncate methods of binary padding",
+	"GUID": "350b89e3-fad5-4561-a04f-d04f8d1747a6",
+	"Labels": [
+		"linux",
+		"auditd",
+		"binary padding",
+		"malware",
+		"T1027.001"
+	],
+	"Metadata": {}
+}

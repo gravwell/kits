@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType name
+| eval (auditType == "PATH" && (strings_hassuffix(name, "/sysrq") || strings_hassuffix(name, "/sysctl.conf") || strings_hassuffix(name, "/sysrq-trigger")))

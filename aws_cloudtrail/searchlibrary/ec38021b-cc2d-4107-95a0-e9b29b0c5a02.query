@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventName == "SendCommand" eventSource == "ssm.amazonaws.com" errorCode
+| eval eventName == "SendCommand" && (has (errorCode) != true)

@@ -1,0 +1,4 @@
+tag=$AWS_CLOUDTRAIL json eventName
+| eval eventName == "RunInstances" || eventName == "TerminateInstances"
+| count by eventName
+| chart count by eventName

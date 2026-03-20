@@ -1,0 +1,15 @@
+{
+	"Name": "Auditd Modification of ld.so.preload",
+	"Description": "Identifies modification of ld.so.preload for shared object injection. This technique is used by attackers to load arbitrary code into processes.",
+	"GUID": "29871998-77df-4200-86c7-6f8c95262953",
+	"Labels": [
+		"linux",
+		"auditd",
+		"preload",
+		"T1574.006",
+		"privilege-escalation",
+		"persistence",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

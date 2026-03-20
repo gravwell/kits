@@ -1,0 +1,123 @@
+{
+	"ID": "io.gravwell.guardduty",
+	"Name": "AWS GuardDuty",
+	"Desc": "Provides tools and utilities to work with AWS GuardDuty logs",
+	"Readme": "This kit is designed to provide an out-of-the-box experience for reviewing AWS GuardDuty findings.\n\nIt provides the following utilities:\n- Queries\n- Dashboards\n\nRefer to playbooks for implementation guides, and a kit overview for more detail on components.",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 9,
+		"Point": 9
+	},
+	"Icon": "302756cb-c324-4858-b092-d0c8f2d83af6",
+	"Banner": "ba4b2c14-3763-492d-9f32-cafa189bff0b",
+	"Cover": "302756cb-c324-4858-b092-d0c8f2d83af6",
+	"Items": [
+		{
+			"Name": "GUARDDUTY_ALERT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "GUARDDUTY_RATING",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ef53299a-d5b2-4d45-bc2c-a9b5187be1b3",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "aebe799c-af52-43ba-8fbc-257b37bc1beb",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "dd17c25e-8d16-4dec-b94e-a64a6e73d0b6",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "399d6771-5569-4b8e-85df-58e7ec931e3d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f48702d0-3b6c-4fbe-bfed-d8c9452e1763",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "2336cf56-847f-499f-8d4f-dca17d7c7c80",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9ad7c72f-ea60-45da-8bdf-565ba41f3c57",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "66a9c0a4-dd8d-4f07-adcf-dee31ab9e031",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8679b8ab-8ba8-4b47-bcb1-8914b2b2ad94",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6c37b89a-f2ec-43dd-bf0d-d8bf11696922",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1b6bb17d-4c2f-4cfe-a70f-128dc3ccf4a6",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "302756cb-c324-4858-b092-d0c8f2d83af6",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ba4b2c14-3763-492d-9f32-cafa189bff0b",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "26cac820-9fe7-4b0d-92d6-96fa655cd933",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ef6cffb7-06eb-47a3-996a-6fa2986112e9",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6b23fe0f-86b0-4397-9feb-0ad1fbe87797",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "AWS_GUARDDUTY",
+			"Description": "Tag for AWS GuardDuty",
+			"DefaultValue": "aws-guardduty",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
+	]
+}

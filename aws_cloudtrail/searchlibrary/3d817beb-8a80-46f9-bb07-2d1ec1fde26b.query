@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventName requestParameters eventSource == "rds.amazonaws.com" requestParameters.vpcSecurityGroupIds.[0] != null
+| eval eventName == "ModifyDBInstance"

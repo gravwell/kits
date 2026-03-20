@@ -1,0 +1,1 @@
+tag=$AUDITD kv -q type as auditType == "%%AUDIT_TYPE%%"

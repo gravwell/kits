@@ -1,0 +1,122 @@
+{
+	"UUID": "aebe799c-af52-43ba-8fbc-257b37bc1beb",
+	"Name": "AWS GuardDuty - Findings Overview",
+	"Description": "Review of what GuardDuty findings are mapped to.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "GuardDuty Findings by Findings Type",
+				"color": null,
+				"reference": {
+					"id": "dd17c25e-8d16-4dec-b94e-a64a6e73d0b6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "GuardDuty Findings by Region",
+				"color": null,
+				"reference": {
+					"id": "1b6bb17d-4c2f-4cfe-a70f-128dc3ccf4a6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "GuardDuty Findings By Account",
+				"color": null,
+				"reference": {
+					"id": "399d6771-5569-4b8e-85df-58e7ec931e3d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "GuardDuty Findings by Resource Type",
+				"color": null,
+				"reference": {
+					"id": "f48702d0-3b6c-4fbe-bfed-d8c9452e1763",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17728252810950,
+				"title": "Findings by type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17728253292161,
+				"title": "Findings by region",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 3,
+					"y": 7
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17728254328782,
+				"title": "Findings by account",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 4,
+					"x": 5,
+					"y": 7
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17728254624383,
+				"title": "Findings by resource type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 4,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

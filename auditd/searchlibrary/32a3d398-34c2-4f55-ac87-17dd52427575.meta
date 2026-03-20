@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Clean / Disable Dmesg logs via Syslog",
+	"Description": "Detects the use of the `syslog` syscall with action code 5 (SYSLOG_ACTION_CLEAR), (4 is SYSLOG_ACTION_READ_CLEAR and 6 is SYSLOG_ACTION_CONSOLE_OFF) which clears the kernel ring buffer (dmesg logs). This can be used by attackers to hide traces after exploitation or privilege escalation. A common technique is running `dmesg -c`, which triggers this syscall internally.",
+	"GUID": "32a3d398-34c2-4f55-ac87-17dd52427575",
+	"Labels": [
+		"attack.defense-evasion",
+		"linux",
+		"auditd",
+		"syscall",
+		"T1070.002",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

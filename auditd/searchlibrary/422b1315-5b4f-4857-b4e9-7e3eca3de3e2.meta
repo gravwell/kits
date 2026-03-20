@@ -1,0 +1,11 @@
+{
+	"Name": "Auditd Special File Creation via Mknod/Mknodat Syscall",
+	"Description": "Detects usage of the `mknod` syscall to create special files (e.g., character or block devices). Attackers or malware might use `mknod` to create fake devices, interact with kernel interfaces, or establish covert channels in Linux systems. Monitoring the use of `mknod` is important because this syscall is rarely used by legitimate applications, and it can be abused to bypass file system restrictions or create backdoors. Newer systems utilize 'mknodat' as the syscall even when mknod is called, so searching for both will catch execution on both legacy and modern systems.",
+	"GUID": "422b1315-5b4f-4857-b4e9-7e3eca3de3e2",
+	"Labels": [
+		"T1543.003",
+		"privilege-escalation",
+		"persistence"
+	],
+	"Metadata": {}
+}

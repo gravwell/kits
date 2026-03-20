@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Disable ASLR Via Personality Syscall - Linux",
+	"Description": "Detects the use of the `personality` syscall with the ADDR_NO_RANDOMIZE flag (0x0040000), which disables Address Space Layout Randomization (ASLR) in Linux. This is often used by attackers exploit development, or to bypass memory protection mechanisms. A successful use of this flag can reduce the effectiveness of ASLR and make memory corruption attacks more reliable.",
+	"GUID": "385edba3-e846-4fc2-a659-d4bee98e394c",
+	"Labels": [
+		"linux",
+		"auditd",
+		"ASLR",
+		"personality",
+		"T1562.001",
+		"T1055.009"
+	],
+	"Metadata": {}
+}

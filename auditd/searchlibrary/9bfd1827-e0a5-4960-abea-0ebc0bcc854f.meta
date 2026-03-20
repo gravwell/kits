@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Webshell Remote Command Execution",
+	"Description": "Detects possible command execution by web application/web shell",
+	"GUID": "9bfd1827-e0a5-4960-abea-0ebc0bcc854f",
+	"Labels": [
+		"linux",
+		"auditd",
+		"webshell",
+		"remote command execution",
+		"T1505.003",
+		"persistence"
+	],
+	"Metadata": {}
+}

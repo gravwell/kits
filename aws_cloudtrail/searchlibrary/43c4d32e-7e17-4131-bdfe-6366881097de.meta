@@ -1,0 +1,14 @@
+{
+	"Name": "AWS ElastiCache Security Group Modified or Deleted",
+	"Description": "Identifies when an ElastiCache security group has been modified or deleted.",
+	"GUID": "43c4d32e-7e17-4131-bdfe-6366881097de",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"elasticache",
+		"T1531",
+		"impact"
+	],
+	"Metadata": {}
+}

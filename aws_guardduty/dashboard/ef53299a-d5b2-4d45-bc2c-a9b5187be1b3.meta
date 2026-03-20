@@ -1,0 +1,167 @@
+{
+	"UUID": "ef53299a-d5b2-4d45-bc2c-a9b5187be1b3",
+	"Name": "AWS GuardDuty - Findings by Severity",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P30DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search 1",
+				"query": "tag=aws-guardduty $GUARDDUTY_RATING\n| count by severity_rating\n| numbercard (count \"Severity: \")",
+				"color": null
+			},
+			{
+				"alias": "Search 2",
+				"query": "tag=aws-guardduty json accountId type title description severity as severity_value\n| eval severity_value \u003e= 9\n$GUARDDUTY_ALERT(\"Critical\")",
+				"color": null
+			},
+			{
+				"alias": "Search 3",
+				"query": "tag=aws-guardduty json accountId type title description severity as severity_value\n| eval severity_value \u003e= 7 \u0026\u0026 severity_value \u003c= 8.9\n$GUARDDUTY_ALERT(\"High\")",
+				"color": null
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=aws-guardduty json accountId type title description severity as severity_value | eval severity_value \u003e= 7 \u0026\u0026 severity_value \u003c= 8.9 $GUARDDUTY_ALERT(\"Medium\")",
+				"color": null
+			},
+			{
+				"alias": "Search 5",
+				"query": "tag=aws-guardduty json accountId type title description severity as severity_value | eval severity_value \u003e= 7 \u0026\u0026 severity_value \u003c= 8.9 $GUARDDUTY_ALERT(\"Low\")",
+				"color": null
+			},
+			{
+				"alias": "GuardDuty Critical Severity Finding",
+				"color": null,
+				"reference": {
+					"id": "6c37b89a-f2ec-43dd-bf0d-d8bf11696922",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "GuardDuty High Severity Finding",
+				"color": null,
+				"reference": {
+					"id": "2336cf56-847f-499f-8d4f-dca17d7c7c80",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "GuardDuty Medium Severity Finding",
+				"color": null,
+				"reference": {
+					"id": "9ad7c72f-ea60-45da-8bdf-565ba41f3c57",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "GuardDuty Low Severity Finding",
+				"color": null,
+				"reference": {
+					"id": "66a9c0a4-dd8d-4f07-adcf-dee31ab9e031",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17697094688650,
+				"title": "Count of findings by severity",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": "50",
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17697096903641,
+				"title": "Critical Findings",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 12,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17697097291582,
+				"title": "High Findings",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 12,
+					"x": 5,
+					"y": 3
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17719569906273,
+				"title": "Medium Findings",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 10,
+					"y": 3
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17719570066474,
+				"title": "Low Findings",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 10,
+					"y": 10
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

@@ -1,0 +1,41 @@
+{
+	"UUID": "5fb0fbd8-b3bc-4b4f-b5ad-2a252a1b24f0",
+	"Name": "Auditd Type",
+	"Description": "",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Search Audit Type",
+				"description": "Find all events with a specific Auditd type",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "add5175f-8839-4e85-9d38-659d4af89eb0",
+					"options": {
+						"variable": "%%AUDIT_TYPE%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/^type=(?\u003cauditType\u003e[A-Z_]+)/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

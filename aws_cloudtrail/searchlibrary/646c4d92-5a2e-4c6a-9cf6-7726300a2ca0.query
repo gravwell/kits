@@ -1,0 +1,6 @@
+tag=$AWS_CLOUDTRAIL json eventName eventSource
+| eval (eventSource == "elasticloadbalancing.amazonaws.com" && (
+    eventName == "ApplySecurityGroupsToLoadBalancer" ||
+    eventName == "SetSecurityGroups"
+    )
+)

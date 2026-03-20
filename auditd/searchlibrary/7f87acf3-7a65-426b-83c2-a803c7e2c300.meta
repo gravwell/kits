@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd EXE Baseline Anomaly Detection",
+	"Description": "Checks against exe_baseline to detect for any exe that aren't part of existing baselines",
+	"GUID": "7f87acf3-7a65-426b-83c2-a803c7e2c300",
+	"Labels": [
+		"linux",
+		"auditd",
+		"baseline",
+		"exe",
+		"stats"
+	],
+	"Metadata": {}
+}

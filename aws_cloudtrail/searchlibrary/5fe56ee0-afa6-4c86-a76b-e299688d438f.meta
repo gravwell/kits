@@ -1,0 +1,13 @@
+{
+	"Name": "AWS VPC Flow Logs Deleted",
+	"Description": "Detects the deletion of one or more VPC Flow Logs in AWS Elastic Compute Cloud (EC2) through the DeleteFlowLogs API call. Adversaries may delete flow logs to evade detection or remove evidence of network activity, hindering forensic investigations and visibility into malicious operations.",
+	"GUID": "5fe56ee0-afa6-4c86-a76b-e299688d438f",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"logs",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

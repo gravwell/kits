@@ -1,0 +1,16 @@
+{
+	"Name": "AWS EC2 VM Export",
+	"Description": "An attempt to export an AWS EC2 instance has been detected. A VM Export might indicate an attempt to extract information from an instance.",
+	"GUID": "c762636e-8e99-41f7-8e12-d67f23941d6f",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ec2",
+		"T1005",
+		"T1537",
+		"collection",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

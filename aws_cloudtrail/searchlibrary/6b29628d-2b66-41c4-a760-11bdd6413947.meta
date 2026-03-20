@@ -1,0 +1,17 @@
+{
+	"Name": "AWS Root Credentials",
+	"Description": "Detects AWS root account usage",
+	"GUID": "6b29628d-2b66-41c4-a760-11bdd6413947",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"root",
+		"T1078.004",
+		"privilege-escalation",
+		"defense-evasion",
+		"initial-access",
+		"persistence"
+	],
+	"Metadata": {}
+}

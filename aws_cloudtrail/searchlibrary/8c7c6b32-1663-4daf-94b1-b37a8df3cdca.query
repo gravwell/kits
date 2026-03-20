@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "ec2.amazonaws.com" eventName == "ModifyInstanceAttribute" requestParameters
+| eval requestParameters ~ "userData"

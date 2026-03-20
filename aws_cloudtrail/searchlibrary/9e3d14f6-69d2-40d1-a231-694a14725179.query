@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventName responseElements.ConsoleLogin
+| eval (eventName == "ConsoleLogin" && ConsoleLogin == "Failure")

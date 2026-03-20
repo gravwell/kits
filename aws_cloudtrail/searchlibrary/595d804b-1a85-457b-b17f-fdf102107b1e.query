@@ -1,0 +1,7 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "iam.amazonaws.com" eventName userAgent
+| eval (
+    eventName == "GetLoginProfile" ||
+    eventName == "CreateLoginProfile"
+    ) && (
+    userAgent ~ "S3 Browser"
+    )

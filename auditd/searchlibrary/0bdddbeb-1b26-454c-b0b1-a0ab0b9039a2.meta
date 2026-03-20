@@ -1,0 +1,15 @@
+{
+	"Name": "Auditd Service Reload or Start - Linux",
+	"Description": "Detects the start, reload or restart of a service.",
+	"GUID": "0bdddbeb-1b26-454c-b0b1-a0ab0b9039a2",
+	"Labels": [
+		"linux",
+		"auditd",
+		"service",
+		"systemctl",
+		"T1543.002",
+		"privilege-escalation",
+		"persistence"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,3 @@
+tag=$AUDITD kv -q type as auditType a1
+| eval (auditType == "EXECVE")
+| regex ".bash_history|.zsh_history|.zhistory|.history|.sh_history|fish.history"

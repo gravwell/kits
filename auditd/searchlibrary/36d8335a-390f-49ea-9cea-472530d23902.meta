@@ -1,0 +1,11 @@
+{
+	"Name": "Auditd Program Executions in Suspicious Folders",
+	"Description": "Detects program executions in suspicious non-program folders related to malware or hacking activity",
+	"GUID": "36d8335a-390f-49ea-9cea-472530d23902",
+	"Labels": [
+		"T1587",
+		"T1584",
+		"resource-development"
+	],
+	"Metadata": {}
+}

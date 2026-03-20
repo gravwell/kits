@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventName == "AssumeRole" userIdentity.type != "AWSService" userIdentity.arn errorCode
+| table eventName arn errorCode

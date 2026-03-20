@@ -1,0 +1,16 @@
+{
+	"Name": "Auditd Modify Timestamp with Reference File",
+	"Description": "Changes modify and access timestamps using a referenced file",
+	"GUID": "9c48b130-14d8-4065-9866-88b41f202ed2",
+	"Labels": [
+		"linux",
+		"auditd",
+		"touch",
+		"EXECVE",
+		"timestamp",
+		"modify",
+		"T1070",
+		"attack.evasion"
+	],
+	"Metadata": {}
+}

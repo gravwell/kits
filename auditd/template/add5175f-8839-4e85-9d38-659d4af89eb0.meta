@@ -1,0 +1,18 @@
+{
+	"UUID": "add5175f-8839-4e85-9d38-659d4af89eb0",
+	"Name": "Auditd - Search Audit Type",
+	"Description": "Search events by audit type",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%AUDIT_TYPE%%",
+				"label": "AUDIT_TYPE",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "PATH"
+			}
+		]
+	},
+	"Labels": null
+}

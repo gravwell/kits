@@ -1,0 +1,11 @@
+tag=$AWS_CLOUDTRAIL json userAgent userIdentity.type as userType userIdentity.sessionContext.attributes.mfaAuthenticated eventSource eventName
+| eval userType != "AWSService"
+| eval if (userAgent ~ "aws-sdk" || userAgent ~ "Boto3" || userAgent == "AWS Internal") {
+    output = "Automated";
+    } else if (eventSource == "signin.amazonaws.com" || mfaAuthenticated == "true") {
+    output = "Human";
+    } else {
+    output = "Unknown";
+    }
+| count by output
+| chart count by output

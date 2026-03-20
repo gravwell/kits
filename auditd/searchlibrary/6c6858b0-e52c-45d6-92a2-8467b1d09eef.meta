@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Remove Immutable File Attribute",
+	"Description": "Detects removing immutable file attribute.",
+	"GUID": "6c6858b0-e52c-45d6-92a2-8467b1d09eef",
+	"Labels": [
+		"linux",
+		"auditd",
+		"chattr",
+		"EXECVE",
+		"T1222.002",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,1 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "elasticache.amazonaws.com" eventName == "CreateCacheSecurityGroup"

@@ -1,0 +1,12 @@
+{
+	"Name": "Auditd EXE from suspicious paths",
+	"Description": "Looks for EXE running from a variety of potentially suspicious directories e.g. (/tmp, /home, /etc/bind, etc)",
+	"GUID": "02718573-3a6e-4f64-8a66-f4cc968b3eef",
+	"Labels": [
+		"linux",
+		"auditd",
+		"stats",
+		"exe"
+	],
+	"Metadata": {}
+}

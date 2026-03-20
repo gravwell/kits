@@ -1,0 +1,10 @@
+{
+	"Name": "Auditd Suspicious Commands Linux",
+	"Description": "Detects relevant commands often related to malware or hacking activity",
+	"GUID": "84239090-9303-4924-9b4e-9c57123527e8",
+	"Labels": [
+		"T1059.004",
+		"execution"
+	],
+	"Metadata": {}
+}

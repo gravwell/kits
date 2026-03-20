@@ -1,0 +1,12 @@
+{
+	"Name": "AWS IAM User Creation",
+	"Description": "Track new creation of users outside SSO/Federation",
+	"GUID": "3ccde44e-0fc5-4f0d-b1c5-78d6db959a7c",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats",
+		"new users",
+		"governance"
+	],
+	"Metadata": {}
+}

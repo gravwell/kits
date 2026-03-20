@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType a0 SYSCALL
+| eval (auditType == "SYSCALL") && (SYSCALL == "personality") && (a0 == "40000")

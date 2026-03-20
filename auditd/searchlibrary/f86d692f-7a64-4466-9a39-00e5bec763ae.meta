@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Steganography Hide Zip Information in Picture File",
+	"Description": "Detects appending of zip file to image",
+	"GUID": "f86d692f-7a64-4466-9a39-00e5bec763ae",
+	"Labels": [
+		"linux",
+		"auditd",
+		"steganography",
+		"T1027.003",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

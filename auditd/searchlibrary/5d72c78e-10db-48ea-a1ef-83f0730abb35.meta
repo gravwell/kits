@@ -1,0 +1,18 @@
+{
+	"Name": "Auditd Potential Abuse of Linux Magic System Request Key",
+	"Description": "Detects the potential abuse of the Linux Magic SysRq (System Request) key by adversaries with root or sufficient privileges\n    to silently manipulate or destabilize a system. By writing to /proc/sysrq-trigger, they can crash the system, kill processes,\n    or disrupt forensic analysis—all while bypassing standard logging. Though intended for recovery and debugging, SysRq can be\n    misused as a stealthy post-exploitation tool. It is controlled via /proc/sys/kernel/sysrq or permanently through /etc/sysctl.conf.\n",
+	"GUID": "5d72c78e-10db-48ea-a1ef-83f0730abb35",
+	"Labels": [
+		"linux",
+		"auditd",
+		"sysrq",
+		"sysctl",
+		"T1059.004",
+		"T1529",
+		"T1489",
+		"T1499",
+		"execution",
+		"impact"
+	],
+	"Metadata": {}
+}

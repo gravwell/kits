@@ -1,0 +1,14 @@
+{
+	"Name": "AWS ConsoleLogin Failed Authentication",
+	"Description": "Detects failed AWS console login attempts due to authentication failures. Monitoring these events is crucial for identifying potential brute-force attacks or unauthorized access attempts to AWS accounts.",
+	"GUID": "9e3d14f6-69d2-40d1-a231-694a14725179",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"console",
+		"T1110",
+		"credential-access"
+	],
+	"Metadata": {}
+}

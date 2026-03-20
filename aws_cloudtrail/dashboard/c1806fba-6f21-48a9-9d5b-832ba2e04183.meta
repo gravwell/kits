@@ -1,0 +1,130 @@
+{
+	"UUID": "c1806fba-6f21-48a9-9d5b-832ba2e04183",
+	"Name": "AWS CloudTrail - Operational Dashboard",
+	"Description": "Provides info that help keep a pulse on environment health and behavior.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search 1",
+				"query": "tag=$AWS_CLOUDTRAIL json errorCode userIdentity.arn userIdentity.invokedBy eventName\n| eval errorCode ~ \"Throttling\" || errorCode ~ \"RateExceeded\"\n| table errorCode eventName arn invokedBy",
+				"color": null
+			},
+			{
+				"alias": "Search 2",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName\n| eval eventName == \"RunInstances\" || eventName == \"TerminateInstances\"\n| count by eventName\n| chart count by eventName",
+				"color": null
+			},
+			{
+				"alias": "Search 3",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName errorCode\n| eval has(errorCode)\n| count errorCode by eventName\n| chart count by eventName limit 10",
+				"color": null
+			},
+			{
+				"alias": "Search 4",
+				"query": "tag=$AWS_CLOUDTRAIL json eventName userIdentity.arn\n| count eventName by arn\n| chart count by arn",
+				"color": null
+			},
+			{
+				"alias": "Search 5",
+				"query": "tag=$AWS_CLOUDTRAIL json userAgent userIdentity.type as userType userIdentity.sessionContext.attributes.mfaAuthenticated eventSource eventName\n| eval userType != \"AWSService\"\n| eval if (userAgent ~ \"aws-sdk\" || userAgent ~ \"Boto3\" || userAgent == \"AWS Internal\") {\n    output = \"Automated\";\n    } else if (eventSource == \"signin.amazonaws.com\" || mfaAuthenticated == \"true\") {\n    output = \"Human\";\n    } else {\n    output = \"Unknown\";\n    }\n| count by output\n| chart count by output",
+				"color": null
+			}
+		],
+		"tiles": [
+			{
+				"id": 5019056918087901,
+				"title": "Throttling Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 13,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 3981918528141983,
+				"title": "Resource Churn (EC2)",
+				"renderer": "areaChart",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 8,
+					"x": 9,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "stacked",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 5867535586192917,
+				"title": "Top Error Generators",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 3,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1119152278883953,
+				"title": "Top Talkers (IAM Roles)",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 13,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Orientation": "v",
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 2079778231407838,
+				"title": "Human vs Automation",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 8,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

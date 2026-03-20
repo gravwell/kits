@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Suspicious History File Operations - Linux",
+	"Description": "Detects commandline operations on shell history files",
+	"GUID": "496314fc-952f-4bc7-a8c2-2b1d229bb2d5",
+	"Labels": [
+		"linux",
+		"auditd",
+		"shell",
+		"history file",
+		"T1552.003",
+		"credential-access"
+	],
+	"Metadata": {}
+}

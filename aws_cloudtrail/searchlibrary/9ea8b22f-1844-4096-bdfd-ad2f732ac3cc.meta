@@ -1,0 +1,13 @@
+{
+	"Name": "AWS CloudTrail Important Change",
+	"Description": "Detects disabling, deleting and updating of a Trail",
+	"GUID": "9ea8b22f-1844-4096-bdfd-ad2f732ac3cc",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"T1562.008",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

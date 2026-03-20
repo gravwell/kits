@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType msg argc name as fileName a0 a1 a2
+| eval (auditType == "EXECVE" && ( ((a0 ~ "truncate") && (a1 ~ "-s")) || ((a0 ~ "dd") && (a2 !~ "of="))))

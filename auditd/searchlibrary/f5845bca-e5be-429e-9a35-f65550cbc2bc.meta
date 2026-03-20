@@ -1,0 +1,11 @@
+{
+	"Name": "Auditd System Info Discovery via Sysinfo Syscall",
+	"Description": "Detects use of the sysinfo system call in Linux, which provides a snapshot of key system statistics such as uptime, load averages, memory usage, and the number of running processes. Malware or reconnaissance tools might leverage sysinfo to fingerprint the system - gathering data to determine if it's a viable target.",
+	"GUID": "f5845bca-e5be-429e-9a35-f65550cbc2bc",
+	"Labels": [
+		"T1057",
+		"T1082",
+		"discovery"
+	],
+	"Metadata": {}
+}

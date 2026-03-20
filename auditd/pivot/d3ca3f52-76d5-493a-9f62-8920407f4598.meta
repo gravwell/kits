@@ -1,0 +1,41 @@
+{
+	"UUID": "d3ca3f52-76d5-493a-9f62-8920407f4598",
+	"Name": "Auditd Msg ID",
+	"Description": "",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Search Audit ID",
+				"description": "Search msg ID for correlation between other Auditd events.",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "b1171acd-e80f-4080-b3fa-f16eecc566eb",
+					"options": {
+						"variable": "%%AUDIT_ID%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/(?\u003cauditID\u003eaudit\\(\\d+\\.\\d{3}:\\d+\\)):/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

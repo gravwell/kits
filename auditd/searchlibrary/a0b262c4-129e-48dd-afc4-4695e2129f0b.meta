@@ -1,0 +1,15 @@
+{
+	"Name": "Auditd Systemd Service Creation",
+	"Description": "Detects a creation of systemd services which could be used by adversaries to execute malicious code.",
+	"GUID": "a0b262c4-129e-48dd-afc4-4695e2129f0b",
+	"Labels": [
+		"linux",
+		"auditd",
+		"systemd",
+		"service",
+		"T1543.002",
+		"privilege-escalation",
+		"persistence"
+	],
+	"Metadata": {}
+}

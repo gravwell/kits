@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json errorCode userIdentity.arn userIdentity.invokedBy eventName
+| eval errorCode ~ "Throttling" || errorCode ~ "RateExceeded"
+| table errorCode eventName arn invokedBy

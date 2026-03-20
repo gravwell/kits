@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json awsRegion
+| count by awsRegion
+| chart count by awsRegion
