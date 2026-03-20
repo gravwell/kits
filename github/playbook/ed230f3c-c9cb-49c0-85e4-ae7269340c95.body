@@ -1,0 +1,17 @@
+A toolkit for interacting with Github data in Gravwell.
+
+This kit includes:
+- Queries
+- Resources (lookups)
+- Templates
+- Macros
+- Dashboards
+- Alerts
+- Scheduled searches
+- Flows to help streamline Duo analysis across Activity, Authentication, Administrator, Telephony, and Offline Enrollment log sources.
+
+Refer to these playbooks for detailed configuration and setup information:
+-
+[Github - Integration Guide](/playbooks/b0e1ba38-1e6c-40f8-a4c0-47a94661cfdf)
+-
+[Github - Kit Overview](/playbooks/fb9c72a8-f3a0-4500-80d7-bdff686ba2a4)
