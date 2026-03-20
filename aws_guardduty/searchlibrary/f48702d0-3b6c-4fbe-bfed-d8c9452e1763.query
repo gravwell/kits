@@ -1,0 +1,3 @@
+tag=$AWS_GUARDDUTY json accountId type title description severity as severity_value resource.resourceType
+| count by resourceType
+| table count resourceType

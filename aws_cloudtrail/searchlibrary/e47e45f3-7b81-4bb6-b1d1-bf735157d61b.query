@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventName eventSource
+| eval eventName == "EnableRegion" && eventSource == "account.amazonaws.com"

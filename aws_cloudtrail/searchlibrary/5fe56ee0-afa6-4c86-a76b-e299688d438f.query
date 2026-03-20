@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventName == "DeleteFlowLogs" errorCode
+| eval (has (errorCode) != true)

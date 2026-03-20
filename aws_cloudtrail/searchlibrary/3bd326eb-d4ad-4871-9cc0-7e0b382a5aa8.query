@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "iam.amazonaws.com" eventName == "CreateAccessKey" responseElements.accessKey.userName userIdentity.arn
+| eval (arn !~ userName)

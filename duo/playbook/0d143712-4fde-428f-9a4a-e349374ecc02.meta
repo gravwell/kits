@@ -1,0 +1,22 @@
+{
+	"UUID": "0cbf48ed-90ce-4cc1-a6f4-0b6c25cbb387",
+	"GUID": "0d143712-4fde-428f-9a4a-e349374ecc02",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Duo - Kit Overview",
+	"Desc": "",
+	"Labels": null,
+	"LastUpdated": "2026-03-11T16:52:01.628533965Z",
+	"Author": {
+        "Name": "Gravwell",
+        "Email": "info@gravwell.io",
+        "Company": "Gravwell",
+        "URL": "gravwell.io"
+	},
+	"Synced": false
+}

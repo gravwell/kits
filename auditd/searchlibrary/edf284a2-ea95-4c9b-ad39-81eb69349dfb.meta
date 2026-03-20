@@ -1,0 +1,10 @@
+{
+	"Name": "Auditd Password Policy Discovery",
+	"Description": "Detects password policy discovery commands",
+	"GUID": "edf284a2-ea95-4c9b-ad39-81eb69349dfb",
+	"Labels": [
+		"T1201",
+		"attack.discovery"
+	],
+	"Metadata": {}
+}

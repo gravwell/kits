@@ -1,0 +1,5 @@
+tag=$AUDITD kv -q type as auditType a0 a1
+| eval (auditType == "EXECVE" &&
+    a0 == "unzip" &&
+    (strings_hassuffix(a1, ".jpg") || strings_hassuffix(a1, ".png"))
+)

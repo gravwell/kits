@@ -1,0 +1,6 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "glue.amazonaws.com" eventName
+| eval (
+    eventName == "CreateDevEndpoint" ||
+    eventName == "DeleteDevEndpoint" ||
+    eventName == "UpdateDevEndpoint"
+)

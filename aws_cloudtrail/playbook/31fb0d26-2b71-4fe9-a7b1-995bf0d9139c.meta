@@ -1,0 +1,24 @@
+{
+	"UUID": "4582f430-9eaf-434c-ac00-fbafa01bb2c5",
+	"GUID": "31fb0d26-2b71-4fe9-a7b1-995bf0d9139c",
+	"UID": 7,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "AWS CloudTrail - Readme",
+	"Desc": "",
+	"Labels": [
+		"aws_cloudtrail"
+	],
+	"LastUpdated": "2026-03-18T10:13:46.526987988-06:00",
+	"Author": {
+        "Name": "Gravwell",
+        "Email": "info@gravwell.io",
+        "Company": "Gravwell",
+        "URL": "gravwell.io"
+	},
+	"Synced": true
+}

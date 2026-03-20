@@ -1,0 +1,5 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "kms.amazonaws.com" eventName
+| eval (
+    eventName == "ImportKeyMaterial" ||
+    eventName == "DeleteImportedKeyMaterial"
+    )

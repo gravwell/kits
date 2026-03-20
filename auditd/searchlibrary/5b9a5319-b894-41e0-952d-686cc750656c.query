@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType a0 a1 a2
+| eval ((auditType == "EXECVE" && ((a0 ~ "getcap") && (a1 == "-r") && (a2 == "/"))))

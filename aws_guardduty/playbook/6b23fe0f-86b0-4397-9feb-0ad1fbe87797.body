@@ -1,0 +1,13 @@
+This kit is designed to provide an out-of-the-box experience for reviewing AWS GuardDuty findings.
+
+It provides the following utilities:
+
+- Queries
+- Dashboards
+
+Refer to playbooks for implementation guides, and a kit overview for more detail on components.
+
+-
+[AWS GuardDuty - Kit Overview](/playbooks/ef6cffb7-06eb-47a3-996a-6fa2986112e9)
+-
+[AWS GuardDuty - Integration Guide](/playbooks/26cac820-9fe7-4b0d-92d6-96fa655cd933)

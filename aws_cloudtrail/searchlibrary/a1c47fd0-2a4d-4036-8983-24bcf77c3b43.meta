@@ -1,0 +1,19 @@
+{
+	"Name": "AWS IAM S3Browser Templated S3 Bucket Policy Creation",
+	"Description": "Detects S3 browser utility creating Inline IAM policy containing default S3 bucket name placeholder value of '\u003cYOUR-BUCKET-NAME\u003e'.",
+	"GUID": "a1c47fd0-2a4d-4036-8983-24bcf77c3b43",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"iam",
+		"T1059.009",
+		"T1078.004",
+		"execution",
+		"persistence",
+		"defense-evasion",
+		"initial-access",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

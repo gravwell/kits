@@ -1,0 +1,13 @@
+{
+	"Name": "AWS New Lambda Layer Attached",
+	"Description": "Detects when a user attached a Lambda layer to an existing Lambda function. A malicious Lambda layer could execute arbitrary code in the context of the function's IAM role. This would give an adversary access to resources that the function has access to.",
+	"GUID": "b8422ca4-502a-4dc9-8087-6382cd664e9e",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"lambda",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

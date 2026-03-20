@@ -1,138 +1,7 @@
-***
-
-A toolkit for interacting with Duo data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Duo analysis across Activity, Authentication, Administrator, Telephony, and Offline Enrollment log sources.
-
-***
-
-## Table of Contents
-0. [Data Ingestion](#0-data-ingestion)  
-1. [Tags & Macros](#1-tags--macros)  
-    1.1. [Tags](#1-1-tags)  
-    1.2. [Autoextractors](#1-2-autoextractors)  
-    1.3. [Macros](#1-3-macros)  
-2. [Query Library](#2-query-library)  
-3. [Naming Schema](#3-naming-schema)  
-4. [Resources](#4-resources)  
-    4.1. [Lookups](#4-1-lookups)  
-5. [Alerts](#5-alerts)  
-    5.1 [Dispatchers](#5-1-dispatchers)  
-    5.2 [Consumers](#5-2-consumers)
-6. [Scheduled Searches](#6-scheduled-searches)  
-    6.1. [Flows](#6-1-flows)
-7. [Playbooks](#7-playbooks)  
-8. [Searches](#8-searches)  
-    8.1. [Alert Queries](#8-1-alert-queries) 
-9. [Templates](#9-templates)  
-10. [Dashboards](#10-dashboards)  
-    10.1 [Actionables](#10-1-actionables)
-11. [Useful Resources & References](#11-useful-resources--references)  
-12. [Notes](#12-notes)  
-13. [Image credits](#13-image-credits)  
-
-## 0. [Data Ingestion](#0-data-ingestion)
-I used the [Gravwell Fetcher] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for data ingestion. 
-
-Below is a quick reference list of the resources used.
-- [Gravwell Fetcher](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md): A powerful data fetcher ingester for Gravwell that collects data from various security and productivity services including Duo, Duo, Okta, and Asana.
-- [Example Fetcher Config](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example): The fetcher uses a configuration file (gravwell_fetcher.conf) to manage its settings. This is a detailed explanation of all configuration options.
-- [duo.go](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/duo.go): This file implements the Config definitions and parsing from duoConfig.go when you build Fetcher.
-- [duoConfig.go](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/duoConfig.go): This file defines the configuration data structures and parsing for the Duo integrations in Fetcher.
-
-***
-
-## 0.1 Download, Install and Configure the Gravwell Fetcher
-
-**Summary:** The Gravwell Fetcher provides a lightweight Go-based fetcher that polls external APIs (including Duo endpoints) and ingests events into Gravwell. 
-The Fetcher includes an [example configuration file] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example) which you need to copy and adapt for your environment prior to running the fetcher. See the [README] (https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md) for further information. 
-
-### Basic installation steps (example)
-
-1. Clone the Gravwell repo (or just the Fetcher):  
-    _git clone https://github.com/gravwell/gravwell.git_  
-
-2. Change directory to the Gravwell Fetcher:  
-    _cd gravwell/experiments/gravwell\_fetcher_
-  
-3. Build the fetcher binary (standard Go build):  
-    _go build -o gravwell\_fetcher_
-  
-4. Copy the example config to a location you will edit  
-    e.g. /etc/gravwell/gravwell\_fetcher.conf or /opt/gravwell/etc/gravwell\_fetcher.conf:  
-_cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
-
-5. Edit _/etc/gravwell/gravwell\_fetcher.conf_ and replace the Duo Domain and Token values (see example below).  
-
-6. Run the fetcher (from the built binary).  
-    Typical invocation (binary + config file):  
-    _./gravwell\_fetcher -config /etc/gravwell/gravwell\_fetcher.conf_
-
-**Important:** the canonical example config shipped with the Gravwell Fetcher is gravwell_fetcher.conf.example — copy it and update the values.
-
-2.1 Example Gravwell Fetcher Conf (repo)
-- The repository contains _experiments/gravwell\_fetcher/gravwell\_fetcher.conf.example_ which is the canonical example used by this kit. Use that file as the starting point and replace the Duo Domain, Token, and any Ingester/connection settings as appropriate.  
-
-2.2 Gravwell Fetcher Example Config for Duo  
-    
-```ini
-    [Global]  
-    Ingester-UUID="00000000-0000-0000-0000-0000000000"  
-    Connection-Timeout = 0  
-    Insecure-Skip-TLS-Verify=false  
-    #Cleartext-Backend-Target=127.0.0.1:4023  
-    #Encrypted-Backend-Target=127.1.1.1:4024  
-    #Pipe-Backend-Target=/opt/gravwell/comms/pipe  
-    #Ingest-Cache-Path=/opt/gravwell/cache/duo.cache  
-    #Max-Ingest-Cache=1024  
-    Log-Level=INFO  
-    Log-File=/opt/gravwell/log/duo_fetcher.log  
-    
-    [DuoConf "duo-activity"]
-        StartTime="2025-01-01T00:00:01.000Z"
-        Domain="api-XXXXXXXX.duosecurity.com"
-        Key="REPLACE_WITH_YOUR_DUO_KEY"
-        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
-        DuoAPI="activity"
-        Tag-Name="duo-activity"
-    
-    [DuoConf "duo-admin"]
-        StartTime="2025-01-01T00:00:01.000Z"
-        Domain="api-XXXXXXXX.duosecurity.com"
-        Key="REPLACE_WITH_YOUR_DUO_KEY"
-        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
-        DuoAPI="admin"
-        Tag-Name="duo-admin"
-
-    [DuoConf "duo-auth"]
-        StartTime="2025-01-01T00:00:01.000Z"
-        Domain="api-XXXXXXXX.duosecurity.com"
-        Key="REPLACE_WITH_YOUR_DUO_KEY"
-        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
-        DuoAPI="authentication"
-        Tag-Name="duo-auth" 
-    
-    [DuoConf "duo-offline-enrollment"]
-        StartTime="2025-01-01T00:00:01.000Z"
-        Domain="api-XXXXXXXX.duosecurity.com"
-        Key="REPLACE_WITH_YOUR_DUO_KEY"
-        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
-        DuoAPI="offline-enrollment"
-        Tag-Name="duo-offline-enrollment" 
-    
-    [DuoConf "duo-telephony"]
-        StartTime="2025-01-01T00:00:01.000Z"
-        Domain="api-XXXXXXXX.duosecurity.com"
-        Key="REPLACE_WITH_YOUR_DUO_KEY"
-        Secret="REPLACE_WITH_YOUR_DUO_SECRET"
-        DuoAPI="telephony"
-        Tag-Name="duo-telephony"
-```
-    
-***
-
-## 1. [Tags & Macros](#1-tags--macros)
-#### 1.1. [Tags](#1-1-tags)
+# 1. Tags & Macros
+## 1.1. Tags
 - Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.
-- [Documentation](https://docs.gravwell.io/ingesters/ingesters.html#tags)
+- [Gravwell Documentation](https://docs.gravwell.io/ingesters/ingesters.html#tags)
 - The Duo Kit for Gravwell makes use of the following tags:  
     - duo-activity: Tag contains Duo Activity log data.  
         - Usage:  
@@ -148,11 +17,11 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
         `tag=duo-offline-enrollment`
     - duo-telephony: Tag contains Duo Telephony log data.  
         - Usage:  
-        `tag=duo-telephony`    
+        `tag=duo-telephony`
 
-#### 1.2. [Autoextractors](#1-2-autoextractors)
+## 1.2. Autoextractors
 - Purpose: Auto-extractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The “ax” module then automatically invokes the appropriate functionality of other modules.
-- [Documentation](https://docs.gravwell.io/configuration/autoextractors.html)
+- [Gravwell Documentation](https://docs.gravwell.io/configuration/autoextractors.html)
 - The Duo Kit for Gravwell makes use of the following autoextractors 
 - Total: ***5***
     - duo-activity: Gravwell generated JSON extraction for tag duo-activity
@@ -161,9 +30,9 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
     - duo-offline-enrollment:Gravwell generated JSON extraction for tag duo-offline-enrollment
     - duo-telephony: Gravwell generated JSON extraction for tag duo-telephony    
 
-#### 1.3. [Macros](#1-3-macros)
+## 1.3. Macros
 - Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.
-- [Documentation](https://docs.gravwell.io/search/macros.html)
+- [Gravwell Documentation](https://docs.gravwell.io/search/macros.html)
 - The Duo Kit for Gravwell makes use of the following macros:
 - Total: ***31***
     - Tags
@@ -245,7 +114,7 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
         
 ***
 
-## 2. [Query Library](#2-query-library)
+# 2. Query Library
 - Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-1-alert-queries), and [playbooks](#7-playbooks).
 - [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
     - Updating a query in the library updates dependent dashboards and scheduled searches automatically.
@@ -255,7 +124,7 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
 
 ***
 
-## 3. [Naming Schema](#3-naming-schema)
+# 3. Naming Schema
 - Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.
 - _QueryType - Company - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - **if any**]_
 - Examples:
@@ -266,13 +135,13 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
 
 ***
 
-## 4. [Resources](#4-resources)
+# 4. Resources
 - Purpose: Resources allow users to store persistent data for use in searches.
-- [Documentation](https://docs.gravwell.io/resources/resources.html)
+- [Gravwell Documentation](https://docs.gravwell.io/resources/resources.html)
 
-#### 4.1 [Lookups](#4-1-lookups)
+## 4.1 Lookups
 - Purpose: Lookup Resources are used by the lookup module to perform data enrichment and translation off of a static lookup table stored in a resource.
-- [Documentation](https://docs.gravwell.io/search/lookup/lookup.html)
+- [Gravwell Documentation](https://docs.gravwell.io/search/lookup/lookup.html)
 - Total: ***11***
     - duo\_activity\_evx\_enrichment
         - This is intended to be used as a lookup file providing additional information regarding Duo Activity event types.
@@ -325,56 +194,56 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
 
 ***
 
-## 5. [Alerts](#5-alerts)
+# 5. Alerts
 - Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.
-- [Documentation](https://docs.gravwell.io/alerts/alerts.html#alerts)
+- [Gravwell Documentation](https://docs.gravwell.io/alerts/alerts.html#alerts)
 - Total: ***3***
     - Alert - Duo - System - Event Types - Modification Alerts [EMAIL]
     - Alert - Duo - System - Event Types - Modification Alerts [Jira Service Management]
     - Alert - Duo - System - Event Types - Modification Alerts [Jira Platform]
 - Naming Schema: _Alert - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - AlertName_
 
-#### 5.1 [Dispatchers](#5-1-dispatchers)
+## 5.1 Dispatchers
 - Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.
     - Dispatchers = [Scheduled Searches](#6-scheduled-searches)
-- [Documentation](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)
+- [Gravwell Documentation](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)
 
-#### 5.2 [Consumers](#5-2-consumers)
+## 5.2 Consumers
 - Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.
     - Consumers = [Flows](#6-1-flows)
-- [Documentation](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)
+- [Gravwell Documentation](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)
 
 ***
 
-## 6. [Scheduled Searches](#6-scheduled-searches)
+# 6. Scheduled Searches
 - Purpose: Scheduled Searches are typically dependent on “AlertQuery - Duo - …” queries within the [Query Library](#2-query-library).
-- [Documentation](https://docs.gravwell.io/scripting/scheduledsearch.html)
+- [Gravwell Documentation](https://docs.gravwell.io/scripting/scheduledsearch.html)
 - Total: ***1***
     - ScheduledSearch - Duo - System - Event Types - Modification Alerts: Detects modification alerts that are configured within the duo\_eventTypes lookup resource. 
 - Naming Schema: _ScheduledSearch - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - ScheduledSearchName_
     - Cron schedule: 30 * * * *
 
-#### 6.1. [Flows](#6-1-flows)
+## 6.1. Flows
 - Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.
-- [Documentation](https://docs.gravwell.io/flows/flows.html)
+- [Gravwell Documentation](https://docs.gravwell.io/flows/flows.html)
 - Total: ***3***
     - Flow - Duo - System - Event Types - Modification Alerts [EMAIL]: This Flow is intended as a template to send Duo Modification Alerts from $DUO\_ALERT\_SENDER to $DUO\_ALERT\_RECIPIENT.
     - Flow - Duo - System - Event Types - Modification Alerts [Jira Service Management]: This Flow is intended as a template to send Duo Modification Alerts over to your instance of Jira Service Management (JSM).
     - Flow - Duo - System - Event Types - Modification Alerts [Jira Platform]: This Flow is intended as a template to send Duo Modification Alerts over to your specified project on Jira Platform.
 ***
 
-## 7. [Playbooks](#7-playbooks)
+# 7. Playbooks
 - Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.
-- [Documentation](https://docs.gravwell.io/gui/playbooks/playbooks.html)
+- [Gravwell Documentation](https://docs.gravwell.io/gui/playbooks/playbooks.html)
 - Total: ***1***
     - Duo Kit for Gravwell - README
 - Naming Schema: _Playbook - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - PlaybookName_
 
 ***
 
-## 8. [Searches](#8-searches)
+# 8. Searches
 - Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Duo data in an easily digestible format.
-- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
+- [Gravwell Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
 - Total: ***18***
     - Search - Duo - Activity - User City [chart]: Displays a chart of the user's City by count.
     - Search - Duo - Activity - User City [numbercard]: Displays a numbercard of the user's City by count.
@@ -396,7 +265,7 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
     - Search - Duo - System - Event Types - Modification Alerts by Priority [numbercard]: Displays a numbercard of by Priority (_alert_priority).
 - Naming Schema: _Search - Duo - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - **if any**]_
 
-#### 8.1. [Alert Queries](#8-1-alert-queries)
+## 8.1. Alert Queries
 - Alert Queries feed [Scheduled Searches](#6-scheduled-searches)
 - IMPORTANT: If you need to update or tune, this is where you perform that action.
 - Total: ***1***
@@ -405,9 +274,9 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
 
 ***
 
-## 9. [Templates](#9-templates)
+# 9. Templates
 - Purpose: Templates are special objects which define a Gravwell query containing variables.
-- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)
+- [Gravwell Documentation](https://docs.gravwell.io/gui/templates/templates.html)
 - Total: ***14***
     - Template - Duo - MFA - Activity - User Activity [table]: This displays a table of all User Activity for the specified User, IP Address, and Location.
     - Template - Duo - MFA - Administrator - Admin Actions [table]: This displays a table o all Administrator Actions for the specified User, and IP Address.
@@ -426,18 +295,18 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
 
 ***
 
-## 10. [Dashboards](#10-dashboards)
+# 10. Dashboards
 - Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.
-- [Documentation](https://docs.gravwell.io/gui/dashboards/dashboards.html)
+- [Gravwell Documentation](https://docs.gravwell.io/gui/dashboards/dashboards.html)
 - Total: ***4***
     - Duo User Location Overview: This Dashboard is a general overview of your Duo User Location data.
     - Duo General Overview: This Dashboard is a general overview of your Duo Category, Subcategory, and Event Type data.
     - Duo Investigation: This Dashboard is intended to be used for Duo investigations.
     - Duo Category Overview: This Dashboard is a general overview of your Duo Category, Subcategory, and Event Type data based on the inputted variable.
 
-#### 10.1 [Actionables](#10-1-actionables)
+## 10.1 Actionables
 - Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.
-- [Documentation](https://docs.gravwell.io/gui/actionables/actionables.html)
+- [Gravwell Documentation](https://docs.gravwell.io/gui/actionables/actionables.html)
 - Total: ***3***
     - Duo Target: Duo Actions on Target to Launch Duo Investigation Dashboard.
     - Duo Actor: Duo Actions on Actor to Launch Duo Investigation Dashboard.
@@ -445,8 +314,8 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
 
 ***
 
-## 11. [Useful Resources & References](#11-useful-resources--references)
-- Gravwell
+# 11. [Useful Resources & References](#11-useful-resources--references)
+- Gravwell Documentation
     - [Gravwell Fetcher](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/README.md)
     - [Example Fetcher Config](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/gravwell_fetcher.conf.example)
     - [duo.go](https://github.com/gravwell/gravwell/blob/main/experiments/gravwell_fetcher/duo.go)
@@ -467,7 +336,7 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
     - [Templates](https://docs.gravwell.io/gui/templates/templates.html)
     - [Dashboards](https://docs.gravwell.io/gui/dashboards/dashboards.html)
     - [Actionables](https://docs.gravwell.io/gui/actionables/actionables.html)
-- Duo
+- Duo Documentation
     - [Duo Admin API](https://duo.com/docs/adminapi)
     - [Activity Logs](https://duo.com/docs/adminapi#activity-logs)
     - [Administrator Logs](https://duo.com/docs/adminapi#administrator-logs)
@@ -477,12 +346,10 @@ _cp gravwell\_fetcher.conf.example /etc/gravwell/gravwell\_fetcher.conf_
 
 ***
 
-## 12. [Notes](#12-notes)
+# 12. [Notes](#12-notes)
 
 ***
 
-## 13. [Image credits](#13-image-credits)
+# 13. [Image credits](#13-image-credits)
 - [Duo](https://help.duo.com/s/article/2213?language=en_US)
 - Duo images are wholly owned by Duo and distributed according to the [Duo Deployment Signage](https://help.duo.com/s/article/2213?language=en_US) and are **NOT** subject to any Gravwell licensing.
-
-***

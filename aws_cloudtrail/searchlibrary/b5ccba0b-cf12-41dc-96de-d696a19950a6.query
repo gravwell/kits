@@ -1,0 +1,10 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "s3.amazonaws.com" eventName
+| eval (
+    eventName == "PutBucketLogging" ||
+    eventName == "PutBucketWebsite" ||
+    eventName == "PutEncryptionConfiguration" ||
+    eventName == "PutLifecycleConfiguration" ||
+    eventName == "PutReplicationConfiguration" ||
+    eventName == "ReplicateObject" ||
+    eventName == "RestoreObject"
+    )

@@ -1,0 +1,16 @@
+{
+	"Name": "Auditd CVE-2021-3156 Exploitation Attempt Bruteforcing",
+	"Description": "Detects exploitation attempt of vulnerability described in CVE-2021-3156. Alternative approach might be to look for flooding of auditd logs due to bruteforcing.",
+	"GUID": "45248d7c-7455-4028-a77b-964f3b66dc79",
+	"Labels": [
+		"linux",
+		"auditd",
+		"CVE-2021-3156",
+		"priv_esc",
+		"sudoedit",
+		"syscall",
+		"T1068",
+		"privilege_escalation"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,14 @@
+{
+	"Name": "AWS EKS Cluster Created or Deleted",
+	"Description": "Identifies when an EKS cluster is created or deleted.",
+	"GUID": "fd8a9e87-73e4-4268-b009-bd22020cc5ee",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"eks",
+		"T1485",
+		"impact"
+	],
+	"Metadata": {}
+}

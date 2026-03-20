@@ -1,0 +1,14 @@
+{
+	"Name": "AWS Restore Public RDS Instance",
+	"Description": "Detects the recovery of a new public database instance from a snapshot. It may be a part of data exfiltration.",
+	"GUID": "a1e1bf91-f184-471b-a7de-ec3ea961e6ea",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"rds",
+		"T1020",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

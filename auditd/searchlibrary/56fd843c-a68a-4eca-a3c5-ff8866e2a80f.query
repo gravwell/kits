@@ -1,0 +1,12 @@
+tag=$AUDITD kv -q type as auditType a0 a1 a2 a3
+| eval (auditType == "EXECVE") && (
+    (a0 == "xwd" &&
+    a1 == "-root" &&
+    a2 == "-out" &&
+    strings_hassuffix(a3, ".xwd")
+    ) || (
+    a0 == "xwd" &&
+    a1 == "-out" &&
+    strings_hassuffix(a2, ".xwd")
+    )
+)

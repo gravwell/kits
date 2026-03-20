@@ -1,0 +1,18 @@
+{
+	"UUID": "b1171acd-e80f-4080-b3fa-f16eecc566eb",
+	"Name": "Auditd - Search Audit ID",
+	"Description": "Query against an audit ID for correlating activity",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%AUDIT_ID%%",
+				"label": "AUDIT_ID",
+				"description": "Audit ID from msg",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

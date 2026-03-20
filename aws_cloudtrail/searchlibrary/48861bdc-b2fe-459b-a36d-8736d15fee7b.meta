@@ -1,0 +1,19 @@
+{
+	"Name": "AWS SAML Provider Deletion Activity",
+	"Description": "Detects the deletion of an AWS SAML provider, potentially indicating malicious intent to disrupt administrative or security team access. An attacker can remove the SAML provider for the information security team or a team of system administrators, to make it difficult for them to work and investigate at the time of the attack and after it.",
+	"GUID": "48861bdc-b2fe-459b-a36d-8736d15fee7b",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"iam",
+		"T1078.004",
+		"T1531",
+		"privilege-escalation",
+		"defense-evasion",
+		"initial-access",
+		"persistence",
+		"impact"
+	],
+	"Metadata": {}
+}

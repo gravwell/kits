@@ -1,0 +1,14 @@
+{
+	"Name": "AWS SecurityHub Findings Evasion",
+	"Description": "Detects the modification of the findings on SecurityHub.",
+	"GUID": "b9e43ad1-0480-4ea2-89bf-49b1b300aba0",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"securityhub",
+		"T1562",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

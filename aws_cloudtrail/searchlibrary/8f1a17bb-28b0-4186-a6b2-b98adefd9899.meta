@@ -1,0 +1,10 @@
+{
+	"Name": "AWS KMS Key Deletion",
+	"Description": "Looks for key deletion, or scheduled deletion to be aware of",
+	"GUID": "8f1a17bb-28b0-4186-a6b2-b98adefd9899",
+	"Labels": [
+		"aws_cloudtrail",
+		"stats"
+	],
+	"Metadata": {}
+}

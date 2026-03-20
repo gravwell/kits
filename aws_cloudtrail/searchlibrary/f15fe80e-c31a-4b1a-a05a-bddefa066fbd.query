@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "sts.amazonaws.com" eventName == "GetCallerIdentity" userAgent
+| eval userAgent ~ "TruffleHog"

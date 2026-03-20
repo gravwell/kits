@@ -1,0 +1,3 @@
+tag=$AUDITD tag=$AUDITD kv -q type as auditType a0 a1 a2 a13 a14
+| eval (auditType == "EXECVE" && ((a0 ~ "iptables") && (a1 == "-t") && (a2 == "nat")) && ((a13 == "--to-ports")))
+| eval ((strings_hasprefix(a14, "42")) || (strings_hasprefix(a14, "43")))

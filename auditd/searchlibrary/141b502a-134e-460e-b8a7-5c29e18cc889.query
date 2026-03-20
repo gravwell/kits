@@ -1,0 +1,6 @@
+tag=$AUDITD kv -q type as auditType a0 as cmd a1 as flag1 a3 as flag2
+| eval (auditType == "EXECVE" && (
+    (cmd == "tcpdump" && flag1 == "-c" && flag2 == "-i") ||
+    (cmd == "tshark" && flag1 == "-c" && flag2 == "-i")
+    )
+)

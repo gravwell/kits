@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Steganography Unzip Hidden Information From Picture File",
+	"Description": "Detects extracting of zip file from image file",
+	"GUID": "fbbf893f-ca7d-4053-86f4-6be2ff24e635",
+	"Labels": [
+		"linux",
+		"auditd",
+		"steganography",
+		"zip file",
+		"T1027.003",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

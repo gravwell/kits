@@ -1,0 +1,16 @@
+{
+	"Name": "AWS Route 53 Domain Transfer Lock Disabled",
+	"Description": "Detects when a transfer lock was removed from a Route 53 domain. It is recommended to refrain from performing this action unless intending to transfer the domain to a different registrar.",
+	"GUID": "c53e8978-8420-4d69-a872-6bc87ec6e66a",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"route53",
+		"T1098",
+		"persistence",
+		"privilege-escalation",
+		"credential-access"
+	],
+	"Metadata": {}
+}

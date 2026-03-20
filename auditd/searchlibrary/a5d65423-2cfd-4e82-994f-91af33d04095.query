@@ -1,0 +1,9 @@
+tag=$AUDITD kv -q type as auditType a0 a1 a2 a3
+| eval (auditType == "EXECVE") && (
+    a0 == "import" &&
+    a1 == "-window" &&
+    a2 == "root" &&
+    (strings_hassuffix(a3, ".png") || strings_hassuffix(a3, ".jpg") || strings_hassuffix(a3, ".jpeg"))
+    ) || (
+    (strings_hassuffix(a1, ".png") || strings_hassuffix(a1, ".jpg") || strings_hassuffix(a1, ".jpeg"))
+)

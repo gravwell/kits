@@ -1,0 +1,14 @@
+{
+	"Name": "AWS Config Disabling Channel/Recorder",
+	"Description": "Detects AWS Config Service disabling",
+	"GUID": "46f2b9ea-24aa-4e3a-ba95-2e27012a0c6d",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"config",
+		"T1562.008",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

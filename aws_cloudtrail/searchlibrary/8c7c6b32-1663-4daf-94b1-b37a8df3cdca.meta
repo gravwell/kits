@@ -1,0 +1,16 @@
+{
+	"Name": "AWS EC2 Startup Shell Script Change",
+	"Description": "Detects changes to the EC2 instance startup script. The shell script will be executed as root/SYSTEM every time the specific instances are booted up.",
+	"GUID": "8c7c6b32-1663-4daf-94b1-b37a8df3cdca",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ec2",
+		"T1059.001",
+		"T1059.003",
+		"T1059.004",
+		"execution"
+	],
+	"Metadata": {}
+}

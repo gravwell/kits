@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json eventName
+| eval eventName == "ScheduleKeyDeletion" || eventName == "DisableKey"
+| table eventName

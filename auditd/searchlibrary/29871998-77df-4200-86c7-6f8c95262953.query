@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType name
+| eval (auditType == "PATH" && name == "/etc/ld.so.preload")

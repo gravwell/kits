@@ -1,0 +1,4 @@
+tag=$AWS_CLOUDTRAIL json eventName errorCode
+| eval has(errorCode)
+| count errorCode by eventName
+| chart count by eventName limit 10

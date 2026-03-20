@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Low frequency EXE",
+	"Description": "Checks for EXE that ran fewer than 5 times over a timeframe",
+	"GUID": "1c76913a-3887-465d-bba2-9f8583740205",
+	"Labels": [
+		"linux",
+		"auditd",
+		"stats",
+		"exe",
+		"frequency"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType a0 as cmd a1 as input_file a2 as output_file
+| eval (auditType == "EXECVE") && (cmd == "cat") && (strings_hassuffix(input_file, ".jpg") || strings_hassuffix(input_file, ".png")) && (strings_hassuffix(output_file, ".zip"))

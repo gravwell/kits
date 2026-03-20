@@ -1,0 +1,18 @@
+{
+	"UUID": "64d77852-d6c2-4064-93d8-6211b433f72b",
+	"Name": "AWS CloudTrail - Error Diagnosis by AWS Service",
+	"Description": "Quickly identify errorCodes by AWS service and output diagnostic information",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%AWS_SERVICE%%",
+				"label": "AWS_SERVICE",
+				"description": "Search by AWS service",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": null
+}

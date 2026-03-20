@@ -1,0 +1,3 @@
+tag=$AUDITD kv -q type as auditType name
+| eval (auditType == "PATH" && name ~ "/.")
+| eval (name !~ "/.cache/" || name !~ "/.config/" || name !~ "/.pyenv/" || name !~ "/.rustup/toolchains")

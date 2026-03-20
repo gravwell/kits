@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Screen Capture with Xwd",
+	"Description": "Detects adversary creating screen capture of a full with xwd. Highly recommended using rule on servers, due high usage of screenshot utilities on user workstations",
+	"GUID": "56fd843c-a68a-4eca-a3c5-ff8866e2a80f",
+	"Labels": [
+		"linux",
+		"auditd",
+		"xwd",
+		"screen capture",
+		"T1113",
+		"collection"
+	],
+	"Metadata": {}
+}

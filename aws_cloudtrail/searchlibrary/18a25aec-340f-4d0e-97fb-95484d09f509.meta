@@ -1,0 +1,19 @@
+{
+	"Name": "AWS IAM S3Browser User or AccessKey Creation",
+	"Description": "Detects S3 Browser utility creating IAM User or AccessKey.",
+	"GUID": "18a25aec-340f-4d0e-97fb-95484d09f509",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"iam",
+		"T1059.009",
+		"T1078.004",
+		"privilege-escalation",
+		"execution",
+		"persistence",
+		"defense-evasion",
+		"initial-access"
+	],
+	"Metadata": {}
+}

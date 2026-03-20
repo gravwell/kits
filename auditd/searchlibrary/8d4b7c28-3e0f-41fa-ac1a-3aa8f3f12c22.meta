@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Use of Debugfs to Access a Raw Disk",
+	"Description": "Detects access to a raw disk on a host to evade detection by security products.",
+	"GUID": "8d4b7c28-3e0f-41fa-ac1a-3aa8f3f12c22",
+	"Labels": [
+		"linux",
+		"auditd",
+		"debugfs",
+		"EDR evasion",
+		"T1006",
+		"defense.evasion"
+	],
+	"Metadata": {}
+}

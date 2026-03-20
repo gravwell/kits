@@ -1,0 +1,7 @@
+tag=$AUDITD kv -q type as auditType a0 as cmd SRC
+| eval (auditType == "EXECVE")
+| eval is_debugfs = (cmd == "debugfs")
+| eval is_tool = (cmd == "df" || cmd == "lsblk" || cmd == "pvs" || cmd == "fdisk" || cmd == "blkid" || cmd == "parted" || cmd == "hwinfo" || cmd == "inxi")
+| eval (is_debugfs || is_tool)
+| stats count(is_debugfs) as debugfs_count count(is_tool) as tool_count by SRC over 5m
+| eval (debugfs_count > 0 && tool_count > 0)

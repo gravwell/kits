@@ -1,0 +1,10 @@
+tag=$AWS_CLOUDTRAIL json eventSource eventName
+| eval (
+    eventSource == "sso-directory.amazonaws.com" ||
+    eventSource == "sso.amazonaws.com"
+    ) && (
+    eventName == "AssociateDirectory" ||
+    eventName == "DisableExternalIdPConfigurationForDirectory" ||
+    eventName == "DisassociateDirectory" ||
+    eventName == "EnableExternalIdPConfigurationForDirectory"
+    )

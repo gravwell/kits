@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Coinminer Commands",
+	"Description": "Detects command line parameter very often used with coin miners",
+	"GUID": "d709d40d-78d0-4773-a95f-2ba3fa786a77",
+	"Labels": [
+		"linux",
+		"auditd",
+		"coinminer",
+		"T1068",
+		"TA0004"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Auditd Top executables",
+	"Description": "Table of the most executed EXE - could present some anomalies or other interesting info to investigate",
+	"GUID": "534451f5-d2c9-4ba5-86a6-4b66c50528c5",
+	"Labels": [
+		"linux",
+		"auditd",
+		"stats",
+		"exe"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json userIdentity.userName as username eventName sourceIPAddress userAgent eventTime
+| eval username == "%%target_user%%"
+| table eventTime username eventName sourceIPAddress userAgent

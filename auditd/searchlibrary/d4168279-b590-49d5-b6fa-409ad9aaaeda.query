@@ -1,0 +1,2 @@
+tag=$AUDITD kv -q type as auditType comm
+| eval (auditType == "SYSCALL" && comm == "split")

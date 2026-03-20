@@ -1,0 +1,5 @@
+tag=$AWS_CLOUDTRAIL json eventName userIdentity.arn sourceIPAddress eventSource
+| eval (eventSource != "ssm.amazonaws.com" ||
+    eventName != "RegisterManagedInstance" ||
+    sourceIPAddress != "AWS Internal")
+| regex ".+:assumed-role/aws:.+"

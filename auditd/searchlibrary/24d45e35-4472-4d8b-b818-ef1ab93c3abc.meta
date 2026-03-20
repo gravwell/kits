@@ -1,0 +1,10 @@
+{
+	"Name": "Auditd Logging Configuration Changes on Linux Host",
+	"Description": "Detect changes of syslog daemons configuration files",
+	"GUID": "24d45e35-4472-4d8b-b818-ef1ab93c3abc",
+	"Labels": [
+		"T1562.006",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

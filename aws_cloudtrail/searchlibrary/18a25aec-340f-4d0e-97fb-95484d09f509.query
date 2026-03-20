@@ -1,0 +1,7 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "iam.amazonaws.com" eventName userAgent
+| eval (
+    eventName == "CreateUser" ||
+    eventName == "CreateAccessKey"
+    ) && (
+    userAgent ~ "S3 Browser"
+    )

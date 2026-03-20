@@ -1,0 +1,14 @@
+{
+	"Name": "AWS S3 Data Management Tampering",
+	"Description": "Detects when a user tampers with S3 data management in Amazon Web Services.",
+	"GUID": "b5ccba0b-cf12-41dc-96de-d696a19950a6",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"route53",
+		"T1537",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

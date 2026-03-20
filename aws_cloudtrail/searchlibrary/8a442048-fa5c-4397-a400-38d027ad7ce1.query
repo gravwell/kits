@@ -1,0 +1,3 @@
+tag=$AWS_CLOUDTRAIL json eventName requestParameters.routeTableId requestParameters.destinationCidrBlock
+| eval eventName == "CreateRoute" || eventName == "DeleteRoute" || eventName == "ReplaceRoute"
+| table eventName routeTableId destinationCidrBlock

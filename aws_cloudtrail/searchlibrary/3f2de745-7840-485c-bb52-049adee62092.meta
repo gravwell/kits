@@ -1,0 +1,17 @@
+{
+	"Name": "AWS Key Pair Import Activity",
+	"Description": "Detects the import of SSH key pairs into AWS EC2, which may indicate an attacker attempting to gain unauthorized access to instances. This activity could lead to initial access, persistence, or privilege escalation, potentially compromising sensitive data and operations.",
+	"GUID": "3f2de745-7840-485c-bb52-049adee62092",
+	"Labels": [
+		"linux",
+		"aws_cloudtrail",
+		"detection",
+		"ec2",
+		"T1078",
+		"initial-access",
+		"defense-evasion",
+		"persistence",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

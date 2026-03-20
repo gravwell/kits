@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "lambda.amazonaws.com" eventName == "UpdateFunctionConfiguration" requestParameters.layers
+| eval has(layers)

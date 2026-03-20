@@ -1,0 +1,5 @@
+tag=$AUDITD kv -q type as auditType a0 a1 a2 a4
+| eval (auditType == "EXECVE" && a0 == "steghide" && a1 == "embed" &&
+    (a2 == "-cf" || a2 == "-ef") &&
+    (a4 == "-cf" || a4 == "-ef")
+)

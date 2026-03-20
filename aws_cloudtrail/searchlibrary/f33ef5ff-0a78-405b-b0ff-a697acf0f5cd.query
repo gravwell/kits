@@ -1,0 +1,2 @@
+tag=$AWS_CLOUDTRAIL json eventSource == "ses.amazonaws.com" eventName
+| eval eventName == "DeleteIdentity"

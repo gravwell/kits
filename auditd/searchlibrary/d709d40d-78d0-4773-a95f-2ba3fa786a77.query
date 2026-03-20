@@ -1,0 +1,3 @@
+tag=$AUDITD kv -q type as auditType
+| eval (auditType == "EXECVE")
+| regex "--cpu-priority|--donate-level|--max-cpu-usage|--threads|--algo=cryptonight"

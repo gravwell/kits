@@ -1,0 +1,10 @@
+{
+	"Name": "Auditd Screen Capture with Import Tool",
+	"Description": "Detects adversary creating screen capture of a desktop with Import Tool.\n  Highly recommended using rule on servers, due to high usage of screenshot utilities on user workstations.\n  ImageMagick must be installed.\n",
+	"GUID": "a5d65423-2cfd-4e82-994f-91af33d04095",
+	"Labels": [
+		"T1113",
+		"collection"
+	],
+	"Metadata": {}
+}
