@@ -3,7 +3,7 @@
 	"Name": "Auditd Detection Kit",
 	"Desc": "Provides tools, utilities, and detections to enable use of Auditd logs.",
 	"Readme": "This kit is designed to provide an out-of-the-box experience for working with Auditd logs. \n\nIt provides the following utilities:\n- Queries\n- Detections\n- Stats\n- Dashboards\n- Actionables\n- Templates\n- Macros",
-	"Version": 1,
+	"Version": 2,
 	"MinVersion": {
 		"Major": 0,
 		"Minor": 0,
@@ -18,6 +18,11 @@
 	"Banner": "05a7cd79-0cbf-46cf-b177-9eca9965e397",
 	"Cover": "d073d25c-573c-4727-bd87-1ea84f7e9c8f",
 	"Items": [
+                {
+                        "Name": "exe_baseline",
+                        "Type": 1,
+                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                },
 		{
 			"Name": "add5175f-8839-4e85-9d38-659d4af89eb0",
 			"Type": 6,
