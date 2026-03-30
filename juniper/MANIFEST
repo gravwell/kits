@@ -231,7 +231,7 @@
                         "Description": "Set juniper tag name",
                         "DefaultValue": "juniper",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 }
         ]
