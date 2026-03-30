@@ -3,4 +3,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
     "dependabot_alerts.disable"
     )
 | printf -e context "at %v, %v was %v by %v for %v org" @timestamp action operation_type actor org
-| $GITHUB_ALERT_META("High", "Dependabot Alerts Disabled for All Existing Repos in Org")
+$GITHUB_ALERT_META("High", "Dependabot Alerts Disabled for All Existing Repos in Org")

@@ -3,4 +3,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type repo org
     "repo.remove_self_hosted_runner"
     )
 | printf -e context "at %v, %v was %v by %v from %v in %v" @timestamp action operation_type actor repo org
-| $GITHUB_ALERT_META("Low", "Runner Removed from Repo")
+$GITHUB_ALERT_META("Low", "Runner Removed from Repo")
