@@ -3,4 +3,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type repo
     "repo.destroy"
     )
 | printf -e context "at %s, %s was %s by %s in %s" @timestamp action operation_type actor repo
-| $GITHUB_ALERT_META("Medium", "Delete Action Invoked")
+$GITHUB_ALERT_META("Medium", "Delete Action Invoked")

@@ -4,4 +4,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type repo org
     "repository_secret_scanning_push_protection.enable"
     )
 | printf -e context "at %v, %v was %v by %v for %v in %v" @timestamp action operation_type actor repo org
-| $GITHUB_ALERT_META("Medium", "Push Protection for Secret Scanning Modified")
+$GITHUB_ALERT_META("Medium", "Push Protection for Secret Scanning Modified")

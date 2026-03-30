@@ -3,4 +3,4 @@ tag=$GITHUB_AUDIT json action repo
     "secret_scanning_alert.create"
 ) 
 | stats count 
-| numbercard count
+| numbercard (count "")
