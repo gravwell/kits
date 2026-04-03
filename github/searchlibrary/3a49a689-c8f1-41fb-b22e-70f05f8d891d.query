@@ -3,4 +3,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type business repo
     "business_secret_scanning_push_protection.disable"
     )
 | printf -e context "at %v, %v was %v by %v in %v" @timestamp action operation_type actor business
-| $GITHUB_ALERT_META("Medium", "Push Protection Bypass Disabled")
+$GITHUB_ALERT_META("Medium", "Push Protection Bypass Disabled")

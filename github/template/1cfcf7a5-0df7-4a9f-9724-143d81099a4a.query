@@ -9,4 +9,4 @@ tag=$GITHUB_AUDIT json actor user repo action!~"api" operation_type
 | alias SRC src_ip
 | eval src_ip!=""
 | stats unique_count by src_ip
-| numbercard unique_count
+| numbercard (unique_count "")

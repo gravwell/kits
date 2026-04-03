@@ -441,7 +441,7 @@
                         "Description": "O365 tag containing Azure events",
                         "DefaultValue": "365-azure",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -449,7 +449,7 @@
                         "Description": "O365 tag containing Exchange events",
                         "DefaultValue": "365-exchange",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -457,7 +457,7 @@
                         "Description": "O365 tag containing General events",
                         "DefaultValue": "365-general",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -465,7 +465,7 @@
                         "Description": "O365 tag containing Sharepoint events",
                         "DefaultValue": "365-sharepoint",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 }
 	]
