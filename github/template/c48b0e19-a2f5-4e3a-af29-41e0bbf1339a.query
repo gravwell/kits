@@ -8,4 +8,4 @@ tag=$GITHUB_AUDIT json actor user repo
 | time -oformat "15:04:05" TIMESTAMP time
 | alias SRC src_ip
 | stats count by repo 
-| numbercard count
+| numbercard (count "")

@@ -276,7 +276,7 @@
 			"Description": "Expression for or list of all windows tags",
 			"DefaultValue": "windows",
 			"Value": "",
-			"Type": "STRING",
+			"Type": "TAG",
 			"InstalledByID": ""
 		},
 		{
@@ -284,7 +284,7 @@
 			"Description": "Windows tag containing group events",
 			"DefaultValue": "windows",
 			"Value": "",
-			"Type": "STRING",
+			"Type": "TAG",
 			"InstalledByID": ""
 		},
 		{
@@ -292,7 +292,7 @@
 			"Description": "Windows tag containing logon events",
 			"DefaultValue": "windows",
 			"Value": "",
-			"Type": "STRING",
+			"Type": "TAG",
 			"InstalledByID": ""
 		},
 		{
@@ -300,7 +300,7 @@
 			"Description": "Windows tag containing user account events",
 			"DefaultValue": "windows",
 			"Value": "",
-			"Type": "STRING",
+			"Type": "TAG",
 			"InstalledByID": ""
 		},
 		{
@@ -308,7 +308,7 @@
 			"Description": "Windows tags containing security and system events i.e. windows_security,windows_system",
 			"DefaultValue": "windows",
 			"Value": "",
-			"Type": "STRING",
+			"Type": "TAG",
 			"InstalledByID": ""
 		}
 	]

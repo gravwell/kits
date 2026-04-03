@@ -6,4 +6,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type org business repo
     "org_secret_scanning_push_protection_bypass_list.remove"
     )
 | printf -e context "at %v, %v was %v by %v for %v in %v" @timestamp action operation_type actor org business
-| $GITHUB_ALERT_META("Medium", "Push Protection Bypass List Modified")
+$GITHUB_ALERT_META("Medium", "Push Protection Bypass List Modified")

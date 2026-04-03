@@ -5,4 +5,4 @@ tag=$GITHUB_AUDIT json actor action repo
     "org.advanced_security_policy_selected_member_disabled"
     )
 | printf -e context "%s performed by %s in %s" action actor repo
-| $GITHUB_ALERT_META("High", "GitHub Advanced Security Configuration Changed")
+$GITHUB_ALERT_META("High", "GitHub Advanced Security Configuration Changed")

@@ -33,7 +33,7 @@
 	"Schemas": {
 		"Simple": [
 			{
-				"Name": "repo",
+				"Name": "_alert_title",
 				"Type": "string"
 			}
 		],
@@ -45,7 +45,7 @@
 		"JSON": {},
 		"ActiveSchema": "simple"
 	},
-	"TargetTag": "_alerts",
+	"TargetTag": "_github_alerts",
 	"ThingUUID": "620733fa-3669-457d-a27a-8e6130e64a32",
 	"UID": 1,
 	"UserMetadata": {},

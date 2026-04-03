@@ -13,4 +13,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action invitation_id user org repo
 | eval days >= 7
 | time -oformat "2006-01-02 15:04:05" @timestamp time
 | printf -e context "%v performed %v in %v org on %v where %v was added %v days %v hours %v minutes %v seconds later with %v Invite ID" actor action org time user days hours minutes seconds invitation_id
-| $GITHUB_ALERT_META("Medium", "Member Added After 7 Day Invitation Expiry")
+$GITHUB_ALERT_META("Medium", "Member Added After 7 Day Invitation Expiry")

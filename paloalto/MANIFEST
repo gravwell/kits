@@ -251,7 +251,7 @@
                         "Description": "Palo Alto tag containing type=* events",
                         "DefaultValue": "pan_*",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -259,7 +259,7 @@
                         "Description": "Palo Alto tag containing type=config events",
                         "DefaultValue": "pan_config",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -267,7 +267,7 @@
                         "Description": "Palo Alto tag containing type=globalprotect events",
                         "DefaultValue": "pan_globalprotect",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -275,7 +275,7 @@
                         "Description": "Palo Alto tag containing type=threat events",
                         "DefaultValue": "pan_threat",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -283,7 +283,7 @@
                         "Description": "Palo Alto tag containing type=traffic events",
                         "DefaultValue": "pan_traffic",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 }
 	]

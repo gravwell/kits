@@ -1,3 +1,4 @@
 tag=$GITHUB_AUDIT json action=="pull_request.close" actor repo 
 | stats count by actor repo 
-| chart count by actor repo
+| alias count " "
+| chart " " by actor repo
