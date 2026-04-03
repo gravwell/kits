@@ -1,4 +1,4 @@
-tag=$FORTINET_EVENTS start=-%%time%% ax type subtype srcip dstip
+tag=$FORTINET_EVENTS ax type subtype srcip dstip
 | eval srcip~"%%ip%%" || dstip~"%%ip%%"
 | stats count by type subtype
 | alias count " "
