@@ -10,13 +10,16 @@
 	},
 	"Name": "Thinkst Canary Kit - Integration Guide",
 	"Desc": "",
-	"Labels": null,
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
 	"LastUpdated": "2026-03-11T16:56:17.439453375Z",
 	"Author": {
-		"Name": "BronsonPeto",
-		"Email": "bronson.peto@gravwell.io",
-		"Company": "",
-		"URL": ""
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "info@gravwell.io"
 	},
 	"Synced": false
 }
