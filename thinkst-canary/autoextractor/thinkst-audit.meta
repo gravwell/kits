@@ -1,0 +1,18 @@
+{
+	"Name": "thinkst-audit",
+	"Desc": "Gravwell generated JSON extraction for tag thinkst-audit.",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"thinkst-audit"
+	],
+	"Labels": [
+		"thinkst",
+		"thinkst-audit"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "f54403cf-2673-43f4-bb8c-bf09d69f43bc",
+	"LastUpdated": "2026-03-24T14:22:14.482712501Z"
+}
