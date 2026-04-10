@@ -1,4 +1,4 @@
-eval _alert_priority = "%%1%%"
+| eval _alert_priority = "%%1%%"
 | eval _alert_name = "%%2%%"
 | enrich _alert_class github
 | eval if (match(repo,".")) {host = repo;} else {host = "github";}

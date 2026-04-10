@@ -7,22 +7,39 @@ The Thinkst Canary kit is licensed under the Apache 2.0 license and the contents
 ## Dependencies
 Gravwell Network Enrichment Kit
 - The Maxmind Database is required for the Location queries, scheduled searches, and alerts. 
-	- It is currently included in this kit; however, if you have the Gravwell Network Enrichment Kit installed or intend to, you may remove it from this kit. 
 
 ## Changelog
 - 1.0: Initial Release
-	- actionables 0
-	- alert 59
-	- dashboard 5
-	- file 3
-	- license 1
-	- macro 13
-	- playbook 59
-	- resource 6
-	- scheduled 118
-		- scheduled searches 59
-		- flows 59
-	- searchlibrary 133
-		- alert queries 59
-		- dashboard searches 74
-	- template 1
+	- actionables 				000
+	- alert 					059
+	- dashboard 				005
+	- file 						003
+	- license 					001
+	- macro 					013
+	- playbook 					059
+	- resource 					006
+	- scheduled 				118
+		- scheduled searches 	059
+		- flows 				059
+	- searchlibrary 			133
+		- alert queries 		059
+		- dashboard searches 	074
+	- template 					001
+
+- 2.0: Removed All Customized Playbooks & Placeholders & Linked Queries; Added Autoextractors
+	- actionables 				000
+	- autoextractors			002
+	- alert 					059
+	- dashboard 				005
+	- file 						003
+	- license 					001
+	- macro 					013
+	- playbook 					005
+	- resource 					004
+	- scheduled 				061
+		- scheduled searches 	059
+		- flows 				002
+	- searchlibrary 			133
+		- alert queries 		059
+		- dashboard searches 	074
+	- template 					001
