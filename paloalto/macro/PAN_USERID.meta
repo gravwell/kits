@@ -1,0 +1,7 @@
+{
+	"Name": "PAN_USERID",
+	"Description": "Configuration Macro; Tag used for all Palo Alto User ID data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.",
+	"Labels": [
+		"palo"
+	]
+}

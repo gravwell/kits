@@ -1,0 +1,7 @@
+// Search - Palo Alto - NGFW - Threat - URL - Top Web Categories [chart]
+tag=$PAN_THREAT ax url_category_list 
+| split -clean -d "," url_category_list 
+| alias url_category_list url_category 
+| lookup -v -s -r excluded_url_categories url_category category reason 
+| stats count by url_category
+| chart count by url_category limit 16

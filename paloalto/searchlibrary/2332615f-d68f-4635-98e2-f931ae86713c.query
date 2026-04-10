@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Traffic - SaaS - SaaS Event Count [numbercard]
+tag=$PAN_TRAFFIC ax is_saas_of_app=="yes"
+| stats count
+| numbercard (count "SaaS Events")

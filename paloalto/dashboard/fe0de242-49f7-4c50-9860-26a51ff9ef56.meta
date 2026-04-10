@@ -1,120 +1,149 @@
 {
 	"UUID": "fe0de242-49f7-4c50-9860-26a51ff9ef56",
-	"Name": "Palo Alto Threat Investigative Dashboard",
-	"Description": "Investigate Palo Alto threat logs for a particular IP address.",
+	"Name": "Palo Alto Investigations",
+	"Description": "This Dashboard is intended to be used for Palo Alto investigations.",
 	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
 		"searches": [
 			{
-				"alias": "Threat subtypes for IP",
+				"alias": "Template - Palo Alto - NGFW - GlobalProtect - Events - All VPN Events for User \u0026 IP [table]",
+				"color": null,
 				"reference": {
-					"id": "21c85c02-8c7a-42fd-9cba-005d36c2cce1",
-					"type": "template"
-				},
-				"color": null
+					"id": "ecd856f4-ee40-4cc9-a327-5f85ed518a13",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Threat Table for IP",
+				"alias": "Template - Palo Alto - NGFW - Threat - Events - All Threat Events for User \u0026 IP [table]",
+				"color": null,
 				"reference": {
-					"id": "8ff368b5-1d29-422a-89a7-7eb20c50d224",
-					"type": "template"
-				},
-				"color": null
+					"id": "15e8e4fd-763e-4043-97f0-162778ec859c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Traffic categories for IP",
+				"alias": "Template - Palo Alto - NGFW - Threat - WildFire - All Submissions for User \u0026 IP [table]",
+				"color": null,
 				"reference": {
-					"id": "182e5db7-4513-4056-a8a8-987fbf570599",
-					"type": "template"
-				},
-				"color": null
+					"id": "10e2589a-08f8-4665-857d-3e6092c9500a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Wildfire Submissions for IP",
+				"alias": "Template - Palo Alto - NGFW - Threat - Subtype - Count by Subtypes for User \u0026 IP [numbercard]",
+				"color": null,
 				"reference": {
-					"id": "e06715fe-29f6-4d29-bdf2-df6ef933fc72",
-					"type": "template"
-				},
-				"color": null
+					"id": "c9e19be7-3673-4d7e-8303-352a1a3ce0bc",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "GlobalProtect Info for IP",
+				"alias": "Template - Palo Alto - NGFW - Traffic - Category - Count by Category [chart]",
+				"color": null,
 				"reference": {
-					"id": "f451f8b7-cf3d-423b-95c6-3738852bd9ea",
-					"type": "template"
-				},
-				"color": null
+					"id": "278a59ad-0113-42d1-8cf5-3c8bd2bc921c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
+				"id": 16486619162920,
 				"title": "Threat Subtypes for IP",
 				"renderer": "numberCard",
+				"hideZoom": true,
 				"span": {
 					"col": 7,
 					"row": 3,
 					"x": 0,
 					"y": 0
 				},
-				"id": 16486619162920,
-				"searchesIndex": 0,
+				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
+				"id": 16486621222771,
 				"title": "Threats",
 				"renderer": "table",
+				"hideZoom": true,
 				"span": {
 					"col": 7,
 					"row": 7,
 					"x": 0,
 					"y": 3
 				},
-				"id": 16486621222771,
 				"searchesIndex": 1,
 				"rendererOptions": {}
 			},
 			{
+				"id": 16486622862572,
 				"title": "Traffic Categories Seen",
 				"renderer": "pieChart",
+				"hideZoom": true,
 				"span": {
 					"col": 5,
 					"row": 5,
 					"x": 7,
 					"y": 0
 				},
-				"id": 16486622862572,
-				"searchesIndex": 2,
-				"rendererOptions": {}
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
+				"id": 16486624828083,
 				"title": "Wildfire Submissions",
 				"renderer": "table",
+				"hideZoom": true,
 				"span": {
 					"col": 12,
 					"row": 6,
 					"x": 0,
 					"y": 10
 				},
-				"id": 16486624828083,
-				"searchesIndex": 3,
+				"searchesIndex": 2,
 				"rendererOptions": {}
 			},
 			{
+				"id": 16486627597934,
 				"title": "GlobalProtect Correlations",
 				"renderer": "table",
+				"hideZoom": true,
 				"span": {
 					"col": 5,
 					"row": 5,
 					"x": 7,
 					"y": 5
 				},
-				"id": 16486627597934,
-				"searchesIndex": 4,
+				"searchesIndex": 0,
 				"rendererOptions": {}
 			}
 		],
-		"timeframe": {
-			"timeframe": "PT1H"
-		},
+		"linkZooming": false,
+		"grid": {},
 		"version": 2
 	},
 	"Labels": [

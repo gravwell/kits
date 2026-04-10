@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [numbercard]",
+	"Description": "Displays a numbercard of GlobalProtect login attempt counts by status.\n\nDependencies\n- Dashboard: Palo Alto GlobalProtect Overview",
+	"GUID": "847bc392-e6f0-4aa3-ba1f-db7b9608c672",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Traffic - Events - Count by Subtype [numbercard]",
+	"Description": "Displays a numbercard of threat event counts by subtype.\n\nDependencies\n- Dashboard: Palo Alto Threat Overview",
+	"GUID": "03e0c1e3-b239-433a-855d-cca56e0867f9",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

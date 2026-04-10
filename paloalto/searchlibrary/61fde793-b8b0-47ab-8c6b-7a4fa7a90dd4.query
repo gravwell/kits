@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Threat - WildFire - Count by Category [numbercard]
+tag=$PAN_THREAT ax subtype=="wildfire" category
+| stats count by category
+| numbercard (count "")

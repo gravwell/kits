@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat/Traffic - Event Type - Count by Type [numbercard]",
+	"Description": "Displays a numbercard of event counts by type. \n\nDependencies:\nDashboard: Palo Alto User Behavior Overview",
+	"GUID": "9a538ea3-3656-4d12-a252-9b4c88487299",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

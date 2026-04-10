@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - WildFire - Count by Application [chart]",
+	"Description": "Displays a chart of WildFire submission counts by application.\n\nDependencies\n- Dashboard: Palo Alto Wildfire Overview",
+	"GUID": "38108c90-9965-4eaa-8c00-13baef49fcb5",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

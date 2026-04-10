@@ -1,12 +1,17 @@
 {
-	"Name": "Palo Alto tunnel",
-	"Desc": "Palo Alto tunnel log format",
+	"Name": "Palo Alto Tunnel Logs",
+	"Desc": "Gravwell generated CSV extraction for Palo Alto Tunnel Logs",
 	"Module": "csv",
-	"Tag": "pan_tunnel",
-	"Labels": null,
-	"UID": 2,
+	"Tag": "",
+	"Tags": [
+		"pan_tunnel"
+	],
+	"Labels": [
+		"palo"
+	],
+	"UID": 1,
 	"GIDs": null,
-	"Global": false,
-	"UUID": "c39a74a5-998c-48a0-a8a3-cefe431df782",
-	"LastUpdated": "2022-03-31T16:30:55.429742494Z"
+	"Global": true,
+	"UUID": "7035c824-b462-4e4c-8806-20e028af9e67",
+	"LastUpdated": "2026-03-18T14:37:01.091509554Z"
 }

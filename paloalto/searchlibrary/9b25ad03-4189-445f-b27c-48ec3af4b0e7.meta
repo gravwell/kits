@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Traffic - SaaS - Total Bytes Transferred [numbercard]",
+	"Description": "Displays a numbercard of total bytes transferred for SaaS traffic sessions.\n\nDependencies\n- Dashboard: Palo Alto SaaS Overview",
+	"GUID": "9b25ad03-4189-445f-b27c-48ec3af4b0e7",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

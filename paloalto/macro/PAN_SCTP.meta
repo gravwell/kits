@@ -1,0 +1,7 @@
+{
+	"Name": "PAN_SCTP",
+	"Description": "Configuration Macro; Tag used for all Palo Alto Stream Control Transmission Protocol (SCTP) data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.",
+	"Labels": [
+		"palo"
+	]
+}

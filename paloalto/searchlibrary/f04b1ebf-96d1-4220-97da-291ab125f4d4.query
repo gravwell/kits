@@ -1,0 +1,5 @@
+// Search - Palo Alto - NGFW - Threat - URL - Top Hostnames [table]
+tag=$PAN_THREAT ax subtype=="url" misc 
+| regex -e misc "(?P<hostname>[^/]+)/" 
+| stats count by hostname 
+| table hostname count

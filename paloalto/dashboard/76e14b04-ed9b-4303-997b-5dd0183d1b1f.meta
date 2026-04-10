@@ -1,46 +1,85 @@
 {
 	"UUID": "76e14b04-ed9b-4303-997b-5dd0183d1b1f",
 	"Name": "Palo Alto Config Overview",
-	"Description": "Config logs from Palo Alto devices",
+	"Description": "This dashboard is a general overview of your Palo Alto Device Configuration data.",
 	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
 		"searches": [
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_CONFIG ax admin serial host client cmd result | alias admin User serial Serial host Host client Client cmd Command result Result | table User Serial Host Client Command Result",
-				"alias": "Latest Events"
+				"alias": "Search - Palo Alto - NGFW - Config - Events - Latest Events [table]",
+				"color": null,
+				"reference": {
+					"id": "52cd3303-4013-47e5-bc75-fa8f999222aa",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_CONFIG ax cmd | stats count by cmd | chart count by cmd",
-				"alias": "Config Events"
+				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Administrators [chart]",
+				"color": null,
+				"reference": {
+					"id": "8b60b817-ad70-4c99-95ec-c82c43e61d64",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_CONFIG ax admin | stats count by admin | chart count by admin",
-				"alias": "Configuration Administrators"
+				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Command [chart]",
+				"color": null,
+				"reference": {
+					"id": "32e6de72-2601-41be-b6ed-dc4acb4e834e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_CONFIG ax client | stats count by client | chart count by client",
-				"alias": "Clients Used"
+				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Results [chart]",
+				"color": null,
+				"reference": {
+					"id": "17da5912-7283-4c8a-97a1-fb532c072fe8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_CONFIG ax result | stats count by result | chart count by result",
-				"alias": "Results"
+				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Client [chart]",
+				"color": null,
+				"reference": {
+					"id": "1ef98531-447b-4dc0-8df2-3ad2e4815902",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
+				"id": 1648586624514,
 				"title": "Latest Events",
 				"renderer": "table",
-				"searchesIndex": 0,
+				"hideZoom": true,
 				"span": {
 					"col": 18,
 					"row": 5,
 					"x": 0,
 					"y": 0
 				},
+				"searchesIndex": 0,
 				"rendererOptions": {
 					"IncludeOther": "yes",
 					"Stack": "grouped",
@@ -50,101 +89,107 @@
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
 					"LogScale": "no"
-				},
-				"id": 1648586624514
+				}
 			},
 			{
+				"id": 1648586754472,
 				"title": "Config Events",
 				"renderer": "categoryBarChart",
-				"searchesIndex": 1,
+				"hideZoom": true,
 				"span": {
 					"col": 9,
 					"row": 6,
 					"x": 9,
 					"y": 5
 				},
+				"searchesIndex": 2,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"Stack": "grouped",
 					"Smoothing": "normal",
 					"Orientation": "v",
 					"XAxisSplitLine": "no",
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
-					"LogScale": "no"
-				},
-				"id": 1648586754472
+					"LogScale": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
+				"id": 1648586798062,
 				"title": "Configuration Administrators",
 				"renderer": "categoryBarChart",
-				"searchesIndex": 2,
+				"hideZoom": true,
 				"span": {
 					"col": 9,
 					"row": 6,
 					"x": 0,
 					"y": 5
 				},
+				"searchesIndex": 1,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"Stack": "grouped",
 					"Smoothing": "normal",
 					"Orientation": "v",
 					"XAxisSplitLine": "no",
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
-					"LogScale": "no"
-				},
-				"id": 1648586798062
+					"LogScale": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
+				"id": 1648587008113,
 				"title": "Clients Used",
 				"renderer": "pieChart",
-				"searchesIndex": 3,
+				"hideZoom": true,
 				"span": {
 					"col": 9,
 					"row": 6,
 					"x": 9,
 					"y": 11
 				},
+				"searchesIndex": 4,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"Stack": "grouped",
 					"Smoothing": "normal",
 					"Orientation": "v",
 					"XAxisSplitLine": "no",
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
-					"LogScale": "no"
-				},
-				"id": 1648587008113
+					"LogScale": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
+				"id": 1648587070381,
 				"title": "Results",
 				"renderer": "pieChart",
-				"searchesIndex": 4,
+				"hideZoom": true,
 				"span": {
 					"col": 9,
 					"row": 6,
 					"x": 0,
 					"y": 11
 				},
+				"searchesIndex": 3,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"Stack": "grouped",
 					"Smoothing": "normal",
 					"Orientation": "v",
 					"XAxisSplitLine": "no",
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
-					"LogScale": "no"
-				},
-				"id": 1648587070381
+					"LogScale": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			}
 		],
-		"timeframe": {
-			"timeframe": "PT1H"
-		},
+		"linkZooming": false,
+		"grid": {},
 		"version": 2
 	},
 	"Labels": [
