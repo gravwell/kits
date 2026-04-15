@@ -6,7 +6,7 @@ The GitHub kit is licensed is licensed under the BSD 2-Clause license and the co
 - Null
 
 ## Changelog
-- 1.0: Initial Release
+**1.0: Initial Release**
 	- actionables (3)
 	- autoextractor (2)
 	- alert (67)
