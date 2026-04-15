@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.aws_cloudtrail",
 	"Name": "AWS CloudTrail Detection Kit",
 	"Desc": "Provides tools, utilities, and detections to enable use of AWS CloudTrail logs.",
-	"Readme": "This kit is designed to provide an out-of-the-box experience for working with AWS CloudTrail logs.\n\n It provides the following utilities:\n - Queries\n- Detections\n- Stats\n- Dashboards\n- Actionables\n- Templates\n\nRefer to playbooks for implementation guides, and a kit overview for more detail on components.",
+	"Readme": "This kit is designed to provide an out-of-the-box experience for working with AWS CloudTrail logs.\n\nIt provides the following utilities:\n- Queries\n- Detections\n- Stats\n- Dashboards\n- Actionables\n- Templates\n\nRefer to playbooks for implementation guides, and a kit overview for more detail on components.\n\nThe CloudTrail kit is licensed is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/aws_cloudtrail).\n\n## Dependencies\n- Null\n\n## Changelog\n**1.0: Initial Release**\n- actionables (2)\n- dashboard (3)\n- file (3)\n- license (1)\n- macro (1)\n- playbook (3)\n- searchlibrary (66)\n- template (4)",
 	"Version": 1,
 	"MinVersion": {
 		"Major": 0,
