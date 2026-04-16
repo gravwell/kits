@@ -9,13 +9,13 @@
   "Assets": [
     {
       "Type": "image",
-      "Source": "duo-cover.png",
+      "Source": "cover.png",
       "Legend": "Duo Cover",
       "Featured": true
     },
     {
       "Type": "image",
-      "Source": "duo-banner.png",
+      "Source": "banner.png",
       "Legend": "Duo Banner",
       "Featured": true,
       "Banner": true
@@ -30,12 +30,12 @@
     {
       "context": "cover",
       "type": "image",
-      "file": "duo-cover.jpg"
+      "file": "cover.png"
     },
     {
       "context": "banner",
       "type": "image",
-      "file": "duo-banner.jpg"
+      "file": "banner.png"
     }
   ],
   "readme": "README.md"
