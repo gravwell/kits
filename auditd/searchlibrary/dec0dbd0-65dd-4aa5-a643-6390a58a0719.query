@@ -1,0 +1,1 @@
+tag=auditd kv -q -s type == "SYSCALL" as auditType success == "no" AUID | stats count by AUID | chart count by AUID

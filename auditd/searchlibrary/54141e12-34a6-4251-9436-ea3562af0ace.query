@@ -1,0 +1,1 @@
+tag=auditd kv -q -s type as auditType AUID EUID ses | eval (AUID != EUID) && (AUID != "unset") | stats unique_count(ses) as sessions by AUID EUID | eval transition = printf("(User: %s) → (User: %s)", AUID, EUID) | count by transition | numbercard (count "")
