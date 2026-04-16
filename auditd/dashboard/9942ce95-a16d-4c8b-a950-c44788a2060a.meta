@@ -1,0 +1,111 @@
+{
+	"UUID": "9942ce95-a16d-4c8b-a950-c44788a2060a",
+	"Name": "Auditd Identity Accountability",
+	"Description": "Answer \"what did this account actually do\" across privilege contexts.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Auditd Activity by AUID",
+				"color": null,
+				"reference": {
+					"id": "4876ee88-eaa0-4c33-977f-c7479c8a7803",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Auditd AUID Activity",
+				"color": null,
+				"reference": {
+					"id": "4d9605f1-6905-4cf7-94a1-0b24263a3bf1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Auditd User Transition Counts",
+				"color": null,
+				"reference": {
+					"id": "cf961b05-9447-4501-b218-3bc10179855c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 7048380440864288,
+				"title": "Active AUID",
+				"renderer": "table",
+				"hideZoom": false,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 2898250111100815,
+				"title": "AUID Activity Timeline",
+				"renderer": "lineChart",
+				"hideZoom": false,
+				"span": {
+					"col": 8,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "smooth",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "yes"
+				}
+			},
+			{
+				"id": 4976669972471495,
+				"title": "Identity Transitions",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 13,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"auditd",
+		"identity",
+		"linux",
+		"sudo"
+	]
+}

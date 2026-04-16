@@ -1,0 +1,12 @@
+{
+	"Name": "Auditd Failed Operations by Executable",
+	"Description": "Overview of failed operations by executable. Useful to be aware of anomalies in process execution, or diagnosing process failures.",
+	"GUID": "680f6de5-ed97-4d02-a798-b9bfacb8091f",
+	"Labels": [
+		"auditd",
+		"stats"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

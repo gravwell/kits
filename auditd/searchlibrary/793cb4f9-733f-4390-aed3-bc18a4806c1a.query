@@ -1,0 +1,1 @@
+tag=auditd kv -q -s type == "SYSCALL" as auditType success == "no" SYSCALL | stats count by SYSCALL | sort by count desc | table SYSCALL count
