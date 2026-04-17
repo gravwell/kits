@@ -1,0 +1,106 @@
+{
+	"UUID": "a314ed1f-ad59-40e7-8855-4c5977cbe150",
+	"Name": "Auditd Failed Operations",
+	"Description": "Looks for unsuccessful syscalls events. Shows denied access, blocked operations, permissions issues.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Auditd Failed Operations Over Time",
+				"color": null,
+				"reference": {
+					"id": "dec0dbd0-65dd-4aa5-a643-6390a58a0719",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Auditd Failed Operations by Executable",
+				"color": null,
+				"reference": {
+					"id": "680f6de5-ed97-4d02-a798-b9bfacb8091f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Auditd Failed Operations by Syscall Type",
+				"color": null,
+				"reference": {
+					"id": "793cb4f9-733f-4390-aed3-bc18a4806c1a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 1166732928623563,
+				"title": "Failed Operations Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "yes"
+				}
+			},
+			{
+				"id": 8997419243802443,
+				"title": "Failed Operations by Executable",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 7040291158777694,
+				"title": "Failed Operations by Syscall Type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

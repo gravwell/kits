@@ -1,0 +1,12 @@
+{
+	"Name": "Auditd Failed Operations by Syscall Type",
+	"Description": "Overview of failed operations by Syscall Type",
+	"GUID": "793cb4f9-733f-4390-aed3-bc18a4806c1a",
+	"Labels": [
+		"auditd",
+		"stats"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

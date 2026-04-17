@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Activity by AUID",
+	"Description": "Chart to review which AUID are active over a period of time. Can be useful for monitoring spikes in user activity, or anomalous usage patterns.",
+	"GUID": "4876ee88-eaa0-4c33-977f-c7479c8a7803",
+	"Labels": [
+		"auditd",
+		"stats",
+		"AUID"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
