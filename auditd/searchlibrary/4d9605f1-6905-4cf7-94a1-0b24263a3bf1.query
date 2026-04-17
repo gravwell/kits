@@ -1,1 +1,1 @@
-tag=auditd kv -q type as auditType AUID | count auditType by AUID | table AUID count
+tag=$AUDITD kv -q type as auditType AUID | count auditType by AUID | table AUID count
