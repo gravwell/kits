@@ -13,16 +13,17 @@
 - 1.0: Initial Release
 	- actionables 				01
 	- alert 					00
+	- autoextractor				04
 	- dashboard 				06
 	- file 						03
 	- license 					01
 	- macro 					06
-	- playbook 					01
+	- playbook 					02
 	- resource 					07
 	- scheduled 				00
 		- scheduled searches 	00
 		- flows 				00
 	- searchlibrary 			08
 		- alert queries 		00
-		- dashboard searches 	00
+		- dashboard searches 	08
 	- template 					26

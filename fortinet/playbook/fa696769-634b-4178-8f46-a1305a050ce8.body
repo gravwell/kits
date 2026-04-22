@@ -1,0 +1,209 @@
+<km>
+***  
+
+A toolkit for interacting with Fortinet data in Gravwell. This playbook is a log ingestion integration guide for onboarding Fortinet logs into Gravwell.
+
+***  
+
+## Table of Contents  
+0. Data Ingestion
+    1. Simple Relay Ingester  
+    2. Install & Configure Simple Relay Ingester  
+        1. Recommended FortiGate syslog settings  
+        2. Recommended: Enable UTM Extended Logging  
+        3. Recommended: Fortinet Storage Well Configuration  
+        4. Test Queries  
+    3. HTTP Ingester  
+    4. Install & Configure HTTP Ingester  
+    5. Data Tags  
+    6. Working with the Data  
+
+*** 
+
+## 0. Data Ingestion
+
+Before you can use the kit, you'll need to get logs flowing from your Fortinet FortiGate / FortiOS 7.6.6 device into Gravwell. Our recommended method is via syslog forwarding. Gravwell can receive syslog data using the Simple Relay ingester. Configuration of Simple Relay is described below.
+
+You can also send logs via the HTTP ingester; instructions for that are in the "Install & Configure HTTP Ingester" section below. Note that FortiOS remote logging targets are documented as including syslog servers (and other Fortinet products), but do not document a generic "HTTP POST logs to arbitrary endpoint" as a log target. For HTTP ingestion, use an intermediate syslog-to-HTTP relay. ([Log settings and targets](https://docs.fortinet.com/document/fortigate/7.6.6/administration-guide/250999/log-settings-and-targets))
+
+***
+
+#### 0.1. Simple Relay Ingester
+
+- Simple Relay is the go-to ingester for text based data sources that can be delivered over plaintext TCP, encrypted TCP, or plaintext UDP network connections via either IPv4 or IPv6.
+    - [Documentation](https://docs.gravwell.io/ingesters/simple_relay.html)
+
+***
+
+#### 0.2. Install & Configure Simple Relay Ingester
+
+1. Deploy the Simple Relay ingester on a server which is both accessible from the FortiGate device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the Gravwell Simple Relay documentation for more information. ([Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html))
+2. Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/simple\_relay.conf.d/fortinet.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_simple\_relay.service</kbd> to restart the ingester. This will make it start listening for incoming syslog on port 6701, with special rules to route Fortinet traffic to different Gravwell tags.
+    - The routing is implemented using Gravwell's regexrouter preprocessor (supports named capture groups and preprocessor chaining). ([regexrouter](https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html))
+
+```ini
+    [Listener "syslogtcp_fortinet"]
+        Bind-String="tcp://0.0.0.0:6701"
+        Reader-Type=rfc5424
+        Tag-Name=fortinet-events
+        Assume-Local-Timezone=true
+        Preprocessor="Fortinet Type Router"
+        Preprocessor="Fortinet System Router"
+
+    [preprocessor "Fortinet Type Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`\btype="(?P<type>traffic|utm|event?)?\"`
+        #Regex=`^[^.]+\s[^.]+\s[^.]+\stype\=\"(?<type>.+?)?\"`
+        Route-Extraction=type
+        Route=traffic:fortinet-traffic
+        Route=utm:fortinet-utm
+        # event -> stays on default tag fortinet-events
+
+    [preprocessor "Fortinet System Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`\bsubtype="(?P<subtype>.+?)?\"`
+        Route-Extraction=subtype
+        Route=system:fortinet-system
+```
+
+3. Ensure that the server running Simple Relay allows incoming connections on TCP port 6701, and that any firewalls between the FortiGate and the Simple Relay system allow TCP/6701 traffic.
+
+4. Configure remote syslog logging on the FortiGate as described in the Fortinet documentation. Fortinet documents syslog as a supported remote logging target and documents selecting formats such as ***default*** or ***rfc5424***. ([Log settings and targets](https://docs.fortinet.com/document/fortigate/7.6.6/administration-guide/250999/log-settings-and-targets))
+
+***
+
+#### 0.2.1. Recommended FortiGate syslog settings:
+- Use ***mode reliable*** (RFC6587 over TCP). ([config log syslogd setting](https://docs.fortinet.com/document/fortigate/7.6.6/cli-reference/141516630/config-log-syslogd-setting))
+- Use ***format rfc5424*** (best timestamp framing) or ***format default*** (simple key=value).
+- Point the syslog server to the Simple Relay host on port 6701.
+
+Example FortiGate CLI pattern:
+
+```shell
+config log syslogd setting
+    set status enable
+    set server <SIMPLE_RELAY_IP>
+    set mode reliable
+    set port 6701
+    set format rfc5424
+end
+```
+
+***
+
+#### 0.2.2. Recommended: Enable UTM Extended Logging
+
+FortiOS supports "[UTM extended logging](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/496081)" for UTM log types when sending to *reliable Syslog servers over TCP*. Extended logging adds HTTP header information to the ***rawdata*** field in UTM logs (for example: Method, X-Forwarded-For, Request/Response Content-Type, Referer, User-Agent). The full ***rawdata*** field (up to 20KB) is only sent to reliable syslog servers; other logging destinations (disk, FortiAnalyzer, UDP syslog) keep a maximum of 2KB total log length and discard the rest. ([UTM extended logging](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/630151/utm-extended-logging))
+
+To enable extended UTM logging globally, FortiOS provides the ***extended-utm-log*** setting under ***config log setting***. ([config log setting](https://docs.fortinet.com/document/fortigate/7.6.6/cli-reference/196223761/config-log-setting))
+
+```shell
+config log setting
+    set extended-utm-log enable
+end
+```
+
+Note: enabling extended UTM logging can significantly increase individual UTM log entry size (because of ***rawdata***). Size your pipeline (network, relay, and ingest capacity) accordingly. ([UTM extended logging](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/630151/utm-extended-logging))
+
+***
+
+#### 0.2.3. Recommended: Fortinet Storage Well Configuration
+
+- Fortinet Storage Well configuration, copy to /opt/gravwell/etc/gravwell.conf.d/fortinet.conf, change ownership to gravwell:gravwell, and then restart Gravwell.
+- Adapt data retention according to your environment's requirements. 
+```ini
+# Fortinet 
+[Storage-Well "fortinet"]
+    Location=/opt/gravwell/storage/fortinet
+    Tags=fortinet*
+    Accelerator-Name=fulltext #fulltext is the most resilent to varying data types
+    Accelerator-Args="-ignoreFloat" #tell the fulltext accelerator to not index timestamps, syslog entries are easy to ID
+    Accelerator-Engine-Override=bloom #The bloom engine is effective and fast with minimal disk overhead
+    #this well to delete old data when the disk reaches 90% full
+    Hot-Storage-Reserve=10 # adapt this for your environment's requirements
+    Delete-Cold-Data=true # adapt this for your environment's requirements
+```
+
+***
+
+#### 0.2.4. Test Queries  
+
+Once the changes have been committed/applied, logs should begin flowing into Gravwell. You can check by running the following queries:
+
+```gravwell
+tag=fortinet-traffic
+| limit 20
+```
+
+```gravwell
+tag=fortinet-utm
+| limit 20
+```
+
+```gravwell
+tag=fortinet-system
+| limit 20
+```
+
+```gravwell
+tag=fortinet-events
+| limit 20
+```
+
+If any results appear, logs are coming in properly as expected.
+
+***
+
+#### 0.3. HTTP Ingester
+
+- HTTP Ingester can be used when you want Palo Alto to deliver logs over HTTP instead of syslog.
+    - [Documentation](https://docs.gravwell.io/ingesters/http.html)
+
+***
+
+#### 0.4. Install & Configure HTTP Ingester
+
+Deploy the HTTP Ingester on a server which is both accessible from the syslog-to-HTTP relay and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the Gravwell HTTP ingester documentation for more information. ([HTTP ingester](https://docs.gravwell.io/v5.7.9/ingesters/http.html))
+
+Drop the following config snippet into a new file named <km>/opt/gravwell/etc/gravwell\_http\_ingester.conf.d/fortinet.conf<km> on the ingester machine, then restart the HTTP ingester to apply changes. By default, the HTTP ingester listens on port 8080; this config adds an HTTP endpoint at _/fortinet/logs_, with HTTP basic authentication in place, and routes Fortinet logs into the correct tags using the same regexrouter rules as the Simple Relay configuration above. ([HTTP ingester](https://docs.gravwell.io/v5.7.9/ingesters/http.html), [regexrouter](https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html))
+
+```ini
+[Listener "fortinet"]
+    AuthType=basic
+    Username=fortinet
+    Password=CHANGE_ME
+    URL="/fortinet/logs"
+    Tag-Name=fortinet-events
+    Assume-Local-Timezone=true
+    Preprocessor="Fortinet Type Router"
+    Preprocessor="Fortinet System Router"
+
+[preprocessor "Fortinet Type Router"]
+    Type=regexrouter
+    Drop-Misses=false
+    Regex=`\btype="(?P<type>traffic|utm|event?)?\"`
+    #Regex=`^[^.]+\s[^.]+\s[^.]+\stype\=\"(?<type>.+?)?\"`
+    Route-Extraction=type
+    Route=traffic:fortinet-traffic
+    Route=utm:fortinet-utm
+
+[preprocessor "Fortinet System Router"]
+    Type=regexrouter
+    Drop-Misses=false
+    Regex=`\bsubtype="\bsubtype="(?P<subtype>.+?)?\"`
+    Route-Extraction=subtype
+    Route=system:fortinet-system
+```
+
+Ensure that the server running the HTTP Ingester allows incoming connections on port 8080, and that any firewalls between the relay system and the ingester system allow TCP/8080 traffic.
+
+To send FortiGate logs into the HTTP ingester, configure the FortiGate to forward logs to syslog (as documented), then use a syslog-to-HTTP relay (e.g., rsyslog/syslog-ng) to POST the syslog message body to ***http://<HTTP_INGESTER_HOST>:8080/fortinet/logs*** using the basic authentication credentials configured above.
+
+If you are using the HTTP ingester path, you can still (and should) enable UTM extended logging on the FortiGate to enrich the UTM payload (the syslog-to-HTTP relay will forward whatever FortiGate sends). Extended logging details and constraints are documented here: ([UTM extended logging](https://docs.fortinet.com/document/fortigate/7.6.6/fortios-log-message-reference/630151/utm-extended-logging)).
+
+You can validate ingestion by running the same queries listed in the Simple Relay section.
+
+***
+</km>

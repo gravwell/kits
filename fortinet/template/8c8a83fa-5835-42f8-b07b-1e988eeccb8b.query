@@ -1,4 +1,4 @@
-tag=$FORTINET_TRAFFIC start=-%%time%% ax type subtype srcip dstip
+tag=$FORTINET_TRAFFIC ax type subtype srcip dstip
 | eval srcip~"%%ip%%" || dstip~"%%ip%%"
 | stats count by type subtype
 | alias count " "

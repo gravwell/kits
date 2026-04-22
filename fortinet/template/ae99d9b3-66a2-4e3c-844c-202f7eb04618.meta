@@ -11,14 +11,6 @@
 				"required": true,
 				"defaultValue": ".",
 				"previewValue": "."
-			},
-			{
-				"name": "%%time%%",
-				"label": "Time",
-				"description": "s: sec; m:min; h:hr; d:day; y:year",
-				"required": true,
-				"defaultValue": "24h",
-				"previewValue": "24h"
 			}
 		]
 	},

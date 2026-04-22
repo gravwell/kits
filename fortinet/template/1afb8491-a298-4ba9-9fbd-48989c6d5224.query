@@ -1,4 +1,4 @@
-tag=$FORTINET_EVENTS start=-%%time%% ax 
+tag=$FORTINET_EVENTS ax 
     date time type subtype level srcip srcport dstip dstport action user
 | eval (srcip~"%%ip%%" || dstip~"%%ip%%") 
 | table date time type subtype level srcip srcport dstip dstport action user
