@@ -1,1 +1,1 @@
-tag=auditd kv -q type as auditType AUID | count auditType by AUID | chart count by AUID
+tag=$AUDITD kv -q type as auditType AUID | count auditType by AUID | chart count by AUID
