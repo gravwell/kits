@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-ftd-config",
+	"Desc": "Gravwell generated fields extraction for tag cisco-ftd-config, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-ftd-config"
+	],
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "4e7ff0cd-54b2-48d6-81da-e7539544cd9a",
+	"LastUpdated": "2026-03-17T13:51:48.98892242Z"
+}

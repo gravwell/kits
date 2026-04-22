@@ -1,0 +1,8 @@
+{
+	"Name": "CISCO_ASA_EVENTS",
+	"Description": "Configuration Macro; Tag used for all Cisco ASA Events data that don't fall into the other tags; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$CISCO_ASA_EVENTS",
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	]
+}

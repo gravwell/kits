@@ -1,0 +1,8 @@
+{
+	"Name": "CISCO_NORMALIZE_DIRECTION",
+	"Description": "This macro normalizes Direction from SecIntMatchingIP. \n\nAssumptions: \n- Source = External IP Address\n- Destination = Internal IP Address\n\nUsage: \ntag=$CISCO_SECURITY\n$CISCO_SECURITY_EVX\n$CISCO_NORMALIZE_DIRECTION\n| table SrcIP SrcPort DstIP DstPort SecIntMatchingIP Direction AccessControlRuleAction AccessControlRuleReason",
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

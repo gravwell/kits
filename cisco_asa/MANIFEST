@@ -1,0 +1,399 @@
+{
+	"ID": "io.gravwell.cisco_asa",
+	"Name": "Cisco ASA",
+	"Desc": "A toolkit for interacting with Cisco ASA data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Cisco ASA analysis across Authentication, Config, Events (catch-all), System, Threat, Traffic, and VPN log sources.",
+	"Readme": "***\n\nA toolkit for interacting with Cisco ASA data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Cisco ASA analysis across Authentication, Config, Events (catch-all), System, Threat, Traffic, and VPN log sources.\n\n***\n\n## Table of Contents  \n0. [Data Ingestion](#0-data-ingestion)  \n    0.1. [Simple Relay Ingester](#0-1-simple-relay-ingester)  \n    0.2. [Install \u0026 Configure Simple Relay](#0-2-install--configure)  \n1. [Tags \u0026 Macros](#1-tags--macros)  \n    1.1. [Tags](#1-1-tags)  \n    1.2. [Autoextractors](#1-2-autoextractors)  \n    1.3. [Macros](#1-3-macros)  \n2. [Query Library](#2-query-library)  \n3. [Naming Schema](#3-naming-schema)  \n4. [Resources](#4-resources)  \n    4.1. [Lookups](#4-1-lookups)  \n5. [Alerts](#5-alerts)  \n    5.1 [Dispatchers](#5-1-dispatchers)  \n    5.2 [Consumers](#5-2-consumers)\n6. [Scheduled Searches](#6-scheduled-searches)  \n    6.1. [Flows](#6-1-flows)\n7. [Playbooks](#7-playbooks)  \n8. [Searches](#8-searches)  \n    8.1. [Dashboard Searches](#8-2-dashboard-searches)  \n    8.2. [Alert Queries](#8-1-alert-queries)  \n9. [Templates](#9-templates)  \n10. [Dashboards](#10-dashboards)  \n    10.1 [Actionables](#10-1-actionables)\n11. [Useful Resources \u0026 References](#11-useful-resources--references)  \n12. [Notes](#12-notes)  \n13. [Image credits](#13-image-credits)  \n\n***\n\n## 0. [Data Ingestion](#0-data-ingestion)\n\nBefore you can use the kit, you'll need to get logs flowing from your Cisco ASA Firewall(s) into Gravwell. The recommended method is via syslog forwarding. Gravwell can receive syslog using the [Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html) ingester.\n\n#### 0.1 [Simple Relay Ingester](#0-1-simple-relay-ingester)\n\n- Simple Relay is the go-to ingester for text based data sources that can be delivered over plaintext TCP, encrypted TCP, or plaintext UDP network connections via either IPv4 or IPv6.\n    - [Documentation](https://docs.gravwell.io/ingesters/simple_relay.html)\n\n#### 0.2 [Install \u0026 Configure Simple Relay](#0-2-install--configure)\n\n- Deploy Simple Relay on a server which is accessible from the ASA device(s) and can route to the Gravwell indexer(s). Configure it with the correct _Ingest-Secret_ and point either _Cleartext-Backend-Target_ or _Encrypted-Backend-Target_ at the indexer address(es). See [Documentation](https://docs.gravwell.io/ingesters/simple_relay.html).\n- Drop the following config snippet into a new file named \u003ckbd\u003e/opt/gravwell/etc/simple\\_relay.conf.d/cisco\\_firewall.conf\u003c/kbd\u003e then restart the ingester with \u003ckbd\u003esudo systemctl restart gravwell\\_simple\\_relay.service\u003c/kbd\u003e. This will make it start listening for incoming syslog on TCP the configured port, with special rules to route Cisco ASA events into different Gravwell tags.\n```ini\n[Listener \"syslogtcp_cisco_asa\"]\n    Bind-String=\"tcp://0.0.0.0:6801\"\n    Reader-Type=rfc5424\n    Keep-Priority=true\n    Tag-Name=cisco-asa-events\n    Assume-Local-Timezone=true\n    Preprocessor=\"Cisco ASA Class Router\"\n\n# ASA: Route by 3-digit class prefix from the 6-digit message number\n# Example: %ASA-6-302013: ...  -\u003e class=302\n[preprocessor \"Cisco ASA Class Router\"]\n    Type=regexrouter\n    Drop-Misses=false\n    Regex=`%ASA-[0-7]-(?P\u003cclass\u003e\\d{3})\\d{3}:`\n    Route-Extraction=class\n\n    # auth\n    Route=109:cisco-asa-auth\n    Route=113:cisco-asa-auth\n\n    # config\n    Route=111:cisco-asa-config\n    Route=112:cisco-asa-config\n    Route=208:cisco-asa-config\n    Route=308:cisco-asa-config\n\n    # vpn\n    Route=213:cisco-asa-vpn\n    Route=316:cisco-asa-vpn\n    Route=320:cisco-asa-vpn\n    Route=402:cisco-asa-vpn\n    Route=403:cisco-asa-vpn\n    Route=404:cisco-asa-vpn\n    Route=501:cisco-asa-vpn\n    Route=602:cisco-asa-vpn\n    Route=603:cisco-asa-vpn\n    Route=611:cisco-asa-vpn\n    Route=702:cisco-asa-vpn\n    Route=713:cisco-asa-vpn\n    Route=714:cisco-asa-vpn\n    Route=715:cisco-asa-vpn\n    Route=716:cisco-asa-vpn\n    Route=718:cisco-asa-vpn\n    Route=720:cisco-asa-vpn\n    Route=722:cisco-asa-vpn\n\n    # traffic\n    Route=106:cisco-asa-traffic\n    Route=108:cisco-asa-traffic\n    Route=201:cisco-asa-traffic\n    Route=202:cisco-asa-traffic\n    Route=204:cisco-asa-traffic\n    Route=302:cisco-asa-traffic\n    Route=303:cisco-asa-traffic\n    Route=304:cisco-asa-traffic\n    Route=305:cisco-asa-traffic\n    Route=314:cisco-asa-traffic\n    Route=405:cisco-asa-traffic\n    Route=406:cisco-asa-traffic\n    Route=407:cisco-asa-traffic\n    Route=500:cisco-asa-traffic\n    Route=502:cisco-asa-traffic\n    Route=607:cisco-asa-traffic\n    Route=608:cisco-asa-traffic\n    Route=609:cisco-asa-traffic\n    Route=616:cisco-asa-traffic\n    Route=620:cisco-asa-traffic\n    Route=703:cisco-asa-traffic\n    Route=710:cisco-asa-traffic\n\n    # threat\n    Route=400:cisco-asa-threat\n    Route=401:cisco-asa-threat\n    Route=420:cisco-asa-threat\n    Route=733:cisco-asa-threat\n\n    # system\n    Route=101:cisco-asa-system\n    Route=102:cisco-asa-system\n    Route=103:cisco-asa-system\n    Route=104:cisco-asa-system\n    Route=105:cisco-asa-system\n    Route=199:cisco-asa-system\n    Route=210:cisco-asa-system\n    Route=211:cisco-asa-system\n    Route=214:cisco-asa-system\n    Route=216:cisco-asa-system\n    Route=306:cisco-asa-system\n    Route=307:cisco-asa-system\n    Route=311:cisco-asa-system\n    Route=315:cisco-asa-system\n    Route=414:cisco-asa-system\n    Route=604:cisco-asa-system\n    Route=605:cisco-asa-system\n    Route=606:cisco-asa-system\n    Route=610:cisco-asa-system\n    Route=612:cisco-asa-system\n    Route=614:cisco-asa-system\n    Route=615:cisco-asa-system\n    Route=701:cisco-asa-system\n    Route=709:cisco-asa-system\n    Route=711:cisco-asa-system\n    Route=741:cisco-asa-system\n```\n- Ensure that the server running Simple Relay allows incoming connections on the configured port, and that any firewalls between the Cisco Firewall device and the Simple Relay system allow the configured port traffic.  \n- Configure log forwarding as described in the Cisco Firewall documentation, defining the syslog server profile to point at the Simple Relay server on the configured port.  \n- Once the changes have been committed, logs should begin flowing into Gravwell. You can check by running the folowing query:  \n```\ntag=$CISCO_ASA limit 10\n```\n- If any results appear, logs are coming in properly.  \n\n***\n\n## 1. [Tags \u0026 Macros](#1-tags--macros)\n\n#### 1.1. [Tags](#1-1-tags)\n\n- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.\n- [Documentation](https://docs.gravwell.io/ingesters/ingesters.html#tags)\n- The Cisco ASA Kit for Gravwell makes use of the following tags:  \n    - cisco-asa-auth: Configuration Macro; Tag used for all Cisco ASA Authentication data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage:  \n        `tag=cisco-asa-auth`\n    - cisco-asa-config: Configuration Macro; Tag used for all Cisco ASA Config data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage:  \n        `tag=cisco-asa-config`\n    - cisco-asa-events: Configuration Macro; Tag used for all Cisco ASA Events data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage:  \n        `tag=cisco-asa-events`\n    - cisco-asa-system: Configuration Macro; Tag used for all Cisco ASA System data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage:  \n        `tag=cisco-asa-system`\n    - cisco-asa-threat: Configuration Macro; Tag used for all Cisco ASA Threat data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage:  \n        `tag=cisco-asa-threat` \n    - cisco-asa-traffic: Configuration Macro; Tag used for all Cisco ASA Traffic data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage:  \n        `tag=cisco-asa-traffic` \n    - cisco-asa-vpn: Configuration Macro; Tag used for all Cisco ASA VPN data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - Usage:  \n        `tag=cisco-asa-vpn` \n\n#### 1.2. [Autoextractors](#1-2-autoextractors)\n\n- Purpose: Auto-extractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The “ax” module then automatically invokes the appropriate functionality of other modules.\n- [Documentation](https://docs.gravwell.io/configuration/autoextractors.html)\n- The Cisco ASA Kit for Gravwell makes use of the following autoextractors:  \n- Total: ***7***\n    - cisco-asa-traffic: Gravwell generated fields extraction for tag cisco-asa-traffic, args '-p -e DATA'  \n    - cisco-asa-threat: Gravwell generated fields extraction for tag cisco-asa-threat, args '-p -e DATA'  \n    - cisco-asa-config: Gravwell generated fields extraction for tag cisco-asa-config, args '-p -e DATA'  \n    - cisco-asa-vpn: Gravwell generated fields extraction for tag cisco-asa-vpn, args '-p -e DATA'  \n    - cisco-asa-events: Gravwell generated fields extraction for tag cisco-asa-events, args '-p -e DATA'  \n    - cisco-asa-system: Gravwell generated fields extraction for tag cisco-asa-system, args '-p -e DATA'  \n    - cisco-asa-auth: Gravwell generated fields extraction for tag cisco-asa-auth, args '-p -e DATA'  \n\n#### 1.3. [Macros](#1-3-macros)\n\n- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.\n- [Documentation](https://docs.gravwell.io/search/macros.html)\n- The Cisco ASA Kit for Gravwell makes use of the following macros:\n- Total: ***10***\n    - Tags\n        - $CISCO\\_ASA: Configuration Macro; Tag used for all Cisco ASA data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_ASA\\_AUTH: Configuration Macro; Tag used for all Cisco ASA Authentication data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_ASA\\_CONFIG: Configuration Macro; Tag used for all Cisco ASA Configuration data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_ASA\\_EVENTS: Configuration Macro; Tag used for all Cisco ASA Events data that don't fall into the other tags; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_ASA\\_SYSTEM: Configuration Macro; Tag used for all Cisco ASA System data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_ASA\\_THREAT: Configuration Macro; Tag used for all Cisco ASA Threat data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_ASA\\_TRAFFIC: Configuration Macro; Tag used for all Cisco ASA Traffic data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. \n        - $CISCO\\_ASA\\_VPN: Configuration Macro; Tag used for all Cisco ASA VPN data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n    - Normalization\n        - $CISCO\\_ASA\\_SEVERITY: This macro creates an Enumerated Value (EV) named \\_severity\\_order and then orders events by severity. \n        - $CISCO\\_ASA\\_SEVERITY\\_ORDER: This macro creates an Enumerated Value (EV) named \\_severity\\_order and then orders events by severity.\n        \n***\n\n## 2. [Query Library](#2-query-library)\n- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-1-alert-queries), and [playbooks](#7-playbooks).\n- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)\n    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.\n    - Total queries: ***12***\n        - [8.1 Dashboard Searches](#8-2-dashboard-searches): ***12***  \n        - [8.2 Alert Queries](#8-1-alert-queries): ***0***  \n\n***\n\n## 3. [Naming Schema](#3-naming-schema)\n- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.\n- _QueryType - Company - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - **if any**]_\n- Examples:\n    - Templates: _Template - Cisco - ASA - Firewall - Authentication - Event Count by Severity [numbercard]_\n    - Searches: _Search - Cisco - ASA - Firewall - Event Types - Count by Category [chart]_\n\n***\n\n## 4. [Resources](#4-resources)\n- Purpose: Resources allow users to store persistent data for use in searches.\n- [Documentation](https://docs.gravwell.io/resources/resources.html)\n- Total: ***1***\n\n#### 4.1 [Lookups](#4-1-lookups)\n- Purpose: Lookup Resources are used by the lookup module to perform data enrichment and translation off of a static lookup table stored in a resource.\n- [Documentation](https://docs.gravwell.io/search/lookup/lookup.html)\n- Total: ***1***\n    - cisco\\_asa\\_syslog\\_messages\n        - This is intended to be used as a lookup file providing additional information regarding all Cisco Adaptive Security Appliance (ASA) SysLog Messages. It is used within the Cisco ASA Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.\n        - fields: cisco\\_id,msg\\_id,description,error\\_msg,explanation,recommended\\_action,sev\\_id,severity,risk\\_score\n            - cisco\\_id: this is the full Cisco Syslog Message ID (e.g. %ASA-1-101001) which breaks out into %{Cisco Firewall Appliance}-{Cisco Assigned Severity}-{Cisco Message ID}\n            - msg\\_id: this is the Cisco Syslog Message ID which is part of the full Cisco Syslog Message ID\n            - description: this is the short description of the Cisco Syslog message often seen on the Cisco firewall appliance itself\n            - error\\_msg: this is the full Cisco Message compromised of {cisco\\_id}: {description}\n            - explanation: this is a more detailed explanation of the Cisco Syslog Message\n            - recommended\\_action: this is the Cisco Recommended Action provided within their documentation\n            - sev\\_id: this the Cisco assigned severity (id) provided within their documentation\n            - severity: this the Cisco assigned severity (name) provided within their documentation \n            - risk\\_score: this is a Gravwell assigned value for dashboards, queries, and alerting purposes\n            - category: this is a broad functional grouping assigned to the Cisco ASA error messages that is used within the Cisco ASA General Overview Dashboard to group data together  \n            - subcategory: this is a more specific grouping assigned to the Cisco ASA error messages that is used within the Cisco ASA General Overview Dashboard to group data together  \n        - Usage: `dump -r cisco_asa_syslog_messages | table`\n\n***\n\n## 5. [Alerts](#5-alerts)\n- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.\n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#alerts)\n- Total: ***0***\n\n#### 5.1 [Dispatchers](#5-1-dispatchers)\n- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.\n    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)\n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)\n\n#### 5.2 [Consumers](#5-2-consumers)\n- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.\n    - Consumers = [Flows](#6-1-flows)\n- [Documentation](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)\n\n***\n\n## 6. [Scheduled Searches](#6-scheduled-searches)\n- Purpose: Scheduled Searches are typically dependent on “AlertQuery - Cisco ASA - …” queries within the [Query Library](#2-query-library).\n- [Documentation](https://docs.gravwell.io/scripting/scheduledsearch.html)\n- Total: ***0***\n\n#### 6.1. [Flows](#6-1-flows)\n- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.\n- [Documentation](https://docs.gravwell.io/flows/flows.html)\n- Total: ***0***\n\n***\n\n## 7. [Playbooks](#7-playbooks)\n\n- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.\n- [Documentation](https://docs.gravwell.io/gui/playbooks/playbooks.html)\n- Total: ***1***\n    - Cisco ASA Kit for Gravwell - README\n\n***\n\n## 8. [Searches](#8-searches)\n\n- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Cisco ASA data in an easily digestible format or [scheduled searches](#6-scheduled-searches) to ultimately feed [alerts](#5-alerts).  \n- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)\n- Total: ***12***\n\n#### 8.1 [Dashboard Searches](#8-1-dashboard-searches)\n- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Cisco ASA data in an easily digestible format.\n- Total: ***12***  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Category [chart]_: Displays a chart of event types (error message) by Category.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Category [numbercard]_: Displays a numbercard of event types (error message) by Category.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Category \u0026 Subcategory [chart]_: Displays a chart of event types (error message) by Category \u0026 Subcategory.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Category \u0026 Subcategory [numbercard]_: Displays a numbercard of event types (error message) by Category \u0026 Subcategory.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Category, Subcategory \u0026 Severity [chart]_: Displays a chart of event types (error message) by Category, Subcategory \u0026 Severity.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Category, Subcategory \u0026 Severity [numbercard]_: Displays a numbercard of event types (error message) by Category, Subcategory \u0026 Severity.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Severity [chart]_: Displays a chart of event types (error message) by Severity.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Severity [numbercard]_: Displays a numbercard of event types (error message) by Severity.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Subcategory [chart]_: Displays a chart of event types (error message) by Subcategory.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Subcategory [numbercard]_: Displays a numbercard of event types (error message) by Subcategory.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Tag [chart]_: Displays a chart of event types (error message) by Tag.  \n    - _Search - Cisco - ASA - Firewall - Event Types - Count by Tag [numbercard]_: Displays a numbercard of event types (error message) by Tag.  \n- Naming Schema: _Search - Cisco ASA - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - **if any**]_\n\n#### 8.2. [Alert Queries](#8-2-alert-queries)\n- Purpose: These queries within the Query Library drive [scheduled searches](#6-scheduled-searches) which ultimately feed [alerts](#5-alerts).  \n- IMPORTANT: If you need to update or tune, this is where you perform that action.\n- Total: ***0***\n\n***\n\n## 9. [Templates](#9-templates)\n- Purpose: Templates are special objects which define a Gravwell query containing variables.\n- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)\n- Total: ***24***\n    - _Template - Cisco - ASA - Firewall - Authentication - Event Count by Severity [chart]_: Displays a chart of Authentication events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Authentication - Event Count by Severity [numbercard]_: Displays a numbercard of Authentication events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Authentication - Events by User and/or IP [table]_: Displays a table of Authentication events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Combined - Event Count by Severity [chart]_: Displays a chart of all events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Combined - Event Count by Severity [numbercard]_: Displays a numbercard of all events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Combined - Events by User and/or IP [table]_: Displays a table of all events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Config - Event Count by Severity [chart]_: Displays a chart of Config events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Config - Event Count by Severity [numbercard]_: Displays a numbercard of Config events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Config - Events by User and/or IP [table]_: Displays a table of Config events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Events - Event Count by Severity [chart]_: Displays a chart of events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Events - Event Count by Severity [numbercard]_: Displays a numbercard of events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Events - Events by User and/or IP [table]_: Displays a table of events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - System - Event Count by Severity [chart]_: Displays a chart of System events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - System - Event Count by Severity [numbercard]_: Displays a numbercard of System events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - System - Events by User and/or IP [table]_: Displays a table of System events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Threat - Event Count by Severity [chart]_: Displays a chart of Threat events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Threat - Event Count by Severity [numbercard]_: Displays a numbercard of Threat events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Threat - Events by User and/or IP [table]_: Displays a table of Threat events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Traffic - Event Count by Severity [chart]_: Displays a chart of Traffic events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Traffic - Event Count by Severity [numbercard]_: Displays a numbercard of Traffic events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - Traffic - Events by User and/or IP [table]_: Displays a table of Traffic events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - VPN - Events by User and/or IP [table]_: Displays a table of VPN events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - VPN - Event Count by Severity [chart]_: Displays a chart of VPN events performed by the user and/or ip.  \n    - _Template - Cisco - ASA - Firewall - VPN - Event Count by Severity [numbercard]_: Displays a numbercard of VPN events performed by the user and/or ip.  \n\n***\n\n## 10. [Dashboards](#10-dashboards)\n- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.\n- [Documentation](https://docs.gravwell.io/gui/dashboards/dashboards.html)\n- Total: ***2***\n    - Cisco ASA General Overview: This Dashboard is a general overview of your Cisco ASA data.\n    - Cisco ASA Investigation: This Dashboard is intended to be used for Cisco ASA investigations.\n\n#### 10.1 [Actionables](#10-1-actionables)\n- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.\n- [Documentation](https://docs.gravwell.io/gui/actionables/actionables.html)\n- Total: ***1***\n    - Cisco ASA IP: Cisco ASA Actions on IP to Launch Cisco ASA Investigation Dashboard.\n\n***\n\n## 11. [Useful Resources \u0026 References](#11-useful-resources--references)\n- Gravwell\n    - [Actionables](https://docs.gravwell.io/gui/actionables/actionables.html)  \n    - [Alerts](https://docs.gravwell.io/alerts/alerts.html#alerts)  \n    - [Autoextractors](https://docs.gravwell.io/configuration/autoextractors.html)  \n    - [Consumers](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)  \n    - [Dashboards](https://docs.gravwell.io/gui/dashboards/dashboards.html)  \n    - [Dispatchers](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)  \n    - [Flows](https://docs.gravwell.io/flows/flows.html)  \n    - [Lookup Module](https://docs.gravwell.io/search/lookup/lookup.html)  \n    - [Macros](https://docs.gravwell.io/search/macros.html)  \n    - [Playbooks](https://docs.gravwell.io/gui/playbooks/playbooks.html)  \n    - [Query Library](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)  \n    - [regexrouter Preprocessor](https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html)  \n    - [Resources](https://docs.gravwell.io/resources/resources.html)  \n    - [Scheduled Searches](https://docs.gravwell.io/scripting/scheduledsearch.html)  \n    - [Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html)  \n    - [Tags](https://docs.gravwell.io/ingesters/ingesters.html#tags)  \n    - [Templates](https://docs.gravwell.io/gui/templates/templates.html)  \n- Cisco Adaptive Security Appliance (ASA)\n    - [Cisco Secure Firewall ASA Series Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/about.html)\n    - [Cisco ASA Syslog Messages 101001 to 199027](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-101001-to-199021.html)\n    - [Cisco ASA Syslog Messages 201002 to 219002](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-201002-to-219002.html)\n    - [Cisco ASA Syslog Messages 302003 to 342008](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-302003-to-342008.html)\n    - [Cisco ASA Syslog Messages 400000 to 450002](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-400000-to-450001.html)\n    - [Cisco ASA Syslog Messages 500001 to 520025](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-500000-to-520025.html)\n    - [Cisco ASA Syslog Messages 602101 to 622102](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-602101-to-622102.html)\n    - [Cisco ASA Syslog Messages 701001 to 714011](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-701001-to-714011.html)\n    - [Cisco ASA Syslog Messages 715001 to 721019](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-715001-to-721019.html)\n    - [Cisco ASA Syslog Messages 722001 to 776020](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-722001-to-776020.html)\n    - [Cisco ASA Syslog Messages 776201 to 8300006](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-776201-to-8300006.html)\n    - [Cisco ASA Messages Listed by Severity Level](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/messages-listed-by-severity-level.html)\n    - [Cisco ASA Index](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/asa-syslog_index.html)\n\n***\n\n## 12. [Notes](#12-notes)\n\n***\n\n## 13. [Image credits](#13-image-credits)\n- [Banner](https://uxwing.com/cisco-icon/)\n- [Cover](https://uxwing.com/cisco-icon/)\n- [Icon](https://uxwing.com/cisco-icon/)\n\n***",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 99,
+		"Point": 0
+	},
+	"Icon": "e0b98ad2-b2a7-4b24-8374-72f247a18822",
+	"Banner": "8b713d4b-635b-4a4d-8eba-85ca1a3adb6d",
+	"Cover": "151fc05a-6912-4b5d-a31a-10ef6b0bc68a",
+	"Items": [
+		{
+			"Name": "Apache 2.0 License",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco_asa_syslog_messages",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_AUTH",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_EVENTS",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_SEVERITY_ORDER",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_VPN",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_SEVERITY",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_TRAFFIC",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_THREAT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_CONFIG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_SYSTEM",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0c340e6a-7268-46a7-8f36-f59405ff64fe",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ecba95f1-ffc0-4771-a709-8a8cd4034d54",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "581bde9b-2fed-4c15-9399-b88e5e9d9906",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9dfd4836-c89d-4a07-87fc-252c4de215b9",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "40c8245f-831a-4b79-89bf-8bde22cc6a14",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6b59baee-fe04-485b-ac08-409e3019676f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fd7b6b7a-299d-453a-8920-07a1eea1b263",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f430c1df-81bc-445c-b61a-1ef49fb083ec",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "27eaeef9-b4e5-447d-9507-ef4c956e8628",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "10ba1a95-b8b0-48b5-b6da-0c4d239b6723",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c4f13f36-82d9-4979-9674-62c47c4afcbf",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d9ca6be9-e6b2-47bd-b848-5e7688279504",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a9a633dc-7c08-45a1-a3ce-2836dbcdbf2f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6cb9a8c5-1105-4ffd-86ce-a187a5e627e0",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6355fe94-d78b-4907-953f-90f326bf2068",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "611dffdb-4690-44e2-b879-02c10a7f0491",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7036eb99-c22a-47c4-80a7-98305bf2a2bc",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bd9fb0ba-2e0d-4ba5-8a3e-e81f89bb5ccb",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "3b5ef009-c2dc-4e3f-997f-4926ec43d5bb",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "47d8c36b-fbfe-42d7-869d-29899bb65dca",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "afee5a3c-b9a1-4401-91d1-6606578ac7eb",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "25d1c7eb-1374-489c-8921-aaae39080640",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "07acb5cf-8fdf-4d91-b0f6-f97ac0bb9ddb",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1ed766ff-be55-4260-a78d-455a153dd2c2",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d5b4a66b-24da-4db0-bc86-bdf5813e6a7f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9661c35b-5fcd-4680-a978-3ef27a4773ba",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bf135c0c-9050-4847-909a-d38e0a4fa653",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6d3deabc-1f6b-4478-affe-274a6e5783ad",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0d1d3288-09a7-47a0-adde-f01f4dc0134f",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "04605cfd-f1e7-427f-a41e-f1d38f889720",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6d7375c4-15e1-4578-bde8-fec4912fae1d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "abe3dffb-ef2a-43d8-8fcf-25585bbe2c2f",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bdcc39a0-ec42-4086-af44-072fd2de8a5c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bd053ad9-2882-465a-a265-cbe41a1c55d6",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "2671528e-99d4-4d09-b497-cb75926c5d0b",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5dbb1e3b-6a8e-44a6-9be3-134b4704f094",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ac7861cf-7a72-4efd-ac26-2e08a833ebf5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "835fbc22-f2db-4b63-9acf-9d9013b59f3e",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "094bf60b-7382-4e43-9867-8de7ac4c3444",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "151fc05a-6912-4b5d-a31a-10ef6b0bc68a",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8b713d4b-635b-4a4d-8eba-85ca1a3adb6d",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e0b98ad2-b2a7-4b24-8374-72f247a18822",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "df9a72aa-2c82-4454-a0f0-55b4a538b270",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-traffic",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-threat",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-config",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-vpn",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-events",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-system",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-auth",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "CISCO_ASA_AUTH",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Authentication data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-auth",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_EVENTS",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Events data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-events",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_VPN",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA VPN data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-vpn",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_TRAFFIC",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Traffic data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-traffic",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_CONFIG",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Config data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-config",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_SYSTEM",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA System data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-system",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-*",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_THREAT",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Threat data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-threat",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
+	]
+}

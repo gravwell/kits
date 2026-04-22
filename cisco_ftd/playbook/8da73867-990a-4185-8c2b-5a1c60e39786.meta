@@ -1,0 +1,25 @@
+{
+	"UUID": "8bf6f33d-7372-4405-9678-e15939dbe71c",
+	"GUID": "8da73867-990a-4185-8c2b-5a1c60e39786",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Cisco FTD Kit for Gravwell - README",
+	"Desc": "A toolkit for interacting with Cisco FTD data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Cisco analysis and monitoring across Authentication, Config, Connection, Events (catch-all), File, Intrusion, Malware, System, Threat, Traffic, and VPN log sources.",
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	],
+	"LastUpdated": "2026-03-18T06:43:29.790642961Z",
+	"Author": {
+		"Name": "Kyle Mallett",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

@@ -1,0 +1,5 @@
+tag=$CISCO_ASA ax 
+| lookup -r cisco_asa_syslog_messages msgid msg_id (category subcategory severity)
+| stats count by category subcategory severity
+| alias count " "
+| numbercard " "

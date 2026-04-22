@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Cisco - ASA - Firewall - Event Types - Count by Subcategory [numbercard]",
+	"Description": "Displays a numbercard of event types (error message) by Subcategory. \n\nReference(s):\n- Cisco Adaptive Security Appliance (ASA)\n    - [Cisco Secure Firewall ASA Series Syslog Messages](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/about.html)\n    - [Cisco ASA Syslog Messages 101001 to 199027](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-101001-to-199021.html)\n    - [Cisco ASA Syslog Messages 201002 to 219002](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-201002-to-219002.html)\n    - [Cisco ASA Syslog Messages 302003 to 342008](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-302003-to-342008.html)\n    - [Cisco ASA Syslog Messages 400000 to 450002](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-400000-to-450001.html)\n    - [Cisco ASA Syslog Messages 500001 to 520025](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-500000-to-520025.html)\n    - [Cisco ASA Syslog Messages 602101 to 622102](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-602101-to-622102.html)\n    - [Cisco ASA Syslog Messages 701001 to 714011](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-701001-to-714011.html)\n    - [Cisco ASA Syslog Messages 715001 to 721019](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-715001-to-721019.html)\n    - [Cisco ASA Syslog Messages 722001 to 776020](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-722001-to-776020.html)\n    - [Cisco ASA Syslog Messages 776201 to 8300006](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/syslog-messages-776201-to-8300006.html)",
+	"GUID": "0d1d3288-09a7-47a0-adde-f01f4dc0134f",
+	"Labels": [
+		"cisco asa",
+		"cisco"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

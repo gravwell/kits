@@ -1,0 +1,6 @@
+tag=$CISCO_ASA_TRAFFIC ax msg severity
+| eval (msg ~ "%%user%%" %%boolean%% msg ~ "%%ip%%")
+$CISCO_ASA_SEVERITY
+| stats count by severity
+| alias count " "
+| chart " " by severity
