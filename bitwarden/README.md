@@ -18,3 +18,4 @@ Null -->
 	- flows 4
 	- searchlibrary 14
 	- template 3
+	- scheduledSearches 2

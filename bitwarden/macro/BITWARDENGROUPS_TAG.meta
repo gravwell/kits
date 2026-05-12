@@ -1,5 +1,5 @@
 {
 	"Name": "BITWARDENGROUPS_TAG",
-	"Description": "Target tag for Bitwarden Groups data",
+	"Description": "Configuration Macro; Tag used for all Bitwarden groups data; necessary for any content within the Gravwell Bitwarden Kit",
 	"Labels": null
 }

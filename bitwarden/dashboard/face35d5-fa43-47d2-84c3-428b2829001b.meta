@@ -43,6 +43,28 @@
 						"defaultValue": null
 					}
 				}
+			},
+			{
+				"alias": "Bitwarden - Successful Logins by User [Chart]",
+				"color": null,
+				"reference": {
+					"id": "61c5d373-6995-4227-890c-4a9e5b5e121e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Bitwarden - Failed Logins by User [Chart]",
+				"color": null,
+				"reference": {
+					"id": "2045e2ab-8079-4334-ac9f-95282f843480",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
@@ -69,7 +91,7 @@
 					"col": 12,
 					"row": 5,
 					"x": 0,
-					"y": 3
+					"y": 7
 				},
 				"searchesIndex": 1,
 				"rendererOptions": {
@@ -92,9 +114,37 @@
 					"col": 12,
 					"row": 10,
 					"x": 0,
-					"y": 8
+					"y": 12
 				},
 				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17785182050983,
+				"title": "Successful Logins",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17785182509854,
+				"title": "Failed Logins",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 4,
 				"rendererOptions": {}
 			}
 		],

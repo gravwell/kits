@@ -3,6 +3,6 @@
 | table email userId};
 tag=$BITWARDEN_TAG ax
 | lookup -s -r @nonsuperusers actingUserId userId email
-| lookup -r bitwardenEventTypes type type event
+| lookup -r bitwardenEventTypes eventType type event
 | stats count by event
 | chart count by event

@@ -1,0 +1,5 @@
+tag=bitwarden ax
+| eval in(eventType,"1005","1006")
+| lookup -r bitwardenMembers actingUserId userId email
+| stats count by email
+| chart count by email

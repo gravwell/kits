@@ -1,6 +1,6 @@
 {
 	"UUID": "f65c270f-20a2-4b1f-b6da-ece3bd21915c",
-	"Name": "Bitwarden Overview",
+	"Name": "Bitwarden - Overview",
 	"Description": "",
 	"Data": {
 		"timeframe": {
@@ -100,21 +100,10 @@
 				}
 			},
 			{
-				"alias": "Bitwarden - Event logs (mapped)",
+				"alias": "Bitwarden - Event log details",
 				"color": null,
 				"reference": {
 					"id": "a846605b-d76d-4e9f-8f10-044869a528f8",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Bitwarden - Event Logs (mapped) - missing actorEmail",
-				"color": null,
-				"reference": {
-					"id": "fd533388-e9cf-4eaa-b636-9696b8d6c66e",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -274,20 +263,6 @@
 					"y": 26
 				},
 				"searchesIndex": 8,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17740419190039,
-				"title": "Event Details - Missing actorEmail",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 12,
-					"row": 10,
-					"x": 0,
-					"y": 36
-				},
-				"searchesIndex": 9,
 				"rendererOptions": {}
 			}
 		],

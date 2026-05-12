@@ -74,14 +74,14 @@ Added domain domain-name,2000
 Removed domain domain-name,2001
 domain-name verified,2002
 domain-name not verified,2003
-Accessed a secret with identifier:,2100
-Created a new secret with identifier:,2101
-Edited a secret with with identifier:,2102
-Deleted a secret with identifier:,2103
-Accessed a project with identifier:,2200
-Created a new project with identifier:,2201
-Edited a project with identifier:,2202
-Deleted a project with identifier:,2203
+Accessed a secret,2100
+Created a new secret,2101
+Edited a secret with,2102
+Deleted a secret,2103
+Accessed a project,2200
+Created a new project,2201
+Edited a project,2202
+Deleted a project,2203
 User added to machine account,2300
 User removed from machine account,2301
 Group added to machine account,2302

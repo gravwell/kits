@@ -1,5 +1,5 @@
 {
-	"Name": "Ingest Bitwarden Event Logs",
+	"Name": "Bitwarden - Ingest Event Logs",
 	"Description": "Ingest Bitwarden event logs via API",
 	"Labels": null,
 	"Schedule": "*/5 * * * *",

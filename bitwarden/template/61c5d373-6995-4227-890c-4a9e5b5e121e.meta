@@ -1,0 +1,18 @@
+{
+	"UUID": "61c5d373-6995-4227-890c-4a9e5b5e121e",
+	"Name": "Bitwarden - Successful Logins by User [Chart]",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%email%%",
+				"label": "User's Email Address",
+				"description": "first.last@email.com",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": null
+}
