@@ -1,7 +1,7 @@
 {
 	"ID": "io.gravwell.cisco_ftd",
 	"Name": "Cisco FTD",
-	"Desc": "A toolkit for interacting with Cisco FTD data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Cisco analysis and monitoring across Authentication, Config, Connection, Events (catch-all), File, Intrusion, Malware, System, Threat, Traffic, and VPN log sources.",
+	"Desc": "Provides tools and utilities to work with Cisco FTD logs.",
 	"Readme": "Cisco FTD Kit\n\nThe Cisco FTD Kit provides a baseline set of tags, macros, saved queries, lookup resources, playbooks, actionables, dashboard searches, alert queries, and dashboards for your Cisco FTD data.\n\nIntegration Guide\nAn integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/ciscoftd.html).\n\nThe Cisco FTD Kit is licensed under the Apache 2.0 license and the contents are available on [Cisco FTD](https://github.com/gravwell/kits/tree/main/cisco_ftd).",
 	"Version": 1,
 	"MinVersion": {

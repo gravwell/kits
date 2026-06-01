@@ -1,7 +1,7 @@
 {
 	"ID": "io.gravwell.cisco_asa",
 	"Name": "Cisco ASA",
-	"Desc": "A toolkit for interacting with Cisco ASA data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Cisco ASA analysis across Authentication, Config, Events (catch-all), System, Threat, Traffic, and VPN log sources.",
+	"Desc": "Provides tools and utilities to work with Cisco ASA logs.",
 	"Readme": "Cisco ASA Kit\n\nThe Cisco ASA Kit provides a baseline set of tags, macros, saved queries, lookup resources, playbooks, actionables, dashboard searches, alert queries, and dashboards for your Cisco ASA data.\n\nAn integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/ciscoasa.html).\n\nThe Cisco ASA Kit is licensed under the Apache 2.0 license and the contents are available on [Cisco ASA](https://github.com/gravwell/kits/tree/main/cisco_asa).",
 	"Version": 1,
 	"MinVersion": {
