@@ -13,7 +13,7 @@
 # You can also just execute this file using bash
 #
 #
-OUT = "cisco_ftd.kit"
+OUT="cisco_ftd.kit"
 
 cmd=$(which kitctl)
 if [ "$?" != "0" ]; then
