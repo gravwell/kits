@@ -1,21 +1,24 @@
-# Bitwarden Kit
+This kit is designed to provide an out-of-the-box experience for working with Bitwarden logs.
 
-This kit provides ready-to-roll dashboards, queries, flows, and templates.
+An integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/application/bitwarden.html)
 
-The Bitwarden kit is licensed under the Apache 2.0 license.
+This kit provides the following utilities:
 
-<!-- ## Dependencies
-Null -->
+- Queries
+    - Detections
+    - Stats
+- Dashboards
+- Scheduled Searches
+- Flows
+- Actionables
+- Macros
+- Files
+- Templates
 
-## Changelog
-- 1.0: Initial Release
-	- actionables 1
-	- dashboard 2
-	- license 1
-	- macro 5
-	- playbook 1
-	- resource 8
-	- flows 4
-	- searchlibrary 14
-	- template 3
-	- scheduledSearches 2
+Refer to Kit Overview playbook for more detail on these components.
+
+## Dependencies
+None
+
+##Changelog:
+**v1.0: Initial Release**
