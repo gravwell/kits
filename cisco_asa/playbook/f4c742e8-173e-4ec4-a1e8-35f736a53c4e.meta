@@ -1,6 +1,6 @@
 {
-	"UUID": "701191db-7a6b-4c5d-903d-26a695f13cfa",
-	"GUID": "df9a72aa-2c82-4454-a0f0-55b4a538b270",
+	"UUID": "f4c742e8-173e-4ec4-a1e8-35f736a53c4e",
+	"GUID": "f4c742e8-173e-4ec4-a1e8-35f736a53c4e",
 	"UID": 1,
 	"GIDs": [],
 	"Global": true,
@@ -8,7 +8,7 @@
 		"Global": false,
 		"GIDs": []
 	},
-	"Name": "Cisco ASA - Kit Overview",
+	"Name": "Cisco ASA - Readme",
 	"Desc": "A toolkit for interacting with Cisco ASA data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Cisco analysis and monitoring across Authentication, Config, Events (catch-all), System, Threat, Traffic, and VPN log sources.",
 	"Labels": [
 		"cisco",
