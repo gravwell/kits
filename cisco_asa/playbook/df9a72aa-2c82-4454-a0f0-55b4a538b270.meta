@@ -9,7 +9,7 @@
 		"GIDs": []
 	},
 	"Name": "Cisco ASA - Kit Overview",
-	"Desc": "A toolkit for interacting with Cisco ASA data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Cisco analysis and monitoring across Authentication, Config, Events (catch-all), System, Threat, Traffic, and VPN log sources.",
+	"Desc": "An overview for the Cisco ASA kit. Includes description of components, and explanation of how to use.",
 	"Labels": [
 		"cisco",
 		"cisco asa"

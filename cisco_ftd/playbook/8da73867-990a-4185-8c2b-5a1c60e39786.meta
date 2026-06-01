@@ -8,8 +8,8 @@
 		"Global": false,
 		"GIDs": []
 	},
-	"Name": "Cisco FTD Kit for Gravwell - README",
-	"Desc": "A toolkit for interacting with Cisco FTD data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Cisco analysis and monitoring across Authentication, Config, Connection, Events (catch-all), File, Intrusion, Malware, System, Threat, Traffic, and VPN log sources.",
+	"Name": "Cisco FTD - Kit Overview",
+	"Desc": "An overview of the Cisco FTD Kit. Includes description of components, and explanation of how to use them.",
 	"Labels": [
 		"cisco",
 		"cisco ftd"
