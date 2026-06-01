@@ -1,11 +1,16 @@
-# Cisco ASA Kit
+This kit is designed to provide an out-of-the-box experience for working with Cisco ASA logs.
 
-The Cisco ASA Kit provides a baseline set of tags, macros, saved queries, lookup resources, playbooks, actionables, dashboard searches, alert queries, and dashboards for your Cisco ASA data.
-
-## Integration Guide
 An integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/ciscoasa.html).
 
-The Cisco ASA Kit is licensed under the Apache 2.0 license and the contents are available on [Cisco ASA](https://github.com/gravwell/kits/tree/main/cisco_asa).
+This kit provides the following utilities:
+- Dashboards
+- Queries
+- Templates
+- Macros
+- Extractors
+- Resources
+
+Refer to Kit Overview playbook for more detail on these components.
 
 ## Dependencies
 - N/A

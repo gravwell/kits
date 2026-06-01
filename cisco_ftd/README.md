@@ -1,11 +1,16 @@
-# Cisco FTD Kit
+This kit is designed to provide an out-of-the-box experience for working with Cisco FTD logs.
 
-The Cisco FTD Kit provides a baseline set of tags, macros, saved queries, lookup resources, playbooks, actionables, dashboard searches, alert queries, and dashboards for your Cisco FTD data.
-
-## Integration Guide
 An integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/ciscoftd.html).
 
-The Cisco FTD Kit is licensed under the Apache 2.0 license and the contents are available on [Cisco FTD](https://github.com/gravwell/kits/tree/main/cisco_ftd).
+This kit provides the following utilities:
+- Dashboards
+- Queries
+- Templates
+- Macros
+- Extractors
+- Resources
+
+Refer to Kit Overview playbook for more detail on these components.
 
 ## Dependencies
 - N/A
