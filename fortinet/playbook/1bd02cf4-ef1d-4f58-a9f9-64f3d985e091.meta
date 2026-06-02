@@ -8,8 +8,8 @@
 		"Global": false,
 		"GIDs": []
 	},
-	"Name": "Fortinet Kit for Gravwell — README",
-	"Desc": "A toolkit for interacting with Fortinet data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Fortinet analysis across Traffic, UTM, System, and Event log sources.",
+	"Name": "Fortinet Kit - Overview",
+	"Desc": "An overview of the Fortinet kit. Includes description of components, and explanation of how to use them.",
 	"Labels": [
 		"fortinet"
 	],

@@ -1,6 +1,6 @@
 {
-	"UUID": "3504669f-711e-4c92-b7df-9221ceffe597",
-	"GUID": "fa696769-634b-4178-8f46-a1305a050ce8",
+	"UUID": "27ed5679-b83f-45a5-ab1c-b014360445bd",
+	"GUID": "27ed5679-b83f-45a5-ab1c-b014360445bd",
 	"UID": 1,
 	"GIDs": [],
 	"Global": true,
@@ -8,14 +8,14 @@
 		"Global": false,
 		"GIDs": []
 	},
-	"Name": "Fortinet Kit - Integration Guide",
-	"Desc": "An Integration Guide for onboarding your Fortinet logs into Gravwell.",
+	"Name": "Fortinet Kit - Readme",
+	"Desc": "Readme for Fortinet kit",
 	"Labels": [
 		"fortinet"
 	],
 	"LastUpdated": "2026-03-12T16:31:36.7789695Z",
 	"Author": {
-		"Name": "Gravwell",
+		"Name": "Kyle Mallett",
 		"Email": "info@gravwell.io",
 		"Company": "Gravwell",
 		"URL": "gravwell.io"
