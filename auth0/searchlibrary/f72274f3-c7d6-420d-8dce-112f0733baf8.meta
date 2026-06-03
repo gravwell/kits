@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Auth0 - System - Log Types - Count by Tag [chart]",
+	"Description": "Displays a chart of events by Auth0 Tag.",
+	"GUID": "f72274f3-c7d6-420d-8dce-112f0733baf8",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

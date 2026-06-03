@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Account - Creation - Unexpected Amount of Unverified Users and/or Amount of Unvalidated Domains (Combined)",
+	"Description": "Displays a table of Unexpected Amount of Unverified Users and/or Amount of Unvalidated Domains.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_unverified_accounts_created.yml",
+	"GUID": "5f0520fd-7bd7-425a-9332-a7760f0cd441",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

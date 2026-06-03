@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Account - Risk of Signup Fraud by Volume of Fake Accounts",
+	"Description": "Displays a table of Risk of Signup Fraud by Volume of Fake Accounts. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_signup_fraud_by_volume.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "5f45dda5-a23d-40a3-ba4b-0103d39adb68",
+	"SearchReference": "2af8473e-2596-4fc2-85e1-5f9a78f56391"
+}

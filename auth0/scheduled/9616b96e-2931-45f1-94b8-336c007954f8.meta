@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Audience",
+	"Description": "Displays a table of Failed Authentications due to a malformed audience. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_failed_authorization_requests.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "9616b96e-2931-45f1-94b8-336c007954f8",
+	"SearchReference": "6521c777-96be-4ca9-bfd5-25525e328616"
+}

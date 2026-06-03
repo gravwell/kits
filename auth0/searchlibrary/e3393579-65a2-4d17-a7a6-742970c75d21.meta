@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Update Suspicious IP Throttling Settings",
+	"Description": "Displays a table of Update Suspicious IP Throttling Settings.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/attack_protection_features_turned_off.yml",
+	"GUID": "e3393579-65a2-4d17-a7a6-742970c75d21",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

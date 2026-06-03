@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - LiquidJS XSS Vulnerabilities Found",
+	"Description": "Displays a table of LiquidJS XSS Vulnerabilities Found.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/liquidjs_xss_vulnerability.yml",
+	"GUID": "e9f48150-6020-4c0a-bb23-843456aa30cd",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

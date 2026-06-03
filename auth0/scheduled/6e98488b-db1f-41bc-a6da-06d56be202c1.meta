@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Update Breached Password Detection Settings",
+	"Description": "Displays a table of Update Breached Password Detection Settings. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/attack_protection_features_turned_off.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "6e98488b-db1f-41bc-a6da-06d56be202c1",
+	"SearchReference": "77a1a92e-8d80-4ccb-ba85-803736a7a41e"
+}

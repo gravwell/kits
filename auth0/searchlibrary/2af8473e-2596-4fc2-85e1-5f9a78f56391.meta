@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Account - Risk of Signup Fraud by Volume of Fake Accounts",
+	"Description": "Displays a table of Risk of Signup Fraud by Volume of Fake Accounts.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_signup_fraud_by_volume.yml",
+	"GUID": "2af8473e-2596-4fc2-85e1-5f9a78f56391",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

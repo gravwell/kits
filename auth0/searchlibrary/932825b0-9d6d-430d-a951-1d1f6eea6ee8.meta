@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Response Type",
+	"Description": "Displays a table of Failed Authentications due to Malformed Response Type. \n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_failed_authorization_requests.yml",
+	"GUID": "932825b0-9d6d-430d-a951-1d1f6eea6ee8",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

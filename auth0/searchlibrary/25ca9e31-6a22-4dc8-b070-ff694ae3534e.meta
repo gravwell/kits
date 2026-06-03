@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - System - SMS - SMS Bombarding",
+	"Description": "Displays a table of SMS Bombarding.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/sms_bombarding.yml",
+	"GUID": "25ca9e31-6a22-4dc8-b070-ff694ae3534e",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

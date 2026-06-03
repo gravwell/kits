@@ -1,0 +1,21 @@
+// AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Disabled MFA Policies
+tag=auth0
+| json
+    date
+    type == "sapi"
+    description == "Update multi-factor authentication policies"
+    details.request.ip
+    user_id as userId
+    user_name as userName
+    details.response.body as mfaMode
+| sort by date desc
+| eval mfaPolicy = "Never";
+    if (string(mfaMode) ~ "all-applications") {
+        mfaPolicy = "Always";
+    }
+    if (string(mfaMode) ~ "confidence-score") {
+        mfaPolicy = "Adaptive MFA";
+    }
+    mfaPolicy == "Never";
+    _alert_name = "MFA Downgrade: Disabled MFA Policies";
+| table date ip userId userName mfaPolicy mfaMode

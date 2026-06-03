@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Brute-Force Protection Enabled \u0026 User Notifications Disabled",
+	"Description": "Displays a table of Brute Force Protection Settings (including User Notifications) and their respective status.\n- true = enabled\n- false = disabled\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/brute_force_critical_settings_manipulated.yml",
+	"GUID": "12ca7fdb-4ee5-4f8f-aa91-de273cd22971",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Application - OAuth2 - Refresh Token Threshold Crossed",
+	"Description": "Displays a table showing refresh tokens being used from multiple locations that crossed the threshold. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/refresh_token_from_too_many_locations.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "d12a0fd5-bf7f-4a81-b1fb-0ca3d5e741f2",
+	"SearchReference": "fea1fda1-22c1-4066-afdd-58b11ed1cb03"
+}

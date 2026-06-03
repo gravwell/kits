@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Successful Logins and Signups from Flagged IPs",
+	"Description": "Displays a table of Successful Logins and Signups from Flagged IPs. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/logins_or_signups_from_suspicious_ips.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "71af90e8-a7e6-4569-b330-301888b42a0e",
+	"SearchReference": "b708ac74-3440-4987-852b-6ddd841de345"
+}

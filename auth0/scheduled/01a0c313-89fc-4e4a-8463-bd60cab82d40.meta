@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Modification to Password Reset Policy",
+	"Description": "Displays a table of Modifications to Password Reset Policy. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/bot_detection_turned_off.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "01a0c313-89fc-4e4a-8463-bd60cab82d40",
+	"SearchReference": "d26dcc7a-71a2-4359-a971-f51192079a8e"
+}

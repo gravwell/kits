@@ -1,0 +1,16 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Rapid Creation of Clients with Dynamic Registration
+tag=auth0
+| json
+    date
+    type == "sapi"
+    description == "Dynamic client registration"
+    details.response.body.client_id as clientId
+| stats 
+    count as clientCount min(TIMESTAMP) as minTime max(TIMESTAMP) as maxTime by clientId over 1 h
+| eval 
+    timeThreshold = "0";                                // Set this to a value that makes sense for your environment.
+    clientThreshold = "0";                              // Set this to a value that makes sense for your environment.
+    createdTime = (maxTime - minTime) / 60000000000;
+    (createdTime <= timeThreshold || clientCount >= clientThreshold);
+    _alert_name = "Rapid Creation of Clients with Dynamic Registration";
+| table date clientId createdTime clientCount

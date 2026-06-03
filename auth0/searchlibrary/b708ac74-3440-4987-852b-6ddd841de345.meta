@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Authentication - Successful Logins and Signups from Flagged IPs",
+	"Description": "Displays a table of Successful Logins and Signups from Flagged IPs.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/logins_or_signups_from_suspicious_ips.yml",
+	"GUID": "b708ac74-3440-4987-852b-6ddd841de345",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

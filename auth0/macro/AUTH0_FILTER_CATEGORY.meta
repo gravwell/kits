@@ -1,0 +1,7 @@
+{
+	"Name": "AUTH0_FILTER_CATEGORY",
+	"Description": "This macro aliases eventType (after extraction from type) to eventCode, performs a lookup against Auth0 Event Types, and then creates a new Enumerated Value (EV) named filterCategory based on the available Auth0 Log Filters referenced below. \n\nReference(s):\n  - Auth0 \n    - https://auth0.com/docs/deploy-monitor/logs/log-event-type-codes\n    - https://auth0.com/docs/deploy-monitor/logs/log-event-filters\n\nUsage: \ntag=$AUTH0 json type as eventType \n$AUTH0_FILTER_CATEGORY\n| stats count by filterCategory\n| chart count by filterCategory",
+	"Labels": [
+		"auth0"
+	]
+}

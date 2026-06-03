@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Account - Risk of Signup Fraud by Disposable Domains",
+	"Description": "Displays a table of Risk of Signup Fraud by Disposable Domains.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_signup_fraud_by_disposable_domains.yml",
+	"GUID": "ecba1c8b-fa76-46e9-b9b7-985154d59d45",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"UUID": "e68de016-46c0-43c1-93d4-ee4995d5993a",
+	"Name": "Template - Auth0 - User - Authentication - Count by Category [numbercard]",
+	"Description": "Displays a numbercard of user authentication events by Authentication Category for the specified User (user_id or user_name) and/or IP Address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%src_ip%%",
+				"label": "Source IP Address",
+				"description": "This is the IP Address that you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%user_id%%",
+				"label": "User ID",
+				"description": "This is the User ID (user_id) that you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%user_name%%",
+				"label": "User",
+				"description": "This is the User (user_name) who you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"auth0"
+	]
+}

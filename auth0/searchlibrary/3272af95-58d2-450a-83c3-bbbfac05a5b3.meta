@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - MFA - Possible Account Takeover",
+	"Description": "Displays a table of Possible Account Takeovers due to multiple users registered to the same deviceId and IP.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/same_guardian_app_is_registered_for_mfa_in_multiple_users.yml",
+	"GUID": "3272af95-58d2-450a-83c3-bbbfac05a5b3",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

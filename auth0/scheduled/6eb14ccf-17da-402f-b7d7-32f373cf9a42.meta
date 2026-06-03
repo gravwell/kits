@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Modification to Passwordless Policy",
+	"Description": "Displays a table of Modifications to Passwordless Policy. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/bot_detection_turned_off.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "6eb14ccf-17da-402f-b7d7-32f373cf9a42",
+	"SearchReference": "6ba38e96-8027-4470-9f21-18c4c3e8060b"
+}

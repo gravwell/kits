@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Geographically Improbable Travel Logins",
+	"Description": "Displays a table of Geographically Improbable Travel Logins.",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4c8e8994-1b7e-4ed0-af78-3de58e684445",
+	"SearchReference": "60a3973c-eb0f-4c29-8aa8-55dda83e7e72"
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Application - OAuth2 - User Agent Threshold Crossed",
+	"Description": "Displays a table showing refresh tokens being used from multiple user agents that crossed the threshold. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/refresh_token_from_multiple_user_agent.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "cbacda6c-548f-4464-95dc-3e34e4ff3c37",
+	"SearchReference": "820d1310-0686-4867-93a7-a0ffc816ce5c"
+}

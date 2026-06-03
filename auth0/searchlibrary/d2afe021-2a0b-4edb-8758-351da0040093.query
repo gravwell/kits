@@ -1,0 +1,16 @@
+// AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Risk Assessment Disabled
+tag=auth0
+| json
+    type == "sapi" as eventType
+    description == "Updates risk assessment configs"
+    details.response.statusCode == "200"
+    details.response.body.AfterAuthentication == "false"
+    date
+    ip
+    user_id as userId
+    user_name as userName
+    details.request.ip as requestIp
+| sort by date desc
+| eval 
+    _alert_name = "MFA Downgrade: Risk Assessment Disabled";
+| table date ip requestIp userId userName statusCode

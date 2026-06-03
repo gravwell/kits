@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Account - Risk of Signup Fraud by Disposable Domains",
+	"Description": "Displays a table of Risk of Signup Fraud by Disposable Domains. Reference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_signup_fraud_by_disposable_domains.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "58ff9951-4b2c-48ca-aa89-41e86b9162f2",
+	"SearchReference": "ecba1c8b-fa76-46e9-b9b7-985154d59d45"
+}

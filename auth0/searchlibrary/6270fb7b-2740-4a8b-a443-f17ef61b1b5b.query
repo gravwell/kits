@@ -1,0 +1,32 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Risk of Tenant Takeover
+tag=auth0
+| json
+    date
+    log_id as logId
+    type == "sapi" as eventType
+    description
+    ip
+    details
+    user_id as userId
+    user_name as userName
+    details.request.body.roles
+    details.request.auth.user.email as actor
+    details.request.body.owners as target
+| eval 
+    (description == "Delete tenant member" || (description == "Create tenant invitations for a given client" && roles ~ "owner"));
+    if(has(description) && (description != "" || description != "null" || description != "nil") && description ~ "Delete"){action = "delete"; c = "false" ; d = "true";}
+    if(has(description) && (description != "" || description != "null" || description != "nil") && description ~ "Create" && roles ~ "owner"){action = "create"; role = "owner"; c = "true"; d = "false";}
+    // if(has(actor) && !has(userName)){userName = actor;}
+    // else if(has(userName) && !has(actor)){actor = userName;}
+    deleteThreshold = 0;                            // Set this to a value that makes sense for your environment.
+    createThreshold = 0;                            // Set this to a value that makes sense for your environment.
+    corpDomain = "corporate.com";                   // Set this to a value that makes sense for your environment.
+| stats 
+    count(c) as createCount 
+    count(d) as deleteCount by date action
+| eval 
+    if (createCount >= createThreshold){alertTrigger = "Create Threshold Crossed"; count = createCount; threshold = createThreshold;}
+    if (deleteCount >= deleteThreshold){alertTrigger = "Delete Threshold Crossed"; count = deleteCount; threshold = deleteThreshold;}
+    if (actor ~ corpDomain && target !~ corpDomain && action == "create"){alertTrigger = "Non-Corporate Email Added";}
+    _alert_name = "Risk of Tenant Takeover";
+| table date userId userName actor target role action count threshold alertTrigger

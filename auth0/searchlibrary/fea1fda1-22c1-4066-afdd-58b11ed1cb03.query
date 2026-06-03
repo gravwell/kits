@@ -1,0 +1,18 @@
+// AlertQuery - Auth0 - Application - OAuth2 - Refresh Token Threshold Crossed
+tag=auth0
+| json
+    date
+    type as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    client_id as clientId
+    details.familyId
+| eval in(eventType, "seacft", "sertft")
+| stats 
+    unique_count(ip) as ipCount by userName userId clientId familyId
+| eval 
+    ipThreshold = "0";                                      // Set this to a value that makes sense for your environment.
+    ipCount > ipThreshold;
+    _alert_name = "Refresh Token Threshold Crossed";
+| table date ip userName userId clientId familyId ipCount

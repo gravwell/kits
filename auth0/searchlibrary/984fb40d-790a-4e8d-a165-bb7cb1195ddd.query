@@ -1,0 +1,14 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Insecure OAuth Enabled
+tag=auth0 json 
+    date 
+    ip 
+    type == "sapi" as eventType 
+    user_id as userId
+    description == "Update client grant" 
+    details.response.body.grant_types as grantTypes
+    details.response.body.client_id as clientId 
+    details.response.statusCode == "200"
+| eval 
+    grantTypes ~ "implicit" || grantTypes ~ "password";
+    _alert_name = "Insecure OAuth Enabled";
+| table date ip userId clientId grantTypes

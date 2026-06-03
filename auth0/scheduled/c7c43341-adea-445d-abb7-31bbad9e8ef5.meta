@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Higher Risk of Credential Stuffing Attack",
+	"Description": "Displays a table of Higher Risk of Credential Stuffing Attack and count vs. threshold. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/credential_stuffing_signals.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c7c43341-adea-445d-abb7-31bbad9e8ef5",
+	"SearchReference": "72998c2e-cf44-428b-bba5-1c9adb4696c8"
+}

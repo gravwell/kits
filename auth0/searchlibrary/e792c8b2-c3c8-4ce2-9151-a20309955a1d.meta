@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Authentication - Successful Login with Suspicious JA4 Fingerprint",
+	"Description": "Displays a table of Successful Login with Suspicious JA4 Fingerprint.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/logins_from_suspicious_tls_fingerprints.yml",
+	"GUID": "e792c8b2-c3c8-4ce2-9151-a20309955a1d",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

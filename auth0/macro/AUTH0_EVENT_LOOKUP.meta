@@ -1,0 +1,7 @@
+{
+	"Name": "AUTH0_EVENT_LOOKUP",
+	"Description": "This macro aliases eventType (after extraction from type) to eventCode, and performs a lookup against the Auth0 Event Types Resource (auth0_eventTypes).\n\nFields:\ncategory,subcategory,eventType,description,is_mod\n  - category: this is the category of the eventType.\n  - subcategory: this is the subcategory within the category for the eventType.\n  - eventType: this is the eventType you will find at the references below and within your logs.\n  - description: this will give you more information about the eventType.\n  - is_mod: this field displays whether the field is a known modification eventType\n\nReference(s):\n  - Auth0 \n    - https://auth0.com/docs/deploy-monitor/logs/log-event-type-codes\n\nUsage: \ntag=auth0 json type as eventType \n$AUTH0_EVENT_LOOKUP\n| stats count by category\n\n\n",
+	"Labels": [
+		"auth0"
+	]
+}

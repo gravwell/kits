@@ -1,0 +1,11 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Modification to Password Reset Policy
+tag=auth0 json 
+    date 
+    type == "sapi" as eventType 
+    description == "Create or update the anomaly detection captcha"
+    ip
+    details.response.body.password_reset_policy == "off" as responseBodyPasswordResetPolicy
+    details.response.statusCode == "200" as responseStatusCode
+| eval 
+    _alert_name = "Modification to Password Reset Policy";
+| table 

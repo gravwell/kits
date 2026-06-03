@@ -1,0 +1,30 @@
+// AlertQuery - Auth0 - User - Authentication - Successful Logins and Signups from Flagged IPs
+tag=auth0
+| json
+    date 
+    type as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    details.requiresVerification
+| eval 
+    attackProtection = in(eventType, "reset_pwd_leak", "pwd_leak", "signup_pwd_leak", "limit_wc", "limit_sul", "limit_mu");
+    botDetection = (eventType == "pla" && requiresVerification == "true");
+| eval successfulLogin = in(eventType, "s", "ss")
+| eval attackProtection || botDetection || successfulLogin
+| eval eventClassification = "other";
+    if (has(attackProtection) || has(botDetection)) {
+        eventClassification = "suspicious";
+    }
+    if (successfulLogin) {
+        eventClassification = "successful_auth";
+    }
+| stats 
+    count(eventType) as eventCount by ip userId userName eventType
+    unique_count(eventClassification) as eventClassificationCount by ip eventType userId userName
+| eval 
+    eventThreshold = "0";                             // Set this to a value that makes sense for your environment.
+    eventClassificationThreshold = "0";               // Set this to a value that makes sense for your environment.
+    eventCount > eventThreshold || eventClassificationCount > eventClassificationThreshold;
+    _alert_name = "Successful Logins and Signups from Flagged IPs";
+| table date userId userName ip eventType eventCount eventClassification eventClassificationCount

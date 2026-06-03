@@ -1,0 +1,17 @@
+// AlertQuery - Auth0 - Application - OAuth2 - User Agent Threshold Crossed
+tag=auth0
+| json
+    date
+    type as eventType
+    user_agent as userAgent
+    user_id as userId
+    user_name as userName
+    client_id as clientId
+    details.familyId
+| eval in(eventType, "seacft", "sertft")
+| stats unique_count(userAgent) as userAgentCount by userAgent userName userId clientId familyId
+| eval 
+    userAgentThreshold = "0";                           // Set this to a value that makes sense for your environment.
+    userAgentCount > userAgentThreshold;
+    _alert_name = "User Agent Threshold Crossed";
+| table date userName userId clientId familyId userAgentCount userAgentThreshold userAgent

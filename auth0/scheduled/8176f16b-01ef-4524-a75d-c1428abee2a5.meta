@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Brute-Force Protection Enabled \u0026 User Notifications Disabled",
+	"Description": "Displays a table of Brute Force Protection Settings (including User Notifications) and their respective status. \n- true = enabled \n- false = disabled \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/brute_force_critical_settings_manipulated.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "8176f16b-01ef-4524-a75d-c1428abee2a5",
+	"SearchReference": "12ca7fdb-4ee5-4f8f-aa91-de273cd22971"
+}

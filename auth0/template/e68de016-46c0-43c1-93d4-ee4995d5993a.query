@@ -1,0 +1,18 @@
+// Template - Auth0 - User - Authentication - Count by Category [numbercard]
+tag=$AUTH0 json 
+    log_id as logId
+    date
+    type as eventType
+    description
+    client_id as clientId
+    client_name as clientName
+    ip
+    user_id as userId
+    user_name as userName
+| strings -t src_ip ip 
+| eval src_ip ~ "%%src_ip%%" || userId ~ "%%user_id%%" || userName ~ "%%user_name%%"
+$AUTH0_EVENT_LOOKUP
+$AUTH0_AUTH_CATEGORY
+| stats count by authCategory
+| alias count " "
+| numbercard " "

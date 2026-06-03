@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Possible Misconfiguration of Auth0 Tenant Name",
+	"Description": "Displays a table of Successful Logins and Signups from Flagged IPs. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/use_of_auth0_tenant_name_url.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "44d1c118-2670-410a-984c-d7b128a25c4c",
+	"SearchReference": "13ebeb8c-a686-41ea-ae61-ef3c2dfd251e"
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests (Combined)",
+	"Description": "Displays a table of Failed Authentications due to matching one of the alert triggers and crossing the threshold. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_failed_authorization_requests.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "2e8ae835-ffe1-4822-abda-6f0f1f1a26e5",
+	"SearchReference": "0646c433-69f0-4c76-8bae-3b974d5d7c8f"
+}

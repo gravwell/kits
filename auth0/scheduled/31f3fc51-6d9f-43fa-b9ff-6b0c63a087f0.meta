@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - LiquidJS XSS Vulnerabilities Found",
+	"Description": "Displays a table of LiquidJS XSS Vulnerabilities Found. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/liquidjs_xss_vulnerability.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "31f3fc51-6d9f-43fa-b9ff-6b0c63a087f0",
+	"SearchReference": "e9f48150-6020-4c0a-bb23-843456aa30cd"
+}

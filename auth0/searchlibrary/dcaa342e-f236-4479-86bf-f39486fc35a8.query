@@ -1,0 +1,18 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Excessive Scope Grant Amount
+tag=auth0
+| json
+    date
+    type == "sapi" as eventType
+    client_id as clientId
+    ip
+    description 
+    details.request.auth.credentials.scopes as userScope
+| eval 
+    has(userScope);
+| json -x userScope
+| stats unique_count(userScope) as userScopeCount by clientId description
+| eval 
+    userScopeThreshold = "0";                // Set this to a value that makes sense for your environment.
+    userScopeCount > userScopeThreshold;
+    _alert_name = "Excessive Scope Grant Amount";
+| table date clientId eventType description userScopeCount userScopeThreshold

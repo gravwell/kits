@@ -1,0 +1,16 @@
+// AlertQuery - Auth0 - User - MFA - Possible Account Takeover
+tag=auth0
+| json
+    date
+    type == "gd_enrollment_complete" as eventType
+    description == "Guardian - Enrollment complete"
+    user_id as userId
+    user_name as userName
+    ip
+    details.enrollment.identifier as deviceId
+| stats unique_count(userId) as userCount by deviceId ip
+| eval 
+    userThreshold = "0";
+    userCount > userThreshold;
+    _alert_name = "Possible Account Takeover";
+| table date ip userId userName userCount deviceId 

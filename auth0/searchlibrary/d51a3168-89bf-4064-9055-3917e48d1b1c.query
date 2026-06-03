@@ -1,0 +1,32 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & All Protections Disabled
+tag=auth0
+| json
+    date
+    type == "sapi" as eventType
+    description == "Update Breached Password Detection settings"
+    ip
+    details.response.body.shields as loginShields
+    details.response.body.enabled as responseEnabled
+    details.response.body.stage."pre-user-registration".shields as signupShields
+| sort by TIMESTAMP desc
+| eval
+    userNotificationsOn = "false";
+    loginProtected = "false";
+    signupProtected = "false";
+    if (has(loginShields)) {
+        if (string(loginShields) ~ "user_notification") {
+            userNotificationsOn = "true";
+        }
+        if (string(loginShields) ~ "block") {
+            loginProtected = "true";
+        }
+    }
+    if (has(signupShields)) {
+        if (string(signupShields) ~ "block") {
+            signupProtected = "true";
+        }
+    }
+| eval 
+    responseEnabled == "true" && signupProtected == "false" && loginProtected == "false" && userNotificationsOn == "false";
+    _alert_name = "Breached Password Detection Enabled & Signup Protection Disabled"; 
+| table date ip responseEnabled signupProtected loginProtected userNotificationsOn

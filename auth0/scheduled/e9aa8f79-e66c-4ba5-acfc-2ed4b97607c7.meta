@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Update Suspicious IP Throttling Settings",
+	"Description": "Displays a table of Update Suspicious IP Throttling Settings. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/attack_protection_features_turned_off.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e9aa8f79-e66c-4ba5-acfc-2ed4b97607c7",
+	"SearchReference": "e3393579-65a2-4d17-a7a6-742970c75d21"
+}

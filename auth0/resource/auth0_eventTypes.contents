@@ -1,0 +1,150 @@
+vendor,product,category,subcategory,eventCode,eventType,description,filterCategory,is_mod
+Auth0,Identity and Access Management,Access Control,Network Zones,acls_summary,Network ACLs Summary,Shows the summary of the network ACLs matches for a period of time,Info,0
+Auth0,Identity and Access Management,Hooks,Event,actions_execution_failed,Actions Execution Failed,Execution of an Action failed,Errors,0
+Auth0,Identity and Access Management,System,Operation,api_limit,Rate Limit on the Authentication or Management APIs,The maximum number of requests to the Authentication or Management APIs in a given time has been reached.,Errors,0
+Auth0,Identity and Access Management,System,Operation,api_limit_warning,Rate Limit Warning on the Authentication or Management APIs,The limit of requests to the Authentication or Management APIs in given time is about to be reached.,Warning,0
+Auth0,Identity and Access Management,System,Operation,appi,Notice for API Peak Performance initiated,"Increases the Elevated Public Authentication API Limits by the 100 RPS multiple purchased by the customer for up to 48 hours per month. For more information, see Public performance rate limit policy.",Success,0
+Auth0,Identity and Access Management,Authentication,OAuth2,ciba_exchange_failed,Failed CIBA Exchange,Failed to exchange AuthReqId for Access Token,Errors,0
+Auth0,Identity and Access Management,Authentication,OAuth2,ciba_exchange_succeeded,Successful CIBA Exchange,Successful exchange of AuthReqId for Access Token,Success,0
+Auth0,Identity and Access Management,Authentication,OAuth2,ciba_start_failed,Failed CIBA Start,Client-Initiated Backchannel Authentication Flow failed to be initiated.,Errors,0
+Auth0,Identity and Access Management,Authentication,OAuth2,ciba_start_succeeded,Successful CIBA Start,Client-Initiated Backchannel Authentication Flow has been successfully initiated.,Success,0
+Auth0,Identity and Access Management,User,Authentication,cls,Code/Link Sent,Passwordless login code/link has been sent,Success,1
+Auth0,Identity and Access Management,User,Authentication,cs,Code Sent,Passwordless login code has been sent,Success,0
+Auth0,Identity and Access Management,System,Feature,depnote,Deprecation Notice,Deprecation Notice,Warning,0
+Auth0,Identity and Access Management,User,Authentication,f,Failed Login,Failed Login This is only emitted if the error is not covered by the `fp` or `fu` log types,Errors,0
+Auth0,Identity and Access Management,System,Agent,fc,Failed by Connector,Failed by Connector,Errors,0
+Auth0,Identity and Access Management,User,Account,fce,Failed Change Email,Failed to change user email,Errors,1
+Auth0,Identity and Access Management,Access,Request,fco,Failed by CORS,Origin is not in the Allowed Origins list for the specified application,Errors,0
+Auth0,Identity and Access Management,User,Authentication,fcoa,Failed cross-origin authentication,Failed Cross-Origin Authentication,Errors,0
+Auth0,Identity and Access Management,User,Account,fcp,Failed Change Password,Failed Change Password,Errors,1
+Auth0,Identity and Access Management,Hooks,Inline,fcph,Failed Post Change Password Hook,Failed Post Change Password Hook,Errors,1
+Auth0,Identity and Access Management,User,Account,fcpn,Failed Change Phone Number,Failed Change Phone Number,Errors,1
+Auth0,Identity and Access Management,User,Account,fcpr,Failed Change Password Request,Failed Change Password Request,Errors,1
+Auth0,Identity and Access Management,System,Agent,fcpro,Failed Connector Provisioning,Failed to provision an AD/LDAP connector,Errors,1
+Auth0,Identity and Access Management,User,Account,fcu,Failed Change Username,Failed to change username,Errors,1
+Auth0,Identity and Access Management,Application,OAuth2,fd,Failed Delegation,Failed to generate delegation token,Errors,1
+Auth0,Identity and Access Management,Application,OAuth2,fdeac,Failed Device Activation,Failed to activate device.,Errors,1
+Auth0,Identity and Access Management,Application,OAuth2,fdeaz,Failed Device Authorization Request,Device authorization request failed.,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fdecc,User Canceled Device Confirmation,User did not confirm device.,Errors,0
+Auth0,Identity and Access Management,System,Account,fdu,Failed User Deletion,Failed User Deletion,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,feacft,Failed Exchange,Failed to exchange authorization code for Access Token,Errors,1
+Auth0,Identity and Access Management,Application,OAuth2,feccft,Failed Exchange,Failed exchange of Access Token for a Client Credentials Grant,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fecte,Failed Exchange,Failed Exchange via Custom Token Exchange,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fede,Failed Exchange,Failed to exchange Device Code for Access Token,Errors,0
+Auth0,Identity and Access Management,User,Session,federated_logout_failed,Failed Federated Logout,Failed to logout of the upstream Identity Provider,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fens,Failed Exchange,Failed exchange for Native Social Login,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,feoobft,Failed Exchange,Failed exchange of Password and OOB Challenge for Access Token,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,feotpft,Failed Exchange,Failed exchange of Password and OTP Challenge for Access Token,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fepft,Failed Exchange,Failed exchange of Password for Access Token,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fepotpft,Failed Exchange,Failed exchange of Passwordless OTP for Access Token,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fercft,Failed Exchange,Failed Exchange of Password and MFA Recovery code for Access Token,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,ferrt,Failed Exchange,Failed Exchange of Rotating Refresh Token. This could occur when reuse is detected.,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fertft,Failed Exchange,Failed Exchange of Refresh Token for Access Token. This could occur if the refresh token is revoked or expired.,Errors,1
+Auth0,Identity and Access Management,User,Account,fi,Failed invite accept,"Failed to accept a user invitation. This could happen if the user accepts an invitation using a different email address than provided in the invitation, or due to a system failure while provisioning the invitation.",Errors,1
+Auth0,Identity and Access Management,User,Session,flo,Failed Logout,User logout failed,Errors,0
+Auth0,Identity and Access Management,Workflows,User,flows_execution_completed,Flows Execution Completed,Flows Execution Completed,Success,0
+Auth0,Identity and Access Management,Workflows,User,flows_execution_failed,Flows Execution Failed,Flows Execution Failed,Errors,0
+Auth0,Identity and Access Management,System,Operation,fn,Failed Sending Notification,Failed to send notification,Errors,0
+Auth0,Identity and Access Management,User,Authentication,forms_submission_failed,Forms Submission Failed,Forms Submission Failed,Errors,0
+Auth0,Identity and Access Management,User,Authentication,forms_submission_succeeded,Forms Submission Succeeded,Forms Submission Succeeded,Success,0
+Auth0,Identity and Access Management,User,Authentication,fp,Failed Login (Incorrect Password),Failed login due to invalid password,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,fpar,Failed Pushed Authorization Request,Failed Pushed Authorization Request,Errors,0
+Auth0,Identity and Access Management,Hooks,Inline,fpurh,Failed Post User Registration Hook,Failed Post User Registration Hook,Errors,0
+Auth0,Identity and Access Management,User,Account,fs,Failed Signup,Failed Signup,Errors,0
+Auth0,Identity and Access Management,User,Authentication,fsa,Failed Silent Auth,Failed Silent Auth,Errors,0
+Auth0,Identity and Access Management,User,Authentication,fu,Failed Login (Invalid Email/Username),Failed login due to invalid username,Errors,0
+Auth0,Identity and Access Management,System,Import,fui,Failed users import,Failed to import users,Errors,1
+Auth0,Identity and Access Management,System,Email,fv,Failed Verification Email,Failed to send verification email,Errors,0
+Auth0,Identity and Access Management,System,Email,fvr,Failed Verification Email Request,Failed to process verification email request,Errors,0
+Auth0,Identity and Access Management,System,Email,gd_auth_email_verification,Email Verification Confirmed,Email verification completed successfully,Success,0
+Auth0,Identity and Access Management,System,Email,gd_auth_fail_email_verification,Email Verification Failed,Email verification failed.,Errors,0
+Auth0,Identity and Access Management,User,MFA,gd_auth_failed,MFA Auth failed,"Multi-factor authentication failed. This could happen due to a wrong code entered for SMS/Voice/Email/TOTP factors, or a system failure.",Errors,0
+Auth0,Identity and Access Management,User,MFA,gd_auth_rejected,MFA Auth rejected,A user rejected a Multi-factor authentication request via push-notification.,Errors,0
+Auth0,Identity and Access Management,User,MFA,gd_auth_succeed,MFA Auth success,Multi-factor authentication success.,Success,0
+Auth0,Identity and Access Management,Lifecycle,MFA,gd_enrollment_complete,MFA enrollment complete,A first time MFA user has successfully enrolled using one of the factors.,Success,1
+Auth0,Identity and Access Management,System,Operation,gd_otp_rate_limit_exceed,Too many MFA failures,A user sends more than 10 requests to their device within one hour. Note that the request limit does not reset upon a successful login event.,Warning,1
+Auth0,Identity and Access Management,User,MFA,gd_recovery_failed,Recovery failed,A user enters a wrong recovery code when attempting to authenticate.,Errors,0
+Auth0,Identity and Access Management,System,Operation,gd_recovery_rate_limit_exceed,Multi-factor recovery code has failed too many times,A user has entered a wrong recovery code too many times.,Warning,0
+Auth0,Identity and Access Management,User,MFA,gd_recovery_succeed,MFA recovery success,A user successfully authenticates with a recovery code.,Success,0
+Auth0,Identity and Access Management,System,Email,gd_send_email,MFA Email Sent,Email for MFA successfully sent.,Success,0
+Auth0,Identity and Access Management,System,Email,gd_send_email_verification,Email Verification Sent,Verification email sent successfully.,Success,0
+Auth0,Identity and Access Management,System,Email,gd_send_email_verification_failure,Email Verification Failed,Email verification failed.,Errors,0
+Auth0,Identity and Access Management,Device,Push,gd_send_pn,Push notification sent,Push notification for MFA successfully sent.,Success,0
+Auth0,Identity and Access Management,Device,Push,gd_send_pn_failure,Error Sending MFA Push Notification,Push notification for MFA failed.,Errors,0
+Auth0,Identity and Access Management,System,SMS,gd_send_sms,MFA SMS Sent,SMS for MFA successfully sent.,Success,0
+Auth0,Identity and Access Management,System,SMS,gd_send_sms_failure,Error Sending MFA SMS,Attempt to send SMS for MFA failed.,Errors,0
+Auth0,Identity and Access Management,System,Voice,gd_send_voice,MFA voice call success,Voice call for MFA successfully made.,Success,0
+Auth0,Identity and Access Management,System,Voice,gd_send_voice_failure,MFA voice call failed,Attempt to make Voice call for MFA failed.,Errors,0
+Auth0,Identity and Access Management,User,MFA,gd_start_auth,Second factor started,Second factor authentication event started for MFA.,Success,0
+Auth0,Identity and Access Management,Lifecycle,MFA,gd_start_enroll,MFA Enroll started,Multi-factor authentication enroll has started.,Success,1
+Auth0,Identity and Access Management,Lifecycle,MFA,gd_start_enroll_failed,MFA Enrollment Failed,Push to start enrollement failed.,Errors,1
+Auth0,Identity and Access Management,System,Configuration,gd_tenant_update,Guardian tenant update,Guardian Tenant Update,Success,1
+Auth0,Identity and Access Management,Lifecycle,MFA,gd_unenroll,Unenroll device account,Device used for second factor authentication has been unenrolled.,Success,1
+Auth0,Identity and Access Management,Lifecycle,MFA,gd_update_device_account,Update device account,Device used for second factor authentication has been updated.,Success,1
+Auth0,Identity and Access Management,User,MFA,gd_webauthn_challenge_failed,WebAuthn browser error,User failed to verify Webauthn factor.,Errors,0
+Auth0,Identity and Access Management,Lifecycle,MFA,gd_webauthn_enrollment_failed,WebAuthn browser error,WebAuthn browser enrollment failed.,Errors,1
+Auth0,Identity and Access Management,PAM,Secret,kms_key_management_failure,Failed KMS API Operation,KMS operation failed,Errors,0
+Auth0,Identity and Access Management,PAM,Secret,kms_key_management_success,Success KMS API Operation,KMS operation completed successfully,Success,0
+Auth0,Identity and Access Management,PAM,Secret,kms_key_state_changed,KMS Key State Change,KMS key state changed,Info,1
+Auth0,Identity and Access Management,System,Operation,limit_delegation,Too Many Calls to /delegation,Rate limit exceeded to /delegation endpoint,Errors,0
+Auth0,Identity and Access Management,Access Control,Attack Protection,limit_mu,Blocked IP Address,"An IP address is blocked because it attempted too many failed logins without a successful login. Or an IP address is blocked because it attempted too many sign-ups, whether successful or failed. For more information, see Attack Protection.",Errors,1
+Auth0,Identity and Access Management,Access Control,Attack Protection,limit_sul,Blocked Account,"A user is temporarily prevented from logging in because they reached the maximum logins per time period from the same IP address. For more information, see Attack Protection.",Errors,1
+Auth0,Identity and Access Management,Access Control,Attack Protection,limit_wc,Blocked Account,An IP address is blocked because it reached the maximum failed login attempts into a single account.,Errors,1
+Auth0,Identity and Access Management,User,MFA,mfar,MFA Required,"A user has been prompted for multi-factor authentication (MFA). When using Adaptive MFA, Auth0 includes details about the risk assessment. Available in only the Resource Owner Password Flow.",Info,0
+Auth0,Identity and Access Management,Lifecycle,System API,mgmt_api_read,Management API read Operation,API GET operation returning secrets completed successfully,Success,0
+Auth0,Identity and Access Management,User,MFA,my_account_authentication_method_failed,Failed authentication method operation in My Account API,Failed to complete authentication method operation in My Account API,Errors,0
+Auth0,Identity and Access Management,User,MFA,my_account_authentication_method_succeeded,Successful authentication method operation in My Account API,Successfully completed authentication method operation in My Account API,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,oidc_backchannel_logout_failed,Failed OIDC Back-Channel Logout request,Failed OIDC Back-Channel Logout request,Errors,0
+Auth0,Identity and Access Management,Application,OAuth2,oidc_backchannel_logout_succeeded,Successful OIDC Back-Channel Logout request,Successful OIDC Back-Channel Logout request,Success,0
+Auth0,Identity and Access Management,Group,Member,organization_member_added,Organization Member Added,Successfully added member to organization,Success,1
+Auth0,Identity and Access Management,User,MFA,passkey_challenge_failed,Passkey Challenge Failed,Native passkey challenge failed,Errors,0
+Auth0,Identity and Access Management,User,MFA,passkey_challenge_started,Passkey Challenge Started,Native passkey challenge was successfully initiated,Success,0
+Auth0,Identity and Access Management,Security,Events,pla,Pre-login assessment,This log is generated before a login and helps in monitoring the behavior of bot detection without having to enable it.,Info,1
+Auth0,Identity and Access Management,Access Control,Attack Protection,pwd_leak,Breached password,Someone behind the IP address ip attempted to login with a leaked password. The pwd_leak tenant log is emitted once per hour per IP address.,Errors,0
+Auth0,Identity and Access Management,Access Control,Attack Protection,reset_pwd_leak,Breached Password on Reset,Someone behind the IP address ip attempted to reset with a leaked password.,Errors,1
+Auth0,Identity and Access Management,System,Operation,resource_cleanup,Success Resource Cleanup,Emitted when resources exceeding defined limits were removed.,Success,1
+Auth0,Identity and Access Management,Application,OAuth2,rich_consents_access_error,Rich Consents Access Error,Error fetching a Rich Consent record,Errors,0
+Auth0,Identity and Access Management,User,Authentication,s,Success Login,Successful login event.,Success,0
+Auth0,Identity and Access Management,Lifecycle,System API,sapi,Success API Operation,Successful management API write event.,Success,0
+Auth0,Identity and Access Management,User,Account,sce,Success Change Email,Success Change Email,Success,1
+Auth0,Identity and Access Management,User,Authentication,scoa,Success cross-origin authentication,Successful Cross-Origin Authentication,Success,0
+Auth0,Identity and Access Management,User,Account,scp,Success Change Password,Success Change Password,Success,1
+Auth0,Identity and Access Management,User,Account,scpn,Success Change Phone Number,Success Change Phone Number,Success,1
+Auth0,Identity and Access Management,User,Account,scpr,Success Change Password Request,Success Change Password Request,Success,1
+Auth0,Identity and Access Management,User,Account,scu,Success Change Username,Success Change Username,Success,1
+Auth0,Identity and Access Management,User,Authentication,scv,Success Credential Validation,Successful credential validation event.,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sd,Success Delegation,Success Delegation,Success,0
+Auth0,Identity and Access Management,User,Account,sdu,Success User Deletion,User successfully deleted,Success,1
+Auth0,Identity and Access Management,Application,OAuth2,seacft,Success Exchange,Successful exchange of authorization code for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,seccft,Success Exchange,Successful exchange of Access Token for a Client Credentials Grant,Success,1
+Auth0,Identity and Access Management,Application,OAuth2,secte,Success Exchange,Succesful Exchange via Custom Token Exchange,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sede,Success Exchange,Successful exchange of device code for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sens,Success Exchange,Native Social Login,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,seoobft,Success Exchange,Successful exchange of Password and OOB Challenge for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,seotpft,Success Exchange,Successful exchange of Password and OTP Challenge for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sepft,Success Exchange,Successful exchange of Password for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sepkoobft,Success Exchange,Successful exchange of Passkey and OOB Challenge for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sepkotpft,Success Exchange,Successful exchange of Passkey and OTP Challenge for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sepkrcft,Success Exchange,Successful exchange of Passkey and MFA Recovery Code for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sercft,Success Exchange,Successful exchange of Password and MFA Recovery code for Access Token,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,sertft,Success Exchange,Successful exchange of Refresh Token for Access Token,Success,0
+Auth0,Identity and Access Management,User,Account,si,Successfully accepted a user invite,Successfully accepted a user invitation,Success,0
+Auth0,Identity and Access Management,Access Control,Attack Protection,signup_pwd_leak,Breached Password on Signup,Someone behind the IP address ip attempted to signup with a leaked password.,Success,0
+Auth0,Identity and Access Management,User,Session,slo,Success Logout,User successfully logged out,Success,0
+Auth0,Identity and Access Management,Application,OAuth2,srrt,Successfully revoked a refresh token,Successfully revoked a refresh token,Success,1
+Auth0,Identity and Access Management,User,Account,ss,Success Signup,Success Signup,Success,0
+Auth0,Identity and Access Management,User,Authentication,ss_sso_failure,Failed SS-SSO Operation,Self-Service operation failed,Errors,0
+Auth0,Identity and Access Management,User,Authentication,ss_sso_info,Information from an SS-SSO Operation,Try-connection flow started/completed,Info,0
+Auth0,Identity and Access Management,User,Authentication,ss_sso_success,Success SS-SSO Operation,Self-Service operation completed successfully,Success,0
+Auth0,Identity and Access Management,User,Authentication,ssa,Success Silent Auth,Success Silent Auth,Success,0
+Auth0,Identity and Access Management,Application,Provision,sscim,Successful SCIM Operation,SCIM operation succeeded,Success,0
+Auth0,Identity and Access Management,System,Import,sui,Successfully imported users,Successfully imported users,Success,1
+Auth0,Identity and Access Management,System,Email,sv,Success Verification Email,Successfully consumed email verification link,Success,1
+Auth0,Identity and Access Management,System,Email,svr,Success Verification Email Request,Successfully called verification email endpoint. Verification email in queue to send.,Success,0
+Auth0,Identity and Access Management,Lifecycle,MFA,too_many_records,Max Amount of Authenticators,User has created the maximum amount of authenticators,Warning,1
+Auth0,Identity and Access Management,Access Control,Attack Protection,ublkdu,User login block released,User block setup by anomaly detection has been released,Success,1
+Auth0,Identity and Access Management,User,Session,universal_logout_failed,Failed Universal Logout request,Failed Universal Logout request,Errors,0
+Auth0,Identity and Access Management,User,Session,universal_logout_succeeded,Successful Universal Logout request,Successful Universal Logout request,Success,0
+Auth0,Identity and Access Management,User,Authentication,w,Warning During Login,Filters for logs of type warning during login,Warning,0
+Auth0,Identity and Access Management,System,Operation,wn,Warning Sending Notification,Warnings that have occurred during notification sending.,Warning,0
+Auth0,Identity and Access Management,Application,User Management,wum,Warning User Management,Filters for logs of type warning during user management operations,Warning,0

@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Disabled MFA Policies",
+	"Description": "Displays a table of MFA Policies that are disabled.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/mfa_downgrade_disable_mfa_policies.yml",
+	"GUID": "85e195ec-3e03-465e-9c2d-8c30b7e96390",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

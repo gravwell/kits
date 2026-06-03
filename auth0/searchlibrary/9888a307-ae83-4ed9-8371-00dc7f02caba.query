@@ -1,0 +1,18 @@
+// AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Detect Disabled Factors
+tag=auth0 json
+    date 
+    type == "sapi" as eventType
+    description == "Update multi-factor authentication type"
+    ip
+    user_id as userId
+    user_name as userName
+    details.request.body.enabled == "false" as requestBodyEnabled
+    details.request.path as requestPath
+    details.request.ip as requestIp
+    details.response.statusCode as responseStatus
+| regex -e requestPath "/(?<factor>[^/]+)$"
+| sort by date 
+| eval 
+    // factor ~ "webauthn-roaming" || factor ~ "phishing-resistant";        // Set this to a value that makes sense for your environment.
+    _alert_name = "MFA Downgrade: Detect Disabled Factors";
+| table date userId userName ip requestIp requestBodyEnabled requestPath factor responseStatus

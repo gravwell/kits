@@ -1,0 +1,17 @@
+// AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Client
+tag=auth0
+| json
+    date 
+    type == "f" as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    description ~ "Unknown client" 
+| regex -e description `Unknown client: (?P<malformedClient>.*)`
+| stats 
+    count as malformedClientCount by malformedClient 
+| eval 
+    malformedClientThreshold = 0;               // Set this to a value that makes sense for your environment.
+    if (has(malformedClient) && (malformedClient != "" || malformedClient != "null" || malformedClient != "nil") && malformedClientCount >= malformedClientThreshold){alertTrigger = "malformedClient"; eventCount = malformedClientCount; eventThreshold = malformedClientThreshold;}
+    _alert_name = "Many Failed Authorization Requests Due To Malformed Client";
+| table date userId userName ip eventType description alertTrigger eventCount eventThreshold

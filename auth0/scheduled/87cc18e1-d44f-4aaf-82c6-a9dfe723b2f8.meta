@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Excessive Scope Grant Amount",
+	"Description": "Displays a table of Excessive Scope Grants by Client ID (client_id) \u0026 Description (description). \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/client_with_overpermissive_granted_scopes.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "87cc18e1-d44f-4aaf-82c6-a9dfe723b2f8",
+	"SearchReference": "dcaa342e-f236-4479-86bf-f39486fc35a8"
+}

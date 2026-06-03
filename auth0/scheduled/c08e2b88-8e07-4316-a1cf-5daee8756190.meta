@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Account - Creation - Unexpected Amount of Unverified Users",
+	"Description": "Displays a table of Unexpected Amount of Unverified Users.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_unverified_accounts_created.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c08e2b88-8e07-4316-a1cf-5daee8756190",
+	"SearchReference": "6cf3a56f-f66a-4e6f-97b3-1059df44fb61"
+}

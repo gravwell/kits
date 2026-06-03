@@ -1,0 +1,15 @@
+// AlertQuery - Auth0 - User - Account - Risk of Signup Fraud by Disposable Domains
+tag=auth0
+| json
+    date
+    type == "ss" as eventType
+    ip
+    user_name as userName
+    user_id as userId
+| eval userName ~ "mailinator.com" || userName ~ "yopmail.com" || userName ~ "10minutetempemail.com" || userName ~ "10minutemail.com" || userName ~ "guerrillamail.com" || userName ~ "temp-mail.org" || userName ~ "disposable.com" || userName ~ "mailnesia.com" || userName ~ "sharklasers.com" || userName ~ "getnada.com" || userName ~ "mohmal.com"
+| stats unique_count(userName) as userCount by ip userId userName
+| eval 
+    userThreshold = "0";
+    userCount > userThreshold;
+    _alert_name = "Risk of Signup Fraud by Disposable Domains";
+| table date ip userId userName userCount userThreshold

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Risk of Tenant Takeover",
+	"Description": "Displays a table of accounts performing possible nefarious actions causing the heightened risk of Auth0 Tenant Takeover. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_tenant_takeover.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "3a459126-cb25-4e26-8f89-38d42de5a04d",
+	"SearchReference": "6270fb7b-2740-4a8b-a443-f17ef61b1b5b"
+}

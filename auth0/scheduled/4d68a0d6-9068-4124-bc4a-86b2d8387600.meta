@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection \u0026 Login Protection Disabled",
+	"Description": "Displays a table of Breached Password Settings (including Login Protection) and their statuses. \n- true = enabled \n- false = disabled \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/breached_password_detection_settings_manipulated.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4d68a0d6-9068-4124-bc4a-86b2d8387600",
+	"SearchReference": "c28be5f4-7d3f-4dcf-a679-4836623186a8"
+}

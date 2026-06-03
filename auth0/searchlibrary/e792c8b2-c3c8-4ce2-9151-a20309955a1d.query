@@ -1,0 +1,33 @@
+// AlertQuery - Auth0 - User - Authentication - Successful Login with Suspicious JA4 Fingerprint
+@suspicious_ja4{
+    tag=auth0 json
+    date
+    type as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    security_context.ja4 as ja4
+    | eval 
+        failed = in(eventType, "f", "fu", "fp", "pwd_leak", "limit_wc", "limit_sul", "limit_mu", "fcoa");
+    | stats count as failedCount by ja4 ip
+    | eval
+        failed == true || failed == "true";
+        failedThreshold = "0";                   // Set this to a value that makes sense for your environment.
+        failedCount > failedThreshold;
+    | table date ip userId userName eventType ja4 failed failedCount failedThreshold
+};
+
+tag=auth0
+| json
+    date
+    type as eventType
+    user_name as userName
+    user_id as userId
+    ip
+    security_context.ja4 as ja4
+| eval 
+    success = in(eventType, "s", "scoa");
+| lookup -s -r @suspicious_ja4 ja4 ja4 (ip userId userName eventType ja4 failed failedCount failedThreshold)
+| eval 
+    _alert_name = "Successful Login with Suspicious JA4 Fingerprint";
+| table date ip userId userName eventType ja4 failed failedCount failedThreshold success

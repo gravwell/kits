@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - MFA Downgrade: Disabled MFA Policies",
+	"Description": "Displays a table of MFA Policies that are disabled. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/mfa_downgrade_disable_mfa_policies.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "9ff27d37-b622-49de-a3df-62c115f9a4be",
+	"SearchReference": "85e195ec-3e03-465e-9c2d-8c30b7e96390"
+}

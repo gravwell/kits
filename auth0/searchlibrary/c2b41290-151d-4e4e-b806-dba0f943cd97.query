@@ -1,0 +1,18 @@
+// AlertQuery - Auth0 - Device - Push - Risk for MFA Push Fatigue
+tag=auth0
+| json
+    date
+    // tenant_name == "{your_tenant_name}"                      // Set this to a value that makes sense for your environment.
+    type == "gd_send_pn"
+    description == "Guardian - Second factor notification sent"
+    user_id as userId
+    user_name as userName
+    ip
+| stats min(TIMESTAMP) as startTime max(TIMESTAMP) as endTime count as userCount by ip userId
+| eval 
+    durationThreshold = "0";                                    // Set this to a value that makes sense for your environment.
+    userThreshold = "0";                                        // Set this to a value that makes sense for your environment.
+    durationMins = (endTime - startTime) / 60000000000;
+    durationMins <= durationThreshold && userCount > userThreshold;
+    _alert_name = "Risk for MFA Push Fatigue";
+| table date userId userName ip userCount userThreshold durationMins durationThreshold

@@ -1,0 +1,17 @@
+// AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Challenge Type
+tag=auth0
+| json
+    date 
+    type == "f" as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    description ~ "is not supported by this server" 
+| regex -e description `Code challenge type (?P<malformedChallengeType>[^ ]+) is not supported by this server\.`
+| stats 
+    count as malformedChallengeTypeCount by malformedChallengeType
+| eval 
+    malformedChallengeTypeThreshold = 0;        // Set this to a value that makes sense for your environment.
+    if (has(malformedChallengeType) && (malformedChallengeType != "" || malformedChallengeType != "null" || malformedChallengeType != "nil") && malformedChallengeTypeCount >= malformedChallengeTypeThreshold){alertTrigger = "malformedChallengeType"; eventCount = malformedChallengeTypeCount; eventThreshold = malformedChallengeTypeThreshold;}
+    _alert_name = "Many Failed Authorization Requests Due To Malformed Challenge Type";
+| table date userId userName ip eventType description alertTrigger eventCount eventThreshold
