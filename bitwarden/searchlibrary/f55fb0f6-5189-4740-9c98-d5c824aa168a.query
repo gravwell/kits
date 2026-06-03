@@ -1,4 +1,4 @@
-tag=bitwarden ax
+tag=$BITWARDEN_TAG ax
 | eval in(eventType,"1107","1108","1109","1110","1111","1112")
 | stats count by itemId
 | chart count by itemId

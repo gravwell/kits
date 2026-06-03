@@ -18,7 +18,7 @@ Bitwarden’s public API gives developers programmatic access to organizational 
     - [Ingest Bitwarden Policies](/flows/01696dd7-9937-44c7-af61-7933d407ee22)
 - Run the following search to check that logs are coming in properly:
 ```
-tag=bitwarden ax
+tag=$BITWARDEN_TAG ax
 | table
 ```
 
