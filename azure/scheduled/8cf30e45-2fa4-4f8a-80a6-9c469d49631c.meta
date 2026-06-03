@@ -1,0 +1,22 @@
+{
+	"Name": "Azure - Azure Firewall Rule Collection Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Firewall rule collections (Application, NAT, Network). Changes to rule collections can open unintended traffic paths or disable security filtering controls.",
+	"Labels": [
+		"azure",
+		"network",
+		"firewall",
+		"detection",
+		"T1562.004",
+		"impact",
+		"defense-evasion"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "8cf30e45-2fa4-4f8a-80a6-9c469d49631c",
+	"SearchReference": "739fd5a4-76cc-414e-9e65-a5d2924a1db5"
+}

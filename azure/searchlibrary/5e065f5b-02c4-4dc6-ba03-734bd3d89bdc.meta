@@ -1,0 +1,11 @@
+{
+	"Name": "Azure - Service Principal Lifecycle [Chart]",
+	"Description": "$AZURE_AD Add/Remove service principal over time",
+	"GUID": "5e065f5b-02c4-4dc6-ba03-734bd3d89bdc",
+	"Labels": [
+		"azure_ad",
+		"stats",
+		"baseline"
+	],
+	"Metadata": {}
+}

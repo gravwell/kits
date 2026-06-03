@@ -1,0 +1,22 @@
+{
+	"Name": "Azure - Azure Application Gateway Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Application Gateways. Attackers may alter gateway configurations to disable WAF rules, redirect traffic, or disrupt application availability.",
+	"Labels": [
+		"azure",
+		"network",
+		"application-gateway",
+		"detection",
+		"T1562",
+		"defense-evasion",
+		"impact"
+	],
+	"Schedule": "48 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "62d65ab8-fc77-4c5b-9b9e-db5c0edad676",
+	"SearchReference": "e444989b-3c24-402b-baa3-cd42530ecb60"
+}

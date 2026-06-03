@@ -1,0 +1,2 @@
+tag=$AZURE_SIGNIN json identity properties.userPrincipalName properties.appDisplayName callerIpAddress == %%ip_address%%
+| table appDisplayName identity userPrincipalName

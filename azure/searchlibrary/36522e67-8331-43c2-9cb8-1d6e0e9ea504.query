@@ -1,0 +1,4 @@
+tag=$AZURE_ACTIVITY json operationName
+| regex -e operationName "^(?P<resourceProvider>MICROSOFT\.[^/]+)"
+| stats count by resourceProvider
+| table resourceProvider count

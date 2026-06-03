@@ -1,0 +1,22 @@
+{
+	"Name": "Azure - VPN Connection Modified or Deleted",
+	"Description": "Detects modification or deletion of VPN connectivity resources including classic Local Network Gateways (on-premises endpoint definitions for S2S VPN) and Virtual WAN VPN Gateway connections. Attackers may tamper with these to disrupt connectivity or redirect traffic.",
+	"Labels": [
+		"azure",
+		"network",
+		"vpn",
+		"detection",
+		"T1562",
+		"defense-evasion",
+		"impact"
+	],
+	"Schedule": "40 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "797005f5-ba7f-46bb-baad-afb783371c26",
+	"SearchReference": "018a7f11-1c46-4998-86aa-e814f2f1d53b"
+}

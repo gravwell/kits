@@ -1,0 +1,22 @@
+{
+	"Name": "Azure - RBAC Role Assignment Created or Deleted",
+	"Description": "Detects creation or deletion of Azure RBAC role assignments. Attackers may grant elevated roles to compromised identities for persistence, or delete legitimate assignments to disrupt access controls.",
+	"Labels": [
+		"azure",
+		"identity",
+		"rbac",
+		"detection",
+		"T1098.003",
+		"privilege-escalation",
+		"persistence"
+	],
+	"Schedule": "20 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "5b5b5585-6a96-41d6-8b0a-a26437e09a4b",
+	"SearchReference": "a65b25af-69df-4ddc-b364-75c40abbecd1"
+}

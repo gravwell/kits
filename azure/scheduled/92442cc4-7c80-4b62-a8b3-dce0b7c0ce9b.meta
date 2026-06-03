@@ -1,0 +1,22 @@
+{
+	"Name": "Azure - Azure Virtual Network WAN Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Virtual WAN resources and VPN sites. Changes may indicate attempts to disrupt branch connectivity or alter hub-and-spoke network routing.",
+	"Labels": [
+		"azure",
+		"network",
+		"vpn",
+		"detection",
+		"T1562",
+		"defense-evasion",
+		"impact"
+	],
+	"Schedule": "43 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "92442cc4-7c80-4b62-a8b3-dce0b7c0ce9b",
+	"SearchReference": "25fe98e6-dadd-46d7-a070-878975793a8a"
+}

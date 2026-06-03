@@ -1,0 +1,22 @@
+{
+	"Name": "Azure - Azure Point-to-site VPN Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Point-to-site VPN gateways. Attackers may alter P2S configurations to create unauthorized remote access paths or disrupt legitimate VPN connectivity.",
+	"Labels": [
+		"azure",
+		"network",
+		"vpn",
+		"detection",
+		"T1562",
+		"defense-evasion",
+		"impact"
+	],
+	"Schedule": "35 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "7a85f2f6-5d75-46a5-8113-31266aa6c099",
+	"SearchReference": "93ceb675-cfb5-480c-801a-c47dca417461"
+}

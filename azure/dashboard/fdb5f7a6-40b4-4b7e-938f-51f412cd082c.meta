@@ -1,0 +1,177 @@
+{
+	"UUID": "fdb5f7a6-40b4-4b7e-938f-51f412cd082c",
+	"Name": "Azure - Caller IP Investigate",
+	"Description": "Look at activity across Azure performed by an IP Address. Used to review behavior coming from a single network source, discover what actions were taken, and correlate with other behavior and identities.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "today",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Azure - Activity Timeline - Investigate - IP",
+				"color": null,
+				"reference": {
+					"id": "63dda357-3dd8-4d28-8476-1828fcad68f1",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Operations by IP - Investigate - IP",
+				"color": null,
+				"reference": {
+					"id": "eed93cc4-b267-45cf-858a-1b0144be472c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Resources Touched - Invesitgate - IP",
+				"color": null,
+				"reference": {
+					"id": "897b0e0d-2cdb-4b1e-b344-29e343037ec2",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Success vs Failure - Investigate - IP [Chart]",
+				"color": null,
+				"reference": {
+					"id": "cf270d5b-b2b9-489b-a8ff-48446d44916b",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Correlated Signin - Investigate - IP",
+				"color": null,
+				"reference": {
+					"id": "e5dd879f-51e3-4c38-8404-2422f016a73d",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Correlated AD Audit Events - Investigate - IP",
+				"color": null,
+				"reference": {
+					"id": "4174a985-d5d9-4762-a5f0-69a18131340f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17776602272680,
+				"title": "Activity Timeline",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776602954911,
+				"title": "All Operations by IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 6,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776603423202,
+				"title": "Resources Touched",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 11,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776603685213,
+				"title": "Success vs Failure ",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776603973524,
+				"title": "Correlated Sign-ins",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 6,
+					"x": 8,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776604252595,
+				"title": "Correlated AD Audit Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 11,
+					"x": 6,
+					"y": 10
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"azure",
+		"investigate",
+		"IP",
+		"ip"
+	]
+}

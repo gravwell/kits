@@ -1,0 +1,17 @@
+{
+	"Name": "Azure - Application Registration Deleted",
+	"Description": "Detects deletion of Azure AD application registrations. Attackers may delete applications to remove security tooling, destroy evidence of compromise, or disrupt dependent services.",
+	"Labels": [
+		"azure",
+		"detection"
+	],
+	"Schedule": "44 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a2e28d6e-563b-4f43-af7d-211416aea426",
+	"SearchReference": "51e83e46-6f64-495a-9c49-17ab337ff385"
+}

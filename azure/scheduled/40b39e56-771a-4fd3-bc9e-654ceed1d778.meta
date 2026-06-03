@@ -1,0 +1,22 @@
+{
+	"Name": "Azure - Azure Key Vault Modified or Deleted",
+	"Description": "Detects modification, deletion, or access policy changes on Azure Key Vaults. Attackers may alter access policies to gain unauthorized access to secrets and keys, or delete vaults to destroy credentials and disrupt dependent services.",
+	"Labels": [
+		"azure",
+		"keyvault",
+		"detection",
+		"T1552",
+		"T1552.001",
+		"impact",
+		"credential-access"
+	],
+	"Schedule": "35 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "40b39e56-771a-4fd3-bc9e-654ceed1d778",
+	"SearchReference": "962bc273-51c4-4717-8d05-d730651ab7bb"
+}
