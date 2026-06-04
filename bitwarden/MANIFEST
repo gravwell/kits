@@ -1,7 +1,7 @@
 {
 	"ID": "bitwarden.gravwell.io",
 	"Name": "Bitwarden",
-	"Desc": "",
+	"Desc": "Provides tools, utilities, and detections to enable use of Bitwarden logs.",
 	"Readme": "",
 	"Version": 1,
 	"MinVersion": {
@@ -268,6 +268,11 @@
 			"Type": 11,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
+		{
+                        "Name": "7c9ca95e-5d24-43ae-b54b-f593d52ea1b6",
+                        "Type": 11,
+                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                },
 		{
 			"Name": "bitwarden",
 			"Type": 4,
