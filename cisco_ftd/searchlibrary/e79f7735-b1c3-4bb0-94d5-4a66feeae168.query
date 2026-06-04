@@ -1,0 +1,5 @@
+tag=$CISCO_SECURITY
+$CISCO_SECURITY_EVX
+| stats count by DstIP
+| alias count " "
+| chart " " by DstIP

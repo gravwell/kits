@@ -1,0 +1,8 @@
+{
+	"Name": "CISCO_SECURITY",
+	"Description": "Configuration Macro; Tag used for all Cisco FTD Security Events (FTD-#-430001 to FTD-#-430005); necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.\n\nUsage: tag=$CISCO_SECURITY\n\nReference(s):\n- https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/security-event-syslog-messages.html#id_91299",
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

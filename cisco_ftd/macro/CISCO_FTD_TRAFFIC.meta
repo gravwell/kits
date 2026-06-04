@@ -1,0 +1,8 @@
+{
+	"Name": "CISCO_FTD_TRAFFIC",
+	"Description": "Configuration Macro; Tag used for all Cisco FTD Traffic data; necessary for any queries within the Gravwell Cisco Firepower Threat Defense (FTD) Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$CISCO_FTD_TRAFFIC",
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

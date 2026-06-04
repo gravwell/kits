@@ -1,0 +1,8 @@
+{
+	"Name": "CISCO_FTD_SEVERITY_ORDER",
+	"Description": "This macro creates an Enumerated Value (EV) named _severity_order and then orders events by severity. \n\nReference(s):\n- https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/syslogs-sev-level.html",
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}
