@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - System - SMS - SMS Bombarding",
+	"Description": "Displays a table of SMS Bombarding. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/sms_bombarding.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "caf18c5e-d024-4d16-950e-076680c96766",
+	"SearchReference": "25ca9e31-6a22-4dc8-b070-ff694ae3534e"
+}

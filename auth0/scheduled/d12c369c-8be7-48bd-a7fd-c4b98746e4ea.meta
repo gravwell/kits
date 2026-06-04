@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Redirect",
+	"Description": "Displays a table of Failed Authentications due to a malformed redirect. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_failed_authorization_requests.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "d12c369c-8be7-48bd-a7fd-c4b98746e4ea",
+	"SearchReference": "d6d3cc24-f849-48c0-be05-daec4f374652"
+}

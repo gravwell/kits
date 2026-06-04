@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Successful Login with Suspicious JA4 Fingerprint",
+	"Description": "Displays a table of Successful Login with Suspicious JA4 Fingerprint. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/logins_from_suspicious_tls_fingerprints.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "01d742fe-9d15-4357-bcdc-427dfca0cd28",
+	"SearchReference": "e792c8b2-c3c8-4ce2-9151-a20309955a1d"
+}

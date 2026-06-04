@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Modification to Passwordless Policy",
+	"Description": "Displays a table of Modifications to Passwordless Policy.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/bot_detection_turned_off.yml",
+	"GUID": "6ba38e96-8027-4470-9f21-18c4c3e8060b",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

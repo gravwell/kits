@@ -1,0 +1,7 @@
+// Search - Auth0 - User - Authentication - Count by Category [chart]
+tag=$AUTH0 ax
+$AUTH0_EVENT_LOOKUP
+$AUTH0_AUTH_CATEGORY
+| stats count by authCategory
+| alias count " "
+| chart " " by authCategory

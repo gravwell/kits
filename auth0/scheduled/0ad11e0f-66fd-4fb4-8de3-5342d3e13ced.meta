@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Risk of Copying Client Credentials",
+	"Description": "Displays a table of users/IPs whom potentially copied client credentials. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_copying_client_credentials.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0ad11e0f-66fd-4fb4-8de3-5342d3e13ced",
+	"SearchReference": "342a7ae0-f54f-4f7e-89b3-94aff5a1b92f"
+}

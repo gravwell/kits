@@ -1,0 +1,46 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Brute-Force Protection Enabled & All Protections Disabled
+tag=auth0
+| json
+    date
+    type == "sapi"
+    description == "Update Brute-force settings"
+    ip
+    details.response.body.enabled as bruteForceEnabled
+    details.response.body.shields as bruteForceShields
+    details.response.body.mode as bruteForceBlockingMode
+| sort by TIMESTAMP desc
+| eval
+    bruteForceBlocking = "disabled";
+    bruteForceUserNotificationsOn = "disabled";
+    if (has(bruteForceEnabled)) {
+        if (string(bruteForceEnabled) ~ "true") {
+            bruteForceEnabled = "enabled";
+        }
+        if (string(bruteForceEnabled) ~ "false") {
+            bruteForceEnabled = "disabled";
+        }
+    }
+    if (has(bruteForceShields)) {
+        if (string(bruteForceShields) ~ "block") {
+            bruteForceBlocking = "enabled";
+        }
+        if (string(bruteForceShields) ~ "user_notification") {
+            bruteForceUserNotificationsOn = "enabled";
+        }
+    }
+    bruteForceOnlyIpBlock = "disabled";
+    bruteForceAccountIpBlock = "disabled";
+    if (bruteForceBlockingMode == "count_per_identifier" && bruteForceBlocking == "enabled") {
+        bruteForceAccountIpBlock = "enabled";
+    }
+    if (bruteForceBlockingMode == "count_per_identifier_and_ip" && bruteForceBlocking == "enabled") {
+        bruteForceOnlyIpBlock = "enabled";
+    }
+    bruteForceAllProtections = "enabled";
+    if (bruteForceOnlyIpBlock == "disabled" && bruteForceAccountIpBlock == "disabled") {
+        bruteForceAllProtections = "disabled";
+    }
+| eval 
+    bruteForceEnabled == "enabled" && bruteForceAllProtections == "disabled";
+    _alert_name = "Brute-Force Protection Enabled & All Protections Disabled";
+| table date ip bruteForceEnabled bruteForceOnlyIpBlock bruteForceAccountIpBlock bruteForceUserNotificationsOn bruteForceAllProtections

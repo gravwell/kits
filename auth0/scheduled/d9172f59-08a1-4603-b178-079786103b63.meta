@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - MFA Downgrade: Detect Disabled Factors",
+	"Description": "Displays a table of MFA Factors that are disabled. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/mfa_downgrade_detect_disable_factors.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "d9172f59-08a1-4603-b178-079786103b63",
+	"SearchReference": "9888a307-ae83-4ed9-8371-00dc7f02caba"
+}

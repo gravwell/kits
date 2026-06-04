@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Audience",
+	"Description": "Displays a table of Failed Authentications due to a malformed audience. \n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_failed_authorization_requests.yml",
+	"GUID": "6521c777-96be-4ca9-bfd5-25525e328616",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Modification to Password Login Policy",
+	"Description": "Displays a table of Modifications to Password Login Policy. Reference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/bot_detection_turned_off.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "d9b6b0ef-acb1-43a2-9eca-8c4c961a0334",
+	"SearchReference": "c53cd606-6f62-4b55-8dd0-40441eb3fa2f"
+}

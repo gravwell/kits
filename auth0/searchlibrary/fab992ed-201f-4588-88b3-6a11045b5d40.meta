@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Monitored Scope Granted",
+	"Description": "Displays a table of Monitored Scope(s) that have been granted.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/client_with_overpermissive_granted_scopes.yml",
+	"GUID": "fab992ed-201f-4588-88b3-6a11045b5d40",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

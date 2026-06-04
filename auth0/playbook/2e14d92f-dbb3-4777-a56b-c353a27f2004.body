@@ -1,0 +1,393 @@
+<km>
+***  
+
+A toolkit for interacting with Auth0 data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Auth0 Identity and Access Management data analysis across all Auth0 log sources.  
+
+***  
+
+## Table of Contents  
+1. [Tags & Macros](#1-tags--macros)  
+    1.1. [Tags](#1-1-tags)  
+    1.2. [Autoextractors](#1-2-autoextractors)  
+    1.3. [Macros](#1-3-macros)  
+2. [Query Library](#2-query-library)  
+3. [Naming Schema](#3-naming-schema)  
+4. [Resources](#4-resources)  
+    4.1. [Lookups](#4-1-lookups)  
+5. [Alerts](#5-alerts)  
+    5.1. [Dispatchers](#5-1-dispatchers)  
+    5.2. [Consumers](#5-2-consumers)  
+6. [Scheduled Searches](#6-scheduled-searches)  
+    6.1. [Flows](#6-1-flows)  
+7. [Playbooks](#7-playbooks)  
+    7.1. [Files](#7-1-files)  
+8. [Searches](#8-searches)  
+    8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+    8.2. [Alert Queries](#8-2-alert-queries)  
+9. [Templates](#9-templates)  
+10. [Dashboards](#10-dashboards)  
+    10.1. [Actionables](#10-1-actionables)  
+11. [Useful Resources & References](#11-useful-resources--references)  
+12. [Notes](#12-notes)  
+13. [Image credits](#13-image-credits)  
+
+***  
+
+## 1. [Tags & Macros](#1-tags--macros)  
+
+#### 1.1. [Tags](#1-1-tags)  
+
+- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.  
+- [Documentation](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+- The Auth0 Kit for Gravwell makes use of the following tags:  
+- Total: ***1***  
+    - auth0: Tag used for all Auth0 data; necessary for any queries within the Gravwell Auth0 Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=auth0``  
+
+#### 1.2. [Autoextractors](#1-2-autoextractors)  
+
+- Purpose: Autoextractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The *ax* module then automatically invokes the appropriate functionality of other modules.  
+- [Documentation](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+- The Auth0 Kit for Gravwell makes use of the following autoextractors:  
+- Total: ***1***  
+    - auth0: Gravwell-generated EVs extraction for tag=auth0  
+
+#### 1.3. [Macros](#1-3-macros)  
+
+- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.  
+- [Documentation](<https://docs.gravwell.io/search/macros.html>)  
+- The Auth0 Kit for Gravwell makes use of the following macros:  
+- Total: ***5***  
+    - $AUTH0: Configuration Macro; Tag used for all Duo data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.  
+    - $AUTH0\_AUTH: This macro aliases eventType (after extraction from type) to eventCode, performs a lookup against Auth0 Event Types, and filters only on events that are categorically "Authentication" based events.  
+    - $AUTH0\_AUTH\_CATEGORY: This macro is to be used in conjunction with $AUTH0\_AUTH.  
+    - $AUTH0\_EVENT\_LOOKUP: This macro aliases eventType (after extraction from type) to eventCode, and performs a lookup against the Auth0 Event Types Resource (auth0\_eventTypes).  
+    - $AUTH0\_FILTER\_CATEGORY: This macro aliases eventType (after extraction from type) to eventCode, performs a lookup against Auth0 Event Types, and then creates a new Enumerated Value (EV) named filterCategory based on the available Auth0 Log Filters referenced below.  
+
+***  
+
+## 2. [Query Library](#2-query-library)  
+
+- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-2-alert-queries), and [playbooks](#7-playbooks).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.  
+    - Total queries: ***68***  
+        - [8.1 Dashboard Searches](#8-1-dashboard-searches): ***16***  
+        - [8.2 Alert Queries](#8-2-alert-queries): ***52***  
+
+***  
+
+## 3. [Naming Schema](#3-naming-schema)  
+
+- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  
+- *QueryType - Auth0 - System - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - if any]*  
+- Examples:  
+    - Templates: *Template - Auth0 - System - Log Types - Count by Category & Subcategory [chart]*  
+    - Searches: *Search - Auth0 - System - Log Types - Count by Category [chart]*  
+    - Alert Queries: *AlertQuery - Auth0 - System - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+
+***  
+
+## 4. [Resources](#4-resources)  
+
+- Purpose: Resources allow users to store persistent data for use in searches.  
+- [Documentation](<https://docs.gravwell.io/resources/resources.html>)  
+- Total: ***1***  
+
+#### 4.1. [Lookups](#4-1-lookups)  
+
+- Purpose: Lookup Resources are used by the *lookup* module to perform data enrichment and translation off of a static lookup table stored in a resource.  
+- [Documentation](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+- Total: ***1***  
+    - auth0\_eventTypes: This is intended to be used as a lookup file providing additional information regarding Auth0 event types. It is used within the Auth0 Kit for dashboards, macros, scheduled searches, alerts, flows, and templates.  
+
+***  
+
+## 5. [Alerts](#5-alerts)  
+
+- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+- Total: ***0***  
+
+#### 5.1. [Dispatchers](#5-1-dispatchers)  
+
+- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.  
+    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+- Total: ***52***  
+
+#### 5.2. [Consumers](#5-2-consumers)  
+
+- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.  
+    - Consumers = [Flows](#6-1-flows)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+- Total: ***0***  
+
+***  
+
+## 6. [Scheduled Searches](#6-scheduled-searches)  
+
+- Purpose: Scheduled Searches are typically dependent on *AlertQuery - Auth0 - ...* queries within the [Query Library](#2-query-library).  
+- [Documentation](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+- Total: ***52***  
+    - ScheduledSearch - Auth0 - Account - Creation - Unexpected Amount of Unvalidated Domains: Displays a table of Unexpected Amount of Unvalidated Domains.  
+    - ScheduledSearch - Auth0 - Account - Creation - Unexpected Amount of Unverified Users: Displays a table of Unexpected Amount of Unverified Users.  
+    - ScheduledSearch - Auth0 - Account - Creation - Unexpected Amount of Unverified Users and/or Amount of Unvalidated Domains (Combined): Displays a table of Unexpected Amount of Unverified Users and/or Amount of Unvalidated Domains.  
+    - ScheduledSearch - Auth0 - Application - OAuth2 - Refresh Token Reuse: Displays a table of users whom reused the same refresh token.  
+    - ScheduledSearch - Auth0 - Application - OAuth2 - Refresh Token Threshold Crossed: Displays a table showing refresh tokens being used from multiple locations that crossed the threshold.  
+    - ScheduledSearch - Auth0 - Application - OAuth2 - Risk of Copying the Most Powerful Token: Displays a table of users/ips whom potentially interacted with the most powerful token.  
+    - ScheduledSearch - Auth0 - Application - OAuth2 - User Agent Threshold Crossed: Displays a table showing refresh tokens being used from multiple user agents that crossed the threshold.  
+    - ScheduledSearch - Auth0 - Device - Push - Risk for MFA Push Fatigue: Displays a table of users at risk due to MFA push fatigue.  
+    - ScheduledSearch - Auth0 - Lifecycle - MFA - Multiple Phone Numbers Are Registered as MFA: Displays a table of showing phone numbers that are registered to multiple users.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection & Login Protection Disabled: Displays a table of Breached Password Settings (including Login Protection) and their statuses. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection & Sign-up Protection Disabled: Displays a table of Breached Password Settings (including Sign-up Protection) and their statuses. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection & User Notifications Disabled: Displays a table of Breached Password Settings (including User Notifications) and their statuses. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & All Protections Disabled: Displays a table of Breached Password Settings (including Sign-up Protection, Login Protection, & User Notifications) and their respective status. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & Login Protection Disabled: Displays a table of Breached Password Settings (including Login Protection) and their respective status. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & Sign-up Protection Disabled: Displays a table of Breached Password Settings (including Sign-up Protection) and their respective status. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & User Notifications Disabled: Displays a table of Breached Password Settings (including User Notifications) and their respective status. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Brute-Force Protection Enabled & All Protections Disabled: Displays a table of Brute Force Protection Settings (including Brute Force Only IP Blocking, Brute Force Account & IP Blocking, & User Notifications) and their respective status. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Brute-Force Protection Enabled & User Notifications Disabled: Displays a table of Brute Force Protection Settings (including User Notifications) and their respective status. - true = enabled - false = disabled  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Cross-Origin Authentication (CORS) Enabled: Displays a table of Cross-Origin Authentication (CORS) Enabled.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Excessive Scope Grant Amount: Displays a table of Excessive Scope Grants by Client ID (client\_id) & Description (description).  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Insecure OAuth Enabled: Displays a table of Insecure OAuth Enabled.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - LiquidJS XSS Vulnerabilities Found: Displays a table of LiquidJS XSS Vulnerabilities Found.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - MFA Downgrade: Detect Disabled Factors: Displays a table of MFA Factors that are disabled.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - MFA Downgrade: Disabled MFA Policies: Displays a table of MFA Policies that are disabled.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - MFA Downgrade: Risk Assessment Disabled: Displays a table of Risk Assessments that are disabled by which User and IP.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Modification to Password Login Policy: Displays a table of Modifications to Password Login Policy.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Modification to Password Reset Policy: Displays a table of Modifications to Password Reset Policy.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Modification to Passwordless Policy: Displays a table of Modifications to Passwordless Policy.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Monitored Scope Granted: Displays a table of Monitored Scope(s) that have been granted.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Rapid Creation of Clients with Dynamic Registration: Displays a table of rapidly created clients.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Risk of Copying Client Credentials: Displays a table of users/IPs whom potentially copied client credentials.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Risk of Tenant Takeover: Displays a table of accounts performing possible nefarious actions causing the heightened risk of Auth0 Tenant Takeover.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Suspicious IP Throttling Settings Set to False: Displays a table of Suspicious IP Throttling Settings Set to False.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Update Breached Password Detection Settings: Displays a table of Update Breached Password Detection Settings.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Update Brute-Force Settings: Displays a table of Updated Brute-Force Settings.  
+    - ScheduledSearch - Auth0 - Lifecycle - System API - Update Suspicious IP Throttling Settings: Displays a table of Update Suspicious IP Throttling Settings.  
+    - ScheduledSearch - Auth0 - System - SMS - SMS Bombarding: Displays a table of SMS Bombarding.  
+    - ScheduledSearch - Auth0 - User - Account - Risk of Signup Fraud by Disposable Domains: Displays a table of Risk of Signup Fraud by Disposable Domains.  
+    - ScheduledSearch - Auth0 - User - Account - Risk of Signup Fraud by Volume of Fake Accounts: Displays a table of Risk of Signup Fraud by Volume of Fake Accounts.  
+    - ScheduledSearch - Auth0 - User - Authentication - Geographically Improbable Travel Logins: Displays a table of Geographically Improbable Travel Logins.  
+    - ScheduledSearch - Auth0 - User - Authentication - Higher Risk of Credential Stuffing Attack: Displays a table of Higher Risk of Credential Stuffing Attack and count vs. threshold.  
+    - ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests (Combined): Displays a table of Failed Authentications due to matching one of the alert triggers and crossing the threshold.  
+    - ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Audience: Displays a table of Failed Authentications due to a malformed audience.  
+    - ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Challenge Type: Displays a table of Failed Authentications due to a malformed challenge type.  
+    - ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Client: Displays a table of Failed Authentications due to a malformed client.  
+    - ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Redirect: Displays a table of Failed Authentications due to a malformed redirect.  
+    - ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Response Type: Displays a table of Failed Authentications due to Malformed Response Type.  
+    - ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Mismatched URI: Displays a table of Failed Authentications due to a mismatched URI.  
+    - ScheduledSearch - Auth0 - User - Authentication - Possible Misconfiguration of Auth0 Tenant Name: Displays a table of Successful Logins and Signups from Flagged IPs.  
+    - ScheduledSearch - Auth0 - User - Authentication - Successful Login with Suspicious JA4 Fingerprint: Displays a table of Successful Login with Suspicious JA4 Fingerprint.  
+    - ScheduledSearch - Auth0 - User - Authentication - Successful Logins and Signups from Flagged IPs: Displays a table of Successful Logins and Signups from Flagged IPs.  
+    - ScheduledSearch - Auth0 - User - MFA - Possible Account Takeover: Displays a table of Possible Account Takeovers due to multiple users registered to the same deviceId and IP.  
+
+#### 6.1. [Flows](#6-1-flows)  
+
+- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.  
+- [Documentation](<https://docs.gravwell.io/flows/flows.html>)  
+- Total: ***0***  
+
+***  
+
+## 7. [Playbooks](#7-playbooks)  
+
+- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.  
+- [Documentation](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+- Total: ***2***  
+    - Auth0 Kit - Overview: A toolkit for interacting with Auth0 data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Auth0 Identity and Access Management data analysis across all Auth0 log sources.  
+    - Auth0 Kit - README: A toolkit for interacting with your Auth0 data.  
+
+#### 7.1. [Files](#7-1-files)  
+
+- Purpose: Gravwell users can upload small files for use in playbooks, as cover images for kits, etc. Typically, these files are created or selected at the point of use: via a picker in the playbook editor, in the kit builder, etc.  
+- [Documentation](<https://docs.gravwell.io/gui/files/files.html>)  
+- Total: ***1***  
+    - Auth0 Logo: image file for kit build "Auth0 v1"  
+
+***  
+
+## 8. [Searches](#8-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Auth0 data in an easily digestible format or [scheduled searches](#6-scheduled-searches) to ultimately feed [alerts](#5-alerts).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+- Total: ***68***  
+    - Dashboard Search Total: ***16***  
+    - Alert Query Total: ***52***  
+
+#### 8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view vendor data in an easily digestible format.  
+- Total: ***16***  
+    - Search - Auth0 - System - Log Types - Count by Category [chart]: Displays a chart of events by Category.  
+    - Search - Auth0 - System - Log Types - Count by Category [numbercard]: Displays a numbercard of events by Category.  
+    - Search - Auth0 - System - Log Types - Count by Category & Subcategory [chart]: Displays a chart of events by Category & Subcategory.  
+    - Search - Auth0 - System - Log Types - Count by Category & Subcategory [numbercard]: Displays a numbercard of events by Category & Subcategory.  
+    - Search - Auth0 - System - Log Types - Count by Event Type [chart]: Displays a chart of events by eventType.  
+    - Search - Auth0 - System - Log Types - Count by Event Type [numbercard]: Displays a numbercard of events by eventType.  
+    - Search - Auth0 - System - Log Types - Count by Filter Category [chart]: Displays a chart of events by Filter Category.  
+    - Search - Auth0 - System - Log Types - Count by Filter Category [numbercard]: Displays a numbercard of events by Filter Category.  
+    - Search - Auth0 - System - Log Types - Count by Subcategory [chart]: Displays a chart of events by Subcategory.  
+    - Search - Auth0 - System - Log Types - Count by Subcategory [numbercard]: Displays a numbercard of events by Subcategory.  
+    - Search - Auth0 - System - Log Types - Count by Tag [chart]: Displays a chart of events by Auth0 Tag.  
+    - Search - Auth0 - System - Log Types - Count by Tag [numbercard]: Displays a numbercard of events by Auth0 Tag.  
+    - Search - Auth0 - User - Authentication - Count by Category [chart]: Displays a chart of user authentication events by Authentication Category.  
+    - Search - Auth0 - User - Authentication - Count by Category [numbercard]: Displays a numbercard of user authentication events by Authentication Category.  
+    - Search - Auth0 - User - Authentication - Count by Event Type [chart]: Displays a chart of user authentication events by eventType.  
+    - Search - Auth0 - User - Authentication - Count by Event Type [numbercard]: Displays a numbercard of user authentication events by eventType.  
+- Naming Schema: *Search - Auth0 - System - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+
+#### 8.2. [Alert Queries](#8-2-alert-queries)  
+
+- Purpose: These queries within the Query Library drive [scheduled searches](#6-scheduled-searches) which ultimately feed [alerts](#5-alerts).  
+- IMPORTANT: If you need to update or tune, this is where you perform that action.  
+- Total: ***52***  
+    - AlertQuery - Auth0 - Account - Creation - Unexpected Amount of Unvalidated Domains: Displays a table of Unexpected Amount of Unvalidated Domains.  
+    - AlertQuery - Auth0 - Account - Creation - Unexpected Amount of Unverified Users: Displays a table of Unexpected Amount of Unverified Users.  
+    - AlertQuery - Auth0 - Account - Creation - Unexpected Amount of Unverified Users and/or Amount of Unvalidated Domains (Combined): Displays a table of Unexpected Amount of Unverified Users and/or Amount of Unvalidated Domains.  
+    - AlertQuery - Auth0 - Application - OAuth2 - Refresh Token Reuse: Displays a table of users whom reused the same refresh token.  
+    - AlertQuery - Auth0 - Application - OAuth2 - Refresh Token Threshold Crossed: Displays a table showing refresh tokens being used from multiple locations that crossed the threshold.  
+    - AlertQuery - Auth0 - Application - OAuth2 - Risk of Copying the Most Powerful Token: Displays a table of users/ips whom potentially interacted with the most powerful token.  
+    - AlertQuery - Auth0 - Application - OAuth2 - User Agent Threshold Crossed: Displays a table showing refresh tokens being used from multiple user agents that crossed the threshold.  
+    - AlertQuery - Auth0 - Device - Push - Risk for MFA Push Fatigue: Displays a table of users at risk due to MFA push fatigue.  
+    - AlertQuery - Auth0 - Lifecycle - MFA - Multiple Phone Numbers Are Registered as MFA: Displays a table of showing phone numbers that are registered to multiple users.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection & Login Protection Disabled: Displays a table of Breached Password Settings (including Login Protection) and their statuses. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection & Sign-up Protection Disabled: Displays a table of Breached Password Settings (including Sign-up Protection) and their statuses. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection & User Notifications Disabled: Displays a table of Breached Password Settings (including User Notifications) and their statuses. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & All Protections Disabled: Displays a table of Breached Password Settings (including Sign-up Protection, Login Protection, & User Notifications) and their respective status. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & Login Protection Disabled: Displays a table of Breached Password Settings (including Login Protection) and their respective status. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & Sign-up Protection Disabled: Displays a table of Breached Password Settings (including Sign-up Protection) and their respective status. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection Enabled & User Notifications Disabled: Displays a table of Breached Password Settings (including User Notifications) and their respective status. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Brute-Force Protection Enabled & All Protections Disabled: Displays a table of Brute Force Protection Settings (including Brute Force Only IP Blocking, Brute Force Account & IP Blocking, & User Notifications) and their respective status. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Brute-Force Protection Enabled & User Notifications Disabled: Displays a table of Brute Force Protection Settings (including User Notifications) and their respective status. - true = enabled - false = disabled  
+    - AlertQuery - Auth0 - Lifecycle - System API - Cross-Origin Authentication (CORS) Enabled: Displays a table of Cross-Origin Authentication (CORS) Enabled.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Excessive Scope Grant Amount: Displays a table of Excessive Scope Grants by Client ID (client\_id) & Description (description).  
+    - AlertQuery - Auth0 - Lifecycle - System API - Insecure OAuth Enabled: Displays a table of Insecure OAuth Enabled.  
+    - AlertQuery - Auth0 - Lifecycle - System API - LiquidJS XSS Vulnerabilities Found: Displays a table of LiquidJS XSS Vulnerabilities Found.  
+    - AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Detect Disabled Factors: Displays a table of MFA Factors that are disabled.  
+    - AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Disabled MFA Policies: Displays a table of MFA Policies that are disabled.  
+    - AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Risk Assessment Disabled: Displays a table of Risk Assessments that are disabled by which User and IP.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Modification to Password Login Policy: Displays a table of Modifications to Password Login Policy.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Modification to Password Reset Policy: Displays a table of Modifications to Password Reset Policy.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Modification to Passwordless Policy: Displays a table of Modifications to Passwordless Policy.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Monitored Scope Granted: Displays a table of Monitored Scope(s) that have been granted.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Rapid Creation of Clients with Dynamic Registration: Displays a table of rapidly created clients.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Risk of Copying Client Credentials: Displays a table of users/IPs whom potentially copied client credentials.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Risk of Tenant Takeover: Displays a table of accounts performing possible nefarious actions causing the heightened risk of Auth0 Tenant Takeover.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Suspicious IP Throttling Settings Set to False: Displays a table of Suspicious IP Throttling Settings Set to False.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Update Breached Password Detection Settings: Displays a table of Update Breached Password Detection Settings.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Update Brute-Force Settings: Displays a table of Updated Brute-Force Settings.  
+    - AlertQuery - Auth0 - Lifecycle - System API - Update Suspicious IP Throttling Settings: Displays a table of Update Suspicious IP Throttling Settings.  
+    - AlertQuery - Auth0 - System - SMS - SMS Bombarding: Displays a table of SMS Bombarding.  
+    - AlertQuery - Auth0 - User - Account - Risk of Signup Fraud by Disposable Domains: Displays a table of Risk of Signup Fraud by Disposable Domains.  
+    - AlertQuery - Auth0 - User - Account - Risk of Signup Fraud by Volume of Fake Accounts: Displays a table of Risk of Signup Fraud by Volume of Fake Accounts.  
+    - AlertQuery - Auth0 - User - Authentication - Geographically Improbable Travel Logins [table]: Displays a table of Geographically Improbable Travel Logins.  
+    - AlertQuery - Auth0 - User - Authentication - Higher Risk of Credential Stuffing Attack: Displays a table of Higher Risk of Credential Stuffing Attack and count vs. threshold.  
+    - AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests (Combined): Displays a table of Failed Authentications due to matching one of the alert triggers and crossing the threshold.  
+    - AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Audience: Displays a table of Failed Authentications due to a malformed audience.  
+    - AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Challenge Type: Displays a table of Failed Authentications due to a malformed challenge type.  
+    - AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Client: Displays a table of Failed Authentications due to a malformed client.  
+    - AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Redirect: Displays a table of Failed Authentications due to a malformed redirect.  
+    - AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Response Type: Displays a table of Failed Authentications due to Malformed Response Type.  
+    - AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Mismatched URI: Displays a table of Failed Authentications due to a mismatched URI.  
+    - AlertQuery - Auth0 - User - Authentication - Possible Misconfiguration of Auth0 Tenant Name: Displays a table of Successful Logins and Signups from Flagged IPs.  
+    - AlertQuery - Auth0 - User - Authentication - Successful Login with Suspicious JA4 Fingerprint: Displays a table of Successful Login with Suspicious JA4 Fingerprint.  
+    - AlertQuery - Auth0 - User - Authentication - Successful Logins and Signups from Flagged IPs: Displays a table of Successful Logins and Signups from Flagged IPs.  
+    - AlertQuery - Auth0 - User - MFA - Possible Account Takeover: Displays a table of Possible Account Takeovers due to multiple users registered to the same deviceId and IP.  
+- Naming Schema: *AlertQuery - Auth0 - System - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+
+***  
+
+## 9. [Templates](#9-templates)  
+
+- Purpose: Templates are special objects which define a Gravwell query containing variables.  
+- [Documentation](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- Total: ***8***  
+    - Template - Auth0 - System - Log Types - Count by Category & Subcategory [chart]: Displays a chart of events by count performed by the specified User (user\_id or user\_name) and/or IP Address.  
+    - Template - Auth0 - System - Log Types - Count by Category & Subcategory [numbercard]: Displays a numbercard of events by count performed by the specified User (user\_id or user\_name) and/or IP Address.  
+    - Template - Auth0 - System - Log Types - Count by Category & Subcategory [table]: Displays a table of events by count performed by the specified User (user\_id or user\_name) and/or IP Address.  
+    - Template - Auth0 - User - Authentication - Blocked Account [table]: Displays a table of events performed by a Blocked Account.  
+    - Template - Auth0 - User - Authentication - Count by Category [numbercard]: Displays a numbercard of user authentication events by Authentication Category for the specified User (user\_id or user\_name) and/or IP Address.  
+    - Template - Auth0 - User - Authentication - Failed Login [table]: Displays a table of failed login attempts with invalid usernames or non-existent users.  
+    - Template - Auth0 - User - Authentication - Leaked Password Login Attempts [table]: Displays a table of events performed indicating a high number of login attempts using a leaked password.  
+    - Template - Auth0 - User - Authentication - Successful Login [table]: Displays a table of successful logins.  
+
+***  
+
+## 10. [Dashboards](#10-dashboards)  
+
+- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.  
+- [Documentation](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+- Total: ***2***  
+    - Auth0 General Overview: This Dashboard is a general overview of your Auth0 data.  
+    - Auth0 Investigation: This dashboard is intended to be used for Auth0 investigations.  
+
+#### 10.1. [Actionables](#10-1-actionables)  
+
+- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.  
+- [Documentation](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+- Total: ***3***  
+    - Auth0 IP: Auth0 actions on IP Addresses to Launch Auth0 Investigation Dashboard.  
+    - Auth0 UserID: Auth0 actions on User Ids (userId) to Launch Auth0 Investigation Dashboard.  
+    - Auth0 UserName: Auth0 actions on User Name (userName) to Launch Auth0 Investigation Dashboard.  
+
+***  
+
+## 11. [Useful Resources & References](#11-useful-resources--references)  
+
+- Gravwell  
+    - [Actionables](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+    - [Alerts](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+    - [Autoextractors](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+    - [Consumers](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+    - [Dashboards](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+    - [Dispatchers](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+    - [Files](<https://docs.gravwell.io/gui/files/files.html>)  
+    - [Flows](<https://docs.gravwell.io/flows/flows.html>)  
+    - [Lookup Module](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+    - [Macros](<https://docs.gravwell.io/search/macros.html>)  
+    - [Playbooks](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+    - [Query Library](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - [regexrouter Preprocessor](<https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html>)  
+    - [Resources](<https://docs.gravwell.io/resources/resources.html>)  
+    - [Scheduled Searches](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+    - [Simple Relay](<https://docs.gravwell.io/ingesters/simple_relay.html>)  
+    - [Tags](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+    - [Templates](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- Auth0  
+    - [Auth0 - Docs](<https://auth0.com/docs>)  
+    - [Auth0 - Customer Detections](<https://github.com/auth0/auth0-customer-detections/tree/main>)  
+    - [Auth0 - Detections](<https://github.com/auth0/auth0-customer-detections/tree/main/detections>)  
+    - [Auth0 - Filter Log Events](<https://auth0.com/docs/deploy-monitor/logs/log-event-filters>)  
+    - [Auth0 - Incident Response: Using Logs](<https://auth0.com/docs/secure/security-guidance/incident-response-using-logs>)  
+    - [Auth0 - Log Schemas](<https://github.com/auth0/auth0-log-schemas>)  
+    - [Auth0 - Log Stream Filters](<https://auth0.com/docs/customize/log-streams/event-filters>)  
+    - [Auth0 - Log Type Codes](<https://auth0.com/docs/deploy-monitor/logs/log-event-type-codes>)  
+    - [Auth0 - Logs](<https://auth0.com/docs/deploy-monitor/logs>)  
+    - [Auth0 - Management API: Get event streams](<https://auth0.com/docs/api/management/v2/event-streams/get-event-streams>)  
+    - [Auth0 - Management API: Retrieve Logs Using the Management API](<https://auth0.com/docs/deploy-monitor/logs/retrieve-log-events-using-mgmt-api>)  
+    - [Auth0 - Management API](<https://auth0.com/docs/api/management/v2>)  
+    - [Auth0 - Log Search Query Syntax](<Log Search Query Syntax>)  
+    - [Auth0 - Management API: Search log events](<https://auth0.com/docs/api/management/v2/logs/get-logs>)  
+    - [Auth0 - Introducing Identicons.dev!](<https://auth0.com/blog/introducing-auth0-identicons-identity-icons/>)  
+    - [Auth0 - Identicons](<https://identicons.dev/>)  
+    - [Auth0 - Get the latest version (v2)](<https://identicons.dev/identicons/identicons-set-v2.zip>)  
+    - [Auth0 - Auth0 Logo Dark](<https://identicons.dev/identicons/mono/png/icon-auth0-logo-dark.png>)  
+
+***  
+
+## 12. [Notes](#12-notes)  
+
+- Default log source mapping for Auth0 Kit:  
+    - auth0 = Auth0  
+
+***  
+
+## 13. [Image credits](#13-image-credits)  
+
+- Icon: [Auth0 Icon](https://identicons.dev/identicons/mono/png/icon-auth0-logo-dark.png)  
+- Banner: [Auth0 Banner](https://identicons.dev/identicons/mono/png/icon-auth0-logo-dark.png)  
+- Cover: [Auth0 Cover](https://identicons.dev/identicons/mono/png/icon-auth0-logo-dark.png)  
+- Auth0 images are wholly owned by Auth0 and distributed according to the [Auth0 Brand Guidelines](https://auth0.com/blog/introducing-auth0-identicons-identity-icons/) and are **NOT** subject to any Gravwell licensing.
+</km>

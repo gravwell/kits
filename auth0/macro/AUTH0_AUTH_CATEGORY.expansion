@@ -1,0 +1,5 @@
+// AUTH0_AUTH_CATEGORY
+| eval 
+    if (has(eventType) && (eventType != "" || eventType != "null" || eventType != "nil") && eventType ~ "Success"){authCategory = "Success";}
+    else if (has(eventType) && (eventType != "" || eventType != "null" || eventType != "nil") && eventType ~ "Fail"){authCategory = "Failure";}
+    else if (has(eventType) && (eventType != "" || eventType != "null" || eventType != "nil") && eventType ~ "Warn"){authCategory = "Warning";}

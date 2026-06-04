@@ -1,0 +1,17 @@
+// AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Audience
+tag=auth0
+| json
+    date 
+    type == "f" as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    description ~ "Service not found" 
+| regex -e description `Service not found: (?P<malformedAudience>.*)`
+| stats 
+    count as malformedAudienceCount by malformedAudience 
+| eval 
+    malformedAudienceThreshold = 0;             // Set this to a value that makes sense for your environment.
+    if (has(malformedAudience) && (malformedAudience != "" || malformedAudience != "null" || malformedAudience != "nil") && malformedAudienceCount >= malformedAudienceThreshold){alertTrigger = "malformedAudience"; eventCount = malformedAudienceCount; eventThreshold = malformedAudienceThreshold;}
+    _alert_name = "Many Failed Authorization Requests Due To Malformed Audience";
+| table date userId userName ip eventType description alertTrigger eventCount eventThreshold

@@ -1,0 +1,12 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Update Suspicious IP Throttling Settings
+tag=auth0 json 
+    date 
+    type == "sapi" as eventType 
+    description
+    ip
+    details.response.body.enabled == "false" as responseEnabled 
+| lower description
+| eval 
+    description == "update suspicious ip throttling settings";
+    _alert_name = "Suspicious IP Throttling Settings Set to False";
+| table

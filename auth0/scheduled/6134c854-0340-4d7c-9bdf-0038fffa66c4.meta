@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Monitored Scope Granted",
+	"Description": "Displays a table of Monitored Scope(s) that have been granted. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/client_with_overpermissive_granted_scopes.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "6134c854-0340-4d7c-9bdf-0038fffa66c4",
+	"SearchReference": "fab992ed-201f-4588-88b3-6a11045b5d40"
+}

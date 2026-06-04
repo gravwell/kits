@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - MFA - Multiple Phone Numbers Are Registered as MFA",
+	"Description": "Displays a table of showing phone numbers that are registered to multiple users. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/multiple_phone_numbers_are_registered_as_mfa.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a64c5e1f-909f-4561-a0b8-fbcca934fcb3",
+	"SearchReference": "9c6c5817-0cfb-43a3-9b08-495b21a34870"
+}

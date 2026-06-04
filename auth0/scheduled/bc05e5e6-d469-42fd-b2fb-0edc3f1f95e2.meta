@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Update Brute-Force Settings",
+	"Description": "Displays a table of Updated Brute-Force Settings. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/attack_protection_features_turned_off.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "bc05e5e6-d469-42fd-b2fb-0edc3f1f95e2",
+	"SearchReference": "86471a53-d360-4eaf-b8b7-59e42c035436"
+}

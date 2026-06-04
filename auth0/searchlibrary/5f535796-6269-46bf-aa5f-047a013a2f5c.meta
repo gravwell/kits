@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Auth0 - User - Authentication - Count by Event Type [chart]",
+	"Description": "Displays a chart of user authentication events by eventType.",
+	"GUID": "5f535796-6269-46bf-aa5f-047a013a2f5c",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

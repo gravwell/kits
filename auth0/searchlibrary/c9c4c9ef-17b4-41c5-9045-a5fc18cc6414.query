@@ -1,0 +1,18 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Cross-Origin Authentication (CORS) Enabled
+tag=auth0 json 
+    date 
+    ip 
+    type == "sapi" as eventType 
+    user_id as userId
+    description == "Update a client" 
+    details.response.body.cross_origin_authentication as crossOriginAuthentication 
+    details.response.body.cross_origin_auth as crossOriginAuth 
+    details.response.body.allowedOrigins 
+    details.response.body.client_id as clientId 
+    details.response.statusCode == "200"
+| eval 
+    CORS = ""; if(has(crossOriginAuthentication) && (crossOriginAuthentication != "" || crossOriginAuthentication != "null" || crossOriginAuthentication != "nil")){CORS = crossOriginAuthentication;} 
+    else if(has(crossOriginAuth) && (crossOriginAuth != "" || crossOriginAuth != "null" || crossOriginAuth != "nil")){CORS = crossOriginAuth;} 
+    crossOriginAuthentication == "true" || crossOriginAuth == "true";
+    _alert_name = "Cross-Origin Authentication (CORS) Enabled";
+| table date ip userId clientId statusCode allowedOrigins crossOriginAuthentication crossOriginAuth CORS

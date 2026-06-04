@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Device - Push - Risk for MFA Push Fatigue",
+	"Description": "Displays a table of users at risk due to MFA push fatigue. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_for_mfa_push_fatigue.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e691e333-6ccb-40f1-974d-c74a7e619fca",
+	"SearchReference": "c2b41290-151d-4e4e-b806-dba0f943cd97"
+}

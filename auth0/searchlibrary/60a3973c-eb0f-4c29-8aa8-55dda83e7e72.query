@@ -1,0 +1,48 @@
+// AlertQuery - Auth0 - User - Authentication - Geographically Improbable Travel Logins
+tag=$AUTH0 json 
+    date 
+    type as eventType
+    ip 
+    user_name as userName
+| eval ( eventType == "s" )
+| ip ip as srcIp
+| geoip srcIp.Location srcIp.City srcIp.CountryName as Country
+| eval ( has(userName) && has(srcIp) && has(date) && has(Location) && has(Country) )
+| sort by date asc
+| alias srcIp prevSrcIp date prevDate City prevCity Country prevCountry Location prevLocation
+| fuse -pushpop userName (prevSrcIp prevDate prevCity prevCountry prevLocation)
+| eval ( has(prevDate) && has(prevLocation) && has(prevCountry) )
+| geodist -u mi Location prevLocation as distanceMiles
+| eval
+    deltaHours = (unix(date) - unix(prevDate)) / 3600.0;
+    timeDiffHours = round(deltaHours * 100.0) / 100.0;
+    if (deltaHours > 0) {
+        speed = round((distanceMiles / deltaHours) * 100.0) / 100.0;
+    }
+    if (has(prevCity) && prevCity != "" && prevCity != "null" && prevCity != "nil") {
+        if (has(prevCountry) && prevCountry != "" && prevCountry != "null" && prevCountry != "nil") {
+            firstLocation = prevCity + ", " + prevCountry;
+        } else {
+            firstLocation = prevCity;
+        }
+    } else if (has(prevCountry) && prevCountry != "" && prevCountry != "null" && prevCountry != "nil") {
+        firstLocation = prevCountry;
+    }
+
+    if (has(City) && City != "" && City != "null" && City != "nil") {
+        if (has(Country) && Country != "" && Country != "null" && Country != "nil") {
+            secondLocation = City + ", " + Country;
+        } else {
+            secondLocation = City;
+        }
+    } else if (has(Country) && Country != "" && Country != "null" && Country != "nil") {
+        secondLocation = Country;
+    }
+
+    firstSrcIp = prevSrcIp;
+    secondSrcIp = srcIp;
+| eval 
+    ( prevCountry != Country && distanceMiles != 0 && deltaHours > 0 && speed > 1000 );
+    _alert_name = "Geographically Improbable Travel Logins";
+| sort by distanceMiles desc
+| table userName prevDate date distanceMiles timeDiffHours speed firstLocation secondLocation firstSrcIp secondSrcIp

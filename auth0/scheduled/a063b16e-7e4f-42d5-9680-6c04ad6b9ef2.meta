@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Insecure OAuth Enabled",
+	"Description": "Displays a table of Insecure OAuth Enabled. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/insecure_grants_enabled_for_applications.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a063b16e-7e4f-42d5-9680-6c04ad6b9ef2",
+	"SearchReference": "984fb40d-790a-4e8d-a165-bb7cb1195ddd"
+}

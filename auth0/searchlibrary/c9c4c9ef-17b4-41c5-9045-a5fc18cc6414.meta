@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Cross-Origin Authentication (CORS) Enabled",
+	"Description": "Displays a table of Cross-Origin Authentication (CORS) Enabled.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/cross_origin_authentication_enabled.yml",
+	"GUID": "c9c4c9ef-17b4-41c5-9045-a5fc18cc6414",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,44 @@
+// AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests (Combined)
+tag=auth0
+| json
+    date 
+    type == "f" as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    description
+| eval 
+    description ~ "is not supported by this server" || 
+    description ~ "mismatch" || 
+    description ~ "Unknown client" || 
+    description ~ "Unsupported response type" || 
+    description ~ "Service not found" || 
+    description ~ "The redirect_uri parameter is not valid";
+| regex -p -e description `The redirect_uri parameter is not valid: \\\"(?P<malformedRedirect>[^\"]*?)?\\\"`
+| regex -p -e description `Callback URL mismatch\. (?P<mismatchUri>[^ ]+)`
+| regex -p -e description `Code challenge type (?P<malformedChallengeType>[^ ]+) is not supported by this server\.`
+| regex -p -e description `Unknown client: (?P<malformedClient>.*)`
+| regex -p -e description `Unsupported response type: (?P<malformedResponseType>.*)`
+| regex -p -e description `Service not found: (?P<malformedAudience>.*)`
+| stats 
+    count as mismatchUriCount by mismatchUri 
+    count as malformedChallengeTypeCount by malformedChallengeType
+    count as malformedClientCount by malformedClient 
+    count as malformedResponseTypeCount by malformedResponseType 
+    count as malformedAudienceCount by malformedAudience 
+    count as malformedRedirectCount by malformedRedirect
+| eval 
+    mismatchUriThreshold = 0;                   // Set this to a value that makes sense for your environment.
+    malformedChallengeTypeThreshold = 0;        // Set this to a value that makes sense for your environment.
+    malformedClientThreshold = 0;               // Set this to a value that makes sense for your environment.
+    malformedResponseTypeThreshold = 0;         // Set this to a value that makes sense for your environment.
+    malformedAudienceThreshold = 0;             // Set this to a value that makes sense for your environment.
+    malformedRedirectThreshold = 0;             // Set this to a value that makes sense for your environment.
+    if (has(mismatchUri) && (mismatchUri != "" || mismatchUri != "null" || mismatchUri != "nil") && mismatchUriCount >= mismatchUriThreshold){alertTrigger = "mismatchUri" + " ; " + mismatchUri; eventCount = mismatchUriCount; eventThreshold = mismatchUriThreshold;}
+    else if (has(malformedChallengeType) && (malformedChallengeType != "" || malformedChallengeType != "null" || malformedChallengeType != "nil") && malformedChallengeTypeCount >= malformedChallengeTypeThreshold){alertTrigger = "malformedChallengeType" + " ; " + malformedChallengeType; eventCount = malformedChallengeTypeCount; eventThreshold = malformedChallengeTypeThreshold;}
+    else if (has(malformedClient) && (malformedClient != "" || malformedClient != "null" || malformedClient != "nil") && malformedClientCount >= malformedClientThreshold){alertTrigger = "malformedClient" + " ; " + malformedClient; eventCount = malformedClientCount; eventThreshold = malformedClientThreshold;}
+    else if (has(malformedResponseType) && (malformedResponseType != "" || malformedResponseType != "null" || malformedResponseType != "nil") && malformedResponseTypeCount >= malformedResponseTypeThreshold){alertTrigger = "malformedResponseType" + " ; " + malformedResponseType; eventCount = malformedResponseTypeCount; eventThreshold = malformedResponseTypeThreshold;}
+    else if (has(malformedAudience) && (malformedAudience != "" || malformedAudience != "null" || malformedAudience != "nil") && malformedAudienceCount >= malformedAudienceThreshold){alertTrigger = "malformedAudience" + " ; " + malformedAudience; eventCount = malformedAudienceCount; eventThreshold = malformedAudienceThreshold;}
+    else if (has(malformedRedirect) && (malformedRedirect != "" || malformedRedirect != "null" || malformedRedirect != "nil") && malformedRedirectCount >= malformedRedirectThreshold){alertTrigger = "malformedRedirect" + " ; " + malformedRedirect; eventCount = malformedRedirectCount; eventThreshold = malformedRedirectThreshold;}
+    _alert_name = "Many Failed Authorization Requests (Combined)";
+| table date userId userName ip eventType description alertTrigger eventCount eventThreshold

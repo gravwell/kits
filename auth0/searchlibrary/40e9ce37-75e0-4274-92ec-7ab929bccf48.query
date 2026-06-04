@@ -1,0 +1,25 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Suspicious IP Throttling Settings Set to False
+tag=auth0
+| json
+    date 
+    type == "sapi"
+    description == "Update Suspicious IP Throttling settings"
+    ip
+    user_id as userId
+    user_name as userName
+    details.response.body.shields as shields
+    details.response.body.enabled as responseEnabled
+| sort by TIMESTAMP desc
+| eval
+    suspiciousIpThrottleEnabled = "false";
+    suspiciousIpThrottleAdminNotification = "false";
+    if (string(shields) ~ "block") {
+        suspiciousIpThrottleEnabled = "true";
+    }
+    if (string(shields) ~ "admin_notification") {
+        suspiciousIpThrottleAdminNotification = "true";
+    }
+| eval 
+    responseEnabled == false || responseEnabled == "false" || (suspiciousIpThrottleEnabled == "false" || suspiciousIpThrottleAdminNotification == "false");
+    _alert_name = "Suspicious IP Throttling Settings Set to False";
+| table date userId userName ip shields responseEnabled suspiciousIpThrottleEnabled suspiciousIpThrottleAdminNotification

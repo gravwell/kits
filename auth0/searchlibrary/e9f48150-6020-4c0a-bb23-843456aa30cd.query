@@ -1,0 +1,12 @@
+// AlertQuery - Auth0 - Lifecycle - System API - LiquidJS XSS Vulnerabilities Found 
+tag=auth0
+| json
+    date
+    type == "sapi"
+    description == "Update tenant settings"
+    ip
+    details.response.body.error_page.html as errorPageHTML
+| regex -e errorPageHTML `\{\{\s*(?P<errorFilter>[^}]+?)\s*\}\}`
+| regex -e errorFilter -v `\|\s*(escape|escape_once|h|html_escape)(\s*(\||$))`
+| eval _alert_name = "LiquidJS XSS Vulnerabilities Found";
+| table date ip errorPageHTML errorFilter

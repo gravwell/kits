@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Application - OAuth2 - Refresh Token Threshold Crossed",
+	"Description": "Displays a table showing refresh tokens being used from multiple locations that crossed the threshold.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/refresh_token_from_too_many_locations.yml",
+	"GUID": "fea1fda1-22c1-4066-afdd-58b11ed1cb03",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

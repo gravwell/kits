@@ -1,0 +1,29 @@
+// AlertQuery - Auth0 - User - Authentication - Higher Risk of Credential Stuffing Attack
+tag=auth0
+| json
+    date
+    type as eventType
+    description 
+    ip
+    security_context.ja4 as ja4
+| eval 
+    failed = in(eventType, "s", "f", "fu", "fp", "pwd_leak", "limit_wc", "limit_sul", "limit_mu", "fcoa");
+    success = in(eventType, "s");
+| stats 
+    count(ja4) as ja4Count by ip failed
+    count("failed") as failedCount by ip 
+    count("success") as successCount by ip
+    unique_count(ip) as ipCount by date
+| stats
+    mean(successCount) as successAvg
+| eval
+    ja4Threshold = "0";                     // Set this to a value that makes sense for your environment.
+    failedThreshold = "0";                  // Set this to a value that makes sense for your environment.
+    ipThreshold = "0";                      // Set this to a value that makes sense for your environment.
+    successThreshold = "0";                 // Set this to a value that makes sense for your environment.
+    ja4Count > ja4Threshold ||              // Checks for any single IP triggering excessive failures/attack protection eventTypes by ja4Count measured against ja4Threshold.
+    failedCount > failedThreshold ||        // Checks for any single IP triggering excessive failures/attack protection eventTypes by failedCount measured against failedThreshold.
+    successAvg > successThreshold ||        // Checks for any single IP triggering excessive successful logins by successCount measured against successThreshold.
+    ipCount > ipThreshold;                  // Checks for any increase in IPs by ipCount measured against ipThreshold.
+    _alert_name = "Higher Risk of Credential Stuffing Attack";
+| table date eventType description ip ja4Count ja4Threshold failedCount failedThreshold successCount successThreshold ipCount ipThreshold

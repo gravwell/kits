@@ -1,0 +1,14 @@
+// AlertQuery - Auth0 - User - MFA - SMS Bombarding
+tag=auth0
+| json
+    type == "gd_send_sms"
+    description == "Guardian - Second factor sms sent"
+    ip
+    user_id as userId
+    user_name as userName
+| stats count as eventCount by userId over 1 h
+| eval 
+    eventThreshold = "1";                       // Set this to a value that makes sense for your environment.
+    eventCount > {eventThreshold};
+    _alert_name = "SMS Bombarding";
+| table TIMESTAMP userId userName ip eventCount

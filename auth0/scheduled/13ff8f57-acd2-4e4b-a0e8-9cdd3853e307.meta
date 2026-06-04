@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Rapid Creation of Clients with Dynamic Registration",
+	"Description": "Displays a table of rapidly created clients. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/rapid_creation_of_clients_with_dynamic_registration.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "13ff8f57-acd2-4e4b-a0e8-9cdd3853e307",
+	"SearchReference": "8874d18c-cf33-4443-81ae-a9b80c384e83"
+}

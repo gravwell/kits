@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Application - OAuth2 - User Agent Threshold Crossed",
+	"Description": "Displays a table showing refresh tokens being used from multiple user agents that crossed the threshold.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/refresh_token_from_multiple_user_agent.yml",
+	"GUID": "820d1310-0686-4867-93a7-a0ffc816ce5c",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

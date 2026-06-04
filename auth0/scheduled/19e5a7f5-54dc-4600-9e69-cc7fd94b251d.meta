@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - MFA Downgrade: Risk Assessment Disabled",
+	"Description": "Displays a table of Risk Assessments that are disabled by which User and IP. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/mfa_donwgrade_risk_assessment_disabled.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "19e5a7f5-54dc-4600-9e69-cc7fd94b251d",
+	"SearchReference": "d2afe021-2a0b-4edb-8758-351da0040093"
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Application - OAuth2 - Risk of Copying the Most Powerful Token",
+	"Description": "Displays a table of users/ips whom potentially interacted with the most powerful token. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_copying_the_most_powerful_token.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "9d772950-e95a-4ca2-8d68-6becbdc0a320",
+	"SearchReference": "e0a737ea-a1db-4972-a03a-a19d0f21e115"
+}

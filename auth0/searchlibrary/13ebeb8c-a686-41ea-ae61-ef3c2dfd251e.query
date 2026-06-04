@@ -1,0 +1,20 @@
+// AlertQuery - Auth0 - User - Authentication - Possible Misconfiguration of Auth0 Tenant Name
+tag=auth0
+| json
+    log_id as logId
+    date 
+    type as eventType
+    tenant_name as tenantName
+    description
+    client_id as clientId
+    client_name as clientName
+    ip
+| eval 
+    // tenantName == "" && hostname = ""; // Set your Tenant Name and/or Tenant Url to tenantName & hostname; respectively
+    in(eventType, "s", "f", "fs", "ss", "w", "fp", "scoa", "fcoa", "sepft", "fepft");
+| stats count as eventCount by ip eventType over 1 h
+| eval 
+    eventThreshold = "0";
+    eventCount >= eventThreshold;
+    _alert_name = "Possible Misconfiguration of Auth0 Tenant Name";
+| table date clientId clientName ip eventType eventCount eventThreshold logId

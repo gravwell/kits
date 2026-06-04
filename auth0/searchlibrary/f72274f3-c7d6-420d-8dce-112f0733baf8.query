@@ -1,0 +1,5 @@
+// Search - Auth0 - System - Log Types - Count by Tag [chart]
+tag=$AUTH0 
+| stats count by TAG
+| alias count " "
+| chart " " by TAG

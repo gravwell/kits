@@ -1,0 +1,12 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Update Brute-Force Settings
+tag=auth0 json 
+    date 
+    type == "sapi" as eventType 
+    description
+    ip
+    details.response.body.enabled == "false" as responseEnabled 
+| lower description
+| eval 
+    description == "update brute-force settings";
+    _alert_name = "Brute-Force Settings Set to False";
+| table

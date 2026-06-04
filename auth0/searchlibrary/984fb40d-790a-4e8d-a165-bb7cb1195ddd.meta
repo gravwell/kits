@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Insecure OAuth Enabled",
+	"Description": "Displays a table of Insecure OAuth Enabled.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/insecure_grants_enabled_for_applications.yml",
+	"GUID": "984fb40d-790a-4e8d-a165-bb7cb1195ddd",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

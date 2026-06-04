@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection Enabled \u0026 Login Protection Disabled",
+	"Description": "Displays a table of Breached Password Settings (including Login Protection) and their respective status.\n- true = enabled\n- false = disabled\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/breached_password_detection_settings_manipulated.yml",
+	"GUID": "b1ad5ba1-3dbb-4c7a-ac91-5c1b6afe27f5",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

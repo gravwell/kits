@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Response Type",
+	"Description": "Displays a table of Failed Authentications due to Malformed Response Type. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_failed_authorization_requests.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "38de8a99-8b0c-4504-8b8d-6af9bf486bca",
+	"SearchReference": "932825b0-9d6d-430d-a951-1d1f6eea6ee8"
+}

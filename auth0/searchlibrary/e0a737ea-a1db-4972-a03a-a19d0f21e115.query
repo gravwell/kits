@@ -1,0 +1,14 @@
+// AlertQuery - Auth0 - Application - OAuth2 - Risk of Copying the Most Powerful Token
+tag=auth0
+| json
+    date
+    type == "seccft"
+    client_id as clientId
+    client_name as clientName
+    user_id as userId
+    user_name as userName
+    ip
+| eval 
+    clientId == "{api_explorer_client_id}" || clientName == "API Explorer Application";
+    _alert_name = "Risk of Copying the Most Powerful Token";
+| table date userId userName ip clientId clientName

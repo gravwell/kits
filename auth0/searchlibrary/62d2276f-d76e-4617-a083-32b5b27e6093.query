@@ -1,0 +1,6 @@
+// Search - Auth0 - System - Log Types - Count by Category & Subcategory [numbercard]
+tag=$AUTH0 ax
+$AUTH0_EVENT_LOOKUP
+| stats count by category subcategory
+| alias count " "
+| numbercard " "

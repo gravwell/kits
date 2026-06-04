@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Cross-Origin Authentication (CORS) Enabled",
+	"Description": "Displays a table of Cross-Origin Authentication (CORS) Enabled. \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/cross_origin_authentication_enabled.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "df68f0c1-d2eb-4788-991f-3b0727188421",
+	"SearchReference": "c9c4c9ef-17b4-41c5-9045-a5fc18cc6414"
+}

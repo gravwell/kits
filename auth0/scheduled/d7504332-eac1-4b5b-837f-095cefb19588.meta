@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Auth0 - Lifecycle - System API - Breached Password Detection Enabled \u0026 User Notifications Disabled",
+	"Description": "Displays a table of Breached Password Settings (including User Notifications) and their respective status. \n- true = enabled \n- false = disabled \n\nReference(s): - https://github.com/auth0/auth0-customer-detections/blob/main/detections/breached_password_detection_settings_manipulated.yml",
+	"Labels": [
+		"auth0"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "d7504332-eac1-4b5b-837f-095cefb19588",
+	"SearchReference": "dd249329-fb1e-41f0-abf9-7124e4a091c8"
+}

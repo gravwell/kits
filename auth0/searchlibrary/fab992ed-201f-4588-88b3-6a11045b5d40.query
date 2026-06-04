@@ -1,0 +1,24 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Monitored Scope Granted
+tag=auth0
+| json
+    date
+    type == "sapi" as eventType
+    client_id as clientId
+    ip
+    description 
+    details.request.auth.credentials.scopes as userScope
+    details.request.auth.user.email as requestEmail
+    details.response.body.[0].email as responseEmail
+| eval 
+    has(userScope);
+| json -x userScope
+| eval 
+    in(userScope, 
+        "delete:users",
+        "create:users",
+        "update:users",
+        "update:clients"
+    );
+    _alert_name = "Monitored Scope Granted";
+| sort by date desc
+| table date clientId ip eventType description requestEmail responseEmail userScope

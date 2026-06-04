@@ -1,0 +1,19 @@
+// AlertQuery - Auth0 - Application - OAuth2 - Refresh Token Reuse
+tag=auth0
+| json
+    date
+    type == "ferrt"
+    description == "Unsuccessful Refresh Token exchange, reused refresh token detected"
+    user_id as userId
+    userName as userName
+| stats count as reuseCount by userId
+| eval 
+    reuseThreshold = "0";                                // Set this to a value that makes sense for your environment.
+    reuseCount > reuseThreshold;
+| stats 
+    unique_count(userId) as userCount by userId reuseCount
+| eval 
+    userThreshold = "0";                                 // Set this to a value that makes sense for your environment.
+    userCount > userThreshold;
+    _alert_name = "Refresh Token Reuse";
+| table date userId userName reuseCount reuseThreshold userCount userThreshold

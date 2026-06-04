@@ -1,0 +1,17 @@
+// AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Response Type
+tag=auth0
+| json
+    date 
+    type == "f" as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    description ~ "Unsupported response type" 
+| regex -e description `Unsupported response type: (?P<malformedResponseType>.*)`
+| stats 
+    count as malformedResponseTypeCount by malformedResponseType 
+| eval 
+    malformedResponseTypeThreshold = 0;         // Set this to a value that makes sense for your environment.
+    if (has(malformedResponseType) && (malformedResponseType != "" || malformedResponseType != "null" || malformedResponseType != "nil") && malformedResponseTypeCount >= malformedResponseTypeThreshold){alertTrigger = "malformedResponseType" + " ; " + malformedResponseType; eventCount = malformedResponseTypeCount; eventThreshold = malformedResponseTypeThreshold;}
+    _alert_name = "Many Failed Authorization Requests Due To Malformed Response Type";
+| table date userId userName ip eventType description alertTrigger eventCount eventThreshold

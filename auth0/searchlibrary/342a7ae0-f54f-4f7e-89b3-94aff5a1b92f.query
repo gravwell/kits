@@ -1,0 +1,17 @@
+// AlertQuery - Auth0 - Lifecycle - System API - Risk of Copying Client Credentials
+tag=auth0
+| json
+    date
+    type == "mgmt_api_read"
+    description == "Get client by ID"
+    details.accessedSecrets as accessedSecrets
+    details.response.body.client_id as clientId
+    user_id as userId
+    user_name as userName
+    ip
+| eval 
+    string(accessedSecrets) ~ "client_secret";
+    in(clientId, "critical-client_id-1", "critical-client_id-etc");
+    _alert_name = "Risk of Copying Client Credentials";
+| stats count by clientId userId ip
+| table date userId userName ip clientId accessedSecrets count

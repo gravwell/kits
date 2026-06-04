@@ -1,0 +1,21 @@
+// AlertQuery - Auth0 - User - Account - Risk of Signup Fraud by Volume of Fake Accounts
+tag=auth0
+| json
+    type as eventType
+    ip
+| eval in(eventType, "fs", "ss", "signup_pwd_leak")
+| eval
+    fs_count = 0;
+    ss_count = 0;
+    signup_pwd_leak_count = 0;
+    if (eventType == "fs") { fs_count = 1; }
+    if (eventType == "ss") { ss_count = 1; }
+    if (eventType == "signup_pwd_leak") { signup_pwd_leak_count = 1; }
+| stats sum(fs_count) as ipFailCount sum(ss_count) as ipSuccessCount sum(signup_pwd_leak_count) as ipLeakedPwdCount by ip over 1 h
+| eval 
+    ipFailThreshold = "0";                              // Set this to a value that makes sense for your environment.
+    ipSuccessThreshold = "0";                           // Set this to a value that makes sense for your environment.
+    ipLeakedPwdThreshold = "0";                           // Set this to a value that makes sense for your environment.
+    ipFailCount >= ipFailThreshold; ipSuccessCount >= ipSuccessThreshold; ipLeakedPwdCount >= ipLeakedPwdThreshold;
+    _alert_name = "Risk of Signup Fraud by Volume of Fake Accounts";
+| table TIMESTAMP ip ipFailCount ipSuccessCount ipLeakedPwdCount

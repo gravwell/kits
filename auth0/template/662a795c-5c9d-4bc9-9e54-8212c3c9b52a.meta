@@ -1,0 +1,36 @@
+{
+	"UUID": "662a795c-5c9d-4bc9-9e54-8212c3c9b52a",
+	"Name": "Template - Auth0 - System - Log Types - Count by Category \u0026 Subcategory [table]",
+	"Description": "Displays a table of events by count performed by the specified User (user_id or user_name) and/or IP Address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%src_ip%%",
+				"label": "Source IP Address",
+				"description": "This is the IP Address that you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%user_id%%",
+				"label": "User ID",
+				"description": "This is the User ID (user_id) that you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%user_name%%",
+				"label": "User",
+				"description": "This is the User (user_name) who you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"auth0"
+	]
+}

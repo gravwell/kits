@@ -1,0 +1,24 @@
+// AlertQuery - Auth0 - Account - Creation - Unexpected Amount of Unvalidated Domains
+tag=auth0
+| json
+    date
+    user_name as userName
+    user_id as userId
+    ip
+    type as eventType
+    details.body.email_verified as emailVerified
+| eval in(eventType, "ss", "sv")
+| regex -e userName `.+@(?P<userDomain>.+)`
+| eval timeDiff = ((NOW - TIMESTAMP) / 60000000000);
+| stats 
+    min(timeDiff) as minTimeDiff by userName userId userDomain eventType
+    unique_count(eventType) as eventCount by userName userId userDomain eventType
+    count(userId) as userCount by userId
+    count(userId) as userIPCount by ip
+    count as domainCount by userDomain
+| eval 
+    eventThreshold = "0";                               // Set this to a value that makes sense for your environment.
+    domainThreshold = "0";                              // Set this to a value that makes sense for your environment.
+    if (has(domainThreshold) && (domainThreshold != "" || domainThreshold != "null" || domainThreshold != "nil") && domainCount >= domainThreshold){ alertTrigger = "domainCount" + " ; " + userDomain; eventCount = domainCount; eventThreshold = domainThreshold;}
+    _alert_name = "Unexpected Amount of Unvalidated Domains";
+| table date userName userId userDomain ip eventType alertTrigger eventCount eventThreshold emailVerified timeDiff minTimeDiff

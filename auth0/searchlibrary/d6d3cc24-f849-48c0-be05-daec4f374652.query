@@ -1,0 +1,17 @@
+// AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Redirect
+tag=auth0
+| json
+    date 
+    type == "f" as eventType
+    ip
+    user_id as userId
+    user_name as userName
+    description ~ "The redirect_uri parameter is not valid";
+| regex -e description `The redirect_uri parameter is not valid: \\\"(?P<malformedRedirect>[^\"]*?)?\\\"`
+| stats 
+    count as malformedRedirectCount by malformedRedirect
+| eval 
+    malformedRedirectThreshold = 0;             // Set this to a value that makes sense for your environment.
+    if (has(malformedRedirect) && (malformedRedirect != "" || malformedRedirect != "null" || malformedRedirect != "nil") && malformedRedirectCount >= malformedRedirectThreshold){alertTrigger = "malformedRedirect" + " ; " + malformedRedirect; eventCount = malformedRedirectCount; eventThreshold = malformedRedirectThreshold;}
+    _alert_name = "Many Failed Authorization Requests Due To Malformed Redirect";
+| table date userId userName ip eventType description alertTrigger malformedRedirect eventCount eventThreshold

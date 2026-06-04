@@ -1,0 +1,16 @@
+// AlertQuery - Auth0 - Lifecycle - MFA - Multiple Phone Numbers Are Registered as MFA
+tag=auth0
+| json
+    date
+    type == "gd_enrollment_complete"
+    description == "Guardian - Enrollment complete (sms)"
+    details.authenticator.phone_number as phoneNumber
+    user_id as userId
+    user_name as userName
+    ip
+| stats unique_count(userId) as usersCount by phoneNumber ip
+| eval 
+    usersThreshold = "0";
+    usersCount > usersThreshold;                                        // Set this to a value that makes sense for your environment.
+    _alert_name = "Multiple Phone Numbers Are Registered as MFA";
+| table date userId userName phoneNumber usersCount ip
