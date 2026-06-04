@@ -1,6 +1,6 @@
 {
 	"UUID": "03a9e360-1cd8-4c45-9816-562185134531",
-	"Name": "Azure - Identity \u0026 Access",
+	"Name": "Azure - Identity \u0026 Access Overview",
 	"Description": "Focused on the `$AZURE_AD` and RBAC detections. Role assignment changes, service principal create/delete, directory role membership changes, MFA disable events, privilege elevation. Timeline view of identity activity by actor.",
 	"Data": {
 		"timeframe": {
