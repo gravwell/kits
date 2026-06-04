@@ -6,7 +6,7 @@
 		"menuLabel": "Cisco FTD",
 		"actions": [
 			{
-				"name": "Investigate",
+				"name": "Investigate IP",
 				"description": "This actionable will launch the Cisco ASA Investigation Dashboard to see events performed involving this IP Address. ",
 				"placeholder": null,
 				"command": {
@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "Investigate",
+				"name": "Security Events for IP",
 				"description": "Cisco FTD actions on IP Addresses to Launch Cisco FTD Security Events Investigation Dashboard.",
 				"placeholder": null,
 				"command": {
