@@ -3,7 +3,7 @@
 	"Name": "Cisco ASA IP",
 	"Description": "Cisco ASA actions on IP Addresses to Launch Cisco ASA Investigation Dashboard.",
 	"Data": {
-		"menuLabel": "",
+		"menuLabel": "Cisco ASA",
 		"actions": [
 			{
 				"name": "Investigate",

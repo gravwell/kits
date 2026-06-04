@@ -3,7 +3,7 @@
 	"Name": "Cisco FTD IP",
 	"Description": "Cisco FTD actions on IP Addresses to Launch Cisco FTD Investigation Dashboards.",
 	"Data": {
-		"menuLabel": "",
+		"menuLabel": "Cisco FTD",
 		"actions": [
 			{
 				"name": "Investigate",
