@@ -1,4 +1,5 @@
 tag=$BITWARDEN_TAG ax
+| eval if (actingUserId == "null") {actorEmail = printf("ServiceAccount:%v",serviceAccountId);}
 | lookup -r bitwardenEventTypes eventType type event
 | lookup -r bitwardenMembers actingUserId userId (email as actorEmail)
 | geoip ipAddress.Country
