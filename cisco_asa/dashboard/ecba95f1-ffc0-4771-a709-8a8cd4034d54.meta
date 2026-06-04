@@ -1,0 +1,499 @@
+{
+	"UUID": "ecba95f1-ffc0-4771-a709-8a8cd4034d54",
+	"Name": "Cisco ASA General Overview",
+	"Description": "This Dashboard is a general overview of your Cisco ASA data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Tag [chart]",
+				"color": null,
+				"reference": {
+					"id": "6d7375c4-15e1-4578-bde8-fec4912fae1d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "abe3dffb-ef2a-43d8-8fcf-25585bbe2c2f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "094bf60b-7382-4e43-9867-8de7ac4c3444",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Tag [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2671528e-99d4-4d09-b497-cb75926c5d0b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Category [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "6d3deabc-1f6b-4478-affe-274a6e5783ad",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Category \u0026 Subcategory [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5dbb1e3b-6a8e-44a6-9be3-134b4704f094",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Subcategory [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "0d1d3288-09a7-47a0-adde-f01f4dc0134f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "835fbc22-f2db-4b63-9acf-9d9013b59f3e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "04605cfd-f1e7-427f-a41e-f1d38f889720",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Category, Subcategory \u0026 Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bd053ad9-2882-465a-a265-cbe41a1c55d6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Category, Subcategory \u0026 Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "bdcc39a0-ec42-4086-af44-072fd2de8a5c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - ASA - Firewall - Event Types - Count by Category \u0026 Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "ac7861cf-7a72-4efd-ac26-2e08a833ebf5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17736878920630,
+				"title": "Count by Tag [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17736879508361,
+				"title": "Count by Category [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 14
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17736880103032,
+				"title": "Count by Subcategory [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 24
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17736881292553,
+				"title": "Count by Tag [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17736881802834,
+				"title": "Count by Tag [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17736883224475,
+				"title": "Count by Category [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 11
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17736883607356,
+				"title": "Count by Category [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 14
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17736884623507,
+				"title": "Count by Subcategory [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 21
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 17736889522548,
+				"title": "Count by Subcategory [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 24
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17736890324079,
+				"title": "Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 32
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177368952693610,
+				"title": "Count by Severity [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 38
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177368956031011,
+				"title": "Count by Severity [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 38
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 177368962014812,
+				"title": "Count by Category, Subcategory \u0026 Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 13,
+					"x": 0,
+					"y": 58
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 177368967773513,
+				"title": "Count by Category, Subcategory \u0026 Severity [donut chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 0,
+					"y": 71
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177368973828214,
+				"title": "Count by Category, Subcategory \u0026 Severity [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 10,
+					"x": 6,
+					"y": 71
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 177369427095015,
+				"title": "Count by Category \u0026 Subcategory [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 49
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177369432120416,
+				"title": "Count by Category \u0026 Subcategory [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 45
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": "20"
+				}
+			},
+			{
+				"id": 177369435894117,
+				"title": "Count by Category \u0026 Subcategory [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 49
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	]
+}

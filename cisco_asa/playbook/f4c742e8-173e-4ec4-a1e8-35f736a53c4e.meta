@@ -1,0 +1,25 @@
+{
+	"UUID": "f4c742e8-173e-4ec4-a1e8-35f736a53c4e",
+	"GUID": "f4c742e8-173e-4ec4-a1e8-35f736a53c4e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Cisco ASA - Readme",
+	"Desc": "Readme for Cisco ASA Kit.",
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	],
+	"LastUpdated": "2026-03-17T20:54:34.521972008Z",
+	"Author": {
+		"Name": "Kyle Mallett",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

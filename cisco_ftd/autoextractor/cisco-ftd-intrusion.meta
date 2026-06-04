@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-ftd-intrusion",
+	"Desc": "Gravwell generated fields extraction for tag cisco-ftd-intrusion, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-ftd-intrusion"
+	],
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "5282cb99-3dbd-4484-943c-e5a51b3c76ee",
+	"LastUpdated": "2026-03-17T13:51:48.989374128Z"
+}

@@ -1,0 +1,5 @@
+tag=$CISCO_FTD ax 
+| lookup -r cisco_ftd_syslog_messages msgid msg_id (subcategory)
+| stats count by subcategory
+| alias count " "
+| chart " " by subcategory
