@@ -1,0 +1,4 @@
+tag=$CISCO_ASA 
+| stats count by TAG
+| alias count " "
+| numbercard " "

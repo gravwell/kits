@@ -1,0 +1,37 @@
+{
+	"UUID": "29d2f863-d259-486d-90cc-e2fb1e79aa13",
+	"Name": "Template - Cisco - FTD - Firewall - Security - Event Count by TAG [chart]",
+	"Description": "Displays a chart of Security Events by TAG performed by the specified user and/or ip.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This is the user that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This is the ip address that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%boolean%%",
+				"label": "boolean",
+				"description": "AND (\u0026\u0026), OR (||)",
+				"required": true,
+				"defaultValue": "||",
+				"previewValue": "||"
+			}
+		]
+	},
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

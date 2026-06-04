@@ -1,0 +1,8 @@
+{
+	"Name": "CISCO_ASA_AUTH",
+	"Description": "Configuration Macro; Tag used for all Cisco ASA Authentication data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$CISCO_ASA_AUTH",
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	]
+}

@@ -1,0 +1,4 @@
+tag=$CISCO_FTD 
+| stats count by TAG
+| alias count " "
+| chart " " by TAG

@@ -1,0 +1,9 @@
+tag=$CISCO_FTD_CONFIG ax
+| eval (msg ~ "%%user%%" %%boolean%% msg ~ "%%ip%%")
+| regex -e msg "(?<user>%%user%%)"
+| regex -e msg "(?<ip>%%ip%%)"
+| eval ciscoId = appliance + "-" + severity + "-" + msgid;
+$CISCO_FTD_SEVERITY
+| lookup -r cisco_ftd_syslog_messages msgid msg_id (description)
+| stats count 
+| table timestamp user ip msg severity ciscoId description

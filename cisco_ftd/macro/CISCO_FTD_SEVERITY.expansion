@@ -1,0 +1,10 @@
+// CISCO_FTD_SEVERITY
+| alias severity _severity_order
+| eval 
+    if (_severity_order == 1) {severity="Alert";} 
+    if (_severity_order == 2) {severity="Critical";} 
+    if (_severity_order == 3) {severity="Error";} 
+    if (_severity_order == 4) {severity="Warning";} 
+    if (_severity_order == 5) {severity="Notification";} 
+    if (_severity_order == 6) {severity="Informational";} 
+    if (_severity_order == 7) {severity="Debugging";} 
