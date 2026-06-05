@@ -434,24 +434,24 @@
         {
 			"MacroName": "AZURE_AD",
 			"Description": "Configuration Macro: Tag for Azure AD logs",
-			"DefaultValue": "azure_ad",
-			"Value": "azure_ad",
+			"DefaultValue": "azure-ad",
+			"Value": "",
 			"Type": "TAG",
 			"InstalledByID": ""
 		},
 		{
 			"MacroName": "AZURE_SIGNIN",
 			"Description": "Configuration Macro: Tag for Azure Signin logs",
-			"DefaultValue": "azure_signin",
-			"Value": "azure_signin",
+			"DefaultValue": "azure-signin",
+			"Value": "",
 			"Type": "TAG",
 			"InstalledByID": ""
 		},
 		{
 			"MacroName": "AZURE_ACTIVITY",
 			"Description": "Configuration Macro: Tag for Azure activity logs",
-			"DefaultValue": "azure_activity",
-			"Value": "azure_activity",
+			"DefaultValue": "azure-activity",
+			"Value": "",
 			"Type": "TAG",
 			"InstalledByID": ""
 		}
