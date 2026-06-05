@@ -1,15 +1,6 @@
-@removeOld{
-dump -r bitwardenLastLogin
-| eval
-    timestamp = time(lastLogin);
-    if ((time(NOW) - lastLogin) < duration("30d")) {return false;}
-| table -save bitwardenLastLogin -delete key lastLogin key
-};
-
 tag=$BITWARDEN_TAG ax date eventType == 1000 actingUserId serviceAccountId ipAddress
 | eval if (actingUserId == "null") {actorEmail = printf("ServiceAccount:%v",serviceAccountId);}
 | lookup -r bitwardenMembers actingUserId userId email
-| concat -s , email ipAddress as key
-| stats max(TIMESTAMP) as lastLogin by key
+| stats max(TIMESTAMP) as lastLogin by email
 | sort by lastLogin desc
-| table -csv -save bitwardenLastLogin -update key lastLogin key
+| table -csv -save bitwardenLastLogin lastLogin email ipAddress

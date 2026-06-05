@@ -1,9 +1,9 @@
 {
-	"VersionNumber": 2,
+	"VersionNumber": 1,
 	"ResourceName": "bitwardenLastLogin",
-	"Description": "Track last 30 days of Bitwarden user logins",
+	"Description": "Track last Bitwarden user login by ipAddress",
 	"Labels": null,
-	"Size": 60,
-	"Hash": "",
+	"Size": 14,
+	"Hash": "uIQ64OxjcdZmuFjLvyR6Qw==",
 	"Data": ""
 }
