@@ -448,7 +448,7 @@
 			"InstalledByID": ""
 		},
 		{
-			"MacroName": "AZURE_ACTIVVITY",
+			"MacroName": "AZURE_ACTIVITY",
 			"Description": "Configuration Macro: Tag for Azure activity logs",
 			"DefaultValue": "azure_activity",
 			"Value": "azure_activity",
