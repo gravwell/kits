@@ -1,6 +1,6 @@
 {
-  "Name": "Flow - GitHub - Repo - High - Repo changed from Private to Public",
-  "Description": "Detects when a repo that was private was changed to public.\n\nrepo.access = The visibility of a repository changed.\n\nReference(s): \nhttps://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#repo",
+  "Name": "Flow - GitHub - Email Alerts",
+  "Description": "Detects when a Scheduled Search has fired and will email the email address input at $GITHUB_ALERT_RECIPIENT from $GITHUB_ALERT_SENDER.",
   "Labels": [
     "github"
   ],

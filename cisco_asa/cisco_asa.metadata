@@ -1,0 +1,44 @@
+{
+  "Tags": [
+    "cisco-asa-auth",
+    "cisco-asa-config",
+    "cisco-asa-events",
+    "cisco-asa-system",
+    "cisco-asa-threat",
+    "cisco-asa-traffic",
+    "cisco-asa-vpn"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "cisco-cover.png",
+      "Legend": "Cisco ASA Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "cisco-banner.png",
+      "Legend": "Cisco ASA Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "cisco-cover.png"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "cisco-banner.png"
+    }
+  ],
+  "readme": "README.md"
+}

@@ -3,4 +3,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action business operation_type repo
     "business_secret_scanning.disabled_for_new_repos"
     )
 | printf -e context "at %s, %s was %s by %s in %s" @timestamp action operation_type actor business
-| $GITHUB_ALERT_META("High", "Secret Scanning Disabled for New Repos in Enterprise")
+$GITHUB_ALERT_META("High", "Secret Scanning Disabled for New Repos in Enterprise")

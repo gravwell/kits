@@ -1,7 +1,7 @@
 {
-	"UUID": "d5cf1797-49ae-476c-9c10-308db79e44ab",
+	"UUID": "8ebbe4da-1d53-43be-ab58-869e5787bc33",
 	"GUID": "d6a858fa-0344-4c58-864a-1aa0b93ba772",
-	"UID": 7,
+	"UID": 2,
 	"GIDs": [],
 	"Global": true,
 	"WriteAccess": {
@@ -13,12 +13,12 @@
 	"Labels": [
 		"auditd"
 	],
-	"LastUpdated": "2026-03-04T11:48:57.278848189-07:00",
+	"LastUpdated": "2026-04-09T15:23:59.600547719Z",
 	"Author": {
-        "Name": "Gravwell",
-        "Email": "info@gravwell.io",
-        "Company": "Gravwell",
-        "URL": "gravwell.io"
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
 	},
-	"Synced": true
+	"Synced": false
 }

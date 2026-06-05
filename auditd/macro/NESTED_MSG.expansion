@@ -1,0 +1,3 @@
+| regex "msg='(?P<nested_msg>[^']+)'\x1d(?P<audit_suffix>.*)"
+| kv -e nested_msg cmd cwd exe terminal res acct addr grantors op result session subj unit
+| kv -e audit_suffix UID AUID%

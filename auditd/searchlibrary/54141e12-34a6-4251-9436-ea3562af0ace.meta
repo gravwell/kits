@@ -1,0 +1,14 @@
+{
+	"Name": "Auditd Identity Transitions",
+	"Description": "View how many times a user transitioned identities, and to which user. ",
+	"GUID": "54141e12-34a6-4251-9436-ea3562af0ace",
+	"Labels": [
+		"auditd",
+		"stats",
+		"identity",
+		"sudo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

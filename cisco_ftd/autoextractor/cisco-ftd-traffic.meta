@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-ftd-traffic",
+	"Desc": "Gravwell generated fields extraction for tag cisco-ftd-traffic, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-ftd-traffic"
+	],
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "b37366cb-c567-44fc-b67c-7b9037806d40",
+	"LastUpdated": "2026-03-17T13:51:48.99428592Z"
+}

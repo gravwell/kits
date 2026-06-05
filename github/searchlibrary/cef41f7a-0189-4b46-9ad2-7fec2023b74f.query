@@ -14,4 +14,4 @@ tag=$GITHUB json TIMESTAMP forced=="true" repo repository repository.owner organ
 | time -oformat "Jan _2, 2006" repo_push_time date
 | time -oformat "15:04:05" repo_push_time time
 | printf -e context "On %v at %v, %v:%v (repo id: repo name) owned by %v (%v) in %v:%v org was force pushed by %v:%v (%v) located at %v with message:\"%v\"." date time repo_id repo_name org_id org_name repo_owner owner_email pusher_id pusher_user pusher_email url message
-| $GITHUB_ALERT_META("High", "Force Push")
+$GITHUB_ALERT_META("High", "Force Push")

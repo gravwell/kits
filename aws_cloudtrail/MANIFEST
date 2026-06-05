@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.aws_cloudtrail",
 	"Name": "AWS CloudTrail Detection Kit",
 	"Desc": "Provides tools, utilities, and detections to enable use of AWS CloudTrail logs.",
-	"Readme": "This kit is designed to provide an out-of-the-box experience for working with AWS CloudTrail logs.\n\n It provides the following utilities:\n - Queries\n- Detections\n- Stats\n- Dashboards\n- Actionables\n- Templates\n\nRefer to playbooks for implementation guides, and a kit overview for more detail on components.",
+	"Readme": "This kit is designed to provide an out-of-the-box experience for working with AWS CloudTrail logs.\n\nIt provides the following utilities:\n- Queries\n- Detections\n- Stats\n- Dashboards\n- Actionables\n- Templates\n\nRefer to playbooks for implementation guides, and a kit overview for more detail on components.\n\nThe CloudTrail kit is licensed is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/aws_cloudtrail).\n\n## Dependencies\n- Null\n\n## Changelog\n**1.0: Initial Release**\n- actionables (2)\n- dashboard (3)\n- file (3)\n- license (1)\n- macro (1)\n- playbook (3)\n- searchlibrary (66)\n- template (4)",
 	"Version": 1,
 	"MinVersion": {
 		"Major": 0,
@@ -16,9 +16,14 @@
 	},
 	"Icon": "1feb95d8-73a7-410b-93bc-105c48ba5dc3",
 	"Banner": "10e6bfe7-eccc-47c8-9e22-7147f39d9973",
-	"Cover": "10e6bfe7-eccc-47c8-9e22-7147f39d9973",
+	"Cover": "cc57efb0-2fa5-4101-8892-0fd278168185",
 	"Items": [
 		{
+            "Name": "BSD 2-Clause",
+            "Type": 10,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
 			"Name": "c1806fba-6f21-48a9-9d5b-832ba2e04183",
 			"Type": 3,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -400,6 +405,11 @@
 		},
 		{
 			"Name": "10e6bfe7-eccc-47c8-9e22-7147f39d9973",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+				{
+			"Name": "cc57efb0-2fa5-4101-8892-0fd278168185",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},

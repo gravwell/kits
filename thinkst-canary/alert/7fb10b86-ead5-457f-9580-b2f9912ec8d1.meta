@@ -6,7 +6,7 @@
  },
  "Consumers": [
   {
-   "ID": "3a87d1e8-a888-45ac-b927-a140eb04677b",
+   "ID": "00b7e6e2-7c31-4929-ae1d-a531638c6e59",
    "Type": "flow"
   }
  ],
@@ -40,7 +40,7 @@
   "JSON": {},
   "ActiveSchema": "simple"
  },
- "TargetTag": "_alerts",
+ "TargetTag": "_thinkst_alerts",
  "ThingUUID": "323060a9-a3dc-448f-b49c-3a7eb8f15bd4",
  "UID": 1,
  "UserMetadata": {},

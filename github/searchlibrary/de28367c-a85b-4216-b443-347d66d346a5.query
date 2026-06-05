@@ -1,3 +1,4 @@
 tag=$GITHUB_AUDIT json action=="pull_request.merge" repo
 | stats count by repo
-| chart count by repo
+| alias count " "
+| chart " " by repo

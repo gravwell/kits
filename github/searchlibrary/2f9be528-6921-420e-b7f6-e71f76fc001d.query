@@ -3,4 +3,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
     "org.runner_group_renamed"
     )
 | printf -e context "at %v, %v was %v by %v in %v" @timestamp action operation_type actor org
-| $GITHUB_ALERT_META("Low", "Runner Group Renamed")
+$GITHUB_ALERT_META("Low", "Runner Group Renamed")

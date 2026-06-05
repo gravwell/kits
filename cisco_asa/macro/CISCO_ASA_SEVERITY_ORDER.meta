@@ -1,0 +1,8 @@
+{
+	"Name": "CISCO_ASA_SEVERITY_ORDER",
+	"Description": "This macro creates an Enumerated Value (EV) named _severity_order and then orders events by severity. \n\nReference(s):\n- https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/asa-syslog/messages-listed-by-severity-level.html#:~:text=%25ASA%2D1%2D105007:,sequence=number%20on%20interface%20interface_name",
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	]
+}

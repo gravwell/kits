@@ -5,4 +5,4 @@ tag=$GITHUB_AUDIT json SRC user actor actor_ip repo action~"pull" operation_type
 | ip actor_ip
 | geoip actor_ip.Location actor_ip.City actor_ip.Country actor_ip.CountryName
 | stats unique_count by operation_type
-| numbercard unique_count
+| numbercard (unique_count "")
