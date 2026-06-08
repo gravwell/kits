@@ -4,7 +4,7 @@
 	"Labels": null,
 	"Schedule": "*/5 * * * *",
 	"DefaultDeploymentRules": {
-		"Disabled": false,
+		"Disabled": True,
 		"RunImmediately": false
 	},
 	"ScheduledType": "flow",

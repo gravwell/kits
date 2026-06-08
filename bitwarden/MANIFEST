@@ -19,10 +19,10 @@
 	"Cover": "0d89208d-82fa-4476-b8cc-c76a636f900c",
 	"Items": [
 		{
-                        "Name": "bitwardenLastLogin",
-                        "Type": 1,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-                },
+			"Name": "bitwardenLastLogin",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
 		{
 			"Name": "bitwardenMembers",
 			"Type": 1,
@@ -84,20 +84,20 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-                        "Name": "BITWARDENGROUPS_TAG",
-                        "Type": 8,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-                },
+			"Name": "BITWARDENGROUPS_TAG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
 		{
-                        "Name": "BITWARDENMEMBERS_TAG",
-                        "Type": 8,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-                },
+			"Name": "BITWARDENMEMBERS_TAG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
 		{
-                        "Name": "BITWARDENPOLICIES_TAG",
-                        "Type": 8,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-                },
+			"Name": "BITWARDENPOLICIES_TAG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+			},
 		{
 			"Name": "face35d5-fa43-47d2-84c3-428b2829001b",
 			"Type": 3,
@@ -274,10 +274,10 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-                        "Name": "7c9ca95e-5d24-43ae-b54b-f593d52ea1b6",
-                        "Type": 11,
-                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-                },
+			"Name": "7c9ca95e-5d24-43ae-b54b-f593d52ea1b6",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
 		{
 			"Name": "bitwarden",
 			"Type": 4,
@@ -306,40 +306,40 @@
 			"Description": "Target tag for Bitwarden data",
 			"DefaultValue": "bitwarden",
 			"Value": "",
-			"Type": "STRING",
+			"Type": "TAG",
 			"InstalledByID": ""
 		},
 		{	
-                        "MacroName": "BITWARDEN_WEB",
-                        "Description": "Target API endpoint...cloud(api.bitwarden.com) or on-prem(bitwarden.company.local)",
-                        "DefaultValue": "api.bitwarden.com",
-                        "Value": "",
-                        "Type": "STRING",
-                        "InstalledByID": ""
-                },
+			"MacroName": "BITWARDEN_WEB",
+			"Description": "Target API endpoint...cloud(api.bitwarden.com) or on-prem(bitwarden.company.local)",
+			"DefaultValue": "api.bitwarden.com",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
 		{	
-                        "MacroName": "BITWARDENGROUPS_TAG",
-                        "Description": "Target tag for Bitwarden Groups data",
-                        "DefaultValue": "bitwardenGroups",
-                        "Value": "",
-                        "Type": "STRING",
-                        "InstalledByID": ""
-                },
+			"MacroName": "BITWARDENGROUPS_TAG",
+			"Description": "Target tag for Bitwarden Groups data",
+			"DefaultValue": "bitwardenGroups",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
 		{	
-                        "MacroName": "BITWARDENMEMBERS_TAG",
-                        "Description": "Target tag for Bitwarden members data",
-                        "DefaultValue": "bitwardenMembers",
-                        "Value": "",
-                        "Type": "STRING",
-                        "InstalledByID": ""
-                },
+			"MacroName": "BITWARDENMEMBERS_TAG",
+			"Description": "Target tag for Bitwarden members data",
+			"DefaultValue": "bitwardenMembers",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
 		{	
-                        "MacroName": "BITWARDENPOLICIES_TAG",
-                        "Description": "Target tag for Bitwarden Policies data",
-                        "DefaultValue": "bitwardenPolicies",
-                        "Value": "",
-                        "Type": "STRING",
-                        "InstalledByID": ""
-                }
+			"MacroName": "BITWARDENPOLICIES_TAG",
+			"Description": "Target tag for Bitwarden Policies data",
+			"DefaultValue": "bitwardenPolicies",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
 	]
 }
