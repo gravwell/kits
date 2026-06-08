@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Traffic - SaaS - Total Bytes Transferred [numbercard]
+tag=$PAN_TRAFFIC ax subtype=="end" is_saas_of_app=="yes" bytes
+| stats sum(bytes)
+| numbercard (sum "SaaS bytes transferred")

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - GlobalProtect - Authentication - Failed Logins [table]",
+	"Description": "Displays a table of failed GlobalProtect login attempts by user, region, and source IP.\n\nDependencies\n- Dashboard: Palo Alto GlobalProtect Overview",
+	"GUID": "029d59e0-bf7b-4fb0-a783-df0a644ca5b9",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

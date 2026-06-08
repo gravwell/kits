@@ -1,0 +1,18 @@
+// Template - Palo Alto - NGFW - Threat - WildFire - All Submissions for User & IP [table]
+tag=$PAN_THREAT ax subtype=="wildfire" 
+| alias 
+    misc Filename
+    filetype Filetype
+    filedigest "File Digest"
+    category Category
+    rule Rule
+    app App
+    src "Source" 
+    natsrc "NAT Source" 
+    srcuser "Source User" 
+    dst "Destination" 
+    natdst "NAT Destination" 
+    dstuser "Destination User"
+    xff_ip "XFF Address"
+| eval (srcuser~"%%user%%" || dstuser~"%%user%%") && (src~"%%ip%%" || natsrc~"%%ip%%" || dst~"%%ip%%" || natdst~"%%ip%%" || xff_ip~"%%ip%%")
+| table Category Rule App "Source" "NAT Source" "Source User" "Destination" "NAT Destination" "Destination User" "XFF Address" Filename Filetype "File Digest"

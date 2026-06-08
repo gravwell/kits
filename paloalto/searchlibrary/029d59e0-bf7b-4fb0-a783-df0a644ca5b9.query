@@ -1,0 +1,5 @@
+// Search - Palo Alto - NGFW - GlobalProtect - Authentication - Failed Logins [table]
+tag=$PAN_GLOBALPROTECT ax stage=="login" status=="failure" srcuser srcregion public_ip public_ipv6
+| alias srcuser User srcregion Region public_ip "IPv4" public_ipv6 IPv6
+| stats count as failures by User Region IPv4 IPv6
+| table User Region IPv4 IPv6 failures

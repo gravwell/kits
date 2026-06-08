@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - WildFire - Recent Wildfire Submissions [table]",
+	"Description": "Displays a table of recent non-benign WildFire file submissions including source, destination, and file details.\n\nDependencies\n- Dashboard: Palo Alto Wildfire Overview",
+	"GUID": "9ed28079-5408-43b7-8d44-c1b9c9dfbfed",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

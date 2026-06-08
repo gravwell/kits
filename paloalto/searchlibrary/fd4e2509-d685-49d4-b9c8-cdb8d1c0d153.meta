@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - Events - Count by Scan Types [chart]",
+	"Description": "Displays a chart of scan event counts by threat ID.\n\nDependencies\n- Dashboard: Palo Alto Threat Overview",
+	"GUID": "fd4e2509-d685-49d4-b9c8-cdb8d1c0d153",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

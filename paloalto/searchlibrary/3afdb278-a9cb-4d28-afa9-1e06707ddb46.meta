@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - URL - Top Web Categories [chart]",
+	"Description": "Displays a numbercard of SaaS event counts by type. \n\nDependencies\n- Dashboard: Palo Alto User Behavior Overview",
+	"GUID": "3afdb278-a9cb-4d28-afa9-1e06707ddb46",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Threat - Events - Count by Scan Types [chart]
+tag=$PAN_THREAT ax subtype=="scan" threatid
+| stats count by threatid
+| chart count by threatid

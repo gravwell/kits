@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Config - Events - Latest Events [table]
+tag=$PAN_CONFIG ax admin serial host client cmd result
+| alias admin User serial Serial host Host client Client cmd Command result Result
+| table User Serial Host Client Command Result

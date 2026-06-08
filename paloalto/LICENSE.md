@@ -1,0 +1,1 @@
+Palo Alto images are wholly owned by Palo Alto and are **NOT** subject to any Gravwell licensing.

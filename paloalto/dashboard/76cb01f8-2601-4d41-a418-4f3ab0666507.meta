@@ -1,0 +1,244 @@
+{
+	"UUID": "76cb01f8-2601-4d41-a418-4f3ab0666507",
+	"Name": "Palo Alto User Behavior Overview",
+	"Description": "This dashboard is a general overview of User Behavior in your Palo Alto data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Palo Alto - NGFW - Threat/Traffic - Event Type - Count by Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9a538ea3-3656-4d12-a252-9b4c88487299",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS Application - SaaS Event Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2332615f-d68f-4635-98e2-f931ae86713c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Threat - URL - Count by Top Hostnames [table]",
+				"color": null,
+				"reference": {
+					"id": "f04b1ebf-96d1-4220-97da-291ab125f4d4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Threat - URL - Top Web Categories [chart]",
+				"color": null,
+				"reference": {
+					"id": "3afdb278-a9cb-4d28-afa9-1e06707ddb46",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Traffic - Application - Top Applications [chart]",
+				"color": null,
+				"reference": {
+					"id": "0102c2d0-b817-413f-affc-92d00b4fd452",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Traffic - Application - Rare Applications [table]",
+				"color": null,
+				"reference": {
+					"id": "ed30530c-b91b-4e37-aa5a-c9c3c889832c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Traffic - Bytes - Total Traffic Volume [chart]",
+				"color": null,
+				"reference": {
+					"id": "741a45c8-9248-4922-97c2-a6b9b525e6d4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 4400190854031138,
+				"title": "Event Counts",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": ""
+				}
+			},
+			{
+				"id": 65123309348160,
+				"title": "SaaS Events",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": ""
+				}
+			},
+			{
+				"id": 8992512063647162,
+				"title": "Top Hostnames",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": ""
+				}
+			},
+			{
+				"id": 845946310381022,
+				"title": "Top Web Categories",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 4,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": "",
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 8098291890601413,
+				"title": "Top Applications",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": "",
+					"NumberCardNumberFontSize": "",
+					"NumberCardWidth": "",
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 4735757191112704,
+				"title": "Rare Applications",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 73970738049940,
+				"title": "Total Traffic",
+				"renderer": "areaChart",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 5,
+					"x": 4,
+					"y": 9
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"palo"
+	]
+}

@@ -1,0 +1,16 @@
+// Search - Palo Alto - NGFW - Threat/Traffic - Event Type - Count by Type [numbercard]
+tag=$PAN_THREAT_TRAFFIC ax subtype
+| tag=$PAN_TRAFFIC eval if (subtype == "end") {
+    $(type) = "Traffic Events";
+}
+| tag=$PAN_THREAT eval if (subtype == "url") {
+    $(type) = "URL Events";
+}  else if (subtype == "data") {
+    $(type) = "Data Events";
+}  else if (subtype == "file") {
+    $(type) = "File Events";
+}  else if (subtype == "vulnerability") {
+    $(type) = "Vulnerability Events";
+}
+| stats count by type
+| numbercard (count "")

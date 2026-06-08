@@ -1,7 +1,10 @@
 {
-	"VersionNumber": 2,
+	"VersionNumber": 1,
 	"ResourceName": "excluded_url_categories",
 	"Description": "Palo Alto URL categories to be excluded.",
+	"Labels": [
+		"palo"
+	],
 	"Size": 125,
 	"Hash": "OIRl5vXUFzq7WsFx5iFs7A==",
 	"Data": ""

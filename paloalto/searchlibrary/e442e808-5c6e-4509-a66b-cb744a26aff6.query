@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Traffic - SaaS - Count by Unsanctioned Category [chart]
+tag=$PAN_TRAFFIC ax sanctioned_state_of_app=="no" is_saas_of_app=="yes" subcategory_of_app
+| stats count by subcategory_of_app
+| chart count by subcategory_of_app limit 6

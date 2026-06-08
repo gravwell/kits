@@ -1,69 +1,129 @@
 {
 	"UUID": "7fdbf49e-82e9-4b60-b69c-2ec32703c6a7",
 	"Name": "Palo Alto SaaS Overview",
-	"Description": "",
+	"Description": "This dashboard is a general overview into your Palo Alto SaaS data.",
 	"Data": {
 		"timeframe": {
-			"timeframe": "PT1H"
+			"durationString": null,
+			"timeframe": "PT1H",
+			"timezone": null,
+			"start": null,
+			"end": null
 		},
 		"searches": [
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax subtype==\"end\" is_saas_of_app==\"yes\" bytes | stats sum(bytes) | numbercard (sum \"SaaS bytes transferred\")",
-				"alias": "SaaS Bytes Transferred"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Total Bytes Transferred [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9b25ad03-4189-445f-b27c-48ec3af4b0e7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax subtype==\"end\" is_saas_of_app==\"yes\" app | stats count by app | chart count by app",
-				"alias": "SaaS Application Usage"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Action [chart]",
+				"color": null,
+				"reference": {
+					"id": "ce08d927-0617-41e5-9b44-22f8568c5ff0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax is_saas_of_app==\"yes\" action | stats count by action | chart count by action",
-				"alias": "SaaS Actions"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Application [chart]",
+				"color": null,
+				"reference": {
+					"id": "fe4898de-8dd2-46dc-a3bc-3263bdaae33a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions \"Volume\"",
-				"alias": "SaaS Application Distribution"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Application Distribution [table]",
+				"color": null,
+				"reference": {
+					"id": "47076a81-7c11-474f-86a1-4d1c3d53a8d8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"yes\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
-				"alias": "Sanctioned SaaS Applications"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Applications [table]",
+				"color": null,
+				"reference": {
+					"id": "bc005eda-32cf-4a11-accf-6684a2fb9af2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax app category_of_app subcategory_of_app bytes is_saas_of_app==\"yes\" sanctioned_state_of_app==\"no\"\n| alias app App category_of_app Category subcategory_of_app Subcategory \n| stats sum(bytes) count as Sessions by App Category Subcategory \n| eval Volume = sum; \n| sort by sum desc\n| table App Category Subcategory Sessions Volume",
-				"alias": "Unsanctioned SaaS Applications"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Unsanctioned Applications [table]",
+				"color": null,
+				"reference": {
+					"id": "308a0350-9e34-4e97-91e2-16d27ff0a350",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax sanctioned_state_of_app\n| eval if (sanctioned_state_of_app == \"yes\") { state = \"Sanctioned\"; } else { state = \"Non-sanctioned\"; }\n| stats count by state\n| chart count by state",
-				"alias": "Sanctioned Application Percentages"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Application Percentages [chart]",
+				"color": null,
+				"reference": {
+					"id": "3233c046-6e37-4318-8b78-b5a4cb25f12a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax sanctioned_state_of_app==\"yes\" is_saas_of_app==\"yes\" subcategory_of_app\n| stats count by subcategory_of_app\n| chart count by subcategory_of_app limit 6",
-				"alias": "Top Categories - Sanctioned"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Sanctioned Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "2a0213fe-5013-4649-a859-4e1ed8299c99",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"timeframe": null,
-				"query": "tag=$PAN_TRAFFIC ax sanctioned_state_of_app==\"no\" is_saas_of_app==\"yes\" subcategory_of_app\n| stats count by subcategory_of_app\n| chart count by subcategory_of_app limit 6",
-				"alias": "Top Categories - Unsanctioned"
+				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Unsanctioned Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "e442e808-5c6e-4509-a66b-cb744a26aff6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
+				"id": 1648247098122,
 				"title": "SaaS Bytes Transferred",
 				"renderer": "numberCard",
-				"searchesIndex": 0,
+				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 3,
 					"x": 0,
 					"y": 0
 				},
+				"searchesIndex": 0,
 				"rendererOptions": {
 					"Range": "no",
 					"Precision": "no",
@@ -71,26 +131,27 @@
 					"NumberCardNumberFontSize": "",
 					"NumberCardWidth": "",
 					"IncludeOther": "yes"
-				},
-				"id": 1648247098122
+				}
 			},
 			{
+				"id": 1648247288987,
 				"title": "SaaS Application Usage",
 				"renderer": "areaChart",
-				"searchesIndex": 1,
+				"hideZoom": true,
 				"span": {
 					"col": 16,
 					"row": 5,
 					"x": 6,
 					"y": 0
 				},
+				"searchesIndex": 2,
 				"rendererOptions": {
 					"Range": "no",
 					"Precision": "no",
 					"NumberCardLabelFontSize": "",
 					"NumberCardNumberFontSize": "",
 					"NumberCardWidth": "",
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"Stack": "grouped",
 					"Smoothing": "normal",
 					"Orientation": "v",
@@ -98,121 +159,135 @@
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
 					"LogScale": "no"
-				},
-				"id": 1648247288987
+				}
 			},
 			{
+				"id": 1648247796635,
 				"title": "SaaS Actions",
 				"renderer": "categoryBarChart",
-				"searchesIndex": 2,
+				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 7,
 					"x": 0,
 					"y": 3
 				},
+				"searchesIndex": 1,
 				"rendererOptions": {
 					"Range": "no",
 					"Precision": "no",
 					"NumberCardLabelFontSize": "",
 					"NumberCardNumberFontSize": "",
 					"NumberCardWidth": "",
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"Stack": "grouped",
 					"Smoothing": "normal",
 					"Orientation": "v",
 					"XAxisSplitLine": "no",
 					"YAxisSplitLine": "no",
 					"ConnectNulls": "no",
-					"LogScale": "no"
-				},
-				"id": 1648247796635
+					"LogScale": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
+				"id": 1648489778201,
 				"title": "SaaS Application Distribution",
 				"renderer": "table",
-				"searchesIndex": 3,
+				"hideZoom": true,
 				"span": {
 					"col": 16,
 					"row": 5,
 					"x": 6,
 					"y": 5
 				},
-				"rendererOptions": {},
-				"id": 1648489778201
+				"searchesIndex": 3,
+				"rendererOptions": {}
 			},
 			{
+				"id": 1648493051305,
 				"title": "Sanctioned SaaS Applications",
 				"renderer": "table",
-				"searchesIndex": 4,
+				"hideZoom": true,
 				"span": {
 					"col": 10,
 					"row": 4,
 					"x": 0,
 					"y": 10
 				},
-				"rendererOptions": {},
-				"id": 1648493051305
+				"searchesIndex": 4,
+				"rendererOptions": {}
 			},
 			{
+				"id": 1648493054508,
 				"title": "Unsanctioned SaaS Applications",
 				"renderer": "table",
-				"searchesIndex": 5,
+				"hideZoom": true,
 				"span": {
 					"col": 12,
 					"row": 4,
 					"x": 10,
 					"y": 10
 				},
-				"rendererOptions": {},
-				"id": 1648493054508
+				"searchesIndex": 5,
+				"rendererOptions": {}
 			},
 			{
+				"id": 1648493416132,
 				"title": "Sanctioned Application Percentages",
 				"renderer": "pieChart",
-				"searchesIndex": 6,
+				"hideZoom": true,
 				"span": {
 					"col": 7,
 					"row": 5,
 					"x": 0,
 					"y": 14
 				},
+				"searchesIndex": 6,
 				"rendererOptions": {
-					"IncludeOther": "yes"
-				},
-				"id": 1648493416132
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
+				"id": 1648494628461,
 				"title": "Top Categories - Sanctioned",
 				"renderer": "categoryBarChart",
-				"searchesIndex": 7,
+				"hideZoom": true,
 				"span": {
 					"col": 7,
 					"row": 5,
 					"x": 7,
 					"y": 14
 				},
+				"searchesIndex": 7,
 				"rendererOptions": {
-					"IncludeOther": "yes"
-				},
-				"id": 1648494628461
+					"IncludeOther": "no",
+					"Orientation": "v",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
+				"id": 1648494631338,
 				"title": "Top Categories - Unsanctioned",
 				"renderer": "categoryBarChart",
-				"searchesIndex": 8,
+				"hideZoom": true,
 				"span": {
 					"col": 8,
 					"row": 5,
 					"x": 14,
 					"y": 14
 				},
+				"searchesIndex": 8,
 				"rendererOptions": {
-					"IncludeOther": "yes"
-				},
-				"id": 1648494631338
+					"IncludeOther": "no",
+					"Orientation": "v",
+					"SortCategoricalAxisBy": "value"
+				}
 			}
 		],
+		"linkZooming": false,
+		"grid": {},
 		"version": 2
 	},
 	"Labels": [

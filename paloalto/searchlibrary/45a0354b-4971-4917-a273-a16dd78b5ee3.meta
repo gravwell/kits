@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - GlobalProtect - Session - GlobalProtect Users [table]",
+	"Description": "Displays a table of GlobalProtect users with associated client system and operating system information.\n\nDependencies\n- Dashboard: Palo Alto GlobalProtect Overview",
+	"GUID": "45a0354b-4971-4917-a273-a16dd78b5ee3",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Threat - Events - Count by Scan Source Location [chart]
+tag=$PAN_THREAT ax subtype=="scan" srcloc
+| stats count by srcloc
+| chart count by srcloc

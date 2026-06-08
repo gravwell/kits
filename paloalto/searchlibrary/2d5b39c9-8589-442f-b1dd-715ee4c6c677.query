@@ -1,0 +1,5 @@
+// Search - Palo Alto - NGFW - Threat - Events - Scans Detected [table]
+tag=$PAN_THREAT ax subtype=="scan" src threatid
+| stats count by src threatid
+| alias src Source threatid "Threat ID"
+| table Source "Threat ID" count

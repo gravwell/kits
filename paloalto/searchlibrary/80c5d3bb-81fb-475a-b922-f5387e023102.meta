@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Event Types - Count by Tag [numbercard]",
+	"Description": "Displays a numbercard of event counts by TAG.\n\nDependencies\n- Dashboard: Palo Alto General Overview",
+	"GUID": "80c5d3bb-81fb-475a-b922-f5387e023102",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

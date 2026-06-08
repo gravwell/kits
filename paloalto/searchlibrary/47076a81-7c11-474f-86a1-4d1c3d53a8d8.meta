@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Traffic - SaaS - Application Distribution [table]",
+	"Description": "Displays a table of SaaS applications with session counts and total traffic volume by category and subcategory.\n\nDependencies\n- Dashboard: Palo Alto SaaS Overview",
+	"GUID": "47076a81-7c11-474f-86a1-4d1c3d53a8d8",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

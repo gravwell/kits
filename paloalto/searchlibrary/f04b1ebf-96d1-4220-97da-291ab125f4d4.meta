@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - URL - Count by Top Hostnames [table]",
+	"Description": "Displays a table of hostname counts extracted from URL threat events.\n\nDependencies\n- Dashboard: Palo Alto User Behavior Overview",
+	"GUID": "f04b1ebf-96d1-4220-97da-291ab125f4d4",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

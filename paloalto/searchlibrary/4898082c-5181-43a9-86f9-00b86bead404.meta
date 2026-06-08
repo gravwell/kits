@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - GlobalProtect - Events - Count by Subtype [numbercard]",
+	"Description": "Displays a numbercard of GlobalProtect event counts by subtype.\n\nDependencies\n- Dashboard: Palo Alto Threat Overview",
+	"GUID": "4898082c-5181-43a9-86f9-00b86bead404",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

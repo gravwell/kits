@@ -1,6 +1,8 @@
 {
 	"GUID": "16b991a1-86c7-4f08-b408-c5faa8afeef3",
-	"Name": "logforwarding",
-	"Desc": "Log Forwarding",
-	"Labels": null
+	"Name": "Palo Alto Log Forwarding Profile",
+	"Desc": "Shows a Palo Alto Log Forwarding Profile",
+	"Labels": [
+		"palo"
+	]
 }

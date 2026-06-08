@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Threat - Events - Threat Source Locations [heatmap]
+tag=$PAN_THREAT ax subtype!=url src
+| geoip src.Location
+| heatmap

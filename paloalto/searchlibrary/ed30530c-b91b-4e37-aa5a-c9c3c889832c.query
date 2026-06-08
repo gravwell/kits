@@ -1,0 +1,6 @@
+// Search - Palo Alto - NGFW - Traffic - Application - Rare Applications [table]
+tag=$PAN_TRAFFIC ax subtype=="end" app 
+| stats count by app 
+| sort by count asc 
+| limit 10 
+| table app count

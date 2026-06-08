@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Traffic - Events - Count by Subtype [numbercard]
+tag=$PAN_TRAFFIC ax subtype
+| stats count by subtype
+| numbercard (count "")
