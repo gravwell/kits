@@ -1,0 +1,8 @@
+@superusers{dump -r bitwardenMembers
+| eval in(userType,"Owner","Admin")
+| table email userId};
+tag=$BITWARDEN_TAG ax
+| lookup -s -r @superusers actingUserId userId
+| lookup -r bitwardenEventTypes eventType type event
+| stats count by event
+| chart count by event

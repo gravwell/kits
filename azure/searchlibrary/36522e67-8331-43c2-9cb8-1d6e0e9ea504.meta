@@ -1,0 +1,11 @@
+{
+	"Name": "Azure - Operations by Resource Type",
+	"Description": "Extract resource provider from operationName, count",
+	"GUID": "36522e67-8331-43c2-9cb8-1d6e0e9ea504",
+	"Labels": [
+		"azure",
+		"stats",
+		"baseline"
+	],
+	"Metadata": {}
+}

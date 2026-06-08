@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-asa-vpn",
+	"Desc": "Gravwell generated fields extraction for tag cisco-asa-vpn, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-asa-vpn"
+	],
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "37d12b56-12b9-4b9d-ad18-e8758709178c",
+	"LastUpdated": "2026-03-17T13:51:48.988705586Z"
+}

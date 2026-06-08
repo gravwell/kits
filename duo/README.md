@@ -1,27 +1,37 @@
-# Duo Kit
+This kit is designed to provide an out-of-the-box experience for working with Duo logs.
 
-The Duo Kit provides a baseline set of tags, autoextractors, macros, saved queries, lookup resources, alerts, scheduled searches, flows, playbooks, actionables, dashboard searches, alert queries, and dashboards for your Duo data.
+It provides the following utilities:
+- Baseline set of tags
+- Autoextractors
+- Macros
+- Queries
+- Lookup resources
+- Alerts
+- Scheduled searches
+- Flows
+- Actionables
+- Dashboards
 
-The Duo Kit is licensed under the Apache 2.0 license and the contents are available on [Duo](https://github.com/gravwell/kits/tree/main/duo).
+The Duo Kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/duo).
 
 ## Dependencies
-- N/A
+- Null
 
 ## Changelog
-- 1.0: Initial Release
-	- actionables 				03
-	- alert 					03
-	- autoextractor 			05
-	- dashboard 				04
-	- file 						03
-	- license 					01
-	- macro 					31
-	- playbook 					01
-	- resource 					11
-	- scheduled 				04
-		- scheduled searches 	01
-		- flows 				03
-	- searchlibrary 			19
-		- alert queries 		01
-		- dashboard searches 	18
-	- template 					14
+ **1.0: Initial Release**
+	- actionables (3)
+	- alert (3)
+	- autoextractor (5)
+	- dashboard (4)
+	- file (3)
+	- license (1)
+	- macro (31)
+	- playbook (1)
+	- resource (11)
+	- scheduled (4)
+		- scheduled searches (1)
+		- flows (3)
+	- searchlibrary (19)
+		- alert queries (1)
+		- dashboard searches (18)
+	- template (14)

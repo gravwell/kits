@@ -1,0 +1,274 @@
+{
+	"UUID": "f65c270f-20a2-4b1f-b6da-ece3bd21915c",
+	"Name": "Bitwarden - Overview",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Chart - Bitwarden - Overview",
+				"color": null,
+				"reference": {
+					"id": "3dab5c54-5abb-44ba-aac1-d0a88e46ef63",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Numbercard - Bitwarden - Member Count",
+				"color": null,
+				"reference": {
+					"id": "9eb3cf32-8fd2-4ec9-a16b-3c3e2c7686e5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Numbercard - Bitwarden - Total Groups",
+				"color": null,
+				"reference": {
+					"id": "712676b3-c1cf-40f3-99bd-aa9c5c15951f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Numbercard - Bitwarden - Total Super Users",
+				"color": null,
+				"reference": {
+					"id": "9ffc804d-8b9b-4008-b588-690ba9ab8bde",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Chart - Bitwarden - Regular User Account Usage Trend",
+				"color": null,
+				"reference": {
+					"id": "5f270e07-018e-4727-abb8-b3f541612225",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Chart - Bitwarden - Super User Activity by email",
+				"color": null,
+				"reference": {
+					"id": "6ee4daec-032f-4c27-8a76-e51092dc4785",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Chart - Bitwarden - Regular User Activity By Email",
+				"color": null,
+				"reference": {
+					"id": "cc4b9c92-72e7-42cb-a6ac-a12b2e4474b7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Chart - Bitwarden - Super User Activity By Event",
+				"color": null,
+				"reference": {
+					"id": "bc14e4cb-7cb3-4f10-a35d-a50ee525e97c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Bitwarden - Event log details",
+				"color": null,
+				"reference": {
+					"id": "a846605b-d76d-4e9f-8f10-044869a528f8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17740325373730,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17740328562911,
+				"title": "Total Members",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17740329081642,
+				"title": "Total Groups",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17740329474123,
+				"title": "Total Super Users",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17740352281204,
+				"title": "User Activity By Event",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 11
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17740371535555,
+				"title": "Super User Activity By Email",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 16
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17740380106726,
+				"title": "User Activity By Email",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17740381519457,
+				"title": "Super User Activity By Event",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 21
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17740382690218,
+				"title": "Event Details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 10,
+					"x": 0,
+					"y": 26
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

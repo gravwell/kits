@@ -1,0 +1,14 @@
+{
+	"Name": "Azure - Policy Assignment or Management Lock Modified",
+	"Description": "Detects creation or deletion of Azure Policy assignments and management locks. Attackers may remove locks or modify policies to enable destructive actions or bypass governance controls.",
+	"GUID": "5bac495b-4b76-4fa1-9e2d-b75e78521863",
+	"Labels": [
+		"azure",
+		"governance",
+		"policy",
+		"detection",
+		"T1562",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

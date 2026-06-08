@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd Failed Operations Over Time",
+	"Description": "Chart to review trends in process failure over time.",
+	"GUID": "dec0dbd0-65dd-4aa5-a643-6390a58a0719",
+	"Labels": [
+		"auditd",
+		"stats",
+		"exe"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

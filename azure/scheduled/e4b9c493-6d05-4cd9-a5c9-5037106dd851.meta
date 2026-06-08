@@ -1,0 +1,23 @@
+{
+	"Name": "Azure - Azure Container Registry Created or Deleted",
+	"Description": "Detects creation or deletion of Azure Container Registries. Attackers may create registries to stage malicious container images or delete them to destroy artifacts and disrupt dependent workloads.",
+	"Labels": [
+		"azure",
+		"compute",
+		"container-registry",
+		"detection",
+		"T1485",
+		"T1496",
+		"T1489",
+		"impact"
+	],
+	"Schedule": "22 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e4b9c493-6d05-4cd9-a5c9-5037106dd851",
+	"SearchReference": "46eb65c3-f207-47e7-ae7e-f8fc59d46e94"
+}

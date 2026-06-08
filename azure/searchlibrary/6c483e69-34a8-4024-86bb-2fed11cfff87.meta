@@ -1,0 +1,15 @@
+{
+	"Name": "Azure - Virtual Network Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Virtual Networks and subnets. Network topology changes can alter traffic routing, remove segmentation controls, or disrupt connectivity to dependent resources.",
+	"GUID": "6c483e69-34a8-4024-86bb-2fed11cfff87",
+	"Labels": [
+		"azure",
+		"network",
+		"vnet",
+		"detection",
+		"T1562",
+		"defense-evasion",
+		"impact"
+	],
+	"Metadata": {}
+}

@@ -2,7 +2,8 @@
  "ID": "io.gravwell.thinkstcanary",
  "Name": "Thinkst Canary",
  "Desc": "This kit is designed to provide an out-of-the-box experience for working with Thinkst Canary logs. \n\nIt provides the following utilities:\n- Autoextractors\n- Alerts\n- Dashboards\n- Image Files\n- Macros\n- Playbooks\n- Resources\n- Scheduled Searches\n- Flows\n- Saved Queries\n- Templates",
- "Version": 2,
+ "Readme":"This kit provides ready-to-roll dashboards, queries, alerts, flows, templates, and playbooks for Thinkst Canary.\n\nThe Thinkst Canary kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/thinkst-canary).\n\n## Dependencies\nGravwell Network Enrichment Kit\n- The Maxmind Database is required for the Location queries, scheduled searches, and alerts.\n\n## Changelog\n**1.0: Initial Release**\n- autoextractors (2)\n- alert (59)\n- dashboard (5)\n- file (3)\n- license (1)\n- macro (13)\n- playbook (5)\n- resource (4)\n- scheduled (61)\n  - scheduled searches (59)\n  - flows (2)\n- searchlibrary (133)\n  - alert queries (59)\n  - dashboard searches (74)\n- template (1)",
+ "Version": 1,
  "MinVersion": {
   "Major": 0,
   "Minor": 0,
@@ -1128,7 +1129,7 @@
    "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
   },
   {
-   "Name": "Apache 2.0 License",
+   "Name": "BSD 2-Clause",
    "Type": 10,
    "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
   },

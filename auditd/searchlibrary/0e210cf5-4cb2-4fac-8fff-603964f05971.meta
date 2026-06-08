@@ -2,5 +2,12 @@
 	"Name": "Auditd Sudo Failures",
 	"Description": "Detects Sudo attempt failures. Includes USER_CMD, and USER_AUTH types which will show both auth attempts, and attempted commands",
 	"GUID": "0e210cf5-4cb2-4fac-8fff-603964f05971",
-	"Metadata": {}
+	"Labels": [
+		"auditd",
+		"stats",
+		"sudo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

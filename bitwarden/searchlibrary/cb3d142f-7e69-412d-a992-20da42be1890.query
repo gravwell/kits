@@ -1,0 +1,3 @@
+tag=$BITWARDENGROUPS_TAG ax
+| last id
+| table -csv -save bitwardenGroups name id externalId collections

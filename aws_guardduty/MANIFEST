@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.guardduty",
 	"Name": "AWS GuardDuty",
 	"Desc": "Provides tools and utilities to work with AWS GuardDuty logs",
-	"Readme": "This kit is designed to provide an out-of-the-box experience for reviewing AWS GuardDuty findings.\n\nIt provides the following utilities:\n- Queries\n- Dashboards\n\nRefer to playbooks for implementation guides, and a kit overview for more detail on components.",
+	"Readme": "This kit is designed to provide an out-of-the-box experience for reviewing AWS GuardDuty findings.\n\nIt provides the following utilities:\n- Queries\n- Dashboards\n\nRefer to playbooks for implementation guides, and a kit overview for more detail on components.\n\nThe Auditd Kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/aws_guardduty).\n\n## Dependencies\n- Null\n\n## Changelog\n**1.0: Initial Release**\n- dashboard (2)\n- file (3)\n- license (1)\n- macro (3)\n- playbook (3)\n- searchlibrary (9)",
 	"Version": 1,
 	"MinVersion": {
 		"Major": 0,
@@ -14,11 +14,16 @@
 		"Minor": 9,
 		"Point": 9
 	},
-	"Icon": "302756cb-c324-4858-b092-d0c8f2d83af6",
+	"Icon": "ea21fc3a-fdb1-4ad1-ba3a-658b18f2d41a",
 	"Banner": "ba4b2c14-3763-492d-9f32-cafa189bff0b",
 	"Cover": "302756cb-c324-4858-b092-d0c8f2d83af6",
 	"Items": [
 		{
+            "Name": "BSD 2-Clause",
+            "Type": 10,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
 			"Name": "GUARDDUTY_ALERT",
 			"Type": 8,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -85,6 +90,11 @@
 		},
 		{
 			"Name": "302756cb-c324-4858-b092-d0c8f2d83af6",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ea21fc3a-fdb1-4ad1-ba3a-658b18f2d41a",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},

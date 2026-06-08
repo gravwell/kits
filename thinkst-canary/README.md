@@ -1,45 +1,25 @@
-# Thinkst Canary Kit
+This kit provides ready-to-roll dashboards, queries, alerts, flows, templates, and playbooks for Thinkst Canary.
 
-This kit provides ready-to-roll dashboards, queries, alerts, flows, templates, and playbooks.
-
-The Thinkst Canary kit is licensed under the Apache 2.0 license and the contents are available on [Thinkst Canary](https://github.com/gravwell/kits/tree/main/thinkst-canary).
+The Thinkst Canary kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/thinkst-canary).
 
 ## Dependencies
 Gravwell Network Enrichment Kit
 - The Maxmind Database is required for the Location queries, scheduled searches, and alerts. 
 
 ## Changelog
-- 1.0: Initial Release
-	- actionables 				000
-	- alert 					059
-	- dashboard 				005
-	- file 						003
-	- license 					001
-	- macro 					013
-	- playbook 					059
-	- resource 					006
-	- scheduled 				118
-		- scheduled searches 	059
-		- flows 				059
-	- searchlibrary 			133
-		- alert queries 		059
-		- dashboard searches 	074
-	- template 					001
-
-- 2.0: Removed All Customized Playbooks & Placeholders & Linked Queries; Added Autoextractors
-	- actionables 				000
-	- autoextractors			002
-	- alert 					059
-	- dashboard 				005
-	- file 						003
-	- license 					001
-	- macro 					013
-	- playbook 					005
-	- resource 					004
-	- scheduled 				061
-		- scheduled searches 	059
-		- flows 				002
-	- searchlibrary 			133
-		- alert queries 		059
-		- dashboard searches 	074
-	- template 					001
+**1.0: Initial Release**
+	- autoextractors (2)
+	- alert (59)
+	- dashboard (5)
+	- file (3)
+	- license (1)
+	- macro (13)
+	- playbook (5)
+	- resource (4)
+	- scheduled (61)
+		- scheduled searches (59)
+		- flows (2)
+	- searchlibrary (133)
+		- alert queries (59)
+		- dashboard searches (74)
+	- template (1)

@@ -1,8 +1,12 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "exe_baseline",
-	"Description": "exe",
-	"Labels": null,
+	"Description": "Resource that can be used to populate from the exe_baseline query. It can be useful to profile a period of \"known good\" behavior, and used as a lookup reference to detect if a new exe appears that isn't in the baseline.",
+	"Labels": [
+		"exe",
+		"baseline",
+		"auditd"
+	],
 	"Size": 4,
 	"Hash": "FNUVZGdGMoTijhsDMJ3NEg==",
 	"Data": ""

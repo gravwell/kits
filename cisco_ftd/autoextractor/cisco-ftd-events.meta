@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-ftd-events",
+	"Desc": "Gravwell generated fields extraction for tag cisco-ftd-events, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-ftd-events"
+	],
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "c0900519-5662-424f-b272-3608030f8df2",
+	"LastUpdated": "2026-03-17T13:51:48.99531042Z"
+}
