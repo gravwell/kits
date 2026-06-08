@@ -1,0 +1,16 @@
+{
+	"Name": "Azure - Azure Container Registry Created or Deleted",
+	"Description": "Detects creation or deletion of Azure Container Registries. Attackers may create registries to stage malicious container images or delete them to destroy artifacts and disrupt dependent workloads.",
+	"GUID": "46eb65c3-f207-47e7-ae7e-f8fc59d46e94",
+	"Labels": [
+		"azure",
+		"compute",
+		"container-registry",
+		"detection",
+		"T1485",
+		"T1496",
+		"T1489",
+		"impact"
+	],
+	"Metadata": {}
+}

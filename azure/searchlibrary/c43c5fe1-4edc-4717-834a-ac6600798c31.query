@@ -1,0 +1,4 @@
+tag=$AZURE_ACTIVITY json resultType
+| eval resultType == "Success" || resultType == "Failure"
+| count by resultType
+| chart count by resultType

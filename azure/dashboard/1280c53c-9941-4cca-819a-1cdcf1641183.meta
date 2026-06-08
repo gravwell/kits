@@ -1,0 +1,201 @@
+{
+	"UUID": "1280c53c-9941-4cca-819a-1cdcf1641183",
+	"Name": "Azure - Activity Overview",
+	"Description": "High-level control plane health. Volume over time, top callers, top resource types modified, success/failure ratio, callerIpAddress geo distribution. Useful as the landing page.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Azure - Activity Volume Over Time",
+				"color": null,
+				"reference": {
+					"id": "967ac72b-e213-42c6-878e-f4c55291098f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Top Callers",
+				"color": null,
+				"reference": {
+					"id": "ea73e7f3-37b8-41eb-adc6-f6be05f159de",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Top Operation Types",
+				"color": null,
+				"reference": {
+					"id": "5f03c68c-3077-4892-9e36-8bfd4952b754",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Success vs Failure [Chart]",
+				"color": null,
+				"reference": {
+					"id": "c43c5fe1-4edc-4717-834a-ac6600798c31",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Operations by Resource Type",
+				"color": null,
+				"reference": {
+					"id": "36522e67-8331-43c2-9cb8-1d6e0e9ea504",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Geographic Distribution [Map]",
+				"color": null,
+				"reference": {
+					"id": "f03762c9-4b8c-4ab0-8307-e90584c21639",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Recent High Interest Operations",
+				"color": null,
+				"reference": {
+					"id": "f532c4e1-5602-4fec-b471-0e6450062b8a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17776557624330,
+				"title": "Activity Volume Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776557787481,
+				"title": "Top Callers",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 5,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776558006272,
+				"title": "Top Operation Types",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 6,
+					"y": 9
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776558162553,
+				"title": "Success vs Failure",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776558833054,
+				"title": "Operations by Resource Type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 5,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776559084365,
+				"title": "Geographic Distribution",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 5,
+					"x": 7,
+					"y": 4
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776559648836,
+				"title": "Recent High-Interest Operations",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 9,
+					"x": 0,
+					"y": 14
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"azure",
+		"activity",
+		"resource"
+	]
+}

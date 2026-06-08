@@ -1,0 +1,25 @@
+{
+	"UUID": "e5dd879f-51e3-4c38-8404-2422f016a73d",
+	"Name": "Azure - Correlated Signin - Investigate - IP",
+	"Description": "Azure Signin matching same IP - who authenticated from this network address. Shows app first to indicate SP, and userPrincipalName where it's tied to an individual's identity.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "136.59.164.75"
+			}
+		]
+	},
+	"Labels": [
+		"azure",
+		"azure_signin",
+		"userPrincipalName",
+		"appDisplayName",
+		"IP",
+		"ip"
+	]
+}

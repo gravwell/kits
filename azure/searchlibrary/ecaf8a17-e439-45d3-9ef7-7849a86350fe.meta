@@ -1,0 +1,16 @@
+{
+	"Name": "Azure - Member Added to Entra ID Directory Role",
+	"Description": "Detects when a user or service principal is added to a privileged Entra ID directory role such as Global Administrator or Security Administrator. Attackers may add accounts to admin roles for privilege escalation or to maintain persistent elevated access.",
+	"GUID": "ecaf8a17-e439-45d3-9ef7-7849a86350fe",
+	"Labels": [
+		"azure_ad",
+		"identity",
+		"rbac",
+		"detection",
+		"T1098.003",
+		"T1078",
+		"persistence",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

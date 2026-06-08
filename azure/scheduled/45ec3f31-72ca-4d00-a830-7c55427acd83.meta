@@ -1,0 +1,22 @@
+{
+	"Name": "Azure - VPN Server Configuration Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure VPN server configurations. Attackers may alter VPN server config to create unauthorized remote access paths or disrupt existing P2S VPN connectivity.",
+	"Labels": [
+		"azure",
+		"network",
+		"vpn",
+		"detection",
+		"T1562",
+		"defense-evasion",
+		"impact"
+	],
+	"Schedule": "4 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "45ec3f31-72ca-4d00-a830-7c55427acd83",
+	"SearchReference": "0946e3e6-5c5b-467d-a7b1-62c2d3415119"
+}

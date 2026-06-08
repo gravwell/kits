@@ -1,0 +1,3 @@
+tag=$AZURE_SIGNIN json operationName properties.appDisplayName callerIpAddress correlationId properties.userPrincipalName
+| eval appDisplayName == "AzurePortal Console App"
+| table
