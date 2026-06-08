@@ -1,0 +1,7 @@
+tag=$BITWARDEN_TAG ax
+| eval if (actingUserId == "null") {actorEmail = printf("ServiceAccount:%v",serviceAccountId);}
+| lookup -s -r bitwardenMembers actingUserId userId email
+| grep -e email %%email%%
+| lookup -r bitwardenEventTypes eventType type event
+| stats count by event
+| chart count by event

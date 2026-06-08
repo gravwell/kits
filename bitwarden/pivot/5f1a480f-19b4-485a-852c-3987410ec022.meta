@@ -1,0 +1,41 @@
+{
+	"UUID": "5f1a480f-19b4-485a-852c-3987410ec022",
+	"Name": "Bitwarden",
+	"Description": "",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "User Details",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "face35d5-fa43-47d2-84c3-428b2829001b",
+					"options": {
+						"variable": "%%email%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/.*@.*/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

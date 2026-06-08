@@ -1,0 +1,16 @@
+{
+	"Name": "Azure - Service Principal Created",
+	"Description": "Detects creation of new Azure AD service principals. Attackers may create service principals to establish persistent non-interactive access to Azure resources using credentials that evade user-focused monitoring.",
+	"GUID": "ef9349ab-53bd-4739-9c68-3f3009a48f5d",
+	"Labels": [
+		"azure_ad",
+		"identity",
+		"service-principal",
+		"detection",
+		"T1136",
+		"T1078",
+		"defense-evasion",
+		"persistence"
+	],
+	"Metadata": {}
+}

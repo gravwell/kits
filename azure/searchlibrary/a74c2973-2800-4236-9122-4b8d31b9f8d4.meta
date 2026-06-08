@@ -1,0 +1,15 @@
+{
+	"Name": "Azure - Azure Network Firewall Policy Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Firewall Policies. Policy changes can disable security rules, permit malicious traffic flows, or disrupt network security controls across attached firewalls.",
+	"GUID": "a74c2973-2800-4236-9122-4b8d31b9f8d4",
+	"Labels": [
+		"azure",
+		"network",
+		"firewall",
+		"detection",
+		"T1562.007",
+		"impact",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

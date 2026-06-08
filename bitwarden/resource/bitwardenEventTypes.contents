@@ -1,0 +1,90 @@
+event,type
+Logged In,1000
+Changed account password,1001
+Enabled/updated two-step login,1002
+Disabled two-step login,1003
+Recovered account from two-step login,1004
+Login attempted failed with incorrect password,1005
+Login attempt failed with incorrect two-step login,1006
+User exported their individual vault items,1007
+User updated a password issued through account recovery,1008
+User migrated their decryption key with Key Connector,1009
+User requested device approval,1010
+Created item,1100
+Edited item,1101
+Permanently Deleted item,1102
+Created attachment for item,1103
+Deleted attachment for item,1104
+Moved item to an organization,1105
+Edited collections for item,1106
+Viewed item,1107
+Viewed password for item,1108
+Viewed hidden field for item,1109
+Viewed security code for item,1110
+Copied password for item,1111
+Copied hidden field for item,1112
+Copied security code for item,1113
+Autofilled item,1114
+Sent item to trash,1115
+Restored item,1116
+Viewed Card Number for item,1117
+Created collection,1300
+Edited collection,1301
+Deleted collection,1302
+Created group,1400
+Edited group,1401
+Deleted group,1402
+Invited user,1500
+Confirmed user,1501
+Edited user,1502
+Removed user,1503
+Edited groups for user,1504
+Unlinked SSO for user,1505
+User enrolled in account recovery,1506
+User withdrew from account recovery,1507
+Master Password reset for,1508
+Reset SSO link for user,1509
+User logged in using SSO for the first time,1510
+Revoked organization access for,1511
+Restored organization access for,1512
+Approved device for,1513
+Denied device for,1514
+Deleted user,1515
+User left organization,1516
+Edited organization settings,1600
+Purged organization vault,1601
+Exported organization vault,1602
+Organization Vault access by a managing Provider,1603
+Organization enabled SSO,1604
+Organization disabled SSO,1605
+Organization enabled Key Connector,1606
+Organization disabled Key Connector,1607
+Families Sponsorships synced,1608
+Modified collection management setting,1609
+Turned on Restrict collection creation setting,1610
+Turned off Restrict collection creation setting,1611
+Turned on Restrict collection deletion setting,1612
+Turned off Restrict collection deletion setting,1613
+Turned on Restrict item deletion setting,1614
+Turned off Restrict item deletion setting,1615
+Turned on Allow owners and admins to manage all collections and items setting,1616
+Turned off Allow owners and admins to manage all collections and items setting,1617
+Modified policy,1700
+Added domain domain-name,2000
+Removed domain domain-name,2001
+domain-name verified,2002
+domain-name not verified,2003
+Accessed a secret,2100
+Created a new secret,2101
+Edited a secret with,2102
+Deleted a secret,2103
+Accessed a project,2200
+Created a new project,2201
+Edited a project,2202
+Deleted a project,2203
+User added to machine account,2300
+User removed from machine account,2301
+Group added to machine account,2302
+Group removed from machine account,2303
+Created machine account,2304
+Deleted machine account,2305

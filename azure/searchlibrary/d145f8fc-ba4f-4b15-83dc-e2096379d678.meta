@@ -1,0 +1,11 @@
+{
+	"Name": "Azure - Role Assignment Changes Over Time",
+	"Description": "$AZURE_ACTIVITY ROLEASSIGNMENTS WRITE/DELETE bucketed [Chart]",
+	"GUID": "d145f8fc-ba4f-4b15-83dc-e2096379d678",
+	"Labels": [
+		"azure",
+		"stats",
+		"baseline"
+	],
+	"Metadata": {}
+}
