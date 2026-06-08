@@ -1,0 +1,23 @@
+{
+	"Name": "Azure - Credential Harvesting via Key Listing or Snapshot Creation",
+	"Description": "Detects credential harvesting activity via bulk key listing operations across storage accounts, Cosmos DB, Maps, Media Services, and Cognitive Services, as well as disk snapshot creation which can stage data for exfiltration.",
+	"Labels": [
+		"azure",
+		"storage",
+		"compute",
+		"detection",
+		"T1552",
+		"T1530",
+		"credential-access",
+		"collection"
+	],
+	"Schedule": "32 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "357c55d5-3d1c-4479-8fe5-a7fb3a21cb09",
+	"SearchReference": "d4c20eb5-21ea-400c-9c68-189448f2af9b"
+}

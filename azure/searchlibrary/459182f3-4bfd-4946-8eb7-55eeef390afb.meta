@@ -1,0 +1,15 @@
+{
+	"Name": "Azure - Network Security Group Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Network Security Groups and their rules. NSG changes can open inbound or outbound traffic paths, enabling lateral movement, command-and-control, or data exfiltration.",
+	"GUID": "459182f3-4bfd-4946-8eb7-55eeef390afb",
+	"Labels": [
+		"azure",
+		"network",
+		"nsg",
+		"detection",
+		"T1562.007",
+		"defense-evasion",
+		"impact"
+	],
+	"Metadata": {}
+}

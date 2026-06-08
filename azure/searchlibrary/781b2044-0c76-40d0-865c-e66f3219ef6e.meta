@@ -1,0 +1,14 @@
+{
+	"Name": "Azure - Azure Cloud Shell Session Created",
+	"Description": "Detects creation of new Azure Cloud Shell sessions via the portal. Cloud Shell provides persistent browser-based shell access and may be used by attackers to execute commands while bypassing local endpoint detection.",
+	"GUID": "781b2044-0c76-40d0-865c-e66f3219ef6e",
+	"Labels": [
+		"azure_signin",
+		"compute",
+		"cloudshell",
+		"detection",
+		"T1059",
+		"execution"
+	],
+	"Metadata": {}
+}
