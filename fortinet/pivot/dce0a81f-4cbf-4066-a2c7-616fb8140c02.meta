@@ -3,10 +3,10 @@
 	"Name": "Fortinet IP",
 	"Description": "This actionable will launch the Fortinet Investigation Dashboard to show the various data for the IP address, and their interactions within the system.",
 	"Data": {
-		"menuLabel": "",
+		"menuLabel": "Fortinet",
 		"actions": [
 			{
-				"name": "Investigate",
+				"name": "Investigate IP",
 				"description": "This actionable will launch the Fortinet Investigation Dashboard to show the various data for the IP address, and their interactions within the system.",
 				"placeholder": null,
 				"command": {
