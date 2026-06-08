@@ -1,0 +1,13 @@
+{
+	"Name": "Bitwarden - Ingest Policies",
+	"Description": "Ingest current Bitwarden Policies",
+	"Labels": null,
+	"Schedule": "10 5 * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "01696dd7-9937-44c7-af61-7933d407ee22",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,97 @@
+{
+	"UUID": "25fe18bd-9996-41d9-8ed7-46dc1d5dcf1a",
+	"Name": "Bitwarden - Item Activity",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Bitwarden - Item Activity Trend [Chart]",
+				"color": null,
+				"reference": {
+					"id": "545be889-87b2-4c8a-b972-74008f3e9bb5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Bitwarden - Item Activity Trend by Email [Chart]",
+				"color": null,
+				"reference": {
+					"id": "98e7ea90-7b7b-421a-a90a-1fae13f93724",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Bitwarden - Item Activity Trend by ItemId [Chart]",
+				"color": null,
+				"reference": {
+					"id": "f55fb0f6-5189-4740-9c98-d5c824aa168a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17782674835970,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17782675686231,
+				"title": "Item Activity by User",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 5
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17785185571712,
+				"title": "Item Activity by Item",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 5
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}
