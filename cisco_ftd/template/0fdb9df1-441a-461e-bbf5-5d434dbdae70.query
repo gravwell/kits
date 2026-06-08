@@ -1,0 +1,10 @@
+tag=$CISCO_SECURITY
+| eval (DATA ~ "%%user%%" %%boolean%% DATA ~ "%%ip%%")
+$CISCO_SECURITY_EVX
+| regex -p -e DATA "(?<user>%%user%%)"
+| regex -e DATA "(?<ip>%%ip%%)"
+$CISCO_FTD_SEVERITY
+| stats count by severity
+| alias count " "
+| sort by _severity_order
+| numbercard " "

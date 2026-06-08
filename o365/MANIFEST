@@ -25,6 +25,11 @@
 	],
 	"Items": [
 		{
+			"Name": "BSD 2-Clause",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
 			"Name": "0642db70-5022-4f7d-8aab-56d1d18150d2",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -441,7 +446,7 @@
                         "Description": "O365 tag containing Azure events",
                         "DefaultValue": "365-azure",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -449,7 +454,7 @@
                         "Description": "O365 tag containing Exchange events",
                         "DefaultValue": "365-exchange",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -457,7 +462,7 @@
                         "Description": "O365 tag containing General events",
                         "DefaultValue": "365-general",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 },
 		{
@@ -465,7 +470,7 @@
                         "Description": "O365 tag containing Sharepoint events",
                         "DefaultValue": "365-sharepoint",
                         "Value": "",
-                        "Type": "STRING",
+                        "Type": "TAG",
                         "InstalledByID": ""
                 }
 	]

@@ -1,0 +1,13 @@
+{
+	"Name": "Auditd AUID Activity",
+	"Description": "Overview of which AUID are active and to what degree.",
+	"GUID": "4d9605f1-6905-4cf7-94a1-0b24263a3bf1",
+	"Labels": [
+		"auditd",
+		"stats",
+		"AUID"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

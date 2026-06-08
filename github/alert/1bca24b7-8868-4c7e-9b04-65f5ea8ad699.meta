@@ -6,7 +6,7 @@
 	},
 	"Consumers": [
 		{
-			"ID": "bcb69e00-a924-455c-8c72-b2902e8e4c7b",
+			"ID": "0ce69524-1cec-455b-aff4-20ff235bf388",
 			"Type": "flow"
 		}
 	],
@@ -33,7 +33,7 @@
 	"Schemas": {
 		"Simple": [
 			{
-				"Name": "repo",
+				"Name": "_alert_title",
 				"Type": "string"
 			}
 		],
@@ -45,7 +45,7 @@
 		"JSON": {},
 		"ActiveSchema": "simple"
 	},
-	"TargetTag": "_alerts",
+	"TargetTag": "_github_alerts",
 	"ThingUUID": "379b6d0d-e6d9-4647-8a54-0fcbbd79ba30",
 	"UID": 1,
 	"UserMetadata": {},

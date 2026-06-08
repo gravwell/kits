@@ -1,0 +1,43 @@
+{
+	"UUID": "287e1ff8-daf5-4e8d-a386-26dbfb5c7f16",
+	"Name": "GitHub IP",
+	"Description": "This actionable will launch the GitHub IP Investigation Dashboard to show the various data for the IP address, and their interactions within the system.",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Investigate",
+				"description": "This actionable will launch the GitHub Investigation Dashboard to show the various data for the IP address, and their interactions within the system.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "82bbe2b8-c232-44dc-a1da-e84f1d4142d3",
+					"options": {
+						"variable": "%%2%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(\\d{1,3}\\.){3}\\d{1,3}/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

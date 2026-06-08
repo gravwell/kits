@@ -2,7 +2,7 @@
 	"Ingesters": ["file follower"],
 	"Tags": ["auditd"],
 	"Assets": [
-		{ "Type": "image", "Source": "cover.png", "Legend": "Audtid", "Featured": true},
+		{ "Type": "image", "Source": "cover.png", "Legend": "Auditd", "Featured": true},
 		{ "Type": "image", "Source": "banner.png", "Legend": "Auditd", "Featured": true, "Banner": true},
 		{ "Type": "readme", "Source": "README.md"}
 	]

@@ -2,7 +2,8 @@
   "Name": "Flow - Thinkst - Canary - Incident",
   "Description": "Detects when there is a Canary that has an incident.\n\nThis alert is a one size fits all alert. \n\nThis was built to dynamically create Thinkst Canary Incident Alerts based on all of the Incident Objects.\n\nReference(s):\nhttps://docs.canary.tools/incidents/incident-objects.html\n\nhttps://docs.canary.tools/incidents/incident-objects.html#basic-structure\n\nhttps://help.canary.tools/hc/en-gb/sections/360001761498-Incidents",
   "Labels": [
-    "thinkst"
+    "thinkst",
+    "canary"
   ],
   "Schedule": "*/30 * * * *",
   "DefaultDeploymentRules": {

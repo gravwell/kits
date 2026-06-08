@@ -1,3 +1,4 @@
+<km>
 # Table of Contents
 - Alert Summary
 - Response Steps
@@ -13,40 +14,15 @@
 ***
 
 ## Alert Summary
-- Description:
-	- Detects when a flock has been deleted.
-	- flock\_delete = Deleting a Flock will remove it from your Console. You can only delete an empty Flock, meaning you'll need to move (or remove) any Sensors from the Flock before deleting it.
-	- WARNING: You cannot delete the Default Flock, but you can Rename it if you want to.
-- Reference(s):
-    - [Actions](https://docs.canary.tools/flocks/actions.html)
-    - [Delete Flock](https://docs.canary.tools/flocks/actions.html#delete-flock)
-- Alert below 
-```query
-    tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
-    | eval in(action_type, 
-        "flock_delete"
-        )
-    | regex -e message "(?<operation>(Created|Deleted|Moved|Renamed||))"
-    | lower operation
-    | printf -e context "at %v, %v (%v) %v %v Flock via %v action" timestamp user user_ip operation flock_name action_type
-    | $CANARY_ALERT_META("Canary"," Flock Management", "Low", "Flock Deleted")
-```
+- Navigate to Automation > Alerts, and search for the Alert that fired.
+    - If using the **Flow - Thinkst - Canary - Email Alerts**, utilize the built-in URLs to quickly navigate to the specific Alert and/or Alert Results. 
 
 ***
 
 ## Response Steps
 ### 1. Validate the Alert
 - Ensure the event actually occurred.
-- Sample Query: Validate the Alert
-```query
-    tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
-    | eval in(action_type, 
-        "flock_delete"
-        )
-    | regex -e message "(?<operation>(Created|Deleted|Moved|Renamed||))"
-    | lower operation
-    | table flock_id flock_name action_type user user_ip message operation timestamp
-```
+- Validate the Alert
 
 ### 2. Correlate with Change Management (if available)
 - Look up related tickets/change requests.
@@ -64,10 +40,10 @@
     - Host Logs 
     - AV/EDR/XDR Logs 
 - Sample Query: View other categorical actions by user
-```query
+```ini
     tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
-    | eval in(action_type, "flock_delete")
-    | grep -e user "username*"
+    | eval in(action_type, "actionPlaceholder")
+    | grep -e user "userPlaceholder"
     | sort by TIMESTAMP desc
     | table TIMESTAMP flock_id flock_name action_type user user_ip message
 ```
@@ -77,32 +53,32 @@
     - You can add this to quickly determine whether it is PRIVATE or PUBLIC 
     - [IP Module Documentation] (https://docs.gravwell.io/search/ip/ip.html)
     - Sample Query: View other categorical actions by Source IP (replace #.#.#.# with IP)
-```query
+```ini
         tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
-        | eval in(action_type, "flock_delete")
+        | eval in(action_type, "actionPlaceholder")
         | sort by TIMESTAMP desc
         | ip -categorize user_ip
         | grep -e user_ip "#.#.#.#"
-        | table TIMESTAMP flock_id flock_name action_type user user_ip message
+        | table TIMESTAMP flock_id flock_name action_type user user_ip message user_ip_category
 ```
 - Determine more contextual information about the IP address
     - It is highly recommended to have an IP lookup (uploaded resource) of your environment(s) IP Ranges to filter off of. 
-    - [IPLookup Module Documentation] (https://docs.gravwell.io/search/iplookup/iplookup.html) 
-    - Sample Query: Lookup IP Range against internal ranges
-```query
-        tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
-        | eval in(action_type, "flock_delete")
+    - Something as simple as setting up a Scheduled Search such as:
+```ini
+        // // ScheduledSearch - Thinkst - Canary - Lookup - Resource - Creation - thinkst_actors [csv]
+        tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP as timestamp user user_ip
         | sort by TIMESTAMP desc
-        | grep -e user_ip "#.#.#.#"
-        | iplookup -r REPLACE_ME_WITH_YOUR_RESOURCE -e user_ip field_to_extract as new_EV_name
-        | table TIMESTAMP flock_id flock_name action_type user user_ip message
+        | alias 
+            user_ip previous_ip 
+            timestamp previous_timestamp
+        | table -update user_ip -save thinkst_actors -csv timestamp flock_id flock_name action_type user user_ip message
 ```
 - Determine if the IP Address is outside of the Country
     - [GeoIP Module Documentation] (https://docs.gravwell.io/search/geoip/geoip.html)
     - Sample Query: Show City, Country, & CountryName with GeoIP 
-```query
+```ini
         tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
-        | eval in(action_type, "flock_delete")
+        | eval in(action_type, "actionPlaceholder")
         | sort by TIMESTAMP desc
         | grep -e user_ip "#.#.#.#"
         | geoip user_ip.Location user_ip.City user_ip.Country user_ip.CountryName
@@ -112,20 +88,20 @@
 ### 5. Look for Related Logins
 - Identify logins by the user (or potential users who logged in during that timeframe) or activity from the IP address prior to modification.
 - Sample Query: View logins, failed logins, and related activity (replace username & IP)
-```query
+```ini
     tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
-    | eval (user=="username" || user_ip=="#.#.#.#" || action_type=="user_login" || action_type=="user_login_failed" || action_type=="flock_delete")
+    | eval (user=="userPlaceholder" || user_ip=="#.#.#.#" || action_type=="user_login" || action_type=="user_login_failed" || action_type=="actionPlaceholder")
     | ip -categorize user_ip
-    | table TIMESTAMP flock_id flock_name action_type user user_ip message
+    | table TIMESTAMP flock_id flock_name action_type user user_ip message user_ip_category
 ```
 
 ### 6. Broader Contextual Review
 - Check if multiple actions were performed in a short time window. 
 - Look for anomalies like unusual flock names or unexpected users.
 - Sample Query: View all actions by user
-```query
+```ini
     tag=$CANARY_AUDIT json action_type flock_id flock_name message TIMESTAMP user user_ip
-    | grep -e user "username*"
+    | grep -e user "userPlaceholder"
     | sort by TIMESTAMP desc
     | table TIMESTAMP flock_id flock_name action_type user user_ip message
 ```
@@ -145,3 +121,4 @@
 ***
 
 **Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**
+</km>

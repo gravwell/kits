@@ -1,0 +1,343 @@
+{
+	"UUID": "656036bf-a5f7-4092-9606-d3d97d15c758",
+	"Name": "Cisco FTD Security Events Investigation",
+	"Description": "This Dashboard is intended to be used for Cisco FTD Security Event investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Security - Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "a420dbb4-8bd3-4681-9fca-e9a30dbde982",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Security - Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "0fdb9df1-441a-461e-bbf5-5d434dbdae70",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Security - Count by TAG [chart]",
+				"color": null,
+				"reference": {
+					"id": "29d2f863-d259-486d-90cc-e2fb1e79aa13",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Security - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "d8e6ccdb-eca3-4e65-a8bb-feee724b78b4",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Intrusion - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "55d3b87e-37cf-4afb-86a2-d3e74694ef22",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Connection - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "9a11072f-cbe0-4365-b228-def2e0847c01",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Intrusion - Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "7ce003ec-c88f-48e7-b252-35fbf7d39997",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Connection - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "c74ca09a-4833-4255-868f-79c41fa1db66",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - File - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "34b167be-27dd-4cf5-9e08-0eb320b3d446",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Malware - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "f5864c31-63a7-4c44-8fdd-56fccb53a40a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - File - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "95219292-01db-4917-be7b-aedac9e180dc",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - FTD - Firewall - Malware - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "8cd23b13-862b-487d-b8d6-5dc0b11c4c0d",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17738069701020,
+				"title": "Security Event Count by Severity [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17738071804881,
+				"title": "Security Event Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17738074282712,
+				"title": "Security Event Count by TAG [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17738074970513,
+				"title": "ALL Security Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17738075510564,
+				"title": "Intrusion Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 7,
+					"x": 3,
+					"y": 19
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17738081117775,
+				"title": "Connection Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 7,
+					"x": 3,
+					"y": 26
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17738083966786,
+				"title": "Intrusion Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 7,
+					"x": 0,
+					"y": 19
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17738090435407,
+				"title": "Connection Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 7,
+					"x": 0,
+					"y": 26
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17738090829838,
+				"title": "File Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 8,
+					"x": 0,
+					"y": 33
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17738091713019,
+				"title": "Malware Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 7,
+					"x": 0,
+					"y": 41
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177381013438910,
+				"title": "File Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 8,
+					"x": 3,
+					"y": 33
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177381017124811,
+				"title": "Malware Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 9,
+					"row": 7,
+					"x": 3,
+					"y": 41
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

@@ -5,173 +5,133 @@
 	"Data": {
 		"timeframe": {
 			"durationString": null,
-			"timeframe": "P7DT",
+			"timeframe": "P1DT",
 			"timezone": null,
 			"start": null,
 			"end": null
 		},
 		"searches": [
 			{
-				"alias": "Merged",
-				"query": "tag=github-audit json action==\"pull_request.merge\"\n| stats count\n| gauge count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Open [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "16d72f93-26bf-4602-a8e5-c9a08e38e0be",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Open",
-				"query": "tag=github-audit json action==\"pull_request.create\"\n| stats count\n| gauge count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Created by Repo [table]",
+				"color": null,
+				"reference": {
+					"id": "c4624554-aca8-4733-b6d9-728af28e4545",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Closed",
-				"query": "tag=github-audit json action==\"pull_request.close\"\n| stats count\n| gauge count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Created by Repo [Pie]",
+				"color": null,
+				"reference": {
+					"id": "65862d83-3d27-489a-87f0-1bf5e02ab02d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Reopened",
-				"query": "tag=github-audit json action==\"pull_request.reopen\"\n| stats count\n| gauge count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Created by Actor, Repo [table]",
+				"color": null,
+				"reference": {
+					"id": "6207b970-e4da-435e-8aeb-d8db7eb7b45e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Review Requests",
-				"query": "tag=github-audit json action==\"pull_request.create_review_request\"\n| stats count\n| gauge count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Created by Actor, Repo [Pie]",
+				"color": null,
+				"reference": {
+					"id": "280e440c-0de5-4967-8d09-6c9b07907e2f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Ready for Review",
-				"query": "tag=github-audit json action==\"pull_request.ready_for_review\"\n| stats count\n| gauge count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Merged [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2b98a67d-8279-4748-8d15-96dd8c986d20",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Created by Repo",
-				"query": "tag=github-audit json action==\"pull_request.create\" repo\n| stats count by repo\n| table repo count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Closed [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "99fbfb94-8fcb-48b6-b4bf-014f3f1f0728",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Created by Repo",
-				"query": "tag=github-audit json action==\"pull_request.create\" repo\n| stats count by repo\n| chart count by repo",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Reopened [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "53f33201-fd54-4476-a2e7-afdbfa76d729",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Created by Actor, Repo",
-				"query": "tag=github-audit json action==\"pull_request.create\" actor repo\n| stats count by actor repo\n| table repo actor count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Review Request [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "b2e0238a-ad51-49da-8768-c6ebcc73bb73",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Created by Actor, Repo",
-				"query": "tag=github-audit json action==\"pull_request.create\" actor repo \n| stats count by actor repo \n| chart count by actor repo",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Ready to Review [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "fe1c1f26-916d-4f78-b030-27c7abe35c01",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
 				"id": 6024058075275239,
-				"title": "Merged",
+				"title": "Merged [numbercard]",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 2,
 					"row": 3,
 					"x": 2,
-					"y": 0
-				},
-				"searchesIndex": 0,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "yes",
-					"NumberCardLabelFontSize": 24,
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": 25
-				}
-			},
-			{
-				"id": 6024058075275240,
-				"title": "Open",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 2,
-					"row": 3,
-					"x": 0,
-					"y": 0
-				},
-				"searchesIndex": 1,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "yes",
-					"NumberCardLabelFontSize": 24,
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": 25
-				}
-			},
-			{
-				"id": 6024058075275241,
-				"title": "Closed",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 2,
-					"row": 3,
-					"x": 4,
-					"y": 0
-				},
-				"searchesIndex": 2,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "yes",
-					"NumberCardLabelFontSize": 24,
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": 25
-				}
-			},
-			{
-				"id": 6024058075275242,
-				"title": "Reopened",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 2,
-					"row": 3,
-					"x": 6,
-					"y": 0
-				},
-				"searchesIndex": 3,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "yes",
-					"NumberCardLabelFontSize": 24,
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": 25
-				}
-			},
-			{
-				"id": 6024058075275243,
-				"title": "Review Requests",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 2,
-					"row": 3,
-					"x": 8,
-					"y": 0
-				},
-				"searchesIndex": 4,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "yes",
-					"NumberCardLabelFontSize": 24,
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": 25
-				}
-			},
-			{
-				"id": 6024058075275244,
-				"title": "Ready for Review",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 2,
-					"row": 3,
-					"x": 10,
 					"y": 0
 				},
 				"searchesIndex": 5,
@@ -184,8 +144,108 @@
 				}
 			},
 			{
+				"id": 6024058075275240,
+				"title": "Open [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275241,
+				"title": "Closed [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275242,
+				"title": "Reopened [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275243,
+				"title": "Review Requests [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 6024058075275244,
+				"title": "Ready for Review [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
 				"id": 6024058075275245,
-				"title": "Created by Repo",
+				"title": "Created by Repo [table]",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -194,12 +254,12 @@
 					"x": 0,
 					"y": 3
 				},
-				"searchesIndex": 6,
+				"searchesIndex": 1,
 				"rendererOptions": {}
 			},
 			{
 				"id": 6024058075275246,
-				"title": "Created by Repo",
+				"title": "Created by Repo [chart]",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
@@ -208,15 +268,15 @@
 					"x": 6,
 					"y": 3
 				},
-				"searchesIndex": 7,
+				"searchesIndex": 2,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				}
 			},
 			{
 				"id": 6024058075275247,
-				"title": "Created by Actor, Repo",
+				"title": "Created by Actor, Repo [table]",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -225,12 +285,12 @@
 					"x": 0,
 					"y": 8
 				},
-				"searchesIndex": 8,
+				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
 				"id": 6024058075275248,
-				"title": "Created by Actor, Repo",
+				"title": "Created by Actor, Repo [chart]",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
@@ -239,9 +299,9 @@
 					"x": 6,
 					"y": 8
 				},
-				"searchesIndex": 9,
+				"searchesIndex": 4,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				}
 			}

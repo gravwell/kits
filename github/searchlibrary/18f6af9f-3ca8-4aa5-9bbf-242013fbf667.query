@@ -4,4 +4,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type org repo
     "ssh_certificate_authority.destroy"
     )
 | printf -e context "at %v, %v was %v by %v in %v org" @timestamp action operation_type actor org
-| $GITHUB_ALERT_META("Medium", "SSH Certificate Authority Changed")
+$GITHUB_ALERT_META("Medium", "SSH Certificate Authority Changed")

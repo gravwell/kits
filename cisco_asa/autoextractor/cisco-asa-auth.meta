@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-asa-auth",
+	"Desc": "Gravwell generated fields extraction for tag cisco-asa-auth, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-asa-auth"
+	],
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "e1ba69ef-c08b-4591-b024-21e27bd2f8cc",
+	"LastUpdated": "2026-03-17T13:51:48.99666817Z"
+}

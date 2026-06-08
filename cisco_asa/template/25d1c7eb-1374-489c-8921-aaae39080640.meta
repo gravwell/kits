@@ -1,0 +1,37 @@
+{
+	"UUID": "25d1c7eb-1374-489c-8921-aaae39080640",
+	"Name": "Template - Cisco - ASA - Firewall - Authentication - Event Count by Severity [numbercard]",
+	"Description": "Displays a numbercard of Authentication events performed by the user and/or ip.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This is the user that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This is the ip address that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%boolean%%",
+				"label": "boolean",
+				"description": "AND (\u0026\u0026), OR (||)",
+				"required": true,
+				"defaultValue": "||",
+				"previewValue": "||"
+			}
+		]
+	},
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	]
+}

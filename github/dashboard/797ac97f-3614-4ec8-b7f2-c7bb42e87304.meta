@@ -5,78 +5,150 @@
 	"Data": {
 		"timeframe": {
 			"durationString": null,
-			"timeframe": "P7DT",
+			"timeframe": "P1DT",
 			"timezone": null,
 			"start": null,
 			"end": null
 		},
 		"searches": [
 			{
-				"alias": "Vulnerabilities Created",
-				"query": "tag=github-audit json action~\"repository_vulnerability_alert.create\" repo \n| stats count \n| numbercard count",
-				"color": null
+				"alias": "Search - GitHub - Repo - New Repo Vulnerability Created [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "4deaf9e9-653a-4399-9f2f-64cc2051e73b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Code Scanning Alerts",
-				"query": "tag=github-audit json action repo \n| eval in(action, \"code_scanning.alert_created\", \"code_scanning.alert_appeared_in_branch\") \n| stats count \n| numbercard count",
-				"color": null
+				"alias": "Search - GitHub - Code Scan - New Alerts [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "0a3aac69-e88a-4552-a047-fd4c15c57f49",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Public Key Created",
-				"query": "tag=github-audit json action repo | eval in(action, \"public_key.create\") \n| stats count \n| numbercard count",
-				"color": null
+				"alias": "Search - GitHub - SSH - Public Key Created [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "b68d8b25-cd30-4edc-8470-32c116ca2754",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Pull Requests Created",
-				"query": "tag=github-audit json action repo \n| eval in(action, \"pull_request.create\") \n| stats count \n| numbercard count",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Created [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "b90d286e-73db-41ab-bdd7-1de07f90154b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Secret Scanning Alerts",
-				"query": "tag=github-audit json action repo | eval in(action, \"secret_scanning_alert.create\") \n| stats count \n| numbercard count",
-				"color": null
+				"alias": "Search - GitHub - Secret Scan - New Alerts [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "8aaa27c2-eccb-42b8-b25d-0b480c2613c2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "New Org Members",
-				"query": "tag=github-audit json action repo \n| eval in(action, \"org.add_member\") \n| stats count \n| numbercard count",
-				"color": null
+				"alias": "Search - GitHub - Org - New Alerts [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9d8ab914-2707-48c6-b3b4-e362c067ad4f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Pull Requests by Repo",
-				"query": "tag=github-audit json action~\"pull_request.create\" repo \n| stats count by repo\n| chart count by repo",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Created by Repo [donut]",
+				"color": null,
+				"reference": {
+					"id": "fa0696b7-a9b0-4c64-a225-dd60d0e03160",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Pull Requests by Actor",
-				"query": "tag=github-audit json action~\"pull_request.create\" actor\n| stats count by actor\n| chart count by actor",
-				"color": null
+				"alias": "Search - GitHub - Pull Request - Created by Actor [donut]",
+				"color": null,
+				"reference": {
+					"id": "2c4dc712-33c9-4ef3-af19-c5408786129b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Code Scanning Events",
-				"query": "tag=github-audit json action~\"code_scanning.\" repo actor ref \n| stats count by repo action actor ref \n| table",
-				"color": null
+				"alias": "Search - GitHub - Code Scan - New Alerts [table]",
+				"color": null,
+				"reference": {
+					"id": "fc685669-d0a1-4375-83bd-244d07f7ca12",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Secret Scanning Alerts",
-				"query": "tag=github-audit json action~\"secret_scanning_alert\" actor repo \n| stats count by repo \n| table",
-				"color": null
+				"alias": "Search - GitHub - Secret Scan - Any Alerts [table]",
+				"color": null,
+				"reference": {
+					"id": "535bed62-3839-4849-8d92-3973f8b19a38",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Repo Members Added",
-				"query": "tag=github-audit json action~\"repo.add_member\" repo actor user \n| table",
-				"color": null
+				"alias": "Search - GitHub - Org - New Members [table]",
+				"color": null,
+				"reference": {
+					"id": "59f401c8-3df6-4487-a0ee-f213e60de1e8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			},
 			{
-				"alias": "Personal Access Token Granted or Requested",
-				"query": "tag=github-audit json @timestamp actor action operation_type user repository_selection\n| eval in(action,\n    \"personal_access_token\"\n    )\n| table",
-				"color": null
+				"alias": "Search - GitHub - Token -  Personal Access Token (PAT) Granted or Requested [table]",
+				"color": null,
+				"reference": {
+					"id": "90e8abd3-aafa-419c-b97b-15fdad71ef1b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
 				"id": 1755191502751,
-				"title": "Vulnerabilities Created",
-				"renderer": "numbercard",
+				"title": "Vulnerabilities Created [numbercard]",
+				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 2,
@@ -89,7 +161,7 @@
 			},
 			{
 				"id": 1755191520495,
-				"title": "Code Scanning Alerts",
+				"title": "Code Scanning Alerts [numbercard]",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
@@ -103,7 +175,7 @@
 			},
 			{
 				"id": 1755191712916,
-				"title": "Public Key Created",
+				"title": "Public Key Created [numbercard]",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
@@ -117,8 +189,8 @@
 			},
 			{
 				"id": 1755192109498,
-				"title": "Pull Requests Created",
-				"renderer": "numbercard",
+				"title": "Pull Requests Created [numbercard]",
+				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 2,
@@ -131,8 +203,8 @@
 			},
 			{
 				"id": 1755192340873,
-				"title": "Secret Scanning Alerts",
-				"renderer": "numbercard",
+				"title": "Secret Scanning Alerts [numbercard]",
+				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 2,
@@ -145,8 +217,8 @@
 			},
 			{
 				"id": 1755192536942,
-				"title": "New Org Members",
-				"renderer": "numbercard",
+				"title": "New Org Members [numbercard]",
+				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 2,
@@ -159,7 +231,7 @@
 			},
 			{
 				"id": 1755193015411,
-				"title": "Pull Requests by Repo",
+				"title": "Pull Requests by Repo [chart]",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
@@ -176,7 +248,7 @@
 			},
 			{
 				"id": 1755193066484,
-				"title": "Pull Requests by Actor",
+				"title": "Pull Requests by Actor [chart]",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
@@ -193,7 +265,7 @@
 			},
 			{
 				"id": 1755193333907,
-				"title": "Code Scanning Events",
+				"title": "Code Scanning Events [table]",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -207,7 +279,7 @@
 			},
 			{
 				"id": 1755193834826,
-				"title": "Secret Scanning Alerts",
+				"title": "Secret Scanning Alerts [table]",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -221,7 +293,7 @@
 			},
 			{
 				"id": 1755194028561,
-				"title": "Repo Members Added",
+				"title": "Repo Members Added [table]",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -235,7 +307,7 @@
 			},
 			{
 				"id": 1755194370765,
-				"title": "Personal Access Token Granted or Requested",
+				"title": "Personal Access Token Granted or Requested [table]",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {

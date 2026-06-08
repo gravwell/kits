@@ -1,0 +1,43 @@
+{
+	"UUID": "42a4fd24-6508-4c37-ab75-5a42303d9341",
+	"Name": "GitHub User",
+	"Description": "This actionable will launch the GitHub User/Actor Investigation Dashboard to show the various data for the user/actor, and their interactions within the system.",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Investigate",
+				"description": "This actionable will launch the GitHub User/Actor Investigation Dashboard to show the various data for the user/actor, and their interactions within the system.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "e9fca96e-9579-45d5-9471-fe635f533056",
+					"options": {
+						"variable": "%%1%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/user\\\"\\:\\\"(?\u003cuser\u003e\\S+?)?\\\"/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"github"
+	]
+}

@@ -3,4 +3,4 @@ tag=$GITHUB_AUDIT json @timestamp actor action operation_type repo
     "migration.create"
     )
 | printf -e context "at %v, %v was %v by %v for %v" @timestamp action operation_type actor repo
-| $GITHUB_ALERT_META("Medium", "Data Transfer Created")
+$GITHUB_ALERT_META("Medium", "Data Transfer Created")
