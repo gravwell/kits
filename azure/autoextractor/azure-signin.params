@@ -1,1 +1,1 @@
-records
+time resourceId operationName operationVersion category tenantId resultType resultSignature resultDescription durationMs callerIpAddress correlationId level location properties properties.id properties.correlationDateTime properties.userDisplayName properties.userPrincipalName properties.userId agent.appId agent.appDisplayName agent.ipAddress agent.ipAddressFromResourceProvider status
