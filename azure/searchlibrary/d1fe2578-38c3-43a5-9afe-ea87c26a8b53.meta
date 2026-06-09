@@ -1,0 +1,15 @@
+{
+	"Name": "Azure - Azure Application Security Group Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Application Security Groups. Changes to ASGs can alter network segmentation policies, potentially enabling lateral movement between workloads.",
+	"GUID": "d1fe2578-38c3-43a5-9afe-ea87c26a8b53",
+	"Labels": [
+		"azure",
+		"network",
+		"nsg",
+		"detection",
+		"T1562",
+		"defense-evasion",
+		"impact"
+	],
+	"Metadata": {}
+}
