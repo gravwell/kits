@@ -11,16 +11,17 @@ The Okta Kit is licensed under the Apache 2.0 license and the contents are avail
 - 1.0: Initial Release
 	- actionables 3
 	- alert 2
+	- autoextractors 3
 	- dashboard 8
 	- file 1
 	- license 1
-	- macro 30
-	- playbook 3
+	- macro 28
+	- playbook 2
 	- resource 8
-	- scheduled 
-		- scheduled searches 2
+	- scheduled 69
+		- scheduled searches 67
 		- flows 2
-	- searchlibrary 49
-		- alert queries 2
+	- searchlibrary 114
+		- alert queries 67
 		- dashboard searches 47
 	- template 20

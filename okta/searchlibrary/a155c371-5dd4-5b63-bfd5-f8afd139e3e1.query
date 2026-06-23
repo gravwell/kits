@@ -1,0 +1,12 @@
+/* AlertQuery - Okta - Identity Access Management - Application - OAuth2 - First Occurrence of Okta User Session Started via Proxy [table] */
+tag=$OKTA_SYSTEM ax eventType == "app.oauth2.as.token.grant"
+$OKTA_ALERT_EVX
+| regex -e outcomeResult "(?i)FAILURE"
+| regex -e actorType "(?i)PublicClientApp"
+| regex -e actorName "(?i)(Okta.*|Datadog)"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "First Occurrence of Okta User Session Started via Proxy"
+$OKTA_ALERT_META

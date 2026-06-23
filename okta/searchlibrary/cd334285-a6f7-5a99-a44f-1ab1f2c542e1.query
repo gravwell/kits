@@ -1,0 +1,12 @@
+/* AlertQuery - Okta - Identity Access Management - User - Session - Multiple Okta Sessions Detected for a Single User [table] */
+tag=$OKTA_SYSTEM ax eventType == "user.session.start"
+$OKTA_ALERT_EVX
+| regex -e actorId "(?i)okta.*"
+| regex -e actorName "(?i)okta.*"
+| regex -e authExternalSessionId ".*"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Multiple Okta Sessions Detected for a Single User"
+$OKTA_ALERT_META

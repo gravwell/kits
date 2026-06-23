@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Session - Okta User Session Impersonation [table]",
+  "Description": "A user has initiated a session impersonation granting them access to the environment with the permissions of the user they are impersonating. This would likely indicate Okta administrative access and should only ever occur if requested and expected.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_user_impersonation_access/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_user_impersonation_access.toml",
+  "GUID": "dc7485cb-e234-5d26-a5e7-261f1b7d8487",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

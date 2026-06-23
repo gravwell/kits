@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Policy - Rule - Okta New Admin Console Behaviours [table]",
+  "Description": "Detects when Okta identifies new activity in the Admin Console.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_new_behaviours_admin_console/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "GUID": "6f184621-3dfd-51ff-a800-ffc14ed553d2",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

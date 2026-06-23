@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Audit - Application - Unauthorized Access to an Okta Application [table]",
+  "Description": "Identifies unauthorized access attempts to Okta applications.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_attempted_unauthorized_access/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_okta_user_attempted_unauthorized_access.toml",
+  "GUID": "d0cc876e-0a81-532e-86ad-49862beba997",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

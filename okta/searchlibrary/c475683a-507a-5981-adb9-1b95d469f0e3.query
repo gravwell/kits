@@ -1,0 +1,9 @@
+/* AlertQuery - Okta - Identity Access Management - User - Account - Administrator Role Assigned to an Okta User [table] */
+tag=$OKTA_SYSTEM ax eventType == "user.account.privilege.grant"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Administrator Role Assigned to an Okta User"
+$OKTA_ALERT_META

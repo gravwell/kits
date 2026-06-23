@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - System API - Attempt to Create Okta API Token [table]",
+  "Description": "Detects attempts to create an Okta API token. An adversary may create an Okta API token to maintain access to an organization's network while they work to achieve their objectives. An attacker may abuse an API token to execute techniques such as creating user accounts or disabling security rules or policies.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_attempt_to_create_okta_api_token/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/persistence_attempt_to_create_okta_api_token.toml",
+  "GUID": "43923775-2b56-57ec-a208-5bdd711e5bec",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}
