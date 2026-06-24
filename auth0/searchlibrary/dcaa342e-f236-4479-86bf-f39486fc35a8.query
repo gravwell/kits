@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Lifecycle - System API - Excessive Scope Grant Amount
-tag=auth0
+tag=$AUTH0
 | json
     date
     type == "sapi" as eventType

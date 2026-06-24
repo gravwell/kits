@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - User - Account - Risk of Signup Fraud by Volume of Fake Accounts
-tag=auth0
+tag=$AUTH0
 | json
     type as eventType
     ip

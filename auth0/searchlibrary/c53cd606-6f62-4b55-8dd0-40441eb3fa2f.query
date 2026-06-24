@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Lifecycle - System API - Modification to Password Login Policy
-tag=auth0 json 
+tag=$AUTH0 json 
     date 
     type == "sapi" as eventType 
     description == "Create or update the anomaly detection captcha"

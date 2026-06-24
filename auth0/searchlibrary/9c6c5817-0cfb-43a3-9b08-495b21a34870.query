@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Lifecycle - MFA - Multiple Phone Numbers Are Registered as MFA
-tag=auth0
+tag=$AUTH0
 | json
     date
     type == "gd_enrollment_complete"

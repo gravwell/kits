@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.auth0",
 	"Name": "Auth0",
 	"Desc": "A toolkit for interacting with your Auth0 data.",
-	"Readme": "A toolkit for interacting with your Auth0 data. \n\nAn [integration](https://docs.gravwell.io/integrations/integrations.html) guide for [Auth0](https://docs.gravwell.io/integrations/iam/auth0.html) is available on [Gravwell Docs](https://docs.gravwell.io/).\n\nIt provides the following utilities:  \n    - Actionables  \n    - Dashboards  \n    - Extractors  \n    - Files  \n    - Macros  \n    - Playbooks  \n    - Queries  \n    - Resources  \n    - Scheduled Searches  \n    - Templates  \n\nThe [Auth0 Kit](https://github.com/gravwell/kits/tree/main/auth0) is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/auth0).\n\n## Dependencies  \n- None  \n\n## Changelog\n- **1.0: Initial Release**\n    - Actionables (3)  \n    - Alerts (0)  \n    - Dashboards (2)  \n    - Extractors (1)  \n    - Files (1)  \n    - Flows (0)  \n    - Macros (5)  \n    - Playbooks (2)  \n    - Queries (68)  \n    - Resources (1)  \n    - Scheduled Searches (52)  \n    - Scripts (0)  \n    - Templates (8)  ",
+	"Readme": "A toolkit for interacting with your Auth0 data. \n\nAn [integration](https://docs.gravwell.io/integrations/integrations.html) guide for [Auth0](https://docs.gravwell.io/integrations/application/auth0.html) is available on [Gravwell Docs](https://docs.gravwell.io/).\n\nIt provides the following utilities:  \n    - Actionables  \n    - Dashboards  \n    - Extractors  \n    - Files  \n    - Macros  \n    - Playbooks  \n    - Queries  \n    - Resources  \n    - Scheduled Searches  \n    - Templates  \n\nThe [Auth0 Kit](https://github.com/gravwell/kits/tree/main/auth0) is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/auth0).\n\n## Dependencies  \n- None  \n\n## Changelog\n- **1.0: Initial Release**\n    - Actionables (3)  \n    - Alerts (0)  \n    - Dashboards (2)  \n    - Extractors (1)  \n    - Files (1)  \n    - Flows (0)  \n    - Macros (5)  \n    - Playbooks (2)  \n    - Queries (68)  \n    - Resources (1)  \n    - Scheduled Searches (52)  \n    - Scripts (0)  \n    - Templates (8)  ",
 	"Version": 1,
 	"MinVersion": {
 		"Major": 0,
@@ -18,16 +18,6 @@
 	"Banner": "5c85be4b-23cc-4658-a04d-838c4ac13394",
 	"Cover": "5c85be4b-23cc-4658-a04d-838c4ac13394",
 	"Items": [
-		{
-			"Name": "BSD 2-Clause",
-			"Type": 10,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "Trademark Notice.meta",
-			"Type": 10,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
 		{
 			"Name": "auth0_eventTypes",
 			"Type": 1,
@@ -294,31 +284,6 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "AUTH0_EVENT_LOOKUP",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "AUTH0_FILTER_CATEGORY",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "AUTH0_AUTH",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "AUTH0_AUTH_CATEGORY",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "AUTH0",
-			"Type": 8,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
 			"Name": "da6909ed-4c3f-46d8-9743-ee1cf20c6a83",
 			"Type": 3,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -326,6 +291,26 @@
 		{
 			"Name": "c77bc64d-6ef2-481c-b958-243c8747eeb6",
 			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "auth0",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "08b86e09-bc2f-464f-b775-22e102636bf6",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1c49b512-80d2-49dd-aca9-9f41288e7ce7",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "72219e9a-3e87-4d89-9a15-75c389207e74",
+			"Type": 5,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -369,18 +354,33 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "08b86e09-bc2f-464f-b775-22e102636bf6",
-			"Type": 5,
+			"Name": "5c85be4b-23cc-4658-a04d-838c4ac13394",
+			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "1c49b512-80d2-49dd-aca9-9f41288e7ce7",
-			"Type": 5,
+			"Name": "AUTH0_EVENT_LOOKUP",
+			"Type": 8,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "72219e9a-3e87-4d89-9a15-75c389207e74",
-			"Type": 5,
+			"Name": "AUTH0_FILTER_CATEGORY",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "AUTH0_AUTH",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "AUTH0_AUTH_CATEGORY",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "AUTH0",
+			"Type": 8,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -724,8 +724,13 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "5c85be4b-23cc-4658-a04d-838c4ac13394",
-			"Type": 7,
+			"Name": "BSD 2-Clause",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "Trademark Notice.meta",
+			"Type": 10,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -736,11 +741,6 @@
 		{
 			"Name": "2e14d92f-dbb3-4777-a56b-c353a27f2004",
 			"Type": 11,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "auth0",
-			"Type": 4,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		}
 	],

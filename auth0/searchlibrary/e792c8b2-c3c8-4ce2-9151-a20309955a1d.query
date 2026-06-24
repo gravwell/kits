@@ -1,6 +1,6 @@
 // AlertQuery - Auth0 - User - Authentication - Successful Login with Suspicious JA4 Fingerprint
 @suspicious_ja4{
-    tag=auth0 json
+    tag=$AUTH0 json
     date
     type as eventType
     ip
@@ -17,7 +17,7 @@
     | table date ip userId userName eventType ja4 failed failedCount failedThreshold
 };
 
-tag=auth0
+tag=$AUTH0
 | json
     date
     type as eventType

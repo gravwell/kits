@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - User - MFA - Possible Account Takeover
-tag=auth0
+tag=$AUTH0
 | json
     date
     type == "gd_enrollment_complete" as eventType

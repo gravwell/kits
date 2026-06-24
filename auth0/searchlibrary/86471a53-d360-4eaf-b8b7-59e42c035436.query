@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Lifecycle - System API - Update Brute-Force Settings
-tag=auth0 json 
+tag=$AUTH0 json 
     date 
     type == "sapi" as eventType 
     description

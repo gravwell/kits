@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Application - OAuth2 - Risk of Copying the Most Powerful Token
-tag=auth0
+tag=$AUTH0
 | json
     date
     type == "seccft"

@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - User - Authentication - Possible Misconfiguration of Auth0 Tenant Name
-tag=auth0
+tag=$AUTH0
 | json
     log_id as logId
     date 

@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Lifecycle - System API - Rapid Creation of Clients with Dynamic Registration
-tag=auth0
+tag=$AUTH0
 | json
     date
     type == "sapi"

@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - User - MFA - SMS Bombarding
-tag=auth0
+tag=$AUTH0
 | json
     type == "gd_send_sms"
     description == "Guardian - Second factor sms sent"

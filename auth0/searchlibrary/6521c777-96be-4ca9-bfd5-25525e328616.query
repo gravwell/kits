@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Malformed Audience
-tag=auth0
+tag=$AUTH0
 | json
     date 
     type == "f" as eventType

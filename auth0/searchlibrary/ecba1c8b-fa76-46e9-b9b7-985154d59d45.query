@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - User - Account - Risk of Signup Fraud by Disposable Domains
-tag=auth0
+tag=$AUTH0
 | json
     date
     type == "ss" as eventType

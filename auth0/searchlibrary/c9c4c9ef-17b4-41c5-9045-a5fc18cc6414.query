@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Lifecycle - System API - Cross-Origin Authentication (CORS) Enabled
-tag=auth0 json 
+tag=$AUTH0 json 
     date 
     ip 
     type == "sapi" as eventType 

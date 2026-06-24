@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Account - Creation - Unexpected Amount of Unverified Users
-tag=auth0
+tag=$AUTH0
 | json
     date
     description

@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Detect Disabled Factors
-tag=auth0 json
+tag=$AUTH0 json
     date 
     type == "sapi" as eventType
     description == "Update multi-factor authentication type"

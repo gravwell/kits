@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Lifecycle - System API - Risk of Tenant Takeover
-tag=auth0
+tag=$AUTH0
 | json
     date
     log_id as logId

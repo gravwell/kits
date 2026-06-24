@@ -1,5 +1,5 @@
 // AlertQuery - Auth0 - Device - Push - Risk for MFA Push Fatigue
-tag=auth0
+tag=$AUTH0
 | json
     date
     // tenant_name == "{your_tenant_name}"                      // Set this to a value that makes sense for your environment.
