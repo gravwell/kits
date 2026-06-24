@@ -1,0 +1,156 @@
+{
+	"UUID": "face35d5-fa43-47d2-84c3-428b2829001b",
+	"Name": "Bitwarden - User Details",
+	"Description": "",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Chart - Bitwarden - User Details Overview",
+				"color": null,
+				"reference": {
+					"id": "7fdf0976-0d62-4b96-8d6f-926fbf06b937",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Chart - Bitwarden - Activity By Event",
+				"color": null,
+				"reference": {
+					"id": "2cad8b91-5e75-4515-94d1-edf1030c8cc5",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Bitwarden - Event Logs (Mapped)",
+				"color": null,
+				"reference": {
+					"id": "c5e59a04-84f0-4644-9b0e-f75b3bf024fe",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Bitwarden - Successful Logins by User [Chart]",
+				"color": null,
+				"reference": {
+					"id": "61c5d373-6995-4227-890c-4a9e5b5e121e",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Bitwarden - Failed Logins by User [Chart]",
+				"color": null,
+				"reference": {
+					"id": "2045e2ab-8079-4334-ac9f-95282f843480",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 5465889035485876,
+				"title": "Overview",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 8334006571789530,
+				"title": "Activity By Event",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "yes",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 6175999827619167,
+				"title": "Event Details",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 10,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17785182050983,
+				"title": "Successful Logins",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17785182509854,
+				"title": "Failed Logins",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

@@ -1,0 +1,48 @@
+{
+  "Tags": [
+    "cisco-ftd-auth",
+    "cisco-ftd-config",
+    "cisco-ftd-conn",
+    "cisco-ftd-events",
+    "cisco-ftd-file",
+    "cisco-ftd-intrusion",
+    "cisco-ftd-malware",
+    "cisco-ftd-system",
+    "cisco-ftd-threat",
+    "cisco-ftd-traffic",
+    "cisco-ftd-vpn"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "cisco-cover.png",
+      "Legend": "Cisco FTD Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "cisco-banner.png",
+      "Legend": "Cisco FTD Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "cisco-cover.png"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "cisco-banner.png"
+    }
+  ],
+  "readme": "README.md"
+}

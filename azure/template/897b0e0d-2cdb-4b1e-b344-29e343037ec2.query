@@ -1,0 +1,2 @@
+tag=$AZURE_ACTIVITY json resourceId identity.authorization.evidence.roleAssignmentScope as role callerIpAddress == %%ip_address%%
+| table role resourceId

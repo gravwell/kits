@@ -1,0 +1,24 @@
+{
+	"UUID": "eed93cc4-b267-45cf-858a-1b0144be472c",
+	"Name": "Azure - Operations by IP - Investigate - IP",
+	"Description": "operationName frequency table.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "136.59.164.75"
+			}
+		]
+	},
+	"Labels": [
+		"azure",
+		"roles",
+		"operationName",
+		"IP",
+		"ip"
+	]
+}

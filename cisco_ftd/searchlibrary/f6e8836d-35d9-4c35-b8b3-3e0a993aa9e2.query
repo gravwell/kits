@@ -1,0 +1,4 @@
+tag=$CISCO_SECURITY 
+| stats count by TAG
+| alias count " "
+| chart " " by TAG

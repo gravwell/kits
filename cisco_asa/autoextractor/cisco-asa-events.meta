@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-asa-events",
+	"Desc": "Gravwell generated fields extraction for tag cisco-asa-events, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-asa-events"
+	],
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "4ed9ad96-c7b2-4858-b8cd-7073aeb8037a",
+	"LastUpdated": "2026-03-17T13:51:48.989149461Z"
+}

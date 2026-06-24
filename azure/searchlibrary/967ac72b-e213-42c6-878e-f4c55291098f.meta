@@ -1,0 +1,11 @@
+{
+	"Name": "Azure - Activity Volume Over Time",
+	"Description": "Count of all `$AZURE_ACTIVITY` events, bucketed by hour [Chart]",
+	"GUID": "967ac72b-e213-42c6-878e-f4c55291098f",
+	"Labels": [
+		"azure",
+		"stats",
+		"baseline"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,19 @@
+// CISCO_SECURITY_EVX
+
+| regex -p -e DATA "^(?:<(?P<priority>\d+)>)?(?:(?P<version>\d+)\s+)?(?P<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z|\w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(?P<hostname>\S+)(?:\s+(?P<deviceId>\S+))?\s+%(?P<appliance>\w+)-(?P<severity>\d+)-(?P<msgid>\d+):\s+(?P<msg>.+)$"
+| kv -e msg -d ", " -sep ": " 
+	
+	// Shared Across connection, intrusion, file, & malware events
+	ApplicationProtocol Client "Connection Counter" ConnectionCounter "Connection Instance ID" ConnectionInstanceID ConnectionID DeviceUUID DstIP DstPort "First Packet Time" FirstPacketTime FirstPacketSecond Protocol SrcIP SrcPort SSLActualAction User WebApplication
+
+	// intrusion 
+	AccessControlRuleName ACPolicy Classification EgressInterface EgressZone GID HTTPResponse ICMPCode ICMPType IngressInterface IngressZone InlineResult IntrusionPolicy MPLS_Label Message NAPPolicy URI NumIOC Priority Revision SID VLAN_ID
+
+	// connection
+	AccessControlRuleAction  AccessControlRuleReason ClientVersion ConnectionDuration DetectionType DestinationSecurityGroup DestinationSecurityGroupTag DestinationSecurityGroupType DNS_Sinkhole DNS_TTL DNSQuery DNSRecordType DNSResponseType DNSSICategory EgressVRF "Endpoint Profile" EndpointProfile EncryptedVisibilityFingerprint EncryptedVisibilityProcessName EncryptedVisibilityConfidenceScore EncryptedVisibilityThreatConfidence EncryptedVisibilityThreatConfidenceScore "Event Priority" EventPriority FileCount HTTPReferer IngressVRF InitiatorBytes InitiatorPackets IPReputationSICategory IPSCount NAT_InitiatorIP NAT_ResponderIP NAT_InitiatorPort NAT_ResponderPort NetBIOSDomain originalClientSrcIP "Prefilter Policy" PrefilterPolicy ReferencedHost ResponderBytes ResponderPackets SecIntMatchingIP "Security Group" SecurityGroup SourceSecurityGroup SourceSecurityGroupTag SourceSecurityGroupType SSLCertificate SSLExpectedAction SSLFlowStatus SSLPolicy SSLRuleName SSLServerCertStatus SSLServerName SSLSessionID SSLTicketID SSLURLCategory SSLVersion SSSLCipherSuite TCPFlags Tunnel  "Prefilter Rule" PrefilterRule URL URLCategory URLReputation URLSICategory UserAgent
+
+	// file
+	FileAction FileDirection FileName FilePolicy FileSandboxStatus FileSHA256 FileSize FileStorageStatus FileType
+
+	// malware
+	ArchiveDepth ArchiveFileName ArchiveFileStatus ArchiveSHA256 SHA_Disposition SperoDisposition ThreatName ThreatScore

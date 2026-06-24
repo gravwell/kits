@@ -1,0 +1,18 @@
+{
+	"UUID": "c5e59a04-84f0-4644-9b0e-f75b3bf024fe",
+	"Name": "Bitwarden - Event Log Details [Table]",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%email%%",
+				"label": "User's Email Address",
+				"description": "first.last@email.com",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": null
+}

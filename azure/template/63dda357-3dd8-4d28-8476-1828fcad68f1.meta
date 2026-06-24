@@ -1,0 +1,22 @@
+{
+	"UUID": "63dda357-3dd8-4d28-8476-1828fcad68f1",
+	"Name": "Azure - Activity Timeline - Investigate - IP",
+	"Description": "All `$AZURE_ACTIVITY` events for IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "136.59.164.75"
+			}
+		]
+	},
+	"Labels": [
+		"azure",
+		"ip",
+		"IP"
+	]
+}

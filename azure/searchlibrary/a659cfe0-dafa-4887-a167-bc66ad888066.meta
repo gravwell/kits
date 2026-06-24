@@ -1,0 +1,14 @@
+{
+	"Name": "Azure - Network Virtual Appliance Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure virtual network appliances including NICs, virtual hubs, and virtual routers. Changes to these resources can redirect or intercept network traffic.",
+	"GUID": "a659cfe0-dafa-4887-a167-bc66ad888066",
+	"Labels": [
+		"azure",
+		"network",
+		"detection",
+		"T1562",
+		"defense-evasion",
+		"impact"
+	],
+	"Metadata": {}
+}

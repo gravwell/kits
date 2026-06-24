@@ -1,0 +1,37 @@
+{
+	"UUID": "9a11072f-cbe0-4365-b228-def2e0847c01",
+	"Name": "Template - Cisco - FTD - Firewall - Connection - Events by User and/or IP [table]",
+	"Description": "Displays a table of Connection Events performed by the specified user and/or ip.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%boolean%%",
+				"label": "boolean",
+				"description": "AND (\u0026\u0026), OR (||)",
+				"required": true,
+				"defaultValue": "||",
+				"previewValue": "||"
+			},
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This is the user that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This is the ip address that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

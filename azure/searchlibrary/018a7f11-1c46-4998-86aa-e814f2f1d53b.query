@@ -1,0 +1,8 @@
+tag=$AZURE_ACTIVITY json operationName callerIpAddress resourceId resultType correlationId
+| eval (
+    operationName == "MICROSOFT.NETWORK/LOCALNETWORKGATEWAYS/WRITE" ||
+    operationName == "MICROSOFT.NETWORK/LOCALNETWORKGATEWAYS/DELETE" ||
+    operationName == "MICROSOFT.NETWORK/VPNGATEWAYS/VPNCONNECTIONS/WRITE" ||
+    operationName == "MICROSOFT.NETWORK/VPNGATEWAYS/VPNCONNECTIONS/DELETE"
+  )
+| table

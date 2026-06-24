@@ -1,0 +1,11 @@
+{
+	"Name": "Azure - Directory Role Membership Changes",
+	"Description": "$AZURE_AD Add member to role events, table by role name",
+	"GUID": "46d21f84-4507-4c08-8ad1-416f114a47a1",
+	"Labels": [
+		"azure_ad",
+		"stats",
+		"baseline"
+	],
+	"Metadata": {}
+}

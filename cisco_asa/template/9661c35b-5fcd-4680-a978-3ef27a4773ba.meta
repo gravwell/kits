@@ -1,0 +1,37 @@
+{
+	"UUID": "9661c35b-5fcd-4680-a978-3ef27a4773ba",
+	"Name": "Template - Cisco - ASA - Firewall - Traffic - Events by User and/or IP [table]",
+	"Description": "Displays a table of Traffic events performed by the user and/or ip.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%boolean%%",
+				"label": "boolean",
+				"description": "AND (\u0026\u0026), OR (||)",
+				"required": true,
+				"defaultValue": "||",
+				"previewValue": "||"
+			},
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This is the user that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This is the ip address that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	]
+}

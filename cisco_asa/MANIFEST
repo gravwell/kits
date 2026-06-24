@@ -1,0 +1,404 @@
+{
+	"ID": "io.gravwell.cisco_asa",
+	"Name": "Cisco ASA",
+	"Desc": "Provides tools and utilities to work with Cisco ASA logs.",
+	"Readme": "Cisco ASA Kit\n\nThe Cisco ASA Kit provides a baseline set of tags, macros, saved queries, lookup resources, playbooks, actionables, dashboard searches, alert queries, and dashboards for your Cisco ASA data.\n\nAn integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/ciscoasa.html).\n\nThe Cisco ASA Kit is licensed under the Apache 2.0 license and the contents are available on [Cisco ASA](https://github.com/gravwell/kits/tree/main/cisco_asa).",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 0,
+		"Minor": 0,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 99,
+		"Point": 0
+	},
+	"Icon": "fccc402c-3416-4474-b745-efbdae1ab338",
+	"Banner": "b3351632-fc00-4837-8e23-4c828159e8f9",
+	"Cover": "1f1818a9-4f51-4197-bb11-42bd7838533c",
+	"Items": [
+		{
+			"Name": "BSD 2-Clause",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco_asa_syslog_messages",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_AUTH",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_EVENTS",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_SEVERITY_ORDER",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_VPN",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_SEVERITY",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_TRAFFIC",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_THREAT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_CONFIG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "CISCO_ASA_SYSTEM",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0c340e6a-7268-46a7-8f36-f59405ff64fe",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ecba95f1-ffc0-4771-a709-8a8cd4034d54",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "581bde9b-2fed-4c15-9399-b88e5e9d9906",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9dfd4836-c89d-4a07-87fc-252c4de215b9",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "40c8245f-831a-4b79-89bf-8bde22cc6a14",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6b59baee-fe04-485b-ac08-409e3019676f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fd7b6b7a-299d-453a-8920-07a1eea1b263",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f430c1df-81bc-445c-b61a-1ef49fb083ec",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "27eaeef9-b4e5-447d-9507-ef4c956e8628",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "10ba1a95-b8b0-48b5-b6da-0c4d239b6723",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c4f13f36-82d9-4979-9674-62c47c4afcbf",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d9ca6be9-e6b2-47bd-b848-5e7688279504",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a9a633dc-7c08-45a1-a3ce-2836dbcdbf2f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6cb9a8c5-1105-4ffd-86ce-a187a5e627e0",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6355fe94-d78b-4907-953f-90f326bf2068",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "611dffdb-4690-44e2-b879-02c10a7f0491",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7036eb99-c22a-47c4-80a7-98305bf2a2bc",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bd9fb0ba-2e0d-4ba5-8a3e-e81f89bb5ccb",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "3b5ef009-c2dc-4e3f-997f-4926ec43d5bb",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "47d8c36b-fbfe-42d7-869d-29899bb65dca",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "afee5a3c-b9a1-4401-91d1-6606578ac7eb",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "25d1c7eb-1374-489c-8921-aaae39080640",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "07acb5cf-8fdf-4d91-b0f6-f97ac0bb9ddb",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1ed766ff-be55-4260-a78d-455a153dd2c2",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d5b4a66b-24da-4db0-bc86-bdf5813e6a7f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9661c35b-5fcd-4680-a978-3ef27a4773ba",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bf135c0c-9050-4847-909a-d38e0a4fa653",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6d3deabc-1f6b-4478-affe-274a6e5783ad",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0d1d3288-09a7-47a0-adde-f01f4dc0134f",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "04605cfd-f1e7-427f-a41e-f1d38f889720",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6d7375c4-15e1-4578-bde8-fec4912fae1d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "abe3dffb-ef2a-43d8-8fcf-25585bbe2c2f",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bdcc39a0-ec42-4086-af44-072fd2de8a5c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bd053ad9-2882-465a-a265-cbe41a1c55d6",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "2671528e-99d4-4d09-b497-cb75926c5d0b",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5dbb1e3b-6a8e-44a6-9be3-134b4704f094",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ac7861cf-7a72-4efd-ac26-2e08a833ebf5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "835fbc22-f2db-4b63-9acf-9d9013b59f3e",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "094bf60b-7382-4e43-9867-8de7ac4c3444",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fccc402c-3416-4474-b745-efbdae1ab338",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b3351632-fc00-4837-8e23-4c828159e8f9",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1f1818a9-4f51-4197-bb11-42bd7838533c",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "df9a72aa-2c82-4454-a0f0-55b4a538b270",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+				{
+			"Name": "f4c742e8-173e-4ec4-a1e8-35f736a53c4e",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-traffic",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-threat",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-config",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-vpn",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-events",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-system",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cisco-asa-auth",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "CISCO_ASA_AUTH",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Authentication data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-auth",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_EVENTS",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Events data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-events",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_VPN",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA VPN data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-vpn",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_TRAFFIC",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Traffic data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-traffic",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_CONFIG",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Config data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-config",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_SYSTEM",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA System data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-system",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-*",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "CISCO_ASA_THREAT",
+			"Description": "Configuration Macro; Tag used for all Cisco ASA Threat data; necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates. ",
+			"DefaultValue": "cisco-asa-threat",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
+	]
+}

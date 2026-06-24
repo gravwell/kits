@@ -1,0 +1,8 @@
+{
+	"Name": "CISCO_SECURITY_EVX",
+	"Description": "This macro extracts all of the known Enumerated Values (EVs) for all Cisco FTD Security Events (FTD-#-430001 to FTD-#-430005); necessary for any queries within the Gravwell Cisco Firewall Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=CISCO_SECURITY\n$CISCO_SECURITY_EVX\n\nReference(s):\n- https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/fptd_syslog_guide/security-event-syslog-messages.html",
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

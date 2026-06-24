@@ -1,0 +1,4 @@
+dump -r bitwardenMembers
+| eval in(userType,"Owner","Admin")
+| count
+| numbercard (count "")

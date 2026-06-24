@@ -1,0 +1,3 @@
+dump -r bitwardenMembers
+| count
+| numbercard (count "")

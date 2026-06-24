@@ -1,0 +1,4 @@
+tag=$AZURE_ACTIVITY json operationName
+| eval operationName ~ "ROLEASSIGNMENTS"
+| count operationName over 1h
+| chart count

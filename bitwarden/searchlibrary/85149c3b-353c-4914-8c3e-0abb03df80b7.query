@@ -1,0 +1,6 @@
+tag=$BITWARDEN_TAG ax date eventType == 1000 actingUserId serviceAccountId ipAddress
+| eval if (actingUserId == "null") {actorEmail = printf("ServiceAccount:%v",serviceAccountId);}
+| lookup -r bitwardenMembers actingUserId userId email
+| stats max(TIMESTAMP) as lastLogin by email
+| sort by lastLogin desc
+| table -csv -save bitwardenLastLogin lastLogin email ipAddress

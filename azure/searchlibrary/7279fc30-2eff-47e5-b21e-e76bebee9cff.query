@@ -1,0 +1,2 @@
+tag=$AZURE_AD json operationName callerIpAddress properties.initiatedBy.user.userPrincipalName properties.category == AzureRBACRoleManagementElevateAccess
+| table

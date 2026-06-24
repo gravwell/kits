@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-ftd-vpn",
+	"Desc": "Gravwell generated fields extraction for tag cisco-ftd-vpn, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-ftd-vpn"
+	],
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "dee194c1-5c44-4678-aecf-ce2ac33d724d",
+	"LastUpdated": "2026-03-18T01:27:57.42112542Z"
+}

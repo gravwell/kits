@@ -1,0 +1,10 @@
+// CISCO_ASA_SEVERITY_ORDER
+| eval _severity_order = 7;
+    if (severity=="Alert") {_severity_order = 1;}
+    if (severity=="Critical") {_severity_order = 2;}
+    if (severity=="Error") {_severity_order = 3;}
+    if (severity=="Warning") {_severity_order = 4;}
+    if (severity=="Notification") {_severity_order = 5;}
+    if (severity=="Informational") {_severity_order = 6;}
+    if (severity=="Debugging") {_severity_order = 7;}
+| sort by _severity_order

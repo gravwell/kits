@@ -1,0 +1,2 @@
+tag=$AZURE_AD json operationName == "User deleted security info" callerIpAddress identity resultDescription properties.result == success resourceId correlationId
+| table

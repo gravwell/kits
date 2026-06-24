@@ -1,0 +1,37 @@
+{
+	"UUID": "73333f31-0a91-48ac-8d74-4c042a47d7bf",
+	"Name": "Template - Cisco - FTD - Firewall - Combined - Event Count by Severity [chart]",
+	"Description": "Displays a chart of all events performed by the user and/or ip.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%boolean%%",
+				"label": "boolean",
+				"description": "AND (\u0026\u0026), OR (||)",
+				"required": true,
+				"defaultValue": "||",
+				"previewValue": "||"
+			},
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This is the user that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This is the ip address that you're investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

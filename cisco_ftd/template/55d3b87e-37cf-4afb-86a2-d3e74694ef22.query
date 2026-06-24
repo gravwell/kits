@@ -1,0 +1,14 @@
+tag=$CISCO_FTD_INTRUSION
+| eval (DATA ~ "%%user%%" %%boolean%% DATA ~ "%%ip%%")
+$CISCO_FTD_INTRUSION_EVX
+| regex -p -e DATA "(?<user>%%user%%)"
+| regex -e DATA "(?<ip>%%ip%%)"
+$CISCO_FTD_SEVERITY
+| alias 
+    IngressInterface SrcInterface 
+    IngressZone SrcZone
+    EgressInterface DstInterface 
+    EgressZone DstZone
+    severity Severity
+    SSLActualAction Action
+| table timestamp FirstPacketSecond User SrcIP SrcPort SrcInterface SrcZone DstIP DstPort DstInterface DstZone Action URI Message

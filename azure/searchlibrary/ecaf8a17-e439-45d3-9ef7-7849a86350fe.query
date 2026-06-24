@@ -1,0 +1,5 @@
+tag=$AZURE_AD json operationName identity
+| eval operationName == "Add member to role"
+| regex `"Role\.DisplayName"[^}]*"newValue":"\\\"(?P<roleName>[^\\\"]+)\\\"`
+| eval roleName ~ "Admins" || roleName ~ "Administrator"
+| table

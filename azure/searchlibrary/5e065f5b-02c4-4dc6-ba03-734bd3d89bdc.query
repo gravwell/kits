@@ -1,0 +1,4 @@
+tag=$AZURE_AD json operationName
+| eval operationName == "Remove service principal" || operationName == "Add service principal"
+| count by operationName
+| chart count by operationName

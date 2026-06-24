@@ -1,0 +1,13 @@
+{
+	"Name": "Bitwarden - Ingest Event Logs",
+	"Description": "Ingest Bitwarden event logs via API",
+	"Labels": null,
+	"Schedule": "*/5 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "a5bf33f2-9f89-46da-95cf-b0ab6fa3e7f1",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

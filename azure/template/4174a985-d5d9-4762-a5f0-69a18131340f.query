@@ -1,0 +1,2 @@
+tag=$AZURE_AD json callerIpAddress == %%ip_address%% operationName properties.correlationId properties.initiatedBy.user.userPrincipalName 
+| table userPrincipalName operationName correlationId

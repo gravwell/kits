@@ -1,0 +1,41 @@
+{
+	"UUID": "40797e5e-d81d-43eb-8c4e-25ab75ef2ab5",
+	"Name": "Azure - Correlate IP Activity",
+	"Description": "",
+	"Data": {
+		"menuLabel": "Azure",
+		"actions": [
+			{
+				"name": "Azure - IP Correlation Dashboard",
+				"description": "Review a dashboard of Azure activity by this IP address",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "fdb5f7a6-40b4-4b7e-938f-51f412cd082c",
+					"options": {
+						"variable": "%%ip_address%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}
