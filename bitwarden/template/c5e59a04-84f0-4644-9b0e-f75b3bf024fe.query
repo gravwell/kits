@@ -1,0 +1,12 @@
+tag=$BITWARDEN_TAG ax
+| eval if (actingUserId == "null") {actorEmail = printf("ServiceAccount:%v",serviceAccountId);}
+| lookup -r bitwardenMembers actingUserId userId (email as actorEmail)
+| grep -e actorEmail %%email%%
+| lookup -r bitwardenEventTypes eventType type event
+| geoip ipAddress.Country
+| lookup -r bitwardenDeviceTypes device code deviceType
+| lookup -r bitwardenGroups groupId id (name as groupName)
+| lookup -r bitwardenMembers memberId id (email as memberEmail)
+| lookup -r bitwardenPolicies policyId id (policyType policyData)
+| printf -e location "%v(%v)" ipAddress Country
+| table date event actorEmail serviceAccountId location deviceType itemId secretId collectionId groupName policyType policyData memberEmail projectId installationId

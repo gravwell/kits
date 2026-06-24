@@ -1,0 +1,23 @@
+{
+	"UUID": "cf270d5b-b2b9-489b-a8ff-48446d44916b",
+	"Name": "Azure - Success vs Failure - Investigate - IP [Chart]",
+	"Description": "resultType for this IP to look for success/failure operations",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "136.59.164.75"
+			}
+		]
+	},
+	"Labels": [
+		"azure",
+		"resultType",
+		"IP",
+		"ip"
+	]
+}

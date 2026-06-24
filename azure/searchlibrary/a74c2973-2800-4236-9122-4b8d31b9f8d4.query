@@ -1,0 +1,8 @@
+tag=$AZURE_ACTIVITY json operationName callerIpAddress resourceId resultType correlationId
+| eval (
+    operationName == "MICROSOFT.NETWORK/FIREWALLPOLICIES/WRITE" ||
+    operationName == "MICROSOFT.NETWORK/FIREWALLPOLICIES/JOIN/ACTION" ||
+    operationName == "MICROSOFT.NETWORK/FIREWALLPOLICIES/CERTIFICATES/ACTION" ||
+    operationName == "MICROSOFT.NETWORK/FIREWALLPOLICIES/DELETE"
+  )
+| table

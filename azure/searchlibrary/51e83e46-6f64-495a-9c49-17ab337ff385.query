@@ -1,0 +1,3 @@
+tag=$AZURE_AD json operationName properties.targetResources.[0].displayName as appName properties.result properties.initiatedBy.app as initiatedBy correlationId
+| eval operationName == "Delete application"
+| table

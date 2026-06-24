@@ -1,0 +1,3 @@
+tag=$AZURE_ACTIVITY json operationName
+| count by operationName
+| table operationName count

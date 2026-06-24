@@ -1,0 +1,19 @@
+tag=$CISCO_FTD_MALWARE
+$CISCO_FTD_MALWARE_EVX
+| eval (msg ~ "%%user%%" %%boolean%% msg ~ "%%ip%%")
+| regex -p -e msg "(?<user>%%user%%)"
+| regex -e msg "(?<ip>%%ip%%)"
+$CISCO_FTD_SEVERITY
+| alias
+    SrcIP Src
+    DstIP Dst
+    FileName Name
+    FileType Type
+    FileAction Action
+    FileDirection Direction
+    FilePolicy Policy
+    FileSHA256 SHA256
+    FileSize Size
+    FileStorageStatus StorageState
+    SSLActualAction SSLAction
+| table timestamp FirstPacketSecond User Src SrcPort Dst DstPort Name Type Action SSLAction SHA256 Size StorageState Direction Policy URI ThreatName ThreatScore

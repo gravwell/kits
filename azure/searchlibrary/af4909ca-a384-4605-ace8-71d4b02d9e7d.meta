@@ -1,0 +1,15 @@
+{
+	"Name": "Azure - Azure Firewall Modified or Deleted",
+	"Description": "Detects creation, modification, or deletion of Azure Firewalls. Attackers may modify or remove firewall resources to open egress paths, disable traffic filtering, or enable lateral movement.",
+	"GUID": "af4909ca-a384-4605-ace8-71d4b02d9e7d",
+	"Labels": [
+		"azure",
+		"network",
+		"firewall",
+		"detection",
+		"T1562.004",
+		"impact",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

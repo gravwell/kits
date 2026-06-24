@@ -1,0 +1,1 @@
+^(?:<(?P<priority>\d+)>)?(?:(?P<version>\d+)\s+)?(?P<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z|\w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(?P<hostname>\S+)(?:\s+(?P<deviceId>\S+))?\s+%(?P<appliance>\w+)-(?P<severity>\d+)-(?P<msgid>\d+):\s+(?P<msg>.+)$

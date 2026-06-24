@@ -1,0 +1,176 @@
+{
+	"UUID": "03a9e360-1cd8-4c45-9816-562185134531",
+	"Name": "Azure - Identity \u0026 Access Overview",
+	"Description": "Focused on the `$AZURE_AD` and RBAC detections. Role assignment changes, service principal create/delete, directory role membership changes, MFA disable events, privilege elevation. Timeline view of identity activity by actor.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Azure - Role Assignment Changes Over Time",
+				"color": null,
+				"reference": {
+					"id": "d145f8fc-ba4f-4b15-83dc-e2096379d678",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Service Principal Lifecycle [Chart]",
+				"color": null,
+				"reference": {
+					"id": "5e065f5b-02c4-4dc6-ba03-734bd3d89bdc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Directory Role Membership Changes",
+				"color": null,
+				"reference": {
+					"id": "46d21f84-4507-4c08-8ad1-416f114a47a1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Disabled MFA to Bypass Authentication Mechanisms",
+				"color": null,
+				"reference": {
+					"id": "b1568ec4-82ea-4769-8d0f-67a1c69f9cf3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Subscription Permission Elevation",
+				"color": null,
+				"reference": {
+					"id": "7279fc30-2eff-47e5-b21e-e76bebee9cff",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Azure - Top Actors Making Identity Changes [Chart]",
+				"color": null,
+				"reference": {
+					"id": "52198096-aea1-4ac1-825d-3c33cff1aa7a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17776571435230,
+				"title": "Role Assignment Changes Over Time",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776571856771,
+				"title": "Service Principal Lifecycle",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776572147732,
+				"title": "Directory Role Membership Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776572872253,
+				"title": "MFA Disable Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776573191464,
+				"title": "Privilege Elevation Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 7
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17776573437515,
+				"title": "Top Actors Making Identity Changes",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 11
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"azure",
+		"azure_ad",
+		"identity"
+	]
+}

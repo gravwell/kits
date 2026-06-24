@@ -1,0 +1,5 @@
+tag=$CISCO_SECURITY
+| eval (DATA ~ "%%user%%" %%boolean%% DATA ~ "%%ip%%")
+| stats count by TAG
+| alias count " "
+| chart " " by TAG

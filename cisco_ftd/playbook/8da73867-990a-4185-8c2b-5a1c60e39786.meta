@@ -1,0 +1,25 @@
+{
+	"UUID": "8bf6f33d-7372-4405-9678-e15939dbe71c",
+	"GUID": "8da73867-990a-4185-8c2b-5a1c60e39786",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Cisco FTD - Kit Overview",
+	"Desc": "An overview of the Cisco FTD Kit. Includes description of components, and explanation of how to use them.",
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	],
+	"LastUpdated": "2026-03-18T06:43:29.790642961Z",
+	"Author": {
+		"Name": "Kyle Mallett",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

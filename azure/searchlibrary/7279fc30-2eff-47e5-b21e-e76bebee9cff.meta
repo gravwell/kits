@@ -1,0 +1,17 @@
+{
+	"Name": "Azure - Subscription Permission Elevation",
+	"Description": "Detects when a Global Administrator invokes the elevateAccess action, granting themselves User Access Administrator at the root subscription scope. This is a high-privilege action that should be rare and always investigated.",
+	"GUID": "7279fc30-2eff-47e5-b21e-e76bebee9cff",
+	"Labels": [
+		"azure_ad",
+		"identity",
+		"rbac",
+		"detection",
+		"T1078.004",
+		"privilege-escalation",
+		"persistence",
+		"defense-evasion",
+		"initial-access"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,9 @@
+tag=$AZURE_ACTIVITY json operationName callerIpAddress resourceId resultType correlationId
+| eval (
+    operationName == "MICROSOFT.AUTHORIZATION/POLICYASSIGNMENTS/WRITE" ||
+    operationName == "MICROSOFT.AUTHORIZATION/POLICYASSIGNMENTS/DELETE" ||
+    operationName == "MICROSOFT.AUTHORIZATION/LOCKS/WRITE" ||
+    operationName == "MICROSOFT.AUTHORIZATION/LOCKS/DELETE"
+  )
+| eval resultType == "Success"
+| table

@@ -1,0 +1,23 @@
+{
+	"UUID": "897b0e0d-2cdb-4b1e-b344-29e343037ec2",
+	"Name": "Azure - Resources Touched - Invesitgate - IP",
+	"Description": "resourceId table — what was accessed/modified",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "136.59.164.75"
+			}
+		]
+	},
+	"Labels": [
+		"azure",
+		"resource",
+		"IP",
+		"ip"
+	]
+}

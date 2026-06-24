@@ -1,0 +1,22 @@
+{
+	"UUID": "6f6303ab-8343-4d04-b2ab-0ae77b32e0c9",
+	"GUID": "d673205d-4e58-4d6d-ad86-79e0668f3d68",
+	"UID": 7,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Azure - Kit Overview",
+	"Desc": "An overview for the Azure kit. Includes how to set up collection, description of components, and explanation of how to use them.",
+	"Labels": null,
+	"LastUpdated": "2026-06-01T11:32:40.460880632-06:00",
+	"Author": {
+		"Name": "Bronson Peto",
+		"Email": "bronson.peto@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

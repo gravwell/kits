@@ -1,0 +1,24 @@
+{
+	"UUID": "27ed5679-b83f-45a5-ab1c-b014360445bd",
+	"GUID": "27ed5679-b83f-45a5-ab1c-b014360445bd",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Fortinet Kit - Readme",
+	"Desc": "Readme for Fortinet kit",
+	"Labels": [
+		"fortinet"
+	],
+	"LastUpdated": "2026-03-12T16:31:36.7789695Z",
+	"Author": {
+		"Name": "Kyle Mallett",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

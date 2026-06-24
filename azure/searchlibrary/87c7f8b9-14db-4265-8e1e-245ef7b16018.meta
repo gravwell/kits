@@ -1,0 +1,15 @@
+{
+	"Name": "Azure - Azure Firewall Rule Configuration Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure Firewall rule collection groups. Changes to rule groups can open traffic paths or remove filtering, enabling exfiltration or lateral movement.",
+	"GUID": "87c7f8b9-14db-4265-8e1e-245ef7b16018",
+	"Labels": [
+		"azure",
+		"network",
+		"firewall",
+		"detection",
+		"T1562.004",
+		"defense-evasion",
+		"impact"
+	],
+	"Metadata": {}
+}

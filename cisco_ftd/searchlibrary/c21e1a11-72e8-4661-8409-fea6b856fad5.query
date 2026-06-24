@@ -1,0 +1,6 @@
+tag=$CISCO_FTD ax 
+| lookup -r cisco_ftd_syslog_messages msgid msg_id (severity)
+| stats count by severity
+| alias count " "
+$CISCO_FTD_SEVERITY_ORDER
+| numbercard " " 

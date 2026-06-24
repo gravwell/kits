@@ -1,0 +1,4 @@
+tag=$BITWARDENPOLICIES_TAG ax
+| last id
+| lookup -r bitwardenPolicyTypes policyType type policyType
+| table -csv -save bitwardenPolicies id policyType enabled policyData

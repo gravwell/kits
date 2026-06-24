@@ -1,0 +1,2 @@
+tag=$AZURE_AD json operationName == "Add service principal" properties.targetResources.[0].displayName identity as actor resourceId correlationId
+| table

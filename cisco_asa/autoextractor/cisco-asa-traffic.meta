@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-asa-traffic",
+	"Desc": "Gravwell generated fields extraction for tag cisco-asa-traffic, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-asa-traffic"
+	],
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "006017c9-8035-4e9d-8d0e-5b80625d5fe9",
+	"LastUpdated": "2026-03-17T13:51:48.984908295Z"
+}

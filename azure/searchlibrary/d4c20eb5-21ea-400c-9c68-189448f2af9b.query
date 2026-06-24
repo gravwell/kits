@@ -1,0 +1,11 @@
+tag=$AZURE_ACTIVITY json operationName callerIpAddress resourceId resultType correlationId
+| eval (
+    operationName == "MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/LISTKEYS/ACTION" ||
+    operationName == "MICROSOFT.MAPS/ACCOUNTS/LISTKEYS/ACTION" ||
+    operationName == "MICROSOFT.MEDIA/MEDIASERVICES/LISTKEYS/ACTION" ||
+    operationName == "MICROSOFT.COGNITIVESERVICES/ACCOUNTS/LISTKEYS/ACTION" ||
+    operationName == "MICROSOFT.STORAGE/STORAGEACCOUNTS/LISTKEYS/ACTION" ||
+    operationName == "MICROSOFT.COMPUTE/SNAPSHOTS/WRITE"
+  )
+| eval resultType == "Success"
+| table

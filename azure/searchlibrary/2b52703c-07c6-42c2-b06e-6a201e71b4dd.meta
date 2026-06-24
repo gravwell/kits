@@ -1,0 +1,14 @@
+{
+	"Name": "Azure - Azure DNS Zone Modified or Deleted",
+	"Description": "Detects modification or deletion of Azure DNS zones. Attackers may alter DNS records to redirect traffic to attacker-controlled infrastructure or disrupt service name resolution.",
+	"GUID": "2b52703c-07c6-42c2-b06e-6a201e71b4dd",
+	"Labels": [
+		"azure",
+		"network",
+		"dns",
+		"detection",
+		"T1565.001",
+		"impact"
+	],
+	"Metadata": {}
+}

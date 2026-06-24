@@ -1,0 +1,487 @@
+{
+	"UUID": "79f2b584-46cf-4043-b205-29e3c32e881d",
+	"Name": "Cisco FTD General Overview",
+	"Description": "This Dashboard is a general overview of your Cisco FTD data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Tag [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "75bbe0bc-a839-40b0-95df-f1955d0453d9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Tag [chart]",
+				"color": null,
+				"reference": {
+					"id": "49a2863c-e896-4c69-9f15-32bb57664809",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Category [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "da83d755-35ff-455b-8e27-fa2fa36af4fe",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "adb28bc0-6bd7-4564-b4d9-3cac9118c39d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Subcategory [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "96e4c994-6e65-4a9b-99bf-5032380926a8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "b223686f-337b-4708-a6d3-6e639cbaa21a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "c21e1a11-72e8-4661-8409-fea6b856fad5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "fe8d2808-b1f6-40cc-b388-d2f08806a5a1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Category, Subcategory \u0026 Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "90d24c27-9b9c-4f94-9066-968088a981c7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Category, Subcategory \u0026 Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "11d63825-1e4f-40ab-ac01-8d53adfdcda7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Category \u0026 Subcategory [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "d8399ba2-280c-4a51-bc46-14e4995f320d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Cisco - FTD - Firewall - Event Types - Count by Category \u0026 Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "44b010d7-c224-4194-9644-8cdcde33c1b5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17736934553000,
+				"title": "Count by Tag [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "no",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25
+				}
+			},
+			{
+				"id": 17736934946611,
+				"title": "Count by Tag [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17736935353982,
+				"title": "Count by Tag [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17736935804653,
+				"title": "Count by Category [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17736936202674,
+				"title": "Count by Category [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 17
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17736936557515,
+				"title": "Count by Category [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 17
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17736936872996,
+				"title": "Count by Subcategory [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 26
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17736937167627,
+				"title": "Count by Subcategory [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 30
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17736937490748,
+				"title": "Count by Subcategory [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 30
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17736937727379,
+				"title": "Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 38
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177369380488510,
+				"title": "Count by Severity [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 42
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177369386188611,
+				"title": "Count by Severity [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 42
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 177369389575412,
+				"title": "Count by Category, Subcategory \u0026 Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 64
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177369392826213,
+				"title": "Count by Category, Subcategory \u0026 Severity [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 68
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177369395906714,
+				"title": "Count by Category, Subcategory \u0026 Severity [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 68
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 177369413964215,
+				"title": "Count by Category \u0026 Subcategory [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 51
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177369418292516,
+				"title": "Count by Category \u0026 Subcategory [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 55
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177369422402917,
+				"title": "Count by Category \u0026 Subcategory [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 55
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"cisco",
+		"cisco ftd"
+	]
+}

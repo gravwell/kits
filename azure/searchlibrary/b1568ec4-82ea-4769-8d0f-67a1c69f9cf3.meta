@@ -1,0 +1,16 @@
+{
+	"Name": "Azure - Disabled MFA to Bypass Authentication Mechanisms",
+	"Description": "Detection for when multi factor authentication has been disabled, which might indicate a malicious activity to bypass authentication mechanisms.",
+	"GUID": "b1568ec4-82ea-4769-8d0f-67a1c69f9cf3",
+	"Labels": [
+		"azure_ad",
+		"identity",
+		"mfa",
+		"detection",
+		"T1556",
+		"defense-evasion",
+		"credential-access",
+		"persistence"
+	],
+	"Metadata": {}
+}

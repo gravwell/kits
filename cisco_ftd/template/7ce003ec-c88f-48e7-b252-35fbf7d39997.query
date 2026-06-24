@@ -1,0 +1,7 @@
+tag=$CISCO_FTD_INTRUSION
+| eval (DATA ~ "%%user%%" %%boolean%% DATA ~ "%%ip%%")
+$CISCO_FTD_INTRUSION_EVX
+$CISCO_FTD_SEVERITY
+| stats count by severity
+| alias count " "
+| chart " " by severity

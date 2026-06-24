@@ -1,0 +1,11 @@
+{
+	"Name": "Azure - Recent High Interest Operations",
+	"Description": "Table of any operation matching detection operationNames",
+	"GUID": "f532c4e1-5602-4fec-b471-0e6450062b8a",
+	"Labels": [
+		"azure",
+		"stats",
+		"baseline"
+	],
+	"Metadata": {}
+}

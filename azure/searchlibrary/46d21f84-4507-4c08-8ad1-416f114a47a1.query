@@ -1,0 +1,4 @@
+tag=$AZURE_AD json operationName properties.targetResources.[0].modifiedProperties.[1].newValue as roleName properties.targetResources.[0].displayName
+| eval operationName == "Add member to role"
+| regex -e roleName "\\\"(?P<roleName>[^\\\"]+)"
+| table operationName roleName displayName

@@ -1,0 +1,15 @@
+{
+	"Name": "Azure - Service Principal Removed",
+	"Description": "Detects deletion of Azure AD service principals. Attackers may remove service principals to destroy evidence of compromise or disrupt applications and automation that depend on the identity.",
+	"GUID": "e12d7cd9-3b49-4d15-be96-84b8c60e278a",
+	"Labels": [
+		"azure_ad",
+		"identity",
+		"service-principal",
+		"detection",
+		"T1531",
+		"defense-evasion",
+		"impact"
+	],
+	"Metadata": {}
+}

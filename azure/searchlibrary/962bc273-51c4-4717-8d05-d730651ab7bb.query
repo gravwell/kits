@@ -1,0 +1,8 @@
+tag=$AZURE_ACTIVITY json operationName callerIpAddress resourceId resultType correlationId
+| eval (
+    operationName == "MICROSOFT.KEYVAULT/VAULTS/WRITE" ||
+    operationName == "MICROSOFT.KEYVAULT/VAULTS/DELETE" ||
+    operationName == "MICROSOFT.KEYVAULT/VAULTS/DEPLOY/ACTION" ||
+    operationName == "MICROSOFT.KEYVAULT/VAULTS/ACCESSPOLICIES/WRITE"
+  )
+| table

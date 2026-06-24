@@ -1,0 +1,5 @@
+tag=$CISCO_SECURITY
+$CISCO_SECURITY_EVX
+| stats count by SSLActualAction
+| alias count " "
+| chart " " by SSLActualAction

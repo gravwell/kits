@@ -1,0 +1,649 @@
+{
+	"UUID": "0c340e6a-7268-46a7-8f36-f59405ff64fe",
+	"Name": "Cisco ASA Investigation",
+	"Description": "This Dashboard is intended to be used for Cisco ASA investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Combined - Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1ed766ff-be55-4260-a78d-455a153dd2c2",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Combined - Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "3b5ef009-c2dc-4e3f-997f-4926ec43d5bb",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Combined - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "6355fe94-d78b-4907-953f-90f326bf2068",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Threat - Event Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "d5b4a66b-24da-4db0-bc86-bdf5813e6a7f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Threat - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "10ba1a95-b8b0-48b5-b6da-0c4d239b6723",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Threat - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "07acb5cf-8fdf-4d91-b0f6-f97ac0bb9ddb",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Traffic - Event Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bd9fb0ba-2e0d-4ba5-8a3e-e81f89bb5ccb",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Traffic - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "6cb9a8c5-1105-4ffd-86ce-a187a5e627e0",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Traffic - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "9661c35b-5fcd-4680-a978-3ef27a4773ba",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Authentication - Event Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "25d1c7eb-1374-489c-8921-aaae39080640",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Authentication - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "27eaeef9-b4e5-447d-9507-ef4c956e8628",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Authentication - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "581bde9b-2fed-4c15-9399-b88e5e9d9906",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - VPN - Event Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9dfd4836-c89d-4a07-87fc-252c4de215b9",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - VPN - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "47d8c36b-fbfe-42d7-869d-29899bb65dca",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - VPN - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "a9a633dc-7c08-45a1-a3ce-2836dbcdbf2f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - System - Event Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "f430c1df-81bc-445c-b61a-1ef49fb083ec",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - System - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "40c8245f-831a-4b79-89bf-8bde22cc6a14",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Events - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "611dffdb-4690-44e2-b879-02c10a7f0491",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Config - Event Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "7036eb99-c22a-47c4-80a7-98305bf2a2bc",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Config - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "c4f13f36-82d9-4979-9674-62c47c4afcbf",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Events - Event Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "fd7b6b7a-299d-453a-8920-07a1eea1b263",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Events - Event Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "d9ca6be9-e6b2-47bd-b848-5e7688279504",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Config - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "afee5a3c-b9a1-4401-91d1-6606578ac7eb",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Cisco - ASA - Firewall - Events - Events by User and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "6b59baee-fe04-485b-ac08-409e3019676f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17737696404960,
+				"title": "Combined Event Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17737696926961,
+				"title": "Combined Event Count by Severity [chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 5
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17737697351472,
+				"title": "Combined Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 5
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17737700257823,
+				"title": "Threat Event Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17737700771014,
+				"title": "Threat Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 17
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17737701292395,
+				"title": "Threat Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 17
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17737706202016,
+				"title": "Traffic Event Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 25
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17737706528787,
+				"title": "Traffic Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17737706955748,
+				"title": "Traffic Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 29
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17737707432399,
+				"title": "Authentication Event Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 38
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377077764910,
+				"title": "Authentication Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 42
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177377082363611,
+				"title": "Authentication Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 42
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377087013112,
+				"title": "VPN Event Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 51
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377090205913,
+				"title": "VPN Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 55
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177377095450714,
+				"title": "VPN Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 55
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377100134215,
+				"title": "System Event Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 63
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377103541916,
+				"title": "System Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 67
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177377112307617,
+				"title": "System Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 67
+				},
+				"searchesIndex": 17,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377120898918,
+				"title": "Config Event Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 76
+				},
+				"searchesIndex": 18,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377124765919,
+				"title": "Config Event Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 80
+				},
+				"searchesIndex": 19,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177377129162120,
+				"title": "Config Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 80
+				},
+				"searchesIndex": 22,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377133148121,
+				"title": "Events Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 89
+				},
+				"searchesIndex": 20,
+				"rendererOptions": {}
+			},
+			{
+				"id": 177377136802522,
+				"title": "Events Count by Severity [chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 93
+				},
+				"searchesIndex": 21,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 177377254205923,
+				"title": "Events by User and/or IP [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 93
+				},
+				"searchesIndex": 23,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	]
+}

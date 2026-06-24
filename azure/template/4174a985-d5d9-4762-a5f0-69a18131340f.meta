@@ -1,0 +1,24 @@
+{
+	"UUID": "4174a985-d5d9-4762-a5f0-69a18131340f",
+	"Name": "Azure - Correlated AD Audit Events - Investigate - IP",
+	"Description": "Azure AD events matching the same IP address - what identity operationns have been performed by this IP?",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "136.59.164.75"
+			}
+		]
+	},
+	"Labels": [
+		"azure",
+		"azure_ad",
+		"ip",
+		"IP",
+		"correlation"
+	]
+}

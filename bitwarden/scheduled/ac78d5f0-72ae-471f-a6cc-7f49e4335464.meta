@@ -1,0 +1,13 @@
+{
+	"Name": "Bitwarden - Ingest Groups",
+	"Description": "Ingest current Bitwarden Groups",
+	"Labels": null,
+	"Schedule": "15 5 * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "ac78d5f0-72ae-471f-a6cc-7f49e4335464",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,22 @@
+{
+	"UUID": "f249af48-d7ad-4dc8-b07f-f37d12a4b0ec",
+	"GUID": "0a2518b3-428b-43a8-a6b4-93c148dca22e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": false,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Bitwarden Gravwell Kit",
+	"Desc": "Bitwarden Overview Playbook",
+	"Labels": null,
+	"LastUpdated": "2026-03-20T22:38:56.51113405Z",
+	"Author": {
+		"Name": "Keith Smiley",
+		"Email": "keith.smiley@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

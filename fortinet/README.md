@@ -1,28 +1,20 @@
-# Fortinet Kit
+This kit is designed to provide an out-of-the-box experience for working with Fortinet logs.
 
-- The Fortinet Kit provides a baseline set of tags, macros, saved queries, lookup resources, flows, actionables, dashboard searches, and dashboards for your Fortinet data.
+An integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/fortinet.html)
 
-- The Fortinet Kit is licensed under the Apache 2.0 license and the contents are available on [Fortinet](https://github.com/gravwell/kits/tree/main/fortinet).
+This kit provides the following utilities:
 
-- Fortinet images are wholly owned by Fortinet and distributed according to the [Fortinet Brand Guidelines](https://www.fortinet.com/content/dam/maindam/CORPORATE/01_BRANDING/current/FTNT-Brand-Guidelines.pdf) and are **NOT** subject to any Gravwell licensing.
+- Queries
+- Dashboards
+- Flows
+- Actionables
+- Macros
+- Templates
+
+Refer to Kit Overview playbook for more detail on these components.
 
 ## Dependencies
-- N/A
+None
 
-## Changelog
-- 1.0: Initial Release
-	- actionables 				01
-	- alert 					00
-	- dashboard 				06
-	- file 						03
-	- license 					01
-	- macro 					06
-	- playbook 					01
-	- resource 					07
-	- scheduled 				00
-		- scheduled searches 	00
-		- flows 				00
-	- searchlibrary 			08
-		- alert queries 		00
-		- dashboard searches 	00
-	- template 					26
+## Changelog:
+**v1.0: Initial Release**

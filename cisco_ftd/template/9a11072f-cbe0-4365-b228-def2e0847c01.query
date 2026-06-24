@@ -1,0 +1,16 @@
+tag=$CISCO_FTD_CONN
+$CISCO_FTD_CONN_EVX
+| eval (msg ~ "%%user%%" %%boolean%% msg ~ "%%ip%%")
+| regex -p -e msg "(?<user>%%user%%)"
+| regex -e msg "(?<ip>%%ip%%)"
+$CISCO_FTD_SEVERITY
+| alias 
+    IngressZone SrcZone
+    EgressZone DstZone
+    severity Severity
+    ACPolicy Policy
+    "Prefilter Policy" Prefilter
+    AccessControlRuleAction Action
+    AccessControlRuleReason Reason
+$CISCO_NORMALIZE_DIRECTION
+| table timestamp FirstPacketSecond User SrcIP SrcPort SrcZone DstIP DstPort DstZone EventPriority Policy Prefilter Action Reason Direction

@@ -1,0 +1,16 @@
+{
+	"Name": "Azure - Owner Removed From Application or Service Principal",
+	"Description": "Detects when owners are removed from Azure AD application registrations or service principals. Attackers may remove legitimate owners to prevent detection or remediation of a compromised identity.",
+	"GUID": "bae91c12-b13f-45a6-9edd-a6e46683dd7c",
+	"Labels": [
+		"azure_ad",
+		"identity",
+		"app-registration",
+		"service-principal",
+		"detection",
+		"T1098",
+		"defense-evasion",
+		"persistence"
+	],
+	"Metadata": {}
+}

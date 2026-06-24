@@ -1,0 +1,18 @@
+{
+	"Name": "cisco-asa-config",
+	"Desc": "Gravwell generated fields extraction for tag cisco-asa-config, args '-p -e DATA'",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"cisco-asa-config"
+	],
+	"Labels": [
+		"cisco",
+		"cisco asa"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "33654421-16bf-4fcf-92b8-d463f2d0c9a8",
+	"LastUpdated": "2026-03-17T13:51:48.988224336Z"
+}
