@@ -1,0 +1,9 @@
+{
+	"Ingesters": ["file follower"],
+	"Tags": ["apache", "apache-err"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "Apache HTTP", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "Apache HTTP", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}
