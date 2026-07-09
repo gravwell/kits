@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Hacktool - Empire Useragent URI Combo",
+	"Description": "Detects user agent and URI paths used by empire agents",
+	"GUID": "63fcdff2-fdc6-457a-a947-419434e96b5d",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"uri",
+		"c2",
+		"command-and-control",
+		"T1071.001"
+	],
+	"Metadata": {}
+}

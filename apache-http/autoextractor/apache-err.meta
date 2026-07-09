@@ -1,0 +1,18 @@
+{
+	"Name": "apache-err",
+	"Desc": "Extraction for tag apache-err",
+	"Module": "regex",
+	"Tag": "",
+	"Tags": [
+		"apache-err"
+	],
+	"Labels": [
+		"apache",
+		"error"
+	],
+	"UID": 2,
+	"GIDs": null,
+	"Global": false,
+	"UUID": "6710b199-a242-4433-ac3a-2db1efba31bf",
+	"LastUpdated": "2026-07-02T18:17:33.498853618Z"
+}

@@ -1,0 +1,3 @@
+tag=$APACHE json remote_addr user_agent
+| eval match(user_agent, "(?i)(sqlmap|nikto|nmap scripting|nessus|acunetix|dirbuster|gobuster|wpscan|masscan|wfuzz|zaproxy|w3af|openvas|nuclei|ffuf|feroxbuster|hydra|metasploit|curl/|python-requests|go-http-client|libwww-perl)")
+| chart

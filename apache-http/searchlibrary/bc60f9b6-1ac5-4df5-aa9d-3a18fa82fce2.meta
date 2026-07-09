@@ -1,0 +1,17 @@
+{
+	"Name": "Apache - Web Encoding Evasion",
+	"Description": "Detects URL encoding evasion techniques in HTTP requests including double encoding, null byte injection, and Unicode normalization sequences used to bypass WAFs and input filters.",
+	"GUID": "bc60f9b6-1ac5-4df5-aa9d-3a18fa82fce2",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"path-traversal",
+		"evasion",
+		"initial-access",
+		"defense-evasion",
+		"bespoke",
+		"T1190"
+	],
+	"Metadata": {}
+}

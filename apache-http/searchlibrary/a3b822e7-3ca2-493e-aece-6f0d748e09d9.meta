@@ -1,0 +1,13 @@
+{
+	"Name": "Apache - Rclone Activity Via Proxy",
+	"Description": "Detects the use of rclone, a command-line program to manage files on cloud storage, via its default user-agent string",
+	"GUID": "a3b822e7-3ca2-493e-aece-6f0d748e09d9",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"exfiltration",
+		"T1567.002"
+	],
+	"Metadata": {}
+}

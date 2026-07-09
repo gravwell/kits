@@ -1,0 +1,12 @@
+{
+	"Name": "Apache - Top Requesting IPs",
+	"Description": "Top source IPs by total request volume — surfacing unusually active or scanning hosts",
+	"GUID": "f5fa06ef-5b6c-4288-b6d5-1559b844fd5a",
+	"Labels": [
+		"apache",
+		"stats",
+		"baseline",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

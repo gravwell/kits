@@ -1,0 +1,11 @@
+{
+	"Name": "Apache - Request Volume Over Time",
+	"Description": "Count of all Apache request events in 1h increments",
+	"GUID": "73b95e8a-ba44-47e7-a0c9-a18ef0472761",
+	"Labels": [
+		"apache",
+		"stats",
+		"baseline"
+	],
+	"Metadata": {}
+}

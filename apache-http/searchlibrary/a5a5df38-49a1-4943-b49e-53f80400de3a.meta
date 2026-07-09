@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Path Traversal Exploitation Attempts",
+	"Description": "Detects path traversal exploitation attempts",
+	"GUID": "a5a5df38-49a1-4943-b49e-53f80400de3a",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"path-traversal",
+		"initial-access",
+		"T1190"
+	],
+	"Metadata": {}
+}

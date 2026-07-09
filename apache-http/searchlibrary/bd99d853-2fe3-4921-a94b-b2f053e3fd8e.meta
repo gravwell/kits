@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Potential Hello-world Scraper Botnet Activity",
+	"Description": "Detects network traffic potentially associated with a scraper botnet variant that uses the 'Hello-World/1.0' user-agent string.",
+	"GUID": "bd99d853-2fe3-4921-a94b-b2f053e3fd8e",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"scanning",
+		"reconnaissance",
+		"T1595"
+	],
+	"Metadata": {}
+}

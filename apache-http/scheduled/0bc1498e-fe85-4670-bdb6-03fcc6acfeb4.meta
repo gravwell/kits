@@ -1,0 +1,22 @@
+{
+	"Name": "Apache - Cross Site Scripting Strings",
+	"Description": "Detects XSS attempts injected via GET requests in access logs",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"xss",
+		"injection",
+		"initial-access",
+		"T1189"
+	],
+	"Schedule": "2 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0bc1498e-fe85-4670-bdb6-03fcc6acfeb4",
+	"SearchReference": "ef84e918-644a-4ce1-bf58-995542e03ace"
+}

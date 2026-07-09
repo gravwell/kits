@@ -1,0 +1,11 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(query, "(?i)<script")                 ||
+    match(query, "(?i)onerror[%+\s]*=")         ||
+    match(query, "(?i)onmouseover[%+\s]*=")     ||
+    match(query, "(?i)javascript:")             ||
+    match(query, "(?i)alert[%+\s]*[(]")         ||
+    match(query, "(?i)%3[cC]script")            ||
+    match(query, "(?i)&#[xX]3[cC]")             ||
+    match(query, "(?i)svg[^>]*onload")
+| table time remote_addr forwarded_for method uri query status user_agent vhost

@@ -1,0 +1,13 @@
+{
+	"Name": "Apache - Suspicious User Agent",
+	"Description": "Detects suspicious malformed user agent strings in proxy logs",
+	"GUID": "09bb58dd-50e2-4da2-b33b-edb4354f0d0e",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

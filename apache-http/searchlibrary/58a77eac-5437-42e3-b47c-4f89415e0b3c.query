@@ -1,0 +1,15 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(uri,   "(?i)C[:/]Windows/")          ||
+    match(uri,   "(?i)C[:/]Users/")            ||
+    match(uri,   "(?i)C%3[aA]%5[cC]")          ||
+    match(uri,   "(?i)/system32/")             ||
+    match(uri,   "(?i)/cmd[.]exe")             ||
+    match(uri,   "(?i)/powershell[.]exe")      ||
+    match(query, "(?i)C[:/]Windows/")          ||
+    match(query, "(?i)C[:/]Users/")            ||
+    match(query, "(?i)C%3[aA]")                ||
+    match(query, "(?i)%SystemRoot%")           ||
+    match(query, "(?i)cmd[.]exe")              ||
+    match(query, "(?i)powershell[.]exe")
+| table time remote_addr forwarded_for method uri query status user_agent vhost

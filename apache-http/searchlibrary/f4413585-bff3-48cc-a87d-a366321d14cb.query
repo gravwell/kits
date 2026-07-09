@@ -1,0 +1,16 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(query, "(?i)UNION[%+\s]+(?:ALL[%+\s]+)?SELECT")        ||
+    match(query, "(?i)group_concat[(]")                          ||
+    match(query, "(?i)concat_ws[(]")                             ||
+    match(query, "(?i)CONCAT[(]0x")                              ||
+    match(query, "(?i)json_arrayagg[(]")                         ||
+    match(query, "(?i)information_schema")                       ||
+    match(query, "(?i)table_schema")                             ||
+    match(query, "(?i)@@version")                                ||
+    match(query, "(?i)select[%+\s]+(?:database|version)[(]")     ||
+    match(query, "(?i)from[%+\s]+mysql[.]")                      ||
+    match(query, "(?i)sleep[(][0-9]")                            ||
+    match(query, "(?i)WAITFOR[%+\s]+DELAY")                      ||
+    match(query, "(?i)ORDER[%+\s]+BY[%+\s]+[0-9]+[%+\s]*--")
+| table time remote_addr forwarded_for method uri query status user_agent vhost

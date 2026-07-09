@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Apache Threading Error",
+	"Description": "Detects an issue in apache logs that reports threading related errors",
+	"GUID": "c373ec29-11a7-4788-aaee-ffd2c7e6e329",
+	"Labels": [
+		"apache",
+		"detection",
+		"initial-access",
+		"impact",
+		"T1190",
+		"T1210",
+		"lateral-movement"
+	],
+	"Metadata": {}
+}

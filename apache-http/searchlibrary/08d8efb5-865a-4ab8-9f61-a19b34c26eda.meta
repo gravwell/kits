@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Pua - Advanced Ip/port Scanner Update Check",
+	"Description": "Detect the update check performed by Advanced IP/Port Scanner utilities.",
+	"GUID": "08d8efb5-865a-4ab8-9f61-a19b34c26eda",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"scanning",
+		"reconnaissance",
+		"T1590",
+		"discovery"
+	],
+	"Metadata": {}
+}

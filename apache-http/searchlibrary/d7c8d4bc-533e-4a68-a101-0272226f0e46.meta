@@ -1,0 +1,16 @@
+{
+	"Name": "Apache - Windows Webdav User Agent",
+	"Description": "Detects WebDav DownloadCradle",
+	"GUID": "d7c8d4bc-533e-4a68-a101-0272226f0e46",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"uri",
+		"webdav",
+		"initial-access",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,17 @@
+{
+	"Name": "Apache - Web Linux Command Injection",
+	"Description": "Detects Linux command injection payloads in HTTP query strings, including shell operators, subshell syntax, and common reconnaissance commands targeting Linux systems.",
+	"GUID": "f03ee77f-2573-4137-8f08-f3cecf82785e",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"bespoke",
+		"T1190"
+	],
+	"Metadata": {}
+}

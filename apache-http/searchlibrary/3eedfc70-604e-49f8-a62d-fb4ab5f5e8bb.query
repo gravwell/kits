@@ -1,0 +1,26 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval status == 200 &&
+    (
+        match(uri, "(?i)/[.]env$")                                   ||
+        match(uri, "(?i)/[.]git/(config|HEAD|index|COMMIT_EDITMSG)") ||
+        match(uri, "(?i)/phpinfo[.]php")                             ||
+        match(uri, "(?i)/server-status$")                            ||
+        match(uri, "(?i)/server-info$")                              ||
+        match(uri, "(?i)/[.]htpasswd$")                              ||
+        match(uri, "(?i)/[.]htaccess$")                              ||
+        match(uri, "(?i)/web[.]config$")                             ||
+        match(uri, "(?i)[.]sql([.]gz)?$")                            ||
+        match(uri, "(?i)[.]bak$")                                    ||
+        match(uri, "(?i)[.]dump$")                                   ||
+        match(uri, "(?i)/wp-config[.]php")                           ||
+        match(uri, "(?i)/config[.]php$")                             ||
+        match(uri, "(?i)/settings[.]py$")                            ||
+        match(uri, "(?i)/application[.](yml|yaml)$")                 ||
+        match(uri, "(?i)/database[.](yml|yaml)$")                    ||
+        match(uri, "(?i)/[.]DS_Store$")                              ||
+        match(uri, "(?i)/sftp-config[.]json$")                       ||
+        match(uri, "(?i)/[.]env[.]local$")                           ||
+        match(uri, "(?i)/[.]env[.]prod(uction)?$")                   ||
+        match(uri, "[~]$")
+    )
+| table time remote_addr method uri query status user_agent vhost

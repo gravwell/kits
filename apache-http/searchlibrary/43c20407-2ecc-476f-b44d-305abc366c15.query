@@ -1,0 +1,12 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost referer
+| eval
+    (len(user_agent) == 0 || user_agent == "-") &&
+    (len(referer) == 0 || referer == "-") &&
+    (
+        match(query, "(?i)cmd=connect")    ||
+        match(query, "(?i)cmd=forward")    ||
+        match(query, "(?i)cmd=read")       ||
+        match(query, "(?i)cmd=disconnect") ||
+        match(query, "(?i)cmd=transfer")
+    )
+| table time remote_addr forwarded_for method uri query status user_agent vhost referer

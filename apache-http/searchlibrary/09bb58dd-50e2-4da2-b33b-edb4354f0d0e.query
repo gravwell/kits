@@ -1,0 +1,16 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval
+    match(user_agent, "(?i)^user-agent")                    ||
+    match(user_agent, "^ Mozilla/")                         ||
+    match(user_agent, "^Mozila/")                           ||
+    match(user_agent, "^MS Web Services Client Protocol")   ||
+    match(user_agent, "^Mozilla/[123][.]")                  ||
+    match(user_agent, "(?i)CertUtil URL Agent")             ||
+    match(user_agent, "^HTTPS$")                            ||
+    match(user_agent, "^_$")                                ||
+    match(user_agent, "^x$")                                ||
+    match(user_agent, "^xxx$")                              ||
+    match(user_agent, "[(]compatible;MSIE ")                ||
+    match(user_agent, "[.]0;Windows NT ")                   ||
+    match(user_agent, "(?i)loader")
+| table time remote_addr forwarded_for method uri status user_agent vhost

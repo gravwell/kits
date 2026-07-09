@@ -1,0 +1,3 @@
+tag=$APACHE
+| count over 1h
+| chart count

@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Cross Site Scripting Strings",
+	"Description": "Detects XSS attempts injected via GET requests in access logs",
+	"GUID": "ef84e918-644a-4ce1-bf58-995542e03ace",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"xss",
+		"injection",
+		"initial-access",
+		"T1189"
+	],
+	"Metadata": {}
+}

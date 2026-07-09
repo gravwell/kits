@@ -1,0 +1,11 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(query, "(?i)[$][{]@java[.]lang")          ||
+    match(query, "(?i)getRuntime[(][)][.]exec")      ||
+    match(query, "(?i)ProcessBuilder")               ||
+    match(query, "(?i)%40java[.]lang")               ||
+    match(query, "(?i)@Runtime@getRuntime")          ||
+    match(uri,   "(?i)[$][{]@java[.]lang")          ||
+    match(uri,   "(?i)getRuntime[(][)][.]exec")      ||
+    match(uri,   "(?i)ProcessBuilder")
+| table time remote_addr forwarded_for method uri query status user_agent vhost

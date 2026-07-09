@@ -1,0 +1,13 @@
+{
+	"Name": "Apache - Crypto Miner User Agent",
+	"Description": "Detects suspicious user agent strings used by crypto miners in proxy logs",
+	"GUID": "29d39e3d-846e-4b07-a119-89a95afa8c49",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,3 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost referer
+| eval match(user_agent, "[(][)] [{]") || match(referer, "[(][)] [{]")
+| table time remote_addr method uri query status user_agent vhost referer

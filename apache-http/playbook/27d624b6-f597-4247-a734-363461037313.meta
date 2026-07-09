@@ -1,0 +1,25 @@
+{
+	"UUID": "e706c370-a0e2-4cac-a992-c17299c8569b",
+	"GUID": "27d624b6-f597-4247-a734-363461037313",
+	"UID": 2,
+	"GIDs": [],
+	"Global": false,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Apache - Readme",
+	"Desc": "Copy of Apache kit readme",
+	"Labels": [
+		"apache",
+		"readme"
+	],
+	"LastUpdated": "2026-07-02T18:15:40.522178338Z",
+	"Author": {
+		"Name": "Bronson Peto",
+		"Email": "bronson.peto@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": false
+}

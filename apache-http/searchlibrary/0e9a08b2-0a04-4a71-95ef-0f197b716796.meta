@@ -1,0 +1,16 @@
+{
+	"Name": "Apache - Java Payload Strings",
+	"Description": "Detects possible Java payloads in web access logs",
+	"GUID": "0e9a08b2-0a04-4a71-95ef-0f197b716796",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"T1190"
+	],
+	"Metadata": {}
+}

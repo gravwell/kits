@@ -1,0 +1,21 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(query, "(?i)cmd=whoami")              ||
+    match(query, "(?i)cmd=net[%+\s]")           ||
+    match(query, "(?i)cmd=dir")                 ||
+    match(query, "(?i)cmd=type")                ||
+    match(query, "(?i)cmd=ipconfig")            ||
+    match(query, "(?i)cmd=tasklist")            ||
+    match(query, "(?i)cmd=wmic")                ||
+    match(query, "(?i)cmd=certutil")            ||
+    match(query, "(?i)cmd=powershell")          ||
+    match(query, "(?i)exec=powershell")         ||
+    match(query, "(?i)exec=cmd[.]exe")          ||
+    match(query, "(?i)c=cmd")                   ||
+    match(query, "(?i)whoami")                  ||
+    match(query, "(?i)systeminfo")              ||
+    match(query, "(?i)net[%+\s]user")           ||
+    match(query, "(?i)ipconfig[%+\s]%2Fall")    ||
+    match(query, "(?i)wmic[%+\s]process")       ||
+    match(query, "(?i)certutil[%+\s]-urlcache")
+| table time remote_addr forwarded_for method uri query status user_agent vhost

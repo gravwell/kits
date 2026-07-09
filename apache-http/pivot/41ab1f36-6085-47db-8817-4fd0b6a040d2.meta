@@ -1,0 +1,113 @@
+{
+	"UUID": "41ab1f36-6085-47db-8817-4fd0b6a040d2",
+	"Name": "Apache - IP Lookup",
+	"Description": "",
+	"Data": {
+		"menuLabel": "Apache IP",
+		"actions": [
+			{
+				"name": "Investigate IP Dashboaard",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "6cfbea88-db5f-47ce-858b-0292aac58ceb",
+					"options": {
+						"variable": "%%investigate_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "IP Activity Timeline Search",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "fcb69451-6527-4297-bb20-544191075779",
+					"options": {
+						"variable": "%%investigate_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "URIs and Methods Search",
+				"description": "Review the URIs and Methods used by an IP address",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "ffd28080-2d17-45f6-bc56-6571fc4597d5",
+					"options": {
+						"variable": "%%investigate_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "User Agent Review",
+				"description": "Review User Agents for this IP address in Apache logs.",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "84f33806-62bd-45fa-a7e8-2206481b95cd",
+					"options": {
+						"variable": "%%investigate_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"apache",
+		"web server"
+	]
+}

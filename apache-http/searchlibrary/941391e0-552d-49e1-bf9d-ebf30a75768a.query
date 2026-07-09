@@ -1,0 +1,5 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval match(user_agent, "(?i)(Microsoft-WebDAV-MiniRedir|WebDAV-MiniRedir|DavClnt)") &&
+       method == "GET" &&
+       match(uri, "(?i)\.(exe|ps1|bat|cmd|vbs|js|lnk|zip|rar|7z|url|vbe|dat|msi|hta)$")
+| table time remote_addr forwarded_for method uri status user_agent vhost

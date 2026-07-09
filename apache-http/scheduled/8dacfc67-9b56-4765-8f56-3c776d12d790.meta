@@ -1,0 +1,19 @@
+{
+	"Name": "Apache - Apache Segmentation Fault",
+	"Description": "Detects a segmentation fault error message caused by a crashing apache worker process",
+	"Labels": [
+		"apache",
+		"detection",
+		"impact",
+		"T1499.004"
+	],
+	"Schedule": "25 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "8dacfc67-9b56-4765-8f56-3c776d12d790",
+	"SearchReference": "7ec0d66e-fbbb-4363-a856-c44cc6edade8"
+}

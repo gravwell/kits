@@ -1,0 +1,12 @@
+{
+	"Name": "Apache - Web Method Distribution",
+	"Description": "HTTP method distribution — unusual methods (TRACE, CONNECT, PUT, DELETE) indicate reconnaissance or exploitation",
+	"GUID": "c26d33e0-3437-4179-9f33-718b45927712",
+	"Labels": [
+		"apache",
+		"stats",
+		"http-method",
+		"baseline"
+	],
+	"Metadata": {}
+}

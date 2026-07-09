@@ -1,0 +1,9 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(query, "(?i)([|;]|%7c|%3b|%26%26)([%+\s]|%20)*(id|whoami|uname|cat|ls|ps|wget|curl|bash|/bin|python|perl|ruby)") ||
+    match(query, "[$][(]")                                                                                                     ||
+    match(query, "%24%28")                                                                                                     ||
+    match(query, "[`]")                                                                                                        ||
+    match(query, "%60")                                                                                                        ||
+    match(uri,   "(?i)([|;]|%7c|%3b)([%+\s]|%20)*(id|whoami|uname|bash|sh|cat|wget|curl)")
+| table time remote_addr method uri query status user_agent vhost

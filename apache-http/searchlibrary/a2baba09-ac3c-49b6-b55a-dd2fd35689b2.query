@@ -1,0 +1,3 @@
+tag=$APACHE json status remote_addr
+| eval status >= 400 && status < 500
+| chart

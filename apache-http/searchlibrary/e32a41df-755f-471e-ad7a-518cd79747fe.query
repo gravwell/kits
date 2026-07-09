@@ -1,0 +1,3 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval match(user_agent, "=$")
+| table time remote_addr forwarded_for method uri status user_agent vhost

@@ -1,0 +1,25 @@
+{
+	"UUID": "9a1d6acc-7f06-4cb5-826c-f77093e158e4",
+	"GUID": "d7c6c044-92f2-45bc-94a8-9928a7c08b95",
+	"UID": 2,
+	"GIDs": [],
+	"Global": false,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Apache - Kit Overview",
+	"Desc": "An overview for the Apache web server kit. Includes how to set up collection, description of components, and explanation of how to use them.",
+	"Labels": [
+		"apache",
+		"overview"
+	],
+	"LastUpdated": "2026-07-07T16:15:05.917100022Z",
+	"Author": {
+		"Name": "Bronson Peto",
+		"Email": "bronson.peto@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": false
+}

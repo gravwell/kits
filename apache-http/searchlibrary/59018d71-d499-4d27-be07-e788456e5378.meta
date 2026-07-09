@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Web Attack Indicators By IP",
+	"Description": "Source IPs with the most requests matching attack indicator patterns (SQLi, XSS, path traversal, RCE, scanners)",
+	"GUID": "59018d71-d499-4d27-be07-e788456e5378",
+	"Labels": [
+		"apache",
+		"stats",
+		"uri",
+		"scanning",
+		"reconnaissance",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

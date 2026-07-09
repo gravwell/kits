@@ -1,0 +1,13 @@
+tag=$APACHE json status
+| eval
+if (status < 200 ) {
+    category = "Informational";
+} else if (status < 300) {
+    category = "Success";
+} else if (status < 500) {
+    category = "Client Error";
+} else if (status < 600) {
+    category = "Server Error";
+}
+| stats count by category
+| chart count by category

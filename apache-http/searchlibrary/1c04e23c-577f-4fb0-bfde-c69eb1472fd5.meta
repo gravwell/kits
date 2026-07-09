@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Suspicious User-agents Related To Recon Tools",
+	"Description": "Detects known suspicious (default) user-agents related to scanning/recon tools",
+	"GUID": "1c04e23c-577f-4fb0-bfde-c69eb1472fd5",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"scanning",
+		"initial-access",
+		"T1190"
+	],
+	"Metadata": {}
+}

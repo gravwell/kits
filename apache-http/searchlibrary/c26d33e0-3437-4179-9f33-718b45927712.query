@@ -1,0 +1,5 @@
+tag=$APACHE json method remote_addr forwarded_for
+| eval method != "GET" && method != "POST" && method != "HEAD"
+| stats count by method remote_addr
+| sort by count desc
+| table method remote_addr forwarded_for count

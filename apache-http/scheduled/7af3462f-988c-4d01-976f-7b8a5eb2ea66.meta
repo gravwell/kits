@@ -1,0 +1,24 @@
+{
+	"Name": "Apache - Web Encoding Evasion",
+	"Description": "Detects URL encoding evasion techniques in HTTP requests including double encoding, null byte injection, and Unicode normalization sequences used to bypass WAFs and input filters.",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"path-traversal",
+		"evasion",
+		"initial-access",
+		"defense-evasion",
+		"bespoke",
+		"T1190"
+	],
+	"Schedule": "15 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "7af3462f-988c-4d01-976f-7b8a5eb2ea66",
+	"SearchReference": "bc60f9b6-1ac5-4df5-aa9d-3a18fa82fce2"
+}

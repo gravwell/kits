@@ -1,0 +1,10 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval
+    match(uri, "(?i)/Basic/Command/")       ||
+    match(uri, "(?i)/Basic/ReverseShell/")  ||
+    match(uri, "(?i)/Basic/Dnslog/")        ||
+    match(uri, "(?i)/TomcatBypass/")        ||
+    match(uri, "(?i)/Basic/TomcatMemshell") ||
+    match(uri, "(?i)/SpringMemshell")       ||
+    match(uri, "(?i)/GroovyBypass/")
+| table time remote_addr forwarded_for method uri status user_agent vhost

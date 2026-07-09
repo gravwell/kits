@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - SQL Injection Strings In URI",
+	"Description": "Detects potential SQL injection attempts via GET requests in access logs.",
+	"GUID": "f4413585-bff3-48cc-a87d-a366321d14cb",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"sql-injection",
+		"injection",
+		"initial-access",
+		"T1190"
+	],
+	"Metadata": {}
+}

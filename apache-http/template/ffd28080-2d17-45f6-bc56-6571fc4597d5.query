@@ -1,0 +1,3 @@
+tag=$APACHE json count remote_addr == %%investigate_ip%% method uri status vhost
+| count by uri method status
+| table

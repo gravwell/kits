@@ -1,0 +1,16 @@
+{
+	"Name": "Apache - Hack Tool User Agent",
+	"Description": "Detects suspicious user agent strings user by hack tools in proxy logs",
+	"GUID": "849d86eb-2760-48a4-9e0c-dc4eac4e4b1c",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"scanning",
+		"initial-access",
+		"T1190",
+		"T1110",
+		"credential-access"
+	],
+	"Metadata": {}
+}

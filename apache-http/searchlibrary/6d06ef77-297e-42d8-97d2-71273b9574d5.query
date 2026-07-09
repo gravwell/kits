@@ -1,0 +1,14 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    (match(user_agent, "Mozilla/4[.]0 [(]compatible; MSIE [89][.]0; Windows NT [56][.]") &&
+     (match(uri, "(?i)/s/ref=nb_sb_noss")       ||
+      match(uri, "(?i)/dpx/shoppers/")           ||
+      match(uri, "(?i)/api/list-identifiers")    ||
+      match(uri, "(?i)/item/all")                ||
+      match(uri, "(?i)/checkout/address")))      ||
+    match(uri, "(?i)^/ocsp$")                    ||
+    (method == "GET" && match(query, "manifest=wac") &&
+     (match(uri, "(?i)/personal/") || match(uri, "(?i)/_api/")))  ||
+    (match(user_agent, "Mozilla/5[.]0 [(]Windows NT 6[.]1; WOW64; Trident/7[.]0; rv:11[.]0[)] like Gecko") &&
+     match(uri, "(?i)/submit[.]php$"))
+| table time remote_addr forwarded_for method uri query status user_agent vhost

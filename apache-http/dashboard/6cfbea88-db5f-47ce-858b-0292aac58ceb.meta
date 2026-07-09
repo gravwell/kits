@@ -1,0 +1,147 @@
+{
+	"UUID": "6cfbea88-db5f-47ce-858b-0292aac58ceb",
+	"Name": "Apache - IP Investigation",
+	"Description": "Review activity for an IP address to investigate specific behavior.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Apache - Investigate IP - Activity Timeline",
+				"color": null,
+				"reference": {
+					"id": "fcb69451-6527-4297-bb20-544191075779",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache  - Investigate IP - URIs and Methods",
+				"color": null,
+				"reference": {
+					"id": "ffd28080-2d17-45f6-bc56-6571fc4597d5",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Investigate IP - HTTP Status Breakdown",
+				"color": null,
+				"reference": {
+					"id": "e4743bbb-9950-45db-ae9a-e2d8fe0f5f1f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Investigate IP - User Agent Review",
+				"color": null,
+				"reference": {
+					"id": "84f33806-62bd-45fa-a7e8-2206481b95cd",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Investigate IP - Error Pattern Detail",
+				"color": null,
+				"reference": {
+					"id": "3ef95797-b7ce-4cb3-9a4d-781d10a86732",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17829228390150,
+				"title": "Activity Timeline",
+				"renderer": "overview",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17829228940221,
+				"title": "URIs and Methods",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 7,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17829229162432,
+				"title": "HTTP Status Breakdown",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 10,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17829229384273,
+				"title": "User Agents Used",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17829229717594,
+				"title": "Error Pattern Detail",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 5,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Top Probed URIs",
+	"Description": "Most frequently requested URIs that returned 404 — reveals what attackers are probing for",
+	"GUID": "a65d38af-0153-4232-be21-6ce9718fd2e3",
+	"Labels": [
+		"apache",
+		"stats",
+		"uri",
+		"http-status",
+		"enumeration",
+		"reconnaissance",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

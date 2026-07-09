@@ -1,0 +1,4 @@
+tag=apache json remote_addr 
+| stats count by remote_addr
+| sort by count desc
+| table remote_addr count

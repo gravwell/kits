@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Web LFI RFI In Access Logs",
+	"Description": "Detects local and remote file inclusion payload patterns in HTTP access logs, including PHP stream wrappers and external URL inclusion attempts.",
+	"GUID": "c5d933c6-1878-4b96-91dd-d29523c058f0",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"path-traversal",
+		"initial-access",
+		"bespoke",
+		"T1190"
+	],
+	"Metadata": {}
+}

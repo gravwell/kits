@@ -1,0 +1,26 @@
+{
+	"UUID": "fcb69451-6527-4297-bb20-544191075779",
+	"Name": "Apache - Investigate IP - Activity Timeline",
+	"Description": "All Apache events for this IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "IP being investigated",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"apache",
+		"investigate",
+		"ip",
+		"status",
+		"uri",
+		"method",
+		"http"
+	]
+}

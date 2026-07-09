@@ -1,0 +1,20 @@
+{
+	"Name": "Apache - Crypto Miner User Agent",
+	"Description": "Detects suspicious user agent strings used by crypto miners in proxy logs",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "11 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e85df85d-7a5c-46d3-9918-af4a402fd13f",
+	"SearchReference": "29d39e3d-846e-4b07-a119-89a95afa8c49"
+}

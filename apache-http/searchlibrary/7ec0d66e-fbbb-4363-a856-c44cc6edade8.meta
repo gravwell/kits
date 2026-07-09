@@ -1,0 +1,12 @@
+{
+	"Name": "Apache - Apache Segmentation Fault",
+	"Description": "Detects a segmentation fault error message caused by a crashing apache worker process",
+	"GUID": "7ec0d66e-fbbb-4363-a856-c44cc6edade8",
+	"Labels": [
+		"apache",
+		"detection",
+		"impact",
+		"T1499.004"
+	],
+	"Metadata": {}
+}

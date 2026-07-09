@@ -1,0 +1,16 @@
+{
+	"Name": "Apache - F5 Big-ip Icontrol Rest API Command Execution - Webserver",
+	"Description": "Detects POST requests to the F5 BIG-IP iControl Rest API bash endpoint, which allows the execution of commands on the BIG-IP",
+	"GUID": "5331c257-70b0-4e49-981c-0088722eba94",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"uri",
+		"scanning",
+		"initial-access",
+		"execution",
+		"T1190"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "Apache - Server Side Template Injection Strings",
+	"Description": "Detects SSTI attempts sent via GET requests in access logs",
+	"GUID": "fc0591ab-b5b6-4e17-b297-8b9903505b10",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"ssti",
+		"injection",
+		"initial-access",
+		"T1221",
+		"stealth"
+	],
+	"Metadata": {}
+}

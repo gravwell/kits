@@ -1,0 +1,4 @@
+tag=$APACHE json user_agent
+| stats count by user_agent
+| sort by count desc
+| table user_agent count

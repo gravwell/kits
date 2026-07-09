@@ -1,0 +1,5 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval match(uri, "/checkupdate\.php") &&
+       match(query, "lng=") && match(query, "ver=") && match(query, "beta=") &&
+       match(query, "type=") && match(query, "rmode=") && match(query, "product=")
+| table time remote_addr forwarded_for method uri query status user_agent vhost

@@ -1,0 +1,10 @@
+// AGGREGATION REQUIRED — threshold-based detection, not a simple string match.
+// Fires on rapid enumeration of distinct URIs from a single source IP.
+// Status-agnostic: catch-all backends return 200 for unknown paths (soft 404),
+// so filtering on 4xx would miss most real-world directory enumeration.
+// Tune threshold per environment baseline.
+tag=$APACHE json remote_addr uri
+| stats count by remote_addr uri
+| stats count as distinct_uris by remote_addr
+| eval distinct_uris > 20
+| table remote_addr distinct_uris
