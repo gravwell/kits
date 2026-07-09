@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Hacktool - Babyshark Agent Default URL Pattern",
+	"Description": "Detects Baby Shark C2 Framework default communication patterns",
+	"GUID": "46f35e2d-2e55-4cf7-92af-526f518bfa54",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001"
+	],
+	"Metadata": {}
+}

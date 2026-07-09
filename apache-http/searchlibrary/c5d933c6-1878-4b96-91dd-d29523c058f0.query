@@ -1,0 +1,17 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(uri,   "(?i)php://")                                                                ||
+    match(uri,   "(?i)file:///")                                                              ||
+    match(uri,   "(?i)expect://")                                                             ||
+    match(uri,   "(?i)data://")                                                               ||
+    match(uri,   "(?i)zip://")                                                                ||
+    match(uri,   "(?i)phar://")                                                               ||
+    match(query, "(?i)php://")                                                                ||
+    match(query, "(?i)file:///")                                                              ||
+    match(query, "(?i)expect://")                                                             ||
+    match(query, "(?i)data://")                                                               ||
+    match(query, "(?i)zip://")                                                                ||
+    match(query, "(?i)phar://")                                                               ||
+    match(query, "(?i)(redirect|url|include|page|file|template|path|src)=https?://")         ||
+    match(uri,   "(?i)(redirect|url|include|page|file|template|path|src)=https?://")
+| table time remote_addr method uri query status user_agent vhost

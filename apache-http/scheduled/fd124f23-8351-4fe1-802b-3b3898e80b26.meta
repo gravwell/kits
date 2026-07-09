@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Apt User Agent",
+	"Description": "Detects suspicious user agent strings used in APT malware in proxy logs",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001"
+	],
+	"Schedule": "56 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "fd124f23-8351-4fe1-802b-3b3898e80b26",
+	"SearchReference": "6671909d-adf6-4884-a7da-976cd6155f87"
+}

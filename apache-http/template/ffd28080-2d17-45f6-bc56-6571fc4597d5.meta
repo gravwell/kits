@@ -1,0 +1,25 @@
+{
+	"UUID": "ffd28080-2d17-45f6-bc56-6571fc4597d5",
+	"Name": "Apache  - Investigate IP - URIs and Methods",
+	"Description": "Table view of counts by URI, method, and status for an IP address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "IP being investigated",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"apache",
+		"http",
+		"investigate",
+		"ip",
+		"uri",
+		"method"
+	]
+}

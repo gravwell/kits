@@ -1,0 +1,1 @@
+^\[(?P<timestamp>\w+ \w+ \d+ \d+:\d+:\d+\.\d+ \d+)\] \[(?P<module>[\w-]+):(?P<loglevel>\w+)\] \[pid (?P<pid>\d+)(?::tid (?P<tid>\d+))?\](?: \[client (?P<client_ip>[\d.]+):(?P<client_port>\d+)\])?\s*(?:(?P<error_code>AH\d+): )?(?P<message>.*?)(?:, referer: (?P<referer>\S+))?$

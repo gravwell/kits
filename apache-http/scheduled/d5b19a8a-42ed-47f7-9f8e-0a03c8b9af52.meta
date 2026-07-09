@@ -1,0 +1,24 @@
+{
+	"Name": "Apache - Web Sensitive File Exposed",
+	"Description": "Detects successful (HTTP 200) access to sensitive files and paths that should never be publicly accessible, including environment files, Git artifacts, PHP info pages, and database dumps.",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"http-status",
+		"enumeration",
+		"discovery",
+		"reconnaissance",
+		"bespoke",
+		"T1083"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "d5b19a8a-42ed-47f7-9f8e-0a03c8b9af52",
+	"SearchReference": "3eedfc70-604e-49f8-a62d-fb4ab5f5e8bb"
+}

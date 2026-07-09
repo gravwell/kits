@@ -1,0 +1,24 @@
+{
+	"UUID": "84f33806-62bd-45fa-a7e8-2206481b95cd",
+	"Name": "Apache - Investigate IP - User Agent Review",
+	"Description": "Review the user agents that have come from this IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "IP being investigated",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"apache",
+		"ip",
+		"investigate",
+		"user agent",
+		"http"
+	]
+}

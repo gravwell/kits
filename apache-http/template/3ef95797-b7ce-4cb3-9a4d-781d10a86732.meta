@@ -1,0 +1,26 @@
+{
+	"UUID": "3ef95797-b7ce-4cb3-9a4d-781d10a86732",
+	"Name": "Apache - Investigate IP - Error Pattern Detail",
+	"Description": "Table details view of 4xx/5xx requests from an IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "IP being investigated",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "127.0.0.1"
+			}
+		]
+	},
+	"Labels": [
+		"apache",
+		"investigate",
+		"ip",
+		"IP",
+		"status",
+		"error",
+		"uri"
+	]
+}

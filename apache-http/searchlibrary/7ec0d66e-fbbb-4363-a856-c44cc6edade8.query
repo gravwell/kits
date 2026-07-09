@@ -1,0 +1,2 @@
+tag=$APACHE_ERR grep "Segmentation fault"
+| table time DATA

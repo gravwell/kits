@@ -1,0 +1,158 @@
+{
+	"UUID": "927cfcfc-faed-4c9f-b1ba-aa0def693b27",
+	"Name": "Apache - Attack Surface",
+	"Description": "Review indicators related to errors, probing, and suspicious access patterns.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Apache - Apache Direct Access Sources",
+				"color": null,
+				"reference": {
+					"id": "547ebc97-9cc0-4c05-9e25-4a290c49300a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Suspicious User Agents By IP",
+				"color": null,
+				"reference": {
+					"id": "51bef544-251c-4131-9da1-f3315b3223ad",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Top Probed URIs",
+				"color": null,
+				"reference": {
+					"id": "a65d38af-0153-4232-be21-6ce9718fd2e3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Error Rate By IP",
+				"color": null,
+				"reference": {
+					"id": "97ba8343-6aaf-474f-add0-723df8f1133c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Suspicious UA Over Time",
+				"color": null,
+				"reference": {
+					"id": "5d08dfbf-25bc-499f-a65a-bdc3bb43af3c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Errors Over Time",
+				"color": null,
+				"reference": {
+					"id": "a2baba09-ac3c-49b6-b55a-dd2fd35689b2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17828554999450,
+				"title": "Suspicious UA by IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17828556310481,
+				"title": "URI Probing - Top Targets",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 13,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17828556794522,
+				"title": "Request Errors by IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17829226623223,
+				"title": "Suspicious User Agents Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17829227032364,
+				"title": "Errors Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

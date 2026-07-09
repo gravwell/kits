@@ -1,0 +1,10 @@
+{
+	"Name": "Apache - Web Open Redirect Attempt",
+	"Description": "Detects open redirect exploitation attempts where common redirect parameters contain external URLs, used for phishing, OAuth token theft, and SSRF pivoting.",
+	"GUID": "0df8c867-064d-4179-b72f-67ab802299ae",
+	"Labels": [
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

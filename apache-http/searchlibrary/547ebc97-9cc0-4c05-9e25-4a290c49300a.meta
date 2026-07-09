@@ -1,0 +1,12 @@
+{
+	"Name": "Apache - Apache Direct Access Sources",
+	"Description": "Source IPs accessing Apache directly without going through nginx (empty forwarded_for, excluding known direct sources)",
+	"GUID": "547ebc97-9cc0-4c05-9e25-4a290c49300a",
+	"Labels": [
+		"apache",
+		"stats",
+		"baseline",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

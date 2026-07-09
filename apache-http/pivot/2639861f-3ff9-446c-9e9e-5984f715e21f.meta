@@ -1,0 +1,41 @@
+{
+	"UUID": "2639861f-3ff9-446c-9e9e-5984f715e21f",
+	"Name": "Apache - Status Code",
+	"Description": "",
+	"Data": {
+		"menuLabel": "",
+		"actions": [
+			{
+				"name": "Apache - HTTP Status Code Search",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "20ff70b5-c080-45b5-ad71-f9c03e8eddd6",
+					"options": {
+						"variable": "%%http_status%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/[1-5]\\d{2}/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

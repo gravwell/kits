@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Suspicious Base64 Encoded User-agent",
+	"Description": "Detects suspicious encoded User-Agent strings, as seen used by some malware.",
+	"GUID": "feceaee6-9825-401a-b578-a5f806121a5e",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

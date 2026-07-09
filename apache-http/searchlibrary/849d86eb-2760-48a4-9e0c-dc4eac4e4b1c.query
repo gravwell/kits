@@ -1,0 +1,3 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval match(user_agent, "(?i)(hydra|arachni|BFAC|brutus|cgichk|crimscanner|dirbuster|dotdotpwn|FHScan Core|grendel-scan|masscan/|n-stealth|nsauditor|vega|webshag|webvulnscan|absinthe|bsqlbf|mysqloit|pangolin|sql power injector|sqlmap|sqlninja|floodgate|internet ninja|metis|voideye|Havij|ruler|ncrack|medusa)")
+| table time remote_addr forwarded_for method uri status user_agent vhost

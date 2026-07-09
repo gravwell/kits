@@ -1,0 +1,22 @@
+{
+	"Name": "Apache - Apache Threading Error",
+	"Description": "Detects an issue in apache logs that reports threading related errors",
+	"Labels": [
+		"apache",
+		"detection",
+		"initial-access",
+		"impact",
+		"T1190",
+		"T1210",
+		"lateral-movement"
+	],
+	"Schedule": "41 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0e1a1dfb-fbb1-4756-940d-c22705518834",
+	"SearchReference": "c373ec29-11a7-4788-aaee-ffd2c7e6e329"
+}

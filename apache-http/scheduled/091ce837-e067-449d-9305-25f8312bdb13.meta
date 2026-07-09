@@ -1,0 +1,23 @@
+{
+	"Name": "Apache - Java Payload Strings",
+	"Description": "Detects possible Java payloads in web access logs",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"T1190"
+	],
+	"Schedule": "15 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "091ce837-e067-449d-9305-25f8312bdb13",
+	"SearchReference": "0e9a08b2-0a04-4a71-95ef-0f197b716796"
+}

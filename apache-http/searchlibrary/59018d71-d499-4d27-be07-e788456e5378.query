@@ -1,0 +1,10 @@
+tag=$APACHE json remote_addr forwarded_for uri query user_agent
+| eval match(query, "(?i)(UNION[%+\s]+SELECT|group_concat\s*\(|information_schema|sleep\s*\(\d)") ||
+       match(query, "(?i)(<script|onerror\s*=|javascript:|alert\s*\()") ||
+       match(uri,   "(\.\./|\.\.%2[fF]|\.\.%5[cC])") ||
+       match(query, "(?i)(getRuntime\(\)\.exec|ProcessBuilder|\$\{@java|%40java\.lang)") ||
+       match(query, "(\{\{|\$\{|<%=|freemarker\.template)") ||
+       match(user_agent, "(?i)(sqlmap|nikto|nmap scripting|masscan|dirbuster|gobuster|wpscan|nuclei|ffuf|feroxbuster)")
+| stats count by remote_addr, forwarded_for
+| sort by count desc
+| table remote_addr forwarded_for count

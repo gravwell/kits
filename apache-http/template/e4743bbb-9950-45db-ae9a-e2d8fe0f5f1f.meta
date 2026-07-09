@@ -1,0 +1,24 @@
+{
+	"UUID": "e4743bbb-9950-45db-ae9a-e2d8fe0f5f1f",
+	"Name": "Apache - Investigate IP - HTTP Status Breakdown",
+	"Description": "HTTP status distribution for an IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "IP being investigated",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": [
+		"apache",
+		"http",
+		"ip",
+		"investigate",
+		"status"
+	]
+}

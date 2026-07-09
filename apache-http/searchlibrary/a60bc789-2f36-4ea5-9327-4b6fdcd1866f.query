@@ -1,0 +1,9 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval
+    match(user_agent, "(?i)Metasploit RSPEC")                                                                          ||
+    match(user_agent, "(?i)Mozilla/6[.]0 [(]X11; Linux x86_64.*Iceweasel/25[.]3")                                     ||
+    match(user_agent, "(?i)exploit")                                                                                   ||
+    match(user_agent, "(?i)wordpress hash grabber")                                                                    ||
+    match(user_agent, "(?i)Mozilla/5[.]0 [(]Windows NT 6[.]1.*Chrome/96[.]0[.]4664[.]45")                             ||
+    match(user_agent, "compatible; MSIE 6[.]0; Windows NT 5[.]1; SV1; InfoPath[.][0-9]; [.]NET CLR [0-9]")
+| table time remote_addr forwarded_for method uri status user_agent vhost

@@ -1,0 +1,10 @@
+{
+	"Name": "Apache - Suspicious UA Over Time",
+	"Description": "Scanner and attack-tool user agents seen over time",
+	"GUID": "5d08dfbf-25bc-499f-a65a-bdc3bb43af3c",
+	"Labels": [
+		"apache",
+		"stats"
+	],
+	"Metadata": {}
+}

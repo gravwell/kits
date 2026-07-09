@@ -1,0 +1,147 @@
+{
+	"UUID": "6a63c560-a581-445f-9da0-211640d2f286",
+	"Name": "Apache - Traffic Overview",
+	"Description": "Overview of the web requests received by Apache web server.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Apache - Request Volume Over Time",
+				"color": null,
+				"reference": {
+					"id": "73b95e8a-ba44-47e7-a0c9-a18ef0472761",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - HTTP Status Code Distribution",
+				"color": null,
+				"reference": {
+					"id": "b550a0c4-bdad-4947-abf0-021655e4a572",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Top Requesting IPs",
+				"color": null,
+				"reference": {
+					"id": "f5fa06ef-5b6c-4288-b6d5-1559b844fd5a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Top Requested URI",
+				"color": null,
+				"reference": {
+					"id": "cc634745-e460-420d-aeac-8773d25f4ba8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - User Agents",
+				"color": null,
+				"reference": {
+					"id": "7186d98f-3f5c-4950-9600-3229cd0bf0a4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17828549903830,
+				"title": "Request Volume Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17828550151451,
+				"title": "HTTP Status Code Distribution",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17828551285822,
+				"title": "Top Client IPs",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 7,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17828551563473,
+				"title": "Top Requested URI",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17828552022584,
+				"title": "User Agent Frequency",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 7,
+					"x": 4,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": null
+}

@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Windows Powershell User Agent",
+	"Description": "Detects Windows PowerShell Web Access",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"defense-evasion",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "22 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "cb5f9ae3-61c8-45af-b4fa-cd450594f363",
+	"SearchReference": "c719606f-ee89-4a67-a2c1-a81f9f78afed"
+}

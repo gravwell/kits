@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Webshell Regeorg Detection Via Web Logs",
+	"Description": "Certain strings in the uri_query field when combined with null referer and null user agent can indicate activity associated with the webshell ReGeorg.",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"webshell",
+		"persistence",
+		"T1505.003"
+	],
+	"Schedule": "33 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4931a453-dae0-444c-a5b9-70fdf2427ee3",
+	"SearchReference": "43c20407-2ecc-476f-b44d-305abc366c15"
+}

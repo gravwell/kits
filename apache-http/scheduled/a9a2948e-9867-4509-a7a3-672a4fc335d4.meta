@@ -1,0 +1,22 @@
+{
+	"Name": "Apache - Pua - Advanced Ip/port Scanner Update Check",
+	"Description": "Detect the update check performed by Advanced IP/Port Scanner utilities.",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"scanning",
+		"reconnaissance",
+		"T1590",
+		"discovery"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a9a2948e-9867-4509-a7a3-672a4fc335d4",
+	"SearchReference": "08d8efb5-865a-4ab8-9f61-a19b34c26eda"
+}

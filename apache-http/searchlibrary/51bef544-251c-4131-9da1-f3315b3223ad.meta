@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Suspicious User Agents By IP",
+	"Description": "Scanner and attack-tool user agents seen, grouped by source IP",
+	"GUID": "51bef544-251c-4131-9da1-f3315b3223ad",
+	"Labels": [
+		"apache",
+		"stats",
+		"user-agent",
+		"scanning",
+		"reconnaissance",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

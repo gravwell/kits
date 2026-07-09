@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - HTTP Request With Empty User Agent",
+	"Description": "Detects a potentially suspicious empty user agent strings in proxy log. Could potentially indicate an uncommon request method.",
+	"GUID": "3655c97a-90ad-4032-b622-f84ff086db7d",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

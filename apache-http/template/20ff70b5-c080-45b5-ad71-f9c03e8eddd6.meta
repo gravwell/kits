@@ -1,0 +1,18 @@
+{
+	"UUID": "20ff70b5-c080-45b5-ad71-f9c03e8eddd6",
+	"Name": "Apache - HTTP Status Code Search",
+	"Description": "",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%http_status%%",
+				"label": "http_status",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "200"
+			}
+		]
+	},
+	"Labels": null
+}

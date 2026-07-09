@@ -1,0 +1,13 @@
+{
+	"Name": "Apache - Malware User Agent",
+	"Description": "Detects suspicious user agent strings used by malware in proxy logs",
+	"GUID": "06003fe5-db47-4c45-89b3-b1b4e316ff7e",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

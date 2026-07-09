@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Suspicious User-agents Related To Recon Tools",
+	"Description": "Detects known suspicious (default) user-agents related to scanning/recon tools",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"scanning",
+		"initial-access",
+		"T1190"
+	],
+	"Schedule": "44 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c33aaac6-213a-404b-a055-28facc17f548",
+	"SearchReference": "1c04e23c-577f-4fb0-bfde-c69eb1472fd5"
+}

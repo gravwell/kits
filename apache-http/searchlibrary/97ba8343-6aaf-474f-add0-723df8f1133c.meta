@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Error Rate By IP",
+	"Description": "4xx responses per source IP — high error rates indicate directory enumeration or scanning",
+	"GUID": "97ba8343-6aaf-474f-add0-723df8f1133c",
+	"Labels": [
+		"apache",
+		"stats",
+		"http-status",
+		"scanning",
+		"reconnaissance",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

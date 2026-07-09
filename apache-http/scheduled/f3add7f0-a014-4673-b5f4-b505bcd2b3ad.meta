@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Windows Webshell Strings",
+	"Description": "Detects common commands used in Windows webshells",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"webshell",
+		"persistence",
+		"T1505.003"
+	],
+	"Schedule": "9 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f3add7f0-a014-4673-b5f4-b505bcd2b3ad",
+	"SearchReference": "99ef5665-c5da-43f8-97c6-821a32f39588"
+}

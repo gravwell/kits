@@ -1,0 +1,24 @@
+{
+	"Name": "Apache - Pwndrp Access",
+	"Description": "Detects downloads from PwnDrp web servers developed for red team testing and most likely also used for criminal activity",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"uri",
+		"initial-access",
+		"T1071.001",
+		"T1102.001",
+		"T1102.003",
+		"command-and-control"
+	],
+	"Schedule": "1 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "3fcadc44-9ba8-4f74-98d0-acad780ddd82",
+	"SearchReference": "419a0b5c-7a0a-429c-a83b-f7d6b00ddef3"
+}

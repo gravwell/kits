@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Source Code Enumeration Detection By Keyword",
+	"Description": "Detects source code enumeration that use GET requests by keyword searches in URL strings",
+	"GUID": "2ef339df-e9bd-44f1-a3fc-408f77f80d4d",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"enumeration",
+		"discovery",
+		"reconnaissance",
+		"T1083"
+	],
+	"Metadata": {}
+}

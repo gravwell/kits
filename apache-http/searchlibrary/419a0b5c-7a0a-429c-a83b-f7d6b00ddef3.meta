@@ -1,0 +1,17 @@
+{
+	"Name": "Apache - Pwndrp Access",
+	"Description": "Detects downloads from PwnDrp web servers developed for red team testing and most likely also used for criminal activity",
+	"GUID": "419a0b5c-7a0a-429c-a83b-f7d6b00ddef3",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"uri",
+		"initial-access",
+		"T1071.001",
+		"T1102.001",
+		"T1102.003",
+		"command-and-control"
+	],
+	"Metadata": {}
+}
