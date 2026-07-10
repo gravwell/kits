@@ -2,7 +2,9 @@
 
 This kit provides ready-to-roll dashboards, queries, alerts, flows, templates, and playbooks.
 
-The Okta Kit is licensed under the Apache 2.0 license and the contents are available on [Okta](https://github.com/gravwell/kits/tree/main/okta).
+The Okta Kit is licensed under the Apache 2.0 license and the contents are available on [GitHub](https://github.com/gravwell/kits/tree/main/okta).
+
+There is an [Integration Guide](https://docs.gravwell.io/integrations/application/okta.html) to assist you in quickly onboarding data for the Okta Kit. 
 
 ## Dependencies
 - Gravwell Network Enrichment Kit (v19)
