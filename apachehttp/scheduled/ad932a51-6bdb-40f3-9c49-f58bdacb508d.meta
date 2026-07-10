@@ -17,7 +17,7 @@
 	"Schedule": "41 * * * *",
 	"Duration": -3600,
 	"DefaultDeploymentRules": {
-		"Disabled": false,
+		"Disabled": true,
 		"RunImmediately": false
 	},
 	"ScheduledType": "search",
