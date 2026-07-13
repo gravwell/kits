@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Breached Password Detection \u0026 User Notifications Disabled",
+	"Description": "Displays a table of Breached Password Settings (including User Notifications) and their statuses.\n- true = enabled\n- false = disabled\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/breached_password_detection_settings_manipulated.yml",
+	"GUID": "259a5ee0-37d0-4b06-8b43-c5074633568d",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

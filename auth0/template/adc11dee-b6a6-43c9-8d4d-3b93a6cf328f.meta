@@ -1,0 +1,36 @@
+{
+	"UUID": "adc11dee-b6a6-43c9-8d4d-3b93a6cf328f",
+	"Name": "Template - Auth0 - User - Authentication - Blocked Account [table]",
+	"Description": "Displays a table of events performed by a Blocked Account. \n\nReference(s): \n- https://auth0.com/docs/secure/security-guidance/incident-response-using-logs#indicators-of-an-attack",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%src_ip%%",
+				"label": "Source IP Address",
+				"description": "This is the IP Address that you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%user_id%%",
+				"label": "User ID",
+				"description": "This is the User ID (user_id) that you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%user_name%%",
+				"label": "User",
+				"description": "This is the User (user_name) who you are investigating.",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"auth0"
+	]
+}

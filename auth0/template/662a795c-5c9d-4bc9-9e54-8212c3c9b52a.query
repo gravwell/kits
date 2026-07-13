@@ -1,0 +1,22 @@
+// Template - Auth0 - System - Log Types - Count by Category & Subcategory [table]
+tag=$AUTH0 json 
+    log_id as logId
+    date
+    type as eventType
+    description
+    client_id as clientId
+    client_name as clientName
+    ip
+    user_id as userId
+    user_name as userName
+| strings -t src_ip ip 
+| eval src_ip ~ "%%src_ip%%" || userId ~ "%%user_id%%" || userName ~ "%%user_name%%"
+$AUTH0_EVENT_LOOKUP
+| eval (category !~ "Authentication" || subcategory !~ "Authentication")
+| stats count by category subcategory
+| alias 
+    userName User
+    userId "User ID"
+    src_ip "Source IP Address"
+    eventType "Event Type"
+| table date category subcategory "Event Type" "User ID" User "Source IP Address"

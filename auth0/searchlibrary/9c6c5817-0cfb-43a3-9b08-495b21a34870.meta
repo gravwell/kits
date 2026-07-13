@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - MFA - Multiple Phone Numbers Are Registered as MFA",
+	"Description": "Displays a table of showing phone numbers that are registered to multiple users.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/multiple_phone_numbers_are_registered_as_mfa.yml",
+	"GUID": "9c6c5817-0cfb-43a3-9b08-495b21a34870",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

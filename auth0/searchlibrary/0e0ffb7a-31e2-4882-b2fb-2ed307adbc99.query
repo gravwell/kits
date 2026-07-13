@@ -1,0 +1,7 @@
+// Search - Auth0 - System - Log Types - Count by Filter Category [chart]
+tag=$AUTH0 json
+    type as eventType
+$$AUTH0_FILTER_CATEGORY
+| stats count by filterCategory
+| alias count " "
+| chart " " by filterCategory

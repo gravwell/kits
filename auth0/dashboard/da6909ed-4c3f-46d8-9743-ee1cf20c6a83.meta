@@ -1,0 +1,224 @@
+{
+	"UUID": "da6909ed-4c3f-46d8-9743-ee1cf20c6a83",
+	"Name": "Auth0 Investigation",
+	"Description": "This dashboard is intended to be used for Auth0 investigations.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P3MT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - Auth0 - System - Log Types - Count by Category  \u0026 Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "70f30e3d-52ba-4009-a1f4-a211723822b5",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Auth0 - System - Log Types - Count by Category \u0026 Subcategory [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bec21369-c116-4d8c-9891-f1ee83dbb072",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Auth0 - System - Log Types - Count by Category \u0026 Subcategory [table]",
+				"color": null,
+				"reference": {
+					"id": "662a795c-5c9d-4bc9-9e54-8212c3c9b52a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Auth0 - User - Authentication - Count by Category [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "e68de016-46c0-43c1-93d4-ee4995d5993a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Auth0 - User - Authentication - Failed Login [table]",
+				"color": null,
+				"reference": {
+					"id": "6937f792-0703-4f7e-9d18-8eaf777b3b89",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Auth0 - User - Authentication - Blocked Account [table]",
+				"color": null,
+				"reference": {
+					"id": "adc11dee-b6a6-43c9-8d4d-3b93a6cf328f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Auth0 - User - Authentication - Leaked Password Login Attempts [table]",
+				"color": null,
+				"reference": {
+					"id": "c2a9f350-70c5-40d5-b6f2-5b887b87c60a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Auth0 - User - Authentication - Successful Login [table]",
+				"color": null,
+				"reference": {
+					"id": "2885fcd9-ece4-4b5e-a752-be6940e4d9ca",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17798996477160,
+				"title": "Event Count by Category \u0026 Subcategory [Pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 9,
+					"x": 0,
+					"y": 5
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17798997108962,
+				"title": "Event Count by Category \u0026 Subcategory [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 5,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17798999736322,
+				"title": "Event Count by Category \u0026 Subcategory [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 9,
+					"x": 7,
+					"y": 5
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17799000733833,
+				"title": "Event Count by Authentication Category [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 4,
+					"x": 0,
+					"y": 14
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17799003816194,
+				"title": "Failed Login [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 4,
+					"x": 0,
+					"y": 22
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17799004162215,
+				"title": "Blocked Account [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 4,
+					"x": 0,
+					"y": 26
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17799008146876,
+				"title": "Leaked Password Login Attempts [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 4,
+					"x": 0,
+					"y": 30
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17799022797027,
+				"title": "Successful Login [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 4,
+					"x": 0,
+					"y": 18
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"auth0"
+	]
+}

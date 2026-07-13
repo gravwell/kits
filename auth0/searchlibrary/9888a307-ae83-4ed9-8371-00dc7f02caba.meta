@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Detect Disabled Factors",
+	"Description": "Displays a table of MFA Factors that are disabled.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/mfa_downgrade_detect_disable_factors.yml",
+	"GUID": "9888a307-ae83-4ed9-8371-00dc7f02caba",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
