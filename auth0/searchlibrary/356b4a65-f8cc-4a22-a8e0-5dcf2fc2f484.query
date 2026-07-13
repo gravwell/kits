@@ -1,0 +1,8 @@
+// Search - Auth0 - System - Log Types - Count by Subategory [chart]
+tag=$AUTH0 json
+    type as eventType
+| alias eventType eventCode
+| lookup -r auth0_eventTypes eventCode eventCode (subcategory)
+| stats count by subcategory
+| alias count " "
+| chart " " by subcategory

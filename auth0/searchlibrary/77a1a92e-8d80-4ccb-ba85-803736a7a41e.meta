@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Update Breached Password Detection Settings",
+	"Description": "Displays a table of Update Breached Password Detection Settings.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/attack_protection_features_turned_off.yml",
+	"GUID": "77a1a92e-8d80-4ccb-ba85-803736a7a41e",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

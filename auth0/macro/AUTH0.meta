@@ -1,0 +1,5 @@
+{
+	"Name": "AUTH0",
+	"Description": "Configuration Macro; Tag used for all Duo data; necessary for any queries within the Gravwell Duo Kit to run properly for dashboards, query library, and templates.\n\nUsage: \ntag=$AUTH0\n\nReference(s):\n  - Auth0 \n    - https://auth0.com/docs/deploy-monitor/logs/log-event-type-codes",
+	"Labels": null
+}

@@ -1,0 +1,43 @@
+{
+	"UUID": "72219e9a-3e87-4d89-9a15-75c389207e74",
+	"Name": "Auth0 UserID",
+	"Description": "Auth0 actions on User Ids (userId) to Launch Auth0 Investigation Dashboard.",
+	"Data": {
+		"menuLabel": "Auth0",
+		"actions": [
+			{
+				"name": "UserID",
+				"description": "This actionable will launch the Auth0 Investigation Dashboard to see other actions performed and events generated from this User ID (userId). ",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "da6909ed-4c3f-46d8-9743-ee1cf20c6a83",
+					"options": {
+						"variable": "%%user_id%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/user_id\\\"\\:\\\"(?\u003cuser_id\u003e[^\"]+?)?\\\"/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"auth0"
+	]
+}

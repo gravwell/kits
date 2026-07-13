@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Application - OAuth2 - Refresh Token Reuse",
+	"Description": "Displays a table of users whom reused the same refresh token. \n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/refresh_token_reuse.yml",
+	"GUID": "18089562-f2c9-44fa-9f74-ff394fbd2d9a",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

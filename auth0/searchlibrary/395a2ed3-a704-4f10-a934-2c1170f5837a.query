@@ -1,0 +1,6 @@
+// Search - Auth0 - System - Log Types - Count by Category [chart]
+tag=$AUTH0 ax
+$AUTH0_EVENT_LOOKUP
+| stats count by category
+| alias count " "
+| chart " " by category
