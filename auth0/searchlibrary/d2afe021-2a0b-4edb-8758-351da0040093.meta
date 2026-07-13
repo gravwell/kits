@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - MFA Downgrade: Risk Assessment Disabled",
+	"Description": "Displays a table of Risk Assessments that are disabled by which User and IP.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/mfa_donwgrade_risk_assessment_disabled.yml",
+	"GUID": "d2afe021-2a0b-4edb-8758-351da0040093",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

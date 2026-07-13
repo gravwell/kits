@@ -1,0 +1,3 @@
+// AUTH0_EVENT_LOOKUP
+| alias eventType eventCode
+| lookup -r auth0_eventTypes eventCode eventCode (category subcategory eventType description as event_description)

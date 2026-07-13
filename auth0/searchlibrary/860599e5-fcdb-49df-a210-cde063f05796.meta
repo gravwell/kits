@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests Due To Mismatched URI",
+	"Description": "Displays a table of Failed Authentications due to a mismatched URI. \n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_failed_authorization_requests.yml",
+	"GUID": "860599e5-fcdb-49df-a210-cde063f05796",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

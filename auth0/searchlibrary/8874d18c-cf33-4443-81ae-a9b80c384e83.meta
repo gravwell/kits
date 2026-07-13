@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Rapid Creation of Clients with Dynamic Registration",
+	"Description": "Displays a table of rapidly created clients. \n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/rapid_creation_of_clients_with_dynamic_registration.yml",
+	"GUID": "8874d18c-cf33-4443-81ae-a9b80c384e83",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
