@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Is Global Admin [chart]",
+  "Description": "This displays a chart of all Is Global Admin (isGlobalAdmin) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "aa80a3b6-edf6-5b7f-b51d-6c8f3a184504",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

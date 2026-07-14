@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Alerts - Open Atlas Search Node Alert [table]",
+  "Description": "Detects open Atlas Search alerts for mongot OOM, stopped replication, throttling, and failed index builds.",
+  "GUID": "4af3e086-c2bb-5242-b932-9077bc12da57",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

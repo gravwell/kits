@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - API Key Lifecycle or Permission Change [table]",
+  "Description": "Detects Atlas API key creation, deletion, project membership changes, role changes, description changes, or access-list inheritance changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e165aa00-74ee-5bd2-8bbb-90007bf214dc",
+  "SearchReference": "94faa072-f81c-525e-9b96-7dc88ac1aec3"
+}

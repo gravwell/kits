@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Projects Overview - Top Name [numbercard] */
+tag=$MONGODB_ATLAS_PROJECTS ax name
+| stats count by name
+| top -n 1 count
+| numbercard (count " ")

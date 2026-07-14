@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Access Overview - Count by Auth Source [chart]",
+  "Description": "This displays a chart of all Auth Source (authSource) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistorycluster",
+  "GUID": "031f08ad-a9fc-5b4d-a85d-c94a39444864",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Username [numbercard] */
+tag=$MONGODB_ATLAS_ORG_ACTIVITY ax username
+| stats count by username
+| numbercard (count " ")

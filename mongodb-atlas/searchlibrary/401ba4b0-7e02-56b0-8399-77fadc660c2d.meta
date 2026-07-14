@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Username [chart]",
+  "Description": "This displays a chart of all Username (username) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "401ba4b0-7e02-56b0-8399-77fadc660c2d",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

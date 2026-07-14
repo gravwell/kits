@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Aws Security Group [chart]",
+  "Description": "This displays a chart of all Aws Security Group (awsSecurityGroup) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "96f80286-e113-5915-ac9e-be7598b60e89",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

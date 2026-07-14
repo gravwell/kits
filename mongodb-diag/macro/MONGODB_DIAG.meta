@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_DIAG",
+	"Description": "Configuration Macro; Tag used for MongoDB Diagnostics structured log data.",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

@@ -1,0 +1,9 @@
+/* AlertQuery - MongoDB - Database - Diagnostics - Alerts - Index Build Failed Or Aborted [table]*/
+tag=$MONGODB_DIAG ax
+| eval component == "INDEX"
+| regex -e message "(?i)fail|failed|failure|abort|aborted|error|exception"
+| eval _alert_name = "Index Build Failed Or Aborted";
+$MONGODB_DIAG_ENRICH_COMMON
+$MONGODB_DIAG_RISK_SCORE
+$MONGODB_DIAG_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _severity context

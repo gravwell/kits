@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Client Log Redaction Disabled [table]",
+  "Description": "Detects clusters where client log redaction is disabled.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "48091567-dcb4-5fe3-9726-178529234c08",
+  "SearchReference": "e0c31e16-7770-527e-9889-aa663c4e2579"
+}

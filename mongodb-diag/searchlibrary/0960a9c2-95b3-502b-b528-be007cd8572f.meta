@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Large Response Returned [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Large Response Returned.",
+	"GUID": "0960a9c2-95b3-502b-b528-be007cd8572f",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

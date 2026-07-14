@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Atlas Log Download [table]",
+  "Description": "Detects MongoDB, mongot, or BI Connector log downloads from Atlas.",
+  "GUID": "93717e60-c391-55e9-b522-04deb6fee176",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

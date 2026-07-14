@@ -1,0 +1,61 @@
+/* MONGODB_ATLAS_RISK_SCORE */
+| eval
+    ev = _atlas_event_type;
+    st = _atlas_status;
+    rk = risk;
+    base = 25.0;
+    /* Atlas alert status and risk catalog baseline */
+    if (has("rk") && rk == "critical") { base = 90.0; }
+    else if (has("rk") && rk == "high") { base = 75.0; }
+    else if (has("rk") && rk == "medium") { base = 55.0; }
+    else if (has("rk") && rk == "low") { base = 35.0; }
+    /* Open Atlas infrastructure / availability / replication / backup alerts */
+    if (match(ev, "(?i)^(HOST_DOWN|NO_PRIMARY|HOST_EXPOSED|HOST_NOT_ENOUGH_DISK_SPACE|HOST_ROLLBACK|REPLICATION_OPLOG_WINDOW_RUNNING_OUT|RESOURCE_POLICY_VIOLATED)$")) { base = 95.0; }
+    else if (match(ev, "(?i)^(CPS_SNAPSHOT_FAILED|CPS_SNAPSHOT_BEHIND|CPS_RESTORE_FAILED|CPS_OPLOG_BEHIND|CPS_DATA_PROTECTION_DISABLED|BACKUP_AGENT_DOWN|RESYNC_REQUIRED)$")) { base = 90.0; }
+    else if (match(ev, "(?i)^(OUTSIDE_METRIC_THRESHOLD|OUTSIDE_SPACE_USED_THRESHOLD|REQUEST_RATE_LIMIT|HOST_RECOVERING|HOST_RESTARTED)$")) { base = 80.0; }
+    /* Security posture and identity control changes */
+    else if (match(ev, "(?i)^(HOST_SECURITY_CHECKUP_NOT_MET|ORG_USERS_WITHOUT_MFA|USERS_WITHOUT_MULTI_FACTOR_AUTH|ORG_UI_IP_ACCESS_LIST_DISABLED|ORG_SERVICE_ACCOUNT_SECRETS_EXPIRED|GROUP_SERVICE_ACCOUNT_SECRETS_EXPIRED)$")) { base = 88.0; }
+    else if (match(ev, "(?i)^(API_KEY_CREATED|API_KEY_DELETED|API_KEY_ROLES_CHANGED|API_KEY_ADDED_TO_GROUP|API_KEY_REMOVED_FROM_GROUP|USER_ROLES_CHANGED_AUDIT)$")) { base = 82.0; }
+    else if (match(ev, "(?i)^(MONGODB_USER_ADDED|MONGODB_USER_DELETED|MONGODB_USER_UPDATED|MONGODB_USER_X509_CERT_CREATED|MONGODB_USER_X509_CERT_REVOKED|MONGODB_ROLE_ADDED|MONGODB_ROLE_DELETED|MONGODB_ROLE_UPDATED)$")) { base = 80.0; }
+    else if (match(ev, "(?i)^(NETWORK_PERMISSION_ENTRY_ADDED|NETWORK_PERMISSION_ENTRY_REMOVED|NETWORK_PERMISSION_ENTRY_UPDATED|CLOUD_PROVIDER_ACCESS_(AWS_IAM_ROLE|AZURE_SERVICE_PRINCIPAL|GCP_SERVICE_ACCOUNT)_(ADDED|DELETED|UPDATED))$")) { base = 78.0; }
+    else if (match(ev, "(?i)^ALERT_CONFIG_(CHANGED|DELETED|DISABLED|ENABLED)_AUDIT$")) { base = 72.0; }
+    else if (match(ev, "(?i)^(RESTRICTED_EMPLOYEE_ACCESS_BYPASS|ALERT_HOST_SSH_SESSION_STARTED)$")) { base = 85.0; }
+    /* Dataset-specific fallbacks */
+    if (has("status") && status == "OPEN" && base < 80.0) { base = 80.0; }
+    else if (has("status") && status == "TRACKING" && base < 65.0) { base = 65.0; }
+    if (has("enabled") && enabled == false && base < 70.0) { base = 70.0; }
+    if (has("authResult") && match(authResult, "(?i)(FAIL|DENIED|ERROR)") && base < 65.0) { base = 65.0; }
+    if (has("failureReason") && failureReason != "" && failureReason != "null" && base < 65.0) { base = 65.0; }
+    if (has("cidrBlock") && cidrBlock == "0.0.0.0/0" && base < 85.0) { base = 85.0; }
+    if (has("ipAddress") && ipAddress == "0.0.0.0" && base < 85.0) { base = 85.0; }
+    /* Contextual bumps */
+    status_bump = 0.0;
+        if (has("status") && status == "OPEN") { status_bump = 10.0; }
+        else if (has("status") && status == "TRACKING") { status_bump = 5.0; }
+    exposed_bump = 0.0;
+        if (match(ev, "(?i)(EXPOSED|PUBLIC|ACCESS_LIST_DISABLED|0\.0\.0\.0)") || (has("cidrBlock") && cidrBlock == "0.0.0.0/0")) { exposed_bump = 10.0; }
+    identity_bump = 0.0;
+        if (match(ev, "(?i)(API_KEY|SERVICE_ACCOUNT|USER|ROLE|MFA)") || has("publicKey") || has("clientId")) { identity_bump = 5.0; }
+    backup_bump = 0.0;
+        if (match(ev, "(?i)(BACKUP|SNAPSHOT|RESTORE|OPLOG|DATA_PROTECTION)") && has("status") && status == "OPEN") { backup_bump = 5.0; }
+    risk_raw = base + status_bump + exposed_bump + identity_bump + backup_bump;
+    risk_score = math_round(math_min(math_max(risk_raw, 0.0), 100.0));
+    _vendor = "MongoDB";
+    _product = "Atlas";
+    _category = _atlas_category;
+    _subcategory = _atlas_subcategory;
+    if (!has("_alert_name")) {_alert_name = ev;}
+    _alert_description = "MongoDB Atlas Admin API event " + ev;
+    if (has("reason") && reason != "" && reason != "null") { _alert_description = reason; }
+    _priority = "Informational";
+    if (risk_score >= 90.0) {
+        _priority = "Critical";
+    } else if (risk_score >= 80.0) {
+        _priority = "High";
+    } else if (risk_score >= 60.0) {
+        _priority = "Medium";
+    } else if (risk_score >= 45.0) {
+        _priority = "Low";
+    }
+    _alert_priority = _priority;
+    // in(_priority, "Critical", "High", "Medium", "Low");

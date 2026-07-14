@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Status [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Status (status) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusterbackupsnapshots",
+  "GUID": "569f23b3-b8c6-55c4-a494-e146391d92a0",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

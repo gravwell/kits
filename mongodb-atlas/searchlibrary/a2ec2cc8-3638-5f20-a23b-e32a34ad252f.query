@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Client ID [numbercard] */
+tag=$MONGODB_ATLAS_SERVICE_ACCOUNTS ax clientId
+| stats count by clientId
+| numbercard (count " ")

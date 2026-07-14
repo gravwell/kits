@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Name [chart]",
+  "Description": "This displays a chart of all Name (name) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "4b719da7-e913-5d8d-be00-c109e9da0d44",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

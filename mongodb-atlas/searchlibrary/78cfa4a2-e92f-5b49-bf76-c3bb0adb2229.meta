@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Access Overview - Top Username [numbercard]",
+  "Description": "This displays the top Username (username) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistorycluster",
+  "GUID": "78cfa4a2-e92f-5b49-bf76-c3bb0adb2229",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

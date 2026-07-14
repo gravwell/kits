@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Notification Type [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Notification Type (notificationType) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "e0e25fb0-0937-5771-9fd1-66418da4ec70",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

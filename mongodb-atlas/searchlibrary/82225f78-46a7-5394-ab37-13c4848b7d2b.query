@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Mongod Version [numbercard] */
+tag=$MONGODB_ATLAS_BACKUPS ax mongodVersion
+| stats count by mongodVersion
+| numbercard (count " ")

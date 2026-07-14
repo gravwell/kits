@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Replica Set Name [chart]",
+  "Description": "This displays a chart of all Replica Set Name (replicaSetName) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusterbackupsnapshots",
+  "GUID": "8d89aa10-78e0-5fbe-9580-8320784f1980",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

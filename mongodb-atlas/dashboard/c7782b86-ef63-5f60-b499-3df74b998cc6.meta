@@ -1,0 +1,787 @@
+{
+    "UUID": "c7782b86-ef63-5f60-b499-3df74b998cc6",
+    "Name": "MongoDB Atlas Alerts Overview",
+    "Description": "This Dashboard is a general overview of MongoDB Atlas alerts Admin API data.",
+    "Data":
+    {
+        "timeframe":
+        {
+            "durationString": null,
+            "timeframe": "P7DT",
+            "timezone": null,
+            "start": null,
+            "end": null
+        },
+        "searches":
+        [
+            {
+                "alias": "Total Events [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "7da3a082-36c0-5357-829c-9bd3dac1a474",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Total Events [lineChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "fc1c6548-fc9b-5c17-b5c0-066a4a7bcf23",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Top Event Type Name [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "cc4cac51-4deb-5df8-b6ad-4b935d6fc429",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Top Status [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "b60dd4d3-4367-5218-a87c-b6339e26f67f",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Top Group ID [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "65a86728-8d6e-5f01-a2e5-05b97ae583a2",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Top Acknowledging Username [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "19df90ba-718e-54dd-bc5d-557d08191f9f",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Rare Event Type Name [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "0596c236-e176-5ff3-9310-eaa15776fd2f",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Rare Status [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "52a5d779-85d0-5593-9550-3bc690eaf9bc",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Rare Group ID [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "58e380c5-2191-5afe-b84a-8881d8ad5906",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Rare Acknowledging Username [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "d2e908bd-e9ee-5de0-9eea-0a0031f76498",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Event Type Name [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "fc0d4cba-07f3-5dfa-aeb9-3ce3bbe69475",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Event Type Name [pieChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "4e4d7d65-26cf-5b8c-acef-dd9096127b2d",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Event Type Name [lineChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "4e4d7d65-26cf-5b8c-acef-dd9096127b2d",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Status [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "5b16a1e2-0df7-58f1-a549-c2acb1c26b36",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Status [pieChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "c5367973-74dd-5d64-a80b-36b582526e23",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Status [lineChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "c5367973-74dd-5d64-a80b-36b582526e23",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Group ID [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "fbef842e-9f67-53ff-92ca-b96cb986d813",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Group ID [pieChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "6cda9f65-cc43-5513-a965-5b80dc7df5ae",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Group ID [lineChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "6cda9f65-cc43-5513-a965-5b80dc7df5ae",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Acknowledging Username [numbercard]",
+                "color": null,
+                "reference":
+                {
+                    "id": "4890b61b-5b05-5e16-9343-b40582a75c5a",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Acknowledging Username [pieChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "c044265d-5204-54db-a6a3-847ef5ba6815",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            },
+            {
+                "alias": "Count by Acknowledging Username [lineChart]",
+                "color": null,
+                "reference":
+                {
+                    "id": "c044265d-5204-54db-a6a3-847ef5ba6815",
+                    "type": "savedQuery",
+                    "extras":
+                    {
+                        "defaultValue": null
+                    }
+                }
+            }
+        ],
+        "tiles":
+        [
+            {
+                "id": 6060499001287814,
+                "title": "Total Events [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 2,
+                    "row": 3,
+                    "x": 0,
+                    "y": 0
+                },
+                "searchesIndex": 0,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6097723848112930,
+                "title": "Total Events [lineChart]",
+                "renderer": "lineChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 10,
+                    "row": 3,
+                    "x": 2,
+                    "y": 0
+                },
+                "searchesIndex": 1,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            },
+            {
+                "id": 6224671254193843,
+                "title": "Top Event Type Name [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 3,
+                    "row": 3,
+                    "x": 0,
+                    "y": 3
+                },
+                "searchesIndex": 2,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6121101934735314,
+                "title": "Top Status [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 3,
+                    "row": 3,
+                    "x": 3,
+                    "y": 3
+                },
+                "searchesIndex": 3,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6125588775454656,
+                "title": "Top Group ID [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 3,
+                    "row": 3,
+                    "x": 6,
+                    "y": 3
+                },
+                "searchesIndex": 4,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6231253202190820,
+                "title": "Top Type Name [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 3,
+                    "row": 3,
+                    "x": 9,
+                    "y": 3
+                },
+                "searchesIndex": 5,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6224695548486216,
+                "title": "Rare Event Type Name [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 3,
+                    "row": 3,
+                    "x": 0,
+                    "y": 6
+                },
+                "searchesIndex": 6,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6248280042675016,
+                "title": "Rare Status [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 3,
+                    "row": 3,
+                    "x": 3,
+                    "y": 6
+                },
+                "searchesIndex": 7,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6190541840473225,
+                "title": "Rare Group ID [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 3,
+                    "row": 3,
+                    "x": 6,
+                    "y": 6
+                },
+                "searchesIndex": 8,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6215508798717821,
+                "title": "Rare Type Name [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 3,
+                    "row": 3,
+                    "x": 9,
+                    "y": 6
+                },
+                "searchesIndex": 9,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6224246348459256,
+                "title": "Count by Event Type Name [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 12,
+                    "row": 3,
+                    "x": 0,
+                    "y": 9
+                },
+                "searchesIndex": 10,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6104261609507952,
+                "title": "Count by Event Type Name [lineChart]",
+                "renderer": "lineChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 6,
+                    "row": 7,
+                    "x": 0,
+                    "y": 12
+                },
+                "searchesIndex": 12,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            },
+            {
+                "id": 6231470757333627,
+                "title": "Count by Event Type Name [pieChart]",
+                "renderer": "pieChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 6,
+                    "row": 7,
+                    "x": 6,
+                    "y": 12
+                },
+                "searchesIndex": 11,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            },
+            {
+                "id": 6025003013647843,
+                "title": "Count by Status [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 12,
+                    "row": 3,
+                    "x": 0,
+                    "y": 19
+                },
+                "searchesIndex": 13,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6074337026781619,
+                "title": "Count by Status [lineChart]",
+                "renderer": "lineChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 6,
+                    "row": 7,
+                    "x": 0,
+                    "y": 22
+                },
+                "searchesIndex": 15,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            },
+            {
+                "id": 6014020320652471,
+                "title": "Count by Status [pieChart]",
+                "renderer": "pieChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 6,
+                    "row": 7,
+                    "x": 6,
+                    "y": 22
+                },
+                "searchesIndex": 14,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            },
+            {
+                "id": 6043448725297125,
+                "title": "Count by Group ID [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 12,
+                    "row": 3,
+                    "x": 0,
+                    "y": 29
+                },
+                "searchesIndex": 16,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6225224623277538,
+                "title": "Count by Group ID [lineChart]",
+                "renderer": "lineChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 6,
+                    "row": 7,
+                    "x": 0,
+                    "y": 32
+                },
+                "searchesIndex": 18,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            },
+            {
+                "id": 6101350218787225,
+                "title": "Count by Group ID [pieChart]",
+                "renderer": "pieChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 6,
+                    "row": 7,
+                    "x": 6,
+                    "y": 32
+                },
+                "searchesIndex": 17,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            },
+            {
+                "id": 6039253443470029,
+                "title": "Count by Acknowledging Username [numbercard]",
+                "renderer": "numberCard",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 12,
+                    "row": 3,
+                    "x": 0,
+                    "y": 39
+                },
+                "searchesIndex": 19,
+                "rendererOptions":
+                {
+                    "Range": "no",
+                    "Precision": "yes",
+                    "NumberCardLabelFontSize": 24,
+                    "NumberCardNumberFontSize": 48,
+                    "NumberCardWidth": 25,
+                    "IncludeOther": "no"
+                }
+            },
+            {
+                "id": 6121273402468855,
+                "title": "Count by Acknowledging Username [lineChart]",
+                "renderer": "lineChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 6,
+                    "row": 7,
+                    "x": 0,
+                    "y": 42
+                },
+                "searchesIndex": 21,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            },
+            {
+                "id": 6030458478957463,
+                "title": "Count by Acknowledging Username [pieChart]",
+                "renderer": "pieChart",
+                "hideZoom": true,
+                "span":
+                {
+                    "col": 6,
+                    "row": 7,
+                    "x": 6,
+                    "y": 42
+                },
+                "searchesIndex": 20,
+                "rendererOptions":
+                {
+                    "IncludeOther": "no",
+                    "SortCategoricalAxisBy": "value"
+                }
+            }
+        ],
+        "linkZooming": false,
+        "grid":
+        {},
+        "version": 2
+    },
+    "Labels":
+    [
+        "mongodb",
+        "mongodb-atlas"
+    ]
+}

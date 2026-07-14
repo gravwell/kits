@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Org ID [chart]",
+  "Description": "This displays a chart of all Org ID (orgId) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgevents",
+  "GUID": "9f1d4b36-dd66-5607-a42d-75c96e1b43f4",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

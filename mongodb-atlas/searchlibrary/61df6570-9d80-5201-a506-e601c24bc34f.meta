@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Alerts - Open Backup or Data Protection Alert [table]",
+  "Description": "Detects open Atlas alerts for failed snapshots, stale snapshots, failed restores, delayed oplog backup capture, or backup compliance policy disablement.",
+  "GUID": "61df6570-9d80-5201-a506-e601c24bc34f",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

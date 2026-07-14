@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Projects Overview - Top Region Usage Restrictions [numbercard]",
+  "Description": "This displays the top Region Usage Restrictions (regionUsageRestrictions) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "4a1760e0-7a46-576b-b6b7-ac9423c3b5e0",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

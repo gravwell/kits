@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Hostname [chart]",
+  "Description": "This displays a chart of all Hostname (hostname) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupalerts",
+  "GUID": "12a208de-3ef0-5b14-a0d7-332be0778f8c",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

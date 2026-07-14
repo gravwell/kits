@@ -1,0 +1,54 @@
+{
+	"UUID": "adf9a01e-b985-5c97-8395-86e80f6c9c56",
+	"Name": "MongoDB Atlas User",
+	"Description": "MongoDB Atlas Actions on username, API key public key, service account client ID, or acknowledging username to launch the MongoDB Atlas Investigation dashboard.",
+	"Data": {
+		"menuLabel": "MongoDB Atlas",
+		"actions": [
+			{
+				"name": "Investigate User",
+				"description": "MongoDB Atlas Actions on username, API key public key, service account client ID, or acknowledging username to launch the MongoDB Atlas Investigation dashboard.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "a14a072c-7c2d-55a7-927e-549998adfb30",
+					"options": {
+						"variable": "user"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+				"hyperlink": true,
+				"disabled": false
+			},
+			{
+				"pattern": "\\W{1,}username\\W{1,}(?<user>[^\\\"]+)",
+				"hyperlink": true,
+				"disabled": false
+			},
+			{
+				"pattern": "\\W{1,}(publicKey|clientId|acknowledgingUsername)\\W{1,}(?<user>[^\\\"]+)",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

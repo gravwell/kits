@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_ACCESS",
+	"Description": "Configuration Macro; Tag used for MongoDB Atlas database access history API data.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

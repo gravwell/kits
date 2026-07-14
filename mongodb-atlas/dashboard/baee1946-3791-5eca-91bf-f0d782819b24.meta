@@ -1,0 +1,869 @@
+{
+	"UUID": "baee1946-3791-5eca-91bf-f0d782819b24",
+	"Name": "MongoDB Atlas Admin API Overview",
+	"Description": "Overview dashboard for MongoDB Atlas Admin API data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "Last 24 Hours",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Total Events [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "3174ae89-56b4-5415-845d-e13f48dc125a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Total Events [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "e072f668-0db4-59c9-8b0e-f4df0c3e6c41",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Event Type Name [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "ac4b5c54-c967-54a7-8860-e4eb6d06dc6a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "e09c33d6-f037-56c0-a67f-9ecfb5f153ce",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Group ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "3e832c70-e749-55b8-9df9-6f34ad63ab25",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Org ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5eb97715-a9c5-5df3-bab8-1208ef84276a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Event Type Name [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2c2fea84-b4b8-595b-bfbb-0de728a095a6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "11323e2d-db02-5113-9d51-7edff3492beb",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Group ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bc318be5-18a3-5762-a1c6-add8bf058e9c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Org ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "040a9ee2-9f79-5d55-91ef-95e3a1dc60c0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Event Type Name [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "586ed7d2-c01b-5b3e-bd94-80143bcb2f30",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Event Type Name [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "91304e15-c1f0-5ee3-9029-5d3729185cd0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Event Type Name [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "91304e15-c1f0-5ee3-9029-5d3729185cd0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "c6b53df7-8b2a-5bc7-a3f3-129cb051cd76",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Status [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "1a12d9bf-eb6e-5c07-98dd-348196887268",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Status [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "1a12d9bf-eb6e-5c07-98dd-348196887268",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Group ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "6ae2d4be-7649-56bc-abee-ecc6fc3bd18c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Group ID [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "d23518f4-2b1c-5d94-a341-3dde98a8fa37",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Group ID [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "d23518f4-2b1c-5d94-a341-3dde98a8fa37",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "91470e44-532b-5d6a-a13d-2aa2a7423191",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org ID [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "b4775010-e253-5b5d-8bed-a2276d144756",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org ID [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "b4775010-e253-5b5d-8bed-a2276d144756",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Username [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1e1562ae-9226-5b6c-b95f-726beff9fe69",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Username [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "591f7f7c-95be-556f-9189-4a7e6068f8c6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Username [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "591f7f7c-95be-556f-9189-4a7e6068f8c6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Public Key [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1aad7ef9-3c07-52dc-a490-5467a5f77849",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Public Key [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "91aa919c-90d5-5b85-a68f-d322519a4580",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Public Key [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "91aa919c-90d5-5b85-a68f-d322519a4580",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6105173792316851,
+				"title": "Total Events [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6243392342388568,
+				"title": "Top Event Type Name [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6194576147958329,
+				"title": "Top Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6114163655105484,
+				"title": "Top Group ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6136661584874227,
+				"title": "Top Org ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 3
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6189805039200029,
+				"title": "Rare Event Type Name [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6007243462365059,
+				"title": "Rare Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 6
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6080442510347805,
+				"title": "Rare Group ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6049378389144871,
+				"title": "Rare Org ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 6
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6145403215273240,
+				"title": "Count by Event Type Name [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6011780819395893,
+				"title": "Count by Event Type Name [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6010441179512969,
+				"title": "Count by Event Type Name [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 12
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6018283980674425,
+				"title": "Count by Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 19
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6185704098542896,
+				"title": "Count by Status [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 22
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6164830046996623,
+				"title": "Count by Status [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 22
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6150973712384914,
+				"title": "Count by Group ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6144414871771486,
+				"title": "Count by Group ID [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 32
+				},
+				"searchesIndex": 18,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6003477687876330,
+				"title": "Count by Group ID [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 32
+				},
+				"searchesIndex": 17,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6049025486727453,
+				"title": "Count by Org ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 39
+				},
+				"searchesIndex": 19,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6214646092313105,
+				"title": "Count by Org ID [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 42
+				},
+				"searchesIndex": 21,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6226327774734131,
+				"title": "Count by Org ID [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 42
+				},
+				"searchesIndex": 20,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6203534772446819,
+				"title": "Count by Username [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 49
+				},
+				"searchesIndex": 22,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6107261352848079,
+				"title": "Count by Username [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 52
+				},
+				"searchesIndex": 24,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6203688218750093,
+				"title": "Count by Username [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 52
+				},
+				"searchesIndex": 23,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6206233204627432,
+				"title": "Count by Public Key [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 59
+				},
+				"searchesIndex": 25,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6171546796489196,
+				"title": "Count by Public Key [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 62
+				},
+				"searchesIndex": 27,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6162819671334155,
+				"title": "Count by Public Key [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 62
+				},
+				"searchesIndex": 26,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6161348545339652,
+				"title": "Total Events [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 5,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": true,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Top Snapshot Type [numbercard] */
+tag=$MONGODB_ATLAS_BACKUPS ax snapshotType
+| stats count by snapshotType
+| top -n 1 count
+| numbercard (count " ")

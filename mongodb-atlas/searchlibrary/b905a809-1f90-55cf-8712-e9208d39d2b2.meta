@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Paused [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Paused (paused) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "b905a809-1f90-55cf-8712-e9208d39d2b2",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

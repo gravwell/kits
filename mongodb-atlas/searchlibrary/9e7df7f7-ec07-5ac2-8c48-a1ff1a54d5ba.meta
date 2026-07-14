@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Access Overview - Count by Hostname [chart]",
+  "Description": "This displays a chart of all Hostname (hostname) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistorycluster",
+  "GUID": "9e7df7f7-ec07-5ac2-8c48-a1ff1a54d5ba",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Replica Set Reconfigured [table]",
+  "Description": "Detects MongoDB replica set reconfiguration.",
+  "GUID": "d0dfbb3a-5f0b-5065-8c4e-579cb29ec427",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Role or Federation Change [table]",
+  "Description": "Detects organization role changes, role mapping changes, federation setting changes, and organization membership restriction changes.",
+  "GUID": "f4e50771-2439-50c3-8301-6436e0bf17d5",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

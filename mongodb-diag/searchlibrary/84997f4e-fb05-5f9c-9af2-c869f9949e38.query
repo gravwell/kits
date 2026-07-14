@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Yield Slow Operation [table]*/
+tag=$MONGODB_DIAG ax 
+| eval has(numYields) && numYields >= 100
+| eval _alert_name = "High Yield Slow Operation";
+$MONGODB_DIAG_ENRICH_COMMON
+$MONGODB_DIAG_RISK_SCORE
+$MONGODB_DIAG_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _severity context

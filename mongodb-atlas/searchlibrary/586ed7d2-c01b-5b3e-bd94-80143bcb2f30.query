@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Overview - Count by Event Type Name [numbercard] */
+tag=$MONGODB_ATLAS ax eventTypeName
+| stats count by eventTypeName
+| numbercard (count " ")

@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Matcher Field Name [chart]",
+  "Description": "This displays a chart of all Matcher Field Name (matcherFieldName) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "721cc031-5c95-5705-b5d6-1b93731faa67",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

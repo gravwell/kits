@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by State Name [chart] */
+tag=$MONGODB_ATLAS_CLUSTERS ax stateName
+| stats count as " " by stateName
+| chart " " by stateName

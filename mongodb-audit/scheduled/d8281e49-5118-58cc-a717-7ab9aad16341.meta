@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - User Dropped [table]",
+  "Description": "Detects MongoDB database user deletion.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "d8281e49-5118-58cc-a717-7ab9aad16341",
+  "SearchReference": "34b4500b-0d11-5a9d-8d40-af59ef4e88ce"
+}

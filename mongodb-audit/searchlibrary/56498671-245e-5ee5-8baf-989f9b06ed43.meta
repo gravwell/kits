@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Collection Sharded [table]",
+  "Description": "Detects MongoDB collection sharding activity.",
+  "GUID": "56498671-245e-5ee5-8baf-989f9b06ed43",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

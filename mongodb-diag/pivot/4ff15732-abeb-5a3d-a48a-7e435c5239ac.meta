@@ -1,0 +1,41 @@
+{
+	"UUID": "4ff15732-abeb-5a3d-a48a-7e435c5239ac",
+	"Name": "MongoDB Diagnostics Component",
+	"Description": "MongoDB Diagnostics actions on structured log component to launch the MongoDB Diagnostics Investigation dashboard.",
+	"Data": {
+		"menuLabel": "MongoDB Diagnostics",
+		"actions": [
+			{
+				"name": "Investigate Component",
+				"description": "MongoDB Diagnostics actions on structured log component to launch the MongoDB Diagnostics Investigation dashboard.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "613a0585-9ccc-5562-9f93-16c396b3edaa",
+					"options": {
+						"variable": "component"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "\\b(?:ACCESS|ASSERT|COMMAND|CONTROL|ELECTION|FTDC|GEO|INDEX|INITSYNC|JOURNAL|NETWORK|QUERY|QUERYSTATS|RECOVERY|REJECTED|REPL|REPL_HB|ROLLBACK|SHARDING|STORAGE|TXN|WRITE|WT|WTBACKUP|WTCHKPT|WTCMPCT|WTEVICT|WTHS|WTRECOV|WTRTS|WTTS|WTTXN|WTVRFY|WTWRTLOG)\\b",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

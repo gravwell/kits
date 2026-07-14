@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Scope Type [chart] */
+tag=$MONGODB_ATLAS_DATABASE_USERS ax scopeType
+| json -x scopeType
+| stats count as " " by scopeType
+| chart " " by scopeType

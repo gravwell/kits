@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Type [chart]",
+  "Description": "This displays a chart of all Type (type) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusterbackupsnapshots",
+  "GUID": "8fdb231f-32fc-5106-97c6-9669591741d8",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

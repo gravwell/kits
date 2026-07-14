@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - System - Log Types - Count by Tag [numbercard] */
+tag=$MONGODB_ATLAS
+| stats count by TAG
+| numbercard (count " ")

@@ -1,0 +1,6 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Top Service [numbercard] */
+tag=$MONGODB_DIAG ax service
+$MONGODB_DIAG_NORMALIZE_SERVICE
+| stats count by service
+| top -n 1 count
+| numbercard (count " ")

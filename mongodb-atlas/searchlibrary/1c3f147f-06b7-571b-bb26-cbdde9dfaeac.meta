@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Event Type Name [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Event Type Name (eventTypeName) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "1c3f147f-06b7-571b-bb26-cbdde9dfaeac",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

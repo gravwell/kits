@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Org Membership Status [chart]",
+  "Description": "This displays a chart of all Org Membership Status (orgMembershipStatus) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "a2faa699-d0e6-5092-ad98-ccad2c57c8fe",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

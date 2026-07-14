@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - TLS Or Certificate Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: TLS Or Certificate Error.",
+	"GUID": "ed012541-f1e9-5f95-97eb-9b07ccd435cf",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

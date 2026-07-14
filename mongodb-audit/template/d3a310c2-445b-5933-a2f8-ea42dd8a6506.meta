@@ -1,0 +1,29 @@
+{
+	"UUID": "d3a310c2-445b-5933-a2f8-ea42dd8a6506",
+	"Name": "Template - MongoDB - Database - Audit - Investigation - Count by Result [numbercard]",
+	"Description": "This is intended to show a numbercard of events by result when you're investigating a User or IP for possible nefarious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "What User are you investigating/searching for?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}

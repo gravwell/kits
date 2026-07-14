@@ -1,0 +1,6 @@
+/* Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Rare Roles [numbercard] */
+tag=$MONGODB_ATLAS_SERVICE_ACCOUNTS ax roles
+| json -x roles
+| stats count by roles
+| bottom -n 1 count
+| numbercard (count " ")

@@ -1,0 +1,18 @@
+{
+	"Name": "mongodb-atlas-access",
+	"Desc": "Gravwell-generated JSON extraction for tag mongodb-atlas-access",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"mongodb-atlas-access"
+	],
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "b09ced19-891a-5986-a40f-427cdfb7be40",
+	"LastUpdated": "2026-07-10T14:16:49.961521Z"
+}

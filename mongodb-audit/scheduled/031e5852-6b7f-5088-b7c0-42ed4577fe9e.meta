@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Dropped [table]",
+  "Description": "Detects MongoDB collection or view deletion.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "031e5852-6b7f-5088-b7c0-42ed4577fe9e",
+  "SearchReference": "31a43a22-d7ac-50d2-bff7-b2803e3aab8e"
+}

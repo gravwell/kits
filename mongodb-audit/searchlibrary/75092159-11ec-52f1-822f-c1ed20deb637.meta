@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Authentication Failure [table]",
+  "Description": "Detects failed MongoDB authentication audit events.",
+  "GUID": "75092159-11ec-52f1-822f-c1ed20deb637",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

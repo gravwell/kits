@@ -1,0 +1,49 @@
+/* MONGODB_DIAG_RISK_SCORE */
+| eval
+    sev = severity;
+    comp = component;
+    msg = message;
+    code = codeName;
+    base = 20.0;
+    if (has(sev) && sev == "F") { base = 95.0; }
+    else if (has(sev) && sev == "E") { base = 80.0; }
+    else if (has(sev) && sev == "W") { base = 55.0; }
+    else if (has(sev) && match(sev, "^D[1-5]$")) { base = 35.0; }
+    component_bump = 0.0;
+    if (has(comp) && match(comp, "(?i)^(ACCESS|ASSERT|CONTROL|ELECTION|REPL|ROLLBACK|SHARDING|STORAGE|WT|WTBACKUP|WTCHKPT|WTRECOV|WTRTS)$")) { component_bump = 10.0; }
+    auth_bump = 0.0;
+    if ((has(comp) && match(comp, "(?i)^ACCESS$")) || (has(msg) && match(msg, "(?i)(auth|authentication|authorized|unauthorized|not authorized|permission|privilege)"))) { auth_bump = 10.0; }
+    network_bump = 0.0;
+    if ((has(comp) && match(comp, "(?i)^NETWORK$")) && has(sev) && match(sev, "^(F|E|W)$")) { network_bump = 5.0; }
+    replication_bump = 0.0;
+    if (has(comp) && match(comp, "(?i)^(REPL|ELECTION|ROLLBACK|REPL_HB|INITSYNC)$") && has(sev) && match(sev, "^(F|E|W)$")) { replication_bump = 10.0; }
+    storage_bump = 0.0;
+    if (has(comp) && match(comp, "(?i)^(STORAGE|WT|WTBACKUP|WTCHKPT|WTRECOV|WTRTS|JOURNAL)$") && has(sev) && match(sev, "^(F|E|W)$")) { storage_bump = 10.0; }
+    message_bump = 0.0;
+    if (has(msg) && match(msg, "(?i)(fatal|panic|crash|corrupt|rollback|stepdown|election|initial sync|replication|recover|recovery|salvage|shutdown|out of memory|oom|tls|ssl|certificate|x509|unauthorized|not authorized|authentication failed|connection refused|connection reset|timeout|slow query|collection scan|COLLSCAN)")) { message_bump = 10.0; }
+    slow_bump = 0.0;
+    if (has(durationMillis) && durationMillis >= 30000) { slow_bump = 15.0; }
+    else if (has(millis) && millis >= 30000) { slow_bump = 15.0; }
+    else if (has(durationMillis) && durationMillis >= 5000) { slow_bump = 8.0; }
+    else if (has(millis) && millis >= 5000) { slow_bump = 8.0; }
+    debug_penalty = 0.0;
+    if (has(sev) && match(sev, "^D[1-5]$")) { debug_penalty = 10.0; }
+    risk_raw = base + component_bump + auth_bump + network_bump + replication_bump + storage_bump + message_bump + slow_bump - debug_penalty;
+    risk_score = math_round(math_min(math_max(risk_raw, 0.0), 100.0));
+    _vendor = "MongoDB";
+    _product = "Diagnostics";
+    _category = _diag_component;
+    _subcategory = _diag_status;
+    _alert_description = "MongoDB Diagnostics event " + _diag_event_type;
+    _priority = "Informational";
+    if (risk_score >= 90.0) {
+        _priority = "Critical";
+    } else if (risk_score >= 80.0) {
+        _priority = "High";
+    } else if (risk_score >= 60.0) {
+        _priority = "Medium";
+    } else if (risk_score >= 45.0) {
+        _priority = "Low";
+    }
+    _alert_priority = _priority;
+    in(_priority, "Critical", "High", "Medium", "Low");

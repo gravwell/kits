@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Total Events [chart] */
+tag=$MONGODB_ATLAS_BACKUPS
+| stats count
+| alias count " "
+| chart " "

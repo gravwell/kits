@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Threshold [numbercard] */
+tag=$MONGODB_ATLAS_ALERT_CONFIGS ax threshold
+| stats count by threshold
+| numbercard (count " ")

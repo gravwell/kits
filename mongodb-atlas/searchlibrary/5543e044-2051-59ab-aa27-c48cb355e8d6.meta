@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Access Overview - Top Auth Result [numbercard]",
+  "Description": "This displays the top Auth Result (authResult) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistorycluster",
+  "GUID": "5543e044-2051-59ab-aa27-c48cb355e8d6",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,10 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Open Security Posture Alert [table]*/
+tag=$MONGODB_ATLAS_EVENTS ax
+| regex -e eventTypeName "^(HOST_EXPOSED|HOST_SECURITY_CHECKUP_NOT_MET|ORG_USERS_WITHOUT_MFA|USERS_WITHOUT_MULTI_FACTOR_AUTH|ORG_UI_IP_ACCESS_LIST_DISABLED|ORG_SERVICE_ACCOUNT_SECRETS_EXPIRED|ORG_SERVICE_ACCOUNT_SECRETS_EXPIRING|GROUP_SERVICE_ACCOUNT_SECRETS_EXPIRED|GROUP_SERVICE_ACCOUNT_SECRETS_EXPIRING)$"
+| eval
+	status == "OPEN";
+	_alert_name = "Open Security Posture Alert";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

@@ -1,0 +1,957 @@
+{
+	"UUID": "e1fc7729-bf22-52af-a1c7-9ae18df8c4f0",
+	"Name": "MongoDB Atlas Backups Overview",
+	"Description": "This Dashboard is a general overview of MongoDB Atlas backups Admin API data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Total Events [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "948f2709-9c85-585b-ad05-1f422273b725",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Total Events [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "a2e605e0-5412-58dd-b3bf-72e94bb09133",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bffa61c6-1825-58b1-a6be-bd086e1fe156",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Snapshot Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "06193320-340a-504d-b238-e24350e72b81",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Frequency Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "c576c627-4e72-5b02-a178-d9c5570a01d0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Replica Set Name [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "05235c48-ec1b-51a6-a5e0-a21065a4670a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "8753ef00-9327-53d5-b617-412ae60a93c8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Snapshot Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "a2767681-15ba-5204-9b36-d948b7a1e770",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Frequency Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "485ed7b0-3649-5ebf-9687-17c60ec487f2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Replica Set Name [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "c5059dd7-2599-5646-800a-aab3547ade44",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "569f23b3-b8c6-55c4-a494-e146391d92a0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Status [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "1d7e98df-61da-5604-a123-203d1de0fed9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Status [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "1d7e98df-61da-5604-a123-203d1de0fed9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Snapshot Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2cab55bd-9568-51d4-acec-e01cf1546013",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Snapshot Type [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "2bef4aef-52f2-56a0-82fd-47a95aaf4436",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Snapshot Type [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "2bef4aef-52f2-56a0-82fd-47a95aaf4436",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Frequency Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2186b058-5844-52fa-9868-ee6bb403aad1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Frequency Type [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "14ea1e38-0856-588c-9d36-082ed889fd5a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Frequency Type [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "14ea1e38-0856-588c-9d36-082ed889fd5a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Replica Set Name [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1b8aaa90-6eff-5c25-898c-ef2ca0dcd245",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Replica Set Name [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "8d89aa10-78e0-5fbe-9580-8320784f1980",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Replica Set Name [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "8d89aa10-78e0-5fbe-9580-8320784f1980",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Cloud Provider [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "badc1553-d4c1-57a0-9565-b02c01484eb3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Cloud Provider [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "aefc8d9d-cc7f-5c7a-99a9-d56f0420b538",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Cloud Provider [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "aefc8d9d-cc7f-5c7a-99a9-d56f0420b538",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Mongod Version [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "82225f78-46a7-5394-ab37-13c4848b7d2b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Mongod Version [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "d32c69a2-0181-5e27-ab4d-17c488989206",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Mongod Version [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "d32c69a2-0181-5e27-ab4d-17c488989206",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "78467578-8f01-5963-a543-35a9fb522c74",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Type [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "8fdb231f-32fc-5106-97c6-9669591741d8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Type [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "8fdb231f-32fc-5106-97c6-9669591741d8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6139663693929513,
+				"title": "Total Events [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6040143873559574,
+				"title": "Top Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6164817884339558,
+				"title": "Top Snapshot Type [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6100161606243139,
+				"title": "Top Frequency Type [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6219646693511335,
+				"title": "Top Replica Set Name [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 3
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6014848717570561,
+				"title": "Rare Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6188608270015986,
+				"title": "Rare Snapshot Type [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 6
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6171671397010135,
+				"title": "Rare Frequency Type [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6225248854509677,
+				"title": "Rare Replica Set Name [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 6
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6067442736409898,
+				"title": "Count by Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6207285130390858,
+				"title": "Count by Status [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6023410044981022,
+				"title": "Count by Status [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 12
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6124275442241675,
+				"title": "Count by Snapshot Type [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 19
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6119606292326445,
+				"title": "Count by Snapshot Type [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 22
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6018563009984330,
+				"title": "Count by Snapshot Type [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 22
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6192623347053844,
+				"title": "Count by Frequency Type [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6081341256253178,
+				"title": "Count by Frequency Type [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 32
+				},
+				"searchesIndex": 18,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6064617512010737,
+				"title": "Count by Frequency Type [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 32
+				},
+				"searchesIndex": 17,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6101241200865727,
+				"title": "Count by Replica Set Name [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 39
+				},
+				"searchesIndex": 19,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6240788845661202,
+				"title": "Count by Replica Set Name [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 42
+				},
+				"searchesIndex": 21,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6006137493934789,
+				"title": "Count by Replica Set Name [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 42
+				},
+				"searchesIndex": 20,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6248300242402179,
+				"title": "Count by Cloud Provider [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 49
+				},
+				"searchesIndex": 22,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6087056343624709,
+				"title": "Count by Cloud Provider [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 52
+				},
+				"searchesIndex": 24,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6156508103464600,
+				"title": "Count by Cloud Provider [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 52
+				},
+				"searchesIndex": 23,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6010346490699691,
+				"title": "Count by Mongod Version [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 59
+				},
+				"searchesIndex": 25,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6211114070258169,
+				"title": "Count by Mongod Version [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 62
+				},
+				"searchesIndex": 27,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6188822960280584,
+				"title": "Count by Mongod Version [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 62
+				},
+				"searchesIndex": 26,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6024325069164067,
+				"title": "Count by Type [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 69
+				},
+				"searchesIndex": 28,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6197535321468823,
+				"title": "Count by Type [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 72
+				},
+				"searchesIndex": 30,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6160072596456439,
+				"title": "Count by Type [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 72
+				},
+				"searchesIndex": 29,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6114792987010758,
+				"title": "Total Events [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 3,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Client Metadata Observed [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Client Metadata Observed.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "b2103303-5253-528a-84ca-3639d074c654",
+	"SearchReference": "14630496-ab15-5435-baba-cf71f9955fb1"
+}

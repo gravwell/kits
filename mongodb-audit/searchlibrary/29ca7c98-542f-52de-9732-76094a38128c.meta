@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Shutdown [table]",
+  "Description": "Detects MongoDB shutdown audit events.",
+  "GUID": "29ca7c98-542f-52de-9732-76094a38128c",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

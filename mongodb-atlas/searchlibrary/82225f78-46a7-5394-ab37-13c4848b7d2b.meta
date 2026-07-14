@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Mongod Version [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Mongod Version (mongodVersion) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusterbackupsnapshots",
+  "GUID": "82225f78-46a7-5394-ab37-13c4848b7d2b",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

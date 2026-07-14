@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - All Users Dropped From Database [table]",
+  "Description": "Detects removal of all users from a MongoDB database.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "0c28b6d3-10a7-5306-99db-1c6bf5d2d44c",
+  "SearchReference": "5b2c88e3-e4e8-5642-ab55-47f85dc5d86f"
+}

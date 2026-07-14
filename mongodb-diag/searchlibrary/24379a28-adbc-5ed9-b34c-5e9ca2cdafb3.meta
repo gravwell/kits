@@ -1,0 +1,12 @@
+{
+	"Name": "Search - MongoDB - Database - Diagnostics - Overview - Rare Severity [numbercard]",
+	"Description": "This displays the bottom Severity (severity) during the specified timeframe.\n\nReference(s):\n- https://mongodb.com/docs/manual/reference/log-messages",
+	"GUID": "24379a28-adbc-5ed9-b34c-5e9ca2cdafb3",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

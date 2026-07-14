@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Component Error Spike [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Component Error Spike.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a54b08f4-529f-5aa6-bf83-46e5a6bea11f",
+	"SearchReference": "e796eeb9-8aaa-5a65-9667-74e050205e06"
+}

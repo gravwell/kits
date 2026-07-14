@@ -1,0 +1,3 @@
+/* MONGODB_AUDIT_CATEGORY_LOOKUP */
+| lookup -r mongodb-audit-actionType actionType actionType (category subcategory severity)
+| regex -e actionType "(?P<method>[a-z]+)"

@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_DIAG_ALERT_RECIPIENT",
+	"Description": "This is the address to which MongoDB Diagnostic Alert Flows will be sent to.",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

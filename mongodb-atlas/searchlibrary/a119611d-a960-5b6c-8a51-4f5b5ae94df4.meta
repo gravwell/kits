@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Rare Remote Address [numbercard]",
+  "Description": "This displays the bottom Remote Address (remoteAddress) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgevents",
+  "GUID": "a119611d-a960-5b6c-8a51-4f5b5ae94df4",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

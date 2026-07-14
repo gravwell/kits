@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Replica Set Name [numbercard] */
+tag=$MONGODB_ATLAS_ALERTS ax replicaSetName
+| stats count by replicaSetName
+| numbercard (count " ")

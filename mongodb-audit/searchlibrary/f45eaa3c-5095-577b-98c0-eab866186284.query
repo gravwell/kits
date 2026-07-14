@@ -1,0 +1,7 @@
+/* AlertQuery - MongoDB - Database - Audit - Alerts - Index Build Aborted [table]*/
+tag=$MONGODB_AUDIT ax timestamp actionType == "createIndex" result == 276 user userDatabase localIp remoteIp database namespace indexName indexBuildState param roles
+| eval message = "Index Build Aborted";
+$MONGODB_AUDIT_ENRICH_COMMON
+$MONGODB_AUDIT_RISK_SCORE
+$MONGODB_AUDIT_ALERT_META
+| table timestamp actionType result user userDatabase localIp remoteIp database namespace indexName indexBuildState param roles

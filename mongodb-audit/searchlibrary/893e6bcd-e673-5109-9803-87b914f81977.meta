@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Database - Audit - Overview - Count by Action Type [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Action Type (actionType) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/manual/reference/audit-message/mongo/",
+  "GUID": "893e6bcd-e673-5109-9803-87b914f81977",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

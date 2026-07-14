@@ -1,0 +1,726 @@
+{
+	"UUID": "185204c8-eaad-558f-b86f-3ec714c1efcc",
+	"Name": "MongoDB Diagnostics General Overview",
+	"Description": "This Dashboard is a general overview of your MongoDB Diagnostic structured logs.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Total Events [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "6d7478ac-347e-564a-b44d-33f3b9367759",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Total Events [chart]",
+				"color": null,
+				"reference": {
+					"id": "19520b0e-93a8-5829-908c-601af99e6ccb",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Top Component [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "e32ef2c6-aeae-58cb-87be-b820b706db2b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Top Context [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "721899f3-312b-5823-a5c2-ba2c02c98ceb",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Top Service [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "ae67e703-1b92-50bc-8bd6-aebc7d696676",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Top Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "46f7fde7-13f4-59ec-ba8b-0a3e70d8d4f3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Rare Component [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5dee851a-0d63-5866-9f6b-9bf118d200cb",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Rare Context [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "482329f3-27af-5d25-b780-4ff05d55fbdc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Rare Service [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "24abc6a5-c53a-5dce-8630-e259923df072",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Rare Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "24379a28-adbc-5ed9-b34c-5e9ca2cdafb3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Component [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5796c10c-c2db-557c-b47a-6420bf64dab6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Component [chart]",
+				"color": null,
+				"reference": {
+					"id": "d68680db-df36-5e34-8a6d-75477805e6da",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Context [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "6a06ac84-eb92-5979-9628-97c5213dae08",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Context [chart]",
+				"color": null,
+				"reference": {
+					"id": "c32e24d0-b297-5fd3-9208-24b4990f45ad",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Service [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "692506b5-facf-586e-b2be-70a570689850",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Service [chart]",
+				"color": null,
+				"reference": {
+					"id": "057c9015-db71-561a-9e2d-08537e3fd680",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bfe9a601-265d-5f9d-baba-86d25734561f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Severity [chart]",
+				"color": null,
+				"reference": {
+					"id": "07bec9e5-feb0-5df8-9a18-41a85733c54c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Message [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9cca1f77-d589-5619-945b-8cbddb1919f3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Database - Diagnostics - Overview - Count by Message [chart]",
+				"color": null,
+				"reference": {
+					"id": "a7adf6c4-d7db-5423-9032-4d128f2ce68f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6003457667729615,
+				"title": "Total Events [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6242263055328515,
+				"title": "Top Component [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6069088711351689,
+				"title": "Top Context [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6154307854210351,
+				"title": "Top Service [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6063286506064962,
+				"title": "Top Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 3
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6075722925775563,
+				"title": "Rare Component [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6208584895031312,
+				"title": "Rare Context [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 6
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6002009422619644,
+				"title": "Rare Service [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6013123544829382,
+				"title": "Rare Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 6
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6085960636109784,
+				"title": "Count by Component [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6053125007828454,
+				"title": "Count by Component [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6147821369871874,
+				"title": "Count by Component [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 12
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6173430303033738,
+				"title": "Count by Context [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 19
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6138497237392538,
+				"title": "Count by Context [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 22
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6015778954096138,
+				"title": "Count by Context [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 22
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6191419271465283,
+				"title": "Count by Service [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6152791816216707,
+				"title": "Count by Service [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 32
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6102767642844196,
+				"title": "Count by Service [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 32
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6146739196167721,
+				"title": "Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 39
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6170669714184304,
+				"title": "Count by Severity [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 42
+				},
+				"searchesIndex": 17,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6043501762979338,
+				"title": "Count by Severity [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 42
+				},
+				"searchesIndex": 17,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6066329925443015,
+				"title": "Count by Message [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 49
+				},
+				"searchesIndex": 18,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6194958223880351,
+				"title": "Count by Message [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 52
+				},
+				"searchesIndex": 19,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6005603943021182,
+				"title": "Count by Message [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 52
+				},
+				"searchesIndex": 19,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6163684023373912,
+				"title": "Total Events [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 3,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}
