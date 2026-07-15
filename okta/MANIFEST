@@ -1363,7 +1363,7 @@
             "Description": "Configuration Macro: This is the address to which Okta Alert Flows will be sent from. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.",
             "DefaultValue": "replace_me@with_valid_sender.address",
             "Value": "",
-            "Type": "TAG",
+            "Type": "OTHER",
             "InstalledByID": ""
         },
         {
@@ -1371,7 +1371,7 @@
             "Description": "Configuration Macro: This is the address to which Okta Alert Flows will be sent to. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.",
             "DefaultValue": "replace_me@with_valid_recipient.address",
             "Value": "",
-            "Type": "TAG",
+            "Type": "OTHER",
             "InstalledByID": ""
         },
         {
@@ -1379,7 +1379,7 @@
             "Description": "Configuration Macro; Necessary for alerts within the Okta Kit to run properly",
             "DefaultValue": "https://<change_me_to_your_specific_url>:<change_to_your_specific_port>",
             "Value": "",
-            "Type": "STRING",
+            "Type": "OTHER",
             "InstalledByID": ""
         }
     ]
