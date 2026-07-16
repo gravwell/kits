@@ -1,0 +1,43 @@
+{
+	"UUID": "08b86e09-bc2f-464f-b775-22e102636bf6",
+	"Name": "Auth0 IP",
+	"Description": "Auth0 actions on IP Addresses to Launch Auth0 Investigation Dashboard.",
+	"Data": {
+		"menuLabel": "Auth0",
+		"actions": [
+			{
+				"name": "IP Address",
+				"description": "This actionable will launch the Auth0 Investigation Dashboard to see other actions performed and events generated from this IP Address. ",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "da6909ed-4c3f-46d8-9743-ee1cf20c6a83",
+					"options": {
+						"variable": "%%src_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(\\d{1,3}\\.){3}\\d{1,3}/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"auth0"
+	]
+}

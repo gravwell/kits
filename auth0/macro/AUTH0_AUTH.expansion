@@ -1,0 +1,4 @@
+// AUTH0_AUTH
+| alias eventType eventCode
+| lookup -r auth0_eventTypes eventCode eventCode (category subcategory eventType)
+| eval (category == "Authentication" || subcategory == "Authentication")

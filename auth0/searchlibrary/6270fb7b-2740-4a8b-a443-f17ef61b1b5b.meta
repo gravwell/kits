@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Risk of Tenant Takeover",
+	"Description": "Displays a table of accounts performing possible nefarious actions causing the heightened risk of Auth0 Tenant Takeover.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_tenant_takeover.yml",
+	"GUID": "6270fb7b-2740-4a8b-a443-f17ef61b1b5b",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Application - OAuth2 - Risk of Copying the Most Powerful Token",
+	"Description": "Displays a table of users/ips whom potentially interacted with the most powerful token. \n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_copying_the_most_powerful_token.yml",
+	"GUID": "e0a737ea-a1db-4972-a03a-a19d0f21e115",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

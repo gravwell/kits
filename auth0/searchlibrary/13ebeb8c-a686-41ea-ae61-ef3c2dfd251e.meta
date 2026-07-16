@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Authentication - Possible Misconfiguration of Auth0 Tenant Name",
+	"Description": "Displays a table of Successful Logins and Signups from Flagged IPs.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/use_of_auth0_tenant_name_url.yml",
+	"GUID": "13ebeb8c-a686-41ea-ae61-ef3c2dfd251e",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
