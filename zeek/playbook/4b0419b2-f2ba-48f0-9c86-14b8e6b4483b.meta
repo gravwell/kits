@@ -1,0 +1,22 @@
+{
+	"UUID": "3ad9b6d6-d891-478c-880e-01bcb1893e7a",
+	"GUID": "4b0419b2-f2ba-48f0-9c86-14b8e6b4483b",
+	"UID": 1,
+	"GIDs": null,
+	"Global": false,
+	"Name": "Zeek Gravwell Kit",
+	"Desc": "Zeek Overview Playbook",
+	"Labels": [
+		"zeek",
+		"overview",
+		"kit/io.gravwell.beta.zeek"
+	],
+	"LastUpdated": "2020-11-06T21:20:47.036675379Z",
+	"Author": {
+		"Name": "The Gravwell Authors",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": false
+}
