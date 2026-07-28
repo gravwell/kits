@@ -274,7 +274,7 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "7c9ca95e-5d24-43ae-b54b-f593d52ea1b6",
+			"Name": "1b598fe9-0edf-4f7b-ac28-2d06a1a83f93",
 			"Type": 11,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
@@ -309,7 +309,7 @@
 			"Type": "TAG",
 			"InstalledByID": ""
 		},
-		{	
+		{
 			"MacroName": "BITWARDEN_WEB",
 			"Description": "Target API endpoint...cloud(api.bitwarden.com) or on-prem(bitwarden.company.local)",
 			"DefaultValue": "api.bitwarden.com",
@@ -317,7 +317,7 @@
 			"Type": "TAG",
 			"InstalledByID": ""
 		},
-		{	
+		{
 			"MacroName": "BITWARDENGROUPS_TAG",
 			"Description": "Target tag for Bitwarden Groups data",
 			"DefaultValue": "bitwardenGroups",
@@ -325,7 +325,7 @@
 			"Type": "TAG",
 			"InstalledByID": ""
 		},
-		{	
+		{
 			"MacroName": "BITWARDENMEMBERS_TAG",
 			"Description": "Target tag for Bitwarden members data",
 			"DefaultValue": "bitwardenMembers",
@@ -333,7 +333,7 @@
 			"Type": "TAG",
 			"InstalledByID": ""
 		},
-		{	
+		{
 			"MacroName": "BITWARDENPOLICIES_TAG",
 			"Description": "Target tag for Bitwarden Policies data",
 			"DefaultValue": "bitwardenPolicies",
