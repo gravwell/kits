@@ -1,4 +1,5 @@
 tag=$AUDITD kv -q type as auditType exe == "/usr/bin/sudo" AUID cmd
 | hexlify -d cmd as decoded_cmd
-| regex "res=(?<sudo_status>success|failed)"
-| table AUID decoded_cmd
+| regex "res=(?P<sudo_status>success|failed)"
+| stats count by AUID sudo_status over 1h
+| chart count by AUID sudo_status

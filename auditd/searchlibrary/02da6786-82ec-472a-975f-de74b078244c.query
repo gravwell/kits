@@ -1,2 +1,2 @@
 tag=$AUDITD kv -q type as auditType name
-| eval (auditType == "PATH" && (name ~ "haldrund") || (name ~ "xinetd") || (name ~ "kdevrund"))
+| eval (auditType == "PATH" && (name ~ "haldrund" || name ~ "kdevrund" || strings_hassuffix(name, "/xinetd.lock")))

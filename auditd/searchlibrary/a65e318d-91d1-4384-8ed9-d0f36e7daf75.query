@@ -1,2 +1,2 @@
-tag=$AUDITD kv -q type as auditType a0 as cmd
-| eval ((auditType == "EXECVE") && (cmd == "chmod" || cmd== "chown"))
+tag=$AUDITD kv -q type as auditType a0 as cmd a1
+| eval ((auditType == "EXECVE") && ((cmd == "chmod" && (a1 ~ "777" || a1 ~ "+s" || a1 ~ "4755")) || (cmd == "chown" && a1 ~ "root")))
