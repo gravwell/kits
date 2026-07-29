@@ -1,0 +1,8 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "daily-summary-gravwell.agent",
+	"Description": "Nightly activity digest. Surveys the last 24 hours in parallel -- ingest volume per tag against a weekly baseline, notable activity in the data, what alerts and automation did, and platform health including Gravwell's own logs -- then writes a short Markdown message telling the operator what needs attention and what to investigate today, with validated starting queries. Automated and read-only; intended to run on a nightly schedule.",
+	"Size": 426430,
+	"Hash": "Y+amyus3s7I87v9aiMtHtA==",
+	"Data": ""
+}
