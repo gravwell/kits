@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Update Brute-Force Settings",
+	"Description": "Displays a table of Updated Brute-Force Settings.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/attack_protection_features_turned_off.yml",
+	"GUID": "86471a53-d360-4eaf-b8b7-59e42c035436",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

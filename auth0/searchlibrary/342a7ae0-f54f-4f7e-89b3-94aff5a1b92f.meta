@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Risk of Copying Client Credentials",
+	"Description": "Displays a table of users/IPs whom potentially copied client credentials.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/risk_of_copying_client_credentials.yml",
+	"GUID": "342a7ae0-f54f-4f7e-89b3-94aff5a1b92f",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,9 @@
+// Search - Auth0 - User - Authentication - Count by Event Type [numbercard]
+tag=$AUTH0 json
+    type as eventType
+| alias eventType eventCode
+| lookup -r auth0_eventTypes eventCode eventCode (category subcategory eventType)
+| eval (category ~ "Authentication" || subcategory ~ "Authentication")
+| stats count by eventType
+| alias count " "
+| numbercard " "

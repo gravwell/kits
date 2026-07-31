@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Authentication - Many Failed Authorization Requests (Combined)",
+	"Description": "Displays a table of Failed Authentications due to matching one of the alert triggers and crossing the threshold. \n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/many_failed_authorization_requests.yml",
+	"GUID": "0646c433-69f0-4c76-8bae-3b974d5d7c8f",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Modification to Password Login Policy",
+	"Description": "Displays a table of Modifications to Password Login Policy.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/bot_detection_turned_off.yml",
+	"GUID": "c53cd606-6f62-4b55-8dd0-40441eb3fa2f",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

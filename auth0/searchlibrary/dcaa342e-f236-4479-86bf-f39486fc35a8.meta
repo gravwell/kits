@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Excessive Scope Grant Amount",
+	"Description": "Displays a table of Excessive Scope Grants by Client ID (client_id) \u0026 Description (description).\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/client_with_overpermissive_granted_scopes.yml",
+	"GUID": "dcaa342e-f236-4479-86bf-f39486fc35a8",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
