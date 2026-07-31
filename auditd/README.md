@@ -17,7 +17,7 @@ It provides the following utilities:
 ## Changelog
  **2.0: Corrections + Fixes to queries**
   - Updated dashboards
-  - Fixed query logic
+  - Refined some queries
 
  **1.0: Initial Release**
 	- actionables (2)
