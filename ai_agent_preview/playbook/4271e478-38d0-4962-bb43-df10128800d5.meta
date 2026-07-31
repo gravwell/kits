@@ -1,0 +1,24 @@
+{
+	"UUID": "a7bda545-1232-48a7-8365-33403f3df085",
+	"GUID": "4271e478-38d0-4962-bb43-df10128800d5",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "AI Agent Preview - Kit Overview",
+	"Desc": "",
+	"Labels": [
+		"ai"
+	],
+	"LastUpdated": "2026-07-29T00:00:00Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

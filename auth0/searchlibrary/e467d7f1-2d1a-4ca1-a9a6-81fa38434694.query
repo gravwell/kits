@@ -1,0 +1,5 @@
+// Search - Auth0 - System - Log Types - Count by Tag [numbercard]
+tag=$AUTH0 
+| stats count by TAG
+| alias count " "
+| numbercard " "

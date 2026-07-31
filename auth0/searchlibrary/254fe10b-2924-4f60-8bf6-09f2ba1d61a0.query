@@ -1,0 +1,8 @@
+// Search - Auth0 - System - Log Types - Count by Event Type [numbercard]
+tag=$AUTH0 json
+    type as eventType
+| alias eventType eventCode
+| lookup -r auth0_eventTypes eventCode eventCode (eventType)
+| stats count by eventType
+| alias count " "
+| numbercard " "

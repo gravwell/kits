@@ -1,0 +1,43 @@
+{
+	"UUID": "1c49b512-80d2-49dd-aca9-9f41288e7ce7",
+	"Name": "Auth0 UserName",
+	"Description": "Auth0 actions on User Name (userName) to Launch Auth0 Investigation Dashboard.",
+	"Data": {
+		"menuLabel": "Auth0",
+		"actions": [
+			{
+				"name": "UserName",
+				"description": "This actionable will launch the Auth0 Investigation Dashboard to see other actions performed and events generated .",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "da6909ed-4c3f-46d8-9743-ee1cf20c6a83",
+					"options": {
+						"variable": "%%user_name%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/user_name\\\"\\:\\\"(?\u003cuser_name\u003e[^\"]+?)?\\\"/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"auth0"
+	]
+}

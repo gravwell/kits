@@ -1,0 +1,24 @@
+{
+	"UUID": "0c98a727-cd5b-4484-9db2-2bd4c89305b9",
+	"GUID": "65c66a85-bc65-4b5e-a224-484e25f62b63",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Auth0 Kit - README",
+	"Desc": "",
+	"Labels": [
+		"auth0"
+	],
+	"LastUpdated": "2026-06-03T20:31:02.02713205Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

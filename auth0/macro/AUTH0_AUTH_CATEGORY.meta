@@ -1,0 +1,7 @@
+{
+	"Name": "AUTH0_AUTH_CATEGORY",
+	"Description": "This macro is to be used in conjunction with $AUTH0_AUTH. \n\nUsage: \ntag=$AUTH0 json date type as eventType ip user_id user_name\n$AUTH0_AUTH\n$AUTH0_AUTH_CATEGORY\n| table date user_id user_name ip authStatus",
+	"Labels": [
+		"auth0"
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - User - Authentication - Higher Risk of Credential Stuffing Attack",
+	"Description": "Displays a table of Higher Risk of Credential Stuffing Attack and count vs. threshold.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/credential_stuffing_signals.yml",
+	"GUID": "72998c2e-cf44-428b-bba5-1c9adb4696c8",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

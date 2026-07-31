@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Auth0 - Lifecycle - System API - Modification to Password Reset Policy",
+	"Description": "Displays a table of Modifications to Password Reset Policy.\n\nReference(s):\n- https://github.com/auth0/auth0-customer-detections/blob/main/detections/bot_detection_turned_off.yml",
+	"GUID": "d26dcc7a-71a2-4359-a971-f51192079a8e",
+	"Labels": [
+		"auth0"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
