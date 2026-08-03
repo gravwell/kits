@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Session - Okta User Session Start Via An Anonymising Proxy Service",
+  "Description": "Detects when an Okta user session starts where the user is behind an anonymising proxy service.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_session_start_via_anonymised_proxy/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_session_start_via_anonymised_proxy.yml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "11b6dc2c-977e-5351-a640-2b2a7d725e85",
+  "SearchReference": "422b6952-b2f2-5bfb-8799-52031876bc27"
+}

@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / MFA / Session - Potential Okta MFA Bombing via Push Notifications [table]",
+  "Description": "Detects when an attacker abuses the Multi-Factor authentication mechanism by repeatedly issuing login requests until the user eventually accepts the Okta push notification. An adversary may attempt to bypass the Okta MFA policies configured for an organization to obtain unauthorized access.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_mfa_bombing_via_push_notifications/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_mfa_bombing_via_push_notifications.toml",
+  "GUID": "8a188024-aec5-5258-b6d2-68ab8941c403",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

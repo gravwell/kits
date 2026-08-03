@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - System - Event Types - Potential Okta Password in AlternateID Field [table] */
+tag=$OKTA_SYSTEM
+$OKTA_ALERT_EVX
+| regex -e actorAltId "(^0oa.*|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10})"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Potential Okta Password in AlternateID Field"
+$OKTA_ALERT_META

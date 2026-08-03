@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - MFA - Attempt to Reset MFA Factors for an Okta User Account",
+  "Description": "Attempt to Reset MFA Factors for an Okta User Account\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_attempt_to_reset_mfa_factors_for_okta_user_account/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/persistence_attempt_to_reset_mfa_factors_for_okta_user_account.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "9c91f59b-6832-535a-ac5d-ca88284d396b",
+  "SearchReference": "74c635b1-f8ba-56a6-91b4-1c5281ce1753"
+}

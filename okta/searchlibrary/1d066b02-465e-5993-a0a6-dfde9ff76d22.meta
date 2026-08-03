@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Okta Admin Functions Access Through Proxy [table]",
+  "Description": "Detects access to Okta admin functions through proxy.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_admin_activity_from_proxy_query/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_admin_activity_from_proxy_query.yml",
+  "GUID": "1d066b02-465e-5993-a0a6-dfde9ff76d22",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

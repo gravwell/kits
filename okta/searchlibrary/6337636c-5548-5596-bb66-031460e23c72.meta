@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Security - Events - Okta Security Threat Detected [table]",
+  "Description": "Detects when an security threat is detected in Okta.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_security_threat_detected/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_security_threat_detected.yml",
+  "GUID": "6337636c-5548-5596-bb66-031460e23c72",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}
