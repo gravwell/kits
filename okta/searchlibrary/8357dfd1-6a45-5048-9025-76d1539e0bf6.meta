@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Application - OAuth2 - Unauthorized Scope for Public App OAuth2 Token Grant with Client Credentials [table]",
+  "Description": "Identifies a failed OAuth 2.0 token grant attempt for a public client app using client credentials. This event is generated when a public client app attempts to exchange a client credentials grant for an OAuth 2.0 access token, but the request is denied due to the lack of required scopes. This could indicate compromised client credentials in which an adversary is attempting to obtain an access token for unauthorized scopes. This is a New Terms rule where the okta.actor.display_name field value has not been seen in the last 14 days regarding this event.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_first_occurence_public_app_client_credential_token_exchange/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/defense_evasion_first_occurence_public_app_client_credential_token_exchange.toml",
+  "GUID": "8357dfd1-6a45-5048-9025-76d1539e0bf6",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

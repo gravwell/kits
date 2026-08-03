@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Session - Multiple Okta Sessions Detected for a Single User [table]",
+  "Description": "Detects when a user has started multiple Okta sessions with the same user account and different session IDs. This may indicate that an attacker has stolen the user's session cookie and is using it to access the user's account from a different location.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/lateral_movement_multiple_sessions_for_single_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/lateral_movement_multiple_sessions_for_single_user.toml",
+  "GUID": "cd334285-a6f7-5a99-a44f-1ab1f2c542e1",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

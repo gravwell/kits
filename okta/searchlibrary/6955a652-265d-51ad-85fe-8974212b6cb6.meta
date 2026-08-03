@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Access Control - Network Zones - Okta Network Zone Deactivated or Deleted [table]",
+  "Description": "Detects when an Network Zone is Deactivated or Deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/cloud/okta/okta_network_zone_deactivated_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/okta/okta_network_zone_deactivated_or_deleted.yml",
+  "GUID": "6955a652-265d-51ad-85fe-8974212b6cb6",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

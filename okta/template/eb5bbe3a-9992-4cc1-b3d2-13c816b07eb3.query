@@ -1,4 +1,3 @@
-// Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP
 $OKTA_ALERT_BASE
 $OKTA_SUCCESSFUL_AUTH
 $OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")

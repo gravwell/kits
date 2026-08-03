@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Security - Events - Okta ThreatInsight Threat Suspected Promotion [table]",
+  "Description": "Okta ThreatInsight is a feature that provides valuable debug data regarding authentication and authorization processes, which is logged in the system. Within this data, there is a specific field called threat_suspected, which represents Okta's internal evaluation of the authentication or authorization workflow. When this field is set to True, it suggests the presence of potential credential access techniques, such as password-spraying, brute-forcing, replay attacks, and other similar threats.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/okta_threatinsight_threat_suspected_promotion/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/okta_threatinsight_threat_suspected_promotion.toml",
+  "GUID": "279b1bd5-6265-5873-9abd-5a6ca2d5c959",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

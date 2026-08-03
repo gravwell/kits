@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - Application - Okta Application Modified or Deleted [table]",
+  "Description": "Detects when an application is modified or deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_application_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "GUID": "ae47500e-f1a1-53ee-b409-165c6735bb26",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

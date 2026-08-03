@@ -1,0 +1,99 @@
+Welcome to the AI Agent Preview kit. This kit installs six Gravwell AI agents: three you talk to, and three that run unattended and hand you a report.
+
+This playbook gets you oriented -- what each agent is for, how to pick the right one, and how to wire the automated ones into a flow.
+
+# **Overview**
+
+Three of them are conversational -- you pick one and talk to it:
+
+* **case-agent:** hunting, writing and iterating on queries.
+* **gravwell-admin:** configuring Gravwell and its ingesters.
+* **mechanic:** something is broken and you need to know why.
+
+The other three are automated -- you wire them into a flow and read the report:
+
+* **alert-triage:** first-pass triage when an alert fires.
+* **gravwell-audit:** full deployment health and hygiene sweep.
+* **daily-summary:** nightly "what happened / what to look at" digest.
+
+Every agent in this kit is read-only against your deployment. The single exception is `case-agent`, which can save a query -- and only when you explicitly ask it to. None of them modify configuration, permissions, or data.
+
+## Requirements
+
+Gravwell AI services or an LLM must be configured on the deployment before any of these agents will run. The automated agents additionally need a flow, and the flow node that calls them requires Logbot access.
+
+# **The conversational agents**
+
+Pick these from the agent selector in a chat session. Each is a single node with a large purpose-built prompt, so the one you choose matters more than how you phrase the question.
+
+## case-agent
+
+Your investigation partner. It carries the full Gravwell query language reference in its prompt, which is what lets it write a query, validate it, run it, read the results, and propose the next pivot -- while tracking the case across turns.
+
+Reach for it when you are hunting, drilling into data, or fighting with query syntax. 
+
+## gravwell-admin
+
+The configuration assistant. It carries an extensive reference covering every ingester and its options, `gravwell.conf`, CBAC access control, wells and storage, replication, preprocessors, resources, and tokens and secrets.
+
+Ask it how to stand up an ingester, how to lay out wells, or how to scope access with CBAC. It deliberately does **not** write or run queries -- if that is what you need, use `case-agent`.
+
+## mechanic
+
+The troubleshooter, and the interactive counterpart to `gravwell-audit`. It triages errors in the `gravwell` tag, diagnoses dead ingesters, stalled scheduled searches and unhealthy indexers, and will run any single audit check on demand.
+
+Use it when you already know something is wrong. It finds the problem and hands you the exact fix rather than applying one.
+
+# **The automated agents**
+
+These three are multi-stage: a set of independent investigators runs in parallel, then a final stage merges their findings into one Markdown report. That structure is why they are worth running unattended -- you get breadth without a person driving each angle.
+
+## alert-triage
+
+Fires off four investigators at once: one reads the alert definition, its detection logic and firing history; one pulls ground truth about the entities out of the raw data; one baselines the behaviour against history; one checks runbooks and platform health. A reporting stage then writes a verdict with the supporting evidence and validated queries the responder should run to get oriented.
+
+Its input is the alert payload, so attach it to an alert and let it do the first pass before a human opens the ticket.
+
+## gravwell-audit
+
+Five auditors in parallel over automation, alerts, the content library, infrastructure, and data flow. Between them they surface scheduled searches that no longer parse or have stalled, alerts with no consumers or that never fire, duplicate extractors, dead data feeds, missing ingesters, and storage problems. A synthesis stage merges everything into one prioritised report.
+
+Run it periodically, or after a big content or infrastructure change.
+
+## daily-summary
+
+Four surveyors covering the last 24 hours: per-tag ingest volume against a weekly baseline (spikes, drops, silent and new sources), notable activity in the data itself, what alerts and automation actually did, and platform health including Gravwell's own logs. It composes a short message telling the operator what needs attention today, with validated starting queries.
+
+Intended for a nightly schedule.
+
+# **Running an automated agent from a flow**
+
+The `Logbot` flow node is what invokes an agent. By default it targets the built-in `logbot`, but its `agent` field accepts the name of any agent you can access -- including the ones from this kit. The name to use is the agent's own name, **not** the resource name, so `alert-triage`, not `alert-triage-gravwell.agent`.
+
+Configure the node like this:
+
+```
+agent:  alert-triage
+action: custom
+input:  <the alert payload, or whatever text the agent should work from>
+```
+
+Use `action: custom`. The `explain` and `summarize` actions prepend a generic log-analysis preamble that fights with these agents' own prompts; `custom` sends your input through untouched.
+
+The agent's report lands in the node's output variable (`logbot_output` unless you rename it via `output_name`). From there pipe it into whichever delivery node you want -- Slack, Teams, or email -- or ingest it back into Gravwell.
+
+Two things to keep in mind:
+
+- These agents do real work, so they take minutes, not seconds. The node allows a long window for that.
+- The report can be long. `max_payload_size` defaults to 65536 bytes; raise it if a report is getting truncated.
+
+# **Picking the right agent**
+
+The most common mistake is asking an agent something outside its remit. The prompts are specialised, and each one will tell you to go elsewhere rather than guess:
+
+- Writing a query or hunting through data -- `case-agent`
+- Configuring the software -- `gravwell-admin`
+- Diagnosing a specific failure right now -- `mechanic`
+- A standing, deployment-wide sweep -- `gravwell-audit`
+
+`mechanic` and `gravwell-audit` overlap deliberately: same subject matter, one interactive and one exhaustive.

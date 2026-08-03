@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Unauthorized Access to App [table]",
+  "Description": "Detects when unauthorized access to app occurs.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_unauthorized_access_to_app/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_unauthorized_access_to_app.yml",
+  "GUID": "52f46e0e-c927-51b3-bc9b-890cec766946",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

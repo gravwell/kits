@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Multiple Okta User Authentication Events with Client Address [table]",
+  "Description": "Detects when a certain threshold of Okta user authentication events are reported for multiple users from the same client address. Adversaries may attempt to launch a credential stuffing or password spraying attack from the same device by using a list of known usernames and passwords to gain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_device_token_hashes_for_single_okta_session/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_authentication_for_multiple_users_from_single_source.toml",
+  "GUID": "0eeb706e-23c8-5fac-9358-5ee4a2227d2f",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}
