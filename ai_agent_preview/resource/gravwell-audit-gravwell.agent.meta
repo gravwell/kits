@@ -1,0 +1,8 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "gravwell-audit-gravwell.agent",
+	"Description": "Read-only health and hygiene audit of a whole Gravwell deployment. Five auditors run in parallel over automation, alerts, the content library, infrastructure and data flow -- finding scheduled searches that no longer parse or have stalled, alerts with no consumers or that never fire, duplicate extractors, dead data feeds, missing ingesters and storage problems -- and a final stage merges them into a prioritised Markdown report of what needs attention. Changes nothing.",
+	"Size": 379955,
+	"Hash": "iXO7KMA8JCmtipCDSaecUw==",
+	"Data": ""
+}
