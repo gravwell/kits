@@ -1,0 +1,12 @@
+/* AlertQuery - Okta - Identity Access Management - System - Event Types - Multiple Device Token Hashes for Single Okta Session [table] */
+tag=$OKTA_SYSTEM
+$OKTA_ALERT_EVX
+| regex -e dtHash ".*"
+| regex -e actorAltId "(?i)[^system\@okta\.com]"
+| regex -e authExternalSessionId "(?i)[^unknown]"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Multiple Device Token Hashes for Single Okta Session"
+$OKTA_ALERT_META
