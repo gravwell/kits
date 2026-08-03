@@ -1,0 +1,73 @@
+{
+	"ID": "io.gravwell.ai_agent_preview",
+	"Name": "AI Agent Preview",
+	"Desc": "# AI Agent Preview\n\nA preview set of six Gravwell AI agents, packaged as resources.\n\nEach agent is a JSON agent definition stored in a resource whose name ends in `-gravwell.agent`. Installing the kit makes the agents available in the Gravwell AI agent list; it does not add any searches, dashboards, or automations.\n\nStart with the included **Kit Overview** playbook.\n\n## Contents\n\n- **case-agent** - conversational investigation partner for Query Studio\n- **gravwell-admin** - conversational administration and configuration assistant\n- **mechanic** - conversational troubleshooter for the deployment itself\n- **alert-triage** - automated first-pass triage of a firing alert\n- **gravwell-audit** - automated read-only health and hygiene audit\n- **daily-summary** - automated nightly activity digest\n\n## Requirements\n\nAn LLM must be configured on the deployment for the agents to run. Every agent is read-only except `case-agent`, which can save a query when you explicitly ask it to.",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 10,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 99,
+		"Point": 99
+	},
+	"Icon": "a5e1405a-83cb-4d1a-a0bc-4824c499b025",
+	"Banner": "fad3c589-25a2-4308-8b17-9f8db19f6a3e",
+	"Cover": "a5e1405a-83cb-4d1a-a0bc-4824c499b025",
+	"Items": [
+		{
+			"Name": "BSD 2-Clause",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a5e1405a-83cb-4d1a-a0bc-4824c499b025",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fad3c589-25a2-4308-8b17-9f8db19f6a3e",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "4271e478-38d0-4962-bb43-df10128800d5",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "alert-triage-gravwell.agent",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "case-agent-gravwell.agent",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "daily-summary-gravwell.agent",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "gravwell-admin-gravwell.agent",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "gravwell-audit-gravwell.agent",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "mechanic-gravwell.agent",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": null
+}
