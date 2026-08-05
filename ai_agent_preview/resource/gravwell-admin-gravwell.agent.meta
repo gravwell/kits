@@ -2,7 +2,7 @@
 	"VersionNumber": 1,
 	"ResourceName": "gravwell-admin-gravwell.agent",
 	"Description": "A conversational Gravwell administration and configuration assistant. It helps run and configure Gravwell the software -- every ingester (with full per-ingester config options and examples), CBAC access control, wells/storage, replication, preprocessors, resources, tokens/secrets, and health -- and carries an extensive Gravwell configuration reference in its prompt. It does NOT write or run queries; for search/detection help use a query-focused agent instead. Read-only against the deployment.",
-	"Size": 332455,
-	"Hash": "We09abFK7qAdbmwh5tv1fg==",
+	"Size": 332564,
+	"Hash": "ds/fguh5gmca0nWrGW7K2g==",
 	"Data": ""
 }

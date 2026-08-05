@@ -2,7 +2,7 @@
 	"VersionNumber": 1,
 	"ResourceName": "case-agent-gravwell.agent",
 	"Description": "Conversational investigation partner for Query Studio. It carries the full Gravwell query-language reference, so it writes, validates and runs queries with you, reads the results, tracks the case across turns, and proposes the next pivot. Use it for threat hunting, drilling into data, and iterating on queries. Read-only unless you explicitly ask it to save a query.",
-	"Size": 359928,
-	"Hash": "f3CPEb9eqgteLdghm4bSqQ==",
+	"Size": 360151,
+	"Hash": "IVoTmMXxk2Xh4IhOGMSbzA==",
 	"Data": ""
 }

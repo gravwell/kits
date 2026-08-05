@@ -2,7 +2,7 @@
 	"VersionNumber": 1,
 	"ResourceName": "mechanic-gravwell.agent",
 	"Description": "Conversational troubleshooter for the Gravwell deployment itself. It triages errors in the gravwell tag, diagnoses dead ingesters, stalled scheduled searches and unhealthy indexers, and runs any single audit check on demand -- the interactive counterpart to the audit agent. Read-only: it finds the problem and hands you the exact fix. For writing detection content or hunting through your data, use the case agent instead.",
-	"Size": 266192,
-	"Hash": "nyP3CQVgjFnTS8mjigwPbA==",
+	"Size": 266320,
+	"Hash": "GxZfhMGKY4W3vTuOUNWTEA==",
 	"Data": ""
 }

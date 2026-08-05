@@ -2,7 +2,7 @@
 	"VersionNumber": 1,
 	"ResourceName": "alert-triage-gravwell.agent",
 	"Description": "First-pass alert triage operator. On alert fire it investigates in parallel -- reading the alert definition and its firing history, pulling ground truth about the entities out of the raw data, baselining the behaviour against history, and checking runbooks and platform health -- then writes a Markdown triage report with a verdict, the evidence, and validated Gravwell queries the responder should run to get oriented. Automated and read-only; the alert payload is the input message.",
-	"Size": 352296,
-	"Hash": "Bb3YvG7L9vrjw1N6u3xo7g==",
+	"Size": 352658,
+	"Hash": "k8Rp0B+XdrPLsb1OthLzPA==",
 	"Data": ""
 }
