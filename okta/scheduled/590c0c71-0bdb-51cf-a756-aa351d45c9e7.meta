@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - Lifecycle / Policy - Policy / Rule - Attempt to Delete an Okta Policy",
+  "Description": "Detects attempts to delete an Okta policy. An adversary may attempt to delete an Okta policy in order to weaken an organization's security controls. For example, an adversary may attempt to delete an Okta multi-factor authentication (MFA) policy in order to weaken the authentication requirements for user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_delete_okta_policy/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/defense_evasion_okta_attempt_to_delete_okta_policy.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "590c0c71-0bdb-51cf-a756-aa351d45c9e7",
+  "SearchReference": "09356cf0-e94a-5870-b396-90e65bfc5805"
+}

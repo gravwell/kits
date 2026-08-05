@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - System / User - Account / Email / SMS / Voice - High Number of Okta User Password Reset or Unlock Attempts [table]",
+  "Description": "Identifies a high number of Okta user password reset or account unlock attempts. An adversary may attempt to obtain unauthorized access to Okta user accounts using these methods and attempt to blend in with normal activity in their target's environment and evade detection.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_suspicious_okta_user_password_reset_or_unlock_attempts/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/defense_evasion_suspicious_okta_user_password_reset_or_unlock_attempts.toml",
+  "GUID": "0d044dee-b02f-5434-b7da-3511c010c0e0",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

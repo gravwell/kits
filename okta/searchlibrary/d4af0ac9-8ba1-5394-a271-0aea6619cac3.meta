@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - MFA / Session - Stolen Credentials Used to Login to Okta Account After MFA Reset [table]",
+  "Description": "Stolen Credentials Used to Login to Okta Account After MFA Reset\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset.toml",
+  "GUID": "d4af0ac9-8ba1-5394-a271-0aea6619cac3",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

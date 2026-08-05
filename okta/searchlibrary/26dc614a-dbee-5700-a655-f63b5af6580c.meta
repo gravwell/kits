@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Okta Sign-In Events via Third-Party IdP [table]",
+  "Description": "Detects sign-in events where authentication is carried out via a third-party Identity Provider (IdP).\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp.toml",
+  "GUID": "26dc614a-dbee-5700-a655-f63b5af6580c",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Account - User Reported Suspicious Activity",
+  "Description": "Detects when a user reports suspicious activity for their Okta account. These events should be investigated, as they can help security teams identify when an adversary is attempting to gain access to their network.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a4b57de8-9995-586f-a122-ae3ade731c8a",
+  "SearchReference": "e1f645ce-5ec1-50d2-8ff8-320f3808f675"
+}

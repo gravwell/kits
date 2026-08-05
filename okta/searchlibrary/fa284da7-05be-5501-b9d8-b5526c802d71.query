@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - User - MFA - Okta MFA Reset or Deactivated [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^user\.mfa\.factor\.(?:deactivate|reset_all)$"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Okta MFA Reset or Deactivated"
+$OKTA_ALERT_META

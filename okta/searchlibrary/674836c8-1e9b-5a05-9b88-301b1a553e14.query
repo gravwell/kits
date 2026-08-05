@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - Policy - Application - Okta Application Sign-On Policy Modified or Deleted [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^application\.policy\.sign_on\.(?:update|delete)$"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Okta Application Sign-On Policy Modified or Deleted"
+$OKTA_ALERT_META

@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - IDP - New Okta Identity Provider (IdP) Added by Admin [table]",
+  "Description": "Detects the creation of a new Identity Provider (IdP) by a Super Administrator or Organization Administrator within Okta.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_new_idp_successfully_added_by_admin/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/persistence_new_idp_successfully_added_by_admin.toml",
+  "GUID": "50e4f87b-bba5-596d-9be0-425862f9c4b5",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}
