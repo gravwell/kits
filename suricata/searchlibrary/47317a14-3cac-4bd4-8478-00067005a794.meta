@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Top Alert Signatures",
+ "Description": "The 20 most frequent Suricata alert signatures.",
+ "GUID": "47317a14-3cac-4bd4-8478-00067005a794",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "alert"
+ ],
+ "Metadata": {}
+}

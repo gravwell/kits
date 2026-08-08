@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - HTTP Status Codes Over Time",
+ "Description": "Chart of HTTP response volume over time, split by status code.",
+ "GUID": "970209ca-cd4d-49f7-9ab0-2367d08478b1",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "http"
+ ],
+ "Metadata": {}
+}

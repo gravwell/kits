@@ -1,0 +1,3 @@
+tag=$SURICATA json event_type=="fileinfo" fileinfo.filename as filename fileinfo.magic as magic src_ip dest_ip
+| eval ((has(magic) && (magic ~ "PE32" || magic ~ "MS-DOS executable")) || (has(filename) && (filename ~ ".exe" || filename ~ ".dll" || filename ~ ".msi")))
+| table TIMESTAMP src_ip dest_ip filename magic

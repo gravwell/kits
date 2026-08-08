@@ -1,0 +1,3 @@
+tag=$SURICATA json event_type=="alert" alert.category as category
+| count by category
+| chart count by category limit 10

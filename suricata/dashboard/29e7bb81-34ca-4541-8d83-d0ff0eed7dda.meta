@@ -1,0 +1,205 @@
+{
+ "UUID": "29e7bb81-34ca-4541-8d83-d0ff0eed7dda",
+ "Name": "Suricata IP Investigation",
+ "Description": "Investigative dashboard driven by templates: enter an IP address once and every tile pivots to that IP across alerts, DNS, HTTP, TLS, and flow data.",
+ "Data": {
+  "timeframe": {
+   "durationString": null,
+   "timeframe": "P7DT",
+   "timezone": null,
+   "start": null,
+   "end": null
+  },
+  "searches": [
+   {
+    "alias": "Template - Suricata - IP - Alert Count [numbercard]",
+    "color": null,
+    "reference": {
+     "id": "c7590261-730e-444d-b49c-46218d34c9aa",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - IP - Alerts [table]",
+    "color": null,
+    "reference": {
+     "id": "11a6e83d-263e-444d-a241-c3b421ed13fb",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - IP - DNS Queries [table]",
+    "color": null,
+    "reference": {
+     "id": "63e8045e-335c-4613-b142-e071afa6e248",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - IP - HTTP Activity [table]",
+    "color": null,
+    "reference": {
+     "id": "a22ba6bd-d5f5-4307-bfac-61b575dc75b8",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - IP - TLS SNI [table]",
+    "color": null,
+    "reference": {
+     "id": "4703b03b-d099-47bc-98de-88a76ab66637",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - IP - Ports Contacted [table]",
+    "color": null,
+    "reference": {
+     "id": "fc0dab98-c8b7-4fd1-ab8f-d8837bd305e6",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - IP - Flow Volume [table]",
+    "color": null,
+    "reference": {
+     "id": "e1aee17b-922a-478d-b28d-32e1c0dee672",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   }
+  ],
+  "tiles": [
+   {
+    "id": 1765079607257124,
+    "title": "Alerts Involving IP",
+    "renderer": "numberCard",
+    "hideZoom": true,
+    "span": {
+     "col": 3,
+     "row": 4,
+     "x": 0,
+     "y": 0
+    },
+    "searchesIndex": 0,
+    "rendererOptions": {
+     "Range": "no",
+     "Precision": "no",
+     "NumberCardLabelFontSize": "15",
+     "NumberCardNumberFontSize": 48,
+     "NumberCardWidth": 25
+    }
+   },
+   {
+    "id": 1026756102912086,
+    "title": "Alert Detail",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 9,
+     "row": 4,
+     "x": 3,
+     "y": 0
+    },
+    "searchesIndex": 1,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6257899082661680,
+    "title": "DNS Queries",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 4
+    },
+    "searchesIndex": 2,
+    "rendererOptions": {}
+   },
+   {
+    "id": 3881729381119574,
+    "title": "HTTP Activity",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 4
+    },
+    "searchesIndex": 3,
+    "rendererOptions": {}
+   },
+   {
+    "id": 4962884035601250,
+    "title": "TLS SNI",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 9
+    },
+    "searchesIndex": 4,
+    "rendererOptions": {}
+   },
+   {
+    "id": 3651578281240629,
+    "title": "Ports Contacted",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 9
+    },
+    "searchesIndex": 5,
+    "rendererOptions": {}
+   },
+   {
+    "id": 5021354292583357,
+    "title": "Flow Volume by Peer",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 12,
+     "row": 5,
+     "x": 0,
+     "y": 14
+    },
+    "searchesIndex": 6,
+    "rendererOptions": {}
+   }
+  ],
+  "linkZooming": false,
+  "grid": {},
+  "version": 2
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

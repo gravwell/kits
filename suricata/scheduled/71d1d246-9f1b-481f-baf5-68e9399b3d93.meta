@@ -1,0 +1,16 @@
+{
+ "Name": "ScheduledSearch - Suricata - High Severity Alerts",
+ "Description": "Returns Suricata IDS alerts with severity 1 (the most severe level). Suricata severity is numeric: 1 is highest priority, 3 is lowest.",
+ "Labels": [
+  "suricata"
+ ],
+ "Schedule": "2 * * * *",
+ "Duration": -3600,
+ "DefaultDeploymentRules": {
+  "Disabled": true,
+  "RunImmediately": false
+ },
+ "ScheduledType": "search",
+ "GUID": "71d1d246-9f1b-481f-baf5-68e9399b3d93",
+ "SearchReference": "cc253f7c-08a6-43fe-8a14-18daa3f4a7cd"
+}

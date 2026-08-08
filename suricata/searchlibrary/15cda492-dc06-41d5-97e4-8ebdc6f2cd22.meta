@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Self-Signed TLS Certificate",
+ "Description": "TLS sessions where the certificate subject equals the issuer DN, i.e. a self-signed certificate. Common on internal services, but also on C2 infrastructure; review destinations you do not recognize.",
+ "GUID": "15cda492-dc06-41d5-97e4-8ebdc6f2cd22",
+ "Labels": [
+  "suricata",
+  "detection",
+  "tls"
+ ],
+ "Metadata": {}
+}

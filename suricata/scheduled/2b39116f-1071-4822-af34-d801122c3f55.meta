@@ -1,0 +1,16 @@
+{
+ "Name": "ScheduledSearch - Suricata - Suspicious HTTP User Agents",
+ "Description": "HTTP requests whose User-Agent matches a scripting/tooling signature (curl, wget, python-requests, PowerShell, sqlmap, Nikto, nmap, masscan), matched case-insensitively. Expected from automation in most networks; investigate unexpected sources. Substring matches, so curl also matches libcurl-based agents.",
+ "Labels": [
+  "suricata"
+ ],
+ "Schedule": "37 * * * *",
+ "Duration": -3600,
+ "DefaultDeploymentRules": {
+  "Disabled": true,
+  "RunImmediately": false
+ },
+ "ScheduledType": "search",
+ "GUID": "2b39116f-1071-4822-af34-d801122c3f55",
+ "SearchReference": "5bf0969c-7f00-446b-a92d-7757d1368631"
+}

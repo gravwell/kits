@@ -1,0 +1,20 @@
+{
+ "UUID": "63e8045e-335c-4613-b142-e071afa6e248",
+ "Name": "Template - Suricata - IP - DNS Queries [table]",
+ "Description": "DNS names queried by the given IP, with counts.",
+ "Data": {
+  "variables": [
+   {
+    "name": "%%1%%",
+    "label": "IP address",
+    "description": "The client IP whose DNS queries you want to review.",
+    "required": true,
+    "defaultValue": "",
+    "previewValue": ""
+   }
+  ]
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

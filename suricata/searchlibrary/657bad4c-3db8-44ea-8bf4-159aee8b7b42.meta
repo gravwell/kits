@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Application Protocol Distribution",
+ "Description": "Flow counts by detected application protocol (app_proto). Flows without an identified protocol are dropped by require.",
+ "GUID": "657bad4c-3db8-44ea-8bf4-159aee8b7b42",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "flow"
+ ],
+ "Metadata": {}
+}

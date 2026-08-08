@@ -1,0 +1,20 @@
+{
+ "UUID": "379a32c7-4485-45e5-885d-6ee3a9fd6626",
+ "Name": "Template - Suricata - Signature - Top Destinations [table]",
+ "Description": "The 20 destination IP/port pairs most frequently targeted by the given signature (exact match).",
+ "Data": {
+  "variables": [
+   {
+    "name": "%%1%%",
+    "label": "signature",
+    "description": "The exact Suricata alert signature name.",
+    "required": true,
+    "defaultValue": "",
+    "previewValue": ""
+   }
+  ]
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

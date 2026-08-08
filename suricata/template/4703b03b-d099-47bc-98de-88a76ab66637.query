@@ -1,0 +1,5 @@
+tag=$SURICATA json event_type=="tls" src_ip tls.sni as sni tls.version as version
+| eval src_ip == "%%1%%"
+| require sni
+| count by sni version
+| table -nt sni version count

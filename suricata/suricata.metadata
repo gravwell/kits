@@ -1,0 +1,15 @@
+{
+ "Ingesters": [
+  "file follower",
+  "simple relay"
+ ],
+ "Tags": [
+  "suricata"
+ ],
+ "Assets": [
+  {
+   "Type": "readme",
+   "Source": "README.md"
+  }
+ ]
+}

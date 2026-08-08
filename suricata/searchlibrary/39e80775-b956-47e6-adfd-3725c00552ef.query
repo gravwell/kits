@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="http" http.hostname as hostname
+| count by hostname
+| top -n 20 count
+| table -nt hostname count

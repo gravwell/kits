@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="dns" dns.rcode=="NXDOMAIN" as rcode src_ip
+| stats count by src_ip over 1h
+| eval count > 25
+| table -nt src_ip count

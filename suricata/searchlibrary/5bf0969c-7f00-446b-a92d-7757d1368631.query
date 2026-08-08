@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="http" http.http_user_agent as user_agent http.hostname as hostname http.url as url src_ip
+| regex -e user_agent `(?i)(?P<tool>curl|wget|python-requests|powershell|sqlmap|nikto|nmap|masscan)`
+| count by user_agent src_ip hostname
+| table -nt user_agent src_ip hostname count
