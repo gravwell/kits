@@ -1,0 +1,2 @@
+tag=$UMBRELLA_PROXY ax certificate_errors != "" policy_identity_label internal_client_ip url
+| table policy_identity_label internal_client_ip url certificate_errors

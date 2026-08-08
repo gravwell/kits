@@ -1,0 +1,2 @@
+tag=$UMBRELLA_DNS ax categories ~ "Newly Seen Domains" most_granular_identity internal_ip domain action
+| table most_granular_identity internal_ip domain action categories

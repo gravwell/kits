@@ -1,0 +1,150 @@
+{
+	"UUID": "2b6b21bf-aea4-4ff4-87bd-92d6a2630cdf",
+	"Name": "Umbrella - Administrative Audit",
+	"Description": "Overview of administrative changes to the Umbrella configuration: change volume over time, changes by administrator, actions by type, recent changes, and log export configuration changes.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Umbrella - Admin Changes Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "9b26b6a2-37e1-406e-a9d0-a9f817dfe3c6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Admin Changes by User [Chart]",
+				"color": null,
+				"reference": {
+					"id": "70942681-91b9-466f-b72d-01c14ccf51e1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Admin Actions by Type [Chart]",
+				"color": null,
+				"reference": {
+					"id": "06ad9d9b-1dd4-4813-b5e8-61003cc094b6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Recent Admin Changes",
+				"color": null,
+				"reference": {
+					"id": "43ceb2ea-dceb-44b4-9093-b831b6e21208",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Log Export Configuration Changed",
+				"color": null,
+				"reference": {
+					"id": "f62f110b-ee1b-489d-b24b-53a3a33aba8b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17800000000300,
+				"title": "Admin Changes Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000301,
+				"title": "Changes by Administrator",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000302,
+				"title": "Actions by Type",
+				"renderer": "categoryBarChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000303,
+				"title": "Recent Admin Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000304,
+				"title": "Log Export Configuration Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 10
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"umbrella",
+		"cisco umbrella"
+	]
+}

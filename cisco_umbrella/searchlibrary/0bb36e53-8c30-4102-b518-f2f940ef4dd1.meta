@@ -1,0 +1,15 @@
+{
+	"Name": "Umbrella - Admin Activity from Multiple IPs",
+	"Description": "Detects an administrator account making changes from more than 3 distinct source IP addresses within an hour, which can indicate a compromised administrative account. Adjust the threshold to fit your environment.",
+	"GUID": "0bb36e53-8c30-4102-b518-f2f940ef4dd1",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"audit",
+		"T1078.004",
+		"initial-access",
+		"persistence"
+	],
+	"Metadata": {}
+}

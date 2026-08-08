@@ -1,0 +1,384 @@
+{
+	"ID": "io.gravwell.cisco_umbrella",
+	"Name": "Cisco Umbrella",
+	"Desc": "Provides tools, utilities, and detections to enable use of Cisco Umbrella DNS, proxy, and admin audit logs.",
+	"Readme": "This kit is designed to provide an out-of-the-box experience for working with Cisco Umbrella logs.\n\nCisco Umbrella exports its logs as CSV files to an Amazon S3 bucket (either Cisco-managed or self-managed). This kit expects those logs to be ingested into three tags, one per log source:\n\n- DNS logs (`umbrella-dns`) - traffic that reached the Umbrella DNS resolvers\n- Proxy logs (`umbrella-proxy`) - traffic that passed through the Umbrella intelligent proxy\n- Admin audit logs (`umbrella-audit`) - changes made in the Umbrella dashboard by your administrative team\n\nLog format references:\n\n- [DNS Log Formats](https://securitydocs.cisco.com/docs/umbrella-dns/olh/147415.dita)\n- [Proxy Log Formats](https://securitydocs.cisco.com/docs/umbrella-dns/olh/147416.dita)\n- [Admin Audit Log Formats](https://securitydocs.cisco.com/docs/umbrella-dns/olh/147414.dita)\n\nThis kit provides the following utilities:\n\n- Queries\n    - Detections\n    - Stats\n- Scheduled Searches\n- Dashboards\n- Actionables\n- Templates\n- Macros\n- Autoextractors\n\nRefer to the Kit Overview playbook for more detail on these components.\n\n**Note:** If your tags differ from the defaults, update both the kit's configuration macros *and* the `Tag` binding on the matching autoextractors (Extractors page). Umbrella logs are headerless CSV, so if an autoextractor is not bound to your tag, no fields will be extracted and the kit's queries will return empty results.\n\n## Version History\n**V1: Initial Release**\n",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 4,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 99,
+		"Point": 99
+	},
+	"Icon": "d514a8c6-c23b-4849-878c-0dd4bdb60971",
+	"Banner": "20dd8d41-20f2-43b0-bd06-b4ddd03af266",
+	"Cover": "064a33ff-319f-42c2-a0a2-4d6a168b9ffd",
+	"Items": [
+		{
+			"Name": "BSD 2-Clause",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a1792bf1-8a1b-4b94-aaf5-44ede8c817c6",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "40522760-01ee-4410-8778-b0f39b9df7b7",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5650005f-eddd-4dee-abb7-8b8a6a009f85",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "524a3fe0-59bd-449c-9d32-f490e9e2cb4a",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "45cfe5d5-8d4b-414e-97c8-cee169ce530e",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c8d0a93b-58a5-4824-9e4d-2169d8effda7",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e4bdc8f8-9e3e-4aaa-916e-a5075596ca20",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "647849e1-7cb6-4070-ab9c-5591bb3f769b",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "869b0a4a-331a-4ae1-ac5e-abb75fceff1c",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "689901a3-0f47-40d9-8267-e3d65f461726",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0c62ea6c-0f1d-4617-b4db-dc528db259de",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c532e8a8-1fad-4f48-bd5c-94f6c0d1246e",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a023a2c3-a5f6-4190-8f68-8473d1ff45f4",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "dca5f04a-2253-4f52-ab6b-492aa4661e38",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cca2b9b3-bf41-4e37-9b0f-5f21f73f69cf",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "UMBRELLA_DNS",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "UMBRELLA_PROXY",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "UMBRELLA_AUDIT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "85fb4796-d1cb-4f26-9da8-d23620b28246",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9ab2b05a-c926-4222-a246-5af72389c566",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "2b6b21bf-aea4-4ff4-87bd-92d6a2630cdf",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a0bb0c4b-8dcb-4354-ac50-f673f5921476",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7684e420-7a9c-45b4-9a5a-2523c5b28d04",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "59403887-7650-4595-9bbd-7917e3b4426a",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "30bebaae-ef82-4bd3-9a07-eabe65006564",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6056d649-4daf-4ada-b8f7-0e609b518e14",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "caac61ac-480e-47bd-8128-ab0118b98ba8",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "35886a6b-61ec-40e4-adfd-846808459191",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a1c19409-21d8-4627-bc8c-a3d972dbd34c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "376b25d5-5ae7-4d93-bacd-5ad6b33bcc78",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "94b0ad7f-22b7-46fc-90d3-b0d2343c6a58",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b24cbc9a-2f1a-46b6-8d81-228ba20b10b4",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "797380b0-7efc-4e4d-adaa-f77df326725e",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6cb6c9a6-714f-46c4-afe0-b48a2c227f0c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "eaf139b8-9da9-47c0-97f2-2b89b3f2dbe2",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bcce4162-2bc6-4ebc-bdd4-74c2e29de836",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "262d94b0-416d-4b74-832a-8668185d5cd5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "231b4a40-a8d2-4c97-981b-000b231d6cd2",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5c5dcc0e-323e-4974-a93a-9352f7e60501",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9b26b6a2-37e1-406e-a9d0-a9f817dfe3c6",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "70942681-91b9-466f-b72d-01c14ccf51e1",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "06ad9d9b-1dd4-4813-b5e8-61003cc094b6",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "43ceb2ea-dceb-44b4-9093-b831b6e21208",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "71e12f81-539c-415b-9e42-4357c2e5f8d7",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "be3eacd7-f32b-43b6-b065-67282e8e3144",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6e575bfc-4653-42ce-9395-32f13505afb0",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5223f3e6-dda8-40ee-972c-b5ef6948f21b",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "96e032b4-b5b1-4b6b-abcc-13e8047511b9",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "aae8829d-f7d6-48ea-b00c-342f68033a18",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7f02a260-c58b-4a3f-ba5f-f2ea36570bb8",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c5c34a2e-5140-480b-9ead-1e5a2ea07868",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f7b41913-993d-432c-b09e-2fc7435b75fb",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "078b3e7c-4429-450d-8d58-027aa153d0b9",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ef16ca4b-61ed-4724-9948-4e4447b8c761",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f62f110b-ee1b-489d-b24b-53a3a33aba8b",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5a3dce3d-5fa0-477e-b4ca-9e95a485fc39",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0bb36e53-8c30-4102-b518-f2f940ef4dd1",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "df99b826-a591-43da-8f85-90e1fddcf509",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d514a8c6-c23b-4849-878c-0dd4bdb60971",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "20dd8d41-20f2-43b0-bd06-b4ddd03af266",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "064a33ff-319f-42c2-a0a2-4d6a168b9ffd",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f3694556-a914-4e4b-b29e-9f8db0641e56",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a3b98b4d-cda8-45e0-b298-1307032eb707",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "umbrella-dns",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "umbrella-proxy",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "umbrella-audit",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "UMBRELLA_DNS",
+			"Description": "Configuration Macro: Tag for Cisco Umbrella DNS logs",
+			"DefaultValue": "umbrella-dns",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "UMBRELLA_PROXY",
+			"Description": "Configuration Macro: Tag for Cisco Umbrella proxy logs",
+			"DefaultValue": "umbrella-proxy",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "UMBRELLA_AUDIT",
+			"Description": "Configuration Macro: Tag for Cisco Umbrella admin audit logs",
+			"DefaultValue": "umbrella-audit",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
+	]
+}
