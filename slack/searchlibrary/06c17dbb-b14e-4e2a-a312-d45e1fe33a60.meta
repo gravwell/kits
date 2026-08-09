@@ -1,0 +1,11 @@
+{
+	"Name": "Slack - Recent Audit Events",
+	"Description": "Table of recent Slack audit events: the action, who performed it, the type of object acted upon, and the source IP address.",
+	"GUID": "06c17dbb-b14e-4e2a-a312-d45e1fe33a60",
+	"Labels": [
+		"slack",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

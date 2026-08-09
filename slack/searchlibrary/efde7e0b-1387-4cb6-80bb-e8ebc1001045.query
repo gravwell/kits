@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action=="user_login_failed"
+| count over 1h
+| chart count

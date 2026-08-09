@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action=="file_downloaded"
+| count over 1h
+| chart count

@@ -1,0 +1,20 @@
+{
+	"Name": "Slack - Burst of File Downloads by User",
+	"Description": "Detects a user downloading more than 50 files in a 10 minute window, which can indicate bulk collection of workspace data ahead of exfiltration. Adjust the threshold to fit your environment.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1530",
+		"collection"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f9c52320-34ff-4524-9b71-9dafa4aefa2a",
+	"SearchReference": "78c2fde4-d587-4f2a-a3fe-d7ac10263261"
+}

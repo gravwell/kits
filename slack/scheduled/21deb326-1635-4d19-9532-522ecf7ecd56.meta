@@ -1,0 +1,20 @@
+{
+	"Name": "Slack - Spike in Failed Logins by User",
+	"Description": "Detects more than 5 failed Slack login attempts for a single user in a 10 minute window, which can indicate password guessing or credential stuffing. Adjust the threshold to fit your environment.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1110",
+		"credential-access"
+	],
+	"Schedule": "2 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "21deb326-1635-4d19-9532-522ecf7ecd56",
+	"SearchReference": "d577d577-b1bb-4e66-90bf-c992ca4ec9fb"
+}

@@ -1,0 +1,14 @@
+{
+	"Name": "Slack - Logins from Multiple IP Addresses",
+	"Description": "Detects a user logging in to Slack from more than 3 distinct IP addresses within an hour, which can indicate a compromised or shared account. Adjust the threshold to fit your environment.",
+	"GUID": "0d36aae2-9d8d-4ac8-b1f6-a0b598d7f0d4",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1078",
+		"initial-access",
+		"persistence"
+	],
+	"Metadata": {}
+}

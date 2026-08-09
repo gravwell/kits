@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action actorName entityType channelName channelIsShared channelIsOrgShared targetUserEmail
+| eval in(action, "external_shared_channel_connected", "external_shared_channel_invite_created", "external_shared_channel_invite_accepted", "external_shared_channel_access_upgraded", "connect_dm_invite_generated", "connect_dm_invite_accepted")
+| table action actorName entityType channelName channelIsShared channelIsOrgShared targetUserEmail
