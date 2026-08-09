@@ -1,0 +1,4 @@
+tag=$TELEPORT_AUDIT ax event user name
+| eval in(event, "role.created", "role.updated", "role.deleted")
+| alias user actor name role_name
+| table event actor role_name

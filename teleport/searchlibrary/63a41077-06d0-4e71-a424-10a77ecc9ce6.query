@@ -1,0 +1,2 @@
+tag=$TELEPORT_AUDIT ax event=="access_request.create" user roles id reason
+| table user id roles reason

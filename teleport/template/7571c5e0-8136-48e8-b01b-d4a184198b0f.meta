@@ -1,0 +1,23 @@
+{
+	"UUID": "7571c5e0-8136-48e8-b01b-d4a184198b0f",
+	"Name": "Teleport - Investigate IP Address",
+	"Description": "Audit activity originating from a remote client address - which users and events came from this IP?",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "203.0.113.10"
+			}
+		]
+	},
+	"Labels": [
+		"teleport",
+		"audit",
+		"ip",
+		"investigation"
+	]
+}

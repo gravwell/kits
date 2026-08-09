@@ -1,0 +1,23 @@
+{
+	"UUID": "e06954b4-0dc1-4af8-bfbb-45dc6f0b849a",
+	"Name": "Teleport - Investigate Session",
+	"Description": "All audit events for a Teleport session ID - start, joins, commands, transfers, and end.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%session_id%%",
+				"label": "Session ID",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "4298bd54-a747-4d53-b850-83ba17caae5a"
+			}
+		]
+	},
+	"Labels": [
+		"teleport",
+		"audit",
+		"session",
+		"investigation"
+	]
+}

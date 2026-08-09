@@ -1,0 +1,2 @@
+tag=$TELEPORT_AUDIT ax event code user login "addr.remote"
+| table event code user login "addr.remote"

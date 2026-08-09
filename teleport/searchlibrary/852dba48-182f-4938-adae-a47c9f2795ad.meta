@@ -1,0 +1,14 @@
+{
+	"Name": "Teleport - Successful Logins from Multiple IPs",
+	"Description": "Detects a user successfully logging in to Teleport from more than 3 distinct remote IP addresses within an hour, which can indicate a compromised account or shared credentials. The addr.remote field is an ip:port pair, so the ephemeral client port is stripped before counting distinct addresses. Adjust the threshold to fit your environment.",
+	"GUID": "852dba48-182f-4938-adae-a47c9f2795ad",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1078",
+		"initial-access",
+		"persistence"
+	],
+	"Metadata": {}
+}

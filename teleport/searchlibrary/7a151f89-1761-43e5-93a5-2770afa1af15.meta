@@ -1,0 +1,12 @@
+{
+	"Name": "Teleport - Recent File Transfers",
+	"Description": "Table of recent file transfers through Teleport (scp and sftp events), including the transfer direction or operation and the file path.",
+	"GUID": "7a151f89-1761-43e5-93a5-2770afa1af15",
+	"Labels": [
+		"teleport",
+		"audit",
+		"stats",
+		"session"
+	],
+	"Metadata": {}
+}

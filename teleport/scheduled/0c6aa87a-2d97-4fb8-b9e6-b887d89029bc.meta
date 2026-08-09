@@ -1,0 +1,21 @@
+{
+	"Name": "Teleport - Burst of File Transfers by User",
+	"Description": "Detects a user generating more than 50 file transfer events (scp or sftp) through Teleport in a 10 minute window, which can indicate bulk data staging or exfiltration. Note that sftp events are emitted per file operation (open, read, write, close) rather than per transfer, so counts run higher than transfer counts. Adjust the threshold to fit your environment.",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1048",
+		"exfiltration",
+		"collection"
+	],
+	"Schedule": "3 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0c6aa87a-2d97-4fb8-b9e6-b887d89029bc",
+	"SearchReference": "3aca3e33-a4a9-418d-9a6e-554cfb3667eb"
+}

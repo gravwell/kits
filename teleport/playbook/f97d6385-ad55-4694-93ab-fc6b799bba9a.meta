@@ -1,0 +1,22 @@
+{
+	"UUID": "6dea8e28-596a-4ba7-83f1-a640ed2c2c6d",
+	"GUID": "f97d6385-ad55-4694-93ab-fc6b799bba9a",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Teleport - Kit Overview",
+	"Desc": "Overview of the Teleport kit: data source, ingest guidance, queries, dashboards, actionables, templates, and macros.",
+	"Labels": null,
+	"LastUpdated": "2026-08-09T10:00:00.000000000-06:00",
+	"Author": {
+		"Name": "Mike Wade",
+		"Email": "mike.wade@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}
