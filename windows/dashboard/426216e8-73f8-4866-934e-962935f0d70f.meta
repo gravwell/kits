@@ -34,17 +34,6 @@
 				}
 			},
 			{
-				"alias": "Windows Successful Admin Logon Details - Group Membership",
-				"color": null,
-				"reference": {
-					"id": "0f7750bd-1576-481a-b60d-b382bc9e70fd",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
 				"alias": "Windows Successful Admin Logon Details - ElevatedToken",
 				"color": null,
 				"reference": {
@@ -118,7 +107,7 @@
 					"x": 11,
 					"y": 9
 				},
-				"searchesIndex": 3,
+				"searchesIndex": 2,
 				"rendererOptions": {}
 			},
 			{
@@ -132,7 +121,7 @@
 					"x": 11,
 					"y": 4
 				},
-				"searchesIndex": 4,
+				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
@@ -146,7 +135,7 @@
 					"x": 0,
 					"y": 9
 				},
-				"searchesIndex": 5,
+				"searchesIndex": 4,
 				"rendererOptions": {}
 			}
 		],
