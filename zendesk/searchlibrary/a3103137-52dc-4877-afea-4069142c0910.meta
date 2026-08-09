@@ -1,0 +1,11 @@
+{
+	"Name": "Zendesk - Recent Audit Events",
+	"Description": "Table of recent Zendesk audit events: who changed what, the type of change, and the source IP address.",
+	"GUID": "a3103137-52dc-4877-afea-4069142c0910",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

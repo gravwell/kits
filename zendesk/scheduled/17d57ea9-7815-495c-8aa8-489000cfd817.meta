@@ -1,0 +1,20 @@
+{
+	"Name": "Zendesk - User Deleted",
+	"Description": "Detects deletion of Zendesk user accounts. Attackers may delete accounts to remove access or cover their tracks.",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1531",
+		"impact"
+	],
+	"Schedule": "14 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "17d57ea9-7815-495c-8aa8-489000cfd817",
+	"SearchReference": "db369e9b-4ef2-43f8-9ddf-5e8eba5fb34f"
+}
