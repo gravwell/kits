@@ -1,0 +1,13 @@
+{
+	"Name": "Teleport - Suspicious Remote Command Executed",
+	"Description": "Detects remote commands executed through Teleport that contain strings commonly associated with payload retrieval or staging (curl, wget, netcat variants, base64 decoding, marking files executable). This list is a starting point and will not catch obfuscated commands - tune the patterns to fit your environment. Covers non-interactive execution only (exec events); commands typed inside an interactive session require Enhanced Session Recording (session.command events).",
+	"GUID": "51ad442c-cd24-4686-a525-1ba5da4aff20",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1059",
+		"execution"
+	],
+	"Metadata": {}
+}

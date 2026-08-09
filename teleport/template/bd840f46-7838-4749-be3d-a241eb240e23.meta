@@ -1,0 +1,23 @@
+{
+	"UUID": "bd840f46-7838-4749-be3d-a241eb240e23",
+	"Name": "Teleport - Investigate User",
+	"Description": "Audit activity for a Teleport user - logins, sessions, commands, and administrative events.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "Teleport User",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "alice"
+			}
+		]
+	},
+	"Labels": [
+		"teleport",
+		"audit",
+		"user",
+		"investigation"
+	]
+}

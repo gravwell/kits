@@ -1,0 +1,13 @@
+{
+	"Name": "Teleport - Spike in Failed Logins by User",
+	"Description": "Detects more than 5 failed Teleport login attempts for a single user in a 10 minute window, which can indicate password guessing or credential stuffing against the Teleport proxy. Adjust the threshold to fit your environment.",
+	"GUID": "0a727ccf-b909-44f3-9709-dddaaccb5cfb",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1110",
+		"credential-access"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,125 @@
+{
+	"UUID": "c48726dc-9aa9-416b-bd77-f8c9caa1432f",
+	"Name": "Teleport - Sessions & Activity",
+	"Description": "Session-level view of Teleport activity: session starts over time, remote commands, file transfers, and session recording access.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Teleport - Session Starts Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "e673b0a7-bd29-4fea-9237-e0e2db538930",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Recent Remote Commands",
+				"color": null,
+				"reference": {
+					"id": "01dc3c64-e387-4b5e-b838-6c2a94544477",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Recent File Transfers",
+				"color": null,
+				"reference": {
+					"id": "7a151f89-1761-43e5-93a5-2770afa1af15",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Session Recording Accessed",
+				"color": null,
+				"reference": {
+					"id": "84385dae-c7a1-4e87-9410-3af9d1bfb4a4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17820000000200,
+				"title": "Session Starts Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000201,
+				"title": "Recent Remote Commands",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000202,
+				"title": "Recent File Transfers",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000203,
+				"title": "Session Recording Access",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"teleport",
+		"audit"
+	]
+}

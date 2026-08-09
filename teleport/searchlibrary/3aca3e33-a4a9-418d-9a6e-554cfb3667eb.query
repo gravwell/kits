@@ -1,0 +1,5 @@
+tag=$TELEPORT_AUDIT ax event user
+| eval in(event, "scp", "sftp")
+| count by user over 10m
+| eval count > 50
+| table -nt user count

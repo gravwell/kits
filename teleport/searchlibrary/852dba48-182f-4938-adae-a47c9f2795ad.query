@@ -1,0 +1,5 @@
+tag=$TELEPORT_AUDIT ax event=="user.login" success=="true" user "addr.remote"
+| regex -e "addr.remote" `^\[?(?P<remote_ip>[^\]]+)\]?:\d+$`
+| stats unique_count(remote_ip) as ip_count by user over 1h
+| eval ip_count > 3
+| table -nt user ip_count

@@ -1,0 +1,13 @@
+{
+	"Name": "Teleport - User Created",
+	"Description": "Detects creation of Teleport users. An attacker with administrative access may create a user as a persistence mechanism.",
+	"GUID": "a513b19b-34d6-4a3f-8ba5-c860388bf609",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1136",
+		"persistence"
+	],
+	"Metadata": {}
+}

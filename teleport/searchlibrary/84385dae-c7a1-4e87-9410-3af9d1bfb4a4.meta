@@ -1,0 +1,13 @@
+{
+	"Name": "Teleport - Session Recording Accessed",
+	"Description": "Detects access to recorded Teleport sessions. Session recordings can contain credentials and sensitive command output; unexpected replay activity is worth reviewing.",
+	"GUID": "84385dae-c7a1-4e87-9410-3af9d1bfb4a4",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1005",
+		"collection"
+	],
+	"Metadata": {}
+}
