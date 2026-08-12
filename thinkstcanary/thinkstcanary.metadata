@@ -1,0 +1,9 @@
+{
+	"Ingesters": ["gravwell_fetcher"],
+	"Tags": ["thinkst-audit", "thinkst-incident", "_thinkst_alerts"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "Thinkst Canary Cover", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "Thinkst Canary Banner", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}

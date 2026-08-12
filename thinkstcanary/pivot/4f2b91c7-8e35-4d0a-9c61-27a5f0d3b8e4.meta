@@ -1,0 +1,64 @@
+{
+	"UUID": "4f2b91c7-8e35-4d0a-9c61-27a5f0d3b8e4",
+	"Name": "Thinkst Canary - Investigate IP Address",
+	"Description": "Search Thinkst Canary incidents involving this IP address",
+	"Data": {
+		"menuLabel": "Thinkst Canary",
+		"actions": [
+			{
+				"name": "Canary Incidents from this Source",
+				"description": "Review Canary incidents with this source host",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "b5a6f494-05c2-424b-b514-fae33e12e9f3",
+					"options": {
+						"variable": "%%src_host%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "Canary Incidents to this Destination",
+				"description": "Review Canary incidents with this destination host",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "b5a6f494-05c2-424b-b514-fae33e12e9f3",
+					"options": {
+						"variable": "%%dst_host%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

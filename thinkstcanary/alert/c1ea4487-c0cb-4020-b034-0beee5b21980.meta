@@ -1,0 +1,51 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "00b7e6e2-7c31-4929-ae1d-a531638c6e59",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a console user is deleted from an outside country.\nDefault = US / United States (If not within United States, change necessary)\n\nRemove User = Remove a user from the Console.\n\nReference(s):\nhttps://docs.canary.tools/users/management.html\n\nhttps://docs.canary.tools/users/management.html#remove-user",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "38ebd801-4ebd-4535-bd8e-da3b63c268c7",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "c1ea4487-c0cb-4020-b034-0beee5b21980",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-10-09T00:00:00Z",
+	"MaxEvents": 16,
+	"Name": "Alert - Canary - User Management - High - Console User Deleted from Outside Country",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_thinkst_alerts",
+	"UID": 0,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

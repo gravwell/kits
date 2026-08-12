@@ -1,0 +1,4 @@
+$CANARY_INCIDENT_OPEN
+$CANARY_RISK_SCORE
+$CANARY_INCIDENT_META
+| table _alert_title _alert_priority context
