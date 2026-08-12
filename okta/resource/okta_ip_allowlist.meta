@@ -1,11 +1,11 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "okta_ip_allowlist",
-	"Description": "Provides a tuning control to suppress alerts from known-good source IPs (resolved from clientIp, else requestIp), per alert or globally, with optional expiry.\n\nFields: key,enabled,until_ymd,reason\n\nKey format: \u003cip\u003e|\u003calert_name_or_*\u003e (until_ymd = YYYYMMDD; enabled = 1 or 0)\n\nExamples: This is currently what is in okta_ip_allowlist.csv\nkey,enabled,until_ymd,reason\n203.0.113.10|*,1,20251231,\"corp NAT — noisy\"\n2001:db8::42|Alert - Okta - High - Okta Admin Role Assigned to a User or Group,1,,\"okta admin jump host\"\n\nReference(s):\n\nUsage:\n// OKTA_BASELINE + IP tuning\n$OKTA_ALERT_BASE\n$OKTA_RISK_SCORE\n$OKTA_TUNE_IPLISTS\n$OKTA_ALERT_META",
+	"Description": "Tuning control for $OKTA_TUNING: suppress Okta detections coming from source addresses you have vouched for. A row that is enabled and unexpired drops the event outright.\n\nFields: key,enabled,until_ymd,reason\n  - key: the bare source IP address, matched against src (clientIp, else the first hop of request.ipChain)\n  - enabled: 1 to apply the row, 0 to park it without deleting it\n  - until_ymd: YYYYMMDD expiry, compared against the event's published date; leave empty for a permanent exception\n  - reason: free text, so the next analyst knows why the exception exists\n\nCurrent contents:\nkey,enabled,until_ymd,reason\n203.0.113.10,1,,corporate NAT egress - permanently allowed\n198.51.100.20,1,20261231,vulnerability scanner - allowed until end of 2026\n\nUsage:\n$OKTA_RISK_SCORE\n$OKTA_TUNING",
 	"Labels": [
 		"okta"
 	],
-	"Size": 180,
-	"Hash": "+LlNEtcSSdziTldxFrHrfQ==",
+	"Size": 163,
+	"Hash": "4Jcu737J1yYR+N+i+O27yA==",
 	"Data": ""
 }

@@ -1,7 +1,7 @@
 {
 	"UUID": "8346559c-0d8d-4792-9e7b-c68e41082198",
 	"Name": "Okta Category Overview",
-	"Description": "This Dashboard is a general overview of your Okta Category data.",
+	"Description": "Drills into one okta_eventTypes category at a time. Set the Log Category variable at the top of the dashboard, then read the subcategory breakdown with and without the Okta outcome result split.\n\nLeave the variable as * to see every category at once.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category [chart]",
+				"alias": "Template - Okta - System - Event Types - Category and Subcategory [chart]",
 				"color": null,
 				"reference": {
 					"id": "ba2624c4-7b49-430e-953a-f0d26454aefd",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category [table]",
+				"alias": "Template - Okta - System - Event Types - Category and Subcategory [table]",
 				"color": null,
 				"reference": {
 					"id": "3885aad7-7e1b-4ef5-9141-9d6e61a8b432",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Result [chart]",
+				"alias": "Template - Okta - System - Event Types - Category and Subcategory by Outcome [chart]",
 				"color": null,
 				"reference": {
 					"id": "69391681-932e-4a0e-a438-ef71e2b0987b",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Result [table]",
+				"alias": "Template - Okta - System - Event Types - Category and Subcategory by Outcome [table]",
 				"color": null,
 				"reference": {
 					"id": "04c60191-796a-4cbc-925e-9491d88aa2c0",
@@ -58,8 +58,8 @@
 		],
 		"tiles": [
 			{
-				"id": 7569038943076844,
-				"title": "Category",
+				"id": 1610731233580,
+				"title": "Category and Subcategory",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
@@ -75,8 +75,8 @@
 				}
 			},
 			{
-				"id": 8233741600807212,
-				"title": "Category",
+				"id": 1566833232005,
+				"title": "Category and Subcategory",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -89,8 +89,8 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 7848603784419207,
-				"title": "Category by Result",
+				"id": 1854876167511,
+				"title": "Category and Subcategory by Outcome",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
@@ -106,8 +106,8 @@
 				}
 			},
 			{
-				"id": 3034176840971353,
-				"title": "Category by Result",
+				"id": 1810978165936,
+				"title": "Category and Subcategory by Outcome",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {

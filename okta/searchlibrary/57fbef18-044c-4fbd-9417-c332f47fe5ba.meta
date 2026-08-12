@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - User Type [numbercard]",
-	"Description": "Displays a numbercard of user types by count.",
+	"Description": "Counts Okta users by user type, taken from the profile.userType field of the user profile snapshot.\n\nRenders as a numbercard.",
 	"GUID": "57fbef18-044c-4fbd-9417-c332f47fe5ba",
 	"Labels": [
 		"okta"

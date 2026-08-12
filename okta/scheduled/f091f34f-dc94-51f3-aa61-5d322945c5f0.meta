@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Lifecycle - Policy - Any Okta Policy Change (roll-up)",
+	"Description": "Roll-up of every Okta policy lifecycle change: create, update, activate, deactivate, delete, and overwrite. Use this one when you would rather review all policy churn in a single feed than run the per-verb detections.\n\nEvent types: policy.lifecycle.create, policy.lifecycle.update, policy.lifecycle.activate, policy.lifecycle.deactivate, policy.lifecycle.delete, policy.lifecycle.overwrite\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f091f34f-dc94-51f3-aa61-5d322945c5f0",
+	"SearchReference": "9ba1da25-cd69-5a49-93a2-b34636093174"
+}

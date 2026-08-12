@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - User Login [chart]",
-	"Description": "Displays a chart of user logins by count.",
+	"Name": "Search - Okta - Users - Has Logged In vs Never Logged In [chart]",
+	"Description": "Splits Okta users into those that have signed in at least once and those that never have.\n\nRenders as a chart.",
 	"GUID": "f2ea3c81-130e-40be-8d10-76606371e3c1",
 	"Labels": [
 		"okta"

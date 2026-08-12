@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - Total Count [numbercard]",
-	"Description": "Displays a numbercard of total users. ",
+	"Description": "Counts distinct Okta users. Counts by Okta user id rather than by entry, so the answer does not grow with the length of the search timeframe.\n\nRenders as a numbercard.",
 	"GUID": "18c0e9ee-f214-44f9-8aca-80fbbd501907",
 	"Labels": [
 		"okta"

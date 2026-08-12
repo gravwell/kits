@@ -1,2 +1,0 @@
-| eval actor = actorAltId
-| eval if (has(actorName) && actorName != "" && actorName != "null") { actor = actorName; }

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Okta Sign-In Events via Third-Party IdP [table]",
-  "Description": "Detects sign-in events where authentication is carried out via a third-party Identity Provider (IdP).\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp.toml",
-  "GUID": "26dc614a-dbee-5700-a655-f63b5af6580c",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Authentication - Okta Third-Party IdP Sign-In Failures",
+	"Description": "Sign-in through a federated identity provider failed. The interesting failure reasons are the ones about validating the SAML response or matching the transformed username: replayed assertions, a mismatched signing key, or a username mapping that no longer lines up all look like this, and so does an adversary probing a federation they only partly control.\n\nEvent types: user.authentication.auth_via_IDP, user.authentication.auth_via_inbound_SAML, user.authentication.auth_via_inbound_delauth, user.authentication.auth_via_social\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_sign_in_events_via_third_party_idp/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/initial_access_okta_sign_in_events_via_third_party_idp.toml",
+	"GUID": "26dc614a-dbee-5700-a655-f63b5af6580c",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

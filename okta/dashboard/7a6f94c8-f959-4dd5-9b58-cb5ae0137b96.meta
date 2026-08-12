@@ -1,18 +1,18 @@
 {
 	"UUID": "7a6f94c8-f959-4dd5-9b58-cb5ae0137b96",
-	"Name": "Okta User Location Overview",
-	"Description": "This Dashboard is a general overview of your Okta User Location data.",
+	"Name": "Okta Sign-In Location Overview",
+	"Description": "Where your Okta sign-ins actually come from. Countries, cities, and network operators come from Okta's own client.geographicalContext and securityContext, which Okta resolves at the edge at request time; the maxmind and asn_db resources from the Gravwell Network Enrichment kit fill in only for the events that arrive without Okta's enrichment.\n\nThe network operator card is the one to read carefully: authentication arriving from a cloud hosting provider rather than a residential or corporate ISP is worth explaining.\n\nThe two bottom tiles are the detections that key on geography.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
-			"timeframe": "P1DT",
+			"timeframe": "P7DT",
 			"timezone": null,
 			"start": null,
 			"end": null
 		},
 		"searches": [
 			{
-				"alias": "Search - Okta - Users - User Country [numbercard]",
+				"alias": "Search - Okta - System - Location - Sign-In Country [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "ba6c1f9e-3728-45ad-9cdb-5d080fff5089",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User Country [chart]",
+				"alias": "Search - Okta - System - Location - Sign-In Country [chart]",
 				"color": null,
 				"reference": {
 					"id": "6d57beef-f4be-483c-95b8-c3cb92ec6bfa",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User State [numbercard]",
+				"alias": "Search - Okta - System - Location - Sign-In Network Operator [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "7c836a9a-83c2-46f8-bf54-e821dcac86d9",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User State [chart]",
+				"alias": "Search - Okta - System - Location - Sign-In City [chart]",
 				"color": null,
 				"reference": {
 					"id": "799ba52e-3c47-4b72-ac05-468e4f58887a",
@@ -56,10 +56,10 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User Timezone [numbercard]",
+				"alias": "Search - Okta - System - Location - Sign-In Locations [pointmap]",
 				"color": null,
 				"reference": {
-					"id": "db8ca78a-1260-4e56-9437-511b4bd96dcc",
+					"id": "3d7f61b2-9e04-4c8a-b573-1af26c95e830",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -67,10 +67,21 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User Timezone [chart]",
+				"alias": "AlertQuery - Okta - User - Session - Okta Session Used From More Than One Country or Network [table]",
 				"color": null,
 				"reference": {
-					"id": "3f6b6dad-75f7-43e8-8844-b471e67abf10",
+					"id": "9e2cd5fc-5c1f-5e06-9f1e-25b6f06cc8a4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - Session - Okta User Sessions Started from Different Countries [table]",
+				"color": null,
+				"reference": {
+					"id": "0688b6b7-1bf0-5181-93b5-9c28513a405d",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -80,13 +91,13 @@
 		],
 		"tiles": [
 			{
-				"id": 17635601835090,
-				"title": "User Country Numbercard",
+				"id": 1591035086172,
+				"title": "Sign-In Country",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
-					"row": 5,
+					"row": 7,
 					"x": 0,
 					"y": 0
 				},
@@ -94,43 +105,46 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635602040401,
-				"title": "User Country Chart",
+				"id": 1662062389806,
+				"title": "Sign-In Country",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
-					"row": 5,
+					"row": 7,
 					"x": 6,
 					"y": 0
 				},
 				"searchesIndex": 1,
-				"rendererOptions": {}
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
-				"id": 17635602400212,
-				"title": "User State Numbercard",
+				"id": 1344454836615,
+				"title": "Sign-In Network Operator",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
-					"row": 8,
+					"row": 7,
 					"x": 0,
-					"y": 5
+					"y": 7
 				},
 				"searchesIndex": 2,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635602598703,
-				"title": "User State Chart",
+				"id": 1689191691865,
+				"title": "Sign-In City",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
-					"row": 8,
+					"row": 7,
 					"x": 6,
-					"y": 5
+					"y": 7
 				},
 				"searchesIndex": 3,
 				"rendererOptions": {
@@ -139,42 +153,46 @@
 				}
 			},
 			{
-				"id": 17635602904414,
-				"title": "User Timezone Numbercard",
-				"renderer": "numberCard",
+				"id": 1862309322162,
+				"title": "Sign-In Locations",
+				"renderer": "pointmap",
 				"hideZoom": true,
 				"span": {
-					"col": 6,
-					"row": 7,
+					"col": 12,
+					"row": 10,
 					"x": 0,
-					"y": 13
+					"y": 14
 				},
 				"searchesIndex": 4,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "no",
-					"NumberCardLabelFontSize": 24,
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": 25
-				}
+				"rendererOptions": {}
 			},
 			{
-				"id": 17635603089575,
-				"title": "User Timezone Chart",
-				"renderer": "donutChart",
+				"id": 1033336625796,
+				"title": "Sessions from More Than One Country or Network",
+				"renderer": "table",
 				"hideZoom": true,
 				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 6,
-					"y": 13
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 24
 				},
 				"searchesIndex": 5,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value",
-					"Orientation": "v"
-				}
+				"rendererOptions": {}
+			},
+			{
+				"id": 1615729072605,
+				"title": "Users Signing In from Different Countries",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 32
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
 			}
 		],
 		"linkZooming": false,

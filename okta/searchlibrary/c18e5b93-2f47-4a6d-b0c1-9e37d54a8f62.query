@@ -1,0 +1,126 @@
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+// Pull the System Log fields out of the raw JSON.  Okta nests almost everything,
+// so each line names the JSON path and the enumerated value it becomes.
+| json
+	eventType
+	severity
+	displayMessage as message
+	outcome.result as outcomeResult
+	outcome.reason as outcomeReason
+	actor.id as actorId
+	actor.type as actorType
+	actor.alternateId as actorAltId
+	actor.displayName as actorName
+	client.ipAddress as clientIp
+	client.userAgent.rawUserAgent as userAgent
+	client.userAgent.os as clientOS
+	client.userAgent.browser as clientBrowser
+	client.device as clientDevice
+	client.zone as clientZone
+	client.geographicalContext.country as oktaCountry
+	client.geographicalContext.state as oktaState
+	client.geographicalContext.city as oktaCity
+	client.geographicalContext.geolocation.lat as oktaLat
+	client.geographicalContext.geolocation.lon as oktaLon
+	request.ipChain.[0].ip as requestIp
+	securityContext.isProxy as isProxy
+	securityContext.asNumber as asNumber
+	securityContext.asOrg as asOrg
+	securityContext.isp as isp
+	securityContext.risk.level as riskLevel
+	debugContext.debugData.requestUri as requestUri
+	debugContext.debugData.url as url
+	debugContext.debugData.dtHash as dtHash
+	debugContext.debugData.behaviors as behaviors
+	debugContext.debugData.logOnlySecurityData as logOnlySecurityData
+	debugContext.debugData.threatSuspected as threatSuspected
+	debugContext.debugData.signOnMode as signOnMode
+	authenticationContext.externalSessionId as sessionId
+	authenticationContext.authenticationProvider as authProvider
+	authenticationContext.credentialType as credType
+	transaction.id as transactionId
+	legacyEventType
+	uuid
+	published
+// Keep workflow, folder, and connection changes plus imports and exports.
+| grep -e eventType "workflows.user.flow.create" "workflows.user.flow.activate" "workflows.user.flow.import" "workflows.user.flow.export" "workflows.user.connection.create" "workflows.user.folder.import" "workflows.user.folder.export"
+// Okta's target field is an array of the objects the event acted upon: an app, an
+// app user, an authenticator, a policy rule.  Pull the first two slots, which is
+// as many as System Log events populate in practice.
+| json
+	target.[0].id as targetId
+	target.[0].type as targetType
+	target.[0].alternateId as targetAltId
+	target.[0].displayName as targetName
+	target.[1].id as target2Id
+	target.[1].type as target2Type
+	target.[1].alternateId as target2AltId
+	target.[1].displayName as target2Name
+// Okta does not guarantee which slot holds the account, so expose whichever slot
+// is a User or AppUser as targetUser.
+| eval
+	targetUser = "";
+	if (match(targetType, "(?i)user")) { targetUser = targetAltId; }
+	else if (match(target2Type, "(?i)user")) { targetUser = target2AltId; }
+// Map the event type onto a category, a subcategory, and a "did this change
+// configuration" flag using the okta_eventTypes lookup shipped with this kit.
+| lookup -r okta_eventTypes eventType eventType (category subcategory is_mod)
+// Normalise both accounts: strip the email domain and lower-case the result, so
+// "Alice.Smith@example.com" and "alice.smith" both key as "alice.smith".  The
+// tuning allow/deny lists and the risk score both match on these.
+| eval
+	actorUserNorm = strings_tolower(strings_replace(actorAltId, "@.+", "", -1));
+	targetUserNorm = strings_tolower(strings_replace(targetUser, "@.+", "", -1));
+// Weight privileged actors and protected targets so the risk score can use them.
+| lookup -r okta_privileged_actor actorUserNorm account (actor_weight actor_label)
+| lookup -r okta_protected_target targetUserNorm account (target_weight target_label)
+// Settle on one source address: prefer the immediate client, fall back to the
+// first hop of Okta's forwarded chain.
+| eval
+	src = "";
+	if (has("clientIp") && clientIp != "" && clientIp != "null") { src = clientIp; }
+	else if (has("requestIp") && requestIp != "" && requestIp != "null") { src = requestIp; }
+// Okta resolves geography and network ownership itself, at the edge, at the moment
+// of the request, and attaches it to most System Log events as
+// client.geographicalContext and securityContext.  That is better data than a
+// local database lookup, so take Okta's answer whenever it is there.
+| eval
+	srcCountry = "";
+	srcState = "";
+	srcCity = "";
+	srcASNOrg = "";
+	if (has(oktaCountry) && oktaCountry != "" && oktaCountry != "null") { srcCountry = oktaCountry; }
+	if (has(oktaState) && oktaState != "" && oktaState != "null") { srcState = oktaState; }
+	if (has(oktaCity) && oktaCity != "" && oktaCity != "null") { srcCity = oktaCity; }
+	if (has(asOrg) && asOrg != "" && asOrg != "null") { srcASNOrg = asOrg; }
+// Hand the geoip modules an address ONLY for events Okta did not enrich.  Rows
+// that already have Okta's answer get an empty string, which geoip resolves to
+// nothing and passes through untouched, so this is a fallback rather than a
+// blanket second lookup.
+| eval
+	geoIp = "";
+	asnIp = "";
+	if (srcCountry == "" || srcCity == "") { geoIp = src; }
+	if (srcASNOrg == "") { asnIp = src; }
+// Fall back to the maxmind and asn_db resources from the Gravwell Network
+// Enrichment kit for whatever is left.
+| geoip geoIp.CountryName as fbCountry geoIp.City as fbCity
+| geoip -r asn_db asnIp.ASNOrg as fbASNOrg
+// Record where the answer came from before merging, so a value that fell back to a
+// local database is recognisable as one: "okta" means Okta supplied all of it,
+// "okta+maxmind" means Okta gave the country and a local lookup filled a gap, and
+// "maxmind" means Okta enriched nothing and it is all local.
+| eval
+	geoSource = "okta";
+	if (!has(oktaCountry) || oktaCountry == "" || oktaCountry == "null") { geoSource = "maxmind"; }
+	else if (geoIp != "" || asnIp != "") { geoSource = "okta+maxmind"; }
+	if (srcCountry == "" && has(fbCountry)) { srcCountry = fbCountry; }
+	if (srcCity == "" && has(fbCity)) { srcCity = fbCity; }
+	if (srcASNOrg == "" && has(fbASNOrg)) { srcASNOrg = fbASNOrg; }
+// Score the event from 0-100 and bucket it into a priority.  Open the
+// OKTA_RISK_SCORE macro to read every scoring rule.
+$OKTA_RISK_SCORE
+// Drop allowlisted noise and promote denylisted accounts and addresses.  Open the
+// OKTA_TUNING macro to read every rule.
+$OKTA_TUNING

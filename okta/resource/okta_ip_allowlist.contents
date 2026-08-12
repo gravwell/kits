@@ -1,3 +1,3 @@
 key,enabled,until_ymd,reason
-203.0.113.10|*,1,20251231,"corp NAT — noisy"
-2001:db8::42|Alert - Okta - High - Okta Admin Role Assigned to a User or Group,1,,"okta admin jump host"
+203.0.113.10,1,,corporate NAT egress - permanently allowed
+198.51.100.20,1,20261231,vulnerability scanner - allowed until end of 2026

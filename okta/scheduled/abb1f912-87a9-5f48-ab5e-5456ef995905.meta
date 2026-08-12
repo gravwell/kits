@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - System / User - Recovery - High Number of Okta Password Reset or Unlock Attempts [table]",
+	"Description": "Counts the self-service recovery messages Okta sent per account: password reset and account unlock mail, SMS, and voice calls, plus the recovery tokens it issued. Account recovery is the standard way around MFA, so a burst against one account is someone working the recovery flow rather than the password.\n\nThreshold: 3 or more recovery messages per account. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://support.okta.com/help/s/article/User-Signin-and-Recovery-Events-in-the-Okta-System-Log\n- https://developer.okta.com/docs/reference/api/event-types/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "abb1f912-87a9-5f48-ab5e-5456ef995905",
+	"SearchReference": "0d044dee-b02f-5434-b7da-3511c010c0e0"
+}

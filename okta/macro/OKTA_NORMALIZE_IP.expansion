@@ -1,2 +1,0 @@
-| eval src = clientIp
-| eval if (has(requestIp) && requestIp != "" && requestIp != "null") { src = requestIp; }

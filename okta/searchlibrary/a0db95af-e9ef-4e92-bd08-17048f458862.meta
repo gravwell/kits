@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Provider Types [numbercard]",
-	"Description": "Displays a numbercard of the credential provider types by count.",
+	"Name": "Search - Okta - Users - Credential Provider Type [numbercard]",
+	"Description": "Counts Okta users by credential provider type, taken from the credentials.provider.type field of the user profile snapshot.\n\nRenders as a numbercard.",
 	"GUID": "a0db95af-e9ef-4e92-bd08-17048f458862",
 	"Labels": [
 		"okta"

@@ -1,18 +1,18 @@
 {
 	"UUID": "c37615f7-f700-4600-aaf0-4ad47b524d99",
 	"Name": "Okta User Authentication Overview",
-	"Description": "This Dashboard is a general overview of your Okta User Authentication data.",
+	"Description": "Credential hygiene across the Okta user directory. The number cards are average elapsed times between the lifecycle timestamps on each profile, so a large \"activated to password changed\" average means users are still on the password they were onboarded with.\n\nThe three tables at the bottom are the actionable part: stale passwords, accounts nobody has used in 90 days, and accounts stuck in a locked or recovery state.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
-			"timeframe": "P6MT",
+			"timeframe": "P30DT",
 			"timezone": null,
 			"start": null,
 			"end": null
 		},
 		"searches": [
 			{
-				"alias": "Search - Okta - Authentication - Created to Activated Average [numbercard]",
+				"alias": "Search - Okta - Users - Created to Activated Average [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "3ffd7959-dc10-4362-ac9d-86e4e6b5fd92",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Created to Last Updated Average [numbercard]",
+				"alias": "Search - Okta - Users - Created to Last Updated Average [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "752af9fb-1d81-4b4c-b22e-2987a1fab5b1",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Activated to Last Updated [numbercard]",
+				"alias": "Search - Okta - Users - Activated to Last Updated Average [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "093d40e8-0095-4563-876d-c229ade695aa",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Activated to Password Changed [numbercard]",
+				"alias": "Search - Okta - Users - Activated to Password Changed Average [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "15ebcd4b-d1ae-4b61-86d4-e500f0b36a87",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Last Login to Last Updated [numbercard]",
+				"alias": "Search - Okta - Users - Last Updated to Last Login Average [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "871dd8c8-d37a-4295-8cf1-f46ad67ec2a9",
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Last Login to Password Changed [numbercard]",
+				"alias": "Search - Okta - Users - Password Changed to Last Login Average [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "410dcf6d-f2b2-4a45-b8ba-1891c50b7aa7",
@@ -78,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Last Updated to Password Changed Average [numbercard]",
+				"alias": "Search - Okta - Users - Password Changed to Last Updated Average [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "b92ae85f-1fae-43d4-971a-6abae73dff8d",
@@ -89,7 +89,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User Login [numbercard]",
+				"alias": "Search - Okta - Users - Has Logged In vs Never Logged In [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "35e5963e-0542-4dd8-a058-21b03cf97fb1",
@@ -100,7 +100,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User Login [chart]",
+				"alias": "Search - Okta - Users - Has Logged In vs Never Logged In [chart]",
 				"color": null,
 				"reference": {
 					"id": "f2ea3c81-130e-40be-8d10-76606371e3c1",
@@ -111,29 +111,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Provider Names [numbercard]",
-				"color": null,
-				"reference": {
-					"id": "5c38ffc8-7c8e-4bed-852a-291053760f7b",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - Authentication - Provider Names [chart]",
-				"color": null,
-				"reference": {
-					"id": "ab3d97e4-d6c0-4a9b-9986-324eb0d297d4",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - Authentication - Provider Types [numbercard]",
+				"alias": "Search - Okta - Users - Credential Provider Type [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "a0db95af-e9ef-4e92-bd08-17048f458862",
@@ -144,7 +122,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Provider Types [chart]",
+				"alias": "Search - Okta - Users - Credential Provider Type [chart]",
 				"color": null,
 				"reference": {
 					"id": "1d4fd539-669b-46e3-bca9-56c8e3facdbb",
@@ -155,7 +133,40 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Password Last Changed \u003e= 30 Days [table]",
+				"alias": "Search - Okta - Users - Credential Provider Name [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5c38ffc8-7c8e-4bed-852a-291053760f7b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Credential Provider Name [chart]",
+				"color": null,
+				"reference": {
+					"id": "ab3d97e4-d6c0-4a9b-9986-324eb0d297d4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - System - Authentication - MFA Factor Types in Use [chart]",
+				"color": null,
+				"reference": {
+					"id": "a7d316b8-4c92-40df-b05f-3e81c649d7a2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Password Not Changed in 30 Days or More [table]",
 				"color": null,
 				"reference": {
 					"id": "0b715ded-cd8c-4faa-92ce-11852c80f19c",
@@ -166,10 +177,32 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Authentication - Active Users Last Password Change [table]",
+				"alias": "Search - Okta - Users - Active Users by Password Age [table]",
 				"color": null,
 				"reference": {
 					"id": "31f71f13-70d7-4943-9773-adff579065a3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Stale Accounts Not Used in 90 Days [table]",
+				"color": null,
+				"reference": {
+					"id": "7ea19c34-6b52-4d80-9f13-2c8a5e07b4d6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Accounts in a Locked or Recovery State [table]",
+				"color": null,
+				"reference": {
+					"id": "bd63e0a7-4c19-482f-9d5a-1e7b30c86f24",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -179,13 +212,13 @@
 		],
 		"tiles": [
 			{
-				"id": 17635710626420,
-				"title": "Created to Activated Average",
+				"id": 1773322001075,
+				"title": "Created to Activated",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
-					"row": 3,
+					"col": 4,
+					"row": 4,
 					"x": 0,
 					"y": 0
 				},
@@ -193,134 +226,128 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635711011451,
-				"title": "Created to Last Updated Average",
+				"id": 1844349304709,
+				"title": "Created to Last Updated",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
-					"row": 3,
-					"x": 7,
+					"col": 4,
+					"row": 4,
+					"x": 4,
 					"y": 0
 				},
 				"searchesIndex": 1,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635716786952,
-				"title": "Activated to Last Updated Average",
+				"id": 1117466935006,
+				"title": "Activated to Last Updated",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
-					"row": 3,
-					"x": 0,
-					"y": 3
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 0
 				},
 				"searchesIndex": 2,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635717132933,
-				"title": "Activated to Password Changed Average",
+				"id": 1188494238640,
+				"title": "Activated to Password Changed",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
-					"row": 3,
-					"x": 7,
-					"y": 3
+					"col": 4,
+					"row": 4,
+					"x": 0,
+					"y": 4
 				},
 				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635717758014,
-				"title": "Last Login to Last Updated Average",
+				"id": 1144596237065,
+				"title": "Last Updated to Last Login",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
-					"row": 3,
-					"x": 0,
-					"y": 6
+					"col": 4,
+					"row": 4,
+					"x": 4,
+					"y": 4
 				},
 				"searchesIndex": 4,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635718082255,
-				"title": "Last Login to Password Changed Average",
+				"id": 1215623540699,
+				"title": "Password Changed to Last Login",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
-					"row": 3,
-					"x": 7,
-					"y": 6
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 4
 				},
 				"searchesIndex": 5,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635721904206,
-				"title": "Last Updated to Password Changed Average",
+				"id": 1171725539124,
+				"title": "Password Changed to Last Updated",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
-					"row": 3,
+					"col": 4,
+					"row": 4,
 					"x": 0,
-					"y": 9
+					"y": 8
 				},
 				"searchesIndex": 6,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635724089627,
-				"title": "User Login Numbercard",
+				"id": 1344843169421,
+				"title": "Has Logged In vs Never",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 4,
-					"row": 3,
-					"x": 7,
-					"y": 9
+					"row": 4,
+					"x": 4,
+					"y": 8
 				},
 				"searchesIndex": 7,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "no",
-					"NumberCardLabelFontSize": "20",
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": "20"
-				}
+				"rendererOptions": {}
 			},
 			{
-				"id": 17635730179358,
-				"title": "User Login Chart",
+				"id": 1415870473055,
+				"title": "Has Logged In vs Never",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
-					"col": 3,
-					"row": 3,
-					"x": 11,
-					"y": 9
+					"col": 4,
+					"row": 4,
+					"x": 8,
+					"y": 8
 				},
 				"searchesIndex": 8,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				}
 			},
 			{
-				"id": 17635736647019,
-				"title": "Provider Names Numbercard",
+				"id": 1098262919864,
+				"title": "Credential Provider Type",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 3,
-					"row": 4,
+					"col": 6,
+					"row": 7,
 					"x": 0,
 					"y": 12
 				},
@@ -328,76 +355,124 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 176357370042810,
-				"title": "Provider Names Chart",
+				"id": 1442999775114,
+				"title": "Credential Provider Type",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
-					"col": 4,
-					"row": 4,
-					"x": 3,
+					"col": 6,
+					"row": 7,
+					"x": 6,
 					"y": 12
 				},
 				"searchesIndex": 10,
 				"rendererOptions": {
-					"IncludeOther": "yes",
+					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				}
 			},
 			{
-				"id": 176357384338611,
-				"title": "Provider Types Numbercard",
+				"id": 1616117405411,
+				"title": "Credential Provider Name",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 3,
-					"row": 4,
-					"x": 7,
-					"y": 12
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 19
 				},
 				"searchesIndex": 11,
 				"rendererOptions": {}
 			},
 			{
-				"id": 176357388963312,
-				"title": "Provider Types Chart",
+				"id": 1687144709045,
+				"title": "Credential Provider Name",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
-					"col": 4,
-					"row": 4,
-					"x": 10,
-					"y": 12
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 19
 				},
 				"searchesIndex": 12,
-				"rendererOptions": {}
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
-				"id": 176357557961413,
-				"title": "Password Last Changed Over 30 Days Ago",
-				"renderer": "table",
+				"id": 1643246707470,
+				"title": "MFA Factor Types in Use",
+				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
-					"row": 8,
+					"col": 12,
+					"row": 7,
 					"x": 0,
-					"y": 16
+					"y": 26
 				},
 				"searchesIndex": 13,
-				"rendererOptions": {}
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
 			},
 			{
-				"id": 176357563314814,
-				"title": "Active Users Last Password Change Table",
+				"id": 1325639154279,
+				"title": "Password Not Changed in 30 Days or More",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
-					"col": 7,
+					"col": 12,
 					"row": 8,
-					"x": 7,
-					"y": 16
+					"x": 0,
+					"y": 33
 				},
 				"searchesIndex": 14,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1887391641401,
+				"title": "Active Users by Password Age",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 41
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1569784088210,
+				"title": "Stale Accounts Not Used in 90 Days",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 49
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1014520943460,
+				"title": "Accounts in a Locked or Recovery State",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 57
+				},
+				"searchesIndex": 17,
 				"rendererOptions": {}
 			}
 		],
