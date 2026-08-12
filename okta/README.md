@@ -22,14 +22,23 @@ The kit reads two tags, both fixed by the Gravwell Okta ingester:
 
 ## Dependencies
 
-- **Gravwell Network Enrichment kit** — required, as a fallback. Okta resolves
-  geography and network ownership itself, at the edge, at request time, and attaches
-  it to most System Log events as `client.geographicalContext` and
-  `securityContext`. That is better data than a local database lookup, so the kit
-  takes Okta's answer whenever it is there. The `maxmind` and `asn_db` resources
-  fill in only for the events that arrive without it — typically well under 1% —
-  and every query records which source it used in a `geoSource` field (`okta`,
-  `okta+maxmind`, or `maxmind`).
+- **Gravwell Network Enrichment kit** — required, and used only as a fallback.
+
+  Okta resolves geography and network ownership itself, at the edge, at request
+  time, and attaches it to most System Log events as `client.geographicalContext`
+  and `securityContext`. That is better data than a local database lookup, so this
+  kit takes Okta's answer whenever it is there. The Network Enrichment kit's
+  `maxmind` and `asn_db` resources fill in only for the events that arrive without
+  it — typically well under 1%. Every query records which source it used in a
+  `geoSource` field: `okta`, `okta+maxmind`, or `maxmind`.
+
+  This kit ships **no content from the Network Enrichment kit** — no geolocation
+  databases, no copies of its resources, and not its licence. It references
+  `maxmind` and `asn_db` by name and declares the dependency, nothing more. The
+  GeoLite2 data and the MaxMind GeoLite2 End User Licence Agreement that governs it
+  are part of the Network Enrichment kit, and you accept that licence when you
+  install that kit. This kit is licensed under BSD 2-Clause, which is the only
+  licence it carries.
 
 ## Configuration macros
 
@@ -90,7 +99,8 @@ category, a subcategory, and a "did this change configuration" flag.
   module so all enumerated values reach the alert. Detections consolidated onto a
   single alert router. Geography and network ownership taken from Okta's own
   client.geographicalContext and securityContext, with the Network Enrichment kit
-  as a fallback only, reported per event in a new geoSource field. New detections for trusted origins, log stream tampering, hooks,
-  workflows, OAuth2 clients and secrets, custom admin roles, device assurance,
-  breached credentials, and user risk. New Okta Threat Overview dashboard.
+  as a fallback only, reported per event in a new geoSource field. New detections
+  for trusted origins, log stream tampering, hooks, workflows, OAuth2 clients and
+  secrets, custom admin roles, device assurance, breached credentials, and user
+  risk. New Okta Threat Overview dashboard.
 - 1.0: Initial release.
