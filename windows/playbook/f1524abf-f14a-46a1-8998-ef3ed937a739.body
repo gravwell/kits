@@ -138,8 +138,7 @@ Map Kerberos ticket failure codes in EventID 4771 to their description (i.e. 0x1
 
 ```shell
 <?xml version="1.0"?>
-<Event
-    xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
     <System>
         <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-A5BA-3E3B0328C30D}"/>
         <EventID>4624</EventID>
