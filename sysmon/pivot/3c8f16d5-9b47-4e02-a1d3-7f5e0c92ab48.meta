@@ -1,0 +1,44 @@
+{
+	"UUID": "3c8f16d5-9b47-4e02-a1d3-7f5e0c92ab48",
+	"Name": "Sysmon Computer",
+	"Description": "Examine Sysmon activity for a Windows host",
+	"Data": {
+		"menuLabel": "Sysmon Computer",
+		"triggers": [
+			{
+				"pattern": "/(?<hostname>[A-Za-z0-9][A-Za-z0-9\\-]{0,62}(\\.[A-Za-z0-9][A-Za-z0-9\\-]{0,62})*)/g",
+				"hyperlink": true
+			}
+		],
+		"actions": [
+			{
+				"name": "Sysmon Computer Investigation",
+				"description": "Investigate all Sysmon activity for this computer",
+				"placeholder": null,
+				"start": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"end": {
+					"type": "string",
+					"format": null,
+					"placeholder": null
+				},
+				"command": {
+					"type": "dashboard",
+					"reference": "6a1a19eb-3a20-433b-8e6a-c667ec047c48",
+					"options": {
+						"variable": "%%COMPUTER%%"
+					}
+				}
+			}
+		]
+	},
+	"Labels": [
+		"windows",
+		"sysmon",
+		"computer",
+		"hostname"
+	]
+}

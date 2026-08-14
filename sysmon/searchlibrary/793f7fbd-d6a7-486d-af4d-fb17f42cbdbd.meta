@@ -1,6 +1,6 @@
 {
 	"Name": "Sysmon: Process Creation by User",
-	"Description": "Table of process creation event counts by physical users",
+	"Description": "Table of process creation event counts for interactive session 1 (the console on workstations; may be an RDP session on servers)",
 	"GUID": "793f7fbd-d6a7-486d-af4d-fb17f42cbdbd",
 	"Labels": [
 		"windows",

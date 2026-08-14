@@ -24,4 +24,8 @@ ID,Name
 23,FileDelete
 24,ClipboardChange
 25,ProcessTampering (Process Image Change)
+26,FileDeleteDetected
+27,FileBlockExecutable
+28,FileBlockShredding
+29,FileExecutableDetected
 255,Error

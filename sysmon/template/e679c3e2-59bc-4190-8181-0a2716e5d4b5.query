@@ -1,2 +1,2 @@
-tag=$SYSMON winlog $PROVIDER ProcessGuid=="_GUID_" EventID==11 TargetFilename |
-table TargetFilename TIMESTAMP
+tag=$SYSMON winlog $PROVIDER ProcessGuid=="_GUID_" EventID==23 TargetFilename IsExecutable Archived |
+table TargetFilename IsExecutable Archived TIMESTAMP

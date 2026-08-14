@@ -10,8 +10,7 @@
 				"reference": {
 					"id": "74852262-a4cb-4ff7-85f6-ecf09a7f3a77",
 					"type": "template"
-				},
-				"searchID": 5848446221
+				}
 			},
 			{
 				"alias": "Sysmon Process DNS Query Activity Summary",
@@ -19,8 +18,7 @@
 				"reference": {
 					"id": "461f93f2-86be-4122-a4f3-f6eb751f018c",
 					"type": "template"
-				},
-				"searchID": 3609621739
+				}
 			},
 			{
 				"alias": "Sysmon ProcessGuid Registry Activity",
@@ -28,8 +26,7 @@
 				"reference": {
 					"id": "168623c9-1069-4880-80e2-c80d2ff81de3",
 					"type": "template"
-				},
-				"searchID": 8113316497
+				}
 			},
 			{
 				"alias": "Sysmon ProcessGuid Network Connections",
@@ -37,8 +34,7 @@
 				"reference": {
 					"id": "c0d16c9d-d112-45fd-a89f-851b02b91170",
 					"type": "template"
-				},
-				"searchID": 2205193550
+				}
 			},
 			{
 				"alias": "Sysmon ProcessGuid File Delete",
@@ -46,8 +42,7 @@
 				"reference": {
 					"id": "e679c3e2-59bc-4190-8181-0a2716e5d4b5",
 					"type": "template"
-				},
-				"searchID": 4667091655
+				}
 			},
 			{
 				"alias": "Sysmon Process Files Created",
@@ -55,8 +50,7 @@
 				"reference": {
 					"id": "5d186b5c-ba5d-429a-a838-8e5909d648f8",
 					"type": "template"
-				},
-				"searchID": 1206802620
+				}
 			},
 			{
 				"alias": "Sysmon Process Guid Loaded Images",
@@ -64,8 +58,7 @@
 				"reference": {
 					"id": "34c5d680-8882-44ff-9543-2ffbc2520866",
 					"type": "template"
-				},
-				"searchID": 2805506938
+				}
 			},
 			{
 				"alias": "Sysmon ProcessGuid",
@@ -73,8 +66,7 @@
 				"reference": {
 					"id": "43b1c029-9f41-4c76-a32d-d65ff9785864",
 					"type": "template"
-				},
-				"searchID": 5072579336
+				}
 			}
 		],
 		"tiles": [
@@ -192,8 +184,7 @@
 		"timeframe": {
 			"timeframe": "P1DT"
 		},
-		"version": 2,
-		"lastDataUpdate": "2021-02-19T12:19:20-08:00"
+		"version": 2
 	},
 	"Labels": [
 		"sysmon",

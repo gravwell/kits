@@ -1,6 +1,6 @@
 tag=$SYSMON winlog $PROVIDER EventID == 1 Computer Image Hashes |
 kv -sep "=" -d "," -e Hashes SHA256 |
-stats count by SHA256 |
+stats count by SHA256 Image Computer |
 eval count < 2 |
 limit 100 |
 table Image count Computer SHA256

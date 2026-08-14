@@ -6,7 +6,7 @@
 		"variables": [
 			{
 				"name": "_HASH_",
-				"label": "SH256 Hash",
+				"label": "SHA256 Hash",
 				"description": "",
 				"required": true,
 				"defaultValue": "",

@@ -1,12 +1,12 @@
 {
-	"VersionNumber": 1,
+	"VersionNumber": 2,
 	"ResourceName": "sysmon_event_ids",
 	"Description": "Sysmon Event IDs",
-		"Labels": [
+	"Labels": [
 		"sysmon",
 		"windows"
 	],
-	"Size": 723,
-	"Hash": "ltNrxGsAKX+vbciWNy0x6A==",
+	"Size": 816,
+	"Hash": "C7F70hCRSbo9w9wi8KxAkQ==",
 	"Data": ""
 }
