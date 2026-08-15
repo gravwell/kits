@@ -1,7 +1,7 @@
 {
 	"UUID": "ae274b27-aa9f-4489-8ecb-f38ad905e007",
 	"Name": "Syslog investigate SRC",
-	"Description": "Investigation dashboard showing all sysmon activity for a given SRC address.",
+	"Description": "Investigation dashboard showing all syslog activity for a given SRC address.",
 	"Data": {
 		"searches": [
 			{
@@ -10,8 +10,7 @@
 				"reference": {
 					"id": "4c38a47e-b215-4bfe-a905-442cddb53c01",
 					"type": "template"
-				},
-				"searchID": 2537663070
+				}
 			},
 			{
 				"alias": "Syslog Apps by SRC",
@@ -19,8 +18,7 @@
 				"reference": {
 					"id": "e2852eb0-6451-4f2e-8b4c-832b74f7f0f1",
 					"type": "template"
-				},
-				"searchID": 3491656095
+				}
 			},
 			{
 				"alias": "Syslog Sev by SRC",
@@ -28,17 +26,15 @@
 				"reference": {
 					"id": "86ded222-2670-4994-b50a-707afeddff5b",
 					"type": "template"
-				},
-				"searchID": 7501527872
+				}
 			},
 			{
-				"alias": "Syslog unparsable by SRC",
+				"alias": "Syslog missing Hostname by SRC",
 				"timeframe": {},
 				"reference": {
 					"id": "cee7c9ec-be90-499e-b955-4b8669138d31",
 					"type": "template"
-				},
-				"searchID": 4710093861
+				}
 			}
 		],
 		"tiles": [
@@ -107,7 +103,7 @@
 				}
 			},
 			{
-				"title": "Unparsable syslog from this SRC",
+				"title": "Entries missing Hostname from this SRC",
 				"renderer": "table",
 				"span": {
 					"col": 12,
@@ -123,8 +119,7 @@
 		"timeframe": {
 			"timeframe": "PT1H"
 		},
-		"version": 2,
-		"lastDataUpdate": "2021-02-26T11:05:02-08:00"
+		"version": 2
 	},
 	"Labels": [
 		"syslog"

@@ -1,7 +1,7 @@
 {
 	"UUID": "c6604281-c67e-4bf3-8b4e-f46e40e7132e",
 	"Name": "Syslog Hosts by App",
-	"Description": "",
+	"Description": "Hosts emitting a given syslog Appname",
 	"Data": {
 		"variables": [
 			{

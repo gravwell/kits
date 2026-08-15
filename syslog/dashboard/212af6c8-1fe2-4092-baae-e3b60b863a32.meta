@@ -10,8 +10,7 @@
 				"reference": {
 					"id": "c60a9022-e57e-4241-a1e5-6e7f38038939",
 					"type": "savedQuery"
-				},
-				"searchID": 3457930518
+				}
 			},
 			{
 				"alias": "Syslog chart by host+appname",
@@ -38,7 +37,7 @@
 				}
 			},
 			{
-				"alias": "Syslog unparsable",
+				"alias": "Syslog missing Hostname",
 				"timeframe": {},
 				"reference": {
 					"id": "ea206fcb-c2cb-4a67-9046-2c6c58e21173",
@@ -123,7 +122,7 @@
 				"rendererOptions": {}
 			},
 			{
-				"title": "Unparsable entries",
+				"title": "Entries missing Hostname",
 				"renderer": "table",
 				"span": {
 					"col": 12,

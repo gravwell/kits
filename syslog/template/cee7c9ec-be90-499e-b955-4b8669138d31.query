@@ -1,3 +1,4 @@
 tag=$SYSLOG src %%SRC%%
-| syslog Hostname==""
+| syslog Hostname
+| eval (!has(Hostname) || Hostname=="" || Hostname=="-")
 | table SRC DATA

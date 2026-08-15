@@ -1,8 +1,9 @@
 {
 	"ID": "io.gravwell.syslog",
 	"Name": "syslog",
-	"Desc": "This Syslog kit contains an overview dashboard and some investigative dashboards for easily viewing syslog activity. This kit is intended as a \"getting started with syslog\". It does not attempt to analyze any of the content in the actual syslog Message. The author does not know what syslog you are collecting.  :D\n\nLook for syslog derivative kits (e.g. sshd, dnsmasq) in the future!",
-	"Version": 6,
+	"Desc": "This Syslog kit contains an overview dashboard and some investigative dashboards for easily viewing syslog activity. This kit is intended as a \"getting started with syslog\". It does not attempt to analyze any of the content in the actual syslog Message. The author does not know what syslog you are collecting.  :D\n\nLook for syslog derivative kits such as the Linux Syslog kit (io.gravwell.linuxsyslog).",
+	"Readme": "# Gravwell Syslog Kit\n\nThe Syslog kit contains an overview dashboard and some investigative dashboards for easily viewing syslog activity.\n\nThis kit is intended as a \"getting started with syslog\". It does not attempt to analyze any of the content in the actual syslog Message as the author does not know what syslog you are collecting.\n\nLook for syslog derivative kits such as the Linux Syslog kit (io.gravwell.linuxsyslog).\n\n## Dependencies\n\nNone. Requires Gravwell 5.4.0 or later.\n\n## Changelog\n\n**7: Audit remediation**\n- Fixed the \"Critical and Errors\" numbercard, renamed the \"unparsable\" items to \"missing Hostname\", and added the `syslog_severity` lookup wherever Severity rendered as a bare integer.\n- Replaced the banner and cover art with the standard Gravwell kit branding and added a matching icon.\n- Added a MANIFEST readme, ordering on \"last 100 results\", and a tighter Appname/Hostname actionable trigger.\n- Removed authoring-instance export residue from three dashboards and corrected several names, descriptions and extractions.\n\n**6: Initial query-library release**\n",
+	"Version": 7,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 4,
@@ -13,7 +14,7 @@
 		"Minor": 99,
 		"Point": 99
 	},
-	"Icon": "f9a79ae0-3820-4683-a819-2d48d8b50002",
+	"Icon": "63344eea-6007-4c14-97af-71d4a85324c7",
 	"Banner": "64cc610a-2a92-4a3c-a363-efcfa67e7d2a",
 	"Cover": "f9a79ae0-3820-4683-a819-2d48d8b50002",
 	"Items": [
@@ -123,9 +124,14 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
+			"Name": "63344eea-6007-4c14-97af-71d4a85324c7",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
 			"Name": "SYSLOG",
 			"Type": 8,
-			"Hash": "caa12b138a36ba1696faf677ac40c163676aea8ed74fb189c403b25e93cd8521"
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
 			"Name": "7e3ed14d-8b74-420f-bd45-f097a175f65d",

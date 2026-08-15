@@ -1,3 +1,4 @@
 tag=$SYSLOG src %%SRC%% 
 | syslog Hostname Appname Severity Message 
+| lookup -r syslog_severity Severity code severity as Severity 
 | table SRC Hostname Appname Severity Message
