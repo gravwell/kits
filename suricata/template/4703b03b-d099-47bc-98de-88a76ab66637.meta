@@ -1,7 +1,7 @@
 {
  "UUID": "4703b03b-d099-47bc-98de-88a76ab66637",
  "Name": "Template - Suricata - IP - TLS SNI [table]",
- "Description": "TLS server names (SNI) contacted by the given IP, with negotiated version and counts.",
+ "Description": "TLS server names (SNI) contacted by the given IP, with negotiated version and counts. Requires extended: yes under eve-log types.tls in suricata.yaml; basic TLS logging emits only subject and issuerdn.",
  "Data": {
   "variables": [
    {

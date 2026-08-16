@@ -1,6 +1,6 @@
 {
  "Name": "Suricata - DNS NXDOMAIN Burst by Source",
- "Description": "Sources generating more than 25 NXDOMAIN DNS responses in an hour. A high NXDOMAIN rate from one host is a common indicator of DGA malware or misconfiguration. Tune the threshold in the final eval to fit your environment.",
+ "Description": "Sources generating more than 25 NXDOMAIN DNS responses in an hour. A high NXDOMAIN rate from one host is a common indicator of DGA malware or misconfiguration. Tune the threshold in the final eval to fit your environment. The client is taken from dest_ip because the rcode is carried on the DNS response, where src_ip is the resolver.",
  "GUID": "7f422d9b-eed3-469d-b804-93fcbca82994",
  "Labels": [
   "suricata",

@@ -1,6 +1,6 @@
 {
  "Name": "Suricata - Top TLS SNI",
- "Description": "The 20 most contacted TLS server names (SNI).",
+ "Description": "The 20 most contacted TLS server names (SNI). Requires extended: yes under eve-log types.tls in suricata.yaml; basic TLS logging emits only subject and issuerdn.",
  "GUID": "5a3cd2c4-b380-41ed-98a1-05a1fc419c2b",
  "Labels": [
   "suricata",

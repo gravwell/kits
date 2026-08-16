@@ -2,11 +2,11 @@
  "ID": "io.gravwell.suricata",
  "Name": "Suricata",
  "Desc": "Provides queries, detections, dashboards, and investigative templates for Suricata EVE JSON logs.",
- "Readme": "This kit provides an out-of-the-box experience for working with Suricata EVE JSON logs.\n\nIt provides the following utilities:\n- Search library queries covering alerts, DNS, TLS, HTTP, SSH, flow, fileinfo, and anomaly events\n- Detections driven by scheduled searches (shipped disabled; enable and tune thresholds after install)\n- Overview, alert, and protocol dashboards\n- Investigative dashboards for IP and alert-signature pivots, driven by templates\n- A SURICATA config macro to point the kit at your Suricata tag\n\nSuricata should be configured for EVE JSON output, ingested into the tag named by the SURICATA macro (default: suricata). Some searches rely on optional Suricata features noted in their descriptions (anomaly and ja3 event logging; the file-magic searches additionally require force-magic: yes under eve-log types.files and a Suricata built with libmagic support).\n\nThe Suricata kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/suricata).\n\n## Dependencies\n- Null (required). The External Alert Sources map on the Alert Activity dashboard uses the geoip module and needs the Gravwell Network Enrichment Kit, or your own MaxMind GeoIP database, to render.\n\n## Changelog\n**1.0: Initial Release**\n- dashboard (5)\n- license (1)\n- macro (1)\n- scheduled searches (12)\n- searchlibrary (31)\n  - detection queries (12)\n  - dashboard searches (19)\n- template (11)",
+ "Readme": "This kit provides an out-of-the-box experience for working with Suricata EVE JSON logs.\n\nIt provides the following utilities:\n- Search library queries covering alerts, DNS, TLS, HTTP, SSH, flow, fileinfo, and anomaly events\n- Detections driven by scheduled searches (shipped disabled; enable and tune thresholds after install)\n- Overview, alert, and protocol dashboards\n- Investigative dashboards for IP and alert-signature pivots, driven by templates\n- A SURICATA config macro to point the kit at your Suricata tag\n\nSuricata should be configured for EVE JSON output, ingested into the tag named by the SURICATA macro (default: suricata). Some searches rely on optional Suricata features noted in their descriptions (anomaly and ja3 event logging; the TLS SNI and TLS version searches require extended: yes under eve-log types.tls, since basic TLS logging emits only subject and issuerdn; the file-magic searches additionally require force-magic: yes under eve-log types.files and a Suricata built with libmagic support).\n\nThe Suricata kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/suricata).\n\n## Dependencies\n- Gravwell Network Enrichment Kit (io.gravwell.networkenrichment), installed automatically. The External Alert Sources map on the Alert Activity dashboard uses the geoip module and needs this kit, or your own MaxMind GeoIP database, to render.\n\n## Changelog\n**1.0: Initial Release**\n- dashboard (5)\n- file (3)\n- license (1)\n- macro (1)\n- scheduled searches (12)\n- searchlibrary (31)\n  - detection queries (12)\n  - dashboard searches (19)\n- template (11)",
  "Version": 1,
  "MinVersion": {
-  "Major": 0,
-  "Minor": 0,
+  "Major": 5,
+  "Minor": 4,
   "Point": 0
  },
  "MaxVersion": {
@@ -14,10 +14,25 @@
   "Minor": 99,
   "Point": 99
  },
- "Icon": "",
- "Banner": "",
- "Cover": "",
+ "Icon": "e349124f-ee8f-4804-aed5-4c6fd2e491b3",
+ "Banner": "ed88e7e8-7228-47eb-89f1-1544cd6f57b8",
+ "Cover": "304122d1-f6e8-42e5-87a4-9723705a81e1",
  "Items": [
+  {
+   "Name": "e349124f-ee8f-4804-aed5-4c6fd2e491b3",
+   "Type": 7,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "ed88e7e8-7228-47eb-89f1-1544cd6f57b8",
+   "Type": 7,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "Name": "304122d1-f6e8-42e5-87a4-9723705a81e1",
+   "Type": 7,
+   "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
   {
    "Name": "BSD 2-Clause",
    "Type": 10,
@@ -324,7 +339,12 @@
    "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
   }
  ],
- "Dependencies": null,
+ "Dependencies": [
+  {
+   "ID": "io.gravwell.networkenrichment",
+   "MinVersion": 6
+  }
+ ],
  "ConfigMacros": [
   {
    "MacroName": "SURICATA",

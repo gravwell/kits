@@ -1,4 +1,4 @@
 tag=$SURICATA json event_type=="tls" tls.version as version tls.sni as sni src_ip dest_ip
 | eval in(version, "SSLv2", "SSLv3", "TLSv1", "TLS 1.0", "TLSv1.1", "TLS 1.1")
-| count by version sni dest_ip
-| table -nt version sni dest_ip count
+| count by version sni src_ip dest_ip
+| table -nt version sni src_ip dest_ip count

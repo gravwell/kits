@@ -1,3 +1,4 @@
 tag=$SURICATA json event_type=="ssh" ssh.client.software_version as client_software
 | count by client_software
+| top -n 20 count
 | table -nt client_software count
