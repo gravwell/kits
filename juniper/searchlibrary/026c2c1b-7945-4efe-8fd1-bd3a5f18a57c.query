@@ -1,3 +1,4 @@
-tag=$JUNIPER_TAG ax Appname=="mgd" Facility Hostname Message 
+tag=$JUNIPER_TAG ax Appname=="mgd" Hostname Message 
+| grep -e Message "UI_LOGIN_EVENT"
 | stats count by Hostname
 | table Hostname count
