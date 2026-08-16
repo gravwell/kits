@@ -1,0 +1,29 @@
+{
+	"Ingesters": [
+		"winevent"
+	],
+	"Tags": [
+		"windows",
+		"windows_security",
+		"windows_system"
+	],
+	"Assets": [
+		{
+			"Type": "image",
+			"Source": "cover.png",
+			"Legend": "Windows",
+			"Featured": true
+		},
+		{
+			"Type": "image",
+			"Source": "banner.png",
+			"Legend": "Windows",
+			"Featured": true,
+			"Banner": true
+		},
+		{
+			"Type": "readme",
+			"Source": "README.md"
+		}
+	]
+}
