@@ -1,6 +1,7 @@
 {
-	"Name": "Office 365 - ThreatManagement Alerts",
-	"Description": "Table of alert types, levels. and categories using ThreatManagement logs",
+	"Name": "Office 365 - Security \u0026 Compliance Alerts",
+	"Description": "Table of Security \u0026 Compliance alert types, severities, and categories (RecordType 40). ThreatManagement is one of the Category values shown.",
+	"Labels": ["o365", "general"],
 	"GUID": "3fe01f34-6016-40e6-bb03-58c6b24f59db",
 	"Metadata": {
 		"timeframe": null

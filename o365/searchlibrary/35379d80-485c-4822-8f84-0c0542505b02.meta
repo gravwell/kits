@@ -1,6 +1,7 @@
 {
-	"Name": "Office 365 - Active Users and User Domains",
-	"Description": "Numbercard of active user count and domain count for those users",
+	"Name": "Office 365 - Active Mail Users and User Domains",
+	"Description": "Numbercard of distinct mail-addressed users and their domains. UserIds that are not email addresses (service principals, \"Not Available\", GUID identities) are excluded by the domain regex.",
+	"Labels": ["o365", "exchange"],
 	"GUID": "35379d80-485c-4822-8f84-0c0542505b02",
 	"Metadata": {
 		"timeframe": null
