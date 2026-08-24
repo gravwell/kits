@@ -6,6 +6,12 @@ Desired format and delivery method: syslog. The kit ingests Juniper syslog data 
 
 An integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/juniper.html) — see it for setup and installation steps.
 
+## Further resources
+
+- [System Log Explorer](https://apps.juniper.net/syslog-explorer/)
+- [Overview of System Logging](https://www.juniper.net/documentation/us/en/software/junos/network-mgmt/topics/topic-map/system-logging.html)
+- [Configure Syslog over TLS](https://www.juniper.net/documentation/us/en/software/junos/network-mgmt/topics/topic-map/syslog-over-tls.html)
+
 ## Macros
 
 - `$JUNIPER_TAG` — sets the Juniper tag name (config macro).
