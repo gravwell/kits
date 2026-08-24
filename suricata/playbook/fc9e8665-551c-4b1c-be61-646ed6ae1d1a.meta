@@ -1,0 +1,24 @@
+{
+	"UUID": "5abf5f51-0b35-4c73-b1c5-bb2b13dd26de",
+	"GUID": "fc9e8665-551c-4b1c-be61-646ed6ae1d1a",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Suricata - Kit Overview",
+	"Desc": "",
+	"Labels": [
+		"suricata"
+	],
+	"LastUpdated": "2026-08-20T20:10:37.602071000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

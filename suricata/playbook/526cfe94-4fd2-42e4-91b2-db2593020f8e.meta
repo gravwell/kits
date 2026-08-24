@@ -1,0 +1,24 @@
+{
+	"UUID": "d61111cd-eb9c-49d1-9b45-3d16b2f796fa",
+	"GUID": "526cfe94-4fd2-42e4-91b2-db2593020f8e",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Suricata - Readme",
+	"Desc": "",
+	"Labels": [
+		"suricata"
+	],
+	"LastUpdated": "2026-08-20T20:10:37.601939000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}
