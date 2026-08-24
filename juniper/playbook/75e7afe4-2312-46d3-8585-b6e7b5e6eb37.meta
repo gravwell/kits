@@ -1,0 +1,24 @@
+{
+	"UUID": "c4f419c4-b9e5-4cd4-8499-b1aba50d3026",
+	"GUID": "75e7afe4-2312-46d3-8585-b6e7b5e6eb37",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Juniper - Readme",
+	"Desc": "",
+	"Labels": [
+		"juniper"
+	],
+	"LastUpdated": "2026-08-24T20:34:38.408996000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}
