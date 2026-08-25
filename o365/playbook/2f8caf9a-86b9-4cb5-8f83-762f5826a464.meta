@@ -1,0 +1,24 @@
+{
+	"UUID": "5091391d-947d-4b66-b054-2b1d69990892",
+	"GUID": "2f8caf9a-86b9-4cb5-8f83-762f5826a464",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Office 365 - Readme",
+	"Desc": "",
+	"Labels": [
+		"o365"
+	],
+	"LastUpdated": "2026-08-25T17:34:18.276608000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}
