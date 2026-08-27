@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.ai_agent_preview",
 	"Name": "AI Agent Preview",
 	"Desc": "# AI Agent Preview\n\nA preview set of six Gravwell AI agents, packaged as resources.\n\nEach agent is a JSON agent definition stored in a resource whose name ends in `-gravwell.agent`. Installing the kit makes the agents available in the Gravwell AI agent list; it does not add any searches, dashboards, or automations.\n\nStart with the included **Kit Overview** playbook.\n\n## Contents\n\n- **case-agent** - conversational investigation partner for Query Studio\n- **gravwell-admin** - conversational administration and configuration assistant\n- **mechanic** - conversational troubleshooter for the deployment itself\n- **alert-triage** - automated first-pass triage of a firing alert\n- **gravwell-audit** - automated read-only health and hygiene audit\n- **daily-summary** - automated nightly activity digest\n\n## Requirements\n\nAn LLM must be configured on the deployment for the agents to run. Every agent is read-only except `case-agent`, which can save a query when you explicitly ask it to.",
-	"Version": 1,
+	"Version": 2,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 10,
