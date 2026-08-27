@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Account - User Reported Suspicious Activity [table]",
-  "Description": "Detects when a user reports suspicious activity for their Okta account. These events should be investigated, as they can help security teams identify when an adversary is attempting to gain access to their network.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user.toml",
-  "GUID": "e1f645ce-5ec1-50d2-8ff8-320f3808f675",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Account - User Reported Suspicious Activity",
+	"Description": "An end user pressed the \"I don't recognise this\" link in an Okta security notification. This is a first-hand report from the account owner that something they did not do happened, and it deserves triage ahead of most machine-generated signals.\n\nEvent type: user.account.report_suspicious_activity_by_enduser\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_reported_suspicious_activity/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_reported_suspicious_activity.yml",
+	"GUID": "e1f645ce-5ec1-50d2-8ff8-320f3808f675",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

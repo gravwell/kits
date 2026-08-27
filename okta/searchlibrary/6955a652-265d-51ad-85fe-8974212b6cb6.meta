@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Access Control - Network Zones - Okta Network Zone Deactivated or Deleted [table]",
-  "Description": "Detects when an Network Zone is Deactivated or Deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/cloud/okta/okta_network_zone_deactivated_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/okta/okta_network_zone_deactivated_or_deleted.yml",
-  "GUID": "6955a652-265d-51ad-85fe-8974212b6cb6",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Access Control - Network Zones - Any Okta Network Zone Change (roll-up)",
+	"Description": "Roll-up of every Okta network zone change: create, update, activate, deactivate, delete, and blocklist membership. Use this one when you would rather review all zone churn in a single feed.\n\nEvent types: zone.create, zone.update, zone.activate, zone.deactivate, zone.delete, zone.make_blacklist, zone.remove_blacklist\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "6955a652-265d-51ad-85fe-8974212b6cb6",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

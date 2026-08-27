@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - High Number of Okta Device Token Cookies Generated for Authentication [table]",
-  "Description": "Detects when an Okta client address has a certain threshold of Okta user authentication events with multiple device token hashes generated for single user authentication. Adversaries may attempt to launch a credential stuffing or password spraying attack from the same device by using a list of known usernames and passwords to gain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_multiple_device_token_hashes_for_single_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_multiple_device_token_hashes_for_single_user.toml",
-  "GUID": "2ab0a09b-3585-510a-ba2f-1283fe48151b",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Authentication - High Number of Okta Device Tokens from One Source [table]",
+	"Description": "Finds source addresses that generated an unusual number of distinct device token hashes. Each new dtHash is a new browser identity, so one address producing dozens is a tool cycling clients to get around Okta's per-device rate limiting and behaviour rules.\n\nThreshold: 10 or more distinct device token hashes from one address. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_high_number_of_okta_device_token_cookies_generated_for_authentication/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"GUID": "2ab0a09b-3585-510a-ba2f-1283fe48151b",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

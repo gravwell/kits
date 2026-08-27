@@ -1,7 +1,8 @@
 {
 	"Name": "GRAVWELL_INSTANCE",
-	"Description": "Configuration Macro; Necessary for alerts within the Thinkst Canary Kit to run properly; https://\u003cchange_me_to_your_specific_url\u003e:\u003cchange_to_your_specific_port\u003e/",
+	"Description": "Configuration Macro; The base URL of this Gravwell instance, used to build clickable links back into Gravwell from Okta alert notifications. Set it to the scheme, host, and port you use to reach the Gravwell web UI, with no trailing slash.\n\nExample: https://gravwell.example.com:443",
 	"Labels": [
-		"gravwell"
+		"gravwell",
+		"okta"
 	]
 }

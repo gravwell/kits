@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Multiple Device Token Hashes for Single Okta Session [table]",
-  "Description": "This rule detects when a specific Okta actor has multiple device token hashes for a single Okta session. This may indicate an authenticated session has been hijacked or is being used by multiple devices. Adversaries may hijack a session to gain unauthorized access to Okta admin console, applications, tenants, or other resources.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_device_token_hashes_for_single_okta_session/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_multiple_device_token_hashes_for_single_okta_session.toml",
-  "GUID": "9e2cd5fc-5c1f-5e06-9f1e-25b6f06cc8a4",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Session - Okta Session Used From More Than One Country or Network [table]",
+	"Description": "Finds Okta sessions that were used from more than one country or more than one network operator. A stolen session cookie replayed from the adversary's own infrastructure shows up here, because the same externalSessionId turns up resolving to two different places.\n\nCountries and operators come from Okta's own client.geographicalContext and securityContext, falling back to the maxmind and asn_db resources from the Gravwell Network Enrichment kit for events that arrive without them.\n\nNote on device token hashes: Okta legitimately issues several dtHash values inside one session as authentication progresses, so dtHash count alone is not a usable signal and is reported here as context rather than used as the threshold.\n\nThresholds: 2 or more distinct countries, or 2 or more distinct network operators, per session. Edit the eval near the end of the query to tune them.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "9e2cd5fc-5c1f-5e06-9f1e-25b6f06cc8a4",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

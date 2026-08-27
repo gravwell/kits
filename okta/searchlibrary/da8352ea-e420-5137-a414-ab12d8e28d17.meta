@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Multiple Okta User Authentication Events with Same Device Token Hash [table]",
-  "Description": "Detects when a high number of Okta user authentication events are reported for multiple users in a short time frame. Adversaries may attempt to launch a credential stuffing or password spraying attack from the same device by using a list of known usernames and passwords to gain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_authentication_for_multiple_users_with_the_same_device_token_hash/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_authentication_for_multiple_users_with_the_same_device_token_hash.toml",
-  "GUID": "da8352ea-e420-5137-a414-ab12d8e28d17",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Authentication - One Okta Device Token Hash Across Many Accounts [table]",
+	"Description": "Finds a single device token hash used to authenticate to several different accounts. One browser signing into three or more accounts is either a shared kiosk or one machine working through a list of stolen credentials.\n\nThreshold: 3 or more distinct accounts per device token hash. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_okta_user_authentication_events_with_same_device_token_hash/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"GUID": "da8352ea-e420-5137-a414-ab12d8e28d17",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Lifecycle - Application - Okta Application Modified",
+	"Description": "An Okta application was modified. Check the SAML or OIDC settings in particular: changing an ACS URL or redirect URI can quietly redirect authenticated sessions to infrastructure the adversary controls.\n\nEvent type: application.lifecycle.update\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_okta_attempt_to_modify_okta_application/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e0d2b773-6319-56a4-897d-02a58aa15a8f",
+	"SearchReference": "9c6913ce-145b-585f-af78-ef2f2ad0a33c"
+}

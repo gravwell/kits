@@ -8,8 +8,8 @@
 		"Global": false,
 		"GIDs": []
 	},
-	"Name": "Playbook - Okta - System - Event Types - Modification Alerts",
-	"Desc": "",
+	"Name": "Playbook - Okta - Triaging an Okta Alert",
+	"Desc": "Triage procedure for any alert from the Okta Alert Router: which fields to read, how to confirm the event, how to pivot on the account and the source address, the two event sequences worth checking explicitly, escalation criteria, containment order, and how to tune.",
 	"Labels": [
 		"okta"
 	],

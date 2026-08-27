@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Users - User Created Date [chart]",
-	"Description": "Displays a chart of user created date by count.",
+	"Name": "Search - Okta - Users - Account Creation by Day [chart]",
+	"Description": "Counts Okta accounts by the day they were created. A flat line with one spike is either an onboarding batch or a burst of accounts somebody else created.\n\nRenders as a chart.",
 	"GUID": "fc055c0e-84e0-440a-a56e-a6b4953e5f32",
 	"Labels": [
 		"okta"

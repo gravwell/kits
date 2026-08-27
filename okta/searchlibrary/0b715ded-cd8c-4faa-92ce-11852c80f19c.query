@@ -1,25 +1,37 @@
+// Okta user profile snapshots land on the OKTA_USERS tag, one JSON record per user.
 tag=$OKTA_USERS
 | json
-    status
-    passwordChanged
-    profile.firstName as firstName
-    profile.lastName  as lastName
-    profile.login     as login
+	id
+	status
+	passwordChanged
+	profile.firstName as firstName
+	profile.lastName as lastName
+	profile.login as login
+// The OKTA_USERS tag is a snapshot stream: the Gravwell Okta ingester re-publishes
+// every user profile on each poll, so one user appears many times in any window.
+// Collapse to one entry per Okta user id first, otherwise every number below is
+// multiplied by the number of polls in the timeframe.
+| unique id
+// Prefer a real name for the report, falling back to the Okta login.
 | eval
-    user = strings_trimspace(firstName + " " + lastName);
-    if (user == "") { user = login; }
+	user = strings_trimspace(firstName + " " + lastName);
+	if (user == "") { user = login; }
+// Parse the password change timestamp and work out how long ago it was.
 | time passwordChanged passwordChangedTS
 | eval
-    if (has(passwordChangedTS)) {
-        secondsSincePasswordChanged = float(unix(NOW) - unix(passwordChangedTS));
-        daysSincePasswordChanged = secondsSincePasswordChanged / 86400.0;
-    }
+	if (has(passwordChangedTS)) {
+		secondsSincePasswordChanged = float(unix(NOW) - unix(passwordChangedTS));
+		daysSincePasswordChanged = secondsSincePasswordChanged / 86400.0;
+	}
+// Keep users past the threshold, and users with no password change recorded at
+// all, since those are at least as interesting.
 | eval (!has(passwordChangedTS) || daysSincePasswordChanged >= 30.0)
+// Format the age for display.
 | eval
-    days    = math_floor(secondsSincePasswordChanged / 86400.0);
-    hours   = math_floor(math_mod(secondsSincePasswordChanged, 86400.0) / 3600.0);
-    minutes = math_floor(math_mod(secondsSincePasswordChanged, 3600.0) / 60.0);
-    seconds = math_floor(math_mod(secondsSincePasswordChanged, 60.0));
+	days = math_floor(secondsSincePasswordChanged / 86400.0);
+	hours = math_floor(math_mod(secondsSincePasswordChanged, 86400.0) / 3600.0);
+	minutes = math_floor(math_mod(secondsSincePasswordChanged, 3600.0) / 60.0);
+	seconds = math_floor(math_mod(secondsSincePasswordChanged, 60.0));
 | printf -e sinceStr "%dd %dh %dm %ds" days hours minutes seconds
 | alias sinceStr "Password Last Changed"
 | sort by daysSincePasswordChanged desc

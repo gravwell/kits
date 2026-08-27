@@ -1,7 +1,14 @@
-tag=$OKTA_SYSTEM json 
-    eventType 
-    outcome.result
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+| json
+	eventType
+	outcome.result as outcomeResult
+// The okta_eventTypes lookup maps each of the ~1000 Okta event types onto a
+// category and subcategory.
 | lookup -r okta_eventTypes eventType eventType (category subcategory)
+// Narrow to the category the dashboard variable asked for.  Leave the variable as
+// * to keep every category.
 | grep -e category "%%okta_category%%"
-| stats count by result category subcategory 
-| table category subcategory eventType result count
+| stats count by category subcategory outcomeResult
+| sort by count desc
+| table category subcategory outcomeResult count

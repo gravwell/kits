@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Account - Locked Out or Account Locked [table]",
-  "Description": "Identifies when an Okta user account is locked out 3 times within a 3 hour window. An adversary may attempt a brute force or password spraying attack to obtain unauthorized access to user accounts. The default Okta authentication policy ensures that a user account is locked out after 10 failed authentication attempts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_attempts_to_brute_force_okta_user_account/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_attempts_to_brute_force_okta_user_account.toml",
-  "GUID": "f3a4d492-ac8c-56af-a403-03cd0214148b",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Account - Okta User Account Locked Out",
+	"Description": "An Okta account was locked out by the sign-on policy's failed attempt limit. One lockout is a forgotten password; several across different accounts in a short window is a password attack hitting the limit.\n\nEvent types: user.account.lock, user.account.lock.limit\n\nReference(s):\n- https://support.okta.com/help/s/article/User-Signin-and-Recovery-Events-in-the-Okta-System-Log\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "f3a4d492-ac8c-56af-a403-03cd0214148b",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

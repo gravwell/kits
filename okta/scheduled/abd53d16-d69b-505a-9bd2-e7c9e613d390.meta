@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - User - Authentication - High Number of Okta Device Tokens from One Source [table]",
+	"Description": "Finds source addresses that generated an unusual number of distinct device token hashes. Each new dtHash is a new browser identity, so one address producing dozens is a tool cycling clients to get around Okta's per-device rate limiting and behaviour rules.\n\nThreshold: 10 or more distinct device token hashes from one address. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_high_number_of_okta_device_token_cookies_generated_for_authentication/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "abd53d16-d69b-505a-9bd2-e7c9e613d390",
+	"SearchReference": "2ab0a09b-3585-510a-ba2f-1283fe48151b"
+}

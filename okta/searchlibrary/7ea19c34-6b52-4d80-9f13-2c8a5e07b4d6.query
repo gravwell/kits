@@ -1,0 +1,35 @@
+// Okta user profile snapshots land on the OKTA_USERS tag, one JSON record per user.
+tag=$OKTA_USERS
+| json
+	id
+	status
+	lastLogin
+	created
+	profile.firstName as firstName
+	profile.lastName as lastName
+	profile.login as login
+	profile.department as department
+// The OKTA_USERS tag is a snapshot stream: the Gravwell Okta ingester re-publishes
+// every user profile on each poll, so one user appears many times in any window.
+// Collapse to one entry per Okta user id first, otherwise every number below is
+// multiplied by the number of polls in the timeframe.
+| unique id
+// Only accounts that are still able to sign in.
+| grep -e status "ACTIVE"
+| eval
+	user = strings_trimspace(firstName + " " + lastName);
+	if (user == "") { user = login; }
+| time lastLogin lastLoginTS
+| eval
+	neverUsed = 0;
+	daysSinceLogin = 0.0;
+	if (has(lastLoginTS)) {
+		daysSinceLogin = float(unix(NOW) - unix(lastLoginTS)) / 86400.0;
+	} else {
+		neverUsed = 1;
+	}
+// Keep accounts idle past the threshold, and accounts never used at all.
+| eval (neverUsed == 1 || daysSinceLogin >= 90.0)
+| eval daysIdle = math_round(daysSinceLogin)
+| sort by daysIdle desc
+| table user login department status daysIdle neverUsed

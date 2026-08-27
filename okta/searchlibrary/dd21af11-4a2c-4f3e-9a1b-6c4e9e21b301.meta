@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Access Control - Trusted Origin - Okta Trusted Origin Created or Modified",
+	"Description": "A trusted origin was created, modified, or activated. Trusted origins are the CORS and redirect allowlist for your Okta org: adding an origin the adversary controls lets a page they host talk to the Okta API with a victim's session, which is the setup step for token theft.\n\nEvent types: security.trusted_origin.create, security.trusted_origin.update, security.trusted_origin.activate\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/trusted-origins/\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "dd21af11-4a2c-4f3e-9a1b-6c4e9e21b301",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

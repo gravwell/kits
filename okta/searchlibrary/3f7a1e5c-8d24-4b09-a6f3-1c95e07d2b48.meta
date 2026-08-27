@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Lifecycle - User - Okta User Deactivated, Suspended or Deleted",
+	"Description": "An Okta user was deactivated, suspended, or deleted. Offboarding looks like this, and so does an adversary locking out the account of someone who would have noticed them, or removing the account they used once they have a better one.\n\nEvent types: user.lifecycle.deactivate, user.lifecycle.suspend, user.lifecycle.delete.initiated, user.lifecycle.delete.completed\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "3f7a1e5c-8d24-4b09-a6f3-1c95e07d2b48",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Max sign in attempts exceeded [table]",
-  "Description": "Detects when an user account is locked out.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_account_locked_out/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_account_locked_out.yml",
-  "GUID": "a34f27b7-edf8-55cc-926f-eb5226e9eba5",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Authentication - Okta Max Sign-In Attempts Exceeded [table]",
+	"Description": "Counts sign-ins Okta refused because the account had already hit the sign-on policy's attempt limit. Unlike a lockout event this fires on every attempt after the limit, so it shows how long something kept trying after Okta started refusing.\n\nThreshold: 3 or more refusals per account. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://support.okta.com/help/s/article/User-Signin-and-Recovery-Events-in-the-Okta-System-Log\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "a34f27b7-edf8-55cc-926f-eb5226e9eba5",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

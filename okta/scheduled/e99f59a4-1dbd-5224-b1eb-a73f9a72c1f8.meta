@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Policy - Application - Okta Application Sign-On Policy Changed",
+	"Description": "An application sign-on policy or one of its rules was changed. These policies decide what an application demands at sign-in, so weakening one lets an adversary reach the application with stolen credentials alone.\n\nEvent types: application.policy.sign_on.update, application.policy.sign_on.rule.create, application.policy.sign_on.rule.delete\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_application_sign_on_policy_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_application_sign_on_policy_modified_or_deleted.yml\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e99f59a4-1dbd-5224-b1eb-a73f9a72c1f8",
+	"SearchReference": "674836c8-1e9b-5a05-9b88-301b1a553e14"
+}

@@ -1,9 +1,21 @@
-tag=$OKTA_SYSTEM json 
-    eventType 
-    outcome.result
-    actor.alternateId as actorAltId
-    target.alternateId as targetAltId
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+| json
+	eventType
+	outcome.result as outcomeResult
+	actor.alternateId as actorAltId
+	target.[0].alternateId as targetAltId
+	target.[1].alternateId as target2AltId
+// The okta_eventTypes lookup maps each of the ~1000 Okta event types onto a
+// category and subcategory.
 | lookup -r okta_eventTypes eventType eventType (category subcategory)
+// Narrow to the category the dashboard variable asked for.  Leave the variable as
+// * to keep every category.
 | grep -e category "%%okta_category%%"
-| stats count by category subcategory eventType result actorAltId targetAltId
-| chart count by result actorAltId targetAltId
+// Okta puts the object acted upon in either target slot, so take whichever slot
+// is populated.
+| eval
+	target = targetAltId;
+	if (!has(targetAltId) || targetAltId == "" || targetAltId == "null") { target = target2AltId; }
+| stats count by actorAltId target outcomeResult
+| chart count by outcomeResult actorAltId

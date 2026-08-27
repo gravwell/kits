@@ -1,11 +1,11 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "okta_user_denylist",
-	"Description": "Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score \u003e= min_risk, per alert or globally.\n\nFields: key,enabled,min_risk,reason\n\nKey format: \u003cnormalized_user\u003e|\u003calert_name_or_*\u003e (enabled = 1 or 0; empty min_risk or 0 = always force)\n\nExamples: This is currently what is in okta_user_denylist.csv\nkey,enabled,min_risk,reason\nsvc-admin|*,1,0,\"always force include service admin\"\ncharlie|Alert - Okta - Medium - App Assignment Changed,1,65,\"repeat offender\"\n\nReference(s):\n\nUsage:\n// OKTA_DYNAMIC_PATTERN + IP tuning\n$OKTA_ALERT_BASE\n$OKTA_ENRICH_COMMON\n$OKTA_RISK_SCORE_EXTENDED\n$OKTA_TUNE_IPLISTS\n$OKTA_ALERT_META",
+	"Description": "Tuning control for $OKTA_TUNING: force Okta detections involving watchlisted accounts up to at least priority High, even when the risk score alone would not reach it. Matches whether the account is the actor or the target.\n\nFields: key,enabled,min_risk,reason\n  - key: the lower-cased username with the email domain stripped, matched against both actorUserNorm and targetUserNorm (so bob@example.com is keyed as bob)\n  - enabled: 1 to apply the row, 0 to park it without deleting it\n  - min_risk: only promote once risk_score reaches this value; leave empty or 0 to always promote\n  - reason: free text, so the next analyst knows why the account is watched\n\nCurrent contents:\nkey,enabled,min_risk,reason\nsvc-admin,1,0,shared admin account - always promote to High\ncharlie,1,65,repeat offender - promote once risk reaches 65\n\nUsage:\n$OKTA_RISK_SCORE\n$OKTA_TUNING",
 	"Labels": [
 		"okta"
 	],
-	"Size": 158,
-	"Hash": "Zx4lHmm01KyrQCBbUEbxlA==",
+	"Size": 148,
+	"Hash": "Js8L/qEourRhCPS3jh6fNA==",
 	"Data": ""
 }

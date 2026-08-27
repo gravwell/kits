@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - IDP - New Okta Identity Provider (IdP) Added by Admin [table]",
-  "Description": "Detects the creation of a new Identity Provider (IdP) by a Super Administrator or Organization Administrator within Okta.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_new_idp_successfully_added_by_admin/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/persistence_new_idp_successfully_added_by_admin.toml",
-  "GUID": "50e4f87b-bba5-596d-9be0-425862f9c4b5",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Lifecycle - IDP - Okta Identity Provider Created",
+	"Description": "A new identity provider was added to the Okta org. An adversary-controlled IdP is a federated back door: once it is trusted, they can mint assertions for any user it is allowed to assert for and never touch a password or a factor.\n\nEvent type: system.idp.lifecycle.create\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_new_okta_identity_provider_added_by_admin/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/persistence_new_okta_identity_provider_added_by_admin.toml",
+	"GUID": "50e4f87b-bba5-596d-9be0-425862f9c4b5",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

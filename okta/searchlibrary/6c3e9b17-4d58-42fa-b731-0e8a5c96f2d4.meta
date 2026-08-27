@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - User - Account - Okta User Primary Email or Profile Identity Changed",
+	"Description": "A user's primary email, secondary email, or user type was changed. Changing the primary email redirects password reset and factor enrolment mail, which turns self-service recovery into an account takeover path.\n\nEvent types: user.account.update_primary_email, user.account.update_secondary_email, user.account.update_user_type\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://docs.axonius.com/docs/okta-user-category-events",
+	"GUID": "6c3e9b17-4d58-42fa-b731-0e8a5c96f2d4",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
