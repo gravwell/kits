@@ -4,6 +4,11 @@ name: "Gravwell Kit Build Test"
 on:
   pull_request: {}
 
+# Restrict the default GITHUB_TOKEN to the minimum this workflow needs:
+# it only checks out the repo and builds kits, so read access is enough.
+permissions:
+  contents: read
+
 env:
   CGO_ENABLED: 0
   GOBIN: ${{ github.workspace }}/bin
