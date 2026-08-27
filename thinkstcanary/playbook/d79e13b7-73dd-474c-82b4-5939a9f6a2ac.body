@@ -96,7 +96,7 @@
 	- Format: Name,Number,Protocol,Description,Assignee,Contact,Registration Date,Modification Date,Reference,Service Code,Unauthorized Use Reported,Assignment Notes
 	- Usage: | lookup -r iana\_ports dst\_port Number (Name as dst\_port\_name Description as dst\_port\_desc)
 	- Reference(s): [IANA Ports](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
-- Example Gravwell Fetcher Conf: a starting `gravwell_fetcher` configuration; replace the domain and API token before use. See the [Integration Guide](/playbooks/5edc675d-7e8a-4aa5-b55e-cbf62549b3af).
+- Example Gravwell Fetcher Conf: a starting gravwell_fetcher configuration; replace the domain and API token before use. See the [Integration Guide](https://docs.gravwell.io/integrations/network/thinkst.html).
 
 ***
 
@@ -135,9 +135,8 @@
 
 ## 7. Playbooks
 - Purpose: Playbooks are intended to be utilized as investigation aids for [Alerts](#5-alerts), and as kit documentation. The investigation playbooks contain sample queries to assist with the investigation.
-- Total: 5
+- Total: 4
 	- _Thinkst Canary - Readme_
-	- _Thinkst Canary - Integration Guide_
 	- _Thinkst Canary - Kit Overview_
 	- _Playbook - Thinkst - Canary - Email Alerts_
 	- _Playbook - Thinkst - Canary - Incident_
@@ -219,10 +218,3 @@
 ## 13. Notes
 - [GeoIP](https://docs.gravwell.io/search/geoip/geoip.html): The Thinkst Canary Kit requires the Gravwell Network Enrichment Kit (currently version 19) for searches using [geoip](https://docs.gravwell.io/search/geoip/geoip.html).
 	- Any query containing "from Outside Country" is implicated in this so if those scheduled searches are failing; I'd suggest starting here.
-
-***
-
-## 14. Image credits
-- icon: [UXWing](https://uxwing.com/sparrow-bird-icon/)
-- cover: [Microsoft Copilot](https://copilot.microsoft.com/)
-- banner: [Microsoft Copilot](https://copilot.microsoft.com/)

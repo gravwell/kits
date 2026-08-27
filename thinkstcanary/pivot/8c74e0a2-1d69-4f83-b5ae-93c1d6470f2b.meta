@@ -3,7 +3,7 @@
 	"Name": "Thinkst Canary - Correlate Flock Activity",
 	"Description": "Review Canary activity for this Flock",
 	"Data": {
-		"menuLabel": "Thinkst Canary",
+		"menuLabel": "Thinkst Canary - Flock",
 		"actions": [
 			{
 				"name": "Canary Flocks Dashboard",
@@ -60,5 +60,8 @@
 			}
 		]
 	},
-	"Labels": null
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
 }

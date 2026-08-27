@@ -3,7 +3,7 @@
 	"Name": "Thinkst Canary - Investigate IP Address",
 	"Description": "Search Thinkst Canary incidents involving this IP address",
 	"Data": {
-		"menuLabel": "Thinkst Canary",
+		"menuLabel": "Thinkst Canary - IP Address",
 		"actions": [
 			{
 				"name": "Canary Incidents from this Source",
@@ -60,5 +60,8 @@
 			}
 		]
 	},
-	"Labels": null
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
 }

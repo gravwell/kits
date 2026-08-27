@@ -1,4 +1,4 @@
-| eval
+eval
     // 1) base risk (default then nested if/else)
     base = 30.0;
     if (has(log_cat) && log_cat == "Login Attempt") {
