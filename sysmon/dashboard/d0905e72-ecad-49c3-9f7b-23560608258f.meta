@@ -10,8 +10,7 @@
 				"reference": {
 					"id": "db7e06bc-d35a-4cbe-a7ea-786be9921482",
 					"type": "template"
-				},
-				"searchID": 5258462265
+				}
 			},
 			{
 				"alias": "Sysmon DNS Processes Querying this Name",
@@ -19,8 +18,7 @@
 				"reference": {
 					"id": "bcb5c951-d4ce-47be-ae72-f41167dfbcb9",
 					"type": "template"
-				},
-				"searchID": 3829235411
+				}
 			},
 			{
 				"alias": "Sysmon DNS Client Querying this Name",
@@ -28,8 +26,7 @@
 				"reference": {
 					"id": "948b682a-f154-4561-ab95-7ab602beb73a",
 					"type": "template"
-				},
-				"searchID": 5300448836
+				}
 			},
 			{
 				"alias": "Sysmon DNS Totals",
@@ -37,8 +34,7 @@
 				"reference": {
 					"id": "57deb1d0-aab2-479b-82a9-853144ffd6ef",
 					"type": "template"
-				},
-				"searchID": 6856548886
+				}
 			}
 		],
 		"tiles": [
@@ -139,8 +135,7 @@
 			"end": null,
 			"start": null
 		},
-		"version": 2,
-		"lastDataUpdate": "2021-02-19T16:38:52-07:00"
+		"version": 2
 	},
 	"Labels": [
 		"sysmon",

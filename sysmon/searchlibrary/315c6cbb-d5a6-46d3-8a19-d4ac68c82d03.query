@@ -1,4 +1,4 @@
 tag=$SYSMON winlog $PROVIDER EventID == 1 IntegrityLevel |
-stats count by IntegrityLevel |
-stats stddev(count) by IntegrityLevel over 5m |
+stats count by IntegrityLevel over 5m |
+stats stddev(count) by IntegrityLevel |
 chart stddev by IntegrityLevel

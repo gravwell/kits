@@ -1,4 +1,4 @@
-tag=$SYSMON words %%COMPUTER%% | winlog $PROVIDER EventID==1 Computer==%%COMPUTER%% User Image ParentImage OriginalFileName Hashes
-| kv -sep "=" -d "," SHA256
-| stats count by SHA256
+tag=$SYSMON words %%COMPUTER%% | winlog $PROVIDER EventID==1 Computer=="%%COMPUTER%%" User Image ParentImage OriginalFileName Hashes
+| kv -e Hashes -sep "=" -d "," SHA256
+| stats count by SHA256 User OriginalFileName Image ParentImage
 | table User OriginalFileName Image ParentImage SHA256 count

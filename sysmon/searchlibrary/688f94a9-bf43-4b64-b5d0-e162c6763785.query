@@ -1,4 +1,4 @@
-tag=$SYSMON winlog $PROVIDER EventID <= 14 Computer Image 
+tag=$SYSMON winlog $PROVIDER EventID <= 14 
 | eval EventID >= 12; 
 | stats count 
 | chart count 

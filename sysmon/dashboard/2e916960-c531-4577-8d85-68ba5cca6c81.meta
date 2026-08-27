@@ -13,7 +13,6 @@
 		"searches": [
 			{
 				"alias": "Sysmon Network Connections by Computer",
-				"searchID": 5282604497,
 				"color": null,
 				"reference": {
 					"id": "d22fec64-d6d8-421e-a554-07a702b3b571",
@@ -25,7 +24,6 @@
 			},
 			{
 				"alias": "Sysmon Least Common Network Service Ports",
-				"searchID": 2134746554,
 				"color": null,
 				"reference": {
 					"id": "22628ed0-f6f5-44ae-9284-8be6e930bdf9",
@@ -37,7 +35,6 @@
 			},
 			{
 				"alias": "Sysmon Network Connection Pointmap",
-				"searchID": 7998154759,
 				"color": null,
 				"reference": {
 					"id": "bc1b77dd-a7ae-4235-8182-dae36f12e062",
@@ -49,7 +46,6 @@
 			},
 			{
 				"alias": "Sysmon Network Connections",
-				"searchID": 5596511275,
 				"color": null,
 				"reference": {
 					"id": "5fe00171-5a46-4aa9-9ff8-5ad8df442cdc",
@@ -61,7 +57,6 @@
 			},
 			{
 				"alias": "Sysmon Network connection by IP Protocol",
-				"searchID": 8238934926,
 				"color": null,
 				"reference": {
 					"id": "83a531a3-2e8a-4859-b0dd-b7c892881fc0",
@@ -80,6 +75,14 @@
 					"extras": {
 						"defaultValue": null
 					}
+				}
+			},
+			{
+				"alias": "Sysmon Network Peer Totals",
+				"color": null,
+				"reference": {
+					"id": "f1aaac81-d4ee-4d7e-b4d5-76a5ce0e67ec",
+					"type": "savedQuery"
 				}
 			}
 		],
@@ -136,7 +139,7 @@
 					"x": 0,
 					"y": 4
 				},
-				"searchesIndex": 0,
+				"searchesIndex": 6,
 				"rendererOptions": {}
 			},
 			{
@@ -212,6 +215,20 @@
 					"ConnectNulls": "no",
 					"LogScale": "no"
 				}
+			},
+			{
+				"id": 16136893658033,
+				"title": "Connections by Computer and ASN",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 9,
+					"x": 0,
+					"y": 23
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
 			}
 		],
 		"linkZooming": true,

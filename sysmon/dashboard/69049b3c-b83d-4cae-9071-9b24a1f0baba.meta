@@ -13,7 +13,6 @@
 		"searches": [
 			{
 				"alias": "Sysmon Registry Autorun",
-				"searchID": 5253014086,
 				"color": null,
 				"reference": {
 					"id": "ac25e3ff-a24a-4d59-b211-266a8fa6a82e",
@@ -35,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Registry events by computer \u0026 image",
+				"alias": "Registry events by computer & image",
 				"color": null,
 				"reference": {
 					"id": "0308f7d1-dc1b-4ff1-a1e4-39d209d900b2",
