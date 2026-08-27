@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Num Sys Crit and Errors",
+				"alias": "Num Sys Errors and Above",
 				"color": null,
 				"reference": {
 					"id": "d8d2c4ad-046e-47d4-b383-98f2b5b253f2",
@@ -116,7 +116,7 @@
 			},
 			{
 				"id": 1669047819818,
-				"title": "Critical and Errors",
+				"title": "Errors and Above",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {

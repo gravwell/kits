@@ -10,8 +10,7 @@
 				"reference": {
 					"id": "276066ea-02c2-45cf-a0f1-dc9bd3e8d26f",
 					"type": "template"
-				},
-				"searchID": 3879498218
+				}
 			},
 			{
 				"alias": "Syslog apps by host",
@@ -19,8 +18,7 @@
 				"reference": {
 					"id": "0eddff74-100e-4bb0-b6a6-e8d0df82e169",
 					"type": "template"
-				},
-				"searchID": 6154007212
+				}
 			},
 			{
 				"alias": "Syslog sev by Hostname",
@@ -100,8 +98,7 @@
 		"timeframe": {
 			"timeframe": "PT1H"
 		},
-		"version": 2,
-		"lastDataUpdate": "2021-02-24T20:31:23-08:00"
+		"version": 2
 	},
 	"Labels": [
 		"syslog"

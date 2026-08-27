@@ -1,6 +1,6 @@
 {
 	"UUID": "cee7c9ec-be90-499e-b955-4b8669138d31",
-	"Name": "Syslog unparsable Hostname by SRC",
+	"Name": "Syslog missing Hostname by SRC",
 	"Description": "Shows valid syslogs where a Hostname was not extracted.",
 	"Data": {
 		"variables": [

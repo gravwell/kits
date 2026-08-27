@@ -1,7 +1,7 @@
 {
 	"UUID": "a1753a07-f744-43c5-9140-7a7a5f6ce8ba",
 	"Name": "Syslog sev by Hostname",
-	"Description": "",
+	"Description": "Severity breakdown for a given syslog hostname",
 	"Data": {
 		"variables": [
 			{

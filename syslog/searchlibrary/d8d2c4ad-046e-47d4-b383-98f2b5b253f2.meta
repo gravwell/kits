@@ -1,6 +1,6 @@
 {
-	"Name": "Syslog: Num Crit and Errors",
-	"Description": "Number of Syslog Critical and Errors",
+	"Name": "Syslog: Num Errors and Above",
+	"Description": "Number of syslog entries at severity error or higher (emergency, alert, critical, error)",
 	"GUID": "d8d2c4ad-046e-47d4-b383-98f2b5b253f2",
 	"Labels": [
 		"syslog"

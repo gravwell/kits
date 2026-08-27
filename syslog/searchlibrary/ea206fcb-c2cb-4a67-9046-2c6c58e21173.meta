@@ -1,6 +1,6 @@
 {
-	"Name": "Syslog: unparsable",
-	"Description": "Syslog that did not parse to populate Hostname",
+	"Name": "Syslog: missing Hostname",
+	"Description": "Valid syslog entries where no Hostname was extracted",
 	"GUID": "ea206fcb-c2cb-4a67-9046-2c6c58e21173",
 	"Labels": [
 		"syslog"
