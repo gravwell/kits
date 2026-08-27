@@ -1,0 +1,51 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "00b7e6e2-7c31-4929-ae1d-a531638c6e59",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a bird has been commissioned.\n\ndevice_commission = Commission a Bird onto the Console.\n\nNote: the decommission action is emitted under a separate action_type and is not covered by this rule.\n\nReference(s):\nhttps://docs.canary.tools/bird-management/registrations.html\n\nhttps://docs.canary.tools/bird-management/registrations.html#commission-bird",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "7a550362-fa2c-4a5f-97f2-0d470b75d3d1",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "9640de4a-2127-4100-a04f-3f3d8a121a07",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-10-09T00:00:00Z",
+	"MaxEvents": 16,
+	"Name": "Alert - Canary - Bird Management - Low - Device Commissioned",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_thinkst_alerts",
+	"UID": 0,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

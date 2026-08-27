@@ -1,0 +1,17 @@
+{
+	"Name": "ScheduledSearch - Canary - Bird Management - Low - Device Commissioned",
+	"Description": "Detects when a bird has been commissioned.\n\ndevice_commission = Commission a Bird onto the Console.\n\nNote: the decommission action is emitted under a separate action_type and is not covered by this rule.\n\nReference(s):\nhttps://docs.canary.tools/bird-management/registrations.html\n\nhttps://docs.canary.tools/bird-management/registrations.html#commission-bird",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Schedule": "49 */4 * * *",
+	"Duration": -14400,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "7a550362-fa2c-4a5f-97f2-0d470b75d3d1",
+	"SearchReference": "67fdcc06-ab17-4eb7-80c8-394338aefd39"
+}

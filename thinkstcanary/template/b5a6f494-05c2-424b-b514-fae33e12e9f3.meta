@@ -1,0 +1,109 @@
+{
+	"UUID": "b5a6f494-05c2-424b-b514-fae33e12e9f3",
+	"Name": "Template - Canary - Incidents - Full Search",
+	"Description": "This allows you to search any incident and search the following options:\n\nresult = \"%%result%%\"\nflock_id = \"%%flock_id%%\"\nflock_name = \"%%flock_name%%\"\nsrc_host = \"%%src_host%%\"\nsrc_port = \"%%src_port%%\"\ndst_host = \"%%dst_host%%\"\ndst_port = \"%%dst_port%%\"\nlog_cat = \"%%log_cat%%\"\nlog_subcat = \"%%log_subcat%%\"\nlog_desc = \"%%log_desc%%\"\n_alert_title = \"%%alert_title%%\"\n_alert_priority = \"%%alert_priority%%\"",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%result%%",
+				"label": "Acknowledgement State",
+				"description": "Options: Acknowledged, Not Acknowledged, Unacknowledged",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%flock_id%%",
+				"label": "Flock Id #",
+				"description": "Can be found in Canary Console or searching within Gravwell",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%flock_name%%",
+				"label": "Flock Name",
+				"description": "Can be found in Canary Console or searching within Gravwell",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%src_host%%",
+				"label": "Source IP Address",
+				"description": "The source IP address of the attacker",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%src_port%%",
+				"label": "Source Port",
+				"description": "The source port of the attacker",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%dst_host%%",
+				"label": "Dest IP Address",
+				"description": "The destination IP address of the attack",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%dst_port%%",
+				"label": "Dest Port",
+				"description": "The destination port of the attack",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%log_cat%%",
+				"label": "Incident Category",
+				"description": "Options: Canary, Canarytoken, Console, Custom TCP, Database, Flock, HTTP, Industrial Protocol, Login Attempt, Network Service, Port Scan, Repository, Windows File Share",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%log_subcat%%",
+				"label": "Incident Subcategory",
+				"description": "Options: API Request, Banner, Disconnected, DNS, Error, FTP, GET, Git, Host, HTTP, HTTP / DNS, LDAP, Local Tampering, Login Attempt, ModBus, MongoDB, MSSQL, MySQL, Network, NMAP, NTP, POST, Proxy Request, RDP, Redis, Runfinger, Service Scan, Settings Changed, SIP, SMB, SNMP, SSH, Telnet, TFTP, TN3270, VNC, WinRM, Wireguard",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%log_desc%%",
+				"label": "Incident Description",
+				"description": "Search by keywords from Incident Descriptions",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%alert_title%%",
+				"label": "Alert Title",
+				"description": "Search by Incident Title Name",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%alert_priority%%",
+				"label": "Alert Priority",
+				"description": "Search by Priority Level; Options: Critical, High, Medium, Low",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}
