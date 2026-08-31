@@ -15,6 +15,10 @@ It provides the following utilities:
 - Null
 
 ## Changelog
+ **2.0: Corrections + Fixes to queries**
+  - Updated dashboards
+  - Refined some queries
+
  **1.0: Initial Release**
 	- actionables (2)
 	- autoextractor (1)
@@ -24,5 +28,5 @@ It provides the following utilities:
 	- macro (2)
 	- playbook (3)
 	- resource (1)
-	- searchlibrary (70)
+	- searchlibrary (69)
 	- template (2)

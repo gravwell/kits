@@ -6,8 +6,7 @@ tag=$AUDITD kv -q type as auditType name
     "/proc/scsi/scsi",
     "/proc/ide/hd0/model",
     "/proc/version",
-    "/etc/*version",
-    "/etc/*release",
     "/etc/issue"
     )
+    || (auditType == "PATH" && (strings_hassuffix(name, "-release") || strings_hassuffix(name, "_version")))
 )
