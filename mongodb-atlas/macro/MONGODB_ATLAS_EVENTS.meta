@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_EVENTS",
+	"Description": "Configuration Macro; Tag used for MongoDB Atlas project and organization events, including service account event types.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

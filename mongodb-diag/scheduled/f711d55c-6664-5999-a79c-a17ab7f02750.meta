@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Journal Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Journal Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f711d55c-6664-5999-a79c-a17ab7f02750",
+	"SearchReference": "6175e10d-ae51-50e7-95ae-2ec839973268"
+}

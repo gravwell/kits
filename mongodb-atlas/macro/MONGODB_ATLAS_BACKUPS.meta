@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_BACKUPS",
+	"Description": "Configuration Macro; Tag used for MongoDB Atlas cloud backup snapshot API data.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

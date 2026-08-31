@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Storage Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Storage Warning Or Error.",
+	"GUID": "c35f7e8f-b2d2-58a1-8082-7836f71906ba",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

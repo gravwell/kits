@@ -1,0 +1,1 @@
+id username orgMembershipStatus createdAt as timestamp firstName lastAuth lastName mobileNumber roles roles.orgRoles as orgRoles roles.groupRoleAssignments as groupRoleAssignments roles.groupRoleAssignments.[].groupId as roleGroupId roles.groupRoleAssignments.[].groupRoles as groupRoles teamIds invitationCreatedAt invitationExpiresAt inviterUsername

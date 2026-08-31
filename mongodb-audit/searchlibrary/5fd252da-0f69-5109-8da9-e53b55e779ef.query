@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Audit - Overview - Total Events [numbercard] */
+tag=$MONGODB_AUDIT
+| stats count
+| numbercard (count " ")

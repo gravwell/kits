@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Organization Users - Pending or Invited Organization User [table]",
+  "Description": "Detects organization users with invited or pending membership states.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "155a9723-ed2e-5059-b733-76e2299d3649",
+  "SearchReference": "402fd2e0-772b-5c66-b8eb-96d4dfbd325e"
+}

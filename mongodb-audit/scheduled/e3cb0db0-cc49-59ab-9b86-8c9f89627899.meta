@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Database Created [table]",
+  "Description": "Detects MongoDB database creation.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e3cb0db0-cc49-59ab-9b86-8c9f89627899",
+  "SearchReference": "59174ba9-69b9-5965-8456-bb22a6d34db2"
+}

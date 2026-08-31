@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by LDAP Auth Type [numbercard] */
+tag=$MONGODB_ATLAS_DATABASE_USERS ax ldapAuthType
+| stats count by ldapAuthType
+| numbercard (count " ")

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Action [numbercard] */
+tag=$MONGODB_ATLAS_CUSTOM_ROLES ax action
+| json -x action
+| stats count by action
+| numbercard (count " ")

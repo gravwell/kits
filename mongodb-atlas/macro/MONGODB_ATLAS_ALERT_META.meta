@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_ALERT_META",
+	"Description": "Alert metadata macro for MongoDB Atlas alerts and high-signal Admin API activity.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

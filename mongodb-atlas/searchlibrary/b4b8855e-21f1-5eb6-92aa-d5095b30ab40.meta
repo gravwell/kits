@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Open Security Posture Alert [table]",
+  "Description": "Detects open Atlas alerts that indicate degraded security posture, missing MFA, exposed hosts, disabled UI access controls, or expiring service account secrets.",
+  "GUID": "b4b8855e-21f1-5eb6-92aa-d5095b30ab40",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

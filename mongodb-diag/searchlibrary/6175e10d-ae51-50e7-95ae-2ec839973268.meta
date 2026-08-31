@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Journal Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Journal Warning Or Error.",
+	"GUID": "6175e10d-ae51-50e7-95ae-2ec839973268",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

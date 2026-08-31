@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Desc [chart] */
+tag=$MONGODB_ATLAS_API_KEYS ax desc
+| stats count as " " by desc
+| chart " " by desc

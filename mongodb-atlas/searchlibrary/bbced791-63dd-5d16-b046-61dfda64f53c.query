@@ -1,0 +1,9 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Alert Configurations - Disabled Atlas Alert Configuration [table]*/
+tag=$MONGODB_ATLAS_ALERT_CONFIGS ax
+| eval 
+	enabled == "false";
+	_alert_name = "Disabled Atlas Alert Configuration";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

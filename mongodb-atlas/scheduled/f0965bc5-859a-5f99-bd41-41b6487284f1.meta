@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization UI or Public API Access List Change [table]",
+  "Description": "Detects organization UI IP access list disabling/enabling and public API access-list policy changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "f0965bc5-859a-5f99-bd41-41b6487284f1",
+  "SearchReference": "fde31dd3-60ff-5d1a-99d5-c952aafab076"
+}

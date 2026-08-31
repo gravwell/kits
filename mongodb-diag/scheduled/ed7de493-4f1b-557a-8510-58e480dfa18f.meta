@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Sharding Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Sharding Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "ed7de493-4f1b-557a-8510-58e480dfa18f",
+	"SearchReference": "b4fb5b7b-426c-5c5e-8b5a-3d66f560344a"
+}

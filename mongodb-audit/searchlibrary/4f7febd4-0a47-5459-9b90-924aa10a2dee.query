@@ -1,0 +1,6 @@
+/* Search - MongoDB - Database - Audit - Overview - Top Result [numbercard] */
+tag=$MONGODB_AUDIT ax result
+$MONGODB_AUDIT_RESULT_LOOKUP
+| stats count by resultName
+| top -n 1 count
+| numbercard (count " ")

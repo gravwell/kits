@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Project Security Checkup Degraded [table]",
+  "Description": "Detects project events indicating security checkup failures, exposed hosts, or security checkup alert configuration changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "3c490780-2815-5bf5-a304-4aa37a173ec7",
+  "SearchReference": "6983feac-1868-57ab-9116-873d6edf1eb9"
+}

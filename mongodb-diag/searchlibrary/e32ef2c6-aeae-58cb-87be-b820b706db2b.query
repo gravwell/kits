@@ -1,0 +1,5 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Top Component [numbercard] */
+tag=$MONGODB_DIAG ax component
+| stats count by component
+| top -n 1 count
+| numbercard (count " ")

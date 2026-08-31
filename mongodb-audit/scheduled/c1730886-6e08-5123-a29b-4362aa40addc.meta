@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Shard Added [table]",
+  "Description": "Detects MongoDB shard additions.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "c1730886-6e08-5123-a29b-4362aa40addc",
+  "SearchReference": "cefda33c-4524-5d29-a0f5-940f448fbcce"
+}

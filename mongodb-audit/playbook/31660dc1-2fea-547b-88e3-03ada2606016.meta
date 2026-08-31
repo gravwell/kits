@@ -1,0 +1,22 @@
+{
+	"UUID": "31660dc1-2fea-547b-88e3-03ada2606016",
+	"GUID": "31660dc1-2fea-547b-88e3-03ada2606016",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "MongoDB Audit Kit - Readme",
+	"Desc": "A toolkit for interacting with MongoDB Audit logs.",
+	"Labels": ["mongodb","mongodb-audit"],
+	"LastUpdated": "2026-07-09T21:22:52.488737Z",
+	"Author": {
+  "Name": "Gravwell",
+  "Email": "info@gravwell.io",
+  "Company": "Gravwell",
+  "URL": "https://gravwell.io"
+},
+	"Synced": false
+}

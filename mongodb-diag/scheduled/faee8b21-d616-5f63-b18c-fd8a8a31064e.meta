@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Feature Compatibility Version Changed [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Feature Compatibility Version Changed.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "faee8b21-d616-5f63-b18c-fd8a8a31064e",
+	"SearchReference": "756df746-2dda-5423-b6c9-42f2e023b6a0"
+}

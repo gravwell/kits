@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Service Account Secret Risk [table]",
+  "Description": "Detects expired or expiring organization service account secrets and maximum secret validity changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "6c352df4-970c-5927-a547-1650709c7cc9",
+  "SearchReference": "3e0f2d00-4fc1-5198-9148-4b09dd7a32b9"
+}

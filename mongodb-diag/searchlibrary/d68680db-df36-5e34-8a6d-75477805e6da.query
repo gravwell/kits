@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Count by Component [chart] */
+tag=$MONGODB_DIAG ax component
+| stats count as " " by component
+| chart " " by component

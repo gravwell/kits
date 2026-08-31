@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Backup Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Backup Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c43ac887-5982-5d61-b2d2-601c0acc1021",
+	"SearchReference": "27dccccd-44fe-5fae-a307-4aaf353507e3"
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Authentication Mechanism Unavailable [table]",
+  "Description": "Detects MongoDB authentication attempts using an unavailable authentication mechanism.",
+  "GUID": "1e2278a8-8ca5-573a-afff-d75ec30867e2",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Oidc Auth Type [chart] */
+tag=$MONGODB_ATLAS_DATABASE_USERS ax oidcAuthType
+| stats count as " " by oidcAuthType
+| chart " " by oidcAuthType

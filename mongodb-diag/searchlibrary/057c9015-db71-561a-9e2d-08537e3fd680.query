@@ -1,0 +1,5 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Count by Service [chart] */
+tag=$MONGODB_DIAG ax service
+$MONGODB_DIAG_NORMALIZE_SERVICE
+| stats count as " " by service
+| chart " " by service

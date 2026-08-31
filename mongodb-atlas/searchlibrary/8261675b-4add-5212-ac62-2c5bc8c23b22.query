@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Count by IP Address [numbercard] */
+tag=$MONGODB_ATLAS_ACCESS ax ipAddress
+| stats count by ipAddress
+| numbercard (count " ")

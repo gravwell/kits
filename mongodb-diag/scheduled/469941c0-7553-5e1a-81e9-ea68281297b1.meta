@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Insecure Startup Warning [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Insecure Startup Warning.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "469941c0-7553-5e1a-81e9-ea68281297b1",
+	"SearchReference": "d14258db-435e-5551-8f80-c11714b2ce29"
+}

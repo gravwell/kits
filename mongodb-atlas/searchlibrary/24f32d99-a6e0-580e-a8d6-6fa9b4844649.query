@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Rare Enabled [numbercard] */
+tag=$MONGODB_ATLAS_ALERT_CONFIGS ax enabled
+| stats count by enabled
+| bottom -n 1 count
+| numbercard (count " ")

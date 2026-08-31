@@ -1,0 +1,6 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Rare Service [numbercard] */
+tag=$MONGODB_DIAG ax service
+$MONGODB_DIAG_NORMALIZE_SERVICE
+| stats count by service
+| bottom -n 1 count
+| numbercard (count " ")

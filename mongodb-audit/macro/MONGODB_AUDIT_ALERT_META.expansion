@@ -1,0 +1,34 @@
+/* MONGODB_AUDIT_ALERT_META */
+/* ---------- standard context ---------- */
+| eval
+/* Defaults */
+_who = "unknown"; _name = ""; _ip = ""; _when = "";
+_cat = "uncategorized"; _sub = ""; _verb = "action";
+_out = ""; _msg = ""; _sev = ""; _uri = "";
+
+/* Who / name */
+if (has("user") && user != "" && user != "null") { _who = user; }
+if (has("paramUser") && paramUser != "" && paramUser != "null") { _name = printf(" (%v)", paramUser); }
+
+/* IP (localIp, else remoteIp) */
+if (has("localIp") && localIp != "" && localIp != "null") { _ip = printf(" from %v", localIp); }
+else if (has("remoteIp") && remoteIp != "" && remoteIp != "null") { _ip = printf(" from %v", remoteIp); }
+
+/* When */
+if (has("timestamp") && timestamp != "" && timestamp != "null") { _when = printf("At %v, ", timestamp); }
+
+/* Category / subcategory */
+if (has("category") && category != "" && category != "null") { _cat = category; }
+if (has("subcategory") && subcategory != "" && subcategory != "null") { _sub = printf("/%v", subcategory); }
+
+/* Verb from actionType */
+if (has("method") && method != "" && method != "null") { _verb = method; }
+
+/* Outcome */
+if (has("resultName") && resultName != "" && resultName != "null") { _out = printf(" resulting in \"%v\"", resultName); }
+
+context = _when + _who + _name + _ip + " performed " + "\"" + _verb + "\"" + " against " + "\"" + database + "\"" + " via " + "\"" + actionType + "\"" + _out;
+_alert_header = "| Context |";
+_alert_divider = "|-----|";
+_alert_data = printf("|%v|", context);
+_alert_title = printf("Alert: %v - %v - %v - %v - %v - %v",_vendor, _product, _category, _subcategory, _priority, _alert_name);

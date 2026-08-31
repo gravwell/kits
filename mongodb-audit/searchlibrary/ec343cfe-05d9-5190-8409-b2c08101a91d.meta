@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Authentication Abandoned [table]",
+  "Description": "Detects incomplete or abandoned MongoDB authentication attempts.",
+  "GUID": "ec343cfe-05d9-5190-8409-b2c08101a91d",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

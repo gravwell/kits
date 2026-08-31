@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Direct Auth Collection Mutation [table]",
+  "Description": "Detects direct modification of MongoDB authentication collections.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "d8e26391-f178-571d-af7c-096c646a3c85",
+  "SearchReference": "cce025a7-42d0-55f3-808e-363bad0185ed"
+}

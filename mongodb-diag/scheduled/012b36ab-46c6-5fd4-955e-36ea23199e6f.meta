@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Long Running Operation [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Long Running Operation.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "012b36ab-46c6-5fd4-955e-36ea23199e6f",
+	"SearchReference": "51250ddb-8683-5286-ad4c-df82c0b24520"
+}

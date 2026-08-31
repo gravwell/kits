@@ -1,0 +1,21 @@
+/* MONGODB_DIAG_ALERT_META */
+| eval
+    _who = "unknown";
+    _ip = "";
+    _when = "";
+    _component = "unknown";
+    _severity = "unknown";
+    _namespace = "";
+    _message = "unknown";
+    if (has("_diag_identity") && _diag_identity != "" && _diag_identity != "null") { _who = _diag_identity; }
+    if (has("_diag_ip") && _diag_ip != "" && _diag_ip != "unknown" && _diag_ip != "null") { _ip = printf("%v", _diag_ip); }
+    if (has("timestamp") && timestamp != "" && timestamp != "null") { _when = printf("At %v, ", timestamp); }
+    if (has("_diag_component") && _diag_component != "" && _diag_component != "null") { _component = _diag_component; }
+    if (has("_diag_status") && _diag_status != "" && _diag_status != "null") { _severity = _diag_status; }
+    if (has("_diag_namespace") && _diag_namespace != "" && _diag_namespace != "unknown" && _diag_namespace != "null") { _namespace = printf(" against %v", _diag_namespace); }
+    if (has("_diag_event_type") && _diag_event_type != "" && _diag_event_type != "null") { _message = _diag_event_type; }
+    context = _when + _who + " from " + _ip + " generated a MongoDB Diagnostics event in component " + _component + " with severity " + _severity + _namespace + ": " + _message;
+    _alert_header = "| Context |";
+    _alert_divider = "|-----|";
+    _alert_data = printf("|%v|", context);
+    _alert_title = printf("Alert: %v - %v - %v - %v - %v - %v", _vendor, _product, _category, _subcategory, _priority, _alert_name);

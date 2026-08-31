@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Revoked From User [table]",
+  "Description": "Detects MongoDB role revocation from users.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "08ca2c8e-b6a4-562f-a89a-d9078b3a31c9",
+  "SearchReference": "d6bcdc62-630f-5bcb-a828-da4709bc2d2b"
+}

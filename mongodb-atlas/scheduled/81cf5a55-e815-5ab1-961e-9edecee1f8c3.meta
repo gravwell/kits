@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Open Threshold or Rate Limit Alert [table]",
+  "Description": "Detects open Atlas alerts for metric threshold, space threshold, request-rate, billing, or usage-spike conditions.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "81cf5a55-e815-5ab1-961e-9edecee1f8c3",
+  "SearchReference": "5d669486-3f7c-596c-be67-ff67bc546670"
+}

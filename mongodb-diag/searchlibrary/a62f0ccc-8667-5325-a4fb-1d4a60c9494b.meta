@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Documents Examined [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: High Documents Examined.",
+	"GUID": "a62f0ccc-8667-5325-a4fb-1d4a60c9494b",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Username [chart] */
+tag=$MONGODB_ATLAS_ORG_USERS ax username
+| stats count as " " by username
+| chart " " by username

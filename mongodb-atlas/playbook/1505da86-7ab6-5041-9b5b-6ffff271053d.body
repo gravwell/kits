@@ -1,0 +1,899 @@
+<km>
+
+***  
+
+A toolkit for interacting with MongoDB Atlas data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline MongoDB Atlas analysis across Atlas Access, Atlas Activity, Atlas Alert Configs, Atlas Alerts, Atlas Api Keys, Atlas Backups, Atlas Clusters, Atlas Custom Roles, Atlas Database Users, Atlas Events, Atlas Network Access, Atlas Org Activity, Atlas Org Users, Atlas Projects, and Atlas Service Accounts log sources.  
+
+***  
+
+## Table of Contents  
+1. [Tags & Macros](#1-tags--macros)  
+    1.1. [Tags](#1-1-tags)  
+    1.2. [Autoextractors](#1-2-autoextractors)  
+    1.3. [Macros](#1-3-macros)  
+2. [Query Library](#2-query-library)  
+3. [Naming Schema](#3-naming-schema)  
+4. [Resources](#4-resources)  
+    4.1. [Lookups](#4-1-lookups)  
+5. [Alerts](#5-alerts)  
+    5.1. [Dispatchers](#5-1-dispatchers)  
+    5.2. [Consumers](#5-2-consumers)  
+6. [Scheduled Searches](#6-scheduled-searches)  
+    6.1. [Flows](#6-1-flows)  
+7. [Playbooks](#7-playbooks)  
+    7.1. [Files](#7-1-files)  
+8. [Searches](#8-searches)  
+    8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+    8.2. [Alert Queries](#8-2-alert-queries)  
+9. [Templates](#9-templates)  
+10. [Dashboards](#10-dashboards)  
+    10.1. [Actionables](#10-1-actionables)  
+11. [Useful Resources & References](#11-useful-resources--references)  
+12. [Notes](#12-notes)  
+13. [Image credits](#13-image-credits)  
+
+***  
+
+## 1. [Tags & Macros](#1-tags--macros)  
+
+#### 1.1. [Tags](#1-1-tags)  
+
+- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.  
+- [Documentation](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+- The MongoDB Atlas Kit for Gravwell makes use of the following tags:  
+- Total: ***15***  
+    - mongodb-atlas-access: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-access`  
+    - mongodb-atlas-activity: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-activity`  
+    - mongodb-atlas-alert-configs: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-alert-configs`  
+    - mongodb-atlas-alerts: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-alerts`  
+    - mongodb-atlas-api-keys: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-api-keys`  
+    - mongodb-atlas-backups: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-backups`  
+    - mongodb-atlas-clusters: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-clusters`  
+    - mongodb-atlas-custom-roles: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-custom-roles`  
+    - mongodb-atlas-database-users: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-database-users`  
+    - mongodb-atlas-events: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-events`  
+    - mongodb-atlas-network-access: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-network-access`  
+    - mongodb-atlas-org-activity: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-org-activity`  
+    - mongodb-atlas-org-users: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-org-users`  
+    - mongodb-atlas-projects: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-projects`  
+    - mongodb-atlas-service-accounts: Tag used for all MongoDB Atlas data; necessary for any queries within the Gravwell MongoDB Atlas Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-atlas-service-accounts`  
+
+#### 1.2. [Autoextractors](#1-2-autoextractors)  
+
+- Purpose: Autoextractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The *ax* module then automatically invokes the appropriate functionality of other modules.  
+- [Documentation](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+- The MongoDB Atlas Kit for Gravwell makes use of the following autoextractors:  
+- Total: ***15***  
+    - mongodb-atlas-access: Gravwell-generated JSON extraction for tag mongodb-atlas-access  
+    - mongodb-atlas-activity: Gravwell-generated JSON extraction for tag mongodb-atlas-activity  
+    - mongodb-atlas-alert-configs: Gravwell-generated JSON extraction for tag mongodb-atlas-alert-configs  
+    - mongodb-atlas-alerts: Gravwell-generated JSON extraction for tag mongodb-atlas-alerts  
+    - mongodb-atlas-api-keys: Gravwell-generated JSON extraction for tag mongodb-atlas-api-keys  
+    - mongodb-atlas-backups: Gravwell-generated JSON extraction for tag mongodb-atlas-backups  
+    - mongodb-atlas-clusters: Gravwell-generated JSON extraction for tag mongodb-atlas-clusters  
+    - mongodb-atlas-custom-roles: Gravwell-generated JSON extraction for tag mongodb-atlas-custom-roles  
+    - mongodb-atlas-database-users: Gravwell-generated JSON extraction for tag mongodb-atlas-database-users  
+    - mongodb-atlas-events: Gravwell-generated JSON extraction for tag mongodb-atlas-events  
+    - mongodb-atlas-network-access: Gravwell-generated JSON extraction for tag mongodb-atlas-network-access  
+    - mongodb-atlas-org-activity: Gravwell-generated JSON extraction for tag mongodb-atlas-org-activity  
+    - mongodb-atlas-org-users: Gravwell-generated JSON extraction for tag mongodb-atlas-org-users  
+    - mongodb-atlas-projects: Gravwell-generated JSON extraction for tag mongodb-atlas-projects  
+    - mongodb-atlas-service-accounts: Gravwell-generated JSON extraction for tag mongodb-atlas-service-accounts  
+
+#### 1.3. [Macros](#1-3-macros)  
+
+- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.  
+- [Documentation](<https://docs.gravwell.io/search/macros.html>)  
+- The MongoDB Atlas Kit for Gravwell makes use of the following macros:  
+- Total: ***24***  
+    - GRAVWELL\_INSTANCE: Configuration Macro; Necessary for alerts within the MongoDB Kit to run properly; >:<change_to_your_specific_port>/  
+    - MONGODB\_ATLAS: Configuration Macro; Catch-all tag used for MongoDB Atlas Admin API data.  
+    - MONGODB\_ATLAS\_ACCESS: Configuration Macro; Tag used for MongoDB Atlas database access history API data.  
+    - MONGODB\_ATLAS\_ACTIVITY: Configuration Macro; Tag used for MongoDB Atlas project activity event API data.  
+    - MONGODB\_ATLAS\_ALERT\_CONFIGS: Configuration Macro; Tag used for MongoDB Atlas alert configuration API data.  
+    - MONGODB\_ATLAS\_ALERT\_META: Alert metadata macro for MongoDB Atlas alerts and high-signal Admin API activity.  
+    - MONGODB\_ATLAS\_ALERT\_RECIPIENT: This is the address to which MongoDB Alert Flows will be sent to.  
+    - MONGODB\_ATLAS\_ALERT\_RISK\_LOOKUP: Lookup macro for MongoDB Atlas alert risk grouping and reason enrichment.  
+        - Usage: 
+        ```
+        dump -r mongodb-atlas-alert-risk-catalog eventTypeName eventTypeName (risk reason)
+        ```
+        ```
+        tag=MONGODB_ATLAS ax
+        $MONGODB_ATLAS_ALERT_RISK_LOOKUP
+        ```
+    - MONGODB\_ATLAS\_ALERT\_SENDER: This is the address to which MongoDB Alert Flows will be sent from.  
+    - MONGODB\_ATLAS\_ALERT\_STATUS\_LOOKUP: Lookup macro for MongoDB Atlas alert status descriptions.  
+        - Usage: 
+        ```
+        dump -r mongodb-atlas-alert-statuses status status (description as statusDescription)
+        ```
+        ```
+        tag=MONGODB_ATLAS ax
+        $MONGODB_ATLAS_ALERT_STATUS_LOOKUP
+        ```
+    - MONGODB\_ATLAS\_ALERTS: Configuration Macro; Tag used for MongoDB Atlas alert API data.  
+    - MONGODB\_ATLAS\_API\_KEYS: Configuration Macro; Tag used for MongoDB Atlas organization API key API data.  
+    - MONGODB\_ATLAS\_BACKUPS: Configuration Macro; Tag used for MongoDB Atlas cloud backup snapshot API data.  
+    - MONGODB\_ATLAS\_CLUSTERS: Configuration Macro; Tag used for MongoDB Atlas cluster API data.  
+    - MONGODB\_ATLAS\_CUSTOM\_ROLES: Configuration Macro; Tag used for MongoDB Atlas custom database role API data.  
+    - MONGODB\_ATLAS\_DATABASE\_USERS: Configuration Macro; Tag used for MongoDB Atlas database user API data.  
+    - MONGODB\_ATLAS\_ENRICH\_COMMON: Common MongoDB Atlas Admin API enrichment macro for alerts, dashboards, and investigations.  
+    - MONGODB\_ATLAS\_EVENTS: Configuration Macro; Tag used for MongoDB Atlas project and organization events, including service account event types.  
+    - MONGODB\_ATLAS\_NETWORK\_ACCESS: Configuration Macro; Tag used for MongoDB Atlas project IP access list API data.  
+    - MONGODB\_ATLAS\_ORG\_ACTIVITY: Configuration Macro; Tag used for MongoDB Atlas organization activity event API data.  
+    - MONGODB\_ATLAS\_ORG\_USERS: Configuration Macro; Tag used for MongoDB Atlas organization user API data.  
+    - MONGODB\_ATLAS\_PROJECTS: Configuration Macro; Tag used for MongoDB Atlas project API data.  
+    - MONGODB\_ATLAS\_RISK\_SCORE: Risk scoring macro for MongoDB Atlas alerts, project activity, identity changes, network exposure, backup failures, and degraded infrastructure.  
+    - MONGODB\_ATLAS\_SERVICE\_ACCOUNTS: Configuration Macro; Tag used for MongoDB Atlas service account API data.  
+
+***  
+
+## 2. [Query Library](#2-query-library)  
+
+- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-2-alert-queries), and [playbooks](#7-playbooks).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.  
+    - Total queries: ***418***  
+        - [8.1 Dashboard Searches](#8-1-dashboard-searches): ***372***  
+        - [8.2 Alert Queries](#8-2-alert-queries): ***42***  
+
+***  
+
+## 3. [Naming Schema](#3-naming-schema)  
+
+- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  
+- *QueryType - MongoDB - Atlas - {Logtype} - {Logsubtype} - Name [Visualization - if any]*  
+- Examples:  
+    - Templates: *Template - MongoDB - Atlas - System - Log Types - Category [chart]*  
+    - Searches: *Search - MongoDB - Atlas - System - Log Types - Count by Tag [numbercard]*  
+    - Alert Queries: *AlertQuery - MongoDB Atlas - MongoDB Atlas - Admin API - Atlas Events - Open Critical Atlas Alert [Visualization - if any]*  
+
+***  
+
+## 4. [Resources](#4-resources)  
+
+- Purpose: Resources allow users to store persistent data for use in searches.  
+- [Documentation](<https://docs.gravwell.io/resources/resources.html>)  
+- Total: ***6***  
+
+#### 4.1. [Lookups](#4-1-lookups)  
+
+- Purpose: Lookup Resources are used by the *lookup* module to perform data enrichment and translation off of a static lookup table stored in a resource.  
+- [Documentation](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+- Total: ***6***  
+    - mongodb-atlas-categories: Tag-to-category and subcategory lookup used by the generated MongoDB Atlas General Overview dashboard.  
+    - mongodb-atlas-admin-api-endpoints: Documented Atlas Admin API endpoint-to-tag routing catalog using angle-bracket placeholders.  
+    - mongodb-atlas-admin-api-fields: Documented Atlas Admin API fields used by the MongoDB Atlas autoextractors. Array source paths use .[]. notation.  
+    - mongodb-atlas-alert-statuses: Documented MongoDB Atlas alert status values used by searches and dashboards.  
+    - mongodb-atlas-alert-risk-catalog: Atlas event and alert risk lookup using documented Atlas alert and org event type names.  
+    - mongodb-atlas-event-types: Documented eventTypeName values from the Atlas Admin API Return Events from One Organization eventType parameter.  
+
+***  
+
+## 5. [Alerts](#5-alerts)  
+
+- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+- Total: ***0***  
+
+#### 5.1. [Dispatchers](#5-1-dispatchers)  
+
+- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.  
+    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+- Total: ***42***  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Alert Configurations - Disabled Atlas Alert Configuration [table]: Detects Atlas alert configurations that are disabled, reducing monitoring coverage.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Alerts - Open Atlas Search Node Alert [table]: Detects open Atlas Search alerts for mongot OOM, stopped replication, throttling, and failed index builds.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Alerts - Open Backup or Data Protection Alert [table]: Detects open Atlas alerts for failed snapshots, stale snapshots, failed restores, delayed oplog backup capture, or backup compliance policy disablement.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Alerts - Tracking Critical Atlas Alert [table]: Detects tracking Atlas alerts for critical outage, exposure, disk, backup, replication, and threshold events before they become fully open incidents.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Critical Atlas Alert Configuration Defined [table]: Detects Atlas alert configurations for high-impact events so coverage can be audited and compared against expected baseline.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - OAuth Audit Event Observed [table]: Detects documented MongoDB Atlas OAuth audit events including client, secret, authorization, token, and consent activity.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Open Critical Atlas Alert [table]: Detects open Atlas alerts for infrastructure outage, public exposure, replication, disk, search, backup, and resource policy failures.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Open Security Posture Alert [table]: Detects open Atlas alerts that indicate degraded security posture, missing MFA, exposed hosts, disabled UI access controls, or expiring service account secrets.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Open Threshold or Rate Limit Alert [table]: Detects open Atlas alerts for metric threshold, space threshold, request-rate, billing, or usage-spike conditions.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Billing Spike [table]: Detects organization billing change events over configured thresholds.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Locked Suspended or Temporarily Activated [table]: Detects suspicious organization lock, suspension, temporary activation, or linked-organization changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization MFA Posture Weakened [table]: Detects organization-level MFA posture alerts or MFA requirement changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Role or Federation Change [table]: Detects organization role changes, role mapping changes, federation setting changes, and organization membership restriction changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Service Account Secret Risk [table]: Detects expired or expiring organization service account secrets and maximum secret validity changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization UI or Public API Access List Change [table]: Detects organization UI IP access list disabling/enabling and public API access-list policy changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Service Account Event Observed [table]: Detects MongoDB Atlas service account lifecycle, role, secret, group-assignment, and access-list events from the Atlas events endpoints.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Cloud Backups - Backup Failure Status [table]: Detects backup snapshot records with failed, canceled, expired, or fallback failure statuses.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Client Log Redaction Disabled [table]: Detects clusters where client log redaction is disabled.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Paused [table]: Detects clusters in a paused state.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Unsafe Protection Settings [table]: Detects clusters with point-in-time restore, termination protection, or client-log redaction disabled.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - MongoBleed Affected MongoDB Version Observed [table]: Detects MongoDB Server versions affected by CVE-2025-14847 / MongoBleed in cluster inventory. Atlas was patched by MongoDB, but this flags any reported affected version for review.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Custom Database Roles - Dangerous Custom Database Role Action [table]: Detects custom database roles granting dangerous administrative or destructive actions.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Database Users - High Privilege Database User [table]: Detects Atlas database users with broad administrative MongoDB roles.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Network Access - Temporary Network Access Entry [table]: Detects temporary Atlas network access entries with deleteAfterDate set.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Network Access - World Open Network Access Entry [table]: Detects Atlas network access list entries open to the Internet.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Organization Users - Organization Owner User Present [table]: Detects organization users with owner role assignments for review.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Organization Users - Pending or Invited Organization User [table]: Detects organization users with invited or pending membership states.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Programmatic API Keys - High Privilege API Key [table]: Detects programmatic API keys with owner/admin-style roles.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Alert Configuration Tampering [table]: Detects project activity where alert configurations are changed, disabled, enabled, or deleted.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - API Key Lifecycle or Permission Change [table]: Detects Atlas API key creation, deletion, project membership changes, role changes, description changes, or access-list inheritance changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Atlas Log Download [table]: Detects MongoDB, mongot, or BI Connector log downloads from Atlas.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Backup Control Plane Change [table]: Detects backup compliance disablement, restore requests, snapshot deletion, retention changes, schedule updates, and key backup credential changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Cloud Provider Access Credential Change [table]: Detects AWS IAM role, Azure service principal, or GCP service account changes used for Atlas cloud provider access.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Custom Database Role Lifecycle Change [table]: Detects MongoDB custom database role creation, deletion, or update events.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Database User Lifecycle Change [table]: Detects MongoDB database user creation, deletion, update, or X.509 certificate creation/revocation events.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Maintenance Control Weakened [table]: Detects maintenance deferral, protected hours changes, or maintenance auto-defer changes that can affect patch cadence.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - MongoDB Employee Support Access [table]: Detects MongoDB employee SSH sessions or temporary infrastructure access bypass events.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Network Permission Entry Change [table]: Detects Atlas project network permission entries being added, removed, or updated.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Observability Export Disabled or Changed [table]: Detects S3, OTel, or host external log export changes that could reduce monitoring coverage.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Project Security Checkup Degraded [table]: Detects project events indicating security checkup failures, exposed hosts, or security checkup alert configuration changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Resource Policy Violation or Change [table]: Detects resource policy creation, deletion, modification, or violation events.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Service Accounts - High Privilege Service Account [table]: Detects service accounts with owner/admin-style roles.  
+
+#### 5.2. [Consumers](#5-2-consumers)  
+
+- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.  
+    - Consumers = [Flows](#6-1-flows)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+- Total: ***1***  
+    - Flow - MongoDB Atlas - Email Alerts: Detects when a Scheduled Search has fired and will email the email address input at $MONGODB\_ATLAS\_ALERT\_RECIPIENT from $MONGODB\_ATLAS\_ALERT\_SENDER.  
+
+***  
+
+## 6. [Scheduled Searches](#6-scheduled-searches)  
+
+- Purpose: Scheduled Searches are typically dependent on *AlertQuery - MongoDB Atlas - ...* queries within the [Query Library](#2-query-library).  
+- [Documentation](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+- Total: ***42***  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Alert Configurations - Disabled Atlas Alert Configuration [table]: Detects Atlas alert configurations that are disabled, reducing monitoring coverage.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Alerts - Open Atlas Search Node Alert [table]: Detects open Atlas Search alerts for mongot OOM, stopped replication, throttling, and failed index builds.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Alerts - Open Backup or Data Protection Alert [table]: Detects open Atlas alerts for failed snapshots, stale snapshots, failed restores, delayed oplog backup capture, or backup compliance policy disablement.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Alerts - Tracking Critical Atlas Alert [table]: Detects tracking Atlas alerts for critical outage, exposure, disk, backup, replication, and threshold events before they become fully open incidents.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Critical Atlas Alert Configuration Defined [table]: Detects Atlas alert configurations for high-impact events so coverage can be audited and compared against expected baseline.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - OAuth Audit Event Observed [table]: Detects documented MongoDB Atlas OAuth audit events including client, secret, authorization, token, and consent activity.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Open Critical Atlas Alert [table]: Detects open Atlas alerts for infrastructure outage, public exposure, replication, disk, search, backup, and resource policy failures.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Open Security Posture Alert [table]: Detects open Atlas alerts that indicate degraded security posture, missing MFA, exposed hosts, disabled UI access controls, or expiring service account secrets.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Open Threshold or Rate Limit Alert [table]: Detects open Atlas alerts for metric threshold, space threshold, request-rate, billing, or usage-spike conditions.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Billing Spike [table]: Detects organization billing change events over configured thresholds.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Locked Suspended or Temporarily Activated [table]: Detects suspicious organization lock, suspension, temporary activation, or linked-organization changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization MFA Posture Weakened [table]: Detects organization-level MFA posture alerts or MFA requirement changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Role or Federation Change [table]: Detects organization role changes, role mapping changes, federation setting changes, and organization membership restriction changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Service Account Secret Risk [table]: Detects expired or expiring organization service account secrets and maximum secret validity changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization UI or Public API Access List Change [table]: Detects organization UI IP access list disabling/enabling and public API access-list policy changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Service Account Event Observed [table]: Detects MongoDB Atlas service account lifecycle, role, secret, group-assignment, and access-list events from the Atlas events endpoints.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Cloud Backups - Backup Failure Status [table]: Detects backup snapshot records with failed, canceled, expired, or fallback failure statuses.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Client Log Redaction Disabled [table]: Detects clusters where client log redaction is disabled.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Paused [table]: Detects clusters in a paused state.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Unsafe Protection Settings [table]: Detects clusters with point-in-time restore, termination protection, or client-log redaction disabled.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - MongoBleed Affected MongoDB Version Observed [table]: Detects MongoDB Server versions affected by CVE-2025-14847 / MongoBleed in cluster inventory. Atlas was patched by MongoDB, but this flags any reported affected version for review.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Custom Database Roles - Dangerous Custom Database Role Action [table]: Detects custom database roles granting dangerous administrative or destructive actions.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Database Users - High Privilege Database User [table]: Detects Atlas database users with broad administrative MongoDB roles.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Network Access - Temporary Network Access Entry [table]: Detects temporary Atlas network access entries with deleteAfterDate set.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Network Access - World Open Network Access Entry [table]: Detects Atlas network access list entries open to the Internet.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Organization Users - Organization Owner User Present [table]: Detects organization users with owner role assignments for review.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Organization Users - Pending or Invited Organization User [table]: Detects organization users with invited or pending membership states.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Programmatic API Keys - High Privilege API Key [table]: Detects programmatic API keys with owner/admin-style roles.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Alert Configuration Tampering [table]: Detects project activity where alert configurations are changed, disabled, enabled, or deleted.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - API Key Lifecycle or Permission Change [table]: Detects Atlas API key creation, deletion, project membership changes, role changes, description changes, or access-list inheritance changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Atlas Log Download [table]: Detects MongoDB, mongot, or BI Connector log downloads from Atlas.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Backup Control Plane Change [table]: Detects backup compliance disablement, restore requests, snapshot deletion, retention changes, schedule updates, and key backup credential changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Cloud Provider Access Credential Change [table]: Detects AWS IAM role, Azure service principal, or GCP service account changes used for Atlas cloud provider access.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Custom Database Role Lifecycle Change [table]: Detects MongoDB custom database role creation, deletion, or update events.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Database User Lifecycle Change [table]: Detects MongoDB database user creation, deletion, update, or X.509 certificate creation/revocation events.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Maintenance Control Weakened [table]: Detects maintenance deferral, protected hours changes, or maintenance auto-defer changes that can affect patch cadence.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - MongoDB Employee Support Access [table]: Detects MongoDB employee SSH sessions or temporary infrastructure access bypass events.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Network Permission Entry Change [table]: Detects Atlas project network permission entries being added, removed, or updated.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Observability Export Disabled or Changed [table]: Detects S3, OTel, or host external log export changes that could reduce monitoring coverage.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Project Security Checkup Degraded [table]: Detects project events indicating security checkup failures, exposed hosts, or security checkup alert configuration changes.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Resource Policy Violation or Change [table]: Detects resource policy creation, deletion, modification, or violation events.  
+    - ScheduledSearch - MongoDB - Atlas - Admin API - Service Accounts - High Privilege Service Account [table]: Detects service accounts with owner/admin-style roles.  
+
+#### 6.1. [Flows](#6-1-flows)  
+
+- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.  
+- [Documentation](<https://docs.gravwell.io/flows/flows.html>)  
+- Total: ***1***  
+    - Flow - MongoDB Atlas - Email Alerts: Detects when a Scheduled Search has fired and will email the email address input at $MONGODB\_ATLAS\_ALERT\_RECIPIENT from $MONGODB\_ATLAS\_ALERT\_SENDER.  
+
+***  
+
+## 7. [Playbooks](#7-playbooks)  
+
+- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.  
+- [Documentation](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+- Total: ***2***  
+    - MongoDB Atlas Kit - Overview: Overview of the items included in the MongoDB Atlas Kit.  
+    - MongoDB Atlas Kit - Readme: A toolkit for interacting with MongoDB Atlas data.  
+
+#### 7.1. [Files](#7-1-files)  
+
+- Purpose: Gravwell users can upload small files for use in playbooks, as cover images for kits, etc. Typically, these files are created or selected at the point of use: via a picker in the playbook editor, in the kit builder, etc.  
+- [Documentation](<https://docs.gravwell.io/gui/files/files.html>)  
+- Total: ***0***  
+
+***  
+
+## 8. [Searches](#8-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view MongoDB Atlas data in an easily digestible format or [scheduled searches](#6-scheduled-searches) to ultimately feed [alerts](#5-alerts).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+- Total: ***418***  
+    - Dashboard Search Total: ***376***  
+    - Alert Query Total: ***42***  
+
+#### 8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view MongoDB Atlas data in an easily digestible format.  
+- Total: ***376***  
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Auth Result [chart]: This displays a chart of all Auth Result (authResult) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Auth Result [numbercard]: This displays a numbercard of all MongoDB Auth Result (authResult) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Auth Source [chart]: This displays a chart of all Auth Source (authSource) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Auth Source [numbercard]: This displays a numbercard of all MongoDB Auth Source (authSource) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Failure Reason [chart]: This displays a chart of all Failure Reason (failureReason) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Failure Reason [numbercard]: This displays a numbercard of all MongoDB Failure Reason (failureReason) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Hostname [chart]: This displays a chart of all Hostname (hostname) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Hostname [numbercard]: This displays a numbercard of all MongoDB Hostname (hostname) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by IP Address [chart]: This displays a chart of all IP Address (ipAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by IP Address [numbercard]: This displays a numbercard of all MongoDB IP Address (ipAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Username [chart]: This displays a chart of all Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Count by Username [numbercard]: This displays a numbercard of all MongoDB Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Rare Auth Result [numbercard]: This displays the bottom Auth Result (authResult) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Rare Auth Source [numbercard]: This displays the bottom Auth Source (authSource) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Rare Group ID [numbercard]: This displays the bottom Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Rare Username [numbercard]: This displays the bottom Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Top Auth Result [numbercard]: This displays the top Auth Result (authResult) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Top Auth Source [numbercard]: This displays the top Auth Source (authSource) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Top Group ID [numbercard]: This displays the top Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Top Username [numbercard]: This displays the top Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Access Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by API Key ID [chart]: This displays a chart of all API Key ID (apiKeyId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by API Key ID [numbercard]: This displays a numbercard of all MongoDB API Key ID (apiKeyId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Event Type Name [chart]: This displays a chart of all Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Event Type Name [numbercard]: This displays a numbercard of all MongoDB Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Is Global Admin [chart]: This displays a chart of all Is Global Admin (isGlobalAdmin) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Is Global Admin [numbercard]: This displays a numbercard of all MongoDB Is Global Admin (isGlobalAdmin) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Org ID [chart]: This displays a chart of all Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Org ID [numbercard]: This displays a numbercard of all MongoDB Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Public Key [chart]: This displays a chart of all Public Key (publicKey) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Public Key [numbercard]: This displays a numbercard of all MongoDB Public Key (publicKey) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Remote Address [chart]: This displays a chart of all Remote Address (remoteAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Remote Address [numbercard]: This displays a numbercard of all MongoDB Remote Address (remoteAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Username [chart]: This displays a chart of all Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Username [numbercard]: This displays a numbercard of all MongoDB Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Rare Event Type Name [numbercard]: This displays the bottom Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Rare Group ID [numbercard]: This displays the bottom Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Rare Org ID [numbercard]: This displays the bottom Org ID (orgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Rare Username [numbercard]: This displays the bottom Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Top Event Type Name [numbercard]: This displays the top Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Top Group ID [numbercard]: This displays the top Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Top Org ID [numbercard]: This displays the top Org ID (orgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Top Username [numbercard]: This displays the top Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Activity Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Enabled [chart]: This displays a chart of all Enabled (enabled) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Enabled [numbercard]: This displays a numbercard of all MongoDB Enabled (enabled) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Event Type Name [chart]: This displays a chart of all Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Event Type Name [numbercard]: This displays a numbercard of all MongoDB Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Metric Name [chart]: This displays a chart of all Metric Name (metricName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Metric Name [numbercard]: This displays a numbercard of all MongoDB Metric Name (metricName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Notification Type [chart]: This displays a chart of all Notification Type (notificationType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Notification Type [numbercard]: This displays a numbercard of all MongoDB Notification Type (notificationType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Matcher Field Name [chart]: This displays a chart of all Matcher Field Name (matcherFieldName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Matcher Field Name [numbercard]: This displays a numbercard of all MongoDB Matcher Field Name (matcherFieldName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Matcher Operator [chart]: This displays a chart of all Matcher Operator (matcherOperator) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Matcher Operator [numbercard]: This displays a numbercard of all MongoDB Matcher Operator (matcherOperator) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Threshold [chart]: This displays a chart of all Threshold (threshold) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Threshold [numbercard]: This displays a numbercard of all MongoDB Threshold (threshold) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Rare Enabled [numbercard]: This displays the bottom Enabled (enabled) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Rare Event Type Name [numbercard]: This displays the bottom Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Rare Group ID [numbercard]: This displays the bottom Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Rare Notification Type [numbercard]: This displays the bottom Notification Type (notificationType) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Top Enabled [numbercard]: This displays the top Enabled (enabled) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Top Event Type Name [numbercard]: This displays the top Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Top Group ID [numbercard]: This displays the top Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Top Notification Type [numbercard]: This displays the top Notification Type (notificationType) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Acknowledging Username [chart]: This displays a chart of all Acknowledging Username (acknowledgingUsername) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Acknowledging Username [numbercard]: This displays a numbercard of all MongoDB Acknowledging Username (acknowledgingUsername) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Event Type Name [chart]: This displays a chart of all Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Event Type Name [numbercard]: This displays a numbercard of all MongoDB Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Hostname [chart]: This displays a chart of all Hostname (hostname) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Hostname [numbercard]: This displays a numbercard of all MongoDB Hostname (hostname) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Metric Name [chart]: This displays a chart of all Metric Name (metricName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Metric Name [numbercard]: This displays a numbercard of all MongoDB Metric Name (metricName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Replica Set Name [chart]: This displays a chart of all Replica Set Name (replicaSetName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Replica Set Name [numbercard]: This displays a numbercard of all MongoDB Replica Set Name (replicaSetName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Status [chart]: This displays a chart of all Status (status) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Status [numbercard]: This displays a numbercard of all MongoDB Status (status) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Acknowledging Username [chart]: This displays a chart of all Acknowledging Username (acknowledgingUsername) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Acknowledging Username [numbercard]: This displays a numbercard of all MongoDB Acknowledging Username (acknowledgingUsername) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Rare Event Type Name [numbercard]: This displays the bottom Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Rare Group ID [numbercard]: This displays the bottom Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Rare Status [numbercard]: This displays the bottom Status (status) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Rare Acknowledging Username [numbercard]: This displays the bottom Acknowledging Username (acknowledgingUsername) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Top Event Type Name [numbercard]: This displays the top Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Top Group ID [numbercard]: This displays the top Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Top Status [numbercard]: This displays the top Status (status) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Top Acknowledging Username [numbercard]: This displays the top Acknowledging Username (acknowledgingUsername) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Alerts Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Desc [chart]: This displays a chart of all Desc (desc) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Description [numbercard]: This displays a numbercard of all MongoDB Desc (desc) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Public Key [chart]: This displays a chart of all Public Key (publicKey) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Public Key [numbercard]: This displays a numbercard of all MongoDB Public Key (publicKey) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Group ID [chart]: This displays a chart of all Role Group ID (roleGroupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Group ID [numbercard]: This displays a numbercard of all Role Group ID (roleGroupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Name [chart]: This displays a chart of all Role Name (roleName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Name [numbercard]: This displays a numbercard of all Role Name (roleName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Org ID [chart]: This displays a chart of all Role Org ID (roleOrgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Org ID [numbercard]: This displays a numbercard of all Role Org ID (roleOrgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Rare Public Key [numbercard]: This displays the bottom Public Key (publicKey) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Rare Role Group ID [numbercard]: This displays the bottom Role Group ID (roleGroupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Rare Role Name [numbercard]: This displays the bottom Role Name (roleName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Rare Role Org ID [numbercard]: This displays the bottom Role Org ID (roleOrgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Top Public Key [numbercard]: This displays the top Public Key (publicKey) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Top Role Group ID [numbercard]: This displays the top Role Group ID (roleGroupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Top Role Name [numbercard]: This displays the top Role Name (roleName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Top Role Org ID [numbercard]: This displays the top Role Org ID (roleOrgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - API Keys Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Event Type Name [chart]: This displays a chart of all Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Event Type Name [numbercard]: This displays a numbercard of all MongoDB Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Org ID [chart]: This displays a chart of all Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Org ID [numbercard]: This displays a numbercard of all MongoDB Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Remote Address [chart]: This displays a chart of all Remote Address (remoteAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Remote Address [numbercard]: This displays a numbercard of all MongoDB Remote Address (remoteAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Username [chart]: This displays a chart of all Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Username [numbercard]: This displays a numbercard of all MongoDB Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Rare Event Type Name [numbercard]: This displays the bottom Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Rare Public Key [numbercard]: This displays the bottom Public Key (publicKey) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Rare Remote Address [numbercard]: This displays the bottom Remote Address (remoteAddress) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Rare Username [numbercard]: This displays the bottom Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Top Event Type Name [numbercard]: This displays the top Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Top Public Key [numbercard]: This displays the top Public Key (publicKey) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Top Remote Address [numbercard]: This displays the top Remote Address (remoteAddress) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Top Username [numbercard]: This displays the top Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Cloud Provider [chart]: This displays a chart of all Cloud Provider (cloudProvider) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Cloud Provider [numbercard]: This displays a numbercard of all MongoDB Cloud Provider (cloudProvider) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Frequency Type [chart]: This displays a chart of all Frequency Type (frequencyType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Frequency Type [numbercard]: This displays a numbercard of all MongoDB Frequency Type (frequencyType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Mongod Version [chart]: This displays a chart of all Mongod Version (mongodVersion) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Mongod Version [numbercard]: This displays a numbercard of all MongoDB Mongod Version (mongodVersion) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Replica Set Name [chart]: This displays a chart of all Replica Set Name (replicaSetName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Replica Set Name [numbercard]: This displays a numbercard of all MongoDB Replica Set Name (replicaSetName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Snapshot Type [chart]: This displays a chart of all Snapshot Type (snapshotType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Snapshot Type [numbercard]: This displays a numbercard of all MongoDB Snapshot Type (snapshotType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Status [chart]: This displays a chart of all Status (status) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Status [numbercard]: This displays a numbercard of all MongoDB Status (status) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Type [chart]: This displays a chart of all Type (type) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Type [numbercard]: This displays a numbercard of all MongoDB Type (type) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Rare Frequency Type [numbercard]: This displays the bottom Frequency Type (frequencyType) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Rare Replica Set Name [numbercard]: This displays the bottom Replica Set Name (replicaSetName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Rare Snapshot Type [numbercard]: This displays the bottom Snapshot Type (snapshotType) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Rare Status [numbercard]: This displays the bottom Status (status) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Top Frequency Type [numbercard]: This displays the top Frequency Type (frequencyType) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Top Replica Set Name [numbercard]: This displays the top Replica Set Name (replicaSetName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Top Snapshot Type [numbercard]: This displays the top Snapshot Type (snapshotType) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Top Status [numbercard]: This displays the top Status (status) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Backups Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Mongo DB Major Version [chart]: This displays a chart of all Mongo DB Major Version (mongoDBMajorVersion) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Mongo DB Version [chart]: This displays a chart of all Mongo DB Version (mongoDBVersion) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by MongoDB Major Version [numbercard]: This displays a numbercard of all MongoDB Mongo DB Major Version (mongoDBMajorVersion) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by MongoDB Version [numbercard]: This displays a numbercard of all MongoDB Mongo DB Version (mongoDBVersion) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Name [chart]: This displays a chart of all Name (name) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Name [numbercard]: This displays a numbercard of all MongoDB Name (name) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Paused [chart]: This displays a chart of all Paused (paused) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Paused [numbercard]: This displays a numbercard of all MongoDB Paused (paused) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Pit Enabled [chart]: This displays a chart of all Pit Enabled (pitEnabled) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by PIT Enabled [numbercard]: This displays a numbercard of all MongoDB Pit Enabled (pitEnabled) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by State Name [chart]: This displays a chart of all State Name (stateName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by State Name [numbercard]: This displays a numbercard of all MongoDB State Name (stateName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Termination Protection Enabled [chart]: This displays a chart of all Termination Protection Enabled (terminationProtectionEnabled) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Termination Protection Enabled [numbercard]: This displays a numbercard of all MongoDB Termination Protection Enabled (terminationProtectionEnabled) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Rare Group ID [numbercard]: This displays the bottom Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Rare Mongo DB Major Version [numbercard]: This displays the bottom Mongo DB Major Version (mongoDBMajorVersion) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Rare Name [numbercard]: This displays the bottom Name (name) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Rare State Name [numbercard]: This displays the bottom State Name (stateName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Top Group ID [numbercard]: This displays the top Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Top Mongo DB Major Version [numbercard]: This displays the top Mongo DB Major Version (mongoDBMajorVersion) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Top Name [numbercard]: This displays the top Name (name) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Top State Name [numbercard]: This displays the top State Name (stateName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Clusters Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Action [chart]: This displays a chart of all Action (action) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Action [numbercard]: This displays a numbercard of all Action (action) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Inherited Role [chart]: This displays a chart of all Inherited Role (inheritedRole) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Inherited Role [numbercard]: This displays a numbercard of all Inherited Role (inheritedRole) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Inherited Role Database [chart]: This displays a chart of all Inherited Role Database (inheritedRoleDatabase) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Inherited Role Database [numbercard]: This displays a numbercard of all Inherited Role Database (inheritedRoleDatabase) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Role Name [chart]: This displays a chart of all Role Name (roleName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Role Name [numbercard]: This displays a numbercard of all MongoDB Role Name (roleName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Rare Action [numbercard]: This displays the bottom Action (action) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Rare Inherited Role [numbercard]: This displays the bottom Inherited Role (inheritedRole) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Rare Inherited Role Database [numbercard]: This displays the bottom Inherited Role Database (inheritedRoleDatabase) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Rare Role Name [numbercard]: This displays the bottom Role Name (roleName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Top Action [numbercard]: This displays the top Action (action) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Top Inherited Role [numbercard]: This displays the top Inherited Role (inheritedRole) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Top Inherited Role Database [numbercard]: This displays the top Inherited Role Database (inheritedRoleDatabase) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Top Role Name [numbercard]: This displays the top Role Name (roleName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Database Name [chart]: This displays a chart of all Database Name (databaseName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Database Name [numbercard]: This displays a numbercard of all MongoDB Database Name (databaseName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Ldap Auth Type [chart]: This displays a chart of all Ldap Auth Type (ldapAuthType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by LDAP Auth Type [numbercard]: This displays a numbercard of all MongoDB Ldap Auth Type (ldapAuthType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Oidc Auth Type [chart]: This displays a chart of all Oidc Auth Type (oidcAuthType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by OIDC Auth Type [numbercard]: This displays a numbercard of all MongoDB Oidc Auth Type (oidcAuthType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Role Database [chart]: This displays a chart of all Role Database (roleDatabase) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Role Database [numbercard]: This displays a numbercard of all Role Database (roleDatabase) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Role Name [chart]: This displays a chart of all Role Name (roleName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Role Name [numbercard]: This displays a numbercard of all Role Name (roleName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Scope Type [chart]: This displays a chart of all Scope Type (scopeType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Scope Type [numbercard]: This displays a numbercard of all Scope Type (scopeType) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Username [chart]: This displays a chart of all Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Username [numbercard]: This displays a numbercard of all MongoDB Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Rare Database Name [numbercard]: This displays the bottom Database Name (databaseName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Rare Role Name [numbercard]: This displays the bottom Role Name (roleName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Rare Username [numbercard]: This displays the bottom Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Top Database Name [numbercard]: This displays the top Database Name (databaseName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Top Role Name [numbercard]: This displays the top Role Name (roleName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Top Username [numbercard]: This displays the top Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Aws Security Group [chart]: This displays a chart of all Aws Security Group (awsSecurityGroup) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by AWS Security Group [numbercard]: This displays a numbercard of all MongoDB Aws Security Group (awsSecurityGroup) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Cidr Block [chart]: This displays a chart of all Cidr Block (cidrBlock) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by CIDR Block [numbercard]: This displays a numbercard of all MongoDB Cidr Block (cidrBlock) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Comment [chart]: This displays a chart of all Comment (comment) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Comment [numbercard]: This displays a numbercard of all MongoDB Comment (comment) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Delete After Date [chart]: This displays a chart of all Delete After Date (deleteAfterDate) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Delete After Date [numbercard]: This displays a numbercard of all MongoDB Delete After Date (deleteAfterDate) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by IP Address [chart]: This displays a chart of all IP Address (ipAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by IP Address [numbercard]: This displays a numbercard of all MongoDB IP Address (ipAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Rare Aws Security Group [numbercard]: This displays the bottom Aws Security Group (awsSecurityGroup) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Rare Cidr Block [numbercard]: This displays the bottom Cidr Block (cidrBlock) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Rare Group ID [numbercard]: This displays the bottom Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Rare IP Address [numbercard]: This displays the bottom IP Address (ipAddress) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Top Aws Security Group [numbercard]: This displays the top Aws Security Group (awsSecurityGroup) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Top Cidr Block [numbercard]: This displays the top Cidr Block (cidrBlock) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Top Group ID [numbercard]: This displays the top Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Top IP Address [numbercard]: This displays the top IP Address (ipAddress) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Network Access Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by API Key ID [chart]: This displays a chart of all API Key ID (apiKeyId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by API Key ID [numbercard]: This displays a numbercard of all MongoDB API Key ID (apiKeyId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Event Type Name [chart]: This displays a chart of all Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Event Type Name [numbercard]: This displays a numbercard of all MongoDB Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Is Global Admin [chart]: This displays a chart of all Is Global Admin (isGlobalAdmin) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Is Global Admin [numbercard]: This displays a numbercard of all MongoDB Is Global Admin (isGlobalAdmin) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Org ID [chart]: This displays a chart of all Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Org ID [numbercard]: This displays a numbercard of all MongoDB Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Public Key [chart]: This displays a chart of all Public Key (publicKey) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Public Key [numbercard]: This displays a numbercard of all MongoDB Public Key (publicKey) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Remote Address [chart]: This displays a chart of all Remote Address (remoteAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Remote Address [numbercard]: This displays a numbercard of all MongoDB Remote Address (remoteAddress) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Username [chart]: This displays a chart of all Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Username [numbercard]: This displays a numbercard of all MongoDB Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Rare Event Type Name [numbercard]: This displays the bottom Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Rare Is Global Admin [numbercard]: This displays the bottom Is Global Admin (isGlobalAdmin) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Rare Org ID [numbercard]: This displays the bottom Org ID (orgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Rare Username [numbercard]: This displays the bottom Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Top Event Type Name [numbercard]: This displays the top Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Top Is Global Admin [numbercard]: This displays the top Is Global Admin (isGlobalAdmin) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Top Org ID [numbercard]: This displays the top Org ID (orgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Top Username [numbercard]: This displays the top Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Activity Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Group Roles [chart]: This displays a chart of all Group Roles (groupRoles) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Group Roles [numbercard]: This displays a numbercard of all Group Roles (groupRoles) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Org Membership Status [chart]: This displays a chart of all Org Membership Status (orgMembershipStatus) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Org Membership Status [numbercard]: This displays a numbercard of all MongoDB Org Membership Status (orgMembershipStatus) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Org Roles [chart]: This displays a chart of all Org Roles (orgRoles) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Org Roles [numbercard]: This displays a numbercard of all Org Roles (orgRoles) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Role Group ID [chart]: This displays a chart of all Role Group ID (roleGroupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Role Group ID [numbercard]: This displays a numbercard of all Role Group ID (roleGroupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Username [chart]: This displays a chart of all Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Username [numbercard]: This displays a numbercard of all MongoDB Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Rare Org Membership Status [numbercard]: This displays the bottom Org Membership Status (orgMembershipStatus) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Rare Org Roles [numbercard]: This displays the bottom Org Roles (orgRoles) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Rare Role Group ID [numbercard]: This displays the bottom Role Group ID (roleGroupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Rare Username [numbercard]: This displays the bottom Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Top Org Membership Status [numbercard]: This displays the top Org Membership Status (orgMembershipStatus) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Top Org Roles [numbercard]: This displays the top Org Roles (orgRoles) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Top Role Group ID [numbercard]: This displays the top Role Group ID (roleGroupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Top Username [numbercard]: This displays the top Username (username) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Org Users Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Event Type Name [chart]: This displays a chart of all Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Event Type Name [numbercard]: This displays a numbercard of all MongoDB Event Type Name (eventTypeName) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Name [chart]: This displays a chart of all Name (name) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Name [numbercard]: This displays a numbercard of all MongoDB Name (name) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Org ID [chart]: This displays a chart of all Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Org ID [numbercard]: This displays a numbercard of all MongoDB Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Public Key [chart]: This displays a chart of all Public Key (publicKey) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Public Key [numbercard]: This displays a numbercard of all MongoDB Public Key (publicKey) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Status [chart]: This displays a chart of all Status (status) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Status [numbercard]: This displays a numbercard of all MongoDB Status (status) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Username [chart]: This displays a chart of all Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Count by Username [numbercard]: This displays a numbercard of all MongoDB Username (username) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Rare Event Type Name [numbercard]: This displays the bottom Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Rare Group ID [numbercard]: This displays the bottom Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Rare Org ID [numbercard]: This displays the bottom Org ID (orgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Rare Status [numbercard]: This displays the bottom Status (status) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Top Event Type Name [numbercard]: This displays the top Event Type Name (eventTypeName) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Top Group ID [numbercard]: This displays the top Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Top Org ID [numbercard]: This displays the top Org ID (orgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Top Status [numbercard]: This displays the top Status (status) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Cluster Count [chart]: This displays a chart of all Cluster Count (clusterCount) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Cluster Count [numbercard]: This displays a numbercard of all MongoDB Cluster Count (clusterCount) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Name [chart]: This displays a chart of all Name (name) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Name [numbercard]: This displays a numbercard of all MongoDB Name (name) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Org ID [chart]: This displays a chart of all Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Org ID [numbercard]: This displays a numbercard of all MongoDB Org ID (orgId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Region Usage Restrictions [chart]: This displays a chart of all Region Usage Restrictions (regionUsageRestrictions) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Region Usage Restrictions [numbercard]: This displays a numbercard of all MongoDB Region Usage Restrictions (regionUsageRestrictions) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Rare Cluster Count [numbercard]: This displays the bottom Cluster Count (clusterCount) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Rare Name [numbercard]: This displays the bottom Name (name) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Rare Org ID [numbercard]: This displays the bottom Org ID (orgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Rare Region Usage Restrictions [numbercard]: This displays the bottom Region Usage Restrictions (regionUsageRestrictions) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Top Cluster Count [numbercard]: This displays the top Cluster Count (clusterCount) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Top Name [numbercard]: This displays the top Name (name) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Top Org ID [numbercard]: This displays the top Org ID (orgId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Top Region Usage Restrictions [numbercard]: This displays the top Region Usage Restrictions (regionUsageRestrictions) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Projects Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Client ID [chart]: This displays a chart of all Client ID (clientId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Client ID [numbercard]: This displays a numbercard of all MongoDB Client ID (clientId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Masked Secret Value [chart]: This displays a chart of all Masked Secret Value (maskedSecretValue) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Masked Secret Value [numbercard]: This displays a numbercard of all Masked Secret Value (maskedSecretValue) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Name [chart]: This displays a chart of all Name (name) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Name [numbercard]: This displays a numbercard of all MongoDB Name (name) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Roles [chart]: This displays a chart of all Roles (roles) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Roles [numbercard]: This displays a numbercard of all Roles (roles) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Secret ID [chart]: This displays a chart of all Secret ID (secretId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Secret ID [numbercard]: This displays a numbercard of all Secret ID (secretId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Rare Client ID [numbercard]: This displays the bottom Client ID (clientId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Rare Name [numbercard]: This displays the bottom Name (name) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Rare Roles [numbercard]: This displays the bottom Roles (roles) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Top Client ID [numbercard]: This displays the top Client ID (clientId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Top Name [numbercard]: This displays the top Name (name) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Top Roles [numbercard]: This displays the top Roles (roles) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Total Events [chart]: This displays a chart of all MongoDB values by count. 
+    - Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count. 
+    - Search - MongoDB - Atlas - System - Log Types - Count by Category & Subcategory [chart]: This displays a chart of all MongoDB Category & Subcategory values by count. 
+    - Search - MongoDB - Atlas - System - Log Types - Count by Category & Subcategory [numbercard]: This displays a numbercard of all MongoDB Category & Subcategory values by count. 
+    - Search - MongoDB - Atlas - System - Log Types - Count by Category [chart]: This displays a chart of all MongoDB Category values by count. 
+    - Search - MongoDB - Atlas - System - Log Types - Count by Category [numbercard]: This displays a numbercard of all MongoDB Category values by count. 
+    - Search - MongoDB - Atlas - System - Log Types - Count by Subcategory [chart]: This displays a chart of all MongoDB Subcategory values by count. 
+    - Search - MongoDB - Atlas - System - Log Types - Count by Subcategory [numbercard]: This displays a numbercard of all MongoDB Subcategory values by count. 
+    - Search - MongoDB - Atlas - System - Log Types - Count by Tag [chart]: This displays a chart of all MongoDB Tag values by count. 
+    - Search - MongoDB - Atlas - System - Log Types - Count by Tag [numbercard]: This displays a numbercard of all MongoDB Tag values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Rare Group ID [numbercard]: This displays the bottom Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Group ID [numbercard]: This displays a numbercard of all MongoDB Group ID (groupId) values by count. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Top Group ID [numbercard]: This displays the top Group ID (groupId) during the specified timeframe. 
+    - Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Group ID [chart]: This displays a chart of all Group ID (groupId) values by count. 
+- Naming Schema: *Search - MongoDB - Atlas - System - Log Types - Count by Tag [numbercard]*  
+
+#### 8.2. [Alert Queries](#8-2-alert-queries)  
+
+- Purpose: These queries within the Query Library drive [scheduled searches](#6-scheduled-searches) which ultimately feed [alerts](#5-alerts).  
+- IMPORTANT: If you need to update or tune, this is where you perform that action.  
+- Total: ***42***  
+    - AlertQuery - MongoDB - Atlas - Admin API - Alert Configurations - Disabled Atlas Alert Configuration [table]: Detects Atlas alert configurations that are disabled, reducing monitoring coverage.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Alerts - Open Atlas Search Node Alert [table]: Detects open Atlas Search alerts for mongot OOM, stopped replication, throttling, and failed index builds.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Alerts - Open Backup or Data Protection Alert [table]: Detects open Atlas alerts for failed snapshots, stale snapshots, failed restores, delayed oplog backup capture, or backup compliance policy disablement.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Alerts - Tracking Critical Atlas Alert [table]: Detects tracking Atlas alerts for critical outage, exposure, disk, backup, replication, and threshold events before they become fully open incidents.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Critical Atlas Alert Configuration Defined [table]: Detects Atlas alert configurations for high-impact events so coverage can be audited and compared against expected baseline.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - OAuth Audit Event Observed [table]: Detects documented MongoDB Atlas OAuth audit events including client, secret, authorization, token, and consent activity.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Open Critical Atlas Alert [table]: Detects open Atlas alerts for infrastructure outage, public exposure, replication, disk, search, backup, and resource policy failures.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Open Security Posture Alert [table]: Detects open Atlas alerts that indicate degraded security posture, missing MFA, exposed hosts, disabled UI access controls, or expiring service account secrets.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Open Threshold or Rate Limit Alert [table]: Detects open Atlas alerts for metric threshold, space threshold, request-rate, billing, or usage-spike conditions.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Billing Spike [table]: Detects organization billing change events over configured thresholds.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Locked Suspended or Temporarily Activated [table]: Detects suspicious organization lock, suspension, temporary activation, or linked-organization changes.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization MFA Posture Weakened [table]: Detects organization-level MFA posture alerts or MFA requirement changes.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Role or Federation Change [table]: Detects organization role changes, role mapping changes, federation setting changes, and organization membership restriction changes.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Service Account Secret Risk [table]: Detects expired or expiring organization service account secrets and maximum secret validity changes.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization UI or Public API Access List Change [table]: Detects organization UI IP access list disabling/enabling and public API access-list policy changes.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Service Account Event Observed [table]: Detects MongoDB Atlas service account lifecycle, role, secret, group-assignment, and access-list events from the Atlas events endpoints.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Cloud Backups - Backup Failure Status [table]: Detects backup snapshot records with failed, canceled, expired, or fallback failure statuses.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Clusters - Cluster Client Log Redaction Disabled [table]: Detects clusters where client log redaction is disabled.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Clusters - Cluster Paused [table]: Detects clusters in a paused state.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Clusters - Cluster Unsafe Protection Settings [table]: Detects clusters with point-in-time restore, termination protection, or client-log redaction disabled.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Clusters - MongoBleed Affected MongoDB Version Observed [table]: Detects MongoDB Server versions affected by CVE-2025-14847 / MongoBleed in cluster inventory. Atlas was patched by MongoDB, but this flags any reported affected version for review.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Custom Database Roles - Dangerous Custom Database Role Action [table]: Detects custom database roles granting dangerous administrative or destructive actions.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Database Users - High Privilege Database User [table]: Detects Atlas database users with broad administrative MongoDB roles.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Network Access - Temporary Network Access Entry [table]: Detects temporary Atlas network access entries with deleteAfterDate set.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Network Access - World Open Network Access Entry [table]: Detects Atlas network access list entries open to the Internet.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Organization Users - Organization Owner User Present [table]: Detects organization users with owner role assignments for review.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Organization Users - Pending or Invited Organization User [table]: Detects organization users with invited or pending membership states.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Programmatic API Keys - High Privilege API Key [table]: Detects programmatic API keys with owner/admin-style roles.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Alert Configuration Tampering [table]: Detects project activity where alert configurations are changed, disabled, enabled, or deleted.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - API Key Lifecycle or Permission Change [table]: Detects Atlas API key creation, deletion, project membership changes, role changes, description changes, or access-list inheritance changes.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Atlas Log Download [table]: Detects MongoDB, mongot, or BI Connector log downloads from Atlas.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Backup Control Plane Change [table]: Detects backup compliance disablement, restore requests, snapshot deletion, retention changes, schedule updates, and key backup credential changes.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Cloud Provider Access Credential Change [table]: Detects AWS IAM role, Azure service principal, or GCP service account changes used for Atlas cloud provider access.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Custom Database Role Lifecycle Change [table]: Detects MongoDB custom database role creation, deletion, or update events.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Database User Lifecycle Change [table]: Detects MongoDB database user creation, deletion, update, or X.509 certificate creation/revocation events.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Maintenance Control Weakened [table]: Detects maintenance deferral, protected hours changes, or maintenance auto-defer changes that can affect patch cadence.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - MongoDB Employee Support Access [table]: Detects MongoDB employee SSH sessions or temporary infrastructure access bypass events.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Network Permission Entry Change [table]: Detects Atlas project network permission entries being added, removed, or updated.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Observability Export Disabled or Changed [table]: Detects S3, OTel, or host external log export changes that could reduce monitoring coverage.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Project Security Checkup Degraded [table]: Detects project events indicating security checkup failures, exposed hosts, or security checkup alert configuration changes.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Resource Policy Violation or Change [table]: Detects resource policy creation, deletion, modification, or violation events.  
+    - AlertQuery - MongoDB - Atlas - Admin API - Service Accounts - High Privilege Service Account [table]: Detects service accounts with owner/admin-style roles.  
+- Naming Schema: *AlertQuery - MongoDB Atlas - MongoDB Atlas - Admin API - Atlas Events - Open Critical Atlas Alert [Visualization - if any]*  
+
+***  
+
+## 9. [Templates](#9-templates)  
+
+- Purpose: Templates are special objects which define a Gravwell query containing variables.  
+- [Documentation](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- Total: ***7***  
+    - Template - MongoDB - Atlas - Admin API - Investigation - Count by Event Type [numbercard]: This is intended to show a numbercard of MongoDB Atlas events by Atlas eventTypeName, alert typeName, metricName, auth result, or state name.  
+    - Template - MongoDB - Atlas - Admin API - Investigation - Count by Priority [numbercard]: This is intended to show a numbercard of MongoDB Atlas events by computed alert priority for the user, IP/CIDR, scope, or event type that you are investigating.  
+    - Template - MongoDB - Atlas - Admin API - Investigation - Count by Status [numbercard]: This is intended to show a numbercard of MongoDB Atlas events by Atlas alert status, auth result, configuration state, or cluster state.  
+    - Template - MongoDB - Atlas - Admin API - Investigation - Recent Events [table]: This is intended to show recent MongoDB Atlas alert, activity, access, identity, network, backup, and cluster events for an investigation.  
+    - Template - MongoDB - Atlas - Admin API - Investigation - Total Events [numbercard]: This is intended to show a numbercard of total MongoDB Atlas Admin API events for the user, IP/CIDR, scope, or event type that you are investigating within the time frame that you specify.  
+    - Template - MongoDB - Atlas - System - Log Types - Category [chart]: Displays a chart of events by category and subcategory for the category entered into the variable. - MongoDB - Options: Access,Activity,Events,Alerts,Authentication,Backups,Clusters,Database Users,Network Access,Organization,Projects,Service Accounts  
+    - Template - MongoDB - Atlas - System - Log Types - Category [table]: Displays a table of events by category and subcategory for the category entered into the variable. - MongoDB - Options: Access,Activity,Events,Alerts,Authentication,Backups,Clusters,Database Users,Network Access,Organization,Projects,Service Accounts  
+
+***  
+
+## 10. [Dashboards](#10-dashboards)  
+
+- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.  
+- [Documentation](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+- Total: ***18***  
+    - MongoDB Atlas Category Overview: This Dashboard is a category overview of your MongoDB Atlas logs.  
+    - MongoDB Atlas General Overview: This Dashboard is a general overview of your MongoDB Atlas logs by tag, category, and subcategory.  
+    - MongoDB Atlas Admin API Overview: Overview dashboard for MongoDB Atlas Admin API data.  
+    - MongoDB Atlas Access Overview: This Dashboard is a general overview of MongoDB Atlas access Admin API data.  
+    - MongoDB Atlas Activity Overview: This Dashboard is a general overview of MongoDB Atlas activity Admin API data.  
+    - MongoDB Atlas Alert Configs Overview: This Dashboard is a general overview of MongoDB Atlas alert configs Admin API data.  
+    - MongoDB Atlas Alerts Overview: This Dashboard is a general overview of MongoDB Atlas alerts Admin API data.  
+    - MongoDB Atlas API Keys Overview: This Dashboard is a general overview of MongoDB Atlas api keys Admin API data.  
+    - MongoDB Atlas Backups Overview: This Dashboard is a general overview of MongoDB Atlas backups Admin API data.  
+    - MongoDB Atlas Clusters Overview: This Dashboard is a general overview of MongoDB Atlas clusters Admin API data.  
+    - MongoDB Atlas Custom Roles Overview: This Dashboard is a general overview of MongoDB Atlas custom roles Admin API data.  
+    - MongoDB Atlas Database Users Overview: This Dashboard is a general overview of MongoDB Atlas database users Admin API data.  
+    - MongoDB Atlas Network Access Overview: This Dashboard is a general overview of MongoDB Atlas network access Admin API data.  
+    - MongoDB Atlas Org Activity Overview: This Dashboard is a general overview of MongoDB Atlas org activity Admin API data.  
+    - MongoDB Atlas Org Users Overview: This Dashboard is a general overview of MongoDB Atlas org users Admin API data.  
+    - MongoDB Atlas Projects Overview: This Dashboard is a general overview of MongoDB Atlas projects Admin API data.  
+    - MongoDB Atlas Service Accounts Overview: This Dashboard is a general overview of MongoDB Atlas service accounts Admin API data.  
+    - MongoDB Atlas Investigation: Investigate MongoDB Atlas Admin API alerts and high-signal activity by user/API key/service account, IP/CIDR, project or organization scope, and Atlas event type.  
+
+#### 10.1. [Actionables](#10-1-actionables)  
+
+- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.  
+- [Documentation](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+- Total: ***4***  
+    - MongoDB Atlas User: MongoDB Atlas Actions on username, API key public key, service account client ID, or acknowledging username to launch the MongoDB Atlas Investigation dashboard.  
+    - MongoDB Atlas IP: MongoDB Atlas Actions on IP address or CIDR block to launch the MongoDB Atlas Investigation dashboard.  
+    - MongoDB Atlas Project or Organization: MongoDB Atlas Actions on project groupId or organization orgId to launch the MongoDB Atlas Investigation dashboard.  
+    - MongoDB Atlas Event Type: MongoDB Atlas Actions on eventTypeName, alert typeName, or metricName to launch the MongoDB Atlas Investigation dashboard.  
+
+***  
+
+## 11. [Useful Resources & References](#11-useful-resources--references)  
+
+- Gravwell  
+    - [Actionables](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+    - [Alerts](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+    - [Autoextractors](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+    - [Consumers](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+    - [Dashboards](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+    - [Dispatchers](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+    - [Files](<https://docs.gravwell.io/gui/files/files.html>)  
+    - [Flows](<https://docs.gravwell.io/flows/flows.html>)  
+    - [Lookup Module](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+    - [Macros](<https://docs.gravwell.io/search/macros.html>)  
+    - [Playbooks](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+    - [Query Library](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - [regexrouter Preprocessor](<https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html>)  
+    - [Resources](<https://docs.gravwell.io/resources/resources.html>)  
+    - [Scheduled Searches](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+    - [Simple Relay](<https://docs.gravwell.io/ingesters/simple_relay.html>)  
+    - [Tags](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+    - [Templates](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- MongoDB Atlas  
+    - [MongoDB Atlas: Access](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-access-tracking)
+        - [MongoDB Atlas: tag=mongodb-atlas-access](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistorycluster)
+        - [MongoDB Atlas: tag=mongodb-atlas-access](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistoryprocess)
+    - [MongoDB Atlas: Activity](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-activity-feed)
+        - [MongoDB Atlas: tag=mongodb-atlas-activity](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupevents)
+        - [MongoDB Atlas: tag=mongodb-atlas-activity](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupevents)
+    - [MongoDB Atlas: Alert Configs](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-alert-configurations)
+        - [MongoDB Atlas: tag=mongodb-atlas-alert-configs](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupalertconfigs)
+        - [MongoDB Atlas: tag=mongodb-atlas-alert-configs](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupalertconfig)
+    - [MongoDB Atlas: Alerts](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-alerts)
+        - [MongoDB Atlas: tag=mongodb-atlas-alerts](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupalertconfigalerts)
+        - [MongoDB Atlas: tag=mongodb-atlas-alerts](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupalerts)
+        - [MongoDB Atlas: tag=mongodb-atlas-alerts](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupalert
+    - [MongoDB Atlas: Programmatic API Keys](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-programmatic-api-keys)
+        - [MongoDB Atlas: tag=mongodb-atlas-api-keys](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgapikeys)
+    - [MongoDB Atlas: Cloud Backups](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-cloud-backups)
+        - [MongoDB Atlas: tag=mongodb-atlas-backups](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupclusterbackupschedule)
+        - [MongoDB Atlas: tag=mongodb-atlas-backups](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusterbackupsnapshots)
+    - [MongoDB Atlas: Clusters](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-clusters)
+        - [MongoDB Atlas: tag=mongodb-atlas-clusters](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusters)
+    - [MongoDB Atlas: Custom Roles](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-custom-database-roles)
+        - [MongoDB Atlas: tag=mongodb-atlas-custom-roles](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupcustomdbroleroles)
+    - [MongoDB Atlas: Database Users](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-database-users)
+        - [MongoDB Atlas: tag=mongodb-atlas-database-users](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupdatabaseusers)
+    - [MongoDB Atlas: Project IP Access](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-project-ip-access-list)
+        - [MongoDB Atlas: tag=mongodb-atlas-network-access](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupaccesslistentries)
+    - [MongoDB Atlas: Organization Activity](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-organizations)
+        - [MongoDB Atlas: tag=mongodb-atlas-org-activity](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgevents)
+    - [MongoDB Atlas: Cloud Users](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-organizations)
+        - [MongoDB Atlas: tag=mongodb-atlas-org-users](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgusers)
+    - [MongoDB Atlas: Projects](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-projects)
+        - [MongoDB Atlas: tag=mongodb-atlas-projects](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getorggroups)
+    - [MongoDB Atlas: Service Accounts](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/group/endpoint-service-accounts)
+        - [MongoDB Atlas: tag=mongodb-atlas-service-accounts](https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-createorgserviceaccount)
+
+***  
+
+## 12. [Notes](#12-notes)  
+
+- Default log source mapping for MongoDB Atlas Kit:  
+    - mongodb-atlas-access = Atlas Access  
+    - mongodb-atlas-activity = Atlas Activity  
+    - mongodb-atlas-alert-configs = Atlas Alert Configs  
+    - mongodb-atlas-alerts = Atlas Alerts  
+    - mongodb-atlas-api-keys = Atlas Api Keys  
+    - mongodb-atlas-backups = Atlas Backups  
+    - mongodb-atlas-clusters = Atlas Clusters  
+    - mongodb-atlas-custom-roles = Atlas Custom Roles  
+    - mongodb-atlas-database-users = Atlas Database Users  
+    - mongodb-atlas-events = Atlas Events  
+    - mongodb-atlas-network-access = Atlas Network Access  
+    - mongodb-atlas-org-activity = Atlas Org Activity  
+    - mongodb-atlas-org-users = Atlas Org Users  
+    - mongodb-atlas-projects = Atlas Projects  
+    - mongodb-atlas-service-accounts = Atlas Service Accounts  
+
+***  
+
+## 13. [Image credits](#13-image-credits)  
+
+- Total: ***0***  
+
+</km>

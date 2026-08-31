@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Region Usage Restrictions [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Region Usage Restrictions (regionUsageRestrictions) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "bb66b188-7085-56ea-bb28-78ec12fe5767",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

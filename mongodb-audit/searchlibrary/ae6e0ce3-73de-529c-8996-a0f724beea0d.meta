@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Role Created [table]",
+  "Description": "Detects MongoDB role creation.",
+  "GUID": "ae6e0ce3-73de-529c-8996-a0f724beea0d",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}
