@@ -1,6 +1,5 @@
 name: Existing Kit Change
 description: Report a bug, request an enhancement, or note a finding against an already-released kit.
-title: ""
 body:
   - type: dropdown
     id: kit
