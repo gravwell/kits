@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: read
+  issues: read
   pull-requests: write
 
 env:
@@ -93,6 +94,48 @@ jobs:
               python3 .github/scripts/kitcheck_render_report.py "$d" "kitcheck-$d.json" >> "$GITHUB_STEP_SUMMARY"
             else
               echo "## kitcheck: \`$d\` — ⚠️ couldn't evaluate (not a valid kit directory?)" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
+      - name: New-kit follow-ups reminder
+        if: steps.dirs.outputs.dirs != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Only relevant for genuinely new kits -- an existing kit's
+          # update PR has already been through this once. Same
+          # base-MANIFEST detection as the version-iteration check above.
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          repo="${{ github.repository }}"
+          for d in ${{ steps.dirs.outputs.dirs }}; do
+            if git show "$base_sha:$d/MANIFEST" > /dev/null 2>&1; then
+              continue
+            fi
+
+            findings=()
+
+            if ! grep -qF "'$d/**'" .github/labeler.yml; then
+              findings+=("- \`labeler.yml\` doesn't list \`$d/**\` yet — the next PR touching this kit will mislabel as \`new-kit\` again.")
+            fi
+
+            if ! grep -qE "^[[:space:]]*-[[:space:]]*$d[[:space:]]*\$" .github/ISSUE_TEMPLATE/kit_change.yml; then
+              findings+=("- \`kit_change.yml\`'s Kit dropdown doesn't list \`$d\` yet — nobody can file an Existing Kit Change issue against it until it's added.")
+            fi
+
+            if ! gh label list --repo "$repo" --search "kit:$d" --json name -q '.[].name' | grep -qx "kit:$d"; then
+              findings+=("- \`kit:$d\` label doesn't exist on \`$repo\` yet — \`kit-change-support.yml\` will fail to apply it the first time someone files a change against this kit.")
+            fi
+
+            if [ "${#findings[@]}" -gt 0 ]; then
+              {
+                echo "## New kit follow-ups: \`$d\`"
+                echo
+                echo "This looks like a brand-new kit. Per \`docs/kit-pipeline.md\`'s \"Manual follow-ups after a new kit ships\" — not blocking, but needed before or shortly after this merges:"
+                echo
+                printf '%s\n' "${findings[@]}"
+                echo
+              } >> "$GITHUB_STEP_SUMMARY"
             fi
           done
 
