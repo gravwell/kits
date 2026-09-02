@@ -4,5 +4,12 @@
 	"GUID": "4eea7c70-4a4d-4448-9e61-1e3921fa1647",
 	"Metadata": {
 		"timeframe": null
-	}
+	},
+	"Labels": [
+		"windows",
+		"logon",
+		"T1110",
+		"credential-access",
+		"stats"
+	]
 }
