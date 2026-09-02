@@ -1,0 +1,25 @@
+{
+	"UUID": "94e2b398-3894-5905-b03a-f01807462a7d",
+	"GUID": "263c3ec1-9626-56c5-87b0-e8df2f1b340c",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "LLM Observability - Kit Overview",
+	"Desc": "",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"LastUpdated": "2026-08-18T00:00:00Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

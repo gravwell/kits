@@ -1,0 +1,131 @@
+LLM traffic goes unlogged in most environments. The prompts staff submit to a model, the tools that
+model invokes on their behalf, and the tokens billed for the exchange all travel through an HTTPS
+request that never reaches the SIEM.
+
+This kit makes that traffic available for querying, charting, and hunting.
+
+# **Components**
+
+Three Gravwell features operate together. The kit assumes all three, but remains usable with only the
+first.
+
+**1. The LLM ingester** is an OpenAI-compatible HTTP proxy. Clients are pointed at it rather than at the
+provider; it forwards each request upstream and writes what passed through to a Gravwell tag: prompts,
+system messages, model replies, reasoning, tool calls with their arguments, tool results, and token
+accounting. It is a conventional Gravwell ingester: install the package, edit a configuration file,
+restart the service.
+
+**2. The vector preprocessor** attaches to an LLM ingester listener. As each block of entries is
+ingested, it submits them to an OpenAI-compatible embeddings endpoint and attaches the returned vector
+to the entry as an enumerated value named **embeddings**. The entry payload is not modified.
+
+**3. The semantic module** is a search processing module. Given a phrase, it embeds that phrase and
+scores every entry in the pipeline by cosine similarity against the entry's **embeddings** value. This
+permits a search for attempts to talk a model out of its instructions without knowing whether the author
+wrote *ignore your rules*, *disregard the above*, or *pretend you are DAN*.
+
+# **Kit contents**
+
+**Dashboards**
+
+* **LLM Traffic Overview** -- the recommended starting point. Reply volume by model, event types being
+  logged, token spend, upstream errors, per-listener traffic, and new sessions. Requires only a
+  configured proxy.
+* **LLM Cost and Token Usage** -- token totals and the prompt-versus-completion split per model, and the
+  conversations accounting for the most spend. Requires **Log-Usage=true**.
+* **LLM Performance and Reliability** -- latency per model over time, the slowest individual requests,
+  and every non-2xx response from the provider.
+* **LLM Tool Use** -- which tools the models call, how often, and the full argument JSON for the most
+  recent invocations. Requires **Log-Tool-Calls=true**.
+* **LLM Semantic Risk Hunting** -- seven prebuilt meaning-based hunts and one free-text hunt. Requires
+  embeddings.
+
+**Templates**
+
+* **Semantic Hunt** -- accepts a sentence describing the behaviour of interest, the side of the
+  conversation to score, and a threshold, and returns scored results.
+* **Conversation Reconstruction** -- accepts a **session_id** and returns the entire exchange in order.
+
+**Macros**
+
+**$LLM_TAG** and **$LLM_SEMANTIC_THRESHOLD** are configuration macros. Set them once at install time and
+every query in the kit follows.
+
+The remaining six are extraction modules, and they exist because of how the ingester attaches its
+fields. Everything the LLM proxy records -- **event_type**, **session_id**, **model**, **total_tokens**,
+**embeddings**, and the remainder -- arrives as an **intrinsic** enumerated value: it is present on the
+entry, but the query engine will not supply it until it is named. Referencing an undeclared value is a
+hard error rather than an empty result. The module that declares them is **intrinsic**, and these macros
+wrap it:
+
+```
+$LLM_USER_PROMPTS      ->  intrinsic event_type == "request.user_message"
+$LLM_ASSISTANT_REPLIES ->  intrinsic event_type == "response.assistant_message"
+$LLM_TOOL_CALLS        ->  intrinsic event_type == "response.tool_call"
+$LLM_TOOL_RESULTS      ->  intrinsic event_type == "request.tool_result"
+$LLM_SYSTEM_PROMPTS    ->  intrinsic event_type == "request.system_message"
+$LLM_USAGE             ->  intrinsic event_type == "response.usage"
+```
+
+The macros occupy the **extraction position**, immediately after the tag block and before any pipe.
+Append whichever additional fields the query requires to the same module:
+
+```
+tag=$LLM_TAG $LLM_USAGE model total_tokens
+| stats sum(total_tokens) as Tokens by model
+| chart Tokens by model
+```
+
+The engine expands this to:
+
+```
+tag=llm intrinsic event_type == "response.usage" model total_tokens | stats ...
+```
+
+Declare only the fields in use. Each name is an additional field retrieved from the indexers, and
+**embeddings** in particular is 10-20KB per entry.
+
+Inline filters on that module are equality only; greater-than and less-than comparisons are not
+available. Where one is required, declare the field and evaluate it after a pipe with a cast, as the
+upstream error queries do:
+
+```
+tag=$LLM_TAG intrinsic upstream_status
+| eval int(upstream_status) >= 400
+| stats count as Errors by upstream_status
+| chart Errors by upstream_status
+```
+
+Note that the **text** and **raw** renderers declare every intrinsic value automatically. A query
+therefore succeeds during exploration under those renderers and fails when switched to **table**. The
+cause is a missing declaration, not a missing field.
+
+**Resources**
+
+* **Example Gravwell LLM Ingester Conf** -- a complete, commented configuration file with a listener and
+  the vector preprocessor already connected. Copy it and replace the placeholders.
+* **llm-triage-gravwell.agent** -- a read-only AI agent that accepts a suspicious prompt and
+  investigates it: it reconstructs the session, baselines the behaviour, searches for related sessions
+  semantically, confirms whether the platform was healthy, and writes a verdict.
+
+# **Operating without embeddings**
+
+Embeddings carry both a monetary and a throughput cost, so running the proxy without them initially is a
+reasonable choice. Everything except the **LLM Semantic Risk Hunting** dashboard and the
+**Semantic Hunt** template operates on plain proxy data. The semantic tiles return no results rather
+than an error, because the module drops entries that carry no vector.
+
+# **Next steps**
+
+1. **LLM Observability - Deploying the LLM Proxy** -- establishing the data flow.
+2. **LLM Observability - Enabling Semantic Search** -- adding embeddings and configuring the webserver.
+3. **LLM Observability - Hunting Prompts by Meaning** -- using the semantic hunts and writing new ones.
+
+# **Sensitivity of the collected data**
+
+The purpose of this kit is to record what people submitted to a model. Such data is sensitive by
+construction: prompts routinely contain customer data, source code, and credentials. Determine which
+**Log-Mode** to run, who receives read access to the tag through CBAC, and how long the well retains the
+data *before* enabling the proxy for an entire team. **Log-Mode=user** exists so that user submissions
+may be captured without also archiving every system prompt and document the application places in the
+context window.

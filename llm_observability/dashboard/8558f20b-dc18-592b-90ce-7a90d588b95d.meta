@@ -1,0 +1,134 @@
+{
+	"UUID": "8558f20b-dc18-592b-90ce-7a90d588b95d",
+	"Name": "LLM Cost and Token Usage",
+	"Description": "Token accounting across models and conversations. Requires Log-Usage=true on the LLM ingester listener; without it these tiles are empty.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P30DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - LLM - Token Spend Over Time by Model [chart]",
+				"color": null,
+				"reference": {
+					"id": "5380b558-46ea-5ade-86ad-e2e09a3f43be",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Token Totals by Model [table]",
+				"color": null,
+				"reference": {
+					"id": "e40744ac-729e-53c0-b7e6-06437a592f6d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Prompt vs Completion Ratio by Model [table]",
+				"color": null,
+				"reference": {
+					"id": "c400d42b-ab58-512f-87fe-f8dca2824b23",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Top Sessions by Token Spend [table]",
+				"color": null,
+				"reference": {
+					"id": "0d914da0-814f-5a00-9c0f-84223a4d61ad",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17601000000001,
+				"title": "Token Spend Over Time by Model",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17601000000002,
+				"title": "Token Totals by Model",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000003,
+				"title": "Prompt vs Completion Ratio",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000004,
+				"title": "Top Sessions by Token Spend",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

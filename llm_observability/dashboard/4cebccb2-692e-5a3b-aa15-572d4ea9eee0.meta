@@ -1,0 +1,225 @@
+{
+	"UUID": "4cebccb2-692e-5a3b-aa15-572d4ea9eee0",
+	"Name": "LLM Semantic Risk Hunting",
+	"Description": "Meaning-based hunts over prompts and replies, plus a free-text hunt you drive yourself. Every tile on this dashboard depends on the vector preprocessor and an embedding model; until both are configured the tiles return no results. Tune sensitivity with the LLM_SEMANTIC_THRESHOLD macro.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - LLM - Semantic Hunt",
+				"color": null,
+				"reference": {
+					"id": "a280bf71-9ac0-5869-8f26-422aee86d435",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Semantic - Prompt Injection and Jailbreak Attempts [table]",
+				"color": null,
+				"reference": {
+					"id": "7875ca64-6a13-5ef1-a3a2-aa733056be6b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Semantic - Credentials and Secrets in Prompts [table]",
+				"color": null,
+				"reference": {
+					"id": "77373e33-035c-5f99-8dc9-5c58b7aadae8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Semantic - Sensitive Data and PII Disclosure [table]",
+				"color": null,
+				"reference": {
+					"id": "8db9ab07-25e1-5599-b708-5828c91233ef",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Semantic - Data Exfiltration Intent [table]",
+				"color": null,
+				"reference": {
+					"id": "224416cf-004a-5461-8f95-1a9aa512d668",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Semantic - Destructive Operations Requested [table]",
+				"color": null,
+				"reference": {
+					"id": "ce083212-61f7-5c58-b0d6-51de6f49fca5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Semantic - Security Control Evasion [table]",
+				"color": null,
+				"reference": {
+					"id": "30962ae3-ff7d-51db-b766-5bdd012504a8",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Semantic - Model Refusals [table]",
+				"color": null,
+				"reference": {
+					"id": "e7a09d70-82d2-56b6-8980-4a18fb8c686c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17601000000001,
+				"title": "Free-Text Semantic Hunt",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000002,
+				"title": "Prompt Injection and Jailbreak",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000003,
+				"title": "Credentials and Secrets in Prompts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000004,
+				"title": "Sensitive Data and PII",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 15
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000005,
+				"title": "Data Exfiltration Intent",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 15
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000006,
+				"title": "Destructive Operations Requested",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 22
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000007,
+				"title": "Security Control Evasion",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 22
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000008,
+				"title": "Model Refusals",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

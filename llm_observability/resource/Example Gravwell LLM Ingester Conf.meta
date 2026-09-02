@@ -1,0 +1,12 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "Example Gravwell LLM Ingester Conf",
+	"Description": "A complete, commented gravwell_llm_ingester.conf for the Gravwell LLM proxy, with the vector embedding preprocessor already wired to the listener. Copy it to /opt/gravwell/etc/gravwell_llm_ingester.conf and replace every CHANGE_ME value. See the 'LLM Observability - Deploying the LLM Proxy' playbook.",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Size": 4436,
+	"Hash": "89M6FaxjY4RgA0LzGAD6EA==",
+	"Data": ""
+}

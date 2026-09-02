@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Recent Tool Calls with Arguments [table]",
+	"Description": "The most recent tool invocations with their full argument JSON in the payload. This is where you look when a model is being driven to do something it should not.\n\nRequires Log-Tool-Calls=true on the listener.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "5affc37c-86ba-50c1-96f2-d04862b5cb59",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

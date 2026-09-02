@@ -1,0 +1,25 @@
+{
+	"UUID": "50cfb94c-89c4-53da-9065-94fbf5f4efce",
+	"GUID": "61a1d2a7-f93a-5da1-8e0f-253675dd534e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "LLM Observability - Deploying the LLM Proxy",
+	"Desc": "",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"LastUpdated": "2026-08-18T00:00:00Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

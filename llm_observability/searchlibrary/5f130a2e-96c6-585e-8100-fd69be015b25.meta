@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Replies Over Time by Model [chart]",
+	"Description": "Model reply volume over time, broken out by model. The clearest picture of which models are actually being used.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "5f130a2e-96c6-585e-8100-fd69be015b25",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

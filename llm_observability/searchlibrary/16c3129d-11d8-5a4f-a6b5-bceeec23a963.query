@@ -1,0 +1,3 @@
+tag=$LLM_TAG $LLM_TOOL_CALLS tool_name
+| stats count as Calls by tool_name
+| chart Calls by tool_name

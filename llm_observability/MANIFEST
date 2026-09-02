@@ -1,0 +1,286 @@
+{
+	"ID": "io.gravwell.llm_observability",
+	"Name": "LLM Observability",
+	"Desc": "Turn the traffic flowing through the Gravwell LLM proxy into something you can chart and hunt through: token spend and latency per model, what the models are calling tools for, and meaning-based hunts over the prompts themselves.",
+	"Readme": "This kit makes the traffic captured by the Gravwell LLM proxy useful. It ships dashboards for token spend, latency, tool use, and upstream errors, plus a library of *semantic* hunts that search prompts by meaning rather than by keyword.\n\nThe LLM Observability kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/llm_observability).\n\n## Requirements\n\n- Gravwell 5.10 or later.\n- The **Gravwell LLM ingester** deployed as a proxy in front of your model provider. See the *Deploying the LLM Proxy* playbook.\n- For the semantic hunts only: the **vector preprocessor** attached to an LLM listener, and `Embedding-URL` / `Embedding-Model` in the webserver's `[AI]` section. See the *Enabling Semantic Search* playbook. Everything else in the kit works without them.\n- For the `llm-triage` agent only: an LLM configured on the deployment.\n\nSet the `LLM_TAG` configuration macro to whatever `Tag-Name` your listener writes to.\n\n## Changelog\n**1.0: Initial Release**\n- dashboard (5)\n- file (2)\n- license (1)\n- macro (8)\n- playbook (4)\n- resource (2)\n  - example ingester config (1)\n  - AI agent (1)\n- searchlibrary (25)\n  - observability queries (18)\n  - semantic hunts (7)\n- template (2)\n",
+	"Version": 2,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 10,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 99,
+		"Point": 99
+	},
+	"Icon": "d62b2287-3a9c-5436-ac52-60825ebb6eb1",
+	"Banner": "f36f6363-a0a8-53c5-8c4d-d77a5181a972",
+	"Cover": "d62b2287-3a9c-5436-ac52-60825ebb6eb1",
+	"Items": [
+		{
+			"Name": "BSD 2-Clause",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d62b2287-3a9c-5436-ac52-60825ebb6eb1",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f36f6363-a0a8-53c5-8c4d-d77a5181a972",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "213f5485-9e0a-52fc-8a2a-2bbf669b902a",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "263c3ec1-9626-56c5-87b0-e8df2f1b340c",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5f258be9-8347-55a1-b781-65c056835da5",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "61a1d2a7-f93a-5da1-8e0f-253675dd534e",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "Example Gravwell LLM Ingester Conf",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "llm-triage-gravwell.agent",
+			"Type": 1,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "LLM_ASSISTANT_REPLIES",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "LLM_SEMANTIC_THRESHOLD",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "LLM_SYSTEM_PROMPTS",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "LLM_TAG",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "LLM_TOOL_CALLS",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "LLM_TOOL_RESULTS",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "LLM_USAGE",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "LLM_USER_PROMPTS",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "35fd4e23-e4f6-5252-9c73-1ed5b4f489b8",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "4cebccb2-692e-5a3b-aa15-572d4ea9eee0",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8558f20b-dc18-592b-90ce-7a90d588b95d",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "99958953-2e9b-5b70-849a-35a609a8be02",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d6f2ee61-f3ec-5453-917a-b32e253e3f2e",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "4a81a0d2-1abc-509b-abc2-31104712b5df",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a280bf71-9ac0-5869-8f26-422aee86d435",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "020b74de-cae7-53cd-ab52-4508e3723298",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0d914da0-814f-5a00-9c0f-84223a4d61ad",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "16c3129d-11d8-5a4f-a6b5-bceeec23a963",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "1eb97e9e-f050-571b-8bb9-3e03de176cbc",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "224416cf-004a-5461-8f95-1a9aa512d668",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "2fd859d1-2bc1-5a93-af00-703bc06cc657",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "30962ae3-ff7d-51db-b766-5bdd012504a8",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "3fde2679-f3b3-5466-9187-e207eb6ec611",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5380b558-46ea-5ade-86ad-e2e09a3f43be",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "56d3e483-e7dc-5308-b1fd-847ae6e5da6c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5affc37c-86ba-50c1-96f2-d04862b5cb59",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5f130a2e-96c6-585e-8100-fd69be015b25",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6317655c-ef4c-5ad7-97df-52b85b9bf7a9",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "77373e33-035c-5f99-8dc9-5c58b7aadae8",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7875ca64-6a13-5ef1-a3a2-aa733056be6b",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8db9ab07-25e1-5599-b708-5828c91233ef",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a49a5cfd-d135-511b-a23f-90a0e0ac738d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c400d42b-ab58-512f-87fe-f8dca2824b23",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c50d0a48-4c95-5b69-a5d4-a897aa7ebf1e",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c8ab19d0-4c29-53fd-94fc-efa98749e3bc",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ce083212-61f7-5c58-b0d6-51de6f49fca5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "cfd53075-d2b0-5b78-8648-75dc3a7a0827",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d7257433-04c9-5a46-8e83-62b8d8205034",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e40744ac-729e-53c0-b7e6-06437a592f6d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e7a09d70-82d2-56b6-8980-4a18fb8c686c",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "LLM_TAG",
+			"Description": "Configuration Macro; tag that the Gravwell LLM ingester writes to. Every query in the LLM Observability kit resolves its data through this macro, so it must match the Tag-Name on your LLM listener.",
+			"DefaultValue": "llm",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		},
+		{
+			"MacroName": "LLM_SEMANTIC_THRESHOLD",
+			"Description": "Configuration Macro; similarity threshold (0-100) handed to the semantic module by every semantic hunt in this kit. Lower it to widen the hunts, raise it to tighten them. 70 is a reasonable starting point.",
+			"DefaultValue": "70",
+			"Value": "",
+			"Type": "STRING",
+			"InstalledByID": ""
+		}
+	]
+}

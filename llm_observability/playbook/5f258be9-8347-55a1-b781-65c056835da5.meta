@@ -1,0 +1,25 @@
+{
+	"UUID": "c49fcaf9-0008-515b-b206-9c08d9293c35",
+	"GUID": "5f258be9-8347-55a1-b781-65c056835da5",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "LLM Observability - Enabling Semantic Search",
+	"Desc": "",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"LastUpdated": "2026-08-18T00:00:00Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

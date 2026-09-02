@@ -1,0 +1,195 @@
+{
+	"UUID": "99958953-2e9b-5b70-849a-35a609a8be02",
+	"Name": "LLM Performance and Reliability",
+	"Description": "Latency and upstream failures per model. Use this to tell a provider incident apart from a client-side problem before you go looking at prompts.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - LLM - Latency Over Time by Model [chart]",
+				"color": null,
+				"reference": {
+					"id": "3fde2679-f3b3-5466-9187-e207eb6ec611",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Upstream Errors by Status [chart]",
+				"color": null,
+				"reference": {
+					"id": "d7257433-04c9-5a46-8e83-62b8d8205034",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Latency by Model [table]",
+				"color": null,
+				"reference": {
+					"id": "2fd859d1-2bc1-5a93-af00-703bc06cc657",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Upstream Errors Over Time by Model [chart]",
+				"color": null,
+				"reference": {
+					"id": "56d3e483-e7dc-5308-b1fd-847ae6e5da6c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Slowest Requests [table]",
+				"color": null,
+				"reference": {
+					"id": "c50d0a48-4c95-5b69-a5d4-a897aa7ebf1e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Upstream Errors Detail [table]",
+				"color": null,
+				"reference": {
+					"id": "1eb97e9e-f050-571b-8bb9-3e03de176cbc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17601000000001,
+				"title": "Mean Latency Over Time by Model",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17601000000002,
+				"title": "Upstream Errors by Status",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 17601000000003,
+				"title": "Latency by Model",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000004,
+				"title": "Upstream Errors Over Time by Model",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17601000000005,
+				"title": "Slowest Requests",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17601000000006,
+				"title": "Upstream Errors Detail",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 21
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

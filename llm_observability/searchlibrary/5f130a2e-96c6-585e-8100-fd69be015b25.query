@@ -1,0 +1,3 @@
+tag=$LLM_TAG $LLM_ASSISTANT_REPLIES model
+| stats count as Replies by model
+| chart Replies by model

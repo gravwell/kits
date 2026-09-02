@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Upstream Errors Detail [table]",
+	"Description": "Every failed request with its status, model, session, and provider request id, newest first.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block. The `intrinsic` module filters on equality only -- it has no `<`, `>`, `<=`, or `>=` -- so the `>= 400` test is an `eval` with an `int()` cast after the extraction.",
+	"GUID": "1eb97e9e-f050-571b-8bb9-3e03de176cbc",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,116 @@
+# Example Gravwell LLM ingester configuration
+#
+# Install:  apt install gravwell-llm-ingester   (or: yum install gravwell-llm-ingester)
+# Path:     /opt/gravwell/etc/gravwell_llm_ingester.conf
+#
+# This ingester is an OpenAI-compatible HTTP proxy. Clients point at it instead of at
+# the provider; it forwards each request upstream and writes what passed through into
+# Gravwell -- prompts, system messages, replies, reasoning, tool calls, tool results,
+# and token accounting.
+#
+# REPLACE every value marked CHANGE_ME before using this file. Do not commit real keys.
+
+[Global]
+	Ingest-Secret = "CHANGE_ME_INGEST_SECRET"
+	Connection-Timeout = 0
+	Cleartext-Backend-Target = 127.0.0.1:4023
+	Log-Level = INFO
+	Log-File = /opt/gravwell/log/llm_ingester.log
+
+	# Sessions group a conversation's turns together by comparing message hashes
+	# against a trailing window from earlier requests. Persisting that state lets
+	# sessions survive an ingester restart. Only hashes are written here, never
+	# message content.
+	State-Store-Location = /opt/gravwell/etc/llm_ingester.state
+	Session-Match-Window = 10
+
+
+[Listener "openai"]
+	# Required.
+	Bind = ":4180"
+	Upstream-URL = "https://api.openai.com"
+	Protocol = "openai-chat"
+
+	# Must match the LLM_TAG configuration macro of the LLM Observability kit.
+	Tag-Name = llm
+
+	# How much of each request to write.
+	#   delta  only content new in this request; the system prompt lands once per
+	#          session. The right answer for almost everyone.
+	#   user   only the latest user message. Smallest footprint.
+	#   full   every message in every request. Chat APIs resend the whole
+	#          conversation each turn, so this duplicates the history on every
+	#          request. Short-lived debugging only.
+	Log-Mode = delta
+
+	# Off by default. The LLM Tool Use dashboard needs the first; the LLM Cost and
+	# Token Usage dashboard needs the second.
+	Log-Tool-Calls = true
+	Log-Usage = true
+
+	# Two independent credentials doing different jobs. Client-Authorization is
+	# checked on the way in (missing or wrong gets a 401). Upstream-Authorization
+	# replaces whatever the client sent when the request is forwarded on. Setting
+	# both means you stop handing your provider key to every client.
+	Client-Authorization = "Bearer CHANGE_ME_TOKEN_YOU_ISSUE_TO_CLIENTS"
+	Upstream-Authorization = "Bearer CHANGE_ME_YOUR_PROVIDER_API_KEY"
+
+	Session-TTL = 30m
+	Max-Body = 16MB
+
+	# Listeners are cleartext HTTP unless you give them a certificate.
+	#TLS-Certificate-File = /opt/gravwell/etc/llm-proxy.crt
+	#TLS-Key-File = /opt/gravwell/etc/llm-proxy.key
+
+	# Upstream certificate verification is separate and on by default. Only turn it
+	# off for a self-signed local model server, never against a real provider.
+	#Insecure-Skip-TLS-Verify-Upstream = false
+
+	# Attach the embeddings preprocessor defined below. Remove this line to run the
+	# proxy without embeddings: everything in the kit except the LLM Semantic Risk
+	# Hunting dashboard still works.
+	Preprocessor = embed
+
+
+[Preprocessor "embed"]
+	Type = vector
+
+	# Required. Model and Endpoint must be OpenAI-compatible, and Endpoint must be a
+	# full URL including the scheme.
+	#
+	# IMPORTANT: this model must match Embedding-Model in the webserver's [AI]
+	# section of gravwell.conf. The semantic module embeds your search phrase with
+	# that one and compares it against the vectors written by this one; different
+	# models produce different dimensionality and the query fails outright.
+	Model = text-embedding-3-small
+	Endpoint = https://api.openai.com/v1/embeddings
+	Token = `CHANGE_ME_YOUR_EMBEDDING_API_TOKEN`
+
+	Timeout = 15
+	Retry-Attempts = 3
+
+	# Leave this on unless you would rather drop entries than lose embeddings: with
+	# it off, a failing embeddings endpoint means lost data.
+	Passthrough-On-Error = true
+
+
+# A second listener with no preprocessor, for traffic you do not want to pay to
+# embed. Vectors run roughly 10-20KB per entry, which usually dwarfs the prompt.
+#
+#[Listener "anthropic-unembedded"]
+#	Bind = ":4181"
+#	Upstream-URL = "https://api.anthropic.com"
+#	Protocol = "openai-chat"
+#	Tag-Name = llm
+#	Log-Mode = user
+#	Log-Usage = true
+
+
+# Point clients at the proxy:
+#
+#   export OPENAI_BASE_URL="http://llm-proxy.example.com:4180/v1"
+#   export OPENAI_API_KEY="CHANGE_ME_TOKEN_YOU_ISSUE_TO_CLIENTS"
+#
+# Then confirm data is arriving:
+#
+#   tag=llm intrinsic event_type | stats count as Events by event_type | table event_type Events

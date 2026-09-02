@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - New Sessions Over Time [chart]",
+	"Description": "How many fresh conversations start over time, per listener. Sessions are matched by the ingester on trailing message hashes.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "c8ab19d0-4c29-53fd-94fc-efa98749e3bc",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
