@@ -1,0 +1,23 @@
+{
+	"UUID": "51ed396c-39c5-42c4-add7-c6de504521d0",
+	"Name": "Slack - Investigate App",
+	"Description": "Audit activity for a Slack app - installation, approval, scope changes, and removal, plus actions taken through the app.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%app%%",
+				"label": "App Name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "Example App"
+			}
+		]
+	},
+	"Labels": [
+		"slack",
+		"audit",
+		"app",
+		"investigation"
+	]
+}

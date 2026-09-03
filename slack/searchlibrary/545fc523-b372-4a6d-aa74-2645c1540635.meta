@@ -1,0 +1,13 @@
+{
+	"Name": "Slack - Malicious File Content Detected",
+	"Description": "Detects files that Slack's own malware scanning flagged as containing malicious content.",
+	"GUID": "545fc523-b372-4a6d-aa74-2645c1540635",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1204.002",
+		"execution"
+	],
+	"Metadata": {}
+}

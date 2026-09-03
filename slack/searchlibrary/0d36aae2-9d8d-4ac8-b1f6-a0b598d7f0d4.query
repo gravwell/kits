@@ -1,0 +1,5 @@
+tag=$SLACK_AUDIT ax action=="user_login" actorName ipAddress != "null"
+| eval ipAddress != ""
+| stats unique_count(ipAddress) as ip_count by actorName over 1h
+| eval ip_count > 3
+| table -nt actorName ip_count

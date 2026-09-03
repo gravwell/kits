@@ -1,0 +1,4 @@
+tag=$SLACK_AUDIT ax action=="user_login_failed" actorName
+| count by actorName over 10m
+| eval count > 5
+| table -nt actorName count

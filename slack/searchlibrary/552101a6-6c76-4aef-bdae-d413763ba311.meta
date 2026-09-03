@@ -1,0 +1,11 @@
+{
+	"Name": "Slack - Top Workspaces by Activity [Chart]",
+	"Description": "Workspaces or organizations generating the most audit events, taken from the event context location.",
+	"GUID": "552101a6-6c76-4aef-bdae-d413763ba311",
+	"Labels": [
+		"slack",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

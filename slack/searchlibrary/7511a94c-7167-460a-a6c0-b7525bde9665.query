@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action actorName locationName
+| eval in(action, "idp_configuration_added", "idp_configuration_deleted", "idp_prod_configuration_updated", "idp_test_configuration_updated")
+| table action actorName locationName

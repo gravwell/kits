@@ -1,0 +1,14 @@
+{
+	"Name": "Slack - Authentication Policy Changed",
+	"Description": "Detects changes to Slack authentication policy: two-factor requirements, SSO settings, and session duration. Fires on any change to these settings, including changes that strengthen them - compare the previous and new values to judge which. Weakening any of these removes a primary account protection.",
+	"GUID": "b21554d3-05b6-4111-9f49-da17dbc85451",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1556",
+		"defense-evasion",
+		"persistence"
+	],
+	"Metadata": {}
+}

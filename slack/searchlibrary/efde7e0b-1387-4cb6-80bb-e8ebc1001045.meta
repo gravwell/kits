@@ -1,0 +1,12 @@
+{
+	"Name": "Slack - Failed Logins Over Time [Chart]",
+	"Description": "Chart of failed Slack login attempts over time.",
+	"GUID": "efde7e0b-1387-4cb6-80bb-e8ebc1001045",
+	"Labels": [
+		"slack",
+		"audit",
+		"stats",
+		"authentication"
+	],
+	"Metadata": {}
+}
