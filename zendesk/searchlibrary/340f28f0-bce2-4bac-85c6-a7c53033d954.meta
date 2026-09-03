@@ -1,0 +1,13 @@
+{
+	"Name": "Zendesk - API Token Created",
+	"Description": "Detects creation of Zendesk API tokens. An attacker with admin access may create an API token as a durable, password-independent method of maintaining access to the account.",
+	"GUID": "340f28f0-bce2-4bac-85c6-a7c53033d954",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1098.001",
+		"persistence"
+	],
+	"Metadata": {}
+}
