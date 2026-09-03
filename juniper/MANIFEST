@@ -2,8 +2,8 @@
 	"ID": "io.gravwell.juniper",
 	"Name": "Juniper",
 	"Desc": "The Gravwell Juniper Kit provides a baseline set of queries, dashboards, templates, and investigative resources for Juniper devices.",
-	"Readme": "# Gravwell Juniper Kit\r\n****\r\n\r\nThe Gravwell Juniper Kit provides a baseline set of queries, dashboards, templates, and investigative resources for Juniper devices.\r\n\r\n*Desired format and delivery method: syslog*\r\n\r\n##Kit Components\r\n****\r\n\r\n\u003cfont color=\"orange\"\u003eDashboards\u003c/font\u003e\r\n\r\nJuniper Overview: Overview of Juniper alarms and user logins\r\n\r\nJuniper User Detail: User commands, configuration changes, and login details \r\n\r\nJuniper User Overview: Overview of user commands, configuration changes, and logins\r\n\r\n\u003cfont color=\"orange\"\u003eQuery Library\u003c/font\u003e\r\n\r\nJuniper Logins by Client Mode: Count logins by client mode\r\n\r\nJuniper Latest Configuration Changes: Display configuration changes per user\r\n\r\nJuniper SSH Logins by User: Count SSH logins by user\r\n\r\nJuniper Command Count: Count by command\r\n\r\nJuniper Facility Count: Count by logging facility\r\n\r\nJuniper Failed Logins by Src: Count failed login attempts by source with a count unique usernames and destinations\r\n\r\nJuniper Alarms: Detail alarms by set, class, reason\r\n\r\nJuniper Configuration Errors: Display configuration errors by hostname\r\n\r\nJuniper Latest Commands: Display commands per user hostname\r\n\r\nJuniper Alarms by Hostname: Count alarms by hostname\r\n\r\nJuniper Failed Logins by Destination: Count failed login attempts by destination with a count unique usernames and sources\r\n\r\nJuniper Configuration Changes by Hostname : Count configuration changes by hostname\r\n\r\nJuniper Appname Count: Count by appname\r\n\r\nJuniper Alarms by Class: Count by alarm class\r\n\r\nJuniper Alarms by Set: Count by alarm set\r\n\r\nJuniper Alarms Overview: Count alarm by hostname, alarm set, color, class, reason\r\n\r\nJuniper Alarms Count by Color: Count by alarm color\r\n\r\nJuniper Count by SSH Login User: Count SSH login by user\r\n\r\nJunper SSH Logins: Detail SSH logins by user and unique source\r\n\r\n\u003cfont color=\"orange\"\u003eExtractors\u003c/font\u003e\r\n\r\njuniper: Syslog extraction for tag juniper\r\n\r\n\u003cfont color=\"orange\"\u003eMacros\u003c/font\u003e\r\n\r\n$JUNIPER_TAG: Set juniper tag name (CONFIG MACRO)\r\n\r\n\u003cfont color=\"orange\"\u003eResources\u003c/font\u003e\r\n\r\njuniper_facility: Juniper facility details\r\n\r\njuniper_severity: Juniper severity details\r\n\r\n\u003cfont color=\"orange\"\u003eTemplates\u003c/font\u003e\r\n\r\nJuniper Config Set: Display configuration set per user, hostname\r\n\r\nJuniper User Commands: Display executed commands per user, hostname\r\n\r\nJuniper User Logins: Display logins per user, hostname\r\n\r\nJuniper User Config Mode: Display users entering config mode per user, hostname\r\n\r\n##Install Instructions\r\n****\r\n\r\n*After verifying Juniper data is being properly indexed and available for search*\r\n\r\n1. Set the $JUNIPER_TAG macro to the tag containing juniper data\r\n\r\n\r\n\\#\\# Credits - Photo by [Thomas Jensen](https://unsplash.com/@thomasjsn \"https://unsplash.com/@thomasjsn\") on [Unsplash](https://unsplash.com \"https://unsplash.com\") \\#\\#",
-	"Version": 5,
+	"Readme": "# Gravwell Juniper Kit\n****\n\nThis kit is designed to provide an out-of-the-box experience for working with Juniper logs.\n\nAn integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/juniper.html)\n\nThis kit provides the following utilities:\n\n- Queries\n    - Detections\n    - Stats\n- Dashboards\n- Templates\n- Macros\n\nRefer to the Kit Overview playbook for more detail on these components.\n\n## Dependencies\nNone\n\n## Changelog:\n****\n\n**v6: Audit remediation**\n\n- Adds: Kit Overview and Copy of Readme playbooks\n- Fixes: Command Count and Latest Commands now match real Junos **UI\\_CMDLINE\\_READ\\_LINE** events (previously matched a message shape Junos never emits)\n- Fixes: Login Count by Hostname no longer counts every **mgd** event (was missing a **UI\\_LOGIN\\_EVENT** filter)\n- Fixes: Alarms by Hostname no longer counts cleared alarms and alarmd chatter (restored a dropped filter)\n- Fixes: shared login regex no longer discards console, serial, and telnet logins (empty **ssh-connection** case)\n- Fixes: sshd searches now match **publickey** and **keyboard-interactive** logins, not only **password**\n- Fixes: Facility Count's name and description columns no longer render empty\n- Fixes: failed-login searches no longer silently exclude **Severity != 6** events\n- Fixes: both dashboards' broken tile references (GUIDs that don't exist, an undisplayed search, misnumbered tiles)\n- Fixes: alarm regex inconsistent across all 5 alarm searches (duplicate alarm names, IDs 10 and above failing to parse)\n- Fixes: **juniper\\_logins\\_exclusion\\_list**'s malformed header and stale Size/Hash\n- Fixes: two typos in shipped item names; five malformed playbook links\n- Changes: renamed 3 overlapping SSH login items to name their source; surfaced **Client\\_Mode** in failed-login tables; removed dead lookups/extractions; added missing labels\n- Changes: kit branding images (icon, banner, cover) replaced with standard Gravwell art\n",
+	"Version": 6,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 5,
@@ -169,16 +169,6 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "009150bf-c165-4b08-a45d-24cd7807f99e",
-			"Type": 7,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "11507305-19a0-44bd-9543-9792f5e6381c",
-			"Type": 7,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
 			"Name": "7d0f2703-12a2-426e-b519-b5bf640330b7",
 			"Type": 7,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -191,11 +181,6 @@
 		{
 			"Name": "b56a0767-8259-4591-ba1d-ad56f51bd06a",
 			"Type": 7,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "21984059-3c42-4a69-ae50-de84c7ab3fbc",
-			"Type": 11,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
@@ -216,13 +201,23 @@
 		{
                         "Name": "juniper_logins_exclusion_list",
                         "Type": 1,
-                        "Hash": "5f8ee70063f2a3a33eb4a155f3c236dfe76e96ad3d8edf1c2d57c0fe7cbb99e3"
+                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
                 },
                 {
                         "Name": "JUNIPER_LOGIN_HELPER",
                         "Type": 8,
-                        "Hash": "f5237cbf1fa6757ed6c42d037703e15849c4066b720b6dcaf67aebf521a37a52"
-                }
+                        "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+                },
+		{
+			"Name": "75e7afe4-2312-46d3-8585-b6e7b5e6eb37",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "778288bc-3733-47b4-aecc-cd2c43d7cea7",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
 	],
 	"Dependencies": null,
 	"ConfigMacros": [

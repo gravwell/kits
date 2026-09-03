@@ -1,0 +1,24 @@
+{
+	"UUID": "61e88a88-60d6-4798-a665-a84f269d5360",
+	"GUID": "778288bc-3733-47b4-aecc-cd2c43d7cea7",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Juniper - Kit Overview",
+	"Desc": "",
+	"Labels": [
+		"juniper"
+	],
+	"LastUpdated": "2026-08-24T20:28:59.764678000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}
