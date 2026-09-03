@@ -6,27 +6,27 @@ Gravwell.
 
 Debian / Ubuntu:
 
-```shell
+<pre>
 apt install gravwell-llm-ingester
-```
+</pre>
 
 Redhat / Rocky:
 
-```shell
+<pre>
 yum install gravwell-llm-ingester
-```
+</pre>
 
 A standalone shell installer is also available on the Gravwell downloads page. A Docker image for this
 ingester is not currently available.
 
-Configuration resides at **/opt/gravwell/etc/gravwell_llm_ingester.conf**, with the customary **.d**
+Configuration resides at **/opt/gravwell/etc/gravwell\_llm\_ingester.conf**, with the customary **.d**
 overlay directory alongside it.
 
 # **Minimum configuration**
 
-```shell
+<pre>
 [Global]
-	Ingest-Secret = "YOUR_INGEST_SECRET"
+	Ingest-Secret = "YOUR\_INGEST\_SECRET"
 	Cleartext-Backend-Target = 127.0.0.1:4023
 	Log-Level = INFO
 	Log-File = /opt/gravwell/log/llm_ingester.log
@@ -36,7 +36,7 @@ overlay directory alongside it.
 	Upstream-URL = "https://api.openai.com"
 	Protocol = "openai-chat"
 	Tag-Name = llm
-```
+</pre>
 
 This is sufficient to begin recording. **Bind**, **Upstream-URL**, and **Protocol** are the only required
 listener parameters, and **openai-chat** is currently the only supported protocol.
@@ -48,15 +48,15 @@ install time. The kit default is **llm**.
 
 Two listener options are disabled by default, and two dashboards in this kit remain empty without them:
 
-```shell
+<pre>
 	Log-Tool-Calls = true
 	Log-Usage = true
-```
+</pre>
 
 **Log-Tool-Calls** produces the **response.tool_call** and **request.tool_result** events on which the
-**LLM Tool Use** dashboard is built. **Log-Usage** produces the **response.usage** events carrying
+**Tool Use** dashboard is built. **Log-Usage** produces the **response.usage** events carrying
 **prompt_tokens**, **completion_tokens**, and **total_tokens**, which constitute the entirety of the
-**LLM Cost and Token Usage** dashboard.
+**Cost and Token Usage** dashboard.
 
 # **Choosing a log mode**
 
@@ -73,10 +73,10 @@ file, for both storage and privacy.
 
 Two independent bearer credentials serve distinct purposes:
 
-```shell
-	Client-Authorization = "Bearer TOKEN_YOU_ISSUE_TO_YOUR_CLIENTS"
-	Upstream-Authorization = "Bearer YOUR_REAL_PROVIDER_KEY"
-```
+<pre>
+	Client-Authorization = "Bearer TOKEN\_YOU\_ISSUE\_TO\_YOUR\_CLIENTS"
+	Upstream-Authorization = "Bearer YOUR\_REAL\_PROVIDER\_KEY"
+</pre>
 
 **Client-Authorization** is verified on inbound requests; a request without it receives a 401.
 **Upstream-Authorization** replaces whatever the client supplied when the request is forwarded on.
@@ -88,10 +88,10 @@ while the provider key remains in a single file on a single host.
 
 Listeners are cleartext HTTP unless a certificate is supplied:
 
-```shell
+<pre>
 	TLS-Certificate-File = /opt/gravwell/etc/llm-proxy.crt
 	TLS-Key-File = /opt/gravwell/etc/llm-proxy.key
-```
+</pre>
 
 Upstream verification is a separate setting and is enabled by default.
 **Insecure-Skip-TLS-Verify-Upstream=true** exists for self-signed local model servers and must not be
@@ -105,10 +105,10 @@ concurrent sessions per IP, and expire after **Session-TTL** (default 30m).
 
 Configure a state store for sessions to survive an ingester restart:
 
-```shell
+<pre>
 	State-Store-Location = /opt/gravwell/etc/llm_ingester.state
 	Session-Match-Window = 10
-```
+</pre>
 
 Only hashes are written to that file, never message content.
 
@@ -117,10 +117,10 @@ Only hashes are written to that file, never message content.
 Any client that speaks the OpenAI chat API is supported. The base URL is
 **http://INGESTER-HOST:PORT/v1**.
 
-```shell
-export OPENAI_BASE_URL="http://llm-proxy.example.com:4180/v1"
-export OPENAI_API_KEY="TOKEN_YOU_ISSUE_TO_YOUR_CLIENTS"
-```
+<pre>
+export OPENAI\_BASE\_URL="http://llm-proxy.example.com:4180/v1"
+export OPENAI\_API\_KEY="TOKEN\_YOU\_ISSUE\_TO\_YOUR\_CLIENTS"
+</pre>
 
 curl, OpenCode, Crush, Codex, and Claude Code (through its base-URL override) are all configured in this
 manner.
@@ -141,7 +141,7 @@ playbook covers this in full, and the kit's macros supply the declaration.
 **request.user_message** and **response.assistant_message** should be present at minimum. If the
 additional logging options were enabled, **response.usage** should also be present, along with
 **response.tool_call** once a tool has been called. The **Event Types Logged** tile on the
-**LLM Traffic Overview** dashboard performs the same check in chart form and is the quickest way to
+**Traffic Overview** dashboard performs the same check in chart form and is the quickest way to
 identify that **Log-Usage** was never enabled.
 
 If no events are present, review the ingester log and confirm that the ingester is connected under

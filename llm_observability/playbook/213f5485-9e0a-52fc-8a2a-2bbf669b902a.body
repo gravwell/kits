@@ -19,7 +19,7 @@ tag=$LLM_TAG $LLM_USER_PROMPTS session_id model listener embeddings
 | table TIMESTAMP risk_score session_id model listener DATA
 ```
 
-The entire first line is one extraction module. **$LLM_USER_PROMPTS** expands to
+The entire first line is one extraction module. **$LLM\_USER\_PROMPTS** expands to
 **intrinsic event_type == "request.user_message"**, and **session_id model listener embeddings** are
 further enumerated values appended to that same **intrinsic** module. Expanded, the engine receives:
 
@@ -72,7 +72,7 @@ The field was always present; the renderer was supplying the declaration.
 
 # **Tuning the threshold**
 
-Every hunt in this kit reads its threshold from the **$LLM_SEMANTIC_THRESHOLD** configuration macro, so
+Every hunt in this kit reads its threshold from the **$LLM\_SEMANTIC\_THRESHOLD** configuration macro, so
 all of them are tuned in one location rather than by editing twelve queries. It ships at 70.
 
 Adjust the threshold downward rather than upward. Begin at 70, review the results, and reduce it to 60

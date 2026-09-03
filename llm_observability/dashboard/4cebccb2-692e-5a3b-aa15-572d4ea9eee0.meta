@@ -1,6 +1,6 @@
 {
 	"UUID": "4cebccb2-692e-5a3b-aa15-572d4ea9eee0",
-	"Name": "LLM Semantic Risk Hunting",
+	"Name": "LLM Observability - Semantic Risk Hunting",
 	"Description": "Meaning-based hunts over prompts and replies, plus a free-text hunt you drive yourself. Every tile on this dashboard depends on the vector preprocessor and an embedding model; until both are configured the tiles return no results. Tune sensitivity with the LLM_SEMANTIC_THRESHOLD macro.",
 	"Data": {
 		"timeframe": {

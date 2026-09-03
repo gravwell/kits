@@ -1,6 +1,6 @@
 {
 	"UUID": "35fd4e23-e4f6-5252-9c73-1ed5b4f489b8",
-	"Name": "LLM Tool Use",
+	"Name": "LLM Observability - Tool Use",
 	"Description": "What the models are actually doing through tool calls. Requires Log-Tool-Calls=true on the LLM ingester listener; without it these tiles are empty.",
 	"Data": {
 		"timeframe": {

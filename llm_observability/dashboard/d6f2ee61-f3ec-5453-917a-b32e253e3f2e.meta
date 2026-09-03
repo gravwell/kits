@@ -1,6 +1,6 @@
 {
 	"UUID": "d6f2ee61-f3ec-5453-917a-b32e253e3f2e",
-	"Name": "LLM Traffic Overview",
+	"Name": "LLM Observability - Traffic Overview",
 	"Description": "Where your LLM traffic is going and whether it is healthy. Start here after standing up the Gravwell LLM proxy. Every tile works without embeddings configured.",
 	"Data": {
 		"timeframe": {

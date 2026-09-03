@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.llm_observability",
 	"Name": "LLM Observability",
 	"Desc": "Turn the traffic flowing through the Gravwell LLM proxy into something you can chart and hunt through: token spend and latency per model, what the models are calling tools for, and meaning-based hunts over the prompts themselves.",
-	"Readme": "This kit makes the traffic captured by the Gravwell LLM proxy useful. It ships dashboards for token spend, latency, tool use, and upstream errors, plus a library of *semantic* hunts that search prompts by meaning rather than by keyword.\n\nThe LLM Observability kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/llm_observability).\n\n## Requirements\n\n- Gravwell 5.10 or later.\n- The **Gravwell LLM ingester** deployed as a proxy in front of your model provider. See the *Deploying the LLM Proxy* playbook.\n- For the semantic hunts only: the **vector preprocessor** attached to an LLM listener, and `Embedding-URL` / `Embedding-Model` in the webserver's `[AI]` section. See the *Enabling Semantic Search* playbook. Everything else in the kit works without them.\n- For the `llm-triage` agent only: an LLM configured on the deployment.\n\nSet the `LLM_TAG` configuration macro to whatever `Tag-Name` your listener writes to.\n\n## Changelog\n**1.0: Initial Release**\n- dashboard (5)\n- file (2)\n- license (1)\n- macro (8)\n- playbook (4)\n- resource (2)\n  - example ingester config (1)\n  - AI agent (1)\n- searchlibrary (25)\n  - observability queries (18)\n  - semantic hunts (7)\n- template (2)\n",
+	"Readme": "# LLM Observability\n\nLLM traffic is the one thing in most environments nobody is logging. The prompts your staff paste\ninto a model, the tools that model invokes on their behalf, and the tokens you get billed for all\nmove through an HTTPS request that never touches your SIEM. This kit turns that traffic into data\nyou can chart and hunt through — plain proxy data out of the box, and meaning-based semantic hunts\nonce you add embeddings.\n\nThe LLM Observability kit is licensed under the BSD 2-Clause license and the contents are available\non [Github](https://github.com/gravwell/kits/tree/main/llm_observability).\n\nThis kit provides the following utilities:\n\n- Queries\n    - Observability\n    - Semantic hunts\n- Dashboards\n- Templates\n- Macros\n- Resources\n- Playbooks\n\nRefer to the Kit Overview playbook for more detail on these components.\n\n## Playbooks\n\n- **Kit Overview** — the three-feature architecture, what each dashboard and hunt covers, and what\n  works without embeddings. Start here.\n- **Deploying the LLM Proxy** — the integration guide: install, listener config, log modes, the two\n  authorization credentials, TLS, sessions, pointing clients at it, verifying data arrives.\n- **Enabling Semantic Search** — the vector preprocessor, the `[AI]` section, why the two embedding\n  models must match, and the throughput and storage costs you are signing up for.\n- **Hunting Prompts by Meaning** — thresholds, when to use `-p`, how to write a phrase that works,\n  and why `semantic` must always come last in the pipeline.\n\n## Dependencies\n\n- Gravwell 5.10 or later.\n- The [Gravwell LLM ingester](https://docs.gravwell.io/ingesters/llm.html) deployed as a proxy in\n  front of your model provider.\n- **For the semantic hunts only:** the\n  [vector preprocessor](https://docs.gravwell.io/ingesters/preprocessors/vector.html) and the `[AI]`\n  section of the webserver's `gravwell.conf` — see the Enabling Semantic Search playbook.\n- **For the `llm-triage` agent only:** an LLM configured on the deployment.\n\n## Changelog\n**v1: Initial Release**\n",
 	"Version": 2,
 	"MinVersion": {
 		"Major": 5,
@@ -261,6 +261,11 @@
 		{
 			"Name": "e7a09d70-82d2-56b6-8980-4a18fb8c686c",
 			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "89caef93-fb16-42ba-a4e5-226df2b3716b",
+			"Type": 11,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		}
 	],

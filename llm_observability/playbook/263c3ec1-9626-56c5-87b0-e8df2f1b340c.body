@@ -4,6 +4,20 @@ request that never reaches the SIEM.
 
 This kit makes that traffic available for querying, charting, and hunting.
 
+# **Requirements**
+
+* Gravwell 5.10 or later.
+* The Gravwell LLM ingester deployed as a proxy in front of your model provider, with
+  **Log-Tool-Calls=true** and **Log-Usage=true** set on the listener.
+* **For the semantic hunts only:** the vector preprocessor attached to an LLM listener, plus
+  **Embedding-URL**, **Embedding-Model**, and **Embedding-Token** configured in the **[AI]** section of
+  the webserver's gravwell.conf. The listener's embedding model and the webserver's embedding model must
+  be the same one.
+* **For the llm-triage agent only:** an LLM configured on the deployment.
+
+Everything except the **Semantic Risk Hunting** dashboard and the **Semantic Hunt** template
+operates on plain proxy data, so it is reasonable to install the kit and defer the embeddings decision.
+
 # **Components**
 
 Three Gravwell features operate together. The kit assumes all three, but remains usable with only the
@@ -28,16 +42,16 @@ wrote *ignore your rules*, *disregard the above*, or *pretend you are DAN*.
 
 **Dashboards**
 
-* **LLM Traffic Overview** -- the recommended starting point. Reply volume by model, event types being
+* **Traffic Overview** -- the recommended starting point. Reply volume by model, event types being
   logged, token spend, upstream errors, per-listener traffic, and new sessions. Requires only a
   configured proxy.
-* **LLM Cost and Token Usage** -- token totals and the prompt-versus-completion split per model, and the
+* **Cost and Token Usage** -- token totals and the prompt-versus-completion split per model, and the
   conversations accounting for the most spend. Requires **Log-Usage=true**.
-* **LLM Performance and Reliability** -- latency per model over time, the slowest individual requests,
+* **Performance and Reliability** -- latency per model over time, the slowest individual requests,
   and every non-2xx response from the provider.
-* **LLM Tool Use** -- which tools the models call, how often, and the full argument JSON for the most
+* **Tool Use** -- which tools the models call, how often, and the full argument JSON for the most
   recent invocations. Requires **Log-Tool-Calls=true**.
-* **LLM Semantic Risk Hunting** -- seven prebuilt meaning-based hunts and one free-text hunt. Requires
+* **Semantic Risk Hunting** -- the eight semantic hunts below, on one dashboard. Requires
   embeddings.
 
 **Templates**
@@ -46,10 +60,18 @@ wrote *ignore your rules*, *disregard the above*, or *pretend you are DAN*.
   conversation to score, and a threshold, and returns scored results.
 * **Conversation Reconstruction** -- accepts a **session_id** and returns the entire exchange in order.
 
+**Semantic hunts**
+
+Seven score user prompts by meaning: prompt injection and jailbreak attempts, credentials and secrets
+pasted into a model, sensitive data and PII disclosure, data exfiltration intent, destructive operations
+requested, and security control evasion. The eighth, **Model Refusals**, scores replies instead of
+prompts, and is easy to underrate: a cluster of refusals inside one session is a strong signal that
+someone is probing.
+
 **Macros**
 
-**$LLM_TAG** and **$LLM_SEMANTIC_THRESHOLD** are configuration macros. Set them once at install time and
-every query in the kit follows.
+**$LLM\_TAG** and **$LLM\_SEMANTIC\_THRESHOLD** are configuration macros. Set them once at install time
+and every query in the kit follows.
 
 The remaining six are extraction modules, and they exist because of how the ingester attaches its
 fields. Everything the LLM proxy records -- **event_type**, **session_id**, **model**, **total_tokens**,
@@ -108,18 +130,39 @@ cause is a missing declaration, not a missing field.
   investigates it: it reconstructs the session, baselines the behaviour, searches for related sessions
   semantically, confirms whether the platform was healthy, and writes a verdict.
 
+**Playbooks**
+
+* **Kit Overview** (this playbook) -- the three-feature architecture, what each dashboard and hunt
+  covers, and what works without embeddings.
+* [Deploying the LLM Proxy](/playbooks/61a1d2a7-f93a-5da1-8e0f-253675dd534e) -- install, listener
+  config, log modes, the two authorization credentials, TLS, sessions, pointing clients at it, and
+  verifying data arrives.
+* [Enabling Semantic Search](/playbooks/5f258be9-8347-55a1-b781-65c056835da5) -- the vector
+  preprocessor, the **[AI]** section, why the two embedding models must match, and the throughput and
+  storage cost you are signing up for.
+* [Hunting Prompts by Meaning](/playbooks/213f5485-9e0a-52fc-8a2a-2bbf669b902a) -- thresholds, when to
+  use **-p**, how to write a phrase that works, and why **semantic** must always come last in the
+  pipeline.
+
 # **Operating without embeddings**
 
 Embeddings carry both a monetary and a throughput cost, so running the proxy without them initially is a
-reasonable choice. Everything except the **LLM Semantic Risk Hunting** dashboard and the
+reasonable choice. Everything except the **Semantic Risk Hunting** dashboard and the
 **Semantic Hunt** template operates on plain proxy data. The semantic tiles return no results rather
 than an error, because the module drops entries that carry no vector.
 
+When embeddings are enabled, the **semantic** module runs on the webserver, so every entry it evaluates
+has its vector -- roughly 10-20KB for a 1024-dimensional model -- shipped from the indexers first. Every
+hunt in this kit narrows by tag, timeframe, and **event_type** *before* the **semantic** module for that
+reason. Keep that ordering in anything you write against this kit.
+
 # **Next steps**
 
-1. **LLM Observability - Deploying the LLM Proxy** -- establishing the data flow.
-2. **LLM Observability - Enabling Semantic Search** -- adding embeddings and configuring the webserver.
-3. **LLM Observability - Hunting Prompts by Meaning** -- using the semantic hunts and writing new ones.
+Read the other three playbooks in this order: first
+[Deploying the LLM Proxy](/playbooks/61a1d2a7-f93a-5da1-8e0f-253675dd534e) to establish the data flow,
+then [Enabling Semantic Search](/playbooks/5f258be9-8347-55a1-b781-65c056835da5) if you want the
+meaning-based hunts, then [Hunting Prompts by Meaning](/playbooks/213f5485-9e0a-52fc-8a2a-2bbf669b902a)
+to put them to use. See "Playbooks" above for what each one covers in full.
 
 # **Sensitivity of the collected data**
 
@@ -129,3 +172,5 @@ construction: prompts routinely contain customer data, source code, and credenti
 data *before* enabling the proxy for an entire team. **Log-Mode=user** exists so that user submissions
 may be captured without also archiving every system prompt and document the application places in the
 context window.
+
+This kit contains no automations, and nothing in it sends data to an external system.

@@ -1,6 +1,6 @@
 {
 	"UUID": "8558f20b-dc18-592b-90ce-7a90d588b95d",
-	"Name": "LLM Cost and Token Usage",
+	"Name": "LLM Observability - Cost and Token Usage",
 	"Description": "Token accounting across models and conversations. Requires Log-Usage=true on the LLM ingester listener; without it these tiles are empty.",
 	"Data": {
 		"timeframe": {

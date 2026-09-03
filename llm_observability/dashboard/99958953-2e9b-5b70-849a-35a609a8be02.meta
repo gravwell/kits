@@ -1,6 +1,6 @@
 {
 	"UUID": "99958953-2e9b-5b70-849a-35a609a8be02",
-	"Name": "LLM Performance and Reliability",
+	"Name": "LLM Observability - Performance and Reliability",
 	"Description": "Latency and upstream failures per model. Use this to tell a provider incident apart from a client-side problem before you go looking at prompts.",
 	"Data": {
 		"timeframe": {

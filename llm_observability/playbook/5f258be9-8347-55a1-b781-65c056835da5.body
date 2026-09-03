@@ -3,9 +3,9 @@ separate pieces of configuration in two different locations, and they must agree
 
 # **1. Attach the vector preprocessor to the listener**
 
-In **/opt/gravwell/etc/gravwell_llm_ingester.conf**:
+In **/opt/gravwell/etc/gravwell\_llm\_ingester.conf**:
 
-```shell
+<pre>
 [Listener "openai"]
 	Bind = ":4180"
 	Upstream-URL = "https://api.openai.com"
@@ -19,11 +19,11 @@ In **/opt/gravwell/etc/gravwell_llm_ingester.conf**:
 	Type = vector
 	Model = text-embedding-3-small
 	Endpoint = https://api.openai.com/v1/embeddings
-	Token = `YOUR_EMBEDDING_API_TOKEN`
+	Token = YOUR\_EMBEDDING\_API\_TOKEN
 	Timeout = 15
 	Retry-Attempts = 3
 	Passthrough-On-Error = true
-```
+</pre>
 
 **Model** and **Endpoint** are required. The endpoint must be a full URL including the scheme, and must
 be OpenAI-compatible. **Token** is sent as an **Authorization: Bearer** header.
@@ -47,7 +47,7 @@ tag=$LLM_TAG $LLM_USER_PROMPTS model embeddings
 
 **embeddings** is an intrinsic enumerated value like every other field on this tag, so it must be
 declared on the **intrinsic** module before anything -- **eval**, or the **semantic** module itself --
-can read it. **$LLM_USER_PROMPTS** supplies the **intrinsic** module, and **model embeddings** are
+can read it. **$LLM\_USER\_PROMPTS** supplies the **intrinsic** module, and **model embeddings** are
 appended to it.
 
 # **2. Configure the embedding model on the webserver**
@@ -55,12 +55,12 @@ appended to it.
 The **semantic** module must embed *the search phrase* at query time, and it does so from the webserver.
 Add the following to the **[AI]** section of **/opt/gravwell/etc/gravwell.conf**:
 
-```shell
+<pre>
 [AI]
 	Embedding-URL="https://api.openai.com/v1/embeddings"
 	Embedding-Model="text-embedding-3-small"
-	Embedding-Token="YOUR_EMBEDDING_API_TOKEN"
-```
+	Embedding-Token="YOUR\_EMBEDDING\_API\_TOKEN"
+</pre>
 
 Restart the webserver. Requests to this endpoint use a 10 second timeout.
 

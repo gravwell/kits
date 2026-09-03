@@ -28,10 +28,10 @@ Refer to the Kit Overview playbook for more detail on these components.
   works without embeddings. Start here.
 - **Deploying the LLM Proxy** — the integration guide: install, listener config, log modes, the two
   authorization credentials, TLS, sessions, pointing clients at it, verifying data arrives.
-- **Enabling Semantic Search** — the vector preprocessor, the `[AI]` section, why the two embedding
+- **Enabling Semantic Search** — the vector preprocessor, the <code>[AI]</code> section, why the two embedding
   models must match, and the throughput and storage costs you are signing up for.
-- **Hunting Prompts by Meaning** — thresholds, when to use `-p`, how to write a phrase that works,
-  and why `semantic` must always come last in the pipeline.
+- **Hunting Prompts by Meaning** — thresholds, when to use <code>-p</code>, how to write a phrase that works,
+  and why <code>semantic</code> must always come last in the pipeline.
 
 ## Dependencies
 
@@ -39,9 +39,9 @@ Refer to the Kit Overview playbook for more detail on these components.
 - The [Gravwell LLM ingester](https://docs.gravwell.io/ingesters/llm.html) deployed as a proxy in
   front of your model provider.
 - **For the semantic hunts only:** the
-  [vector preprocessor](https://docs.gravwell.io/ingesters/preprocessors/vector.html) and the `[AI]`
-  section of the webserver's `gravwell.conf` — see the Enabling Semantic Search playbook.
-- **For the `llm-triage` agent only:** an LLM configured on the deployment.
+  [vector preprocessor](https://docs.gravwell.io/ingesters/preprocessors/vector.html) and the <code>[AI]</code>
+  section of the webserver's <code>gravwell.conf</code> — see the Enabling Semantic Search playbook.
+- **For the <code>llm-triage</code> agent only:** an LLM configured on the deployment.
 
 ## Changelog
 **v1: Initial Release**
