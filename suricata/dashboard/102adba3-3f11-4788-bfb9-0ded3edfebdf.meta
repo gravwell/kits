@@ -1,0 +1,224 @@
+{
+ "UUID": "102adba3-3f11-4788-bfb9-0ded3edfebdf",
+ "Name": "Suricata Protocol Activity",
+ "Description": "Protocol-level view of DNS, TLS, HTTP, and SSH activity observed by Suricata.",
+ "Data": {
+  "timeframe": {
+   "durationString": null,
+   "timeframe": "P1DT",
+   "timezone": null,
+   "start": null,
+   "end": null
+  },
+  "searches": [
+   {
+    "alias": "Suricata - Top DNS Queries",
+    "color": null,
+    "reference": {
+     "id": "ab26e529-d4e2-4da5-884e-65375d1c27f1",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - DNS Response Codes",
+    "color": null,
+    "reference": {
+     "id": "4e699960-46d2-48b5-91c9-b34294a438ef",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Top TLS SNI",
+    "color": null,
+    "reference": {
+     "id": "5a3cd2c4-b380-41ed-98a1-05a1fc419c2b",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Deprecated TLS Version in Use",
+    "color": null,
+    "reference": {
+     "id": "ce0faa84-e824-479e-a293-31dbd39d7de0",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Top HTTP Hostnames",
+    "color": null,
+    "reference": {
+     "id": "39e80775-b956-47e6-adfd-3725c00552ef",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - HTTP Status Codes Over Time",
+    "color": null,
+    "reference": {
+     "id": "970209ca-cd4d-49f7-9ab0-2367d08478b1",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - HTTP Methods",
+    "color": null,
+    "reference": {
+     "id": "9d89990b-9817-4d38-91bf-5927272b8572",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - SSH Client Software Versions",
+    "color": null,
+    "reference": {
+     "id": "f0b24e76-146b-48b6-bd61-20279e911d44",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   }
+  ],
+  "tiles": [
+   {
+    "id": 7806530581581274,
+    "title": "Top DNS Queries",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 0
+    },
+    "searchesIndex": 0,
+    "rendererOptions": {}
+   },
+   {
+    "id": 501821284908191,
+    "title": "DNS Response Codes",
+    "renderer": "pieChart",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 0
+    },
+    "searchesIndex": 1,
+    "rendererOptions": {}
+   },
+   {
+    "id": 7717733070231238,
+    "title": "Top TLS SNI",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 5
+    },
+    "searchesIndex": 2,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6150664324298417,
+    "title": "Deprecated TLS Versions",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 5
+    },
+    "searchesIndex": 3,
+    "rendererOptions": {}
+   },
+   {
+    "id": 7298661913609688,
+    "title": "Top HTTP Hostnames",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 10
+    },
+    "searchesIndex": 4,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6715384800827138,
+    "title": "HTTP Status Codes Over Time",
+    "renderer": "lineChart",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 10
+    },
+    "searchesIndex": 5,
+    "rendererOptions": {}
+   },
+   {
+    "id": 5862657955785260,
+    "title": "HTTP Methods",
+    "renderer": "donutChart",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 15
+    },
+    "searchesIndex": 6,
+    "rendererOptions": {}
+   },
+   {
+    "id": 3991701496936904,
+    "title": "SSH Client Versions",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 15
+    },
+    "searchesIndex": 7,
+    "rendererOptions": {}
+   }
+  ],
+  "linkZooming": false,
+  "grid": {},
+  "version": 2
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

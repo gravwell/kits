@@ -1,0 +1,10 @@
+{
+ "Name": "Suricata - Events Over Time by Type",
+ "Description": "Chart of Suricata EVE event volume over time, split by event_type (alert, dns, http, tls, flow, fileinfo, ...).",
+ "GUID": "3ca8aa61-1bdb-413f-9d90-79c91aa14015",
+ "Labels": [
+  "suricata",
+  "dashboard"
+ ],
+ "Metadata": {}
+}

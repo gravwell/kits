@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="anomaly" anomaly.type as anomaly_type anomaly.event as anomaly_event
+| count by anomaly_type anomaly_event over 1h
+| eval count > 100
+| table -nt anomaly_type anomaly_event count

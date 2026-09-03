@@ -1,0 +1,174 @@
+{
+ "UUID": "bfb36726-5583-4d84-9af9-de03d770dad2",
+ "Name": "Suricata Alert Activity",
+ "Description": "Alert-focused view: categories over time, allowed vs blocked, top sources and destinations, high-severity alerts, and a map of external alert sources.",
+ "Data": {
+  "timeframe": {
+   "durationString": null,
+   "timeframe": "P1DT",
+   "timezone": null,
+   "start": null,
+   "end": null
+  },
+  "searches": [
+   {
+    "alias": "Suricata - Alerts by Category Over Time",
+    "color": null,
+    "reference": {
+     "id": "56a0faf4-e1d6-4a32-b1b4-5cbcaa6784a9",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Alert Actions",
+    "color": null,
+    "reference": {
+     "id": "21b1a365-ef6e-48c0-93c0-f66f9fe849a7",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Top Alerting Source IPs",
+    "color": null,
+    "reference": {
+     "id": "6f792559-733e-4369-ae99-cee6581bb17a",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Top Alerting Destination IPs",
+    "color": null,
+    "reference": {
+     "id": "2380d8db-5ae4-4999-bc5c-8269f3080c98",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - High Severity Alerts",
+    "color": null,
+    "reference": {
+     "id": "cc253f7c-08a6-43fe-8a14-18daa3f4a7cd",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - External Alert Sources Map",
+    "color": null,
+    "reference": {
+     "id": "1e65c036-a9ff-40d0-94d2-f13d45373031",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   }
+  ],
+  "tiles": [
+   {
+    "id": 4554686845318977,
+    "title": "Alerts by Category Over Time",
+    "renderer": "lineChart",
+    "hideZoom": true,
+    "span": {
+     "col": 8,
+     "row": 4,
+     "x": 0,
+     "y": 0
+    },
+    "searchesIndex": 0,
+    "rendererOptions": {}
+   },
+   {
+    "id": 2073109484209522,
+    "title": "Alert Actions",
+    "renderer": "donutChart",
+    "hideZoom": true,
+    "span": {
+     "col": 4,
+     "row": 4,
+     "x": 8,
+     "y": 0
+    },
+    "searchesIndex": 1,
+    "rendererOptions": {}
+   },
+   {
+    "id": 5576344583708449,
+    "title": "Top Alerting Source IPs",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 4
+    },
+    "searchesIndex": 2,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6783521301242709,
+    "title": "Top Alerting Destination IPs",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 4
+    },
+    "searchesIndex": 3,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6545081749346480,
+    "title": "High Severity Alerts",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 9
+    },
+    "searchesIndex": 4,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6746776730109077,
+    "title": "External Alert Sources",
+    "renderer": "pointmap",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 9
+    },
+    "searchesIndex": 5,
+    "rendererOptions": {}
+   }
+  ],
+  "linkZooming": false,
+  "grid": {},
+  "version": 2
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

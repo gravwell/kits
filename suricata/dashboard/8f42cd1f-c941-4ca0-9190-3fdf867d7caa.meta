@@ -1,0 +1,130 @@
+{
+ "UUID": "8f42cd1f-c941-4ca0-9190-3fdf867d7caa",
+ "Name": "Suricata Signature Investigation",
+ "Description": "Investigative dashboard driven by templates: enter an alert signature name once to see its volume, trend, and the sources and destinations involved.",
+ "Data": {
+  "timeframe": {
+   "durationString": null,
+   "timeframe": "P7DT",
+   "timezone": null,
+   "start": null,
+   "end": null
+  },
+  "searches": [
+   {
+    "alias": "Template - Suricata - Signature - Total Alerts [numbercard]",
+    "color": null,
+    "reference": {
+     "id": "8430f31a-7cbc-4c09-a494-12712ce78c3e",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - Signature - Activity Over Time [chart]",
+    "color": null,
+    "reference": {
+     "id": "64822e89-1f06-47ff-81f5-bc8ab260421c",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - Signature - Top Sources [table]",
+    "color": null,
+    "reference": {
+     "id": "c93f554b-1cee-41bc-a30e-9d19061125a3",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Template - Suricata - Signature - Top Destinations [table]",
+    "color": null,
+    "reference": {
+     "id": "379a32c7-4485-45e5-885d-6ee3a9fd6626",
+     "type": "template",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   }
+  ],
+  "tiles": [
+   {
+    "id": 8515606298068273,
+    "title": "Total Alerts",
+    "renderer": "numberCard",
+    "hideZoom": true,
+    "span": {
+     "col": 3,
+     "row": 4,
+     "x": 0,
+     "y": 0
+    },
+    "searchesIndex": 0,
+    "rendererOptions": {
+     "Range": "no",
+     "Precision": "no",
+     "NumberCardLabelFontSize": "15",
+     "NumberCardNumberFontSize": 48,
+     "NumberCardWidth": 25
+    }
+   },
+   {
+    "id": 1874473239429721,
+    "title": "Activity Over Time",
+    "renderer": "lineChart",
+    "hideZoom": true,
+    "span": {
+     "col": 9,
+     "row": 4,
+     "x": 3,
+     "y": 0
+    },
+    "searchesIndex": 1,
+    "rendererOptions": {}
+   },
+   {
+    "id": 1689940684352967,
+    "title": "Top Sources",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 4
+    },
+    "searchesIndex": 2,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6084650841066243,
+    "title": "Top Destinations",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 4
+    },
+    "searchesIndex": 3,
+    "rendererOptions": {}
+   }
+  ],
+  "linkZooming": false,
+  "grid": {},
+  "version": 2
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

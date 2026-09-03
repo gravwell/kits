@@ -1,0 +1,20 @@
+{
+ "UUID": "fc0dab98-c8b7-4fd1-ab8f-d8837bd305e6",
+ "Name": "Template - Suricata - IP - Ports Contacted [table]",
+ "Description": "Destination ports contacted by the given IP, from Suricata flow records (top 50).",
+ "Data": {
+  "variables": [
+   {
+    "name": "%%1%%",
+    "label": "IP address",
+    "description": "The source IP whose outbound port usage you want to review.",
+    "required": true,
+    "defaultValue": "",
+    "previewValue": ""
+   }
+  ]
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

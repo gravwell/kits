@@ -1,0 +1,16 @@
+{
+ "Name": "ScheduledSearch - Suricata - Deprecated TLS Version in Use",
+ "Description": "TLS sessions negotiated with SSLv2, SSLv3, TLS 1.0, or TLS 1.1. The in() list includes both older (TLSv1) and newer (TLS 1.0) Suricata version-string formats; trim it to match what your Suricata release emits.",
+ "Labels": [
+  "suricata"
+ ],
+ "Schedule": "27 * * * *",
+ "Duration": -3600,
+ "DefaultDeploymentRules": {
+  "Disabled": true,
+  "RunImmediately": false
+ },
+ "ScheduledType": "search",
+ "GUID": "53964fd8-a47d-476b-8303-15bd12dec5f8",
+ "SearchReference": "ce0faa84-e824-479e-a293-31dbd39d7de0"
+}

@@ -1,0 +1,20 @@
+{
+ "UUID": "8430f31a-7cbc-4c09-a494-12712ce78c3e",
+ "Name": "Template - Suricata - Signature - Total Alerts [numbercard]",
+ "Description": "Total alert count for the given signature name (exact match).",
+ "Data": {
+  "variables": [
+   {
+    "name": "%%1%%",
+    "label": "signature",
+    "description": "The exact Suricata alert signature name.",
+    "required": true,
+    "defaultValue": "",
+    "previewValue": ""
+   }
+  ]
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

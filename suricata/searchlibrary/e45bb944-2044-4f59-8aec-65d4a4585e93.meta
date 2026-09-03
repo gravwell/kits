@@ -1,0 +1,13 @@
+{
+ "Name": "Suricata - Large Outbound Data Transfer",
+ "Description": "Flows from private sources to public destinations that sent more than 100MB (104857600 bytes) to the server. Possible exfiltration; tune the byte threshold in the eval to fit your environment.",
+ "GUID": "e45bb944-2044-4f59-8aec-65d4a4585e93",
+ "Labels": [
+  "suricata",
+  "detection",
+  "flow",
+  "T1048",
+  "exfiltration"
+ ],
+ "Metadata": {}
+}

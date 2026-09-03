@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="alert" src_ip dest_ip
+| eval (src_ip == "%%1%%" || dest_ip == "%%1%%")
+| stats count as alerts
+| numbercard alerts

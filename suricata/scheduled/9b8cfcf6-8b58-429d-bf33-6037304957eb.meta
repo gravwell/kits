@@ -1,0 +1,16 @@
+{
+ "Name": "ScheduledSearch - Suricata - HTTP Request to Bare IP Host",
+ "Description": "HTTP requests where the Host header is a bare IPv4 address rather than a hostname. Legitimate for some internal tooling, but a common malware beaconing pattern.",
+ "Labels": [
+  "suricata"
+ ],
+ "Schedule": "47 * * * *",
+ "Duration": -3600,
+ "DefaultDeploymentRules": {
+  "Disabled": true,
+  "RunImmediately": false
+ },
+ "ScheduledType": "search",
+ "GUID": "9b8cfcf6-8b58-429d-bf33-6037304957eb",
+ "SearchReference": "bbef6071-6106-4d46-b4f0-1c5dbc8882fd"
+}

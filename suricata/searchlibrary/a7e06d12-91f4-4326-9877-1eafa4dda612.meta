@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - File Types Observed",
+ "Description": "The 20 most common file types (libmagic descriptions) seen in Suricata fileinfo events. Requires the files/fileinfo event type in suricata.yaml plus force-magic: yes under eve-log types.files and a Suricata built with libmagic support; without it no magic field is emitted and this search returns nothing.",
+ "GUID": "a7e06d12-91f4-4326-9877-1eafa4dda612",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "fileinfo"
+ ],
+ "Metadata": {}
+}

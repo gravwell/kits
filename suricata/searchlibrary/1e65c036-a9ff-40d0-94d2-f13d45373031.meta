@@ -1,0 +1,12 @@
+{
+ "Name": "Suricata - External Alert Sources Map",
+ "Description": "Geographic map of public source IPs that triggered Suricata alerts. Uses the geoip module, which requires the Gravwell Network Enrichment Kit or your own curated GeoIP database; without one this search returns no points.",
+ "GUID": "1e65c036-a9ff-40d0-94d2-f13d45373031",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "alert",
+  "geoip"
+ ],
+ "Metadata": {}
+}

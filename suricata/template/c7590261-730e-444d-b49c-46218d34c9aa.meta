@@ -1,0 +1,20 @@
+{
+ "UUID": "c7590261-730e-444d-b49c-46218d34c9aa",
+ "Name": "Template - Suricata - IP - Alert Count [numbercard]",
+ "Description": "Total number of Suricata alerts involving the given IP as source or destination.",
+ "Data": {
+  "variables": [
+   {
+    "name": "%%1%%",
+    "label": "IP address",
+    "description": "The IP address under investigation, matched as source or destination.",
+    "required": true,
+    "defaultValue": "",
+    "previewValue": ""
+   }
+  ]
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

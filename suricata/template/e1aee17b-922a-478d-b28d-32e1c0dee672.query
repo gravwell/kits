@@ -1,0 +1,6 @@
+tag=$SURICATA json event_type=="flow" src_ip dest_ip flow.bytes_toserver as bytes_toserver flow.bytes_toclient as bytes_toclient
+| eval (src_ip == "%%1%%" || dest_ip == "%%1%%")
+| eval if (src_ip == "%%1%%") { peer = dest_ip; sent = bytes_toserver; received = bytes_toclient ;} else { peer = src_ip; sent = bytes_toclient; received = bytes_toserver ;}
+| stats sum(sent) as sent sum(received) as received by peer
+| top -n 20 sent
+| table -nt peer sent received

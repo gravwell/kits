@@ -1,0 +1,20 @@
+{
+ "UUID": "11a6e83d-263e-444d-a241-c3b421ed13fb",
+ "Name": "Template - Suricata - IP - Alerts [table]",
+ "Description": "All Suricata alerts where the given IP is the source or destination.",
+ "Data": {
+  "variables": [
+   {
+    "name": "%%1%%",
+    "label": "IP address",
+    "description": "The IP address under investigation, matched as source or destination.",
+    "required": true,
+    "defaultValue": "",
+    "previewValue": ""
+   }
+  ]
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

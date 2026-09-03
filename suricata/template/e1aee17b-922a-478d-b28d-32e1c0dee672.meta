@@ -1,0 +1,20 @@
+{
+ "UUID": "e1aee17b-922a-478d-b28d-32e1c0dee672",
+ "Name": "Template - Suricata - IP - Flow Volume [table]",
+ "Description": "Bytes sent and received in flows involving the given IP, grouped by the remote peer (top 20 by bytes sent). Byte counters are oriented from the investigated IP's perspective: sent is bytes the IP transmitted, received is bytes it received.",
+ "Data": {
+  "variables": [
+   {
+    "name": "%%1%%",
+    "label": "IP address",
+    "description": "The IP address under investigation, matched as source or destination.",
+    "required": true,
+    "defaultValue": "",
+    "previewValue": ""
+   }
+  ]
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

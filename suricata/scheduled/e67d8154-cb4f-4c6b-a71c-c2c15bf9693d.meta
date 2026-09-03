@@ -1,0 +1,16 @@
+{
+ "Name": "ScheduledSearch - Suricata - Self-Signed TLS Certificate",
+ "Description": "TLS sessions where the certificate subject equals the issuer DN, i.e. a self-signed certificate. Common on internal services, but also on C2 infrastructure; review destinations you do not recognize.",
+ "Labels": [
+  "suricata"
+ ],
+ "Schedule": "32 * * * *",
+ "Duration": -3600,
+ "DefaultDeploymentRules": {
+  "Disabled": true,
+  "RunImmediately": false
+ },
+ "ScheduledType": "search",
+ "GUID": "e67d8154-cb4f-4c6b-a71c-c2c15bf9693d",
+ "SearchReference": "15cda492-dc06-41d5-97e4-8ebdc6f2cd22"
+}

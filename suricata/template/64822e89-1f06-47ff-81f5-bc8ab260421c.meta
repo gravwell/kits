@@ -1,0 +1,20 @@
+{
+ "UUID": "64822e89-1f06-47ff-81f5-bc8ab260421c",
+ "Name": "Template - Suricata - Signature - Activity Over Time [chart]",
+ "Description": "Alert volume over time for the given signature name (exact match).",
+ "Data": {
+  "variables": [
+   {
+    "name": "%%1%%",
+    "label": "signature",
+    "description": "The exact Suricata alert signature name, e.g. from the Top Alert Signatures search.",
+    "required": true,
+    "defaultValue": "",
+    "previewValue": ""
+   }
+  ]
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

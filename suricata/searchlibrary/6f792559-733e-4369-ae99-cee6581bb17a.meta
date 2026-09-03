@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Top Alerting Source IPs",
+ "Description": "The 20 source IPs triggering the most Suricata alerts.",
+ "GUID": "6f792559-733e-4369-ae99-cee6581bb17a",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "alert"
+ ],
+ "Metadata": {}
+}
