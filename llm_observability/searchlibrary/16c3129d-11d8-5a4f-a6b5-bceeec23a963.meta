@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Tool Call Frequency [chart]",
+	"Description": "Which tools the models are calling, by volume.\n\nRequires Log-Tool-Calls=true on the listener.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "16c3129d-11d8-5a4f-a6b5-bceeec23a963",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

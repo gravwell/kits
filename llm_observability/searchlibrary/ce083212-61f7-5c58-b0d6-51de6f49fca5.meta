@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Semantic - Destructive Operations Requested [table]",
+	"Description": "Finds prompts asking for irreversible destructive operations. Pair with the Recent Tool Calls query to see whether the model actually acted on one.\n\nRequires embeddings on the entries (vector preprocessor on the LLM listener) and an embedding model configured in the webserver's [AI] section. Without both, this query returns nothing. Tune sensitivity with the LLM_SEMANTIC_THRESHOLD config macro rather than editing the query.\n\n`embeddings` is an intrinsic enumerated value, so it is declared on the intrinsic extraction module alongside everything else the query needs; the semantic module cannot see it otherwise.",
+	"GUID": "ce083212-61f7-5c58-b0d6-51de6f49fca5",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

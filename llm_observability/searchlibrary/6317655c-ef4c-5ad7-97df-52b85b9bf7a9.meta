@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Tool Calls by Model and Tool [table]",
+	"Description": "Tool usage cross-tabulated with model, so you can see which model reaches for which capability.\n\nRequires Log-Tool-Calls=true on the listener.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "6317655c-ef4c-5ad7-97df-52b85b9bf7a9",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

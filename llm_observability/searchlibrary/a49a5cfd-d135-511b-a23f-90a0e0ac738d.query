@@ -1,0 +1,3 @@
+tag=$LLM_TAG $LLM_ASSISTANT_REPLIES stream
+| stats count as Replies by stream
+| chart Replies by stream

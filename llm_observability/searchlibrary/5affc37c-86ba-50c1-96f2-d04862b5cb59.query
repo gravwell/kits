@@ -1,0 +1,4 @@
+tag=$LLM_TAG $LLM_TOOL_CALLS tool_name tool_call_id model session_id
+| sort by time desc
+| limit 100
+| table TIMESTAMP tool_name model session_id tool_call_id DATA

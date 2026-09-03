@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Upstream Errors Over Time by Model [chart]",
+	"Description": "Upstream failures over time, broken out by model, so a provider incident is easy to separate from a client bug.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block. The `intrinsic` module filters on equality only -- it has no `<`, `>`, `<=`, or `>=` -- so the `>= 400` test is an `eval` with an `int()` cast after the extraction.",
+	"GUID": "56d3e483-e7dc-5308-b1fd-847ae6e5da6c",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

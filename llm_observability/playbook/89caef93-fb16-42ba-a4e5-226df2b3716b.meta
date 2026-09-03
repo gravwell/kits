@@ -1,0 +1,24 @@
+{
+	"UUID": "7ade3291-f925-4522-b2f4-e666b36c1014",
+	"GUID": "89caef93-fb16-42ba-a4e5-226df2b3716b",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "LLM Observability - Readme",
+	"Desc": "",
+	"Labels": [
+		"llm_observability"
+	],
+	"LastUpdated": "2026-09-03T16:35:56.790545000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

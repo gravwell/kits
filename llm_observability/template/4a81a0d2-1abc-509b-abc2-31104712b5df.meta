@@ -1,0 +1,21 @@
+{
+	"UUID": "4a81a0d2-1abc-509b-abc2-31104712b5df",
+	"Name": "Template - LLM - Conversation Reconstruction",
+	"Description": "Replay one conversation in order. Every prompt, system message, reply, tool call, and tool result carrying the given session_id, oldest first.\n\nSession ID = \"%%1%%\"\n\nSession ids come from any of the kit's queries; the Top Sessions by Token Spend and semantic hunt results are the usual starting points.\n\ntool_name and duration_ms exist only on some event types, so those columns are blank on the turns that do not carry them.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "Session ID",
+				"description": "The session_id to replay. Leave as * to dump every session in the timeframe.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

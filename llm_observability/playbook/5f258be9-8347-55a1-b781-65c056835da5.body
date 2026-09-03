@@ -1,0 +1,102 @@
+Semantic search requires a vector on the entry and a means of embedding the search phrase. These are two
+separate pieces of configuration in two different locations, and they must agree with one another.
+
+# **1. Attach the vector preprocessor to the listener**
+
+In **/opt/gravwell/etc/gravwell\_llm\_ingester.conf**:
+
+<pre>
+[Listener "openai"]
+	Bind = ":4180"
+	Upstream-URL = "https://api.openai.com"
+	Protocol = "openai-chat"
+	Tag-Name = llm
+	Log-Tool-Calls = true
+	Log-Usage = true
+	Preprocessor = embed
+
+[Preprocessor "embed"]
+	Type = vector
+	Model = text-embedding-3-small
+	Endpoint = https://api.openai.com/v1/embeddings
+	Token = YOUR\_EMBEDDING\_API\_TOKEN
+	Timeout = 15
+	Retry-Attempts = 3
+	Passthrough-On-Error = true
+</pre>
+
+**Model** and **Endpoint** are required. The endpoint must be a full URL including the scheme, and must
+be OpenAI-compatible. **Token** is sent as an **Authorization: Bearer** header.
+
+Every entry in a processing block is embedded in a single request, which limits the number of round
+trips. Empty and whitespace-only payloads bypass the API entirely. The entry payload is never modified;
+the vector is attached as an enumerated value named **embeddings**, holding the JSON encoding of the
+array.
+
+**Set Passthrough-On-Error=true unless losing entries is preferable to losing embeddings.** With it
+disabled, a failing embeddings endpoint results in lost entries.
+
+Restart the ingester and confirm that vectors are being attached:
+
+```
+tag=$LLM_TAG $LLM_USER_PROMPTS model embeddings
+| eval has(embeddings)
+| stats count as Embedded by model
+| table model Embedded
+```
+
+**embeddings** is an intrinsic enumerated value like every other field on this tag, so it must be
+declared on the **intrinsic** module before anything -- **eval**, or the **semantic** module itself --
+can read it. **$LLM\_USER\_PROMPTS** supplies the **intrinsic** module, and **model embeddings** are
+appended to it.
+
+# **2. Configure the embedding model on the webserver**
+
+The **semantic** module must embed *the search phrase* at query time, and it does so from the webserver.
+Add the following to the **[AI]** section of **/opt/gravwell/etc/gravwell.conf**:
+
+<pre>
+[AI]
+	Embedding-URL="https://api.openai.com/v1/embeddings"
+	Embedding-Model="text-embedding-3-small"
+	Embedding-Token="YOUR\_EMBEDDING\_API\_TOKEN"
+</pre>
+
+Restart the webserver. Requests to this endpoint use a 10 second timeout.
+
+# **The two models must match**
+
+This is the most common configuration error. The model in the vector preprocessor and the model in
+**[AI]** each produce vectors of a particular dimensionality. If they differ, the cosine comparison is
+meaningless, and the **semantic** module fails the query on dimension mismatch rather than returning
+incorrect results.
+
+Use the same model name in both locations. If the embedding model is changed later, entries embedded
+with the previous model are no longer comparable; either reingest them or accept that hunts reach back
+only as far as the changeover.
+
+Both may be pointed at a self-hosted endpoint. **Embedding-Model="qwen3-embedding:8b"** against a local
+server is a supported configuration, and it keeps prompt text within the local network.
+
+# **Resource costs**
+
+**Throughput.** Embedding occurs synchronously during ingest, so the data flow is bounded by the
+response time of the embeddings endpoint. Do not attach the vector preprocessor to a high-volume stream
+without measuring first.
+
+**Storage.** A 1024-dimensional vector serialised as JSON is roughly 10-20KB *per entry*, which
+generally exceeds the size of the prompt it describes. Size the well accordingly.
+
+**Query cost.** The **semantic** module runs on the webserver, so every entry it evaluates has its
+vector transferred from the indexers to the webserver first. This is substantially more expensive than
+text filtering, and it is the reason every hunt in this kit filters by tag, timeframe, and
+**event_type** before the **semantic** module receives an entry.
+
+# **Embedding selectively**
+
+Embedding the full data set is not required. Where the subject of interest is what users are asking for,
+attach the vector preprocessor to a listener whose **Log-Mode** is **user**, and operate a second
+listener without the preprocessor for all other traffic. This yields searchable prompts at a fraction of
+the vector storage.
+
+Continue with **LLM Observability - Hunting Prompts by Meaning**.
