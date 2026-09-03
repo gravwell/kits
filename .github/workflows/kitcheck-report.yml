@@ -1,0 +1,174 @@
+name: kitcheck report
+
+# Lightweight, non-blocking structural check on changed kit directories.
+# This is a component, not a gate: findings are surfaced in the Job Summary
+# for the reviewer to see before approving, but never fail the build.
+# Checks are traced to the canonical kit standards docs (Google Docs —
+# ask a team lead for current links); query execution and
+# detection-quality judgment are explicitly out of scope here, that's
+# the deeper "kit audit" skill's job.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: write
+
+env:
+  # 33 dirs: original 32 + auth0. ai_agent_preview deliberately excluded
+  # (see DECISIONS.md, "Catalog scope"). Used only to keep the diff scan
+  # honest about what's a kit dir vs repo-level tooling — the MANIFEST
+  # check below is what actually decides whether to run kitcheck on a dir,
+  # so a brand-new kit dir (not yet in this list) still gets checked.
+  KNOWN_KIT_DIRS: >-
+    auditd auth0 aws_cloudtrail aws_guardduty azure barracuda bitwarden
+    cisco_asa cisco_ftd coredns corelight duo fortinet github gravwell
+    grok ipfix ipmi juniper linux_syslog netflowv5 o365 okta paloalto
+    pfSense pihole syslog sysmon thinkst-canary weather windows
+    windows_resource zeek
+
+jobs:
+  kitcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine changed kit directories
+        id: dirs
+        run: |
+          set -euo pipefail
+          # Three-dot (merge-base-relative), not two-dot: a two-dot diff
+          # compares base and head as two arbitrary commits, so a PR
+          # branch that's behind base (common on a long-lived branch)
+          # picks up every directory base changed since the branch
+          # diverged, not just what the PR itself touched -- confirmed
+          # real via a real stale branch (22 commits behind), which
+          # pulled in 4 unrelated kit directories into the report
+          # alongside the one the PR actually changed.
+          changed=$(git diff --name-only "${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" \
+            | cut -d/ -f1 | sort -u)
+          # A dir "looks like a kit" if it has a MANIFEST — covers both
+          # existing kits and brand-new ones added in this PR, without
+          # needing the KNOWN_KIT_DIRS list to be current.
+          hits=""
+          for d in $changed; do
+            if [ -f "$d/MANIFEST" ]; then
+              hits="$hits $d"
+            fi
+          done
+          echo "dirs=$hits" >> "$GITHUB_OUTPUT"
+
+      - name: Run kitcheck on each changed kit
+        if: steps.dirs.outputs.dirs != ''
+        run: |
+          set -euo pipefail
+
+          # kitcheck targets one kit per PR (see "Determine changed kit
+          # directories" above) -- kitcheck_render_report.py prints the
+          # full report directly, no separate aggregate-across-kits step.
+          mkdir -p /tmp/kitcheck-tmp
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          for d in ${{ steps.dirs.outputs.dirs }}; do
+            safe_name=$(echo "$d" | tr '/' '_')
+
+            # Version-iteration check (Standards §5.1) needs to know whether
+            # this kit existed at the PR base — if its MANIFEST is fetchable
+            # from base_sha, this is an update and we compare versions; if
+            # not, it's a genuinely new kit and Version should start at 1.
+            version_args=()
+            if git show "$base_sha:$d/MANIFEST" > "/tmp/kitcheck-tmp/$safe_name-base-manifest.json" 2>/dev/null; then
+              version_args=(--base-manifest "/tmp/kitcheck-tmp/$safe_name-base-manifest.json")
+            else
+              version_args=(--new-kit)
+            fi
+
+            python3 .github/scripts/kitcheck.py --input "$d" --format json "${version_args[@]}" \
+              --output "kitcheck-$d.json" > /dev/null 2>&1 || true
+
+            if [ -f "kitcheck-$d.json" ]; then
+              python3 .github/scripts/kitcheck_render_report.py "$d" "kitcheck-$d.json" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "## kitcheck: \`$d\` — ⚠️ couldn't evaluate (not a valid kit directory?)" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
+      - name: New-kit follow-ups reminder
+        if: steps.dirs.outputs.dirs != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Only relevant for genuinely new kits -- an existing kit's
+          # update PR has already been through this once. Same
+          # base-MANIFEST detection as the version-iteration check above.
+          base_sha="${{ github.event.pull_request.base.sha }}"
+          repo="${{ github.repository }}"
+          for d in ${{ steps.dirs.outputs.dirs }}; do
+            if git show "$base_sha:$d/MANIFEST" > /dev/null 2>&1; then
+              continue
+            fi
+
+            findings=()
+
+            if ! grep -qF "'$d/**'" .github/labeler.yml; then
+              findings+=("- \`labeler.yml\` doesn't list \`$d/**\` yet — the next PR touching this kit will mislabel as \`new-kit\` again.")
+            fi
+
+            if ! grep -qE "^[[:space:]]*-[[:space:]]*$d[[:space:]]*\$" .github/ISSUE_TEMPLATE/kit_change.yml; then
+              findings+=("- \`kit_change.yml\`'s Kit dropdown doesn't list \`$d\` yet — nobody can file an Existing Kit Change issue against it until it's added.")
+            fi
+
+            if ! gh label list --repo "$repo" --search "kit:$d" --json name -q '.[].name' | grep -qx "kit:$d"; then
+              findings+=("- \`kit:$d\` label doesn't exist on \`$repo\` yet — \`kit-change-support.yml\` will fail to apply it the first time someone files a change against this kit.")
+            fi
+
+            if [ "${#findings[@]}" -gt 0 ]; then
+              {
+                echo "## New kit follow-ups: \`$d\`"
+                echo
+                echo "This looks like a brand-new kit. Per \`docs/kit-pipeline.md\`'s \"Manual follow-ups after a new kit ships\" — not blocking, but needed before or shortly after this merges:"
+                echo
+                printf '%s\n' "${findings[@]}"
+                echo
+              } >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+
+      - name: Sync kitcheck:pass / kitcheck:needs-attention label
+        if: steps.dirs.outputs.dirs != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # Requires the two labels to already exist on the repo (see
+          # github-setup-checklist.md, labels step) — `gh pr edit --add-label`
+          # fails if a label doesn't exist yet, hence `|| true` so a missing
+          # label doesn't break the whole job, just silently skips syncing.
+          shopt -s nullglob
+          json_files=(kitcheck-*.json)
+          verdict=$(python3 .github/scripts/kitcheck_aggregate.py "${json_files[@]}")
+          pr="${{ github.event.pull_request.number }}"
+          repo="${{ github.repository }}"
+          if [ "$verdict" = "pass" ]; then
+            gh pr edit "$pr" --repo "$repo" --add-label "kitcheck:pass" --remove-label "kitcheck:needs-attention" || true
+          else
+            gh pr edit "$pr" --repo "$repo" --add-label "kitcheck:needs-attention" --remove-label "kitcheck:pass" || true
+          fi
+
+      - name: No kit directories changed
+        if: steps.dirs.outputs.dirs == ''
+        run: |
+          echo "No changed top-level directory looks like a kit (no MANIFEST found) — skipping kitcheck." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload full JSON reports
+        if: steps.dirs.outputs.dirs != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: kitcheck-reports
+          path: kitcheck-*.json
+          if-no-files-found: ignore
