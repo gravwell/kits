@@ -1,0 +1,3 @@
+tag=$UMBRELLA_DNS ax response_code
+| count by response_code
+| chart count by response_code

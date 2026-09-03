@@ -1,0 +1,21 @@
+{
+	"Name": "Umbrella - Policy Deleted by Administrator",
+	"Description": "Detects deletion of Umbrella policy objects in the admin audit log. Deleting policy can remove protections such as security category blocking.",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"audit",
+		"T1562.001",
+		"defense-evasion"
+	],
+	"Schedule": "24 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a023a2c3-a5f6-4190-8f68-8473d1ff45f4",
+	"SearchReference": "5a3dce3d-5fa0-477e-b4ca-9e95a485fc39"
+}

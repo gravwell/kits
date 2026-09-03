@@ -1,0 +1,2 @@
+tag=$UMBRELLA_AUDIT ax action=="delete" type ~ "polic" email user logged_in_from before
+| table email user type logged_in_from before

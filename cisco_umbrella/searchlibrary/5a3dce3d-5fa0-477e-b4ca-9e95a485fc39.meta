@@ -1,0 +1,14 @@
+{
+	"Name": "Umbrella - Policy Deleted by Administrator",
+	"Description": "Detects deletion of Umbrella policy objects in the admin audit log. Deleting policy can remove protections such as security category blocking.",
+	"GUID": "5a3dce3d-5fa0-477e-b4ca-9e95a485fc39",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"audit",
+		"T1562.001",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

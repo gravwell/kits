@@ -1,0 +1,175 @@
+{
+	"UUID": "9ab2b05a-c926-4222-a246-5af72389c566",
+	"Name": "Umbrella - Web Proxy Overview",
+	"Description": "Overview of traffic through the Umbrella intelligent proxy: request volume by action, bandwidth, blocked categories, HTTP status codes, top destinations, and files flagged by AMP file inspection.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Umbrella - Proxy Requests Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "eaf139b8-9da9-47c0-97f2-2b89b3f2dbe2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Proxy Bandwidth Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "bcce4162-2bc6-4ebc-bdd4-74c2e29de836",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Top Blocked Proxy Categories [Chart]",
+				"color": null,
+				"reference": {
+					"id": "262d94b0-416d-4b74-832a-8668185d5cd5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Proxy HTTP Status Codes [Chart]",
+				"color": null,
+				"reference": {
+					"id": "231b4a40-a8d2-4c97-981b-000b231d6cd2",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Top Proxied Destinations [Chart]",
+				"color": null,
+				"reference": {
+					"id": "5c5dcc0e-323e-4974-a93a-9352f7e60501",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Malicious File Detected by AMP",
+				"color": null,
+				"reference": {
+					"id": "c5c34a2e-5140-480b-9ead-1e5a2ea07868",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17800000000200,
+				"title": "Proxy Requests Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000201,
+				"title": "Bandwidth Over Time",
+				"renderer": "areaChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000202,
+				"title": "Top Blocked Categories",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000203,
+				"title": "HTTP Status Codes",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000204,
+				"title": "Top Proxied Destinations",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 3,
+					"x": 4,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000205,
+				"title": "AMP Malware Detections",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"umbrella",
+		"cisco umbrella"
+	]
+}

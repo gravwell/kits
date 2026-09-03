@@ -1,0 +1,24 @@
+{
+	"UUID": "7684e420-7a9c-45b4-9a5a-2523c5b28d04",
+	"Name": "Umbrella - Investigate Internal IP",
+	"Description": "DNS activity originating from an internal IP address - what domains has this host requested and what was blocked?",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "Internal IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "10.10.1.100"
+			}
+		]
+	},
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"dns",
+		"ip",
+		"investigation"
+	]
+}
