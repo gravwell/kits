@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+
+# Reproduced from the gravwell/.github org default (this repo's own
+# ISSUE_TEMPLATE folder overrides that inheritance wholesale, so it has to
+# be repeated here to keep it, not just added to).
+contact_links:
+  - name: Gravwell Community Support
+    url: https://discord.com/invite/gravwell
+    about: Please ask and answer questions here.
