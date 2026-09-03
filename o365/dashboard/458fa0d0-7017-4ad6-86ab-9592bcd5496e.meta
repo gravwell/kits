@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Office 365 ThreatManagement Alerts",
+				"alias": "Office 365 - Security \u0026 Compliance Alerts",
 				"color": null,
 				"reference": {
 					"id": "3fe01f34-6016-40e6-bb03-58c6b24f59db",
@@ -151,7 +151,7 @@
 			},
 			{
 				"id": 16687024775905,
-				"title": "ThreatManagement Alert Stats",
+				"title": "Security \u0026 Compliance Alert Stats",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -168,5 +168,5 @@
 		"grid": {},
 		"version": 2
 	},
-	"Labels": null
+	"Labels": ["general", "o365"]
 }
