@@ -1,0 +1,66 @@
+name: Kit change issue support
+
+# kit_change.yml collects "Kit" and "Type of change" as form fields, but
+# issue forms can't set a `kit:<name>` label or the issue type from a
+# dropdown answer on their own — this workflow does that after the fact by
+# parsing the rendered body. Detection is by header presence (no explicit
+# template marker), so if the field labels in kit_change.yml are renamed,
+# update the regexes below to match.
+#
+# NOTE: the GraphQL mutation used to set issue type has not been exercised
+# against a live repo from this environment — verify the `updateIssue`
+# input shape against the current GitHub GraphQL schema before relying on
+# it, and confirm the two repo variables below are set to real issue type
+# node IDs (Settings > Types, or `gh api graphql` to look them up).
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse form fields and apply label/type
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || ''
+            const kitMatch = body.match(/### Kit\s*\n+([^\n]+)/)
+            const typeMatch = body.match(/### Type of change\s*\n+([^\n]+)/)
+            if (!kitMatch || !typeMatch) {
+              core.info('Not a kit_change.yml submission (missing expected headers) — skipping.')
+              return
+            }
+
+            const kit = kitMatch[1].trim()
+            const changeType = typeMatch[1].trim() // "Bug" or "Enhancement"
+
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              labels: [`kit:${kit}`],
+            })
+
+            const typeIdVar = changeType === 'Bug' ? 'BUG_ISSUE_TYPE_ID' : 'ENHANCEMENT_ISSUE_TYPE_ID'
+            const typeId = process.env[typeIdVar]
+            if (!typeId) {
+              core.warning(`${typeIdVar} is not set — skipping issue type assignment for "${changeType}".`)
+              return
+            }
+
+            await github.graphql(
+              `mutation($issueId: ID!, $typeId: ID!) {
+                updateIssue(input: { id: $issueId, issueTypeId: $typeId }) {
+                  issue { id }
+                }
+              }`,
+              { issueId: context.payload.issue.node_id, typeId }
+            )
+        env:
+          BUG_ISSUE_TYPE_ID: ${{ vars.BUG_ISSUE_TYPE_ID }}
+          ENHANCEMENT_ISSUE_TYPE_ID: ${{ vars.ENHANCEMENT_ISSUE_TYPE_ID }}
