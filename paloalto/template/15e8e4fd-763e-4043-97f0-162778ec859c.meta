@@ -1,0 +1,28 @@
+{
+	"UUID": "15e8e4fd-763e-4043-97f0-162778ec859c",
+	"Name": "Template - Palo Alto - NGFW - Threat - Events - All Threat Events for User \u0026 IP [table]",
+	"Description": "Displays a table of threat events associated with the specified IP address including source, destination, and threat ID.\n\nDependencies\n- Dashboard: Palo Alto Investigations",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This variable for the User allows you to query the relevant EVs such as srcuser and dstuser (if applicable).",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This variable for the IP Address allows you to query the relevant EVs such as src, natsrc, dst, natdst, xff_ip, private_ip, and public_ip (if applicable).",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Threat - GlobalProtect - Count by Subtype [numbercard]
+tag=$PAN_GLOBALPROTECT ax subtype
+| stats count by subtype
+| numbercard (count "")

@@ -1,0 +1,24 @@
+{
+	"UUID": "916b3899-b370-4fdb-8984-5933224e6468",
+	"GUID": "10f92652-bef8-43ec-8fc1-8acf5f465093",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Palo Alto Kit - README",
+	"Desc": "A toolkit for interacting with Palo Alto data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Palo Alto analysis across various log sources.",
+	"Labels": [
+		"palo"
+	],
+	"LastUpdated": "2026-03-18T19:58:34.336045971Z",
+	"Author": {
+		"Name": "Kyle Mallett",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

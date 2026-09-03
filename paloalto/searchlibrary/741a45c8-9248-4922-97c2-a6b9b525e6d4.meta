@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Traffic - Bytes - Total Traffic Volume [chart]",
+	"Description": "Displays a chart of total traffic volume in megabytes based on summed byte counts from traffic logs.\n\nDependencies\n- Dashboard: Palo Alto User Behavior Overview",
+	"GUID": "741a45c8-9248-4922-97c2-a6b9b525e6d4",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

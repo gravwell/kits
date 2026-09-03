@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - Events - Most Frequent Threat IDs [table]",
+	"Description": "Displays a table of the most frequently observed threat IDs in threat events.\n\nDependencies\n- Dashboard: Palo Alto Threat Overview",
+	"GUID": "5a11f630-f7f2-4c98-9500-688928974ac3",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

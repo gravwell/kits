@@ -1,0 +1,7 @@
+// Search - Palo Alto - NGFW - Traffic - SaaS - Unsanctioned Applications [table]
+tag=$PAN_TRAFFIC ax app category_of_app subcategory_of_app bytes is_saas_of_app=="yes" sanctioned_state_of_app=="no"
+| alias app App category_of_app Category subcategory_of_app Subcategory
+| stats sum(bytes) count as Sessions by App Category Subcategory
+| eval Volume = sum;
+| sort by sum desc
+| table App Category Subcategory Sessions Volume

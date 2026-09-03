@@ -1,0 +1,200 @@
+{
+	"UUID": "f91107ca-9fb8-4315-b0c8-f98173fb54d3",
+	"Name": "Palo Alto General Overview",
+	"Description": "This Dashboard is a general overview of your Palo Alto data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P30DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Palo Alto - NGFW - Event Types - Count by Tag [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "80c5d3bb-81fb-475a-b922-f5387e023102",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Event Types - Count by Tag [chart]",
+				"color": null,
+				"reference": {
+					"id": "165321ca-629d-4560-afbb-2ac6cc3ecc56",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Threat - Events - Count by Subtype [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2e2a52c3-01c9-411e-9254-e205ac7b13fa",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Traffic - Events - Count by Subtype [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "03e0c1e3-b239-433a-855d-cca56e0867f9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Command [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "73263790-9a8a-43e1-b231-be2b784de192",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Events - Count by Subtype [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "4898082c-5181-43a9-86f9-00b86bead404",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17738380834010,
+				"title": "Event Count by Tag [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17738381146451,
+				"title": "Event Count by Tag [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 17738381545232,
+				"title": "Event Count by Tag [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "no",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17738382757923,
+				"title": "Threat Log Types",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 15
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17738385632364,
+				"title": "Traffic Log Types",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 15
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17738388361375,
+				"title": "Config Event Count by Command [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 18
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17738390145306,
+				"title": "GlobalProtect Log Types",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 18
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"palo"
+	]
+}

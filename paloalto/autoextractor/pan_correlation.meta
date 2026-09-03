@@ -1,12 +1,17 @@
 {
-	"Name": "Palo Alto correlation",
-	"Desc": "Palo Alto correlation log format",
+	"Name": "Palo Alto Correlation Logs",
+	"Desc": "Gravwell generated CSV extraction for Palo Alto Correlation Logs",
 	"Module": "csv",
-	"Tag": "pan_correlation",
-	"Labels": null,
-	"UID": 2,
+	"Tag": "",
+	"Tags": [
+		"pan_correlation"
+	],
+	"Labels": [
+		"palo"
+	],
+	"UID": 1,
 	"GIDs": null,
-	"Global": false,
-	"UUID": "c9d633ec-c514-482c-a799-10a88a7302d6",
-	"LastUpdated": "2022-03-31T16:30:55.430145847Z"
+	"Global": true,
+	"UUID": "0bdc6bf4-2263-4863-b5a8-3306bb9d2e4a",
+	"LastUpdated": "2026-03-18T14:35:17.188604839Z"
 }

@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Config - Events - Count by Command [numbercard]
+tag=$PAN_CONFIG ax cmd
+| stats count by cmd
+| numbercard (count "")

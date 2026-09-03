@@ -1,6 +1,6 @@
 {
 	"Name": "PAN_THREAT_TRAFFIC",
-	"Description": "Palo Alto tag containing type=threat and type=traffic events",
+	"Description": "Configuration Macro; Tag used for all Palo Alto Threat \u0026 Traffic data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates. ",
 	"Labels": [
 		"palo",
 		"RecordType"

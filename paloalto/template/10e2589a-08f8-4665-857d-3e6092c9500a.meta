@@ -1,0 +1,28 @@
+{
+	"UUID": "10e2589a-08f8-4665-857d-3e6092c9500a",
+	"Name": "Template - Palo Alto - NGFW - Threat - WildFire - All Submissions for User \u0026 IP [table]",
+	"Description": "Displays a table of WildFire file submissions associated with the specified IP address.\n\nDependencies\n- Dashboard: Palo Alto Investigations",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This variable for the User allows you to query the relevant EVs such as srcuser and dstuser (if applicable).",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This variable for the IP Address allows you to query the relevant EVs such as src, natsrc, dst, natdst, xff_ip, private_ip, and public_ip (if applicable).",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

@@ -1,9 +1,54 @@
 {
-	"Tags": ["pan_traffic", "pan_threat"],
-	"Ingesters": ["simplerelay"],
-	"Assets": [
-		{ "Type": "image", "Source": "cover.png", "Legend": "Gravwell", "Featured": true},
-		{ "Type": "image", "Source": "banner.png", "Legend": "Gravwell", "Featured": true, "Banner": true},
-		{ "Type": "readme", "Source": "README.md"}
-	]
+  "Tags": [
+    "pan_auth",
+    "pan_config",
+    "pan_correlation",
+    "pan_decryption",
+    "pan_globalprotect",
+    "pan_gtp",
+    "pan_hipmatch",
+    "pan_iptag",
+    "pan_sctp",
+    "pan_system",
+    "pan_threat",
+    "pan_traffic",
+    "pan_tunnel",
+    "pan_userid"
+  ],
+  "Ingesters": [
+    "simplerelay"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "paloalto-cover.png",
+      "Legend": "Palo Alto Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "paloalto-banner.png",
+      "Legend": "Palo Alto Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "paloalto-cover.png"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "paloalto-banner.png"
+    }
+  ],
+  "readme": "README.md"
 }

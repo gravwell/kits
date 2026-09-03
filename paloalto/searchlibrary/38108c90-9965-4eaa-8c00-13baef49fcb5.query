@@ -1,0 +1,4 @@
+// Search - Palo Alto - NGFW - Threat - WildFire - Count by Application [chart]
+tag=$PAN_THREAT ax subtype=="wildfire" app
+| stats count by app
+| chart count by app

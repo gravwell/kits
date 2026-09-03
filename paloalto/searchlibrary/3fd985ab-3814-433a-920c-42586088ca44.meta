@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - Events - Threat Source Locations [heatmap]",
+	"Description": "Displays a heatmap of threat event source IP locations.\n\nDependencies\n- Dashboard: Palo Alto Threat Overview",
+	"GUID": "3fd985ab-3814-433a-920c-42586088ca44",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

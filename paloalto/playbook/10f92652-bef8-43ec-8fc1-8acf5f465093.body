@@ -1,0 +1,613 @@
+***  
+
+A toolkit for interacting with Palo Alto data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline Palo Alto analysis across Authentication, Config, Correlation, Decryption, GlobalProtect, GTP, HIP Match, IP Tag, Stream Control Transmission Protocol (SCTP), System, Threat, Traffic, Tunnel, and User ID log sources.  
+
+***  
+
+## Table of Contents  
+0. [Data Ingestion](#0-data-ingestion)  
+    0.1. [Simple Relay Ingester](#0-1-simple-relay-ingester)  
+    0.2. [Install & Configure IngesterType](#0-2-install--configure-simple-relay)  
+    0.3. [HTTP Ingester](#0-3-http-ingester)  
+    0.4. [Install & Configure HTTP Ingester](#0-4-install--configure-http-ingester)  
+    0.5. [Data Tags](#0-5-data-tags)  
+    0.6. [Working with the Data](#0-6-working-with-the-data)  
+1. [Tags & Macros](#1-tags--macros)  
+    1.1. [Tags](#1-1-tags)  
+    1.2. [Autoextractors](#1-2-autoextractors)  
+    1.3. [Macros](#1-3-macros)  
+2. [Query Library](#2-query-library)  
+3. [Naming Schema](#3-naming-schema)  
+4. [Resources](#4-resources)  
+    4.1. [Lookups](#4-1-lookups)  
+5. [Alerts](#5-alerts)  
+    5.1. [Dispatchers](#5-1-dispatchers)  
+    5.2. [Consumers](#5-2-consumers)  
+6. [Scheduled Searches](#6-scheduled-searches)  
+    6.1. [Flows](#6-1-flows)  
+7. [Playbooks](#7-playbooks)  
+    7.1. [Files](#7-1-files)  
+8. [Searches](#8-searches)  
+    8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+    8.2. [Alert Queries](#8-2-alert-queries)  
+9. [Templates](#9-templates)  
+10. [Dashboards](#10-dashboards)  
+    10.1. [Actionables](#10-1-actionables)  
+11. [Useful Resources & References](#11-useful-resources--references)  
+12. [Notes](#12-notes)  
+13. [Image credits](#13-image-credits)  
+
+***  
+
+## 0. [Data Ingestion](#0-data-ingestion)
+
+This kit provides tools for working with logs from Palo Alto next-gen firewalls. Note that at this time, only PAN-OS 10.x is supported.
+
+Before you can use the kit, you'll need to get logs flowing from your Palo Alto device into Gravwell. The recommended method is via *syslog forwarding*. Gravwell can receive syslog data using the [Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html) ingester. Configuration of Simple Relay is described below.
+
+You can also send logs via the HTTP ingester; instructions for that are in the "Install & Configure HTTP Ingester" section below.
+
+#### 0.1 [Simple Relay Ingester](#0-1-simple-relay-ingester)
+
+- Simple Relay is the go-to ingester for text based data sources that can be delivered over plaintext TCP, encrypted TCP, or plaintext UDP network connections via either IPv4 or IPv6.
+    - [Documentation](https://docs.gravwell.io/ingesters/simple_relay.html)
+
+#### 0.2 [Install & Configure Simple Relay](#0-2-install--configure-simple-relay)
+
+- Deploy the [Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html) ingester on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/ingesters/ingesters.html) for more information.
+- Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/simple\_relay.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_simple\_relay.service</kbd> to restart the ingester. This will make it start listening for incoming syslog on port 6601, with special rules to route Palo Alto logs into the correct Gravwell tags.
+
+    ```ini
+    [Listener "syslogtcp_paloalto"]
+        Bind-String="tcp://0.0.0.0:6601"
+        Reader-Type=line
+        Tag-Name=pan_events
+        Assume-Local-Timezone=true
+        Preprocessor="PaloAlto Audit Router"
+        Preprocessor="PaloAlto Tunnel Inspection Router"
+        Preprocessor="PaloAlto PAN Type Router"
+
+    # Route Audit logs. Audit logs identify as AUDIT in the 3rd CSV field and
+    # use a different CSV layout than standard SYSTEM logs.
+    [preprocessor "PaloAlto Audit Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`^(?:[^,]*,){2}(?P<subtype>AUDIT|audit),`
+        Route-Extraction=subtype
+        Route=AUDIT:pan_audit
+        Route=audit:pan_audit
+
+    # Route Tunnel Inspection logs. These logs use START/END in the 4th CSV field
+    # instead of a family name such as TRAFFIC or THREAT.
+    # The additional severity check helps distinguish this format from other PAN logs.
+    [preprocessor "PaloAlto Tunnel Inspection Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`^(?:[^,]*,){3}(?P<event>START|END|start|end),(?:[^,]*,){27}(?:informational|low|medium|high|critical),`
+        Route-Extraction=event
+        Route=START:pan_tunnel
+        Route=END:pan_tunnel
+        Route=start:pan_tunnel
+        Route=end:pan_tunnel
+
+    # Route all remaining PAN log families by the 4th CSV field.
+    [preprocessor "PaloAlto PAN Type Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`^(?:[^,]*,){3}(?P<type>[^,]+),`
+        Route-Extraction=type
+        Route=AUTHENTICATION:pan_auth
+        Route=CONFIG:pan_config
+        Route=CORRELATION:pan_correlation
+        Route=DECRYPTION:pan_decryption
+        Route=GLOBALPROTECT:pan_globalprotect
+        Route=GTP:pan_gtp
+        Route=HIP-MATCH:pan_hipmatch
+        Route=HIPMATCH:pan_hipmatch
+        Route=IPTAG:pan_iptag
+        Route=SCTP:pan_sctp
+        Route=SYSTEM:pan_system
+        Route=THREAT:pan_threat
+        Route=TRAFFIC:pan_traffic
+        Route=USERID:pan_userid
+    ```
+
+- Ensure that the server running Simple Relay allows incoming connections on port 6601, and that any firewalls between the Palo Alto device and the Simple Relay system allow port 6601 traffic.
+- Configure log forwarding as described in [the Palo Alto documentation](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring), defining the syslog server profile to point at the Simple Relay server on port 6601 as seen below. When configuring forwarding, make sure you enable all desired log families, including System/Audit and Tunnel Inspection.
+
+> ![Palo Alto Syslog Server Profile: Shows a configured syslog server within Palo Alto](/api/files/8c6e109a-e0e8-4347-9f9b-687ac9291e81?1773840659459 =663x345)
+
+- Once the changes have been committed, logs should begin flowing into Gravwell. You can check by running the following query:
+
+    ```gravwell
+    tag=$PAN_ALL limit 10
+    ```
+
+- If any results appear, logs are coming in properly.
+
+#### 0.3 [HTTP Ingester](#0-3-http-ingester)
+
+- HTTP Ingester can be used when you want Palo Alto to deliver logs over HTTP instead of syslog.
+    - [Documentation](https://docs.gravwell.io/ingesters/http.html)
+
+#### 0.4 [Install & Configure HTTP Ingester](#0-4-install--configure-http-ingester)
+
+- Deploy the [HTTP Ingester](https://docs.gravwell.io/ingesters/http.html) on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/ingesters/ingesters.html) for more information.
+- Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/gravwell\_http\_ingester.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_http\_ingester.service</kbd> to restart the ingester. By default, the HTTP ingester listens on port 8080; this config adds an HTTP endpoint at <kbd>/pan/logs</kbd>, with HTTP basic authentication in place. It also defines preprocessors with special rules to route Palo Alto logs to the correct Gravwell tags.
+
+    ```ini
+    [Listener "palo"]
+        AuthType=basic
+        Username=paloalto
+        Password=paloaltopassword
+        URL="/pan/logs"
+        Tag-Name=pan_events
+        Assume-Local-Timezone=true
+        Preprocessor="PaloAlto Audit Router"
+        Preprocessor="PaloAlto Tunnel Inspection Router"
+        Preprocessor="PaloAlto PAN Type Router"
+
+    [preprocessor "PaloAlto Audit Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`^(?:[^,]*,){2}(?P<subtype>AUDIT|audit),`
+        Route-Extraction=subtype
+        Route=AUDIT:pan_audit
+        Route=audit:pan_audit
+
+    [preprocessor "PaloAlto Tunnel Inspection Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`^(?:[^,]*,){3}(?P<event>START|END|start|end),(?:[^,]*,){27}(?:informational|low|medium|high|critical),`
+        Route-Extraction=event
+        Route=START:pan_tunnel
+        Route=END:pan_tunnel
+        Route=start:pan_tunnel
+        Route=end:pan_tunnel
+
+    [preprocessor "PaloAlto PAN Type Router"]
+        Type=regexrouter
+        Drop-Misses=false
+        Regex=`^(?:[^,]*,){3}(?P<type>[^,]+),`
+        Route-Extraction=type
+        Route=AUTHENTICATION:pan_auth
+        Route=CONFIG:pan_config
+        Route=CORRELATION:pan_correlation
+        Route=DECRYPTION:pan_decryption
+        Route=GLOBALPROTECT:pan_globalprotect
+        Route=GTP:pan_gtp
+        Route=HIP-MATCH:pan_hipmatch
+        Route=HIPMATCH:pan_hipmatch
+        Route=IPTAG:pan_iptag
+        Route=SCTP:pan_sctp
+        Route=SYSTEM:pan_system
+        Route=THREAT:pan_threat
+        Route=TRAFFIC:pan_traffic
+        Route=USERID:pan_userid
+    ```
+
+- Ensure that the server running the HTTP Ingester allows incoming connections on port 8080, and that any firewalls between the Palo Alto device and the ingester system allow port 8080 traffic.
+- Once the ingester is configured, set up log forwarding on the Palo Alto device as described in [the Palo Alto documentation](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/forward-logs-to-an-https-destination). You will need to set up the following:
+    - An HTTP Server Profile. The "Address" field corresponds to the HTTP Ingester's address, "Port" should be 8080, "HTTP Method" is POST, and you should populate the Username and Password fields to match your configuration above. In the "Payload Format" tab, ensure each log type sends the raw CSV field order expected by the preprocessors above, as shown in the image below:
+>
+    > ![Palo Alto Payload Format: Shows the payload format of the logs](/api/files/50cb5863-6867-47da-bc49-7bef73317ddc?1773841161343 =705x467)
+>
+- A Log Forwarding Profile which sends all desired log types to the HTTP Server Profile created above. Note that it is possible to use one Log Forwarding Profile to send logs to both syslog and HTTP ingesters at the same time, if desired, as seen below:
+>
+> ![Palo Alto Log Forwarding Profile: Shows a Palo Alto Log Forwarding Profile](/api/files/16b991a1-86c7-4f08-b408-c5faa8afeef3?1773841216952 =792x384)
+>
+- Once the changes have been committed, logs should begin flowing into Gravwell. You can check by running the following query:
+
+```gravwell
+    tag=$PAN_ALL limit 10
+```
+
+- If any results appear, logs are coming in properly.
+- Warning: We strongly recommend changing the "Username" and "Password" fields before deploying. We also recommend setting up a TLS frontend for better security. Palo Alto also notes that HTTP/S forwarding is intended for lower-volume deployments and can lose logs at higher forwarding rates, so syslog via Simple Relay remains the recommended option for primary ingestion.
+
+#### 0.5 [Data Tags](#0-5-data-tags)
+
+- Palo Alto logs are sorted into tags on Gravwell based on the log family or format, using the mappings defined in the preprocessor configuration above. The tags are:
+    - <kbd>pan_traffic</kbd>: [Traffic logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/traffic-log-fields)
+    - <kbd>pan_threat</kbd>: [Threat logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields), including [URL Filtering](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/url-filtering-log-fields), [Data Filtering](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/data-filtering-log-fields), and WildFire Submission / other THREAT-family subtypes
+    - <kbd>pan_hipmatch</kbd>: [HIP Match logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/hip-match-log-fields)
+    - <kbd>pan_globalprotect</kbd>: [GlobalProtect logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/globalprotect-log-fields)
+    - <kbd>pan_iptag</kbd>: [IP-Tag logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/ip-tag-log-fields)
+    - <kbd>pan_userid</kbd>: [User-ID logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/user-id-log-fields)
+    - <kbd>pan_decryption</kbd>: [Decryption logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/decryption-log-fields)
+    - <kbd>pan_tunnel</kbd>: [Tunnel Inspection logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/tunnel-inspection-log-fields)
+    - <kbd>pan_sctp</kbd>: [SCTP logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/sctp-log-fields)
+    - <kbd>pan_auth</kbd>: [Authentication logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/authentication-log-fields)
+    - <kbd>pan_config</kbd>: [Config logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/config-log-fields)
+    - <kbd>pan_system</kbd>: [System logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/system-log-fields)
+    - <kbd>pan_correlation</kbd>: [Correlated Events logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/correlated-events-log-fields)
+    - <kbd>pan_gtp</kbd>: [GTP logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/gtp-log-fields)
+    - <kbd>pan_audit</kbd>: [Audit logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/audit-log-fields)
+    - <kbd>pan_events</kbd>: Catch-all for unmatched, unknown, or newly introduced PAN log formats that arrive on the dedicated Palo Alto listener or HTTP endpoint
+
+- The links in the list above will take you to the official Palo Alto documentation for each log type. These are the best places to find out what any given field *means*. For instance, the traffic log page includes the following definitions:  
+    - Source Address (src): Original session source IP address.  
+    - Destination Address (dst): Original session destination IP address.  
+- The names in parentheses are the names of the fields used in Gravwell; thus to extract the source and destination IP addresses of a session, one would type <kbd>ax src dst</kbd>. See the next section for more information on extracting data fields.  
+- If your kit defines a <kbd>PAN_ALL</kbd> macro, update it to include <kbd>pan_audit</kbd>, <kbd>pan_tunnel</kbd>, and <kbd>pan_events</kbd> in addition to the existing PAN tags.  
+
+#### 0.6 [Working with the Data](#0-6-working-with-the-data)
+
+- One key component of this kit is the pre-configured *auto extractors* which apply structure to the CSV-formatted logs in the system. Each log type contains *many* fields, so we recommend using a particular trick when exploring the extracted fields of a given data type. First, run a query on the tag using the ax module with no arguments, sent to the text renderer:
+
+    ```gravwell
+    tag=$PAN_TRAFFIC ax 
+    | text
+    ```
+
+- Then, in the results, click the "Show details" floating button for any one of the results. This will expand the entry to show the extracted enumerated values. This lets you rapidly scroll through the raw results until you find one that looks interesting, then expand it to see which enumerated values are available:
+
+> ![Palo Alto Enumerated Values: Shows EVs expanded in text results for Palo Alto logs](/api/files/f99bf07b-e093-4631-85d4-687b039ecda2?1773841268896 =1870x710)
+
+- In the image above, a single enumerated value pair is highlighted; from this, we might modify the query to filter down to only traffic destined for Switzerland for further examination:
+
+    ```gravwell
+    tag=$PAN_TRAFFIC ax dstloc=="Switzerland" 
+    | text
+    ```
+
+- Audit and Tunnel Inspection logs use their own tags because their CSV layouts differ from standard System and Traffic logs. Explore those tags directly when validating ingestion:
+
+    ```gravwell
+    tag=pan_config limit 10
+    ```
+
+***  
+
+## 1. [Tags & Macros](#1-tags--macros)  
+
+#### 1.1. [Tags](#1-1-tags)  
+
+- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.  
+- [Documentation](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+- The Palo Alto Kit for Gravwell makes use of the following tags:  
+- Total: ***14***  
+    - pan\_auth: Tag used for all Palo Alto Authentication data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_auth``  
+    - pan\_config: Tag used for all Palo Alto Config data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_config``  
+    - pan\_correlation: Tag used for all Palo Alto Correlation data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_correlation``  
+    - pan\_decryption: Tag used for all Palo Alto Decryption data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_decryption``  
+    - pan\_globalprotect: Tag used for all Palo Alto GlobalProtect data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_globalprotect``  
+    - pan\_gtp: Tag used for all Palo Alto data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_gtp``  
+    - pan\_hipmatch: Tag used for all Palo Alto HIP Match data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_hipmatch``  
+    - pan\_iptag: Tag used for all Palo Alto IP Tag data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_iptag``  
+    - pan\_sctp: Tag used for all Palo Alto Stream Control Transmission Protocol (SCTP) data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_sctp``  
+    - pan\_system: Tag used for all Palo Alto System data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_system``  
+    - pan\_threat: Tag used for all Palo Alto Threat data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_threat``  
+    - pan\_traffic: Tag used for all Palo Alto Traffic data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_traffic``  
+    - pan\_tunnel: Tag used for all Palo Alto Tunnel data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_tunnel``  
+    - pan\_userid: Tag used for all Palo Alto User ID data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+        - Usage: ``tag=pan_userid``  
+
+#### 1.2. [Autoextractors](#1-2-autoextractors)  
+
+- Purpose: Autoextractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The *ax* module then automatically invokes the appropriate functionality of other modules.  
+- [Documentation](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+- The Palo Alto Kit for Gravwell makes use of the following autoextractors:  
+- Total: ***14***  
+    - Palo Alto Authentication Logs: Gravwell generated CSV extraction for Palo Alto Authentication Logs  
+    - Palo Alto Config Logs: Gravwell generated CSV extraction for Palo Alto Config Logs  
+    - Palo Alto Correlation Logs: Gravwell generated CSV extraction for Palo Alto Correlation Logs  
+    - Palo Alto Decryption Logs: Gravwell generated CSV extraction for Palo Alto Decryption Logs  
+    - Palo Alto GPRS Tunning Protocol (GTP) Logs: Gravwell generated CSV extraction for Palo Alto GPRS Tunning Protocol (GTP) Logs  
+    - Palo Alto GlobalProtect Logs: Gravwell generated CSV extraction for Palo Alto GlobalProtect logs  
+    - Palo Alto HIP Match Logs: Gravwell generated CSV extraction for Palo Alto HIP Match Logs  
+    - Palo Alto IP-Tag Logs: Gravwell generated CSV extraction for Palo Alto IP-Tag Logs  
+    - Palo Alto Stream Control Transmission Protocol (SCTP) Logs: Gravwell generated CSV extraction for Palo Alto (Stream Control Transmission Protocol) SCTP Logs  
+    - Palo Alto System Logs: Gravwell generated CSV extraction for Palo Alto System Logs  
+    - Palo Alto Threat Logs: Gravwell generated CSV extraction for Palo Alto Threat Logs  
+    - Palo Alto Traffic Logs: Gravwell generated CSV extraction for Palo Alto Traffic Logs  
+    - Palo Alto Tunnel Logs: Gravwell generated CSV extraction for Palo Alto Tunnel Logs  
+    - Palo Alto User ID Logs: Gravwell generated CSV extraction for Palo Alto User ID Logs  
+
+#### 1.3. [Macros](#1-3-macros)  
+
+- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.  
+- [Documentation](<https://docs.gravwell.io/search/macros.html>)  
+- The Palo Alto Kit for Gravwell makes use of the following macros:  
+- Total: ***16***  
+    - $PAN\_ALL: Configuration Macro; Tag used for all Palo Alto data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_AUTH: Configuration Macro; Tag used for all Palo Alto Authentication data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_CONFIG: Configuration Macro; Tag used for all Palo Alto Config data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_CORRELATION: Configuration Macro; Tag used for all Palo Alto Correlation data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_DECRYPTION: Configuration Macro; Tag used for all Palo Alto Decryption data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_GLOBALPROTECT: Configuration Macro; Tag used for all Palo Alto GlobalProtect data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_GTP: Configuration Macro; Tag used for all Palo Alto data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_HIPMATCH: Configuration Macro; Tag used for all Palo Alto HIP Match data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_IPTAG: Configuration Macro; Tag used for all Palo Alto IP Tag data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_SCTP: Configuration Macro; Tag used for all Palo Alto Stream Control Transmission Protocol (SCTP) data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_SYSTEM: Configuration Macro; Tag used for all Palo Alto System data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_THREAT: Configuration Macro; Tag used for all Palo Alto Threat data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_THREAT\_TRAFFIC: Configuration Macro; Tag used for all Palo Alto Threat & Traffic data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_TRAFFIC: Configuration Macro; Tag used for all Palo Alto Traffic data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_TUNNEL: Configuration Macro; Tag used for all Palo Alto Tunnel data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+    - $PAN\_USERID: Configuration Macro; Tag used for all Palo Alto User ID data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
+
+***  
+
+## 2. [Query Library](#2-query-library)  
+
+- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-2-alert-queries), and [playbooks](#7-playbooks).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.  
+    - Total queries: ***45***  
+        - [8.1 Dashboard Searches](#8-1-dashboard-searches): ***45***  
+        - [8.2 Alert Queries](#8-2-alert-queries): ***0***  
+
+***  
+
+## 3. [Naming Schema](#3-naming-schema)  
+
+- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  
+- *QueryType - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - if any]*  
+- Examples:  
+    - Templates: *Template - Palo Alto - NGFW - GlobalProtect - Events - All VPN Events for User & IP [table]*  
+    - Searches: *Search - Palo Alto - NGFW - Config - Events - Count by Administrators [chart]*  
+    - Alert Queries: *AlertQuery - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+
+***  
+
+## 4. [Resources](#4-resources)  
+
+- Purpose: Resources allow users to store persistent data for use in searches.  
+- [Documentation](<https://docs.gravwell.io/resources/resources.html>)  
+- Total: ***1***  
+
+#### 4.1. [Lookups](#4-1-lookups)  
+
+- Purpose: Lookup Resources are used by the *lookup* module to perform data enrichment and translation off of a static lookup table stored in a resource.  
+- [Documentation](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+- Total: ***1***  
+    - excluded\_url\_categories: Palo Alto URL categories to be excluded.  
+
+***  
+
+## 5. [Alerts](#5-alerts)  
+
+- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+- Total: ***0***  
+
+#### 5.1. [Dispatchers](#5-1-dispatchers)  
+
+- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.  
+    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+- Total: ***0***  
+
+#### 5.2. [Consumers](#5-2-consumers)  
+
+- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.  
+    - Consumers = [Flows](#6-1-flows)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+- Total: ***0***  
+
+***  
+
+## 6. [Scheduled Searches](#6-scheduled-searches)  
+
+- Purpose: Scheduled Searches are typically dependent on *AlertQuery - Palo Alto - ...* queries within the [Query Library](#2-query-library).  
+- [Documentation](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+- Total: ***0***  
+
+#### 6.1. [Flows](#6-1-flows)  
+
+- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.  
+- [Documentation](<https://docs.gravwell.io/flows/flows.html>)  
+- Total: ***0***  
+
+***  
+
+## 7. [Playbooks](#7-playbooks)  
+
+- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.  
+- [Documentation](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+- Total: ***9***  
+    - Palo Alto Kit - Integration Guide: An Integration Guide for onboarding your Palo Alto logs into Gravwell.  
+    - Palo Alto Kit - README: A toolkit for interacting with Palo Alto data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, and dashboards to help streamline Palo Alto analysis across various log sources.  
+    - Palo Alto Banner: banner file for kit build "Palo Alto v1"  
+    - Palo Alto Cover: cover file for kit build "Palo Alto v1"  
+    - Palo Alto Icon: icon file for kit build "Palo Alto v1"  
+    - Palo Alto Log Forwarding Profile: Shows a Palo Alto Log Forwarding Profile  
+    - Palo Alto Enumerated Values: Shows EVs expanded in text results for Palo Alto logs  
+    - Palo Alto Payload Format: Shows the payload format of the logs  
+    - Palo Alto Syslog Server Profile: Shows a configured syslog server within Palo Alto  
+
+#### 7.1. [Files](#7-1-files)  
+
+- Purpose: Gravwell users can upload small files for use in playbooks, as cover images for kits, etc. Typically, these files are created or selected at the point of use: via a picker in the playbook editor, in the kit builder, etc.  
+- [Documentation](<https://docs.gravwell.io/gui/files/files.html>)  
+- Total: ***0***  
+
+***  
+
+## 8. [Searches](#8-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Palo Alto data in an easily digestible format or [scheduled searches](#6-scheduled-searches) to ultimately feed [alerts](#5-alerts).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+- Total: ***45***  
+    - Dashboard Search Total: ***45***  
+    - Alert Query Total: ***0***  
+
+#### 8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view vendor data in an easily digestible format.  
+- Total: ***45***  
+    - Search - Palo Alto - NGFW - Config - Events - Count by Administrators [chart]: Displays a chart of configuration event counts by administrator.  
+    - Search - Palo Alto - NGFW - Config - Events - Count by Client [chart]: Displays a chart of configuration event counts by client used to perform the action.  
+    - Search - Palo Alto - NGFW - Config - Events - Count by Command [chart]: Displays a chart of configuration event counts by command executed.  
+    - Search - Palo Alto - NGFW - Config - Events - Count by Command [numbercard]: Displays a numbercard of configuration event counts by command executed.  
+    - Search - Palo Alto - NGFW - Config - Events - Count by Results [chart]: Displays a chart of configuration event counts by command result.  
+    - Search - Palo Alto - NGFW - Config - Events - Latest Events [table]: Displays a chart of configuration event counts by administrator.  
+    - Search - Palo Alto - NGFW - Event Types - Count by Tag [chart]: Displays a chart of event counts by TAG.  
+    - Search - Palo Alto - NGFW - Event Types - Count by Tag [numbercard]: Displays a numbercard of event counts by TAG.  
+    - Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [chart]: Displays a chart of GlobalProtect login attempt counts by status.  
+    - Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [numbercard]: Displays a numbercard of GlobalProtect login attempt counts by status.  
+    - Search - Palo Alto - NGFW - GlobalProtect - Authentication - Failed Logins [table]: Displays a table of failed GlobalProtect login attempts by user, region, and source IP.  
+    - Search - Palo Alto - NGFW - GlobalProtect - Diagnostics - Average Latency [chart]: Displays a chart of average pre-tunnel and post-tunnel latency for GlobalProtect gateway connections.  
+    - Search - Palo Alto - NGFW - GlobalProtect - Events - Count by Subtype [numbercard]: Displays a numbercard of GlobalProtect event counts by subtype.  
+    - Search - Palo Alto - NGFW - GlobalProtect - Session - GlobalProtect Users [table]: Displays a table of GlobalProtect users with associated client system and operating system information.  
+    - Search - Palo Alto - NGFW - Threat - Events - Count by Scan Source Location [chart]: Displays a chart of scan event counts by source location.  
+    - Search - Palo Alto - NGFW - Threat - Events - Count by Scan Types [chart]: Displays a chart of scan event counts by threat ID.  
+    - Search - Palo Alto - NGFW - Threat - Events - Count by Subtype [numbercard]: Displays a numbercard of threat event counts by subtype.  
+    - Search - Palo Alto - NGFW - Threat - Events - Count by Threat Destination Location [chart]: Displays a chart of threat event counts by destination location.  
+    - Search - Palo Alto - NGFW - Threat - Events - Count by Threat Source Location [chart]: Displays a chart of threat event counts by source location.  
+    - Search - Palo Alto - NGFW - Threat - Events - Most Frequent Threat IDs [table]: Displays a table of the most frequently observed threat IDs in threat events.  
+    - Search - Palo Alto - NGFW - Threat - Events - Scan Source Locations [heatmap]: Displays a heatmap of scan event source IP locations.  
+    - Search - Palo Alto - NGFW - Threat - Events - Scans Detected [table]: Displays a table of detected scan events grouped by source and threat ID.  
+    - Search - Palo Alto - NGFW - Threat - Events - Threat Source Locations [heatmap]: Displays a heatmap of threat event source IP locations.  
+    - Search - Palo Alto - NGFW - Threat - URL - Count by Top Hostnames [table]: Displays a table of hostname counts extracted from URL threat events.  
+    - Search - Palo Alto - NGFW - Threat - URL - Top Web Categories [chart]: Displays a numbercard of SaaS event counts by type.  
+    - Search - Palo Alto - NGFW - Threat - WildFire - Count by Application [chart]: Displays a chart of WildFire submission counts by application.  
+    - Search - Palo Alto - NGFW - Threat - WildFire - Count by Category [chart]: Displays a chart of WildFire verdict counts by category.  
+    - Search - Palo Alto - NGFW - Threat - WildFire - Count by Category [numbercard]: Displays a numbercard of WildFire verdict counts by category.  
+    - Search - Palo Alto - NGFW - Threat - WildFire - Count by File Type [chart]: Displays a chart of WildFire submission counts by file type.  
+    - Search - Palo Alto - NGFW - Threat - WildFire - Recent Wildfire Submissions [table]: Displays a table of recent non-benign WildFire file submissions including source, destination, and file details.  
+    - Search - Palo Alto - NGFW - Threat/Traffic - Event Type - Count by Type [numbercard]: Displays a numbercard of event counts by type.  
+    - Search - Palo Alto - NGFW - Traffic - Application - Rare Applications [table]: Displays a table of the least frequently observed applications in traffic logs.  
+    - Search - Palo Alto - NGFW - Traffic - Application - Top Applications [chart]: Displays a chart of the most frequently observed applications in traffic logs.  
+    - Search - Palo Alto - NGFW - Traffic - Bytes - Total Traffic Volume [chart]: Displays a chart of total traffic volume in megabytes based on summed byte counts from traffic logs.  
+    - Search - Palo Alto - NGFW - Traffic - Events - Count by Subtype [numbercard]: Displays a numbercard of threat event counts by subtype.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Application Distribution [table]: Displays a table of SaaS applications with session counts and total traffic volume by category and subcategory.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Count by Action [chart]: Displays a chart of SaaS traffic event counts by action.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Count by Application [chart]: Displays a chart of SaaS traffic session counts by application.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Count by Sanctioned Category [chart]: Displays a chart of the most frequently observed sanctioned SaaS application categories.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Count by Unsanctioned Category [chart]: Displays a chart of the least frequently observed sanctioned SaaS application categories.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - SaaS Event Count [numbercard]: Displays a numbercard of SaaS event counts by type.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Application Percentages [chart]: Displays a chart of SaaS traffic counts comparing sanctioned and non-sanctioned applications.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Applications [table]: Displays a table of sanctioned SaaS applications with session counts and total traffic volume.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Total Bytes Transferred [numbercard]: Displays a numbercard of total bytes transferred for SaaS traffic sessions.  
+    - Search - Palo Alto - NGFW - Traffic - SaaS - Unsanctioned Applications [table]: Displays a table of unsanctioned SaaS applications with session counts and total traffic volume.  
+- Naming Schema: *Search - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+
+#### 8.2. [Alert Queries](#8-2-alert-queries)  
+
+- Purpose: These queries within the Query Library drive [scheduled searches](#6-scheduled-searches) which ultimately feed [alerts](#5-alerts).  
+- IMPORTANT: If you need to update or tune, this is where you perform that action.  
+- Total: ***0***  
+- Naming Schema: *AlertQuery - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+
+***  
+
+## 9. [Templates](#9-templates)  
+
+- Purpose: Templates are special objects which define a Gravwell query containing variables.  
+- [Documentation](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- Total: ***5***  
+    - Template - Palo Alto - NGFW - GlobalProtect - Events - All VPN Events for User & IP [table]: Displays a table of GlobalProtect sessions associated with the specified IP address including user and machine information.  
+    - Template - Palo Alto - NGFW - Threat - Events - All Threat Events for User & IP [table]: Displays a table of threat events associated with the specified IP address including source, destination, and threat ID.  
+    - Template - Palo Alto - NGFW - Threat - Subtype - Count by Subtypes for User & IP [numbercard]: Displays a numbercard of threat event counts by subtype for the specified IP address.  
+    - Template - Palo Alto - NGFW - Threat - WildFire - All Submissions for User & IP [table]: Displays a table of WildFire file submissions associated with the specified IP address.  
+    - Template - Palo Alto - NGFW - Traffic - Category - Count by Category [chart]: Displays a chart of traffic event counts by application category for the specified IP address.  
+
+***  
+
+## 10. [Dashboards](#10-dashboards)  
+
+- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.  
+- [Documentation](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+- Total: ***8***  
+    - Palo Alto Config Overview: This dashboard is a general overview of your Palo Alto Device Configuration data.  
+    - Palo Alto General Overview: This Dashboard is a general overview of your Palo Alto data.  
+    - Palo Alto GlobalProtect Overview: This dashboard is a general overview of your Palo Alto GlobalProtect VPN and client(s) data.  
+    - Palo Alto Investigations: This Dashboard is intended to be used for Palo Alto investigations.  
+    - Palo Alto SaaS Overview: This dashboard is a general overview into your Palo Alto SaaS data.  
+    - Palo Alto Threat Overview: This Dashboard is a general overview of your Palo Alto Threat data.  
+    - Palo Alto User Behavior Overview: This dashboard is a general overview of User Behavior in your Palo Alto data.  
+    - Palo Alto Wildfire Overview: This dashboard is a general overview of your Palo Alto Wildfire analysis submissions & verdicts.  
+
+#### 10.1. [Actionables](#10-1-actionables)  
+
+- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.  
+- [Documentation](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+- Total: ***2***  
+    - Palo Alto IP: Palo Alto actions on IP Address  
+    - Palo Alto User: Palo Alto actions on src/dst user  
+
+***  
+
+## 11. [Useful Resources & References](#11-useful-resources--references)  
+
+- Gravwell  
+    - [Actionables](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+    - [Alerts](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+    - [Autoextractors](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+    - [Consumers](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+    - [Dashboards](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+    - [Dispatchers](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+    - [Files](<https://docs.gravwell.io/gui/files/files.html>)  
+    - [Flows](<https://docs.gravwell.io/flows/flows.html>)  
+    - [Lookup Module](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+    - [Macros](<https://docs.gravwell.io/search/macros.html>)  
+    - [Playbooks](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+    - [Query Library](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - [regexrouter Preprocessor](<https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html>)  
+    - [Resources](<https://docs.gravwell.io/resources/resources.html>)  
+    - [Scheduled Searches](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+    - [Simple Relay](<https://docs.gravwell.io/ingesters/simple_relay.html>)  
+    - [Tags](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+    - [Templates](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- Palo Alto  
+    - [Palo Alto Traffic Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/traffic-log-fields.html>)  
+    - [Palo Alto Threat Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html>)  
+    - [Palo Alto URL Filtering Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/url-filtering-log-fields.html>)  
+    - [Palo Alto Data Filtering Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/data-filtering-log-fields.html>)  
+    - [Palo Alto HIP Match Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/hip-match-log-fields.html>)  
+    - [Palo Alto GlobalProtect Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/globalprotect-log-fields.html>)  
+    - [Palo Alto IP-Tag Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/ip-tag-log-fields.html>)  
+    - [Palo Alto User-ID Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/user-id-log-fields.html>)  
+    - [Palo Alto Decryption Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/decryption-log-fields.html>)  
+    - [Palo Alto Tunnel Inspection Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/tunnel-inspection-log-fields.html>)  
+    - [Palo Alto SCTP Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/sctp-log-fields.html>)  
+    - [Palo Alto Authentication Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/authentication-log-fields.html>)  
+    - [Palo Alto Config Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/config-log-fields.html>)  
+    - [Palo Alto System Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/system-log-fields.html>)  
+    - [Palo Alto Correlated Events Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/correlated-events-log-fields.html>)  
+    - [Palo Alto GTP Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/gtp-log-fields.html>)  
+    - [Palo Alto Audit Log Fields](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/audit-log-fields.html>)  
+    - [Palo Alto Syslog Severity](<https://docs.paloaltonetworks.com/content/techdocs/en_US/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/syslog-severity.html>)  
+
+***  
+
+## 12. [Notes](#12-notes)  
+
+- Default log source mapping for Palo Alto Kit:  
+    - pan\_auth = Authentication  
+    - pan\_config = Config  
+    - pan\_correlation = Correlation  
+    - pan\_decryption = Decryption  
+    - pan\_globalprotect = GlobalProtect  
+    - pan\_gtp = GTP  
+    - pan\_hipmatch = HIP Match  
+    - pan\_iptag = IP Tag  
+    - pan\_sctp = Stream Control Transmission Protocol (SCTP)  
+    - pan\_system = System  
+    - pan\_threat = Threat  
+    - pan\_traffic = Traffic  
+    - pan\_tunnel = Tunnel  
+    - pan\_userid = User ID  
+
+***  
+
+## 13. [Image credits](#13-image-credits)  
+
+- Icon: Palo Alto Icon  
+- Banner: Palo Alto Banner  
+- Cover: Palo Alto Cover  

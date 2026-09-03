@@ -1,0 +1,28 @@
+{
+	"UUID": "278a59ad-0113-42d1-8cf5-3c8bd2bc921c",
+	"Name": "Template - Palo Alto - NGFW - Traffic - Category - Count by Category [chart]",
+	"Description": "Displays a chart of traffic event counts by application category for the specified IP address.\n\nDependencies\n- Dashboard: Palo Alto Investigations",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "This variable for the User allows you to query the relevant EVs such as srcuser and dstuser (if applicable).",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP Address",
+				"description": "This variable for the IP Address allows you to query the relevant EVs such as src, natsrc, dst, natdst, xff_ip, private_ip, and public_ip (if applicable).",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"palo"
+	]
+}

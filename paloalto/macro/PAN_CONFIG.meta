@@ -1,8 +1,7 @@
 {
 	"Name": "PAN_CONFIG",
-	"Description": "Palo Alto tag containing type=config events",
+	"Description": "Configuration Macro; Tag used for all Palo Alto Config data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates. ",
 	"Labels": [
-		"palo",
-		"RecordType"
+		"palo"
 	]
 }

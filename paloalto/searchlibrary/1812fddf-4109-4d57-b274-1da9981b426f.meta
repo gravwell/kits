@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - Events - Count by Scan Source Location [chart]",
+	"Description": "Displays a chart of scan event counts by source location.\n\nDependencies\n- Dashboard: Palo Alto Threat Overview",
+	"GUID": "1812fddf-4109-4d57-b274-1da9981b426f",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

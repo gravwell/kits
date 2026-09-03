@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Threat - WildFire - Count by Category [chart]",
+	"Description": "Displays a chart of WildFire verdict counts by category.\n\nDependencies\n- Dashboard: Palo Alto Wildfire Overview",
+	"GUID": "dfec2b9b-5466-4ec5-9ce6-5a23b42488f7",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

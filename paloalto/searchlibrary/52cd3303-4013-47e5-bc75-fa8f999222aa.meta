@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Config - Events - Latest Events [table]",
+	"Description": "Displays a chart of configuration event counts by administrator.\n\nDependencies\n- Dashboard: Palo Alto Config Overview",
+	"GUID": "52cd3303-4013-47e5-bc75-fa8f999222aa",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

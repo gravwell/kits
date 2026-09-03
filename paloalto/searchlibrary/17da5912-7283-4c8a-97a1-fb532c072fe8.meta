@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - Config - Events - Count by Results [chart]",
+	"Description": "Displays a chart of configuration event counts by command result.\n\nDependencies\n- Dashboard: Palo Alto Config Overview",
+	"GUID": "17da5912-7283-4c8a-97a1-fb532c072fe8",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Palo Alto - NGFW - GlobalProtect - Diagnostics - Average Latency [chart]",
+	"Description": "Displays a chart of average pre-tunnel and post-tunnel latency for GlobalProtect gateway connections.\n\nDependencies\n- Dashboard: Palo Alto GlobalProtect Overview",
+	"GUID": "a787167f-da7d-4c92-b2fd-09698f21e49b",
+	"Labels": [
+		"palo"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

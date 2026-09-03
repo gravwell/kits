@@ -1,0 +1,6 @@
+// Search - Palo Alto - NGFW - Threat - Events - Most Frequent Threat IDs [table]
+tag=$PAN_THREAT ax subtype threatid
+| stats count by threatid
+| awk -e threatid "{gsub(/\(9999\)/, 'URL Filtering(9999)'); print}"
+| alias threatid "Threat ID"
+| table "Threat ID" count
