@@ -41,6 +41,12 @@ not a generic term for everything a kit contains -- this check was
 never about literal Resources at all, just dashboard/pivot/macro/
 template `Labels`. `kit-utilities`' `labels.py`/`cli_labelsuggest.py`
 renamed in lockstep, since both key on this exact string.
+
+Re-synced 2026-09-03: added `check_playbook_code_spans` and
+`check_playbook_underscore_emphasis`, both newly covered by
+`bin/playbookmdfix` ("Full -- no skip cases, both fixes unconditionally
+safe by construction" per kit-utilities' own coverage table). Previously
+fell through to "manual" for lack of any fixer.
 """
 
 # Keyed on (check, section). A section of None matches any section for
@@ -60,6 +66,8 @@ FIXER_TIERS = {
     ("check_content_labels", "Standards §7 (pivot)"): ("partial", "bin/labelsuggest"),
     ("check_naming_consistency", "Standards §6"): ("partial", "bin/namingfix --fix-naming-prefix"),
     ("check_images", None): ("partial", "bin/artlink"),
+    ("check_playbook_code_spans", None): ("mechanical", "bin/playbookmdfix"),
+    ("check_playbook_underscore_emphasis", None): ("mechanical", "bin/playbookmdfix"),
 }
 
 
