@@ -2,7 +2,8 @@
  "Name": "ScheduledSearch - Suricata - Possible Port Scan",
  "Description": "Source/destination pairs where one source touched more than 100 distinct destination ports within an hour, based on Suricata flow records. Tune the threshold in the final eval to fit your environment.",
  "Labels": [
-  "suricata"
+  "suricata",
+  "T1046"
  ],
  "Schedule": "22 * * * *",
  "Duration": -3600,

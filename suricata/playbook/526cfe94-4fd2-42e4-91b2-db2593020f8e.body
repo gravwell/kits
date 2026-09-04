@@ -11,6 +11,8 @@ Suricata should be configured for EVE JSON output, ingested into the tag named b
 
 The Suricata kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/suricata).
 
+There is an [Integration Guide](https://docs.gravwell.io/integrations/network/suricata.html) to assist you in quickly onboarding data for the Suricata Kit.
+
 ## Dependencies
 - Gravwell Network Enrichment Kit (io.gravwell.networkenrichment), installed automatically. The External Alert Sources map on the Alert Activity dashboard uses the geoip module and needs this kit, or your own MaxMind GeoIP database, to render.
 
