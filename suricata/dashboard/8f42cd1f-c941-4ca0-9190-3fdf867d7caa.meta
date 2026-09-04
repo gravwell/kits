@@ -12,7 +12,7 @@
   },
   "searches": [
    {
-    "alias": "Template - Suricata - Signature - Total Alerts [numbercard]",
+    "alias": "Suricata - Signature - Total Alerts [numbercard]",
     "color": null,
     "reference": {
      "id": "8430f31a-7cbc-4c09-a494-12712ce78c3e",
@@ -23,7 +23,7 @@
     }
    },
    {
-    "alias": "Template - Suricata - Signature - Activity Over Time [chart]",
+    "alias": "Suricata - Signature - Activity Over Time [chart]",
     "color": null,
     "reference": {
      "id": "64822e89-1f06-47ff-81f5-bc8ab260421c",
@@ -34,7 +34,7 @@
     }
    },
    {
-    "alias": "Template - Suricata - Signature - Top Sources [table]",
+    "alias": "Suricata - Signature - Top Sources [table]",
     "color": null,
     "reference": {
      "id": "c93f554b-1cee-41bc-a30e-9d19061125a3",
@@ -45,7 +45,7 @@
     }
    },
    {
-    "alias": "Template - Suricata - Signature - Top Destinations [table]",
+    "alias": "Suricata - Signature - Top Destinations [table]",
     "color": null,
     "reference": {
      "id": "379a32c7-4485-45e5-885d-6ee3a9fd6626",

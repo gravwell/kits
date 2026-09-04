@@ -1,6 +1,6 @@
 {
  "UUID": "a22ba6bd-d5f5-4307-bfac-61b575dc75b8",
- "Name": "Template - Suricata - IP - HTTP Activity [table]",
+ "Name": "Suricata - IP - HTTP Activity [table]",
  "Description": "HTTP requests where the given IP is the source or destination.",
  "Data": {
   "variables": [

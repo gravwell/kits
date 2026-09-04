@@ -1,6 +1,6 @@
 {
  "UUID": "c93f554b-1cee-41bc-a30e-9d19061125a3",
- "Name": "Template - Suricata - Signature - Top Sources [table]",
+ "Name": "Suricata - Signature - Top Sources [table]",
  "Description": "The 20 source IPs most frequently triggering the given signature (exact match).",
  "Data": {
   "variables": [
