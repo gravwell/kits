@@ -3,7 +3,7 @@
 	"Name": "Teleport - Investigate Session",
 	"Description": "Investigate all Teleport audit events for a session ID that appears in search results.",
 	"Data": {
-		"menuLabel": "Teleport",
+		"menuLabel": "Teleport - Session",
 		"actions": [
 			{
 				"name": "Teleport - Session Timeline",
@@ -37,5 +37,5 @@
 			}
 		]
 	},
-	"Labels": null
+	"Labels": ["audit", "investigation", "session", "teleport"]
 }

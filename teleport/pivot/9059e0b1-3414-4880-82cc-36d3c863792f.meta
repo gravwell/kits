@@ -3,7 +3,7 @@
 	"Name": "Teleport - Investigate IP Address",
 	"Description": "Investigate Teleport audit activity for an IP address that appears in search results.",
 	"Data": {
-		"menuLabel": "Teleport",
+		"menuLabel": "Teleport - IP Address",
 		"actions": [
 			{
 				"name": "Teleport - IP Audit Activity",
@@ -37,5 +37,5 @@
 			}
 		]
 	},
-	"Labels": null
+	"Labels": ["audit", "investigation", "ip", "teleport"]
 }
