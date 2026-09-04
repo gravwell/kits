@@ -1,5 +1,5 @@
 {
- "Name": "ScheduledSearch - Suricata - Self-Signed TLS Certificate",
+ "Name": "Suricata - Self-Signed TLS Certificate",
  "Description": "TLS sessions where the certificate subject equals the issuer DN, i.e. a self-signed certificate. Common on internal services, but also on C2 infrastructure; review destinations you do not recognize.",
  "Labels": [
   "suricata"

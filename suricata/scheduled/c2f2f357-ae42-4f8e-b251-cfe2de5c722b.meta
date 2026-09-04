@@ -1,5 +1,5 @@
 {
- "Name": "ScheduledSearch - Suricata - Outbound Alerts from Internal Hosts",
+ "Name": "Suricata - Outbound Alerts from Internal Hosts",
  "Description": "Suricata alerts where the source is an RFC-1918/private address and the destination is public. Outbound alert traffic from internal hosts can indicate compromised machines calling out. Limited to severity 1 and 2 alerts; tune the severity floor in the eval to fit your environment.",
  "Labels": [
   "suricata"

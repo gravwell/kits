@@ -1,5 +1,5 @@
 {
- "Name": "ScheduledSearch - Suricata - DNS NXDOMAIN Burst by Source",
+ "Name": "Suricata - DNS NXDOMAIN Burst by Source",
  "Description": "Sources generating more than 25 NXDOMAIN DNS responses in an hour. A high NXDOMAIN rate from one host is a common indicator of DGA malware or misconfiguration. Tune the threshold in the final eval to fit your environment.",
  "Labels": [
   "suricata",

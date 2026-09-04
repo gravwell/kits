@@ -1,5 +1,5 @@
 {
- "Name": "ScheduledSearch - Suricata - HTTP Request to Bare IP Host",
+ "Name": "Suricata - HTTP Request to Bare IP Host",
  "Description": "HTTP requests where the Host header is a bare IPv4 address rather than a hostname. Legitimate for some internal tooling, but a common malware beaconing pattern.",
  "Labels": [
   "suricata"

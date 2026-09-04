@@ -1,5 +1,5 @@
 {
- "Name": "ScheduledSearch - Suricata - Executable File Transfer",
+ "Name": "Suricata - Executable File Transfer",
  "Description": "Suricata fileinfo events where the file magic or filename indicates a Windows executable (PE32, MS-DOS executable, .exe, .dll, .msi). Requires the files/fileinfo event type in suricata.yaml; the magic branches additionally require force-magic: yes under eve-log types.files and a Suricata built with libmagic support. Without libmagic the query falls back to filename matching only.",
  "Labels": [
   "suricata",
