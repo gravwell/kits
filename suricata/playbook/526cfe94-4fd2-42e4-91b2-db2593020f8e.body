@@ -1,5 +1,7 @@
 This kit provides an out-of-the-box experience for working with Suricata EVE JSON logs.
 
+There is an [Integration Guide](https://docs.gravwell.io/integrations/network/suricata.html) to assist you in quickly onboarding data for the Suricata Kit.
+
 It provides the following utilities:
 - Search library queries covering alerts, DNS, TLS, HTTP, SSH, flow, fileinfo, and anomaly events
 - Detections driven by scheduled searches (shipped disabled; enable and tune thresholds after install)
@@ -11,19 +13,8 @@ Suricata should be configured for EVE JSON output, ingested into the tag named b
 
 The Suricata kit is licensed under the BSD 2-Clause license and the contents are available on [Github](https://github.com/gravwell/kits/tree/main/suricata).
 
-There is an [Integration Guide](https://docs.gravwell.io/integrations/network/suricata.html) to assist you in quickly onboarding data for the Suricata Kit.
-
 ## Dependencies
 - Gravwell Network Enrichment Kit (io.gravwell.networkenrichment), installed automatically. The External Alert Sources map on the Alert Activity dashboard uses the geoip module and needs this kit, or your own MaxMind GeoIP database, to render.
 
 ## Changelog
-**1.0: Initial Release**
-- dashboard (5)
-- file (3)
-- license (1)
-- macro (1)
-- scheduled searches (12)
-- searchlibrary (31)
-  - detection queries (12)
-  - dashboard searches (19)
-- template (11)
+**v1: Initial Release**
