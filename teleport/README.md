@@ -23,4 +23,4 @@ Refer to the Kit Overview playbook for more detail on these components.
 **Note:** If your tag differs from the default, update both the kit's configuration macro *and* the Tag binding on the teleport-audit autoextractor (Extractors page). The kit's queries reference fields through the autoextractor, so if it is not bound to your tag, no fields will be extracted and the queries will return empty results.
 
 ## Changelog
-**V1: Initial Release**
+**v1: Initial Release**
