@@ -1,0 +1,13 @@
+{
+	"Name": "Teleport - Access Request Created",
+	"Description": "Detects creation of Teleport access requests, in which a user asks for elevated roles. Access requests are a legitimate workflow, but each one represents a requested privilege escalation and should be reviewed alongside its approval.",
+	"GUID": "63a41077-06d0-4e71-a424-10a77ecc9ce6",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1078",
+		"privilege-escalation"
+	],
+	"Metadata": {}
+}

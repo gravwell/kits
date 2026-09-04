@@ -1,0 +1,175 @@
+{
+	"UUID": "b984a0d8-9b5a-4524-a893-f04c6872ca4f",
+	"Name": "Zendesk - Account Security",
+	"Description": "Security-focused view of Zendesk audit activity: logins and destroy actions over time, data export events, top source IPs, business rule changes, and API token creation.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Zendesk - Login Events Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "c63c48c6-e048-42e8-856f-7f783f867f25",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - Destroy Actions Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "c0851e13-22a9-4a8c-b558-939fc56c0d09",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - Account Data Exported",
+				"color": null,
+				"reference": {
+					"id": "e14f377d-8486-4f61-8001-aa36dcbbbd74",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - Top Source IPs [Chart]",
+				"color": null,
+				"reference": {
+					"id": "4094cb5e-4e86-4449-874e-86efaa9b4d7d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - Business Rule Changes by Action [Chart]",
+				"color": null,
+				"reference": {
+					"id": "7e438beb-c4c6-40f0-a794-770121c22965",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - API Token Created",
+				"color": null,
+				"reference": {
+					"id": "340f28f0-bce2-4bac-85c6-a7c53033d954",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17810000000200,
+				"title": "Login Events Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000201,
+				"title": "Destroy Actions Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000202,
+				"title": "Data Export Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000203,
+				"title": "Top Source IPs",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000204,
+				"title": "Business Rule Changes",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000205,
+				"title": "API Tokens Created",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"zendesk",
+		"audit"
+	]
+}

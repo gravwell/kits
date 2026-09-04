@@ -1,0 +1,11 @@
+{
+	"Name": "Zendesk - Destroy Actions Over Time [Chart]",
+	"Description": "Chart of destroy (deletion) actions recorded in the Zendesk audit log over time.",
+	"GUID": "c0851e13-22a9-4a8c-b558-939fc56c0d09",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

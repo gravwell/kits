@@ -1,0 +1,12 @@
+{
+	"Name": "Teleport - Recent Remote Commands",
+	"Description": "Table of recent remote commands executed through Teleport (exec events), including the OS login used and the command exit code.",
+	"GUID": "01dc3c64-e387-4b5e-b838-6c2a94544477",
+	"Labels": [
+		"teleport",
+		"audit",
+		"stats",
+		"session"
+	],
+	"Metadata": {}
+}

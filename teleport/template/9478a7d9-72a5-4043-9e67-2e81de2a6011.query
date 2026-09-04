@@ -1,0 +1,2 @@
+tag=$TELEPORT_AUDIT ax server_hostname ~ "%%hostname%%" event user login sid
+| table server_hostname event user login sid

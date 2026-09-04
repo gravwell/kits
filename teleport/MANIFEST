@@ -1,0 +1,278 @@
+{
+	"ID": "io.gravwell.teleport",
+	"Name": "Teleport",
+	"Desc": "Provides tools, utilities, and detections to enable use of Teleport audit logs.",
+	"Readme": "This kit is designed to provide an out-of-the-box experience for working with Teleport audit logs.\n\nAn integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/application/teleport.html).\n\nTeleport records an audit event for every cluster action: logins, interactive sessions, remote command execution, file transfers, and administrative changes to users, roles, and tokens. Each event is a single JSON object.\n\nThis kit expects Teleport audit events to be ingested into the teleport-audit tag. On self-hosted clusters the audit log is written as JSON lines under /var/lib/teleport/log/&lt;uuid&gt;/, which the Gravwell File Follower can watch directly; the Teleport Event Handler can also forward events. See the [Teleport audit log reference](https://goteleport.com/docs/reference/deployment/monitoring/audit/) for details.\n\nThis kit provides the following utilities:\n\n- Queries\n    - Detections\n    - Stats\n- Scheduled Searches\n- Dashboards\n- Actionables\n- Templates\n- Macros\n- Autoextractors\n\nRefer to the Kit Overview playbook for more detail on these components.\n\n**Note:** If your tag differs from the default, update both the kit's configuration macro *and* the Tag binding on the teleport-audit autoextractor (Extractors page). The kit's queries reference fields through the autoextractor, so if it is not bound to your tag, no fields will be extracted and the queries will return empty results.\n\n## Changelog\n**V1: Initial Release**\n",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 4,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 99,
+		"Point": 99
+	},
+	"Icon": "e86781a4-1278-44da-96cb-10b0ef0bb7f6",
+	"Banner": "7277d16a-c21a-4097-9580-b87b5d22f473",
+	"Cover": "6b82ffae-7a63-4be9-9ad3-dc0a5ac2b924",
+	"Items": [
+		{
+			"Name": "BSD 2-Clause",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "03a1b769-5f70-4460-9d99-48763d9d6834",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0f2a42b2-dad7-49f2-b7a0-28eeec606edc",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "df4f8753-effa-4b15-a2d8-53484fe420a8",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "2647f7b5-4ea3-49ea-85c1-b5e190786cc6",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "64c0551e-4a47-46a6-9ec3-d8d53c9dc79c",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8da5da8e-047c-47d2-9d37-a5d96169e153",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6dfae230-a35a-4528-b43d-55f4faa344ef",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "37e8a15c-0653-4fd4-bc73-caab2de222b4",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "aa2ad0fc-748c-41e6-973d-b50e4c981521",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0c6aa87a-2d97-4fb8-b9e6-b887d89029bc",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d5e59cea-e664-474b-b2c8-d65156e1da41",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "TELEPORT_AUDIT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ee2c7ea2-506f-4817-ae87-f138b572a6d2",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c48726dc-9aa9-416b-bd77-f8c9caa1432f",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fbb4f5c3-d955-42b6-a4d3-dddc9621b477",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bd840f46-7838-4749-be3d-a241eb240e23",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9478a7d9-72a5-4043-9e67-2e81de2a6011",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7571c5e0-8136-48e8-b01b-d4a184198b0f",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e06954b4-0dc1-4af8-bfbb-45dc6f0b849a",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9059e0b1-3414-4880-82cc-36d3c863792f",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ff53ea90-15f6-4468-9d4b-e0c2c397c2a1",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7aaace86-543d-498f-bb23-c0c8910939cf",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "73a60129-4414-40d7-9662-1aaac1d48649",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ffd0b491-1aca-4321-b8a8-d2741ce3a1ec",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b38fc925-4007-44a5-b08a-3f89c8db3cae",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e7b15b08-ee17-41cb-b75a-1fd659aea60b",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e673b0a7-bd29-4fea-9237-e0e2db538930",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "53a8a3a8-6159-40e8-8f10-17ada0ca1db6",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "01dc3c64-e387-4b5e-b838-6c2a94544477",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7a151f89-1761-43e5-93a5-2770afa1af15",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b6e143bc-5f31-4d57-bfbe-812384a463fd",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "0a727ccf-b909-44f3-9709-dddaaccb5cfb",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "852dba48-182f-4938-adae-a47c9f2795ad",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a513b19b-34d6-4a3f-8ba5-c860388bf609",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "909da95a-22f3-48d5-ac77-1012f8ecf4b4",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b760ccd2-f9c5-4a94-9d6d-395dfb7ee528",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b043883c-e2f3-4ec8-a01d-01fa9457c9e5",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a7274a7c-3aae-4ff4-984a-8c20eb9caef1",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "84385dae-c7a1-4e87-9410-3af9d1bfb4a4",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "51ad442c-cd24-4686-a525-1ba5da4aff20",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "3aca3e33-a4a9-418d-9a6e-554cfb3667eb",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "63a41077-06d0-4e71-a424-10a77ecc9ce6",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e86781a4-1278-44da-96cb-10b0ef0bb7f6",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7277d16a-c21a-4097-9580-b87b5d22f473",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "6b82ffae-7a63-4be9-9ad3-dc0a5ac2b924",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "de3a63e6-f65c-4500-8fff-c66190f686e2",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f97d6385-ad55-4694-93ab-fc6b799bba9a",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "teleport-audit",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "TELEPORT_AUDIT",
+			"Description": "Configuration Macro: Tag for Teleport audit logs",
+			"DefaultValue": "teleport-audit",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
+	]
+}

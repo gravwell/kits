@@ -1,0 +1,150 @@
+{
+	"UUID": "fbb4f5c3-d955-42b6-a4d3-dddc9621b477",
+	"Name": "Teleport - Security",
+	"Description": "Security-focused view of Teleport activity: login results over time, failed logins, role changes, suspicious commands, and join token creation.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Teleport - Logins Over Time by Result [Chart]",
+				"color": null,
+				"reference": {
+					"id": "b38fc925-4007-44a5-b08a-3f89c8db3cae",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Failed Logins Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "e7b15b08-ee17-41cb-b75a-1fd659aea60b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Role Created, Modified, or Deleted",
+				"color": null,
+				"reference": {
+					"id": "b760ccd2-f9c5-4a94-9d6d-395dfb7ee528",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Suspicious Remote Command Executed",
+				"color": null,
+				"reference": {
+					"id": "51ad442c-cd24-4686-a525-1ba5da4aff20",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Join Token Created",
+				"color": null,
+				"reference": {
+					"id": "b043883c-e2f3-4ec8-a01d-01fa9457c9e5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17820000000300,
+				"title": "Logins by Result",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000301,
+				"title": "Failed Logins Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000302,
+				"title": "Role Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000303,
+				"title": "Suspicious Commands",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000304,
+				"title": "Join Tokens Created",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"teleport",
+		"audit"
+	]
+}

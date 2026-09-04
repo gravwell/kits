@@ -1,0 +1,11 @@
+{
+	"Name": "Teleport - Recent Audit Events",
+	"Description": "Table of recent Teleport audit events: event type and code, the Teleport user and OS login involved, and the remote client address.",
+	"GUID": "b6e143bc-5f31-4d57-bfbe-812384a463fd",
+	"Labels": [
+		"teleport",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

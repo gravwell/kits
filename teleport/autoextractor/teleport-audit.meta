@@ -1,0 +1,15 @@
+{
+	"Name": "teleport-audit",
+	"Desc": "JSON field extraction for Teleport audit log events",
+	"Module": "json",
+	"Tag": "teleport-audit",
+	"Tags": null,
+	"Labels": [
+		"teleport"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "cd0d66b5-8864-42e3-b994-b5b0ac912820",
+	"LastUpdated": "2026-08-09T10:00:00.000000000-06:00"
+}

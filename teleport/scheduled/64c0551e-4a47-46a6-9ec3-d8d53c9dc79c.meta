@@ -1,0 +1,21 @@
+{
+	"Name": "Teleport - Role Created, Modified, or Deleted",
+	"Description": "Detects creation, modification, or deletion of Teleport roles. Role changes alter what users can access and are a common privilege escalation path.",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1098",
+		"privilege-escalation",
+		"persistence"
+	],
+	"Schedule": "28 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "64c0551e-4a47-46a6-9ec3-d8d53c9dc79c",
+	"SearchReference": "b760ccd2-f9c5-4a94-9d6d-395dfb7ee528"
+}

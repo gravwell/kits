@@ -1,0 +1,22 @@
+{
+	"UUID": "9a75260d-f2e1-41ce-b51a-dfc908fc7e2d",
+	"GUID": "84a7ee9d-eec6-4eaf-8d3b-e0906341caef",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Zendesk - Readme",
+	"Desc": "Readme for the Zendesk kit.",
+	"Labels": null,
+	"LastUpdated": "2026-08-08T12:00:00.000000000-06:00",
+	"Author": {
+		"Name": "Mike Wade",
+		"Email": "mike.wade@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

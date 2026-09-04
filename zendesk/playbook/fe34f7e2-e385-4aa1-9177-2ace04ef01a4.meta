@@ -1,0 +1,22 @@
+{
+	"UUID": "a21a082e-2f6d-43a0-89a3-b07135b536a8",
+	"GUID": "fe34f7e2-e385-4aa1-9177-2ace04ef01a4",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Zendesk - Kit Overview",
+	"Desc": "Overview of the Zendesk kit: data source, ingest guidance, queries, dashboards, actionables, templates, and macros.",
+	"Labels": null,
+	"LastUpdated": "2026-08-08T12:00:00.000000000-06:00",
+	"Author": {
+		"Name": "Mike Wade",
+		"Email": "mike.wade@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

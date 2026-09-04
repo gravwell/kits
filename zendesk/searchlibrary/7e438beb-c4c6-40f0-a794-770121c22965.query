@@ -1,0 +1,3 @@
+tag=$ZENDESK_AUDIT ax source_type=="rule" action
+| count by action
+| chart count by action

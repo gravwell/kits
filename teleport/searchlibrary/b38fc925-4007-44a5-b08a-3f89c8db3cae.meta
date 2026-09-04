@@ -1,0 +1,12 @@
+{
+	"Name": "Teleport - Logins Over Time by Result [Chart]",
+	"Description": "Chart of Teleport login events over time, keyed by whether the login succeeded.",
+	"GUID": "b38fc925-4007-44a5-b08a-3f89c8db3cae",
+	"Labels": [
+		"teleport",
+		"audit",
+		"stats",
+		"authentication"
+	],
+	"Metadata": {}
+}
