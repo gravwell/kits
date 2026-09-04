@@ -4,9 +4,11 @@ This playbook serves to get you oriented around the kit and provide some anchors
 
 # Getting Data In
 
+See the [Gravwell Teleport Integration Guide](https://docs.gravwell.io/integrations/application/teleport.html) for step-by-step File Follower and storage well configuration.
+
 Teleport writes one JSON object per line for every audit event. Reference: [Teleport audit log documentation](https://goteleport.com/docs/reference/deployment/monitoring/audit/).
 
-- **Self-hosted clusters** (default `dir` backend): the audit log lives under `/var/lib/teleport/log/<uuid>/<date>.log` on the auth server and rotates roughly daily. Point the Gravwell File Follower at that directory with the JSON timestamp taken from the `time` field, and assign the `teleport-audit` tag.
+- **Self-hosted clusters** (default dir backend): the audit log lives under /var/lib/teleport/log/<uuid>/<date>.log on the auth server and rotates roughly daily. Point the Gravwell File Follower at that directory with the JSON timestamp taken from the time field, and assign the teleport-audit tag.
 - **Event Handler / Fluentd**: the [Teleport Event Handler](https://goteleport.com/docs/zero-trust-access/export-audit-events/) exports events to Fluentd, which can forward to a Gravwell HTTP or syslog ingester.
 - **Cloud-hosted clusters**: Teleport Enterprise Cloud manages audit storage; use the Event Handler to export events.
 
@@ -14,19 +16,19 @@ Teleport writes one JSON object per line for every audit event. Reference: [Tele
 
 # Overview
 
-Every Teleport audit event carries an `event` type, a short `code`, a `time`, and a `uid`, plus type-specific fields. The event types this kit works with most:
+Every Teleport audit event carries an event type, a short code, a time, and a uid, plus type-specific fields. The event types this kit works with most:
 
-- `user.login` - authentication to the cluster, with `success`, `method`, and the client address in `addr.remote`
-- `session.start` / `session.end` / `session.join` / `session.leave` - interactive session lifecycle, with `sid`, `server_hostname`, and the OS `login`
-- `exec` - remote command execution, with `command` and `exitCode`
-- `scp` / `sftp` - file transfers, with `path` and `action`; legacy SCP transfers emit `scp` events while Web UI and SFTP transfers emit `sftp` events, one per file operation
-- `user.create` / `user.delete`, `role.created` / `role.updated` / `role.deleted` - identity administration
-- `join_token.create` - tokens that let new nodes join the cluster
-- `access_request.create` - requests for elevated roles
-- `lock.created` - locks that block users or nodes
-- `session.recording.access` - replay of recorded sessions
+- user.login - authentication to the cluster, with success, method, and the client address in addr.remote
+- session.start / session.end / session.join / session.leave - interactive session lifecycle, with sid, server_hostname, and the OS login
+- exec - remote command execution, with command and exitCode
+- scp / sftp - file transfers, with path and action; legacy SCP transfers emit scp events while Web UI and SFTP transfers emit sftp events, one per file operation
+- user.create / user.delete, role.created / role.updated / role.deleted - identity administration
+- join_token.create - tokens that let new nodes join the cluster
+- access_request.create - requests for elevated roles
+- lock.created - locks that block users or nodes
+- session.recording.access - replay of recorded sessions
 
-Some Teleport field names contain a literal dot (for example `addr.remote`). The kit's queries quote these names, and you should too when writing your own:
+Some Teleport field names contain a literal dot (for example addr.remote). The kit's queries quote these names, and you should too when writing your own:
 
 ```
 tag=$TELEPORT_AUDIT ax event=="user.login" success=="false" user "addr.remote"
@@ -35,9 +37,9 @@ tag=$TELEPORT_AUDIT ax event=="user.login" success=="false" user "addr.remote"
 
 # Field Extraction
 
-This kit ships a JSON autoextractor bound to the `teleport-audit` tag, and queries reference fields through the `ax` module. Note that JSON boolean fields such as `success` are compared as strings: `success=="true"` or `success=="false"`.
+This kit ships a JSON autoextractor bound to the teleport-audit tag, and queries reference fields through the ax module. Note that JSON boolean fields such as success are compared as strings: success=="true" or success=="false".
 
-The `roles` field is a JSON array and renders as `["access","editor"]` in tables. To expand it into one entry per role, append `| json -x roles`.
+The roles field is a JSON array and renders as ["access","editor"] in tables. To expand it into one entry per role, append | json -x roles.
 
 # Queries
 Queries are broken out into 2 types and have appropriate labels applied for reference.
@@ -68,7 +70,7 @@ Security-focused view: login results and failures over time, role changes, suspi
 When an IP address appears in search results, an option under the "Teleport" menu will run the IP investigation template against Teleport audit logs.
 
 ## Teleport - Investigate Session
-When a session ID (UUID) appears in search results, an option under the "Teleport" menu will show every audit event for that session. The trigger matches any UUID; every Teleport event also carries a `uid`, and the actionable only returns results when applied to a session ID (`sid`).
+When a session ID (UUID) appears in search results, an option under the "Teleport" menu will show every audit event for that session. The trigger matches any UUID; every Teleport event also carries a uid, and the actionable only returns results when applied to a session ID (sid).
 
 # Templates
 - **Teleport - Investigate User** - audit activity for a Teleport user
@@ -79,6 +81,6 @@ When a session ID (UUID) appears in search results, an option under the "Telepor
 # Macros
 One configuration macro controls which tag the kit queries.
 
-- `$TELEPORT_AUDIT` (default `teleport-audit`)
+- `$TELEPORT_AUDIT` (default teleport-audit)
 
-If your tag differs from the default you must update **both** the macro value **and** the `Tag` on the `teleport-audit` autoextractor (Extractors page) - the kit's queries reference fields through the autoextractor, so if it is not bound to your tag, no fields will be extracted and every query in the kit will return empty results.
+If your tag differs from the default you must update **both** the macro value **and** the Tag on the teleport-audit autoextractor (Extractors page) - the kit's queries reference fields through the autoextractor, so if it is not bound to your tag, no fields will be extracted and every query in the kit will return empty results.
