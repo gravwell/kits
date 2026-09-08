@@ -80,7 +80,7 @@ entry, but the query engine will not supply it until it is named. Referencing an
 hard error rather than an empty result. The module that declares them is **intrinsic**, and these macros
 wrap it:
 
-```
+```shell
 $LLM_USER_PROMPTS      ->  intrinsic event_type == "request.user_message"
 $LLM_ASSISTANT_REPLIES ->  intrinsic event_type == "response.assistant_message"
 $LLM_TOOL_CALLS        ->  intrinsic event_type == "response.tool_call"
@@ -92,7 +92,7 @@ $LLM_USAGE             ->  intrinsic event_type == "response.usage"
 The macros occupy the **extraction position**, immediately after the tag block and before any pipe.
 Append whichever additional fields the query requires to the same module:
 
-```
+```shell
 tag=$LLM_TAG $LLM_USAGE model total_tokens
 | stats sum(total_tokens) as Tokens by model
 | chart Tokens by model
@@ -100,7 +100,7 @@ tag=$LLM_TAG $LLM_USAGE model total_tokens
 
 The engine expands this to:
 
-```
+```shell
 tag=llm intrinsic event_type == "response.usage" model total_tokens | stats ...
 ```
 
@@ -111,7 +111,7 @@ Inline filters on that module are equality only; greater-than and less-than comp
 available. Where one is required, declare the field and evaluate it after a pipe with a cast, as the
 upstream error queries do:
 
-```
+```shell
 tag=$LLM_TAG intrinsic upstream_status
 | eval int(upstream_status) >= 400
 | stats count as Errors by upstream_status
