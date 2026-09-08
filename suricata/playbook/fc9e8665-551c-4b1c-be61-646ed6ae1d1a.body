@@ -15,7 +15,7 @@ tag=$SURICATA json event_type=="alert" alert.severity as severity alert.signatur
 | table TIMESTAMP src_ip dest_ip dest_port signature category severity
 ```
 
-`$SURICATA` is the kit's config macro; set it to whatever tag carries your EVE JSON ingest (default: suricata).
+**$SURICATA** is the kit's config macro; set it to whatever tag carries your EVE JSON ingest (default: suricata).
 
 ## Inherent Limitations
 Suricata's alert **severity is inverted from what you might expect: 1 is highest priority, 3 is lowest.** Every severity-based query in this kit filters on that scale, not a CVSS-style one.
