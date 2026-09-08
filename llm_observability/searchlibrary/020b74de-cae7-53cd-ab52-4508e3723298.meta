@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Event Type Breakdown [chart]",
+	"Description": "Volume by event_type. A quick way to confirm the listener is logging what you expect: no tool_call events means Log-Tool-Calls is off, no usage events means Log-Usage is off.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "020b74de-cae7-53cd-ab52-4508e3723298",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,4 @@
+tag=$LLM_TAG $LLM_TOOL_CALLS model tool_name
+| stats count as Calls by model tool_name
+| sort by Calls desc
+| table model tool_name Calls

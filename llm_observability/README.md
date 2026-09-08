@@ -1,0 +1,47 @@
+# LLM Observability
+
+LLM traffic is the one thing in most environments nobody is logging. The prompts your staff paste
+into a model, the tools that model invokes on their behalf, and the tokens you get billed for all
+move through an HTTPS request that never touches your SIEM. This kit turns that traffic into data
+you can chart and hunt through — plain proxy data out of the box, and meaning-based semantic hunts
+once you add embeddings.
+
+The LLM Observability kit is licensed under the BSD 2-Clause license and the contents are available
+on [Github](https://github.com/gravwell/kits/tree/main/llm_observability).
+
+This kit provides the following utilities:
+
+- Queries
+    - Observability
+    - Semantic hunts
+- Dashboards
+- Templates
+- Macros
+- Resources
+- Playbooks
+
+Refer to the Kit Overview playbook for more detail on these components.
+
+## Playbooks
+
+- **Kit Overview** — the three-feature architecture, what each dashboard and hunt covers, and what
+  works without embeddings. Start here.
+- **Deploying the LLM Proxy** — the integration guide: install, listener config, log modes, the two
+  authorization credentials, TLS, sessions, pointing clients at it, verifying data arrives.
+- **Enabling Semantic Search** — the vector preprocessor, the `[AI]` section, why the two embedding
+  models must match, and the throughput and storage costs you are signing up for.
+- **Hunting Prompts by Meaning** — thresholds, when to use `-p`, how to write a phrase that works,
+  and why `semantic` must always come last in the pipeline.
+
+## Dependencies
+
+- Gravwell 5.10 or later.
+- The [Gravwell LLM ingester](https://docs.gravwell.io/ingesters/llm.html) deployed as a proxy in
+  front of your model provider.
+- **For the semantic hunts only:** the
+  [vector preprocessor](https://docs.gravwell.io/ingesters/preprocessors/vector.html) and the `[AI]`
+  section of the webserver's `gravwell.conf` — see the Enabling Semantic Search playbook.
+- **For the `llm-triage` agent only:** an LLM configured on the deployment.
+
+## Changelog
+**v1: Initial Release**
