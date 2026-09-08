@@ -1,8 +1,15 @@
 {
-	"Name": "Windows Failed Logons Before User Locked Events",
-	"Description": "Count of failed logon events (4625,4771) based on information from 4740 events",
+	"Name": "Windows Failed Logons for Locked-Out Users",
+	"Description": "Failed logon and Kerberos pre-authentication events for accounts that were locked out at some point in the search window, with the lockout time shown as LockedTime so events can be ordered against it. The correlation is by account, not time-ordered.",
 	"GUID": "6c233491-e28f-499b-babd-e63cd2620d8f",
 	"Metadata": {
 		"timeframe": null
-	}
+	},
+	"Labels": [
+		"windows",
+		"logon",
+		"T1110",
+		"credential-access",
+		"detection"
+	]
 }
