@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Prompt vs Completion Ratio by Model [table]",
+	"Description": "How much of each model's spend is context versus generated output. A high ratio means large prompts are dominating the bill, which is usually the cheapest thing to fix.\n\nRequires Log-Usage=true on the listener.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "c400d42b-ab58-512f-87fe-f8dca2824b23",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

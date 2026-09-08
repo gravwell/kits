@@ -1,0 +1,3 @@
+tag=$LLM_TAG $LLM_USAGE model total_tokens
+| stats sum(total_tokens) as Tokens by model
+| chart Tokens by model
