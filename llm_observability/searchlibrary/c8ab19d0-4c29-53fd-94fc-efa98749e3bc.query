@@ -1,0 +1,3 @@
+tag=$LLM_TAG intrinsic new_session == true listener
+| stats count as Sessions by listener
+| chart Sessions by listener
