@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Semantic - Credentials and Secrets in Prompts [table]",
+	"Description": "Finds prompts that appear to be pasting secrets into a model. Treat every hit as a credential that has left your control and needs rotating.\n\nRequires embeddings on the entries (vector preprocessor on the LLM listener) and an embedding model configured in the webserver's [AI] section. Without both, this query returns nothing. Tune sensitivity with the LLM_SEMANTIC_THRESHOLD config macro rather than editing the query.\n\n`embeddings` is an intrinsic enumerated value, so it is declared on the intrinsic extraction module alongside everything else the query needs; the semantic module cannot see it otherwise.",
+	"GUID": "77373e33-035c-5f99-8dc9-5c58b7aadae8",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

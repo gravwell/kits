@@ -1,0 +1,12 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "llm-triage-gravwell.agent",
+	"Description": "Investigates a suspicious LLM prompt or reply captured by the Gravwell LLM proxy. Four investigators run in parallel -- replaying the conversation and the tool calls it drove, baselining whether the behaviour is normal for this listener, hunting semantically for other sessions carrying the same intent, and ruling out retry storms and logging gaps -- then it writes a Markdown verdict with the evidence and the follow-up queries a responder should run. Automated and read-only; the flagged entry is the input message.",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Size": 239608,
+	"Hash": "19hdzGQAKES/xGhRx+uj5g==",
+	"Data": ""
+}
