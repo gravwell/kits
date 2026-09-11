@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Latency by Model [table]",
+	"Description": "Mean, maximum, and standard deviation of end-to-end request duration per model. A wide standard deviation usually points at upstream throttling rather than at the model itself.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "2fd859d1-2bc1-5a93-af00-703bc06cc657",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

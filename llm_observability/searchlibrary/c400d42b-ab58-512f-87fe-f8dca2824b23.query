@@ -1,0 +1,10 @@
+tag=$LLM_TAG $LLM_USAGE model prompt_tokens completion_tokens
+| stats sum(prompt_tokens) as PromptTokens sum(completion_tokens) as CompletionTokens by model
+| eval (
+    Ratio = 0.0;
+    if (CompletionTokens > 0) {
+        Ratio = math_round(float(PromptTokens) / float(CompletionTokens) * 100.0) / 100.0;
+    }
+  )
+| sort by PromptTokens desc
+| table model PromptTokens CompletionTokens Ratio
