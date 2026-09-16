@@ -1,0 +1,25 @@
+{
+	"UUID": "388b5b96-9e44-5118-bcc2-78d35f4ca4e3",
+	"GUID": "213f5485-9e0a-52fc-8a2a-2bbf669b902a",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "LLM Observability - Hunting Prompts by Meaning",
+	"Desc": "",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"LastUpdated": "2026-09-03T16:12:33.404998000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

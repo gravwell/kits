@@ -1,6 +1,6 @@
 {
-	"Name": "Juniper SSH Logins by User",
-	"Description": "Count SSH logins by user",
+	"Name": "Juniper CLI Logins by User (mgd)",
+	"Description": "Count UI_LOGIN_EVENT CLI logins by user, as reported by mgd",
 	"GUID": "9b8c5a06-ae30-4939-9c4b-a6d88b3826e5",
 	"Labels": [
 		"juniper"
