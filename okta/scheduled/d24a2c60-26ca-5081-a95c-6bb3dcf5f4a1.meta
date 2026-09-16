@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - System - Alert Catalog - Potential Okta Password in AlternateID Field",
+  "Description": "Detects when a user has potentially entered their password into the username field, which will cause the password to be retained in log files.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_password_in_alternateid_field/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_password_in_alternateid_field.yml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "d24a2c60-26ca-5081-a95c-6bb3dcf5f4a1",
+  "SearchReference": "f08582d0-faf4-539f-9998-575ee252ed1f"
+}

@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - Application / Support / System - Integration / Org - Possible Okta DoS Attack [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^(?:application\.integration\.rate_limit_exceeded|system\.org\.rate_limit\.warning|system\.org\.rate_limit\.violation|core\.concurrency\.org\.limit\.violation)$"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Possible Okta DoS Attack"
+$OKTA_ALERT_META

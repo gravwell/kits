@@ -1,0 +1,60 @@
+name: Existing Kit Change
+description: Report a bug, request an enhancement, or note a finding against an already-released kit.
+body:
+  - type: dropdown
+    id: kit
+    attributes:
+      label: Kit
+      description: Which kit does this concern? Drives the `kit:<name>` label — see kit-change-support.yml.
+      options:
+        - auditd
+        - auth0
+        - aws_cloudtrail
+        - aws_guardduty
+        - azure
+        - barracuda
+        - bitwarden
+        - cisco_asa
+        - cisco_ftd
+        - coredns
+        - corelight
+        - duo
+        - fortinet
+        - github
+        - gravwell
+        - grok
+        - ipfix
+        - ipmi
+        - juniper
+        - linux_syslog
+        - netflowv5
+        - o365
+        - okta
+        - paloalto
+        - pfSense
+        - pihole
+        - syslog
+        - sysmon
+        - thinkst-canary
+        - weather
+        - windows
+        - windows_resource
+        - zeek
+    validations:
+      required: true
+  - type: dropdown
+    id: change-type
+    attributes:
+      label: Type of change
+      options:
+        - Bug
+        - Enhancement
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What's wrong, or what should change?
+    validations:
+      required: true

@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - Application - Attempt to Delete an Okta Application [table]",
+  "Description": "Detects attempts to delete an Okta application. An adversary may attempt to modify, deactivate, or delete an Okta application in order to weaken an organization's security controls or disrupt their business operations.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_okta_attempt_to_delete_okta_application/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/impact_okta_attempt_to_delete_okta_application.toml",
+  "GUID": "4c18d8d1-4751-5a87-86d9-20d599163e15",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

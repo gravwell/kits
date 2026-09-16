@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Account - Administrator Role Assigned to an Okta User [table]",
+  "Description": "Identifies when an administrator role is assigned to an Okta user. An adversary may attempt to assign an administrator role to an Okta user in order to assign additional permissions to a user account and maintain access to their target's environment.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_administrator_role_assigned_to_okta_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/persistence_administrator_role_assigned_to_okta_user.toml",
+  "GUID": "c475683a-507a-5981-adb9-1b95d469f0e3",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

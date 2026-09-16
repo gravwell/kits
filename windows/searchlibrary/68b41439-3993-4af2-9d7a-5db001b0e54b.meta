@@ -4,5 +4,12 @@
 	"GUID": "68b41439-3993-4af2-9d7a-5db001b0e54b",
 	"Metadata": {
 		"timeframe": null
-	}
+	},
+	"Labels": [
+		"windows",
+		"eventlog",
+		"T1070.001",
+		"defense-evasion",
+		"detection"
+	]
 }

@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Account - User Reported Suspicious Activity [table]",
+  "Description": "Detects when a user reports suspicious activity for their Okta account. These events should be investigated, as they can help security teams identify when an adversary is attempting to gain access to their network.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user.toml",
+  "GUID": "e1f645ce-5ec1-50d2-8ff8-320f3808f675",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

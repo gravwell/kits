@@ -1,3 +1,3 @@
-tag=$OKTA_SYSTEM
+tag=$OKTA
 | stats count by TAG
 | chart count by TAG

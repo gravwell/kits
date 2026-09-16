@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Protocol Anomaly Burst",
+ "Description": "Anomaly type/event pairs generating more than 100 Suricata anomaly events in an hour. Anomaly events flag malformed or non-conforming protocol traffic; requires the anomaly event type enabled in suricata.yaml. Tune the threshold in the final eval to fit your environment.",
+ "GUID": "b713ea02-a121-439a-9009-593f6ff3998a",
+ "Labels": [
+  "suricata",
+  "detection",
+  "anomaly"
+ ],
+ "Metadata": {}
+}

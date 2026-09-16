@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication - Multiple Okta User Auth Events with Same Device Token Hash Behind a Proxy [table]",
+  "Description": "Detects when Okta user authentication events are reported for multiple users with the same device token hash behind a proxy.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_auth_events_from_single_device_behind_proxy/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_multiple_auth_events_from_single_device_behind_proxy.toml",
+  "GUID": "90cb4212-082a-5fc1-88ac-b8eb8cd999a6",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,9 @@
+/* AlertQuery - Okta - Identity Access Management - Lifecycle - IDP - New Okta Identity Provider (IdP) Added by Admin [table] */
+tag=$OKTA_SYSTEM ax eventType == "system.idp.lifecycle.create"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "New Okta Identity Provider (IdP) Added by Admin"
+$OKTA_ALERT_META

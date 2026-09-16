@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Policy - Application - Modification or Removal of an Okta Application Sign-On Policy [table]",
+  "Description": "Detects attempts to modify or delete a sign on policy for an Okta application. An adversary may attempt to modify or delete the sign on policy for an Okta application in order to remove or weaken an organization's security controls.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_okta_attempt_to_modify_or_delete_application_sign_on_policy/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/persistence_okta_attempt_to_modify_or_delete_application_sign_on_policy.toml",
+  "GUID": "a205faa9-79bc-53b3-b8d2-70413389c406",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

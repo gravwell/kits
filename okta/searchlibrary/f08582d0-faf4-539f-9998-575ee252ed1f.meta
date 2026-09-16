@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Potential Okta Password in AlternateID Field [table]",
+  "Description": "Detects when a user has potentially entered their password into the username field, which will cause the password to be retained in log files.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_password_in_alternateid_field/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_password_in_alternateid_field.yml",
+  "GUID": "f08582d0-faf4-539f-9998-575ee252ed1f",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,13 @@
+/* AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Multiple Okta User Authentication Events with Same Device Token Hash [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^(?:user\.session\.start|user\.authentication\..*)$"
+$OKTA_ALERT_EVX
+| regex -e outcomeReason "(?i)(INVALID\_CREDENTIALS|INVALID|CREDENTIALS)"
+| regex -e dtHash "(?i).*[^\-].*"
+| regex -e actorAltId ".*"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Multiple Okta User Authentication Events with Same Device Token Hash"
+$OKTA_ALERT_META

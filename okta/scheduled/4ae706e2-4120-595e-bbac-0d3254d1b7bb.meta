@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Account - Administrator Role Assigned to an Okta User",
+  "Description": "Identifies when an administrator role is assigned to an Okta user. An adversary may attempt to assign an administrator role to an Okta user in order to assign additional permissions to a user account and maintain access to their target's environment.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_administrator_role_assigned_to_okta_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/persistence_administrator_role_assigned_to_okta_user.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "4ae706e2-4120-595e-bbac-0d3254d1b7bb",
+  "SearchReference": "c475683a-507a-5981-adb9-1b95d469f0e3"
+}

@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Top Alerting Destination IPs",
+ "Description": "The 20 destination IPs appearing in the most Suricata alerts.",
+ "GUID": "2380d8db-5ae4-4999-bc5c-8269f3080c98",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "alert"
+ ],
+ "Metadata": {}
+}

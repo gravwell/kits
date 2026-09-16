@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication - Single Sign on or SSO",
+  "Description": "Detects successful single sign-on (SSO) events to Okta applications from an unrecognized or \"unknown\" client device, as identified by the user-agent string. This activity may be indicative of exploitation of a vulnerability in Okta's Classic Engine, which could allow an attacker to bypass application-specific sign-on policies, such as device or network restrictions. The vulnerability potentially enables unauthorized access to applications using only valid, stolen credentials, without requiring additional authentication factors.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_successful_application_sso_from_unknown_client_device/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_successful_application_sso_from_unknown_client_device.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "0280170f-5f25-5722-a916-da62520be5fa",
+  "SearchReference": "75c18ec5-3941-5777-ad84-b7a6aa94ce46"
+}

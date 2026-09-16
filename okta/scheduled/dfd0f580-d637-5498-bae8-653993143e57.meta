@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Session - Okta User Session Impersonation",
+  "Description": "A user has initiated a session impersonation granting them access to the environment with the permissions of the user they are impersonating. This would likely indicate Okta administrative access and should only ever occur if requested and expected.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_user_impersonation_access/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_user_impersonation_access.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "dfd0f580-d637-5498-bae8-653993143e57",
+  "SearchReference": "dc7485cb-e234-5d26-a5e7-261f1b7d8487"
+}

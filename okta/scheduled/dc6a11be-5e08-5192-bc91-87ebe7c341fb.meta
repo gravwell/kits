@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - Lifecycle - Application - Attempt to Modify an Okta Application",
+  "Description": "Detects attempts to modify an Okta application. An adversary may attempt to modify, deactivate, or delete an Okta application in order to weaken an organization's security controls or disrupt their business operations.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_okta_attempt_to_modify_okta_application/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/impact_okta_attempt_to_modify_okta_application.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "dc6a11be-5e08-5192-bc91-87ebe7c341fb",
+  "SearchReference": "9c6913ce-145b-585f-af78-ef2f2ad0a33c"
+}

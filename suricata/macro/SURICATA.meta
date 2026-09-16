@@ -1,0 +1,7 @@
+{
+ "Name": "SURICATA",
+ "Description": "Configuration Macro; Necessary for queries within the Suricata Kit to run properly",
+ "Labels": [
+  "suricata"
+ ]
+}

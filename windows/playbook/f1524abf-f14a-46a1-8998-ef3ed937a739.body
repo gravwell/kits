@@ -70,13 +70,13 @@ tag=windows
 ```
  plan to route EventIDs 4624,4625,4627,4648,4771,4776 (EventIDs associated with Windows logons) to 
 ```shell
-tag=windows_logons
+tag=windows_security
 ```
 **OR**
 
 plan to route EventIDs 4720,4722,4725,4726,4738,4767 (EventIDs associated with Windows account creation/modification) to 
 ```shell
-tag=windows_users
+tag=windows_security
 ```
 
 ##Dashboards
@@ -89,19 +89,25 @@ Overview of all collected Windows Events, by default, from the last 24 hours
 
 <font color="red">Required EventIDs: </font>4624, 4627
 
-Overview of all collected successful Windows logon Events, by default, from the last 4 hours
+Overview of all collected successful Windows logon Events, by default, from the last 8 hours
 
 <font color="orange">Windows - Logons - Failures/Lockouts</font>
 
 <font color="red">Required EventIDs: </font>4625, 4740, 4771
 
-Overview of all collected failed Windows logon and associated account logout events, by default, from the last 4 hours
+Overview of all collected failed Windows logon and associated account logout events, by default, from the last 8 hours
 
 <font color="orange">Windows - Groups - Overview</font>
 
-<font color="red">Required EventIDs: </font>4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4736, 4737, 4744, 4745, 4746, 4747, 4749, 4750, 4751, 4752, 4753, 4754, 4755, 4756, 4757, 4758, 4759, 4760, 4761, 4762, 4763, 4764
+<font color="red">Required EventIDs: </font>4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4744, 4745, 4746, 4747, 4748, 4749, 4750, 4751, 4752, 4753, 4754, 4755, 4756, 4757, 4758, 4759, 4760, 4761, 4762, 4763, 4764
 
-Overview of all collected Windows group events, by default, from the last 4 hours
+Overview of all collected Windows group events, by default, from the last 8 hours
+
+<font color="orange">Windows - Users - Overview</font>
+
+<font color="red">Required EventIDs: </font>4720, 4722, 4725, 4726, 4738, 4767
+
+Overview of all collected Windows user account events, by default, from the last 4 hours
 
 ##Resources
 ****
@@ -117,6 +123,14 @@ Map level numbers in EventIDs to their criticality description (i.e. Level 2 = E
 
 Map Windows EventIDs to their rendered text descriptions (i.e. 4616 = "The system time was changed")
 
+<font color="orange">windows\_login\_types</font>
+
+Map logon type numbers to their names (i.e. 10 = RemoteInteractive). Ships in the `io.gravwell.windows.resource` kit, which this kit depends on.
+
+<font color="orange">windows\_ticket\_failure\_codes</font>
+
+Map Kerberos ticket failure codes in EventID 4771 to their description (i.e. 0x18 = "Pre-authentication information was invalid"). Ships in the `io.gravwell.windows.resource` kit, which this kit depends on.
+
 ##Example logs
 ****
 
@@ -124,8 +138,7 @@ Map Windows EventIDs to their rendered text descriptions (i.e. 4616 = "The syste
 
 ```shell
 <?xml version="1.0"?>
-<Event
-    xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
     <System>
         <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-A5BA-3E3B0328C30D}"/>
         <EventID>4624</EventID>
@@ -177,48 +190,45 @@ Map Windows EventIDs to their rendered text descriptions (i.e. 4616 = "The syste
 <font color="orange">4625(F): An account failed to log on.</font> [Microsoft Documentation](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625 "Microsoft Documentation")
 
 ```shell
-- <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
-- <System>
- <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-A5BA-3E3B0328C30D}" /> 
- <EventID>4625</EventID> 
- <Version>0</Version> 
- <Level>0</Level> 
- <Task>12546</Task> 
- <Opcode>0</Opcode> 
- <Keywords>0x8010000000000000</Keywords> 
- <TimeCreated SystemTime="2015-09-08T22:54:54.962511700Z" /> 
- <EventRecordID>229977</EventRecordID> 
- <Correlation /> 
- <Execution ProcessID="516" ThreadID="3240" /> 
- <Channel>Security</Channel> 
- <Computer>DC01.contoso.local</Computer> 
- <Security /> 
- </System>
-- <EventData>
- <Data Name="SubjectUserSid">S-1-5-18</Data> 
- <Data Name="SubjectUserName">DC01$</Data> 
- <Data Name="SubjectDomainName">CONTOSO</Data> 
- <Data Name="SubjectLogonId">0x3e7</Data> 
- <Data Name="TargetUserSid">S-1-0-0</Data> 
- <Data Name="TargetUserName">Auditor</Data> 
- <Data Name="TargetDomainName">CONTOSO</Data> 
- <Data Name="Status">0xc0000234</Data> 
- <Data Name="FailureReason">%%2307</Data> 
- <Data Name="SubStatus">0x0</Data> 
- <Data Name="LogonType">2</Data> 
- <Data Name="LogonProcessName">User32</Data> 
- <Data Name="AuthenticationPackageName">Negotiate</Data> 
- <Data Name="WorkstationName">DC01</Data> 
- <Data Name="TransmittedServices">-</Data> 
- <Data Name="LmPackageName">-</Data> 
- <Data Name="KeyLength">0</Data> 
- <Data Name="ProcessId">0x1bc</Data> 
- <Data Name="ProcessName">C:\\Windows\\System32\\winlogon.exe</Data> 
- <Data Name="IpAddress">127.0.0.1</Data> 
- <Data Name="IpPort">0</Data> 
- </EventData>
- </Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+        <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-A5BA-3E3B0328C30D}" /> 
+        <EventID>4625</EventID> 
+        <Version>0</Version> 
+        <Level>0</Level> 
+        <Task>12546</Task> 
+        <Opcode>0</Opcode> 
+        <Keywords>0x8010000000000000</Keywords> 
+        <TimeCreated SystemTime="2015-09-08T22:54:54.962511700Z" /> 
+        <EventRecordID>229977</EventRecordID> 
+        <Correlation /> 
+        <Execution ProcessID="516" ThreadID="3240" /> 
+        <Channel>Security</Channel> 
+        <Computer>DC01.contoso.local</Computer> 
+        <Security /> 
+    </System>
+    <EventData>
+        <Data Name="SubjectUserSid">S-1-5-18</Data> 
+        <Data Name="SubjectUserName">DC01$</Data> 
+        <Data Name="SubjectDomainName">CONTOSO</Data> 
+        <Data Name="SubjectLogonId">0x3e7</Data> 
+        <Data Name="TargetUserSid">S-1-0-0</Data> 
+        <Data Name="TargetUserName">Auditor</Data> 
+        <Data Name="TargetDomainName">CONTOSO</Data> 
+        <Data Name="Status">0xc0000234</Data> 
+        <Data Name="FailureReason">%%2307</Data> 
+        <Data Name="SubStatus">0x0</Data> 
+        <Data Name="LogonType">2</Data> 
+        <Data Name="LogonProcessName">User32</Data> 
+        <Data Name="AuthenticationPackageName">Negotiate</Data> 
+        <Data Name="WorkstationName">DC01</Data> 
+        <Data Name="TransmittedServices">-</Data> 
+        <Data Name="LmPackageName">-</Data> 
+        <Data Name="KeyLength">0</Data> 
+        <Data Name="ProcessId">0x1bc</Data> 
+        <Data Name="ProcessName">C:\\Windows\\System32\\winlogon.exe</Data> 
+        <Data Name="IpAddress">127.0.0.1</Data> 
+        <Data Name="IpPort">0</Data> 
+    </EventData>
+</Event>
 ```
-
-
-Credits - Photo by [Timo C. Dinger](https://unsplash.com/@tcdinger" https://unsplash.com/@tcdinger") on [Unsplash](https://unsplash.com" https://unsplash.com")

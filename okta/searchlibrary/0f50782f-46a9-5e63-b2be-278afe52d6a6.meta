@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Application / Support / System - Integration / Org - Possible Okta DoS Attack [table]",
+  "Description": "Detects possible Denial of Service (DoS) attacks against an Okta organization. An adversary may attempt to disrupt an organization's business operations by performing a DoS attack against its Okta service.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_possible_okta_dos_attack/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/impact_possible_okta_dos_attack.toml",
+  "GUID": "0f50782f-46a9-5e63-b2be-278afe52d6a6",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

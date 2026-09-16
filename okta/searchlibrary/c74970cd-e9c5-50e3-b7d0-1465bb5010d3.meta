@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - User - New Okta User Created [table]",
+  "Description": "Detects new user account creation.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_created.yml",
+  "GUID": "c74970cd-e9c5-50e3-b7d0-1465bb5010d3",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

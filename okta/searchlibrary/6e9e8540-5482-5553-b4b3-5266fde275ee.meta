@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Account - User reported suspicious activity [table]",
+  "Description": "Detects when an Okta end-user reports activity by their account as being potentially suspicious.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/cloud/okta/okta_suspicious_activity_enduser_report/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/cloud/okta/okta_suspicious_activity_enduser_report.yml",
+  "GUID": "6e9e8540-5482-5553-b4b3-5266fde275ee",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

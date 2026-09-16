@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - Group / User - Account / Privilege - Okta Admin Role Assigned to an User or Group [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^(?:group\.privilege\.grant|user\.account\.privilege\.grant)$"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Okta Admin Role Assigned to an User or Group"
+$OKTA_ALERT_META

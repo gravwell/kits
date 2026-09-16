@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Upstream Errors by Status [chart]",
+	"Description": "Non-2xx responses from the upstream provider, grouped by HTTP status. 429s are rate limiting; 5xx are provider-side failures.\n\nThe `intrinsic` module filters on equality only -- it has no `<`, `>`, `<=`, or `>=` -- so the `>= 400` test is an `eval` with an `int()` cast after the extraction.",
+	"GUID": "d7257433-04c9-5a46-8e83-62b8d8205034",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

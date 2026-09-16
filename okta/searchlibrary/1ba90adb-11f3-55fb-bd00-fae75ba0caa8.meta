@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Policy - Rule - Okta Policy Rule Modified or Deleted [table]",
+  "Description": "Detects when an Policy Rule is Modified or Deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_policy_rule_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "GUID": "1ba90adb-11f3-55fb-bd00-fae75ba0caa8",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

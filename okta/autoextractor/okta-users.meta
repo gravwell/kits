@@ -1,0 +1,17 @@
+{
+	"Name": "okta-users",
+	"Desc": "Gravwell-generated JSON extraction for tag okta-users",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"okta-users"
+	],
+	"Labels": [
+		"okta"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "240C733A-480E-411C-BBCA-64E75E35D736",
+	"LastUpdated": "2026-06-22T14:31:19.281632919Z"
+}

@@ -4,8 +4,8 @@
 	"Description": "Overview of all collected Windows events",
 	"Data": {
 		"timeframe": {
-			"durationString": null,
-			"timeframe": "P1DT",
+			"durationString": "P1D",
+			"timeframe": "manual",
 			"timezone": null,
 			"start": null,
 			"end": null
@@ -16,17 +16,6 @@
 				"color": null,
 				"reference": {
 					"id": "e49c3829-6a48-41b9-b17f-0a57b97e5eee",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "All Windows Computer Details",
-				"color": null,
-				"reference": {
-					"id": "05b1c81d-94ae-48df-afe1-ad80372ded67",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -71,17 +60,6 @@
 				"color": null,
 				"reference": {
 					"id": "22d3a9ef-4aaf-4e65-a902-f2ca5b043298",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "All Windows Computer Details",
-				"color": null,
-				"reference": {
-					"id": "05b1c81d-94ae-48df-afe1-ad80372ded67",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -135,7 +113,7 @@
 					"x": 0,
 					"y": 8
 				},
-				"searchesIndex": 4,
+				"searchesIndex": 3,
 				"rendererOptions": {
 					"Stack": "grouped",
 					"Smoothing": "normal",
@@ -158,7 +136,7 @@
 					"x": 0,
 					"y": 12
 				},
-				"searchesIndex": 5,
+				"searchesIndex": 4,
 				"rendererOptions": {}
 			},
 			{
@@ -172,7 +150,7 @@
 					"x": 0,
 					"y": 0
 				},
-				"searchesIndex": 3,
+				"searchesIndex": 2,
 				"rendererOptions": {}
 			},
 			{
@@ -200,7 +178,7 @@
 					"x": 6,
 					"y": 8
 				},
-				"searchesIndex": 7,
+				"searchesIndex": 5,
 				"rendererOptions": {}
 			}
 		],

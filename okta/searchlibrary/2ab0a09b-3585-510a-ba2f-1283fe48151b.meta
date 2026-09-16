@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - High Number of Okta Device Token Cookies Generated for Authentication [table]",
+  "Description": "Detects when an Okta client address has a certain threshold of Okta user authentication events with multiple device token hashes generated for single user authentication. Adversaries may attempt to launch a credential stuffing or password spraying attack from the same device by using a list of known usernames and passwords to gain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_multiple_device_token_hashes_for_single_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_multiple_device_token_hashes_for_single_user.toml",
+  "GUID": "2ab0a09b-3585-510a-ba2f-1283fe48151b",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

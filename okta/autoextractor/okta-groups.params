@@ -1,0 +1,16 @@
+id
+created
+lastUpdated
+lastMembershipUpdated
+objectClass
+type
+profile
+profile.name as profileName
+profile.description as profileDescription
+_links
+_links.logo
+_links.logo.[].name as logoName
+_links.logo.[].href as logoHref
+_links.logo.[].type as logoType
+_links.users.[].href as usersHref
+_links.apps.[].href as appsHref

@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication - Okta FastPass Phishing Detection [table]",
+  "Description": "Detects when Okta FastPass prevents a known phishing site.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_fastpass_phishing_detection/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "GUID": "2868dc81-41bf-5a69-8f6b-5d5d2d396778",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

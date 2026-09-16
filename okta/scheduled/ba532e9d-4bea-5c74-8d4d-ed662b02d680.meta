@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - Group / User - Account / Privilege - Okta Admin Role Assigned to an User or Group",
+  "Description": "Detects when an the Administrator role is assigned to an user or group.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_admin_role_assigned_to_user_or_group/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "ba532e9d-4bea-5c74-8d4d-ed662b02d680",
+  "SearchReference": "f968bfc1-fc13-5811-aff9-257e87d1a5c9"
+}

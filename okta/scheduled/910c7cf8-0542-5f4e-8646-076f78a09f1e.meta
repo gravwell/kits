@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - Lifecycle - System API - Okta API Token Revoked",
+  "Description": "Detects when a API Token is revoked.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_api_token_revoked/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "910c7cf8-0542-5f4e-8646-076f78a09f1e",
+  "SearchReference": "d733d774-7f20-5558-9356-700c11ecfc59"
+}

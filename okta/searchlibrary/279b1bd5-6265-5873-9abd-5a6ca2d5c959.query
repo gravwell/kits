@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - Security - Events - Okta ThreatInsight Threat Suspected Promotion [table] */
+tag=$OKTA_SYSTEM ax eventType == "security.threat.detected"
+$OKTA_ALERT_EVX
+| regex -e threatSuspect "(?i)true"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Okta ThreatInsight Threat Suspected Promotion"
+$OKTA_ALERT_META

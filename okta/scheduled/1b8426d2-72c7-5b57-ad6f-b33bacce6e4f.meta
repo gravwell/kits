@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication / Session - Okta Sign-In Events via Third-Party IdP",
+  "Description": "Detects sign-in events where authentication is carried out via a third-party Identity Provider (IdP).\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "1b8426d2-72c7-5b57-ad6f-b33bacce6e4f",
+  "SearchReference": "26dc614a-dbee-5700-a655-f63b5af6580c"
+}

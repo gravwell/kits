@@ -1,0 +1,12 @@
+/* AlertQuery - Okta - Identity Access Management - User - Authentication - Single Sign on or SSO [table] */
+tag=$OKTA_SYSTEM ax eventType == "user.authentication.sso"
+$OKTA_ALERT_EVX
+| regex -e message "(?i)single sign on|sso"
+| regex -e outcomeResult "(?i)SUCCESS|ALLOW"
+| regex -e clientDevice "(?i)unknown"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Single Sign on or SSO"
+$OKTA_ALERT_META

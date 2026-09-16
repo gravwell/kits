@@ -5,7 +5,7 @@
 	"Data": {
 		"timeframe": {
 			"durationString": null,
-			"timeframe": "P6MT",
+			"timeframe": "P1DT",
 			"timezone": null,
 			"start": null,
 			"end": null
@@ -45,29 +45,7 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - Investigation - Catalog Alerts for Actor, Target, and/or IP",
-				"color": null,
-				"reference": {
-					"id": "d1f671ca-5acd-4784-9cbc-99c9872e8913",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Template - Okta - Investigation - Catalog Alert Events for Actor, Target, and/or IP",
-				"color": null,
-				"reference": {
-					"id": "4e99b606-4c9f-4517-bb8b-ef7ffd217fe2",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Template - Okta - Investigation - Authentication Events for Actor, Target, and/or IP",
+				"alias": "Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP",
 				"color": null,
 				"reference": {
 					"id": "eb5bbe3a-9992-4cc1-b3d2-13c816b07eb3",
@@ -110,7 +88,7 @@
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
-					"col": 6,
+					"col": 12,
 					"row": 6,
 					"x": 0,
 					"y": 7
@@ -133,36 +111,8 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635790605573,
-				"title": "Catalog Alerts",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 6,
-					"x": 6,
-					"y": 7
-				},
-				"searchesIndex": 3,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17635790839534,
-				"title": "Catalog Alert Events",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 12,
-					"row": 7,
-					"x": 0,
-					"y": 13
-				},
-				"searchesIndex": 4,
-				"rendererOptions": {}
-			},
-			{
 				"id": 17636036393125,
-				"title": "Successful Authentication Events for Actor, Target, and/or IP",
+				"title": "Successful Authentication Events",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -171,21 +121,7 @@
 					"x": 0,
 					"y": 27
 				},
-				"searchesIndex": 5,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17636051486456,
-				"title": "Successful Authentication Events",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 12,
-					"row": 6,
-					"x": 0,
-					"y": 33
-				},
-				"searchesIndex": 5,
+				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
@@ -197,9 +133,9 @@
 					"col": 12,
 					"row": 6,
 					"x": 0,
-					"y": 39
+					"y": 33
 				},
-				"searchesIndex": 6,
+				"searchesIndex": 4,
 				"rendererOptions": {}
 			}
 		],

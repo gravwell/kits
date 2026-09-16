@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="dns" dns.rcode as rcode
+| require rcode
+| count by rcode
+| chart count by rcode
