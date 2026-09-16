@@ -1,0 +1,2 @@
+tag=$SLACK_AUDIT ax ipAddress == "%%ip_address%%" actorName actorEmail action entityType
+| table actorName actorEmail action entityType

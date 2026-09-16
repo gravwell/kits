@@ -1,0 +1,20 @@
+{
+	"Name": "Slack - Malicious File Content Detected",
+	"Description": "Detects files that Slack's own malware scanning flagged as containing malicious content.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1204.002",
+		"execution"
+	],
+	"Schedule": "34 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "2b728b50-66d7-4452-8942-2e306ed58506",
+	"SearchReference": "545fc523-b372-4a6d-aa74-2645c1540635"
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "Slack - Audit Log Exported or Searched",
+	"Description": "Detects export or search of the Slack audit log itself. An attacker with admin access may review the audit log to learn what was recorded about their activity.",
+	"GUID": "ccd40a21-c0b2-4eb7-86b7-b751b3332a13",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1654",
+		"discovery"
+	],
+	"Metadata": {}
+}

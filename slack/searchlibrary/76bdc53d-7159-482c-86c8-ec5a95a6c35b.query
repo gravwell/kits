@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action
+| count by action
+| chart count by action limit 15

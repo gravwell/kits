@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action actorName appName appScopes appIsDistributed
+| eval in(action, "app_installed", "app_approved", "app_scopes_expanded", "app_resources_granted")
+| table action actorName appName appScopes appIsDistributed

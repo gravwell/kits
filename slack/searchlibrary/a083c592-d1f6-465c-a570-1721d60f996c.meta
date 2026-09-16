@@ -1,0 +1,11 @@
+{
+	"Name": "Slack - Audit Events Over Time [Chart]",
+	"Description": "Chart of Slack audit log event volume over time.",
+	"GUID": "a083c592-d1f6-465c-a570-1721d60f996c",
+	"Labels": [
+		"slack",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

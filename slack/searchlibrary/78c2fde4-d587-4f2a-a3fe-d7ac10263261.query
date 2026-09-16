@@ -1,0 +1,4 @@
+tag=$SLACK_AUDIT ax action=="file_downloaded" actorName
+| count by actorName over 10m
+| eval count > 50
+| table -nt actorName count

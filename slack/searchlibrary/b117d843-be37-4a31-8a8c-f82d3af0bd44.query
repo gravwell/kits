@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action actorName locationName
+| eval in(action, "native_dlp_rule_deactivated", "native_dlp_violation_deleted", "barrier_deleted", "legal_hold_policy_released", "legal_hold_policy_entities_deleted")
+| table action actorName locationName

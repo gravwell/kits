@@ -1,0 +1,21 @@
+{
+	"Name": "Slack - Authentication Policy Changed",
+	"Description": "Detects changes to Slack authentication policy: two-factor requirements, SSO settings, and session duration. Fires on any change to these settings, including changes that strengthen them - compare the previous and new values to judge which. Weakening any of these removes a primary account protection.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1556",
+		"defense-evasion",
+		"persistence"
+	],
+	"Schedule": "14 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "d73c854a-64aa-4b71-a70c-f2d7fc63b018",
+	"SearchReference": "b21554d3-05b6-4111-9f49-da17dbc85451"
+}

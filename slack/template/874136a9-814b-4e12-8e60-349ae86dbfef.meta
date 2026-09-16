@@ -1,0 +1,23 @@
+{
+	"UUID": "874136a9-814b-4e12-8e60-349ae86dbfef",
+	"Name": "Slack - Investigate Channel",
+	"Description": "Audit activity for a Slack channel - membership, sharing, conversion, and administrative changes.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%channel%%",
+				"label": "Channel Name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "general"
+			}
+		]
+	},
+	"Labels": [
+		"slack",
+		"audit",
+		"channel",
+		"investigation"
+	]
+}

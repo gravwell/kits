@@ -1,0 +1,21 @@
+{
+	"Name": "Slack - User Granted Admin or Owner Role",
+	"Description": "Detects a user being promoted to Workspace Admin or Owner, having ownership transferred to them, or being assigned additional permissions. These are the primary privilege escalation paths in a Slack workspace.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1098.003",
+		"privilege-escalation",
+		"persistence"
+	],
+	"Schedule": "10 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "413e2c4a-e369-421c-b2c9-84212215b669",
+	"SearchReference": "a2117e64-2360-4020-814c-cd165396705f"
+}

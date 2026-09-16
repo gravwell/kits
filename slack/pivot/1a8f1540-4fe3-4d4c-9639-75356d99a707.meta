@@ -1,0 +1,41 @@
+{
+	"UUID": "1a8f1540-4fe3-4d4c-9639-75356d99a707",
+	"Name": "Slack - Investigate IP Address",
+	"Description": "Investigate Slack audit activity for an IP address that appears in search results.",
+	"Data": {
+		"menuLabel": "Slack",
+		"actions": [
+			{
+				"name": "Slack - IP Audit Activity",
+				"description": "Review Slack audit activity from this IP address",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "2fe3f99a-56a6-4cf5-b596-11ddf805b06c",
+					"options": {
+						"variable": "%%ip_address%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

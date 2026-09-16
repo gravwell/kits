@@ -1,0 +1,13 @@
+{
+	"Name": "Slack - Enterprise Key Management Change",
+	"Description": "Detects removal of an Enterprise Key Management key, unenrollment from EKM, and changes to the EKM logging configuration. EKM changes alter who controls the encryption keys for workspace content and what key usage is logged, and can precede or conceal data access.",
+	"GUID": "626dbb8c-31e0-4337-9add-4ff7042b7121",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1562",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}
