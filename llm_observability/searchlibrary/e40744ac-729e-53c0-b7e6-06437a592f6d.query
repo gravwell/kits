@@ -1,0 +1,4 @@
+tag=$LLM_TAG $LLM_USAGE model prompt_tokens completion_tokens total_tokens
+| stats sum(prompt_tokens) as PromptTokens sum(completion_tokens) as CompletionTokens sum(total_tokens) as TotalTokens count as Requests by model
+| sort by TotalTokens desc
+| table model Requests PromptTokens CompletionTokens TotalTokens
