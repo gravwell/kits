@@ -3,7 +3,7 @@
 	"Name": "Office 365 - Exchange Email",
 	"Description": "Actionable to trigger on email addresses",
 	"Data": {
-		"menuLabel": "Email Address",
+		"menuLabel": "O365 Email Address",
 		"actions": [
 			{
 				"name": "Sharepoint Activity",

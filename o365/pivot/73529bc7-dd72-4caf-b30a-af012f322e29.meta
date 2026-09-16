@@ -3,7 +3,7 @@
 	"Name": "Office 365 - Exchange IP Address",
 	"Description": "Actionable to start Office 365 Exchange IP Address actions",
 	"Data": {
-		"menuLabel": "IP Address",
+		"menuLabel": "O365 IP Address",
 		"actions": [
 			{
 				"name": "Office 365 Exchange Logon Activity",
