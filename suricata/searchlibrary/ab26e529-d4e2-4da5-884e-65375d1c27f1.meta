@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Top DNS Queries",
+ "Description": "The 20 most queried DNS names. Filters to dns.type == query so responses are not double counted.",
+ "GUID": "ab26e529-d4e2-4da5-884e-65375d1c27f1",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "dns"
+ ],
+ "Metadata": {}
+}

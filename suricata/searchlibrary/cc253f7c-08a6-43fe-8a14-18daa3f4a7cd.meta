@@ -1,0 +1,10 @@
+{
+ "Name": "Suricata - High Severity Alerts",
+ "Description": "Returns Suricata IDS alerts with severity 1 (the most severe level). Suricata severity is numeric: 1 is highest priority, 3 is lowest.",
+ "GUID": "cc253f7c-08a6-43fe-8a14-18daa3f4a7cd",
+ "Labels": [
+  "suricata",
+  "detection"
+ ],
+ "Metadata": {}
+}
