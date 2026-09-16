@@ -1,0 +1,3 @@
+tag=$LLM_TAG $LLM_ASSISTANT_REPLIES model duration_ms
+| stats mean(duration_ms) as MeanMs by model
+| chart MeanMs by model

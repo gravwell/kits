@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Streaming vs Non-Streaming [chart]",
+	"Description": "Split of replies by whether the client requested a streamed response.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "a49a5cfd-d135-511b-a23f-90a0e0ac738d",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

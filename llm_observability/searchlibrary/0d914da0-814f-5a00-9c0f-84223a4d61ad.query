@@ -1,0 +1,4 @@
+tag=$LLM_TAG $LLM_USAGE session_id model total_tokens
+| stats sum(total_tokens) as TotalTokens count as Requests by session_id model
+| sort by TotalTokens desc
+| table session_id model Requests TotalTokens

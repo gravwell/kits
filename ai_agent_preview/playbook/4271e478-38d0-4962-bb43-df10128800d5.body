@@ -16,7 +16,7 @@ The other three are automated -- you wire them into a flow and read the report:
 * **gravwell-audit:** full deployment health and hygiene sweep.
 * **daily-summary:** nightly "what happened / what to look at" digest.
 
-Every agent in this kit is read-only against your deployment. The single exception is `case-agent`, which can save a query -- and only when you explicitly ask it to. None of them modify configuration, permissions, or data.
+Every agent in this kit is read-only against your deployment. The single exception is case-agent, which can save a query -- and only when you explicitly ask it to. None of them modify configuration, permissions, or data.
 
 ## Requirements
 
@@ -34,13 +34,13 @@ Reach for it when you are hunting, drilling into data, or fighting with query sy
 
 ## gravwell-admin
 
-The configuration assistant. It carries an extensive reference covering every ingester and its options, `gravwell.conf`, CBAC access control, wells and storage, replication, preprocessors, resources, and tokens and secrets.
+The configuration assistant. It carries an extensive reference covering every ingester and its options, gravwell.conf, CBAC access control, wells and storage, replication, preprocessors, resources, and tokens and secrets.
 
-Ask it how to stand up an ingester, how to lay out wells, or how to scope access with CBAC. It deliberately does **not** write or run queries -- if that is what you need, use `case-agent`.
+Ask it how to stand up an ingester, how to lay out wells, or how to scope access with CBAC. It deliberately does **not** write or run queries -- if that is what you need, use case-agent.
 
 ## mechanic
 
-The troubleshooter, and the interactive counterpart to `gravwell-audit`. It triages errors in the `gravwell` tag, diagnoses dead ingesters, stalled scheduled searches and unhealthy indexers, and will run any single audit check on demand.
+The troubleshooter, and the interactive counterpart to gravwell-audit. It triages errors in the gravwell tag, diagnoses dead ingesters, stalled scheduled searches and unhealthy indexers, and will run any single audit check on demand.
 
 Use it when you already know something is wrong. It finds the problem and hands you the exact fix rather than applying one.
 
@@ -68,32 +68,24 @@ Intended for a nightly schedule.
 
 # **Running an automated agent from a flow**
 
-The `Logbot` flow node is what invokes an agent. By default it targets the built-in `logbot`, but its `agent` field accepts the name of any agent you can access -- including the ones from this kit. The name to use is the agent's own name, **not** the resource name, so `alert-triage`, not `alert-triage-gravwell.agent`.
-
+The Logbot flow node is what invokes an agent. By default it targets the built-in logbot, but its agent field accepts the name of any agent you can access -- including the ones from this kit.
 Configure the node like this:
 
-```
-agent:  alert-triage
-action: custom
-input:  <the alert payload, or whatever text the agent should work from>
-```
-
-Use `action: custom`. The `explain` and `summarize` actions prepend a generic log-analysis preamble that fights with these agents' own prompts; `custom` sends your input through untouched.
-
-The agent's report lands in the node's output variable (`logbot_output` unless you rename it via `output_name`). From there pipe it into whichever delivery node you want -- Slack, Teams, or email -- or ingest it back into Gravwell.
+The agent's report lands in the node's output variable. 
 
 Two things to keep in mind:
 
 - These agents do real work, so they take minutes, not seconds. The node allows a long window for that.
-- The report can be long. `max_payload_size` defaults to 65536 bytes; raise it if a report is getting truncated.
+- The report can be long. max_payload_size defaults to 65536 bytes; raise it if a report is getting truncated.
 
 # **Picking the right agent**
 
 The most common mistake is asking an agent something outside its remit. The prompts are specialised, and each one will tell you to go elsewhere rather than guess:
 
-- Writing a query or hunting through data -- `case-agent`
-- Configuring the software -- `gravwell-admin`
-- Diagnosing a specific failure right now -- `mechanic`
-- A standing, deployment-wide sweep -- `gravwell-audit`
+- Writing a query or hunting through data -- case-agent
+- Configuring the software -- gravwell-admin
+- Diagnosing a specific failure right now -- mechanic
+- A standing, deployment-wide sweep -- gravwell-audit
 
-`mechanic` and `gravwell-audit` overlap deliberately: same subject matter, one interactive and one exhaustive.
+mechanic and gravwell-audit overlap deliberately: same subject matter, one interactive and one exhaustive.
+

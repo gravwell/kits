@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Semantic - Model Refusals [table]",
+	"Description": "Finds replies where the model declined. A cluster of refusals from one session is a strong signal that someone is probing for something they should not have; it is also the cheapest way to find users fighting the tool.\n\nRequires embeddings on the entries (vector preprocessor on the LLM listener) and an embedding model configured in the webserver's [AI] section. Without both, this query returns nothing. Tune sensitivity with the LLM_SEMANTIC_THRESHOLD config macro rather than editing the query.\n\n`embeddings` is an intrinsic enumerated value, so it is declared on the intrinsic extraction module alongside everything else the query needs; the semantic module cannot see it otherwise.",
+	"GUID": "e7a09d70-82d2-56b6-8980-4a18fb8c686c",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

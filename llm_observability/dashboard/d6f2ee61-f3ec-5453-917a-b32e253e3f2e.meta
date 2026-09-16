@@ -1,0 +1,242 @@
+{
+	"UUID": "d6f2ee61-f3ec-5453-917a-b32e253e3f2e",
+	"Name": "LLM Observability - Traffic Overview",
+	"Description": "Where your LLM traffic is going and whether it is healthy. Start here after standing up the Gravwell LLM proxy. Every tile works without embeddings configured.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - LLM - Replies Over Time by Model [chart]",
+				"color": null,
+				"reference": {
+					"id": "5f130a2e-96c6-585e-8100-fd69be015b25",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Event Type Breakdown [chart]",
+				"color": null,
+				"reference": {
+					"id": "020b74de-cae7-53cd-ab52-4508e3723298",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Token Spend Over Time by Model [chart]",
+				"color": null,
+				"reference": {
+					"id": "5380b558-46ea-5ade-86ad-e2e09a3f43be",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Upstream Errors Over Time by Model [chart]",
+				"color": null,
+				"reference": {
+					"id": "56d3e483-e7dc-5308-b1fd-847ae6e5da6c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Traffic by Listener [chart]",
+				"color": null,
+				"reference": {
+					"id": "cfd53075-d2b0-5b78-8648-75dc3a7a0827",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - New Sessions Over Time [chart]",
+				"color": null,
+				"reference": {
+					"id": "c8ab19d0-4c29-53fd-94fc-efa98749e3bc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - LLM - Streaming vs Non-Streaming [chart]",
+				"color": null,
+				"reference": {
+					"id": "a49a5cfd-d135-511b-a23f-90a0e0ac738d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17601000000001,
+				"title": "Replies Over Time by Model",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 8,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17601000000002,
+				"title": "Event Types Logged",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 17601000000003,
+				"title": "Token Spend Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17601000000004,
+				"title": "Upstream Errors Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17601000000005,
+				"title": "Traffic by Listener",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			},
+			{
+				"id": 17601000000006,
+				"title": "New Sessions Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 4,
+					"y": 12
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Stack": "grouped",
+					"Smoothing": "normal",
+					"Orientation": "v",
+					"XAxisSplitLine": "no",
+					"YAxisSplitLine": "no",
+					"IncludeOther": "yes",
+					"ConnectNulls": "no",
+					"LogScale": "no"
+				}
+			},
+			{
+				"id": 17601000000007,
+				"title": "Streaming vs Non-Streaming",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 8,
+					"y": 12
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"IncludeOther": "yes"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

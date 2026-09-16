@@ -12,7 +12,7 @@
     - Source
 - WEC subscription(s)
 - Client system(s)
-    - Source systems need to be able to connect to this host on either:
+    - Must be able to reach the collector server on either:
         - 5985/TCP when using HTTP (adjust firewall accordingly)
         - 5986/TCP when using HTTPS (adjust firewall accordingly)
 

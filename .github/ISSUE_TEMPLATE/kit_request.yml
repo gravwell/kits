@@ -1,0 +1,38 @@
+name: New Kit Request
+description: Request a new kit for the catalog. Zero commitment — opening one does not guarantee it gets built.
+title: "New Kit: "
+# There is no "Kit Request" org issue type — reuses the existing
+# "Feature" type instead (confirmed 2026-08-19, DECISIONS.md). The
+# kit-request label remains the reliable filter regardless of type.
+type: "Feature"
+labels: ["kit-request"]
+body:
+  - type: input
+    id: kit-name
+    attributes:
+      label: Kit / product name
+      description: The product or log source this kit would ingest and parse.
+      placeholder: e.g. TrueNAS
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: Why is this kit needed? What data source(s) does it cover?
+    validations:
+      required: true
+  - type: textarea
+    id: sample-data
+    attributes:
+      label: Sample data / documentation
+      description: Links to sample logs, vendor docs, or API references, if available.
+    validations:
+      required: false
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I'm willing to help build or test this kit.
+          required: false
