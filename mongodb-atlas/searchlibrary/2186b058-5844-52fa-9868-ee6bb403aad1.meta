@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Frequency Type [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Frequency Type (frequencyType) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupclusterbackupsnapshots",
+  "GUID": "2186b058-5844-52fa-9868-ee6bb403aad1",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

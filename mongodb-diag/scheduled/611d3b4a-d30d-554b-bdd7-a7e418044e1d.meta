@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replica Set Heartbeat Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Replica Set Heartbeat Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "611d3b4a-d30d-554b-bdd7-a7e418044e1d",
+	"SearchReference": "cd3e2727-ca5a-5a20-82b5-675f2a05d0e5"
+}

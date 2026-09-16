@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Shard Removed [table]",
+  "Description": "Detects MongoDB shard removals.",
+  "GUID": "f9fde79c-0f16-593a-85c9-52f1fbc72805",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

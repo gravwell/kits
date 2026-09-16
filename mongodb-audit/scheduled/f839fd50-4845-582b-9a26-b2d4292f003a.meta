@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - User Updated [table]",
+  "Description": "Detects MongoDB database user updates including password and role changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "f839fd50-4845-582b-9a26-b2d4292f003a",
+  "SearchReference": "d81af83c-27ef-5084-950a-4f3bcf83fd1f"
+}

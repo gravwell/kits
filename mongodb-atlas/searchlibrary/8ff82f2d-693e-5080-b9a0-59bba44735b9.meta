@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Access Overview - Count by Auth Result [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Auth Result (authResult) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-getgroupdbaccesshistorycluster",
+  "GUID": "8ff82f2d-693e-5080-b9a0-59bba44735b9",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

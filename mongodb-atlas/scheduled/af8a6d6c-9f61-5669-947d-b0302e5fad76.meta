@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Custom Database Role Lifecycle Change [table]",
+  "Description": "Detects MongoDB custom database role creation, deletion, or update events.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "af8a6d6c-9f61-5669-947d-b0302e5fad76",
+  "SearchReference": "68276b43-fbb9-5954-8f7d-a38e3f7bbb87"
+}

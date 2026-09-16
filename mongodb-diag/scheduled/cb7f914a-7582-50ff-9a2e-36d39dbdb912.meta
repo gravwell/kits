@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replica Set Reconfiguration Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Replica Set Reconfiguration Command Logged.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "cb7f914a-7582-50ff-9a2e-36d39dbdb912",
+	"SearchReference": "342effcc-fd37-511e-aefd-406c86869e34"
+}

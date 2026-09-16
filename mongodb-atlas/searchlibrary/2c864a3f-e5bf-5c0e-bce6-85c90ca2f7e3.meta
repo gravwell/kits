@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Clusters - MongoBleed Affected MongoDB Version Observed [table]",
+  "Description": "Detects MongoDB Server versions affected by CVE-2025-14847 / MongoBleed in cluster inventory. Atlas was patched by MongoDB, but this flags any reported affected version for review.",
+  "GUID": "2c864a3f-e5bf-5c0e-bce6-85c90ca2f7e3",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

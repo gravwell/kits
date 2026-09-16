@@ -1,0 +1,38 @@
+{
+  "Tags": [
+    "["mongodb-audit"]"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "mongodb-audit-cover.png",
+      "Legend": "MongoDB Audit Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "mongodb-audit-banner.png",
+      "Legend": "MongoDB Audit Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "mongodb-audit-cover.png"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "mongodb-audit-banner.png"
+    }
+  ],
+  "readme": "README.md"
+}

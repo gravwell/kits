@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Group ID [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Group ID (groupId) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "553fee69-bfcb-5d7b-94bc-5b44ef4efb22",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

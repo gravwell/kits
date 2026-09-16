@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Observability Export Disabled or Changed [table]",
+  "Description": "Detects S3, OTel, or host external log export changes that could reduce monitoring coverage.",
+  "GUID": "67e2ddd7-9d0b-55db-b294-212024634eb1",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

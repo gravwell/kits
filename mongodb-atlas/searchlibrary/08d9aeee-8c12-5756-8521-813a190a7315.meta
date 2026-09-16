@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Acknowledging Username [chart]",
+  "Description": "This displays a chart of all Acknowledging Username (acknowledgingUsername) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupalerts",
+  "GUID": "08d9aeee-8c12-5756-8521-813a190a7315",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

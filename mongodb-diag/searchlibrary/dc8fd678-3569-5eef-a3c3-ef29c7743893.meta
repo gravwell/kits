@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Unauthorized Operation [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Unauthorized Operation.",
+	"GUID": "dc8fd678-3569-5eef-a3c3-ef29c7743893",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

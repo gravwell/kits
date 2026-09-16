@@ -1,0 +1,6 @@
+/* Search - MongoDB - Atlas - Admin API - API Keys Overview - Rare Role Group ID [numbercard] */
+tag=$MONGODB_ATLAS_API_KEYS ax roleGroupId
+| json -x roleGroupId
+| stats count by roleGroupId
+| bottom -n 1 count
+| numbercard (count " ")

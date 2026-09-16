@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Network Access - Temporary Network Access Entry [table]",
+  "Description": "Detects temporary Atlas network access entries with deleteAfterDate set.",
+  "GUID": "19ecd53d-5dfc-5f04-a838-32e7eb9a25ba",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

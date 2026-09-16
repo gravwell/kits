@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - High Risk Administrative Action [table]",
+  "Description": "Detects high-risk MongoDB administrative audit actions.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "1e3c1085-0f2b-54fb-b72b-79e2d5957abe",
+  "SearchReference": "8b0bb28d-b55f-5528-8e18-9bf9bea881c3"
+}

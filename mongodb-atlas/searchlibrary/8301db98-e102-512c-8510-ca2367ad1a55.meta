@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Database Name [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Database Name (databaseName) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "8301db98-e102-512c-8510-ca2367ad1a55",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

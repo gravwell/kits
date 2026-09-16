@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_NETWORK_ACCESS",
+	"Description": "Configuration Macro; Tag used for MongoDB Atlas project IP access list API data.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

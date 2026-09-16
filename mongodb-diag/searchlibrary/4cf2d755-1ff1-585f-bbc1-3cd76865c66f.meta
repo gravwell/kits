@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Checkpoint Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Checkpoint Warning Or Error.",
+	"GUID": "4cf2d755-1ff1-585f-bbc1-3cd76865c66f",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

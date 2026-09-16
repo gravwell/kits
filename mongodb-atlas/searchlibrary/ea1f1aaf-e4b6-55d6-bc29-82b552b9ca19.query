@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Network Permission Entry Change [table]*/
+tag=$MONGODB_ATLAS_ACTIVITY ax
+| regex -e eventTypeName "^NETWORK_PERMISSION_ENTRY_(ADDED|REMOVED|UPDATED)$"
+| eval _alert_name = "Network Permission Entry Change";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

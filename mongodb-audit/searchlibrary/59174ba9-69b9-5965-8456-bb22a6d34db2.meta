@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Database Created [table]",
+  "Description": "Detects MongoDB database creation.",
+  "GUID": "59174ba9-69b9-5965-8456-bb22a6d34db2",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

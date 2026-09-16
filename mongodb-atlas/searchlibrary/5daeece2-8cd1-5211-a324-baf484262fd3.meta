@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Is Global Admin [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Is Global Admin (isGlobalAdmin) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "5daeece2-8cd1-5211-a324-baf484262fd3",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

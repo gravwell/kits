@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Public Key [chart] */
+tag=$MONGODB_ATLAS_ORG_ACTIVITY ax publicKey
+| stats count as " " by publicKey
+| chart " " by publicKey

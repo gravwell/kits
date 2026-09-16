@@ -1,0 +1,5 @@
+/* MONGODB_DIAG_NORMALIZE_SERVICE */
+| eval 
+    if(has(service) && (service != "" || service != "null" || service != "nil") && service == "S"){service = "Shard";}
+    if(has(service) && (service != "" || service != "null" || service != "nil") && service == "R"){service = "Router";}
+    if(has(service) && (service != "" || service != "null" || service != "nil") && service == "-"){service = "Unknown";}

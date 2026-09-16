@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Alerts Overview - Rare Event Type Name [numbercard]",
+  "Description": "This displays the bottom Event Type Name (eventTypeName) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupalerts",
+  "GUID": "0596c236-e176-5ff3-9310-eaa15776fd2f",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

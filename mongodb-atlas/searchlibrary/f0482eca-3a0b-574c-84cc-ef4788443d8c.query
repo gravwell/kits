@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Resource Policy Violation or Change [table]*/
+tag=$MONGODB_ATLAS_ACTIVITY ax
+| regex -e eventTypeName "^RESOURCE_POLICY_(CREATED|DELETED|MODIFIED|VIOLATED)$"
+| eval _alert_name = "Resource Policy Violation or Change";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

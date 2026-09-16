@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Organization Users - Organization Owner User Present [table]",
+  "Description": "Detects organization users with owner role assignments for review.",
+  "GUID": "d01063eb-05b9-5ff5-812a-25eb3470c1a0",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

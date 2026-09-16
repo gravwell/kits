@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Org Activity Overview - Top Is Global Admin [numbercard]",
+  "Description": "This displays the top Is Global Admin (isGlobalAdmin) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "7259f48b-2285-5127-9a98-0f3c98e95203",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

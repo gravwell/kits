@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Count by Username [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Username (username) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgevents",
+  "GUID": "b8aeaa64-a36d-5a3a-8f05-e7a34bf7113a",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Database User Lifecycle Change [table]",
+  "Description": "Detects MongoDB database user creation, deletion, update, or X.509 certificate creation/revocation events.",
+  "GUID": "0ef63e2c-a398-5a43-9666-710b1dbf58ce",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

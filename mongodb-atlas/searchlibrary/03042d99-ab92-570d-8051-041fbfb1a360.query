@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - API Keys Overview - Rare Public Key [numbercard] */
+tag=$MONGODB_ATLAS_API_KEYS ax publicKey
+| stats count by publicKey
+| bottom -n 1 count
+| numbercard (count " ")

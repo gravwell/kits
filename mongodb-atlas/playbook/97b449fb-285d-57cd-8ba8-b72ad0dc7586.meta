@@ -1,0 +1,22 @@
+{
+	"UUID": "97b449fb-285d-57cd-8ba8-b72ad0dc7586",
+	"GUID": "97b449fb-285d-57cd-8ba8-b72ad0dc7586",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "MongoDB Atlas Kit - Readme",
+	"Desc": "A toolkit for interacting with MongoDB Atlas data.",
+	"Labels": ["mongodb", "mongodb-atlas"],
+	"LastUpdated": "2026-07-10T14:16:49.961521Z",
+	"Author": {
+  "Name": "Gravwell",
+  "Email": "info@gravwell.io",
+  "Company": "Gravwell",
+  "URL": "https://gravwell.io"
+},
+	"Synced": false
+}

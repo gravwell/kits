@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_DIAG_COMPONENT_LOOKUP",
+	"Description": "Lookup macro used to enrich MongoDB Diagnostics events with structured log component metadata.",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

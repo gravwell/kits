@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Org Membership Status [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Org Membership Status (orgMembershipStatus) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "93faeb91-4e3c-539c-af6e-e662795185cc",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

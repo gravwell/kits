@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Is Global Admin [numbercard] */
+tag=$MONGODB_ATLAS_ACTIVITY ax isGlobalAdmin
+| stats count by isGlobalAdmin
+| numbercard (count " ")

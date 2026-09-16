@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - User Dropped [table]",
+  "Description": "Detects MongoDB database user deletion.",
+  "GUID": "34b4500b-0d11-5a9d-8d40-af59ef4e88ce",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

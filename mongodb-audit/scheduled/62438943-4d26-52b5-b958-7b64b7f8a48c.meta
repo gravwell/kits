@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Shard Removed [table]",
+  "Description": "Detects MongoDB shard removals.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "62438943-4d26-52b5-b958-7b64b7f8a48c",
+  "SearchReference": "f9fde79c-0f16-593a-85c9-52f1fbc72805"
+}

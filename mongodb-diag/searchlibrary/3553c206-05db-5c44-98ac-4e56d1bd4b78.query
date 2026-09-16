@@ -1,0 +1,9 @@
+/* AlertQuery - MongoDB - Database - Diagnostics - Alerts - Error Message [table]*/
+tag=$MONGODB_DIAG ax
+| eval 
+    severity == "E"; 
+    _alert_name = "Error Message";
+$MONGODB_DIAG_ENRICH_COMMON
+$MONGODB_DIAG_RISK_SCORE
+$MONGODB_DIAG_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _severity context

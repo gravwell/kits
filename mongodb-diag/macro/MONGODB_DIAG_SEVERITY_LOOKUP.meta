@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_DIAG_SEVERITY_LOOKUP",
+	"Description": "Lookup macro used to enrich MongoDB Diagnostics events with structured log severity names.",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

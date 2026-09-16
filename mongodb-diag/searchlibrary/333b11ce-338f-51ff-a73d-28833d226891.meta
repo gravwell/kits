@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Scan Low Return [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: High Scan Low Return.",
+	"GUID": "333b11ce-338f-51ff-a73d-28833d226891",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

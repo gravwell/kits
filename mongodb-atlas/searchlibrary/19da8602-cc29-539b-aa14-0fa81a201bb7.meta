@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Org Users Overview - Rare Org Membership Status [numbercard]",
+  "Description": "This displays the bottom Org Membership Status (orgMembershipStatus) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "19da8602-cc29-539b-aa14-0fa81a201bb7",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

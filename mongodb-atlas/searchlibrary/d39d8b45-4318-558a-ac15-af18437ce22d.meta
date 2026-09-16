@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by CIDR Block [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Cidr Block (cidrBlock) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "d39d8b45-4318-558a-ac15-af18437ce22d",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,8 @@
+/* Template - MongoDB - Database - Diagnostics - Investigation - Recent Events [table] */
+tag=$MONGODB_DIAG ax 
+$MONGODB_DIAG_ENRICH_COMMON
+| regex -e _diag_identity "%%identity%%" 
+| regex -e _diag_ip "%%ip%%" 
+| regex -e _diag_namespace "%%namespace%%" 
+| regex -e _diag_component "%%component%%"
+| table timestamp severityName component log_id context service _diag_ip _diag_namespace namespace database collection commandName appName planSummary error errorCode code codeName errorMessage

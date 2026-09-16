@@ -1,0 +1,22 @@
+{
+	"UUID": "b15f8230-c4e2-45b3-b7cd-8fa16769acfe",
+	"GUID": "fe951431-593b-5c30-9811-73c0f2901359",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "MongoDB Diagnostics Kit - Overview",
+	"Desc": "Overview of the items included in the MongoDB Diagnostics Kit.",
+	"Labels": null,
+	"LastUpdated": "2026-07-10T19:07:25.183106479Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": false
+}

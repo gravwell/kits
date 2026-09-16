@@ -1,0 +1,5 @@
+/* Search - MongoDB - Database - Audit - Overview - Rare Action Type [numbercard] */
+tag=$MONGODB_AUDIT ax actionType
+| stats count by actionType
+| bottom -n 1 count
+| numbercard (count " ")

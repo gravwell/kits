@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Slow Query.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "6d6a7f6c-0e16-51c8-8c80-5effb926cd23",
+	"SearchReference": "a81780c3-3294-5bcc-8205-e4514bc7d738"
+}

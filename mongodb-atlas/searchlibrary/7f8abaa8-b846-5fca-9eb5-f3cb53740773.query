@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Locked, Suspended, or Temporarily Activated [table]*/
+tag=$MONGODB_ATLAS_EVENTS ax
+| regex -e eventTypeName "^(ORG_LOCKED_ACCELERATED|ORG_SUSPENDED|ORG_TEMPORARILY_ACTIVATED|ORG_UNLINKED_FROM_PAYING_ORG|ORG_UNLINK_REQUESTED|NEW_LINKED_ORG)$"
+| eval _alert_name = "Organization Locked, Suspended, or Temporarily Activated";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

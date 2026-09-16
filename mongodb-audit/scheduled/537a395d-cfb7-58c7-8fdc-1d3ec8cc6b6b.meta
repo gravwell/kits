@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - All Roles Dropped From Database [table]",
+  "Description": "Detects removal of all roles from a MongoDB database.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "537a395d-cfb7-58c7-8fdc-1d3ec8cc6b6b",
+  "SearchReference": "d1d7a4d4-2c73-5919-ac0a-0b1a8c255cb7"
+}

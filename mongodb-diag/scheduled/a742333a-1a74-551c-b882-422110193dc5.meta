@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query Over 30 Seconds [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Slow Query Over 30 Seconds.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a742333a-1a74-551c-b882-422110193dc5",
+	"SearchReference": "9ca63795-0a20-5ee0-9146-7089299f7225"
+}

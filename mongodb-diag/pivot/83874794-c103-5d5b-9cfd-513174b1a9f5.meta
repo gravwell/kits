@@ -1,0 +1,46 @@
+{
+	"UUID": "83874794-c103-5d5b-9cfd-513174b1a9f5",
+	"Name": "MongoDB Diagnostics Identity",
+	"Description": "MongoDB Diagnostics actions on user, principalName, application, client, or context to launch the MongoDB Diagnostics Investigation dashboard.",
+	"Data": {
+		"menuLabel": "MongoDB Diagnostics",
+		"actions": [
+			{
+				"name": "Investigate Identity",
+				"description": "MongoDB Diagnostics actions on user, principalName, application, client, or context to launch the MongoDB Diagnostics Investigation dashboard.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "613a0585-9ccc-5562-9f93-16c396b3edaa",
+					"options": {
+						"variable": "identity"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+				"hyperlink": true,
+				"disabled": false
+			},
+			{
+				"pattern": "\\W{1,}(user|principalName|appName|client|ctx|context)\\W{1,}(?\u003cidentity\u003e[^\"]+)",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

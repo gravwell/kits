@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Group ID [numbercard]",
+  "Description": "This displays a numbercard of all Role Group ID (roleGroupId) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listapikeys",
+  "GUID": "599e5c27-58e4-51a8-b294-80366218b060",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

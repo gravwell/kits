@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Network Access Overview - Top Aws Security Group [numbercard]",
+  "Description": "This displays the top Aws Security Group (awsSecurityGroup) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "0bc30faa-4f2e-5547-9545-8d425b44df1c",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

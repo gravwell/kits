@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Top Action [numbercard]",
+  "Description": "This displays the top Action (action) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupcustomdbroleroles",
+  "GUID": "14eae1c4-8f23-596a-bdb0-b3394bc1b262",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Projects Overview - Total Events [numbercard] */
+tag=$MONGODB_ATLAS_PROJECTS
+| stats count
+| numbercard (count " ")

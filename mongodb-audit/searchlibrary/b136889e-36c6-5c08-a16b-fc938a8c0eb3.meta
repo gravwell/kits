@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Unauthorized Operation Spike By User [table]",
+  "Description": "Detects repeated MongoDB authorization failures by user and remote IP.",
+  "GUID": "b136889e-36c6-5c08-a16b-fc938a8c0eb3",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

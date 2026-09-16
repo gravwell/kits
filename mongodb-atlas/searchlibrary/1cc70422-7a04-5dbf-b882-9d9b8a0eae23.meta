@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - System - Log Types - Count by Tag [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Tag values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "1cc70422-7a04-5dbf-b882-9d9b8a0eae23",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

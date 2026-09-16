@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Database - Audit - Overview - Count by Operation [chart]",
+  "Description": "This displays a chart of all Operation (operation) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/manual/reference/audit-message/mongo/",
+  "GUID": "7276611f-27d6-5fe8-8a2b-c3621cff60ba",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

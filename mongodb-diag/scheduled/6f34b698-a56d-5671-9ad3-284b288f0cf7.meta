@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Network Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Network Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "6f34b698-a56d-5671-9ad3-284b288f0cf7",
+	"SearchReference": "65bbb011-81df-5cfb-acda-38d2a5ce484b"
+}

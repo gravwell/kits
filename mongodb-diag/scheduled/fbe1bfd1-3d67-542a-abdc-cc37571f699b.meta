@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Transaction Error Or Warning [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Transaction Error Or Warning.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "fbe1bfd1-3d67-542a-abdc-cc37571f699b",
+	"SearchReference": "47ba899e-66db-56b4-8263-84952cee55b1"
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Service Accounts - High Privilege Service Account [table]",
+  "Description": "Detects service accounts with owner/admin-style roles.",
+  "GUID": "ecd084bc-ed9d-523a-9b21-8e24ef42482f",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

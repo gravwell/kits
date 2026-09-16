@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Open Critical Atlas Alert [table]",
+  "Description": "Detects open Atlas alerts for infrastructure outage, public exposure, replication, disk, search, backup, and resource policy failures.",
+  "GUID": "2cccc4f2-a45f-59c9-aa94-86278b9c20c3",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

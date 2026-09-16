@@ -1,0 +1,6 @@
+/* Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Rare Inherited Role Database [numbercard] */
+tag=$MONGODB_ATLAS_CUSTOM_ROLES ax inheritedRoleDatabase
+| json -x inheritedRoleDatabase
+| stats count by inheritedRoleDatabase
+| bottom -n 1 count
+| numbercard (count " ")

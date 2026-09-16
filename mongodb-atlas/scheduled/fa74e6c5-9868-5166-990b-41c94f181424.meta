@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Resource Policy Violation or Change [table]",
+  "Description": "Detects resource policy creation, deletion, modification, or violation events.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "fa74e6c5-9868-5166-990b-41c94f181424",
+  "SearchReference": "f0482eca-3a0b-574c-84cc-ef4788443d8c"
+}

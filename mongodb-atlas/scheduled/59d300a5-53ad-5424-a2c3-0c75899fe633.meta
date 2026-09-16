@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Backup Control Plane Change [table]",
+  "Description": "Detects backup compliance disablement, restore requests, snapshot deletion, retention changes, schedule updates, and key backup credential changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "59d300a5-53ad-5424-a2c3-0c75899fe633",
+  "SearchReference": "bd441c65-6eff-55f9-a435-595613ac3bdf"
+}

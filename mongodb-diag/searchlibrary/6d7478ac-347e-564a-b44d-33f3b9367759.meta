@@ -1,0 +1,12 @@
+{
+	"Name": "Search - MongoDB - Database - Diagnostics - Overview - Total Events [numbercard]",
+	"Description": "This displays a numbercard of all MongoDB events by count.\n\nReference(s):\n- https://mongodb.com/docs/manual/reference/log-messages",
+	"GUID": "6d7478ac-347e-564a-b44d-33f3b9367759",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

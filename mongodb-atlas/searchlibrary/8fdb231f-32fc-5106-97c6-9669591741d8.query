@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Type [chart] */
+tag=$MONGODB_ATLAS_BACKUPS ax type
+| stats count as " " by type
+| chart " " by type

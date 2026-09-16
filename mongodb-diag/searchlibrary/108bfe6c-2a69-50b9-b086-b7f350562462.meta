@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Process Startup [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Process Startup.",
+	"GUID": "108bfe6c-2a69-50b9-b086-b7f350562462",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

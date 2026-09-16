@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Alert Configurations - Disabled Atlas Alert Configuration [table]",
+  "Description": "Detects Atlas alert configurations that are disabled, reducing monitoring coverage.",
+  "GUID": "bbced791-63dd-5d16-b046-61dfda64f53c",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

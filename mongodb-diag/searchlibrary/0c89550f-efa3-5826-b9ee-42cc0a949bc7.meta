@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Connection Churn By Remote [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Connection Churn By Remote.",
+	"GUID": "0c89550f-efa3-5826-b9ee-42cc0a949bc7",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

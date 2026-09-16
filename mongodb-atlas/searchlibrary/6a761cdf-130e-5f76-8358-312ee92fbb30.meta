@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Database Users - High Privilege Database User [table]",
+  "Description": "Detects Atlas database users with broad administrative MongoDB roles.",
+  "GUID": "6a761cdf-130e-5f76-8358-312ee92fbb30",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Atlas Events Overview - Rare Public Key [numbercard]",
+  "Description": "This displays the bottom Public Key (publicKey) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgevents",
+  "GUID": "6b94da9a-ce3a-538a-a929-3626e3875a19",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

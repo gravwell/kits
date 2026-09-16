@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Rare Name [numbercard] */
+tag=$MONGODB_ATLAS_CLUSTERS ax name
+| stats count by name
+| bottom -n 1 count
+| numbercard (count " ")

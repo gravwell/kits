@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Rare Acknowledging Username [numbercard] */
+tag=$MONGODB_ATLAS_ALERTS ax acknowledgingUsername
+| stats count by acknowledgingUsername
+| bottom -n 1 count
+| numbercard (count " ")

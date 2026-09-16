@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Custom Database Role Lifecycle Change [table]",
+  "Description": "Detects MongoDB custom database role creation, deletion, or update events.",
+  "GUID": "68276b43-fbb9-5954-8f7d-a38e3f7bbb87",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

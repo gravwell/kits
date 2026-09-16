@@ -1,0 +1,30 @@
+# MongoDB Diagnostics Kit
+
+This kit provides ready-to-roll dashboards, queries, alerts, flows, templates, and playbooks.
+
+The MongoDB Diagnostics Kit is licensed under the BSD 2-Clause and the contents are available on [GitHub](https://github.com/gravwell/kits/tree/main/mongodb-diag-new).
+
+There is an [Integration Guide](https://docs.gravwell.io/integrations/application/mongodb-diag-new.html) to assist you in quickly onboarding data for The MongoDB Diagnostics Kit.
+
+## Dependencies
+- None
+
+## Changelog
+- 1.0: Initial Release
+	- actionables 4
+	- alert 0
+	- autoextractor 1
+	- dashboard 2
+	- file 0
+	- license 1
+	- macro 10
+	- playbook 2
+	- resource 3
+	- scheduled 63
+		- scripts 0
+		- searches 62
+		- flows 1
+	- searchlibrary 82
+		- alert queries 62
+		- dashboard searches 20
+	- template 5

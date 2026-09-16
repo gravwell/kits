@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Role Updated [table]",
+  "Description": "Detects MongoDB role updates.",
+  "GUID": "bd268180-be69-5a81-9c0e-12d0a01d5c9d",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Rare Replica Set Name [numbercard] */
+tag=$MONGODB_ATLAS_BACKUPS ax replicaSetName
+| stats count by replicaSetName
+| bottom -n 1 count
+| numbercard (count " ")

@@ -1,0 +1,11 @@
+/* Template - MongoDB - Atlas - Admin API - Investigation - Recent Events [table] */
+tag=$MONGODB_ATLAS ax 
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| eval _atlas_user ~ "%%user%%" && _atlas_ip ~ "%%ip%%" 
+| eval _atlas_scope_id != "unknown" 
+| grep -e _atlas_scope_id "%%scopeId%%"
+| eval _atlas_event_type != "unknown"
+| grep -e _atlas_event_type "%%eventTypeName%%"
+| table timestamp updated _priority risk_score _atlas_category _atlas_subcategory _atlas_status _atlas_user _atlas_ip _atlas_scope_id eventTypeName typeName metricName hostname replicaSetName currentValueNumber currentValueUnits id alertConfigId acknowledgementComment reason _alert_title _alert_data

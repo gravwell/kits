@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Network Access - World Open Network Access Entry [table]*/
+tag=$MONGODB_ATLAS_NETWORK_ACCESS ax
+| regex -e cidrBlock "^(0\.0\.0\.0/0|::/0)$"
+| eval _alert_name = "World Open Network Access Entry";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

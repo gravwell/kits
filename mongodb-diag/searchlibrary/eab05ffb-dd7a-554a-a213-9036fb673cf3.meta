@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Risk Administrative Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: High Risk Administrative Command Logged.",
+	"GUID": "eab05ffb-dd7a-554a-a213-9036fb673cf3",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

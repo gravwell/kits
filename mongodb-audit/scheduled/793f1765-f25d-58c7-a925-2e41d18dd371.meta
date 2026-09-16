@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Failure Spike By Remote IP [table]",
+  "Description": "Detects repeated failed MongoDB authentication attempts by remote IP.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "793f1765-f25d-58c7-a925-2e41d18dd371",
+  "SearchReference": "a427d0eb-d1d8-50da-97ea-b0ba6bb344db"
+}

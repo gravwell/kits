@@ -1,0 +1,3 @@
+/* MONGODB_ATLAS_ALERT_RISK_LOOKUP */
+| eval if (!has("eventTypeName")){eventTypeName = "null";}
+| lookup -r mongodb-atlas-alert-risk-catalog eventTypeName eventTypeName (risk reason)

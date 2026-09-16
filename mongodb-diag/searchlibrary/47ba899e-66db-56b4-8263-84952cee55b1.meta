@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Transaction Error Or Warning [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Transaction Error Or Warning.",
+	"GUID": "47ba899e-66db-56b4-8263-84952cee55b1",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

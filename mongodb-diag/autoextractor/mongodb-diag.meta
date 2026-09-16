@@ -1,0 +1,17 @@
+{
+	"Name": "mongodb-diag",
+	"Desc": "Gravwell-generated JSON extraction for tag mongodb-diag",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"mongodb-diag"
+	],
+	"Labels": [
+		"mongodb"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "7e346f2f-f2d7-4371-8fd1-f33f59f3b6d7",
+	"LastUpdated": "2026-07-10T16:39:28.690361157Z"
+}

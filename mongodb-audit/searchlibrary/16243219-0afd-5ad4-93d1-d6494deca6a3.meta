@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Database - Audit - Overview - Rare User [numbercard]",
+  "Description": "This displays the bottom User (user) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/manual/reference/audit-message/mongo/",
+  "GUID": "16243219-0afd-5ad4-93d1-d6494deca6a3",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

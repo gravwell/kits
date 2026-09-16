@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Matcher Operator [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Matcher Operator (matcherOperator) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "815f36d6-e33e-59c7-aeb6-0bc5f88f65e8",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

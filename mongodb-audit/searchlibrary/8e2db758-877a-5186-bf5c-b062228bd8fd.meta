@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Database - Audit - Overview - Top Remote IP [numbercard]",
+  "Description": "This displays the top Remote IP (remoteIp) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/manual/reference/audit-message/mongo/",
+  "GUID": "8e2db758-877a-5186-bf5c-b062228bd8fd",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Write Operation Slow [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Write Operation Slow.",
+	"GUID": "0f98bb13-6e57-5265-8e69-25390256f51c",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

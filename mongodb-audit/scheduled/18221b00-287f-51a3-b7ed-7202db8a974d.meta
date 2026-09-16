@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Replica Set Reconfigured [table]",
+  "Description": "Detects MongoDB replica set reconfiguration.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "18221b00-287f-51a3-b7ed-7202db8a974d",
+  "SearchReference": "d0dfbb3a-5f0b-5065-8c4e-579cb29ec427"
+}

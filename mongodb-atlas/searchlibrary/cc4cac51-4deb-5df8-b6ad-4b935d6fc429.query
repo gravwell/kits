@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Top Event Type Name [numbercard] */
+tag=$MONGODB_ATLAS_ALERTS ax eventTypeName
+| stats count by eventTypeName
+| top -n 1 count
+| numbercard (count " ")

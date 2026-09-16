@@ -1,0 +1,6 @@
+/* Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Role Group ID [numbercard] */
+tag=$MONGODB_ATLAS_ORG_USERS ax roleGroupId
+| json -x roleGroupId
+| stats count by roleGroupId
+| top -n 1 count
+| numbercard (count " ")

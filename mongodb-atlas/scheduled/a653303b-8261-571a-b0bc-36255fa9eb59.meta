@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Alert Configuration Tampering [table]",
+  "Description": "Detects project activity where alert configurations are changed, disabled, enabled, or deleted.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a653303b-8261-571a-b0bc-36255fa9eb59",
+  "SearchReference": "c95d7f5d-f588-573f-84bb-06f721b7b7b2"
+}

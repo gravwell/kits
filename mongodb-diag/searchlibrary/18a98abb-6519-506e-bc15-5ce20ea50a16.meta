@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Database Or Collection Drop Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Database Or Collection Drop Command Logged.",
+	"GUID": "18a98abb-6519-506e-bc15-5ce20ea50a16",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,781 @@
+{
+	"UUID": "67826408-693c-5e20-a801-ee861354199f",
+	"Name": "MongoDB Atlas Org Users Overview",
+	"Description": "This Dashboard is a general overview of MongoDB Atlas org users Admin API data.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Total Events [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "e40e7851-bf05-53c5-9095-fe706de6f7d7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Total Events [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "6dcbc100-9f36-5baa-8b0b-aa2d6fa1f9b3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Username [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5a447764-8c77-569a-8fb0-6779405f3441",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Org Membership Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "801c9c4d-f47d-5a57-be40-d882d34293d7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Org Roles [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "db22aa2e-6ce1-5968-8d83-374435064a9f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Top Role Group ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "2c895180-edb3-5f81-baa8-a9979d31473b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Username [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "c0d3f132-d80f-5835-80ad-f07825af383f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Org Membership Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "19da8602-cc29-539b-aa14-0fa81a201bb7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Org Roles [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "f67ca317-68d7-5f42-b67c-453f0c829ba3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Rare Role Group ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "02bf7757-9b19-5162-bb87-cc72ebf86d2c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Username [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "aee8d51c-0971-5829-878d-cab99e271a9a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Username [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "401ba4b0-7e02-56b0-8399-77fadc660c2d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Username [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "401ba4b0-7e02-56b0-8399-77fadc660c2d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org Membership Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "93faeb91-4e3c-539c-af6e-e662795185cc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org Membership Status [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "a2faa699-d0e6-5092-ad98-ccad2c57c8fe",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org Membership Status [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "a2faa699-d0e6-5092-ad98-ccad2c57c8fe",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org Roles [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1b4e6f31-e10d-5480-9656-6566ee0d63b9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org Roles [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "f0618bc4-6689-52d0-9aa5-91f336be4e64",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Org Roles [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "f0618bc4-6689-52d0-9aa5-91f336be4e64",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Role Group ID [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "36c14584-6cce-5e2e-8687-a6d28524fb73",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Role Group ID [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "de8fb837-d4bd-5f44-b72b-efe41766d8b1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Role Group ID [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "de8fb837-d4bd-5f44-b72b-efe41766d8b1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Group Roles [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "28b7d1f8-96b1-5a85-a46c-c3facb477b07",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Group Roles [pieChart]",
+				"color": null,
+				"reference": {
+					"id": "cf9302d7-c54b-508f-bc8c-2a4c249e49d3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Count by Group Roles [lineChart]",
+				"color": null,
+				"reference": {
+					"id": "cf9302d7-c54b-508f-bc8c-2a4c249e49d3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6232603016569953,
+				"title": "Total Events [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6008265700445895,
+				"title": "Total Events [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 3,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6233185506422312,
+				"title": "Top Username [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6179000434454209,
+				"title": "Top Org Membership Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6077382863871063,
+				"title": "Top Org Roles [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6026690582369975,
+				"title": "Top Role Group ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 3
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6150938473552888,
+				"title": "Rare Username [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6005299457866194,
+				"title": "Rare Org Membership Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 6
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6015775901379013,
+				"title": "Rare Org Roles [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6113257190659726,
+				"title": "Rare Role Group ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 6
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6026245929973342,
+				"title": "Count by Username [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6226896755535165,
+				"title": "Count by Username [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 12
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6175461068500811,
+				"title": "Count by Username [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 12
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6030101940956546,
+				"title": "Count by Org Membership Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 19
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6025882413156646,
+				"title": "Count by Org Membership Status [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 22
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6204753121306192,
+				"title": "Count by Org Membership Status [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 22
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6037549674960865,
+				"title": "Count by Org Roles [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 16,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6086612722522614,
+				"title": "Count by Org Roles [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 32
+				},
+				"searchesIndex": 18,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6016323018135978,
+				"title": "Count by Org Roles [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 32
+				},
+				"searchesIndex": 17,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6199441374443679,
+				"title": "Count by Role Group ID [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 39
+				},
+				"searchesIndex": 19,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6094761928087506,
+				"title": "Count by Role Group ID [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 42
+				},
+				"searchesIndex": 21,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6219782496767321,
+				"title": "Count by Role Group ID [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 42
+				},
+				"searchesIndex": 20,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6098088616498827,
+				"title": "Count by Group Roles [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 49
+				},
+				"searchesIndex": 22,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6198417318298791,
+				"title": "Count by Group Roles [lineChart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 52
+				},
+				"searchesIndex": 24,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6095302130561513,
+				"title": "Count by Group Roles [pieChart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 52
+				},
+				"searchesIndex": 23,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

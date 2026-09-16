@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Warning Spike By Message [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Warning Spike By Message.",
+	"GUID": "7a2c08e6-5b16-5aed-a381-fae6f6f49b95",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Database Users - High Privilege Database User [table]",
+  "Description": "Detects Atlas database users with broad administrative MongoDB roles.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "2fc32a8a-fd56-5845-af8c-abb9c4bdc6c5",
+  "SearchReference": "6a761cdf-130e-5f76-8358-312ee92fbb30"
+}

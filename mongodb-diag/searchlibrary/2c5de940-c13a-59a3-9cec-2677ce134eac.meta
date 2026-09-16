@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Unexpected Mongo Shell Client [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Unexpected Mongo Shell Client.",
+	"GUID": "2c5de940-c13a-59a3-9cec-2677ce134eac",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

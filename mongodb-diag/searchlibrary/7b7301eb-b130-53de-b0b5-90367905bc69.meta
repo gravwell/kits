@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Slow Query Over 5 Seconds [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Slow Query Over 5 Seconds.",
+	"GUID": "7b7301eb-b130-53de-b0b5-90367905bc69",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

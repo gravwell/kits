@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Projects Overview - Top Cluster Count [numbercard]",
+  "Description": "This displays the top Cluster Count (clusterCount) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "85df90ac-54d4-5091-9bd8-f1e6ddbb96a1",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

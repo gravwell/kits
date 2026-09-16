@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Metric Name [chart] */
+tag=$MONGODB_ATLAS_ALERTS ax metricName
+| stats count as " " by metricName
+| chart " " by metricName

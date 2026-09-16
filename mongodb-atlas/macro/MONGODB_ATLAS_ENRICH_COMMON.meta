@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_ENRICH_COMMON",
+	"Description": "Common MongoDB Atlas Admin API enrichment macro for alerts, dashboards, and investigations.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

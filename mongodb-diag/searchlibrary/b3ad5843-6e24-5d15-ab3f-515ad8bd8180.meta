@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Command Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Command Error.",
+	"GUID": "b3ad5843-6e24-5d15-ab3f-515ad8bd8180",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

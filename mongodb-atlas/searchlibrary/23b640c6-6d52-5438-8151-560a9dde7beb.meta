@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Clusters Overview - Top Mongo DB Major Version [numbercard]",
+  "Description": "This displays the top Mongo DB Major Version (mongoDBMajorVersion) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "23b640c6-6d52-5438-8151-560a9dde7beb",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

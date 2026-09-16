@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Top Auth Source [numbercard] */
+tag=$MONGODB_ATLAS_ACCESS ax authSource
+| stats count by authSource
+| top -n 1 count
+| numbercard (count " ")

@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - System - Log Types - Count by Subcategory [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Subcategory values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "86c260f8-2e8a-5052-a2e6-4b3caf2b8b55",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

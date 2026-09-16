@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Cloud Provider [numbercard] */
+tag=$MONGODB_ATLAS_BACKUPS ax cloudProvider
+| stats count by cloudProvider
+| numbercard (count " ")

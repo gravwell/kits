@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Sharding Enabled [table]",
+  "Description": "Detects MongoDB sharding enablement.",
+  "GUID": "59ad79f6-67ff-587c-868d-1a99146f05ef",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization MFA Posture Weakened [table]",
+  "Description": "Detects organization-level MFA posture alerts or MFA requirement changes.",
+  "GUID": "b5f4817b-2e01-5924-8e99-87952d289df9",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Storage Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Storage Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "edfe199e-2e29-5798-9331-39c731b79ae4",
+	"SearchReference": "c35f7e8f-b2d2-58a1-8082-7836f71906ba"
+}

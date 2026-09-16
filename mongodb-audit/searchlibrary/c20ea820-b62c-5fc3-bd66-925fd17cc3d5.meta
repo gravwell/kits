@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Cluster Parameter Changed [table]",
+  "Description": "Detects MongoDB cluster parameter changes.",
+  "GUID": "c20ea820-b62c-5fc3-bd66-925fd17cc3d5",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

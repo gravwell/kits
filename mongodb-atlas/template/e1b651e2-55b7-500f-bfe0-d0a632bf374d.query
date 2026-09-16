@@ -1,0 +1,10 @@
+/* Template - MongoDB - Atlas - Admin API - Investigation - Total Events [numbercard] */
+tag=$MONGODB_ATLAS ax 
+$MONGODB_ATLAS_ENRICH_COMMON
+| eval _atlas_user ~ "%%user%%" && _atlas_ip ~ "%%ip%%" 
+| eval _atlas_scope_id != "unknown" 
+| grep -e _atlas_scope_id "%%scopeId%%"
+| eval _atlas_event_type != "unknown"
+| grep -e _atlas_event_type "%%eventTypeName%%"
+| stats count
+| numbercard (count " ")

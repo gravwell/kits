@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Service Account Event Observed [table]",
+  "Description": "Detects MongoDB Atlas service account lifecycle, role, secret, group-assignment, and access-list events from the Atlas events endpoints.",
+  "GUID": "b8608561-0da3-590a-b543-7bd877e35a1f",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

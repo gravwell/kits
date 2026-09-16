@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Count by Message [numbercard] */
+tag=$MONGODB_DIAG ax message
+| stats count by message
+| numbercard (count " ")

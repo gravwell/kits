@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Remote Address [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Remote Address (remoteAddress) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "1c73cefc-3bd9-5d72-b05c-121d4fe1f7cc",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

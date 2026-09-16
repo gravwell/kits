@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - API Keys Overview - Total Events [chart]",
+  "Description": "This displays a chart of all MongoDB values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listapikeys",
+  "GUID": "c4d3e13a-a81e-5ec7-9ddc-a7934de817a3",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

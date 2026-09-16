@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Region Usage Restrictions [chart] */
+tag=$MONGODB_ATLAS_PROJECTS ax regionUsageRestrictions
+| stats count as " " by regionUsageRestrictions
+| chart " " by regionUsageRestrictions

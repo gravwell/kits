@@ -1,0 +1,2 @@
+/* MONGODB_DIAG_COMPONENT_LOOKUP */
+| lookup -r mongodb-components component component (description as componentDescription parent as componentParent)

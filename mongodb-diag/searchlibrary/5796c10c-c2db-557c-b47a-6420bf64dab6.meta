@@ -1,0 +1,12 @@
+{
+	"Name": "Search - MongoDB - Database - Diagnostics - Overview - Count by Component [numbercard]",
+	"Description": "This displays a numbercard of all MongoDB Component (component) values by count.\n\nReference(s):\n- https://mongodb.com/docs/manual/reference/log-messages",
+	"GUID": "5796c10c-c2db-557c-b47a-6420bf64dab6",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

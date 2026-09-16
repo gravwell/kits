@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Count by Auth Result [numbercard] */
+tag=$MONGODB_ATLAS_ACCESS ax authResult
+| stats count by authResult
+| numbercard (count " ")

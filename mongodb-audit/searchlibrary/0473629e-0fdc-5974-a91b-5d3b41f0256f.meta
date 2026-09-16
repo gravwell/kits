@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Database - Audit - Overview - Count by Database [chart]",
+  "Description": "This displays a chart of all Database (database) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/manual/reference/audit-message/mongo/",
+  "GUID": "0473629e-0fdc-5974-a91b-5d3b41f0256f",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

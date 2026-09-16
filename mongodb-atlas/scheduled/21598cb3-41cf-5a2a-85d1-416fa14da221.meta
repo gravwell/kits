@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Database User Lifecycle Change [table]",
+  "Description": "Detects MongoDB database user creation, deletion, update, or X.509 certificate creation/revocation events.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "21598cb3-41cf-5a2a-85d1-416fa14da221",
+  "SearchReference": "0ef63e2c-a398-5a43-9666-710b1dbf58ce"
+}

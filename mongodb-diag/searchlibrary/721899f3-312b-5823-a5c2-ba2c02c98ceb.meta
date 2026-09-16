@@ -1,0 +1,12 @@
+{
+	"Name": "Search - MongoDB - Database - Diagnostics - Overview - Top Context [numbercard]",
+	"Description": "This displays the top Context (context) during the specified timeframe.\n\nReference(s):\n- https://mongodb.com/docs/manual/reference/log-messages",
+	"GUID": "721899f3-312b-5823-a5c2-ba2c02c98ceb",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

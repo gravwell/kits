@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Rollback Activity [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Rollback Activity.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "dfb76372-89e7-5c57-8c5c-c768bb3fa633",
+	"SearchReference": "26094e97-23be-5fba-92c3-25958fbf53ad"
+}

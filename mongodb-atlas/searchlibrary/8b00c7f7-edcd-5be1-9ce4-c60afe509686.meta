@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - OAuth Audit Event Observed [table]",
+  "Description": "Detects documented MongoDB Atlas OAuth audit events including client, secret, authorization, token, and consent activity.",
+  "GUID": "8b00c7f7-edcd-5be1-9ce4-c60afe509686",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

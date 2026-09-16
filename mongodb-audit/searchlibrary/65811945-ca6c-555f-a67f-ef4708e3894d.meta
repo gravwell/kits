@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Privileges Revoked From Role [table]",
+  "Description": "Detects privilege revocation from MongoDB roles.",
+  "GUID": "65811945-ca6c-555f-a67f-ef4708e3894d",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

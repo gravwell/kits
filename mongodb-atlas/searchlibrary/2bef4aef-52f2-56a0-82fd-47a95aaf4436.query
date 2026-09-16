@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Snapshot Type [chart] */
+tag=$MONGODB_ATLAS_BACKUPS ax snapshotType
+| stats count as " " by snapshotType
+| chart " " by snapshotType

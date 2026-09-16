@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Role Name [numbercard] */
+tag=$MONGODB_ATLAS_DATABASE_USERS ax roleName
+| json -x roleName
+| stats count by roleName
+| numbercard (count " ")

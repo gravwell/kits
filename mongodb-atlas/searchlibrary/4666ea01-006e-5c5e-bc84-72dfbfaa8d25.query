@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - System - Log Types - Count by Tag [chart] */
+tag=$MONGODB_ATLAS
+| stats count as " " by TAG
+| chart " " by TAG

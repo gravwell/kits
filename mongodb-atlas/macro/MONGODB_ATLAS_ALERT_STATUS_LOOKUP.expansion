@@ -1,0 +1,4 @@
+/* MONGODB_ATLAS_ALERT_STATUS_LOOKUP */
+| eval 
+    if (!has("status")) { status = "null"; }
+| lookup -r mongodb-atlas-alert-statuses status status (description as statusDescription)

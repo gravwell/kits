@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Database Users Overview - Top Group ID [numbercard] */
+tag=$MONGODB_ATLAS_DATABASE_USERS ax groupId
+| stats count by groupId
+| top -n 1 count
+| numbercard (count " ")

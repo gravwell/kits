@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Event Type Name [chart] */
+tag=$MONGODB_ATLAS_ALERTS ax eventTypeName
+| stats count as " " by eventTypeName
+| chart " " by eventTypeName

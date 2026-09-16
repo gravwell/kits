@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Audit - Overview - Count by Namespace [numbercard] */
+tag=$MONGODB_AUDIT ax namespace
+| stats count by namespace
+| numbercard (count " ")
