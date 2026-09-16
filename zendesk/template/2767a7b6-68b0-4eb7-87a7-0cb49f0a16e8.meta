@@ -1,0 +1,23 @@
+{
+	"UUID": "2767a7b6-68b0-4eb7-87a7-0cb49f0a16e8",
+	"Name": "Zendesk - Investigate Actor",
+	"Description": "Audit activity for a Zendesk actor (user or system) - what has this actor changed, from which IP addresses?",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%actor%%",
+				"label": "Actor Name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "John Doe"
+			}
+		]
+	},
+	"Labels": [
+		"zendesk",
+		"audit",
+		"actor",
+		"investigation"
+	]
+}

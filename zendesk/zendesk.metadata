@@ -1,0 +1,25 @@
+{
+	"Tags": [
+		"zendesk-audit"
+	],
+	"Ingesters": [],
+	"Assets": [
+		{
+			"Type": "image",
+			"Source": "zendesk-cover.png",
+			"Legend": "Zendesk Cover",
+			"Featured": true
+		},
+		{
+			"Type": "image",
+			"Source": "zendesk-banner.png",
+			"Legend": "Zendesk Banner",
+			"Featured": true,
+			"Banner": true
+		},
+		{
+			"Type": "readme",
+			"Source": "README.md"
+		}
+	]
+}

@@ -1,0 +1,3 @@
+tag=$ZENDESK_AUDIT ax action=="destroy"
+| count over 1h
+| chart count

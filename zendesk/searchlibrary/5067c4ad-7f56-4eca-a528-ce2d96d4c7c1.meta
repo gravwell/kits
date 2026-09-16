@@ -1,0 +1,14 @@
+{
+	"Name": "Zendesk - Actor Activity from Multiple IPs",
+	"Description": "Detects an actor making audited changes from more than 3 distinct IP addresses within an hour, which can indicate a compromised account. System-initiated changes with no IP address are excluded. Adjust the threshold to fit your environment.",
+	"GUID": "5067c4ad-7f56-4eca-a528-ce2d96d4c7c1",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1078.004",
+		"initial-access",
+		"persistence"
+	],
+	"Metadata": {}
+}
