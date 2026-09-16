@@ -1,0 +1,21 @@
+{
+	"Name": "Umbrella - Burst of Admin Changes",
+	"Description": "Detects an administrator making more than 20 configuration changes in a 10 minute window. Rapid bulk changes can indicate scripted tampering with the Umbrella configuration. Adjust the threshold to fit your environment.",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"audit",
+		"T1562",
+		"defense-evasion"
+	],
+	"Schedule": "38 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "cca2b9b3-bf41-4e37-9b0f-5f21f73f69cf",
+	"SearchReference": "df99b826-a591-43da-8f85-90e1fddcf509"
+}

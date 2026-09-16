@@ -1,0 +1,14 @@
+{
+	"Name": "Umbrella - Spike in Blocked DNS Requests by Identity",
+	"Description": "Detects an identity generating more than 50 blocked DNS requests in a 10 minute window. A burst of blocks can indicate active malware repeatedly attempting to reach blocked infrastructure. Adjust the threshold to fit your environment.",
+	"GUID": "aae8829d-f7d6-48ea-b00c-342f68033a18",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"dns",
+		"T1071.004",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

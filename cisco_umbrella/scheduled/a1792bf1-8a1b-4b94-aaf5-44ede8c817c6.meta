@@ -1,0 +1,21 @@
+{
+	"Name": "Umbrella - DNS Request to Command and Control Domain",
+	"Description": "Detects DNS requests for domains Umbrella categorizes as Command and Control. Any request in this category, allowed or blocked, may indicate an infected host attempting to reach attacker infrastructure.",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"dns",
+		"T1071.004",
+		"command-and-control"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a1792bf1-8a1b-4b94-aaf5-44ede8c817c6",
+	"SearchReference": "71e12f81-539c-415b-9e42-4357c2e5f8d7"
+}

@@ -1,0 +1,2 @@
+tag=$UMBRELLA_AUDIT ax email user type action logged_in_from
+| table email user type action logged_in_from

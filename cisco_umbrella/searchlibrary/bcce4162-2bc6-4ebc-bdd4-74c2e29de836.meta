@@ -1,0 +1,12 @@
+{
+	"Name": "Umbrella - Proxy Bandwidth Over Time [Chart]",
+	"Description": "Total bytes returned through the Umbrella proxy over time, computed from the response size field.",
+	"GUID": "bcce4162-2bc6-4ebc-bdd4-74c2e29de836",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"stats",
+		"proxy"
+	],
+	"Metadata": {}
+}

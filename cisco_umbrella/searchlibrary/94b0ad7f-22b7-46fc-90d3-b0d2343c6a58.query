@@ -1,0 +1,4 @@
+tag=$UMBRELLA_DNS ax categories != ""
+| split -d "," categories
+| count by categories
+| chart count by categories limit 10

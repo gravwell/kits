@@ -1,0 +1,12 @@
+{
+	"Name": "Umbrella - Proxy HTTP Status Codes [Chart]",
+	"Description": "Distribution of HTTP status codes for requests through the Umbrella proxy.",
+	"GUID": "231b4a40-a8d2-4c97-981b-000b231d6cd2",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"stats",
+		"proxy"
+	],
+	"Metadata": {}
+}

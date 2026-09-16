@@ -1,0 +1,16 @@
+{
+	"Name": "umbrella-audit",
+	"Desc": "CSV field extraction for Cisco Umbrella admin audit logs (v13 schema)",
+	"Module": "csv",
+	"Tag": "umbrella-audit",
+	"Tags": null,
+	"Labels": [
+		"cisco",
+		"umbrella"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "e0291cb2-8832-4f1d-a0f8-c4c31d5ba44a",
+	"LastUpdated": "2026-08-08T10:00:00.000000000-06:00"
+}

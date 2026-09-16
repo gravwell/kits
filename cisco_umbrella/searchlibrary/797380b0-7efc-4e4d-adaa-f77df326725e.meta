@@ -1,0 +1,12 @@
+{
+	"Name": "Umbrella - DNS Response Codes [Chart]",
+	"Description": "Distribution of DNS response codes (NOERROR, NXDOMAIN, SERVFAIL, and so on) returned for Umbrella DNS requests.",
+	"GUID": "797380b0-7efc-4e4d-adaa-f77df326725e",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"stats",
+		"dns"
+	],
+	"Metadata": {}
+}

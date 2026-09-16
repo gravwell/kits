@@ -1,0 +1,3 @@
+tag=$UMBRELLA_DNS ax most_granular_identity
+| count by most_granular_identity
+| chart count by most_granular_identity limit 10

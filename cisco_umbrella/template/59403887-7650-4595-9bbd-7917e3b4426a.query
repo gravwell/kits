@@ -1,0 +1,2 @@
+tag=$UMBRELLA_DNS ax most_granular_identity ~ "%%identity%%" internal_ip action domain categories blocked_categories
+| table internal_ip action domain categories blocked_categories

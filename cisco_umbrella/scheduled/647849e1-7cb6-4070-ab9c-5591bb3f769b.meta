@@ -1,0 +1,21 @@
+{
+	"Name": "Umbrella - Malicious File Detected by AMP",
+	"Description": "Detects files proxied through Umbrella that Cisco Advanced Malware Protection (AMP) file inspection classified as Malicious.",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"proxy",
+		"T1105",
+		"command-and-control"
+	],
+	"Schedule": "49 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "647849e1-7cb6-4070-ab9c-5591bb3f769b",
+	"SearchReference": "c5c34a2e-5140-480b-9ead-1e5a2ea07868"
+}

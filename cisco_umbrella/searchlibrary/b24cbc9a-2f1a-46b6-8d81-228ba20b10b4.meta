@@ -1,0 +1,12 @@
+{
+	"Name": "Umbrella - DNS Query Types [Chart]",
+	"Description": "Distribution of DNS query types (A, AAAA, TXT, and so on) seen by Umbrella resolvers.",
+	"GUID": "b24cbc9a-2f1a-46b6-8d81-228ba20b10b4",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"stats",
+		"dns"
+	],
+	"Metadata": {}
+}

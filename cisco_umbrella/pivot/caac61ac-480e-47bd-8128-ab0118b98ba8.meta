@@ -1,0 +1,41 @@
+{
+	"UUID": "caac61ac-480e-47bd-8128-ab0118b98ba8",
+	"Name": "Umbrella - Investigate Internal IP",
+	"Description": "Investigate Umbrella DNS activity for an internal IP address that appears in search results.",
+	"Data": {
+		"menuLabel": "Umbrella",
+		"actions": [
+			{
+				"name": "Umbrella - Internal IP DNS Activity",
+				"description": "Review Umbrella DNS activity from this internal IP address",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "7684e420-7a9c-45b4-9a5a-2523c5b28d04",
+					"options": {
+						"variable": "%%ip_address%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:10\\.(?:[0-9]{1,3}\\.){2}|192\\.168\\.[0-9]{1,3}\\.|172\\.(?:1[6-9]|2[0-9]|3[01])\\.[0-9]{1,3}\\.)[0-9]{1,3}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}
