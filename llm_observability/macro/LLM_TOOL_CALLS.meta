@@ -1,0 +1,8 @@
+{
+	"Name": "LLM_TOOL_CALLS",
+	"Description": "Declares the LLM intrinsic EVs and narrows to tool invocations made by the model. Requires Log-Tool-Calls=true on the listener. Goes in the extraction position, immediately after the tag block, NOT after a pipe. Append any further enumerated values the query needs: tag=$LLM_TAG $LLM_TOOL_CALLS model session_id | ...",
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

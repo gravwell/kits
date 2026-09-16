@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Top Sessions by Token Spend [table]",
+	"Description": "The conversations costing the most. Pivot a session_id from here into the Conversation Reconstruction template to read what was actually asked.\n\nRequires Log-Usage=true on the listener.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "0d914da0-814f-5a00-9c0f-84223a4d61ad",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
