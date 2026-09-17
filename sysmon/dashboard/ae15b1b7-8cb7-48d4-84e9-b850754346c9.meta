@@ -1,6 +1,6 @@
 {
 	"UUID": "ae15b1b7-8cb7-48d4-84e9-b850754346c9",
-	"Name": "Sysmon Process Name Investigator",
+	"Name": "Sysmon - Process Name Investigator",
 	"Description": "Use the name of an EXE to search for related activity across all sysmon logs",
 	"Data": {
 		"searches": [

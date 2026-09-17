@@ -1,6 +1,6 @@
 {
 	"UUID": "69049b3c-b83d-4cae-9071-9b24a1f0baba",
-	"Name": "Sysmon Registry Overview",
+	"Name": "Sysmon - Registry Overview",
 	"Description": "Activity on registry keys",
 	"Data": {
 		"timeframe": {
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Sysmon Registry Autorun",
+				"alias": "Sysmon - Registry Autorun",
 				"color": null,
 				"reference": {
 					"id": "ac25e3ff-a24a-4d59-b211-266a8fa6a82e",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Registry Modifications by Image",
+				"alias": "Sysmon - Registry Modifications by Image",
 				"color": null,
 				"reference": {
 					"id": "10ecb70c-2806-453b-aa22-a3ebdd31060a",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Registry events by computer & image",
+				"alias": "Sysmon - Registry events by computer & image",
 				"color": null,
 				"reference": {
 					"id": "0308f7d1-dc1b-4ff1-a1e4-39d209d900b2",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Registry Overview",
+				"alias": "Sysmon - Registry Overview",
 				"color": null,
 				"reference": {
 					"id": "688f94a9-bf43-4b64-b5d0-e162c6763785",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Registry Techniques Detected",
+				"alias": "Sysmon - Registry Techniques Detected",
 				"color": null,
 				"reference": {
 					"id": "311bdf8d-5ec2-4e09-b77f-9c7615b90240",

@@ -1,6 +1,6 @@
 {
 	"UUID": "2e916960-c531-4577-8d85-68ba5cca6c81",
-	"Name": "Sysmon Network Overview",
+	"Name": "Sysmon - Network Overview",
 	"Description": "Overview of network activity as seen by Sysmon",
 	"Data": {
 		"timeframe": {
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Sysmon Network Connections by Computer",
+				"alias": "Sysmon - Network Connections by Computer",
 				"color": null,
 				"reference": {
 					"id": "d22fec64-d6d8-421e-a554-07a702b3b571",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Least Common Network Service Ports",
+				"alias": "Sysmon - Least Common Network Service Ports",
 				"color": null,
 				"reference": {
 					"id": "22628ed0-f6f5-44ae-9284-8be6e930bdf9",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Network Connection Pointmap",
+				"alias": "Sysmon - Network Connection Pointmap",
 				"color": null,
 				"reference": {
 					"id": "bc1b77dd-a7ae-4235-8182-dae36f12e062",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Network Connections",
+				"alias": "Sysmon - Network Connections",
 				"color": null,
 				"reference": {
 					"id": "5fe00171-5a46-4aa9-9ff8-5ad8df442cdc",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Network connection by IP Protocol",
+				"alias": "Sysmon - Network connection by IP Protocol",
 				"color": null,
 				"reference": {
 					"id": "83a531a3-2e8a-4859-b0dd-b7c892881fc0",
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Network Connection Detected",
+				"alias": "Sysmon - Network Connection Detected",
 				"color": null,
 				"reference": {
 					"id": "4cc4926f-7f27-4a32-8166-c90a5e72100b",
@@ -78,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Network Peer Totals",
+				"alias": "Sysmon - Network Peer Totals",
 				"color": null,
 				"reference": {
 					"id": "f1aaac81-d4ee-4d7e-b4d5-76a5ce0e67ec",

@@ -1,6 +1,6 @@
 {
 	"UUID": "b131ba07-2b35-44d5-85cb-fe2d3c1f229a",
-	"Name": "Sysmon SHA256 Match",
+	"Name": "Sysmon - SHA256 Match",
 	"Description": "Search sysmon events for matches on a SHA256",
 	"Data": {
 		"menuLabel": "Sysmon SHA256",

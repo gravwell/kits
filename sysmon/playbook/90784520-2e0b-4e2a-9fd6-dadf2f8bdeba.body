@@ -1,4 +1,4 @@
-#Overview
+# Overview
 Welcome to the Gravwell Windows Sysmon kit.  This kit provides Sysmon specific resources that will enable practitioners to rapidly extract value from Sysmon data.  The kit provides overview dashboards, investigative dashboards, a large query library, and some resources to help make sense of some esoteric Sysmon fields.
 
 Sysmon can provide excellent insights into Windows systems and even provide some basic anomaly detection.  Security practitioners would be advised to use Sysmon to monitor for unsigned application usage, unusual DNS activity, or network connections that originate from non-standard application pathways.  The Gravwell Sysmon Kit can help cover the basics and get you started in becoming a Sysmon ninja.
@@ -13,13 +13,13 @@ This playbook will help you get started with Gravwell and Sysmon.  We provide a 
 
 This kit also provides a couple of great overview and investigative dashboards using Sysmon data:
 
-- [Sysmon DNS Overview](/#/dashboards/5ac40515-573f-42b7-94ca-05fdb9fdeead)
-- [Sysmon Process Overview](/#/dashboards/50b06309-c8c3-46b0-af80-6ddd496b0a73)
-- [Sysmon Registry Overview](/#/dashboards/69049b3c-b83d-4cae-9071-9b24a1f0baba)
-- [Sysmon Network Overview](/#/dashboards/2e916960-c531-4577-8d85-68ba5cca6c81)
-- [Sysmon DNS Domain Investigation](/#/dashboards/d0905e72-ecad-49c3-9f7b-23560608258f)
-- [Sysmon Process GUID Investigation](/#/dashboards/90918c39-5748-48ab-a0db-91a6534e0911)
-- [Sysmon Process Name Investigator](/#/dashboards/ae15b1b7-8cb7-48d4-84e9-b850754346c9)
+- [Sysmon - DNS Overview](/#/dashboards/5ac40515-573f-42b7-94ca-05fdb9fdeead)
+- [Sysmon - Process Overview](/#/dashboards/50b06309-c8c3-46b0-af80-6ddd496b0a73)
+- [Sysmon - Registry Overview](/#/dashboards/69049b3c-b83d-4cae-9071-9b24a1f0baba)
+- [Sysmon - Network Overview](/#/dashboards/2e916960-c531-4577-8d85-68ba5cca6c81)
+- [Sysmon - DNS Domain Investigation](/#/dashboards/d0905e72-ecad-49c3-9f7b-23560608258f)
+- [Sysmon - Process GUID Investigation](/#/dashboards/90918c39-5748-48ab-a0db-91a6534e0911)
+- [Sysmon - Process Name Investigator](/#/dashboards/ae15b1b7-8cb7-48d4-84e9-b850754346c9)
 
 ## Sysmon Configuration
 
@@ -34,7 +34,7 @@ Sysmon is not hardened against an attacker with admin rights. Additionally, this
 
 This kit provides a configuration macro named *$SYSMON* which must be configured to point at the tag containing your Sysmon data, when you installed this kit it asked if you wanted to change it.  By default it points at the tag *sysmon*, but you can change it later by navigating to your macros and adjusting the value in the macro.  If you have your Sysmon data spread across multiple tags, just include all the tags as a comma delimited list (no spaces) in the macro.
 
-Sysmon data comes in through the Gravwell [winevent](https://docs.gravwell.io/#!ingesters/ingesters.md#Windows_Event_Service) ingester, the winevent ingester is designed to consume events from the Windows Event subsystem and can be installed on individual endpoints or on a [Windows Event Collector](https://docs.microsoft.com/en-us/windows/win32/wec/windows-event-collector) to consume events from many Windows machines.  The Gravwell winevent ingester must be configured to consume from the Sysmon event channel.  Here is an example **EventChannel** configuration block that will do just that:
+Sysmon data comes in through the Gravwell [winevent](https://docs.gravwell.io/#!ingesters/ingesters.md#Windows\_Event\_Service) ingester, the winevent ingester is designed to consume events from the Windows Event subsystem and can be installed on individual endpoints or on a [Windows Event Collector](https://docs.microsoft.com/en-us/windows/win32/wec/windows-event-collector) to consume events from many Windows machines.  The Gravwell winevent ingester must be configured to consume from the Sysmon event channel.  Here is an example **EventChannel** configuration block that will do just that:
 
 <pre>
 [EventChannel "sysmon"]
@@ -42,14 +42,16 @@ Sysmon data comes in through the Gravwell [winevent](https://docs.gravwell.io/#!
     Channel="Microsoft-Windows-Sysmon/Operational"
     Max-Reachback=24h  #reachback must be expressed in hours (h), minutes (m), or seconds(s)
 </pre>
+<br>
 
 ## Basic Sysmon Query Syntax
 
-Sysmon data is delivered to Gravwell using the [Gravwell Event Ingester](https://docs.gravwell.io/#!ingesters/ingesters.md#Windows_Event_Service).  For more information about the ingester and Windows logging basics, check out our [Windows Event Logging](https://www.gravwell.io/blog/gravwell-and-windows-event-logging) post.
+Sysmon data is delivered to Gravwell using the [Gravwell Event Ingester](https://docs.gravwell.io/#!ingesters/ingesters.md#Windows\_Event\_Service).  For more information about the ingester and Windows logging basics, check out our [Windows Event Logging](https://www.gravwell.io/blog/gravwell-and-windows-event-logging) post.
 
 Windows logs are best handled using the [winlog](https://docs.gravwell.io/#!search/winlog/winlog.md) search module.  This module is adept at rapidly extracting and filtering the complex Windows XML log format.  Windows XML logs contain three core sections: *System*, *Data*, and *Binary*.  Sysmon events rarely provide *Binary* data, so we will be mostly concerned with the *System* and *Data* sections.
 
-### System Section
+**System Section**
+
 The *System* section provides some basic category data which you can use to drill into a specific types of events.  The most important fields in the *System* section are *Channel*, *Provider*, *Computer*, and *EventID*.  The *Channel* and *Provider* fields tell you which subsystem a specific event came from.  Sysmon data always has a *Provider* of **Microsoft-Windows-Sysmon** and a *Channel* of **Microsoft-Windows-Sysmon/Operational**.  This means that pretty much all Gravwell queries that are looking for Sysmon data should add those filters, for example:
 
 ```
@@ -82,8 +84,10 @@ Here is an example *System* section from a Sysmon event:
   <Security UserID='S-1-5-21-2048713118-791522199-356788912-1001'/>
 </System>
 </xmp></pre>
+<br>
 
-### Data Section
+**Data Section**
+
 Each Sysmon event type provides fields specific to the type of event, for example a DNS event might provide the DNS name queried and a response for the name.  File activity events would provide a program performing the activity and the target file being operated on.  All of these custom event fields are located in the *Data* section.  *Data* section elements are accessed using the XML field names associated.
 
 
@@ -101,6 +105,7 @@ Here is an example *Data* section from a Sysmon DNS Event (EventID 22):
   <Data Name='Image'>C:\Program Files (x86)\Razer\Synapse\RzSynapse.exe</Data>
 </EventData>
 </xmp></pre>
+<br>
 
 ## Sysmon EventIDs
 
@@ -116,7 +121,7 @@ Here is an example *Data* section from a Sysmon DNS Event (EventID 22):
 <tr><td>7</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D7%20Computer%20Image%20ImageLoaded%20Product%20FileVersion%20Company%20Signed%20Signature%20SignatureStatus%20Description%20%7C%20table%20TIMESTAMP%20Computer%20Image%20ImageLoaded%20Product%20FileVersion%20Company%20Signed%20Signature%20SignatureStatus&duration=PT1H">Image Loaded</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90007">LINK</a></td></tr>
 <tr><td>8</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D8%20SourceImage%20TargetImage%20StartModule%20StartFunction%20%7C%20table%20TIMESTAMP%20SourceImage%20TargetImage%20StartModule%20StartFunction&duration=PT1H">Create Remote Thread in Process</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90008">LINK</a></td></tr>
 <tr><td>9</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D9%20Computer%20Image%20Device%20%7C%20table%20TIMESTAMP%20Computer%20Image%20Device&duration=PT1H">File Raw Access Read Activity</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90009">LINK</a></td></tr>
-<tr><td>10</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20EventID%3D%3D10%20Computer%20SourceImage%21%7Esystem32%20TargetImage%7Esystem32%20GrantedAccess%20%7C%0Aanko%20windows_access_flags%20GrantedAccess%20dump%20Flags%20%7C%0Astats%20count%20by%20Computer%20SourceImage%20TargetImage%20GrantedAccess%20%7C%0Atable%20Computer%20SourceImage%20TargetImage%20count%20Flags&duration=PT1H">Remote Process Access</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90010">LINK</a></td></tr>
+<tr><td>10</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20EventID%3D%3D10%20Computer%20SourceImage%21%7Esystem32%20TargetImage%7Esystem32%20GrantedAccess%20%7C%0Aanko%20windows\_access\_flags%20GrantedAccess%20dump%20Flags%20%7C%0Astats%20count%20by%20Computer%20SourceImage%20TargetImage%20GrantedAccess%20%7C%0Atable%20Computer%20SourceImage%20TargetImage%20count%20Flags&duration=PT1H">Remote Process Access</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90010">LINK</a></td></tr>
 <tr><td>11</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D11%20Computer%20Image%20TargetFilename%20CreationUtcTime%20%7C%0Atable%20TIMESTAMP%20Computer%20Image%20TargetFilename%20CreationUtcTime&duration=PT1H">File Created</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90011">LINK</a></td></tr>
 <tr><td>12</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D12%20Computer%20EventType%20Image%20TargetObject%20%7C%0Atable%20TIMESTAMP%20Computer%20Image%20EventType%20TargetObject&duration=PT1H">Registry Object Create or Delete</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90012">LINK</a></td></tr>
 <tr><td>13</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D13%20Computer%20EventType%20Image%20TargetObject%20%7C%0Atable%20TIMESTAMP%20Computer%20Image%20EventType%20TargetObject&duration=PT1H">Registry Value Set</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90013">LINK</a></td></tr>
@@ -128,12 +133,13 @@ Here is an example *Data* section from a Sysmon DNS Event (EventID 22):
 <tr><td>19</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D19%20Computer%20User%20EventNamespace%20Name%20Query%20%7C%0Atable%20Computer%20User%20Name%20EventNamespace%20Query">WMI Event Filter Activity</a></td><td><a href="">LINK</a></td></tr>
 <tr><td>20</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D20%20Computer%20User%20Name%20Type%20Operation%20Destination%20%7C%0Atable%20TIMESTAMP%20Computer%20User%20Name%20Type%20Operation%20Destination&duration=PT1H">WMI Event Consumer Activity</a></td><td><a href="">LINK</a></td></tr>
 <tr><td>21</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D21%20Computer%20User%20Operation%20Consumer%20Filter%20%7C%0Atable%20TIMESTAMP%20Computer%20User%20Operation%20Consumer%20Filter&duration=PT1H">WMI Event Consumer To Filter Activity</a></td><td><a href="https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90021">LINK</a></td></tr>
-<tr><td>22</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D22%20Computer%20Image%20QueryName%20QueryStatus%20QueryResults%20%7C%0Alookup%20-r%20windows_error_codes%20QueryStatus%20hex%20name%20%7C%0Atable%20TIMESTAMP%20Computer%20QueryName%20name%20QueryResults%20Image&duration=PT1H">DNS Event</a></td><td><a href="https://www.gravwell.io/blog/windows-dns-threat-hunting-with-sysmon-and-gravwell">LINK</a></td></tr>
+<tr><td>22</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D22%20Computer%20Image%20QueryName%20QueryStatus%20QueryResults%20%7C%0Alookup%20-r%20windows\_error\_codes%20QueryStatus%20hex%20name%20%7C%0Atable%20TIMESTAMP%20Computer%20QueryName%20name%20QueryResults%20Image&duration=PT1H">DNS Event</a></td><td><a href="https://www.gravwell.io/blog/windows-dns-threat-hunting-with-sysmon-and-gravwell">LINK</a></td></tr>
 <tr><td>23</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D23%20Computer%20User%20Image%20TargetFilename%20IsExecutable%20Archived%20%7C%20table%20TIMESTAMP%20Computer%20User%20Image%20TargetFilename%20IsExecutable%20Archived&duration=PT1H">File Delete</a></td><td><a href="https://isc.sans.edu/forums/diary/Sysmon+and+File+Deletion/26084/">LINK</a></td></tr>
 <tr><td>24</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D24%20Computer%20User%20Image%20Session%20ClientInfo%20Hashes%20%7C%0Atable%20TIMESTAMP%20Computer%20User%20Image%20Session%20ClientInfo%20Hashes&duration=PT1H">Clipboard Change</a></td><td><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-24-clipboardchange-new-content-in-the-clipboard">LINK</a></td></tr>
 <tr><td>25</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D25%20Computer%20User%20Image%20Type%20%7C%0Atable%20TIMESTAMP%20Computer%20User%20Image%20Type&duration=PT1H">Process Tampering</a></td><td><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-25-processtampering-process-image-change">LINK</a></td></tr>
 <tr><td>255</td><td><a href="/#/search/launch?query=tag%3D%24SYSMON%20winlog%20Provider%3D%3D%22Microsoft-Windows-Sysmon%22%20Channel%3D%3D%22Microsoft-Windows-Sysmon/Operational%22%20EventID%3D%3D255%20Computer%20ID%20Description%20%7C%0Atable%20TIMESTAMP%20Computer%20ID%20Description&duration=PT1H">Error</a></td><td><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-255-error">LINK</a></td></tr>
 </table>
+<br>
 
 ## Process Events
 
@@ -145,24 +151,29 @@ The process creation and termination events can be extremely high volume but can
 
 However, be warned that process events can be extremely chatty, especially if users commonly use scripts to invoke sub-processes to do tasks.  Most good Sysmon configurations heavily filter the Process stream.
 
-### Creation - EventID 1
+**Creation - EventID 1**
 
 The Sysmon process creation event is emitted every time a process is started, we get a few very handy fields such as the image path, process id, parent process, parent image path, file hashes, and even metadata like description, company, and application signing info.  The *EventData* fields can provide significant metadata about about processes as they start up.
 
 Here are a few great Process Creation queries:
 
-#### Total Process Creation Chart
+**Total Process Creation Chart**
+
 Simple chart showing process creation rate system wide
 
-```tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 | stats count | chart count```
+```
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 | stats count | chart count
+```
 
-#### Total Process Creation by Computer
+**Total Process Creation by Computer**
 
-```tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 Computer | stats count by Computer | chart count by Computer limit 64```
+```
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 Computer | stats count by Computer | chart count by Computer limit 64
+```
 
 ![SYSMON CHART](/api/files/67c215e7-1b00-4300-91c7-23b387c19f25 =1956x1799)
 
-#### Table of Process Creation as Fraction of Total
+**Table of Process Creation as Fraction of Total**
 
 Table of process creation activity for each computer sorted by percentage of the whole.  This query is very useful if you have a fleet of desktops, as it can make abnormal user activity really stand out.
 
@@ -176,7 +187,7 @@ tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==1 Computer |
    table Computer count share
 ```
 
-### Termination - EventID 5
+**Termination - EventID 5**
 
 The process termination event can be useful for evaluating process exits, by itself it is not terribly useful.  We don't get exit codes or error states, but when combined with the process creation events we can track the entire process life cycle.  For example we can combine the process start and stop events to create a table of processes with short execution times:
 
@@ -189,7 +200,7 @@ sort by uptime asc |
 table Computer User OriginalFileName CurrentDirectory IntegrityLevel ParentImage uptime
 ```
 
-### Driver Load - EventID 6
+**Driver Load - EventID 6**
 
 Driver load events are especially important to track, while modern code signing has significantly reduced the kernel attack surface there are still plenty of well documented kernel mode root kits that made it through.  Whether by stealing signing keys or tricking users into disabling code signing.  Either way, you should closely monitor drivers that are loaded into critical systems.
 
@@ -197,38 +208,48 @@ Some specific items to look for are:
 
 1. All driver loads
 
-```tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==6 Computer ImageLoaded Hashes Signed Signature SignatureStatus | kv -e Hashes -sep "=" -d "," SHA256 | stats count as LoadCount by Computer ImageLoaded SHA256 | table Computer Signed Signature SignatureStatus LoadCount ImageLoaded SHA256```
+```
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==6 Computer ImageLoaded Hashes Signed Signature SignatureStatus | kv -e Hashes -sep "=" -d "," SHA256 | stats count as LoadCount by Computer ImageLoaded SHA256 | table Computer Signed Signature SignatureStatus LoadCount ImageLoaded SHA256
+```
 
 2. Drivers loaded with invalid signatures
 
-```tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==6 Computer ImageLoaded Hashes Signed SignatureStatus!="Valid" Signature | kv -e Hashes -sep "=" -d "," SHA256 | table TIMESTAMP Computer Signature SignatureStatus Signed ImageLoaded SHA256```
+```
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==6 Computer ImageLoaded Hashes Signed SignatureStatus!="Valid" Signature | kv -e Hashes -sep "=" -d "," SHA256 | table TIMESTAMP Computer Signature SignatureStatus Signed ImageLoaded SHA256
+```
 
 3. Completely unsigned drivers loaded
 
-```tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==6 Computer ImageLoaded Hashes Signed!=true SignatureStatus Signature | kv -e Hashes -sep "=" -d "," SHA256 | table TIMESTAMP Computer Signature SignatureStatus Signed ImageLoaded SHA256```
+```
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==6 Computer ImageLoaded Hashes Signed!=true SignatureStatus Signature | kv -e Hashes -sep "=" -d "," SHA256 | table TIMESTAMP Computer Signature SignatureStatus Signed ImageLoaded SHA256
+```
 
-### Remote Thread Creation - EventID 8
+**Remote Thread Creation - EventID 8**
 
 In the Windows ecosystem it is not uncommon for a one process to create a thread in another process.  However, this is also a common method used by malware to hide its tracks, fire up a thread in another process and load a library with malicious functionality, that way when you look at the process list everything looks normal.  This is also a common technique used in anti-cheat software in games too, so you will see some noise.
 
 
-```tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==8 Computer SourceImage TargetImage StartModule StartFunction | stats count by SourceImage TargetImage StartModule StartFunction | table Computer SourceImage TargetImage StartModule StartFunction count```
+```
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==8 Computer SourceImage TargetImage StartModule StartFunction | stats count by SourceImage TargetImage StartModule StartFunction | table Computer SourceImage TargetImage StartModule StartFunction count
+```
 
 
-### Access - EventID 10
+**Access - EventID 10**
 
 Cross process access is also common in Windows, this event is emitted any time one process opens up the address space of another.  There can be some value in routinely monitoring process access, especially if you see non-native processes attempting to access the address space of critical processes like *lsass.exe*.  For example, the [Mimikatz](https://github.com/gentilkiwi/mimikatz) toolkit uses this methodology to sniff credentials.  Here is a query that will show events where a process outside of the *SYSTEM32* directory got access to the virtual memory of another process.
 
 
-```tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==10 Computer SourceImage!~system32 TargetImage~system32 GrantedAccess |
+```
+tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==10 Computer SourceImage!~system32 TargetImage~system32 GrantedAccess |
 anko windows_access_flags GrantedAccess has VM_READ |
 anko windows_access_flags GrantedAccess dump Flags |
 stats count by Computer SourceImage TargetImage GrantedAccess Flags |
-table Computer SourceImage TargetImage count Flags```
+table Computer SourceImage TargetImage count Flags
+```
 
-The example above filters on *VM_READ*, which is the credential-theft case described.  The shipped search *Sysmon: Process Access with VM_WRITE Access on system32 images* filters on *VM_WRITE* instead, which is the process-injection case.  Both are legitimate detections and they catch different behaviour — swap the flag in the query above to move between them.
+The example above filters on *VM_READ*, which is the credential-theft case described.  The shipped search *Sysmon - Process Access with VM_WRITE Access on system32 images* filters on *VM_WRITE* instead, which is the process-injection case.  Both are legitimate detections and they catch different behaviour — swap the flag in the query above to move between them.
 
-### Process Tampering - EventID 25
+**Process Tampering - EventID 25**
 
 Process tampering is a reasonably sophisticated event that indicates that sysmon saw some abnormal activity in how a process was started.  Unfortunately any application that uses a zygote style execution method will be extremely chatty, as it looks like a process is no longer tied to its underlying image.  The Google Chrome browser emits this pretty much every time a user opens a tab.
 
@@ -300,7 +321,7 @@ tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID==9 Computer Imag
 
 The Windows registry is far and away one of the most difficult items to [grok](https://en.wikipedia.org/wiki/Grok) in the world of Windows.  It is big, it is convoluted, it is always changing.  Sysmon registry events come in the form of Key and Value Create/Delete (EventID 12), Value Set (EventID 13), and Key and Value Rename (EventID 14).  There are an absolute truck load of things in the registry that really should be monitored, but we will keep it pretty simple and look at some of the heavy hitter security indicators.
 
-### Autorun - Automatically Starting An Application
+**Autorun - Automatically Starting An Application**
 
 There are quite a few registry keys and methodologies that can be used to register applications for [automatic start](https://attack.mitre.org/techniques/T1547/001/) using the registry.  Here is a query that hits the basics, we are looking for any registry Set Value event that triggers the rule "Registry Run Keys":
 
@@ -310,7 +331,7 @@ words Registry Run Keys |
 table Computer Image Details TargetObject TIMESTAMP
 ```
 
-### Environment Variables - Trojan Import Paths
+**Environment Variables - Trojan Import Paths**
 
 Another common technique for establishing persistence is to trick an application into loading the wrong DLL.  This can be accomplished a few ways, you could copy your DLL into a location that will be looked up early, or you can adjust the *Environment* registry key so that a path you control is examined first when the system is looking for DLLs.  There is a lot of nuance to this form of persistence, but any modification to the system wide environment variables deserves attention:
 
@@ -319,7 +340,7 @@ tag=$SYSMON winlog Provider=="Microsoft-Windows-Sysmon" EventID == 13 Image Comp
 table Computer Image TargetObject Details TIMESTAMP
 ```
 
-### Microphone Access - Getting Weird With It
+**Microphone Access - Getting Weird With It**
 
 A less useful but fun example of registry monitoring fun is to look for registry activity that indicates microphone access.  Here we can look at microphone access start and stop events in the registry to provide a table of total microphone access time per computer:
 

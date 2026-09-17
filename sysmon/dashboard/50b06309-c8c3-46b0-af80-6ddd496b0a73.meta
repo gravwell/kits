@@ -1,11 +1,11 @@
 {
 	"UUID": "50b06309-c8c3-46b0-af80-6ddd496b0a73",
-	"Name": "Sysmon Process Overview",
+	"Name": "Sysmon - Process Overview",
 	"Description": "Sysmon Process Activity Overview",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Sysmon Process Creation Rate",
+				"alias": "Sysmon - Process Creation Rate",
 				"timeframe": {},
 				"reference": {
 					"id": "6aad4b56-12ed-4fb7-939f-df15fc6e3a9d",
@@ -13,7 +13,7 @@
 				}
 			},
 			{
-				"alias": "Computer Image Hash Totals",
+				"alias": "Sysmon - Computer Image Hash Totals",
 				"timeframe": {},
 				"reference": {
 					"id": "1169e587-973b-492a-a73f-e63aeecd023d",
@@ -21,7 +21,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Rare Process Image Hashes",
+				"alias": "Sysmon - Rare Process Image Hashes",
 				"timeframe": {},
 				"reference": {
 					"id": "dd808c75-036d-489a-8e78-313ba2a32309",
@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"alias": "Windows Sysmon Low Integrity Process Starts",
+				"alias": "Sysmon - Windows Low Integrity Process Starts",
 				"timeframe": {},
 				"reference": {
 					"id": "78257dc2-ad67-45b5-86b6-852fec7a39ca",
@@ -37,7 +37,7 @@
 				}
 			},
 			{
-				"alias": "Process Start Deviation by Integrity Level",
+				"alias": "Sysmon - Process Start Deviation by Integrity Level",
 				"timeframe": {},
 				"reference": {
 					"id": "315c6cbb-d5a6-46d3-8a19-d4ac68c82d03",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Windows Sysmon Product Launch Counts",
+				"alias": "Sysmon - Windows Product Launch Counts",
 				"timeframe": {},
 				"reference": {
 					"id": "3171549f-ea97-4e1a-809b-0e9743fdd54e",

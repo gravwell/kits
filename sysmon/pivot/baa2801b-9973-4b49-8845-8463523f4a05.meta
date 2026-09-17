@@ -1,9 +1,9 @@
 {
 	"UUID": "baa2801b-9973-4b49-8845-8463523f4a05",
-	"Name": "Process GUID",
+	"Name": "Sysmon - Process GUID",
 	"Description": "Investigate Process GUIDs",
 	"Data": {
-		"menuLabel": "ProcessGuid",
+		"menuLabel": "Sysmon Process GUID",
 		"triggers": [
 			{
 				"pattern": "/\\{[a-f,0-9]{8}-[a-f,0-9]{4}-[a-f,0-9]{4}-[a-f,0-9]{4}-[a-f,0-9]{12}\\}/g",

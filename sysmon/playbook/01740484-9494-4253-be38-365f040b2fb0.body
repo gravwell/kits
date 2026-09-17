@@ -25,7 +25,7 @@ Refer to the Kit Overview playbook for more detail on these components.
 * io.gravwell.windows.resource (MinVersion 1)
 * io.gravwell.networkenrichment (MinVersion 6)
 
-The Windows Resource kit supplies windows_access_flags and windows_error_codes; the Network Enrichment kit supplies dns_types, network_services and the asn_db GeoIP database.
+The Windows Resource kit supplies windows\_access\_flags and windows\_error\_codes; the Network Enrichment kit supplies dns_types, network_services and the asn_db GeoIP database.
 
 ## Changelog
 
@@ -33,7 +33,7 @@ The Windows Resource kit supplies windows_access_flags and windows_error_codes; 
 - Corrected the ProcessGuid File Delete template to Event ID 23, the Sysmon Errors search (Event ID 255 emits no RuleName), and the registry Environment path literal.
 - Fixed time-windowed aggregation on the Integrity Level deviation chart and the network_services composite join.
 - Widened aggregations that discarded fields their tables named, and scoped every kv to the Hashes field.
-- Added Sysmon 13/14 event IDs (26-29) to the sysmon_event_ids resource.
+- Added Sysmon 13/14 event IDs (26-29) to the sysmon\_event\_ids resource.
 - Added a Sysmon Computer actionable feeding the Investigate Computer dashboard, and rewired four mis-pointed dashboard tiles.
 - Replaced the banner and cover art with the standard Gravwell kit branding, and added a matching icon.
 - Renamed the "Sysmon Gravwell Kit" playbook to "Sysmon - Kit Overview" to match kit naming conventions, and added a "Sysmon - Readme" playbook synced from this README.
