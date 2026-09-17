@@ -5,7 +5,7 @@
 	"Data": {
 		"searches": [
 			{
-				"alias": "Sysmon ProcessName Created",
+				"alias": "Sysmon - ProcessName Created",
 				"timeframe": {},
 				"reference": {
 					"id": "4e152397-2e75-4da4-b124-a5b68bb6e39b",
@@ -13,7 +13,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessName Files Created",
+				"alias": "Sysmon - ProcessName Files created",
 				"timeframe": {},
 				"reference": {
 					"id": "8bcf72d8-dfe1-4773-8b44-c5d9ca42ef67",
@@ -21,7 +21,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessName Event Chart",
+				"alias": "Sysmon - ProcessName Event Chart",
 				"timeframe": {},
 				"reference": {
 					"id": "082be707-d9a1-4188-902b-041cd16be576",
@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessName DNS",
+				"alias": "Sysmon - ProcessName DNS",
 				"timeframe": {},
 				"reference": {
 					"id": "1668ea7e-a44b-4cb5-9a21-037de26db297",
@@ -37,7 +37,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessName Network",
+				"alias": "Sysmon - ProcessName network",
 				"timeframe": {},
 				"reference": {
 					"id": "7944efa0-8ba4-461f-9f13-c192dfc04571",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessName Users",
+				"alias": "Sysmon - ProcessName Users",
 				"timeframe": {},
 				"reference": {
 					"id": "77e6fa1e-ac8d-4d05-9fbe-18e4e7f207b8",

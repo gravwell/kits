@@ -5,7 +5,7 @@
 	"Data": {
 		"searches": [
 			{
-				"alias": "Event Counts by ProcessGuid",
+				"alias": "Sysmon - Event Counts by ProcessGuid",
 				"timeframe": {},
 				"reference": {
 					"id": "74852262-a4cb-4ff7-85f6-ecf09a7f3a77",
@@ -13,7 +13,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Process DNS Query Activity Summary",
+				"alias": "Sysmon - Process DNS Query Activity Summary",
 				"timeframe": {},
 				"reference": {
 					"id": "461f93f2-86be-4122-a4f3-f6eb751f018c",
@@ -21,7 +21,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessGuid Registry Activity",
+				"alias": "Sysmon - ProcessGuid Registry Activity",
 				"timeframe": {},
 				"reference": {
 					"id": "168623c9-1069-4880-80e2-c80d2ff81de3",
@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessGuid Network Connections",
+				"alias": "Sysmon - ProcessGuid Network Connections",
 				"timeframe": {},
 				"reference": {
 					"id": "c0d16c9d-d112-45fd-a89f-851b02b91170",
@@ -37,7 +37,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessGuid File Delete",
+				"alias": "Sysmon - ProcessGuid File Delete",
 				"timeframe": {},
 				"reference": {
 					"id": "e679c3e2-59bc-4190-8181-0a2716e5d4b5",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Process Files Created",
+				"alias": "Sysmon - ProcessGuid Files Created",
 				"timeframe": {},
 				"reference": {
 					"id": "5d186b5c-ba5d-429a-a838-8e5909d648f8",
@@ -53,7 +53,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon Process Guid Loaded Images",
+				"alias": "Sysmon - Process Guid Loaded Images",
 				"timeframe": {},
 				"reference": {
 					"id": "34c5d680-8882-44ff-9543-2ffbc2520866",
@@ -61,7 +61,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon ProcessGuid",
+				"alias": "Sysmon - ProcessGuid",
 				"timeframe": {},
 				"reference": {
 					"id": "43b1c029-9f41-4c76-a32d-d65ff9785864",

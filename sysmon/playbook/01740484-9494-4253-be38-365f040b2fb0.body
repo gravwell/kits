@@ -39,5 +39,7 @@ The Windows Resource kit supplies windows\_access\_flags and windows\_error\_cod
 - Renamed the "Sysmon Gravwell Kit" playbook to "Sysmon - Kit Overview" to match kit naming conventions, and added a "Sysmon - Readme" playbook synced from this README.
 - Fixed playbook rendering issues: a missing space after the Overview heading, and four spots where a raw-HTML block (a config example, two XML event samples, the EventIDs table) ran directly into the following section heading with no visible gap.
 - Streamlined this README to the current kit documentation convention and added the [Integration Guide](https://docs.gravwell.io/integrations/host/sysmon.html) reference.
+- Renamed every dashboard, search, and actionable to the "Sysmon - X" convention, replacing the inconsistent "Sysmon: X" (searchlibrary) and bare "Sysmon X" (dashboard/actionable) forms; synced 28 dashboard tile aliases and the Kit Overview playbook's stale prose references to match. Updated two actionable menu labels ("DNS" -> "Sysmon DNS", "ProcessGuid" -> "Sysmon Process GUID") to indicate which kit they belong to.
+- Renamed every template to the same "Sysmon - X" convention (one, "Event Counts by ProcessGuid", had no kit prefix at all); synced 22 dashboard tile aliases to match.
 
 **v6: Initial catalogued release**

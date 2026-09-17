@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Sysmon DNS queries by Computer",
+				"alias": "Sysmon - DNS queries by Computer",
 				"color": null,
 				"reference": {
 					"id": "63d69f47-9b2a-4aa0-9f60-32f1997bc9e1",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon EventID Frequency by Computer",
+				"alias": "Sysmon - EventID Frequency by Computer",
 				"color": null,
 				"reference": {
 					"id": "0f280f0e-1a35-4f51-8318-075a6fdf2844",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon application launches by Computer",
+				"alias": "Sysmon - application launches by Computer",
 				"color": null,
 				"reference": {
 					"id": "0f2f186e-7c89-4036-953b-7a786cf0bd2d",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Sysmon network connections by Computer",
+				"alias": "Sysmon - network connections by Computer",
 				"color": null,
 				"reference": {
 					"id": "b5324425-596a-4ede-bd17-0847c90c3c34",
