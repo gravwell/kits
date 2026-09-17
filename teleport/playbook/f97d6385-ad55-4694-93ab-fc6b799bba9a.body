@@ -8,7 +8,7 @@ See the [Gravwell Teleport Integration Guide](https://docs.gravwell.io/integrati
 
 Teleport writes one JSON object per line for every audit event. Reference: [Teleport audit log documentation](https://goteleport.com/docs/reference/deployment/monitoring/audit/).
 
-- **Self-hosted clusters** (default dir backend): the audit log lives under /var/lib/teleport/log/<uuid>/<date>.log on the auth server and rotates roughly daily. Point the Gravwell File Follower at that directory with the JSON timestamp taken from the time field, and assign the teleport-audit tag.
+- **Self-hosted clusters** (default dir backend): the audit log lives under /var/lib/teleport/log/&lt;uuid&gt;/&lt;date&gt;.log on the auth server and rotates roughly daily. Point the Gravwell File Follower at that directory with the JSON timestamp taken from the time field, and assign the teleport-audit tag.
 - **Event Handler / Fluentd**: the [Teleport Event Handler](https://goteleport.com/docs/zero-trust-access/export-audit-events/) exports events to Fluentd, which can forward to a Gravwell HTTP or syslog ingester.
 - **Cloud-hosted clusters**: Teleport Enterprise Cloud manages audit storage; use the Event Handler to export events.
 
@@ -30,7 +30,7 @@ Every Teleport audit event carries an event type, a short code, a time, and a ui
 
 Some Teleport field names contain a literal dot (for example addr.remote). The kit's queries quote these names, and you should too when writing your own:
 
-```
+```ini
 tag=$TELEPORT_AUDIT ax event=="user.login" success=="false" user "addr.remote"
 | table user "addr.remote"
 ```
