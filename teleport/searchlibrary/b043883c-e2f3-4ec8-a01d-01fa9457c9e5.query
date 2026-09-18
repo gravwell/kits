@@ -1,0 +1,2 @@
+tag=$TELEPORT_AUDIT ax event=="join_token.create" user roles join_method
+| table user roles join_method

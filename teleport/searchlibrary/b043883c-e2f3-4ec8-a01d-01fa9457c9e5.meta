@@ -1,0 +1,13 @@
+{
+	"Name": "Teleport - Join Token Created",
+	"Description": "Detects creation of Teleport join tokens. A join token allows new nodes, proxies, or other services to register with the cluster; an unexpected token can allow an attacker to add a rogue node.",
+	"GUID": "b043883c-e2f3-4ec8-a01d-01fa9457c9e5",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1098.001",
+		"persistence"
+	],
+	"Metadata": {}
+}

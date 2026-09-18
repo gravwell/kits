@@ -1,0 +1,3 @@
+tag=$TELEPORT_AUDIT ax event=="user.login" success=="false"
+| count over 1h
+| chart count

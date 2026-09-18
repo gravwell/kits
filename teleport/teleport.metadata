@@ -1,0 +1,27 @@
+{
+	"Tags": [
+		"teleport-audit"
+	],
+	"Ingesters": [
+		"file follower"
+	],
+	"Assets": [
+		{
+			"Type": "image",
+			"Source": "teleport-cover.png",
+			"Legend": "Teleport Cover",
+			"Featured": true
+		},
+		{
+			"Type": "image",
+			"Source": "teleport-banner.png",
+			"Legend": "Teleport Banner",
+			"Featured": true,
+			"Banner": true
+		},
+		{
+			"Type": "readme",
+			"Source": "README.md"
+		}
+	]
+}

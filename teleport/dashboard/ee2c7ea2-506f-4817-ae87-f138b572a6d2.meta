@@ -1,0 +1,150 @@
+{
+	"UUID": "ee2c7ea2-506f-4817-ae87-f138b572a6d2",
+	"Name": "Teleport - Audit Overview",
+	"Description": "High-level view of Teleport audit activity: event volume over time by type, event type distribution, top users, top servers, and recent audit events.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Teleport - Audit Events Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "7aaace86-543d-498f-bb23-c0c8910939cf",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Events by Type [Chart]",
+				"color": null,
+				"reference": {
+					"id": "73a60129-4414-40d7-9662-1aaac1d48649",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Top Users by Activity [Chart]",
+				"color": null,
+				"reference": {
+					"id": "ffd0b491-1aca-4321-b8a8-d2741ce3a1ec",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Top Servers by Session Count [Chart]",
+				"color": null,
+				"reference": {
+					"id": "53a8a3a8-6159-40e8-8f10-17ada0ca1db6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Teleport - Recent Audit Events",
+				"color": null,
+				"reference": {
+					"id": "b6e143bc-5f31-4d57-bfbe-812384a463fd",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17820000000100,
+				"title": "Audit Events Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000101,
+				"title": "Events by Type",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000102,
+				"title": "Top Users",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 4,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000103,
+				"title": "Top Servers by Sessions",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 8,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17820000000104,
+				"title": "Recent Audit Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"teleport",
+		"audit"
+	]
+}
