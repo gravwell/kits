@@ -1,11 +1,11 @@
 {
 	"UUID": "212af6c8-1fe2-4092-baae-e3b60b863a32",
-	"Name": "Syslog Overview",
+	"Name": "Syslog - Overview",
 	"Description": "An overview dashboard of syslog activity",
 	"Data": {
 		"searches": [
 			{
-				"alias": "Syslog chart Src+app",
+				"alias": "Syslog - chart Src+app",
 				"timeframe": {},
 				"reference": {
 					"id": "c60a9022-e57e-4241-a1e5-6e7f38038939",
@@ -13,7 +13,7 @@
 				}
 			},
 			{
-				"alias": "Syslog chart by host+appname",
+				"alias": "Syslog - chart by host+appname",
 				"timeframe": {},
 				"reference": {
 					"id": "72eb1ce6-cd98-4465-a709-c1cdb0726bb1",
@@ -21,7 +21,7 @@
 				}
 			},
 			{
-				"alias": "Syslog event counts by host",
+				"alias": "Syslog - event counts by host",
 				"timeframe": {},
 				"reference": {
 					"id": "a5c3527d-ca53-4396-83b5-39e248833ab7",
@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"alias": "Syslog last 100 results",
+				"alias": "Syslog - last 100 results",
 				"timeframe": {},
 				"reference": {
 					"id": "376190ef-7bbc-4260-99c7-02c35b518a27",
@@ -37,7 +37,7 @@
 				}
 			},
 			{
-				"alias": "Syslog missing Hostname",
+				"alias": "Syslog - missing Hostname",
 				"timeframe": {},
 				"reference": {
 					"id": "ea206fcb-c2cb-4a67-9046-2c6c58e21173",

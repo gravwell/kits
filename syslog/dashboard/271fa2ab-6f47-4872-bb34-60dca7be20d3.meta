@@ -1,6 +1,6 @@
 {
 	"UUID": "271fa2ab-6f47-4872-bb34-60dca7be20d3",
-	"Name": "Syslog investigate Host",
+	"Name": "Syslog - investigate Host",
 	"Description": "Investigation dashboard for parsed syslog messages having a given Hostname field",
 	"Data": {
 		"searches": [
