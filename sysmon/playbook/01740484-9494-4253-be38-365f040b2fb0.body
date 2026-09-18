@@ -29,7 +29,7 @@ The Windows Resource kit supplies windows\_access\_flags and windows\_error\_cod
 
 ## Changelog
 
-**v8: Audit remediation**
+**v7: Audit remediation**
 - Corrected the ProcessGuid File Delete template to Event ID 23, the Sysmon Errors search (Event ID 255 emits no RuleName), and the registry Environment path literal.
 - Fixed time-windowed aggregation on the Integrity Level deviation chart and the network_services composite join.
 - Widened aggregations that discarded fields their tables named, and scoped every kv to the Hashes field.
