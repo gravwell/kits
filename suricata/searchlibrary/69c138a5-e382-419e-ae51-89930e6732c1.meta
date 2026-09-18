@@ -1,0 +1,13 @@
+{
+ "Name": "Suricata - Executable File Transfer",
+ "Description": "Suricata fileinfo events where the file magic or filename indicates a Windows executable (PE32, MS-DOS executable, .exe, .dll, .msi). Requires the files/fileinfo event type in suricata.yaml; the magic branches additionally require force-magic: yes under eve-log types.files and a Suricata built with libmagic support. Without libmagic the query falls back to filename matching only.",
+ "GUID": "69c138a5-e382-419e-ae51-89930e6732c1",
+ "Labels": [
+  "suricata",
+  "detection",
+  "fileinfo",
+  "T1105",
+  "command-and-control"
+ ],
+ "Metadata": {}
+}
