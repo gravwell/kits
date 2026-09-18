@@ -1,0 +1,5 @@
+tag=$SURICATA json event_type=="flow" src_ip dest_ip flow.bytes_toserver as bytes_toserver flow.bytes_toclient as bytes_toclient
+| eval bytes = bytes_toserver + bytes_toclient
+| stats sum(bytes) as total_bytes by src_ip dest_ip
+| top -n 20 total_bytes
+| table -nt src_ip dest_ip total_bytes

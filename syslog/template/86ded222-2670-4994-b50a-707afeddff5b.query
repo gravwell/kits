@@ -1,4 +1,5 @@
 tag=$SYSLOG src %%SRC%% 
 | syslog Severity 
-| count by Severity 
-| chart count by Severity
+| stats count by Severity 
+| lookup -r syslog_severity Severity code severity 
+| chart count by severity

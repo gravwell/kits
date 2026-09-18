@@ -1,6 +1,6 @@
 {
 	"UUID": "1668ea7e-a44b-4cb5-9a21-037de26db297",
-	"Name": "Sysmon ProcessName DNS",
+	"Name": "Sysmon - ProcessName DNS",
 	"Description": "DNS requests by a given process name",
 	"Data": {
 		"variables": [
@@ -17,7 +17,7 @@
 	"Labels": [
 		"windows",
 		"sysmon",
-		"DNS",
+		"dns",
 		"process",
 		"executable"
 	]

@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - SSH Client Software Versions",
+ "Description": "SSH client software versions observed in Suricata ssh events.",
+ "GUID": "f0b24e76-146b-48b6-bd61-20279e911d44",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "ssh"
+ ],
+ "Metadata": {}
+}

@@ -1,3 +1,5 @@
 tag=$SYSLOG syslog Hostname Appname Severity Message 
+| sort by TIMESTAMP desc 
 | limit 100 
+| lookup -r syslog_severity Severity code severity as Severity 
 | table SRC Hostname Appname Severity Message

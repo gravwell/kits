@@ -1,6 +1,6 @@
 {
 	"UUID": "0f280f0e-1a35-4f51-8318-075a6fdf2844",
-	"Name": "Sysmon EventID Frequency by Computer",
+	"Name": "Sysmon - EventID Frequency by Computer",
 	"Description": "Charts the frequency of various event types for a given computer.",
 	"Data": {
 		"variables": [
