@@ -1,0 +1,5 @@
+tag=$SURICATA json event_type=="fileinfo" fileinfo.magic as magic
+| require magic
+| count by magic
+| top -n 20 count
+| table -nt magic count

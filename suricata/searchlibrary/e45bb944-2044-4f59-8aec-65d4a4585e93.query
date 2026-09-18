@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="flow" src_ip dest_ip dest_port app_proto flow.bytes_toserver as bytes_toserver
+| ip src_ip ~ PRIVATE dest_ip !~ PRIVATE
+| eval bytes_toserver > 104857600
+| table TIMESTAMP src_ip dest_ip dest_port app_proto bytes_toserver

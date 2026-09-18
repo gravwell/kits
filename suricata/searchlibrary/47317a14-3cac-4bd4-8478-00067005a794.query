@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="alert" alert.signature as signature
+| count by signature
+| top -n 20 count
+| table -nt signature count

@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="alert" dest_ip
+| count by dest_ip
+| top -n 20 count
+| table -nt dest_ip count

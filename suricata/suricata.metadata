@@ -1,0 +1,33 @@
+{
+ "Ingesters": [
+  "file follower",
+  "simple relay"
+ ],
+ "Tags": [
+  "suricata"
+ ],
+ "Assets": [
+  {
+   "Type": "image",
+   "Source": "icon.png",
+   "Legend": "Suricata"
+  },
+  {
+   "Type": "image",
+   "Source": "cover.png",
+   "Legend": "Suricata",
+   "Featured": true
+  },
+  {
+   "Type": "image",
+   "Source": "banner.png",
+   "Legend": "Suricata",
+   "Featured": true,
+   "Banner": true
+  },
+  {
+   "Type": "readme",
+   "Source": "README.md"
+  }
+ ]
+}
