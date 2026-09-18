@@ -1,0 +1,51 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "00b7e6e2-7c31-4929-ae1d-a531638c6e59",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a user enables seasonal effects in User Management.\n\nReference(s):",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "8b2432d1-e082-4d4f-bde8-fd7bdc8fc5e1",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "dbab028d-6254-4986-9cda-87f6466c40d8",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-10-09T00:00:00Z",
+	"MaxEvents": 16,
+	"Name": "Alert - Canary - User Management - Low - User Seasonal Effects Enabled",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_thinkst_alerts",
+	"UID": 0,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

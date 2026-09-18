@@ -1,6 +1,6 @@
 tag=$SYSMON winlog $PROVIDER EventID==1 Image Hashes |
 kv -e Hashes -d "," -sep "=" SHA256 |
-stats unique_count(Image) by SHA256 |
+stats unique_count(Image) by SHA256 Image |
 eval unique_count>1 |
 sort by unique_count desc |
 table SHA256 unique_count Image

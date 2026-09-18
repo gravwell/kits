@@ -1,91 +1,46 @@
 # Gravwell Windows Sysmon Kit
 
-This kit contains dashboards, searches, resources, and actionables to monitor and investigate Microsoft Windows Sysmon data.
+This kit provides dashboards, searches, templates, and investigative resources for
+Microsoft Windows Sysmon data — event volume overviews, process/DNS/registry
+investigation dashboards, and a large query library covering process creation,
+driver loads, remote thread injection, DNS, file, and registry events.
 
-## Kit Components
+See the [Gravwell Sysmon Integration Guide](https://docs.gravwell.io/integrations/host/sysmon.html)
+for ingester setup.
 
-### Dashboards
+This kit provides the following utilities:
 
-* `Sysmon Network Overview` Overview dashboard of network activity by Sysmon
-* `Sysmon DNS Overview` Overview dashboard of DNS activity by Sysmon
-* `Sysmon Investigate Computer` Investigate activity on a particular computer
-* `Sysmon Process Overview` Sysmon Process Activity Overview
-* `Sysmon Registry Overview` Activity on registry keys
-* `Sysmon Process GUID Investigation` Investigate Process Activity via Sysmon
-* `Sysmon Process Name Investigator` Use the name of an EXE to search for related activity across all sysmon logs
-* `Sysmon DNS Domain Investigation` Investigate activity for a specified domain
+- Queries
+- Dashboards
+- Macros
+- Resources
+- Templates
+- Actionables
+- Playbooks
 
-### Extractors
+Refer to the Kit Overview playbook for more detail on these components.
 
-N/A
+## Dependencies
 
-### Macros
+* io.gravwell.windows.resource (MinVersion 1)
+* io.gravwell.networkenrichment (MinVersion 6)
 
-* `$PROVIDER` The Provider value (Default: Provider=="Microsoft-Windows-Sysmon")
-* `$SYSMON` The Sysmon tag value (Default: sysmon)
+The Windows Resource kit supplies windows_access_flags and windows_error_codes; the Network Enrichment kit supplies dns_types, network_services and the asn_db GeoIP database.
 
-### Resources
+## Changelog
 
-* `sysmon_event_ids` Sysmon Event IDs
+**v7: Audit remediation**
+- Corrected the ProcessGuid File Delete template to Event ID 23, the Sysmon Errors search (Event ID 255 emits no RuleName), and the registry Environment path literal.
+- Fixed time-windowed aggregation on the Integrity Level deviation chart and the network_services composite join.
+- Widened aggregations that discarded fields their tables named, and scoped every kv to the Hashes field.
+- Added Sysmon 13/14 event IDs (26-29) to the sysmon_event_ids resource.
+- Added a Sysmon Computer actionable feeding the Investigate Computer dashboard, and rewired four mis-pointed dashboard tiles.
+- Replaced the banner and cover art with the standard Gravwell kit branding, and added a matching icon.
+- Renamed the "Sysmon Gravwell Kit" playbook to "Sysmon - Kit Overview" to match kit naming conventions, and added a "Sysmon - Readme" playbook synced from this README.
+- Fixed playbook rendering issues: a missing space after the Overview heading, and four spots where a raw-HTML block (a config example, two XML event samples, the EventIDs table) ran directly into the following section heading with no visible gap.
+- Streamlined this README to the current kit documentation convention and added the [Integration Guide](https://docs.gravwell.io/integrations/host/sysmon.html) reference.
+- Renamed every dashboard, search, and actionable to the "Sysmon - X" convention, replacing the inconsistent "Sysmon: X" (searchlibrary) and bare "Sysmon X" (dashboard/actionable) forms; synced 28 dashboard tile aliases and the Kit Overview playbook's stale prose references to match. Updated two actionable menu labels ("DNS" -> "Sysmon DNS", "ProcessGuid" -> "Sysmon Process GUID") to indicate which kit they belong to.
+- Renamed every template to the same "Sysmon - X" convention (one, "Event Counts by ProcessGuid", had no kit prefix at all); synced 22 dashboard tile aliases to match.
+- Renamed 10 templates' variable from "_GUID_"/"_HASH_" to the standard "%%GUID%%"/"%%HASH%%" convention every other real kit uses; synced each template's own query and the 3 pivot actions that referenced them.
 
-### Scripts
-
-N/A
-
-### Searches
-
-* `Sysmon: Process Creation` Table of all Sysmon process creation events
-* `Sysmon: CreateRemoteThread unique activity` Table of source applications creating remote threads in many other target applications
-* `Sysmon: DNS Requests by Computer over Time` Chart showing DNS requests over time by computer
-* `Sysmon: Rare process image hashes` Table of rarely seen process SHA256 hashes
-* `Sysmon: Microphone time by application` Totals up time each application spent listening to the microphone
-* `Sysmon: Process Start Deviation by Integrity Level` Chart showing standard deviation of the count of process starts by Integrity Level
-* `Sysmon: DNS Errors` Table showing DNS errors by type with description
-* `Sysmon: Driver Loads with invalid signatures` Table of driver activity where the signature of a driver could not be validated
-* `Sysmon: Windows Product Launch Counts` Table of product launch counts
-* `Sysmon: Windows Low Integrity Process Starts` Table of process starts from Low Integrity Applications
-* `Sysmon: Registry Techniques Detected` Table of triggered rules that indicate potential registry modification
-* `Sysmon: Process Creation Rate` Chart of total process creation rate
-* `Sysmon: Network Connections` Chart of network connection counts by protocol
-* `Sysmon: Network Connections by Computer` Table of total connection groups by computer
-* `Sysmon: Process Access with VM_WRITE Access on system32 images` Display all ProcessAccess requests where an image from outside the system32 directory accesses a process with an image inside system32 with the VM_WRITE permission bit
-* `Sysmon: Top 100 Parent Processes` Table of the 100 most common parent processes that execute other processes
-* `Sysmon: DNS Queries by Resource Record Type` Chart of DNS Record types
-* `Sysmon: Registry events by computer \u0026 image` Counts the number of registry events (creation, deletion, modification) per computer and image (executable file)
-* `Sysmon: Unsigned Driver Loads` Unsigned driver activity
-* `Sysmon: DNS Most Active Clients` Table of most active DNS clients as seen by sysmon
-* `Sysmon: DNS Totals` Gauge of DNS Unique Domains, Unique Queries and Total Queries
-* `Sysmon: Process Termination by Computer` Table of Process Terminations by Computer
-* `Sysmon: DNS Queries over Time` Chart of total number DNS queries over time
-* `Sysmon: Windows Registry Environment Modification` Query to show all registry write activity to system wide environment variables
-* `Sysmon: Errors` Windows Sysmon Error events
-* `Sysmon: Network connection by IP Protocol` Chart of IPv4 vs IPv6 Connection activity
-* `Sysmon: Process Rare Extensions` Table of rare image process extensions
-* `Sysmon: DNS Errors Over Time` Chart categorizing the DNS errors by error type over time
-* `Sysmon: Process Creation via Multiple Paths` Table showing a list of processes where the same image is seen executing from multiple image locations
-* `Sysmon: Process Creation Events Table as Share of Whole` Table of process creation event counts by computer with a calculation of the share of total process events across all machines
-* `Sysmon: Process Tampering Event Counts by Type` Table of Sysmon process tampering events by type
-* `Sysmon: DNS Beaconing` Table of hosts that are queried at regular intervals
-* `Sysmon: Short Lived Processes` Table of short lived processes
-* `Sysmon: Unique Process Creations` Table of parent processes that are only seen executing other processes once
-* `Sysmon: Process Creation by User` Table of process creation event counts by physical users
-* `Sysmon: Windows Rule Tally` Table of total events by each rule technique
-* `Sysmon: Network Connection Pointmap` Pointmap of network connections with ASN Organization
-* `Sysmon: DNS Requests by Process over Time` Chart of Process DNS Requests over Time
-* `Sysmon: Least Common Network Service Ports` Table showing the least common network service ports
-* `Sysmon: DNS Most Active Processes` Most active DNS processes as seen by sysmon
-* `Sysmon: Process Creation Rates by Computer` Count of process creation events by Computer
-* `Sysmon: Process Tampering Activity by Type` Chart of Sysmon process tampering events by type
-* `Sysmon: Network Connection Detected` Chart of total number of network connections over time
-* `Sysmon: Process CreateRemoteThread Activity` Table of processes creating remote threads in other processes
-* `Sysmon: Registry Modifications by Image` Chart of which programs are modifying the registry the most
-* `Sysmon: DNS Most Queried DNS Names` Table of total number of queries for a given DNS Name
-* `Sysmon: Registry Autorun` Show registry events where an autorun program is installed
-* `Sysmon: Registry Technique Frequency` Frequency of potential attack techniques via registry modification
-* `Sysmon: Driver Load Activity` Table of driver activity
-* `Sysmon: Registry Overview` Chart of total registry activity
-* `Sysmon: Network Peer Totals` Table of unique IPs and total connection counts by ASN Organization
-
-### Playbooks
-
-* `Sysmon Gravwell Kit` Intro to Gravwell Sysmon Kit
+**v6: Initial catalogued release**
