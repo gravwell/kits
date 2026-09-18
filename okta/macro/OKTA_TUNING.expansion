@@ -1,0 +1,72 @@
+// OKTA_TUNING -- noise control for Okta detections.  Suppresses events from
+// accounts and source addresses you have vouched for, and force-promotes events
+// from accounts and addresses you are watching.  Every rule is inline below;
+// open this macro in the search GUI to read it.
+//
+// Requires these enumerated values to already exist:
+//   actorUserNorm targetUserNorm  -- lower-cased actor / target usernames
+//   clientIp requestIp            -- client.ipAddress and request.ipChain.[0].ip
+//   published                     -- the Okta event timestamp
+//   risk_score _priority          -- from the OKTA_RISK_SCORE macro
+//
+// Resources, all keyed on a bare value (an IP address, or a lower-cased
+// username with the email domain stripped):
+//   okta_user_allowlist  key,enabled,until_ymd,reason
+//   okta_ip_allowlist    key,enabled,until_ymd,reason
+//   okta_user_denylist   key,enabled,min_risk,reason
+//   okta_ip_denylist     key,enabled,min_risk,reason
+//
+// Allowlist rows drop the event outright.  Set enabled=1 and leave until_ymd
+// empty for a permanent exception, or set it to a YYYYMMDD date for one that
+// expires.  Denylist rows raise risk_score to at least 75 (priority High) once
+// risk_score reaches min_risk; leave min_risk empty or 0 to always promote.
+//
+// Produces: src, _force_alert, and a possibly-raised risk_score / _priority
+//
+// Step 1 of 6: settle on one source address.  Okta puts the immediate client in
+// client.ipAddress and the full proxy chain in request.ipChain, so prefer the
+// client and fall back to the first hop of the chain.
+| eval
+	src = "-";
+	if (has("clientIp") && clientIp != "" && clientIp != "null") { src = clientIp; }
+	else if (has("requestIp") && requestIp != "" && requestIp != "null") { src = requestIp; }
+// Step 2 of 6: settle on lookup keys for the two accounts involved.  "-" is a
+// sentinel that will never match a real allowlist or denylist row.
+| eval
+	akey = "-";
+	if (has("actorUserNorm") && actorUserNorm != "" && actorUserNorm != "null") { akey = actorUserNorm; }
+	tkey = "-";
+	if (has("targetUserNorm") && targetUserNorm != "" && targetUserNorm != "null") { tkey = targetUserNorm; }
+// Step 3 of 6: turn the Okta timestamp into a YYYYMMDD integer so it can be
+// compared against the until_ymd expiry column on allowlist rows.
+| regex -e published "^(?P<pub_date>\d{4}-\d{2}-\d{2})"
+| eval pub_ymd = strings_replace(pub_date, "-", "", -1)
+// Step 4 of 6: look the actor, the target, and the source address up in the
+// allowlists.  Every lookup is non-strict, so a miss leaves the columns unset
+// rather than dropping the event.  The reason column is deliberately not pulled:
+// it is there for whoever edits the CSV, and these queries ship raw entries, so
+// every enumerated value would otherwise land on the alert.
+| lookup -r okta_user_allowlist akey key (enabled as a_en until_ymd as a_until)
+| lookup -r okta_user_allowlist tkey key (enabled as t_en until_ymd as t_until)
+| lookup -r okta_ip_allowlist src key (enabled as i_en until_ymd as i_until)
+// Drop the event when any of those three is allowlisted, enabled and unexpired.
+| eval
+	allow = 0;
+	if (has("a_en") && int(a_en) == 1 && (a_until == "" || int(pub_ymd) <= int(a_until))) { allow = 1; }
+	if (has("t_en") && int(t_en) == 1 && (t_until == "" || int(pub_ymd) <= int(t_until))) { allow = 1; }
+	if (has("i_en") && int(i_en) == 1 && (i_until == "" || int(pub_ymd) <= int(i_until))) { allow = 1; }
+| grep -e allow "0"
+// Step 5 of 6: look the same three values up in the denylists.  A hit means we
+// want to hear about this event even when the risk score alone would not say so.
+| lookup -r okta_user_denylist akey key (enabled as da_en min_risk as da_minrisk)
+| lookup -r okta_user_denylist tkey key (enabled as dt_en min_risk as dt_minrisk)
+| lookup -r okta_ip_denylist src key (enabled as di_en min_risk as di_minrisk)
+| eval
+	_force_alert = 0;
+	if (has("da_en") && int(da_en) == 1 && (da_minrisk == "" || float(risk_score) >= float(da_minrisk))) { _force_alert = 1; }
+	if (has("dt_en") && int(dt_en) == 1 && (dt_minrisk == "" || float(risk_score) >= float(dt_minrisk))) { _force_alert = 1; }
+	if (has("di_en") && int(di_en) == 1 && (di_minrisk == "" || float(risk_score) >= float(di_minrisk))) { _force_alert = 1; }
+// Step 6 of 6: promote anything a denylist row matched to at least High so it
+// clears any downstream risk threshold.
+| eval
+	if (_force_alert == 1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High"; }

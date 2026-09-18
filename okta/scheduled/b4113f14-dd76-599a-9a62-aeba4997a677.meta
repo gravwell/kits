@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Lifecycle - IDP - Okta Identity Provider Modified or Signing Key Changed",
+	"Description": "An identity provider was modified, or one of its signing keys was created, updated, or deleted. Swapping the signing key on a trusted IdP lets whoever holds the new key forge assertions Okta will accept.\n\nEvent types: system.idp.lifecycle.update, system.idp.lifecycle.activate, system.idp.lifecycle.deactivate, system.idp.lifecycle.delete, system.idp.key.create, system.idp.key.update, system.idp.key.delete\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "b4113f14-dd76-599a-9a62-aeba4997a677",
+	"SearchReference": "e4c81b76-3a29-4c1f-9b5d-8c7a2e6f14d3"
+}

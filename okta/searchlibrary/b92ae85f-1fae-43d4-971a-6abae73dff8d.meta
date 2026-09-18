@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Last Updated to Password Changed Average [numbercard]",
-	"Description": "Displays a numbercard of the last updated to password changed average/mean.",
+	"Name": "Search - Okta - Users - Password Changed to Last Updated Average [numbercard]",
+	"Description": "Average time between an Okta password last changing and the profile last being updated.\n\nRenders as a numbercard broken into days, hours, minutes, and seconds.",
 	"GUID": "b92ae85f-1fae-43d4-971a-6abae73dff8d",
 	"Labels": [
 		"okta"

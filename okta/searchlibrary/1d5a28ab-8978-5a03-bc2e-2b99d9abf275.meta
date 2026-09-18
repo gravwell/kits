@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Access Control - Network Zones - Attempt to Deactivate an Okta Network Zone [table]",
-  "Description": "Detects attempts to deactivate an Okta network zone. Okta network zones can be configured to limit or restrict access to a network based on IP addresses or geolocations. An adversary may attempt to modify, delete, or deactivate an Okta network zone in order to remove or weaken an organization's security controls.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_attempt_to_deactivate_okta_network_zone/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/defense_evasion_attempt_to_deactivate_okta_network_zone.toml",
-  "GUID": "1d5a28ab-8978-5a03-bc2e-2b99d9abf275",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Access Control - Network Zones - Okta Network Zone Deactivated",
+	"Description": "An Okta network zone was deactivated. Zones are what policies use to say \"only from the office\" or \"never from this country\", so deactivating one silently widens every policy that referenced it.\n\nEvent type: zone.deactivate\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_deactivate_okta_network_zone/",
+	"GUID": "1d5a28ab-8978-5a03-bc2e-2b99d9abf275",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

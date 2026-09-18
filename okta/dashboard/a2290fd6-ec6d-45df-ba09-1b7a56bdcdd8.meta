@@ -1,7 +1,7 @@
 {
 	"UUID": "a2290fd6-ec6d-45df-ba09-1b7a56bdcdd8",
 	"Name": "Okta Actor/Target Overview",
-	"Description": "This Dashboard is a general overview of your Okta Actor/Target data.",
+	"Description": "Who did what to whom, inside one okta_eventTypes category. Set the Log Category variable at the top of the dashboard.\n\nThe actor is the account that performed the action; the target is the account, application, group, or policy rule it was performed against.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target [chart]",
+				"alias": "Template - Okta - System - Event Types - Actor and Target [chart]",
 				"color": null,
 				"reference": {
 					"id": "ab8bef35-0085-44e6-94b9-84921f636359",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target [table]",
+				"alias": "Template - Okta - System - Event Types - Actor and Target [table]",
 				"color": null,
 				"reference": {
 					"id": "9fc8f842-0a0f-47cb-ae65-f62d61ddc564",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target Result [chart]",
+				"alias": "Template - Okta - System - Event Types - Actor and Target by Outcome [chart]",
 				"color": null,
 				"reference": {
 					"id": "325878f1-b349-4863-b244-07b4a02eb222",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target Result [table]",
+				"alias": "Template - Okta - System - Event Types - Actor and Target by Outcome [table]",
 				"color": null,
 				"reference": {
 					"id": "6279d0b9-403f-4de4-9be7-0cb36489857a",
@@ -58,8 +58,8 @@
 		],
 		"tiles": [
 			{
-				"id": 8581928240201670,
-				"title": "Category Actor/Target",
+				"id": 1527587577273,
+				"title": "Actor and Target",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
@@ -75,8 +75,8 @@
 				}
 			},
 			{
-				"id": 6574319166615297,
-				"title": "Category Actor/Target",
+				"id": 1598614880907,
+				"title": "Actor and Target",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -89,8 +89,8 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 8829130664633177,
-				"title": "Category Actor/Target by Result",
+				"id": 1554716879332,
+				"title": "Actor and Target by Outcome",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
@@ -106,8 +106,8 @@
 				}
 			},
 			{
-				"id": 5008922723066073,
-				"title": "Category Actor/Target by Result",
+				"id": 1727834509629,
+				"title": "Actor and Target by Outcome",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {

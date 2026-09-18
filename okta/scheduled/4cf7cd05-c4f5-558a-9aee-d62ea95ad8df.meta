@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Lifecycle - System API - Okta API Token Used From Outside Its Allowed Network Range",
+	"Description": "An Okta API token was presented from an address outside the network range it is restricted to. Okta rejected the call, which means either the token holder moved, or the token has leaked and is being used from somewhere else.\n\nEvent type: system.api_token.request_outside_allowed_range\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://help.okta.com/en-us/content/topics/security/api-tokens-network-condition.htm\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4cf7cd05-c4f5-558a-9aee-d62ea95ad8df",
+	"SearchReference": "5a1cf4b9-1c2e-4d0a-b0f1-9de2c31b7a44"
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Application - OAuth2 - Okta OAuth2 Scope Denied or Client Credentials Rejected",
+	"Description": "An OAuth2 authorization was refused because the client asked for a scope it is not allowed, or presented invalid client credentials. A client repeatedly asking for scopes it does not have is enumerating what it can reach.\n\nEvent types: app.oauth2.as.authorize.scope_denied, app.oauth2.invalid_client_credentials\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/privilege_escalation_unauthorized_scope_for_public_app_oauth2_token_grant_with_client_credentials/\n- https://developer.okta.com/docs/reference/api/event-types/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "b41b46ea-90ac-5351-b0bf-64ada39c3eed",
+	"SearchReference": "8357dfd1-6a45-5048-9025-76d1539e0bf6"
+}

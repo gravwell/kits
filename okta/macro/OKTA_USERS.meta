@@ -1,6 +1,6 @@
 {
 	"Name": "OKTA_USERS",
-	"Description": "Configuration Macro; Tag used for Okta Users data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates. ",
+	"Description": "Configuration Macro; Tag holding Okta user profile snapshots. The Gravwell Okta ingester polls the Okta Users API and writes a full user record to this tag. Required by every user-inventory query, template, and dashboard in this kit.\n\nDefault: okta-users",
 	"Labels": [
 		"okta"
 	]

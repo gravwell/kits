@@ -1,238 +1,246 @@
-# Table of Contents
-- Alert Summary
-- Response Steps
-    1. Validate the Alert
-    2. Correlate with Change Management (if available)
-    3. Investigate the User Account
-    4. Investigate the Source IP
-    5. Look for Related Logins
-    6. Broader Contextual Review
-    7. Escalation Criteria
-    8. Document & Close
+# Triaging an Okta Alert
+
+Every detection in this kit routes through **Alert - Okta - Alert Router**, so this
+one playbook covers all of them. The alert name you received is the name of the
+scheduled search that produced it, and its description says exactly which Okta event
+types it keys on and why they matter.
 
 ***
 
-## Alert Summary
-Detects modification alerts that are configured within the okta\_alerts\_catalog lookup resource. 
-Overall, the query enriches raw Okta System Log events, computes a risk score in $OKTA\_MOD\_RISK\_SCORE, applies user/IP tuning (allow/deny) in $OKTA\_USER\_TUNING and $OKTA\_IP\_TUNING, and emits a consistent alert title, priority, and context in $OKTA\_ALERT\_META.  
+## Table of Contents
 
-Inputs and dependencies:  
-Event source: Okta System Log (tag=$OKTA\_SYSTEM).  
-Dependencies & Lookups:  
-  - $OKTA\_ALERT\_BASE  
-    - tag=$OKTA\_SYSTEM
-  - $OKTA\_ALERT\_EVX: Performs Enumerated Value Extraction (EVX).
-  - $OKTA\_ENRICH\_COMMON: Performs Enumerated Value enrichment, normalization, and high priority user tuning control.
-    - okta\_eventTypes: Maps eventType to category, subcategory, is\_mod for risk categorization and alert naming scheme.
-    - okta\_privileged\_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.
-    - okta\_protected\_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.
-  - $OKTA\_MOD\_RISK\_SCORE: Performs risk calculations based on high priority user tuning control based on modification event types.
-    - Requires okta\_privileged\_actor and okta\_protected\_target to be run prior otherwise it will not work properly. 
-  - $OKTA\_IP\_TUNING: Provides a tuning control for IP addresses causing noisy false positives and true negatives. 
-    - okta\_ip\_allowlist.csv: Provides a tuning control to suppress alerts from known-good IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.
-    - okta\_ip\_denylist.csv: Provides a tuning control to force-include or escalate alerts from watchlisted IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.
-  - $OKTA\_USER\_TUNING: Provides a tuning control for end users causing noisy false positives and true negatives.
-    - okta\_user\_allowlist.csv: Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with expiry.
-    - okta\_user\_denylist.csv: Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk\_score >= min\_risk, per alert or globally.
-  - $OKTA\_ALERT\_META: Normalizes alert output (e.g. \_alert\_title, \_alert\_priority, and context)
-
-Reference(s):
-  - Okta 
-    - https://developer.okta.com/docs/reference/api/event-types/
-    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
-  - Sigma:
-    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta
-    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta
-  - Elastic:
-    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta
-    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta
-- Alert below  
-```query
-    $OKTA_MOD_ALERTS
-```
+1. [Read the alert](#1-read-the-alert)
+2. [Confirm it really happened](#2-confirm-it-really-happened)
+3. [Establish whether it was authorised](#3-establish-whether-it-was-authorised)
+4. [Pivot on the account](#4-pivot-on-the-account)
+5. [Pivot on the source address](#5-pivot-on-the-source-address)
+6. [Look for what came before and after](#6-look-for-what-came-before-and-after)
+7. [Decide: incident, or noise](#7-decide-incident-or-noise)
+8. [Contain](#8-contain)
+9. [Tune](#9-tune)
+10. [Document and close](#10-document-and-close)
 
 ***
 
-## Response Steps
-#### 1. Validate the Alert
-- Ensure the event actually occurred.
-- Replace the actor, target, and/or src wildcard ("*") with what you're searching for.
-- Sample Query: Run the base of the alert searching for the actor, target, and source IP from the \_alert\_title
+## 1. Read the alert
+
+Start with the fields on the alert event itself. Most detections ship raw Okta
+entries with no render module, so the alert carries the whole extraction.
+
+The ones to read first:
+
+| Field | Why |
+| --- | --- |
+| `eventType` | Exactly what Okta recorded. Look it up in `okta_eventTypes` if unfamiliar. |
+| `published` | When Okta saw it. Anchor your timeline here, not on when the alert fired. |
+| `actorAltId` | Who did it. |
+| `targetUser` | Who or what it was done to. |
+| `src` | Where from. `clientIp`, falling back to the first hop of `request.ipChain`. |
+| `srcCountry`, `srcCity`, `srcASNOrg` | Where that resolves to, via the Network Enrichment kit. |
+| `outcomeResult`, `outcomeReason` | Whether it worked, and Okta's reason if not. |
+| `risk_score`, `_priority` | What `$OKTA_RISK_SCORE` made of it. |
+| `isProxy` | Okta flagged the address as an anonymising proxy. |
+| `clientDevice`, `userAgent` | What client it came from. `Unknown` means device policy rules could not evaluate it. |
+
+If the alert name ends in `[table]`, the detection aggregated instead, and you have
+counts and thresholds rather than a single event. Go to step 2 to get the underlying
+events.
+
+`srcASNOrg` deserves a moment. Authentication from a residential ISP or your
+corporate range is ordinary. Authentication from a cloud hosting provider usually is
+not, and is one of the cheapest signals you have.
+
+## 2. Confirm it really happened
+
+Open the search behind the alert. The email notification links straight to it, and
+the alert record keeps the search ID.
+
+Then widen out in the **Okta Investigation** dashboard. Put the actor in the Okta
+Actor slot and leave the other two as `*`:
+
 ```query
-    // OKTA_MOD_ALERTS
-    $OKTA_ALERT_BASE
-    $OKTA_MOD_RISK_SCORE
-    $OKTA_IP_TUNING
-    $OKTA_USER_TUNING
-    $OKTA_NORMALIZE_IP
-    $OKTA_NORMALIZE_ACTOR
-    $OKTA_NORMALIZE_TARGET
-    // search for the actor 
-    | grep -e actor "*"
-    // search for the target
-    | grep -e target "*"
-    // search for the src (clientIp or requestIp)
-    | grep -e src "*"
-    | table published actor target src eventType outcomeResult outcomeReason category subcategory
-```
-
-- Sample Query: Find the alert by \_alert\_title
-```query
-// OKTA_MOD_ALERTS
-    $OKTA_ALERT_BASE
-    $OKTA_MOD_RISK_SCORE
-    $OKTA_IP_TUNING
-    $OKTA_USER_TUNING
-    $OKTA_ALERT_SEARCH
-    | grep -e _alert_title "*"
-    | table _alert_title published actor target src eventType outcomeResult outcomeReason category subcategory
-```
-
-***
-
-#### 2. Correlate with Change Management (if available)
-- Look up related tickets/change requests.
-- Validate whether the activity matches an approved request.
-
-***
-
-#### 3. Investigate the User Account
-- Review the user’s permissions, roles, and prior actions.
-- Review other actions by the same user around the event within:
-    - Thinkst Canary Logs
-    - Firewall Logs
-    - Network Logs
-    - IDS/IPS Logs
-    - Host Logs
-    - AV/EDR/XDR Logs
-- Replace the user wildcard ("*") with what you're searching for. 
-- Sample Query: Check to see if the user's access was recently changed and by who
-```query
-$OKTA_ALERT_BASE
-| eval in(eventType, 
-    "user.account.privilege.grant",
-    "user.account.privilege.revoke",
-    "group.privilege.grant",
-    "group.privilege.revoke",
-    "group.user\_membership.add",
-    "group.user\_membership.remove",
-    "workflows.user.role.user.add",
-    "workflows.user.role.user.remove",
-    "workflows.user.role.group.add",
-    "workflows.user.role.group.remove ",
-    "user.account.privilege.grant",
-    "user.account.privilege.revoke"
-    )
-$OKTA_NORMALIZE_IP
-$OKTA_NORMALIZE_ACTOR
-$OKTA_NORMALIZE_TARGET
-$OKTA_NORMALIZE_USER
-// search for the user 
-| grep -e user "*"
-| table published user actor target clientIp requestIp src eventType outcomeResult outcomeReason category subcategory
-```
-
-Sample Query: View other categorical actions by user
-```query
-$OKTA_ALERT_BASE
-$OKTA_NORMALIZE_IP
-$OKTA_NORMALIZE_ACTOR
-$OKTA_NORMALIZE_TARGET
-// search for the actor 
-| grep -e actor "*"
-| table published actor target src eventType outcomeResult outcomeReason category subcategory
-```
-
-***
-
-#### 4. Investigate the Source IP
-- Determine if the IP is internal or external.
-    - Determine what's normal for the environment.
-    - Determine what's normal for the user.
-- Replace the src wildcard ("*") with what you're searching for.
-- Sample Query: View all actions by Source IP (Replace #.#.#.# with IP in question)
-```query
-$OKTA_ALERT_BASE
-$OKTA_NORMALIZE_IP
-$OKTA_NORMALIZE_ACTOR
-$OKTA_NORMALIZE_TARGET
-// search for the src (clientIp or requestIp)
-| grep -e src "*"
-| table published actor target src eventType outcomeResult outcomeReason category subcategory
-```
-
-Sample Query: View other categorical actions by Source IP (Replace #.#.#.# with IP in question)
-```query
-$OKTA_ALERT_BASE
-$OKTA_NORMALIZE_IP
-$OKTA_NORMALIZE_ACTOR
-$OKTA_NORMALIZE_TARGET
-// search for the src (clientIp or requestIp)
-| grep -e src "*"
-| stats count by category subcategory eventType
-| table published actor target src eventType outcomeResult outcomeReason category subcategory count
-```
-
-***
-
-#### 5. Look for Related Logins
-- Identify logins by the user or from the IP address around the event.
-- Replace the actor, target, and/or src wildcard ("*") with what you're searching for.
-- Sample Query: View logins, failed logins, and similar categorical events during timeframe of the alert (Replace username & IP with user & IP in question)
-```query
-$OKTA_ALERT_BASE
-| eval in(eventType, 
-    "user.session.start",
-    "user.authentication.sso"
-    )
-$OKTA_NORMALIZE_IP
-$OKTA_NORMALIZE_ACTOR
-$OKTA_NORMALIZE_TARGET
-// search for the actor 
-| grep -e actor "*"
-// search for the target
-| grep -e target "*"
-// search for the src (clientIp or requestIp)
-| grep -e src "src"
-| table published actor target src eventType outcomeResult outcomeReason category subcategory
-```
-
-***
-
-#### 6. Broader Contextual Review
-- Check for multiple related events or anomalies regarding the user as either the actor/target.
-- Replace the user wildcard ("*") with what you're searching for.
-Sample Query: View all actions by user
-```query
-$OKTA_ALERT_BASE
-$OKTA_NORMALIZE_IP
-$OKTA_NORMALIZE_ACTOR
-$OKTA_NORMALIZE_TARGET
-$OKTA_NORMALIZE_USER
-// search for the user 
-| grep -e user "*"
+tag=$OKTA
+| json
+	eventType
+	displayMessage as message
+	outcome.result as outcomeResult
+	outcome.reason as outcomeReason
+	actor.alternateId as actorAltId
+	actor.displayName as actorName
+	client.ipAddress as clientIp
+	request.ipChain.[0].ip as requestIp
+	published
+	target.[0].alternateId as targetAltId
+	target.[0].displayName as targetName
+| eval
+	actor = actorAltId;
+	if (!has(actorAltId) || actorAltId == "" || actorAltId == "null") { actor = actorName; }
+	src = clientIp;
+	if (!has(src) || src == "" || src == "null") { src = requestIp; }
+| grep -e actor "REPLACE_WITH_THE_ACTOR"
+| geoip src.CountryName as srcCountry src.City as srcCity
+| geoip -r asn_db src.ASNOrg as srcASNOrg
 | sort by published desc
-| table published user actor target src eventType outcomeResult outcomeReason category subcategory
+| table published actor targetAltId src srcCountry srcCity srcASNOrg eventType outcomeResult outcomeReason
 ```
 
+## 3. Establish whether it was authorised
+
+Most of what these detections catch is legitimate administration. Before treating
+anything as an incident, check:
+
+- **Change management.** Is there a ticket for a policy change, an application
+  edit, an API token, or a new identity provider at that time?
+- **The actor.** Is this account supposed to be able to do this? Check whether it
+  appears in `okta_privileged_actor`.
+- **The helpdesk.** MFA resets, password resets, and account unlocks are usually
+  support tickets. Ask whether one exists.
+- **The user.** For anything touching one person's account, ask them. A user who
+  says "no, that was not me" moves this straight to step 8.
+
+If the answer is clearly yes, skip to step 9 and tune.
+
+## 4. Pivot on the account
+
+Open the **Okta Investigation** dashboard with the account in the Okta Actor slot,
+then again in the Okta Target slot. Actor tells you what the account did; target
+tells you what was done to it.
+
+Read the tiles in this order:
+
+1. **Risk Summary by Priority** — is there anything else worth reading at all?
+2. **MFA and Recovery Activity** — almost every Okta account takeover passes
+   through a factor reset, a password reset, or an unlock. If you see one shortly
+   before the alert, that is your entry point.
+3. **Successful Authentications** — what the account actually reached. Compare
+   `src`, `srcCountry`, and `dtHash` against its normal pattern.
+4. **Failed Authentications** — read `outcomeReason`. `INVALID_CREDENTIALS` is a
+   wrong password; a policy reason means the credential was fine and the sign-on
+   policy refused.
+5. **Application Access** — a run of refusals against one application followed by a
+   success tells you where the adversary was headed.
+6. **Configuration Changes** — what was left behind. This is the part that persists
+   after you reset the password.
+
+Also check the directory side. If the account is in a locked or recovery state, or
+its password is unusually old, that is context:
+
+- *Search - Okta - Users - Accounts in a Locked or Recovery State*
+- *Search - Okta - Users - Password Not Changed in 30 Days or More*
+
+## 5. Pivot on the source address
+
+Same dashboard, address in the Okta IP slot, other two as `*`.
+
+The question is how many accounts that address touched. One address against one
+account is a person. One address against many accounts is an attack, and the
+**Authentication Outcomes by Country** tile will show it as a high failure count
+against a high account count.
+
+Cross-check these detections on the **Okta Threat Overview** dashboard:
+
+- *Brute Force or Password Spraying* — is this address already there?
+- *Invalid Credential Attempts by Source*
+- *One Device Token Across Many Accounts* — one browser working a credential list.
+- *High Device Token Volume from One Source* — a tool cycling client identities to
+  get around per-device rate limiting.
+
+## 6. Look for what came before and after
+
+Two sequences are worth checking explicitly, because both are ordinary events in a
+damning order.
+
+**Factor reset, then sign-in.** Clear the factor, then use the password you already
+have. *Sign-In Straight After an MFA Reset* looks for exactly this. It also matches
+a legitimate helpdesk reset, so the discriminator is whether the reset came from a
+support account and whether the sign-in came from the user's usual address.
+
+**MFA fatigue, then approval.** A run of denied or ignored push prompts followed by
+an approval means the victim gave in. *Potentially Successful MFA Bombing* looks for
+this; *Potential MFA Bombing* catches the attempt before it succeeds.
+
+For session replay, check *Sessions from More Than One Country or Network*. Note
+that Okta legitimately issues several `dtHash` values inside one session as
+authentication progresses, so a high device-token count on its own is not a finding
+— the country or network split is.
+
+## 7. Decide: incident, or noise
+
+Escalate if any of these hold:
+
+- The user says they did not do it.
+- A configuration change happened with no ticket: a policy, an application, an API
+  token, an identity provider, a trusted origin, a log stream, a hook, or a
+  workflow.
+- Admin privilege was granted, to a user or to a group.
+- A factor reset was followed by a sign-in from an address the account has not used.
+- One source address touched several accounts.
+- A log stream was deactivated or deleted — that is an attempt to stop you seeing
+  what happens next, and it means the rest of your timeline may be incomplete.
+- Okta itself flagged it: `security.threat.detected`, `security.attack.start`,
+  `threatSuspected`, a raised `user.risk` level, or a breached credential.
+
+Close as noise if the activity is explained by a ticket, a known integration, or a
+known service account — and then tune, so it does not come back.
+
+## 8. Contain
+
+In roughly this order:
+
+1. **Clear the sessions.** Resetting the password does not invalidate live Okta
+   sessions. Revoke them, or the adversary keeps the access they already have.
+2. **Reset the password** and require a change at next sign-in.
+3. **Reset the factors** and have the user re-enrol on a device you trust.
+4. **Undo the configuration changes** from step 4. Revoke API tokens created,
+   remove identity providers and trusted origins added, restore the policies and
+   rules that were changed.
+5. **Check for a second foothold.** An adversary who reached the admin console
+   rarely leaves only one way back in. Work through the configuration-change
+   detections over the whole period, not just the alert window.
+6. **Add the source address** to `okta_ip_denylist` so anything else from it is
+   promoted while you work.
+
+## 9. Tune
+
+Tune with the lookup resources, not by editing queries — your changes then survive
+a kit upgrade.
+
+- Benign account, permanently: add its normalised username to
+  `okta_user_allowlist` with an empty `until_ymd`.
+- Benign account, temporarily (a migration, a project): same, with a `YYYYMMDD`
+  date in `until_ymd`.
+- Benign address, such as a corporate NAT egress or a scanner: add it to
+  `okta_ip_allowlist`.
+- Account or address you want to hear about regardless of score: add it to the
+  matching denylist.
+
+Keys are bare values: an IP address, or a lower-cased username with the email
+domain stripped, so `Alice.Smith@example.com` is keyed as `alice.smith`.
+
+If a `[table]` detection is firing too often, its threshold is in an `eval` near the
+end of the query and its description says which numbers to change. Raise the
+threshold rather than disabling the detection.
+
+If the whole detection does not apply to your org, disable its scheduled search.
+
+## 10. Document and close
+
+Record:
+
+- The alert name, which is the scheduled search name, and the `published` timestamp.
+- `eventType`, `actorAltId`, `targetUser`, `src`, and the resolved country and
+  network operator.
+- Whether it was authorised, and what evidence settled that.
+- Everything you did in step 8.
+- Any tuning from step 9, with the reason written in the `reason` column so the next
+  analyst knows why the exception exists.
+
 ***
 
-#### 7. Escalation Criteria
-- Escalate if:
-    - Activity was not authorized or approved.
-    - Action was from an unusual IP (geolocation mismatch, external network) for the user's typical network interaction.
-    - Unauthorized or unusual activity is detected.
+## References
 
-***
-
-#### 8. Document & Close
-- Record findings in ticketing/IR platform.
-- If benign/authorized, close with justification.
-    - Submit tune requests; such as, updating the allow/block list to yield better alert results. 
-- If suspicious, escalate for containment & response.
-
-***
-
-**Disclaimer: This is a guide to assist with investigation and is not a definitive security assessment.**
-
-***
+- Okta System Log event types — https://developer.okta.com/docs/reference/api/event-types/
+- Okta sign-in and recovery events — https://support.okta.com/help/s/article/User-Signin-and-Recovery-Events-in-the-Okta-System-Log
+- Sigma Okta rules — https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta
+- Elastic Okta rules — https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta
+- Gravwell alerts — https://docs.gravwell.io/alerts/alerts.html

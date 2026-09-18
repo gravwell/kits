@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - System - Event Types - Count by Tag [table]",
-	"Description": "This will display the amount of events consumed by Okta Tag in a pie chart over the specified timeframe. ",
+	"Name": "Search - Okta - System - Ingest - Event Count by Tag and Event Type [table]",
+	"Description": "Counts events by Gravwell tag and Okta event type across both Okta tags. Use it to confirm ingest is healthy and to see which event types dominate your volume before you go looking for something specific.\n\nRenders as a table.",
 	"GUID": "0fdfad2c-2138-4985-a9e0-50952559863f",
 	"Labels": [
 		"okta"

@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - User - Authentication - Okta Breached Credential Detected",
+	"Description": "Okta matched a password used at sign-in against a known breached credential corpus. The password is public, so treat the account as needing a reset even if the sign-in itself succeeded and looked normal.\n\nEvent type: security.breached_credential.detected\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/security/password-health-report.htm\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "29d1b6f4-7c85-4a03-b9e2-5f18c04d7ae6",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

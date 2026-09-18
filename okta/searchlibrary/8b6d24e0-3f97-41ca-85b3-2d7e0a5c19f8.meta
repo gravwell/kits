@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - User - Risk - Okta User Risk Level Raised",
+	"Description": "Okta Identity Threat Protection changed a user's risk level or detected a risk signal. Okta raises risk on things it will not always block outright, so this is the feed that tells you which accounts its own model is unhappy about.\n\nEvent types: user.risk.change, user.risk.detect, policy.entity_risk.action\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/itp/overview.htm\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "8b6d24e0-3f97-41ca-85b3-2d7e0a5c19f8",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

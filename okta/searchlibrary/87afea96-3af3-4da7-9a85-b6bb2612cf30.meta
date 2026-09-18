@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - User Type [chart]",
-	"Description": "Displays a chart of user types by count.",
+	"Description": "Counts Okta users by user type, taken from the profile.userType field of the user profile snapshot.\n\nRenders as a chart.",
 	"GUID": "87afea96-3af3-4da7-9a85-b6bb2612cf30",
 	"Labels": [
 		"okta"

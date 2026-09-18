@@ -1,7 +1,7 @@
 {
 	"UUID": "96362ec1-2a67-4b07-951d-b9cdf88c7020",
 	"Name": "Okta Event Type Overview",
-	"Description": "This Dashboard is a general overview of your Okta Event Type data.",
+	"Description": "Drills into the individual event types inside one okta_eventTypes category. Set the Log Category variable at the top of the dashboard.\n\nThe by-outcome tiles are the useful ones: an event type whose failures dominate is either misconfigured or being attacked directly.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Event Type [chart]",
+				"alias": "Template - Okta - System - Event Types - Event Type [chart]",
 				"color": null,
 				"reference": {
 					"id": "3111dbcf-0467-4c76-af03-1ab2ccb292e2",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Event Type [table]",
+				"alias": "Template - Okta - System - Event Types - Event Type [table]",
 				"color": null,
 				"reference": {
 					"id": "21cd89a7-a708-4b5c-9511-842352bcbc74",
@@ -34,10 +34,10 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Event Type Result [table]",
+				"alias": "Template - Okta - System - Event Types - Event Type by Outcome [chart]",
 				"color": null,
 				"reference": {
-					"id": "1a2dce93-9c88-43d0-b920-f8fd46ca1e5f",
+					"id": "dd83a1dd-6592-4d6b-94c1-9c2088627215",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -45,10 +45,10 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Event Type Result [chart]",
+				"alias": "Template - Okta - System - Event Types - Event Type by Outcome [table]",
 				"color": null,
 				"reference": {
-					"id": "dd83a1dd-6592-4d6b-94c1-9c2088627215",
+					"id": "1a2dce93-9c88-43d0-b920-f8fd46ca1e5f",
 					"type": "template",
 					"extras": {
 						"defaultValue": null
@@ -58,8 +58,8 @@
 		],
 		"tiles": [
 			{
-				"id": 4598158153329677,
-				"title": "Category Event Type",
+				"id": 1051706945698,
+				"title": "Event Type",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
@@ -75,8 +75,8 @@
 				}
 			},
 			{
-				"id": 5810260264165167,
-				"title": "Category Event Type",
+				"id": 1339749881204,
+				"title": "Event Type",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
@@ -89,35 +89,35 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 3697286418897575,
-				"title": "Category Event Type by Result",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 6,
-					"x": 6,
-					"y": 7
-				},
-				"searchesIndex": 2,
-				"rendererOptions": {}
-			},
-			{
-				"id": 2511903617492900,
-				"title": "Category Event Type by Result",
+				"id": 1295851879629,
+				"title": "Event Type by Outcome",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
-					"row": 6,
+					"row": 7,
 					"x": 0,
 					"y": 7
 				},
-				"searchesIndex": 3,
+				"searchesIndex": 2,
 				"rendererOptions": {
 					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				}
+			},
+			{
+				"id": 1366879183263,
+				"title": "Event Type by Outcome",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 7
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
 			}
 		],
 		"linkZooming": false,

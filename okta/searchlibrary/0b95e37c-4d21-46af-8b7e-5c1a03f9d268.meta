@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Device - Okta Device Assurance or Posture Policy Weakened",
+	"Description": "A device assurance policy, posture check, or endpoint security integration was changed or removed. These are the checks that decide whether a device is healthy enough to sign in, so deleting one lets an unmanaged machine through a policy that used to stop it.\n\nEvent types: device.assurance.policy.update, device.assurance.policy.delete, device.posture.check.update, device.posture.check.delete, device.integration.endpoint_security.deactivate\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "0b95e37c-4d21-46af-8b7e-5c1a03f9d268",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

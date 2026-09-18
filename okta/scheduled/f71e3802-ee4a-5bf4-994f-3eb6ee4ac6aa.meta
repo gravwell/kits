@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - System - Authentication - Okta Brute Force or Password Spraying Attack [table]",
+	"Description": "Groups failed authentications by source address to separate the two shapes of password attack. A brute force is many attempts against one account, so attempts climbs while distinctAccounts stays at 1. Password spraying is a few attempts against many accounts, so distinctAccounts climbs while attempts per account stays under the lockout threshold.\n\nThresholds: 20 or more failures, or failures against 5 or more distinct accounts, from one source address inside the search window. Edit the eval near the end of the query to tune them for your org's size.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_brute_force_or_password_spraying_attack/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_brute_force_or_password_spraying_attack.yml\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f71e3802-ee4a-5bf4-994f-3eb6ee4ac6aa",
+	"SearchReference": "587fedd0-0aa2-513f-ac33-279ee39a0e5d"
+}

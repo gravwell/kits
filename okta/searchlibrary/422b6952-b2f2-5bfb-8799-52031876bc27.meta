@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Session - Okta User Session Start Via An Anonymising Proxy Service [table]",
-  "Description": "Detects when an Okta user session starts where the user is behind an anonymising proxy service.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_session_start_via_anonymised_proxy/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_session_start_via_anonymised_proxy.yml",
-  "GUID": "422b6952-b2f2-5bfb-8799-52031876bc27",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Session - Okta Session Started via an Anonymising Proxy",
+	"Description": "A session started from an address Okta flagged as an anonymising proxy or Tor exit. Users behind a corporate VPN do not normally trip this; a sign-in that does is either someone deliberately hiding where they are, or an adversary using commodity proxy infrastructure.\n\nEvent type: user.session.start with securityContext.isProxy true\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_session_start_via_anonymising_proxy/\n- https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta",
+	"GUID": "422b6952-b2f2-5bfb-8799-52031876bc27",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

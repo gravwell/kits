@@ -1,0 +1,17 @@
+{
+	"Name": "okta",
+	"Desc": "Gravwell-generated JSON extraction for the Okta System Log tag. Makes every System Log field available to the \"ax\" module so ad-hoc searches do not have to spell out a json extraction.",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"okta"
+	],
+	"Labels": [
+		"okta"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "0f4403be-619f-462d-b5b4-8d89d99f474d",
+	"LastUpdated": "2026-06-22T14:31:19.281632919Z"
+}

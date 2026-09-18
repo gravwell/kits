@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - User - Authentication - Okta Breached Credential Detected",
+	"Description": "Okta matched a password used at sign-in against a known breached credential corpus. The password is public, so treat the account as needing a reset even if the sign-in itself succeeded and looked normal.\n\nEvent type: security.breached_credential.detected\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/security/password-health-report.htm\n- https://developer.okta.com/docs/reference/api/event-types/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "dd78b2a1-72f6-5757-9196-f41b6783ecb7",
+	"SearchReference": "29d1b6f4-7c85-4a03-b9e2-5f18c04d7ae6"
+}

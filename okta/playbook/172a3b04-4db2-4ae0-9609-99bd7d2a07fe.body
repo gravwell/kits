@@ -1,395 +1,341 @@
-# Okta Kit for Gravwell — Overview
+# Okta Kit for Gravwell
 
-A toolkit for interacting with Okta data in Gravwell. This kit includes queries, alerts, scheduled searches, resources, templates, and dashboards to help streamline your Okta data analysis.
+Dashboards, detections, investigation templates, and playbooks for Okta System Log
+and Okta user data.
 
-An integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/application/okta.html) to help you get started with ingest.
+An [Integration Guide](https://docs.gravwell.io/integrations/application/okta.html)
+covers onboarding the data, and the [Okta ingester
+documentation](https://docs.gravwell.io/ingesters/okta.html) covers the hosted
+ingester that feeds this kit.
 
 ***
 
 ## Table of Contents
-1. [Tags & Macros](#1-tags-&-macros)  
-    1.1. [Tags](#1-1-tags)  
-    1.2. [Macros](#1-2-macros)  
-2. [Query Library](#2-query-library)  
-3. [Naming Schema](#3-naming-schema)  
-4. [Resources](#4-resources)  
-    4.1. [Lookups](#4-1-lookups)  
-5. [Alerts](#5-alerts)  
-    5.1 [Dispatchers](#5-1-dispatchers)  
-    5.2 [Consumers](#5-2-consumers)
-6. [Scheduled Searches](#6-scheduled-searches)  
-	6.1. [Flows](#6-1-flows)
-7. [Playbooks](#7-playbooks)  
-8. [Searches](#8-searches)  
-	8.1. [Alert Queries](#8-1-alert-queries) 
-9. [Templates](#9-templates)  
-10. [Dashboards](#10-dashboards)  
-	10.1 [Actionables](#10-1-actionables)
-11. [Useful Resources & References](#11-useful-resources-&-references)  
-12. [Notes](#12-notes)  
-13. [Image credits](#13-image-credits)  
 
-## 1. [Tags & Macros](#1-tags-&-macros) 
-#### 1.1. [Tags](#1-1-tags)
-- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.
-- [Documentation](https://docs.gravwell.io/ingesters/ingesters.html#tags)
-- The Okta Kit for Gravwell makes use of the following tags:
-    - okta-groups: Tag contains all of your Okta Group Log data.
-        - Usage: tag=okta-groups
-    - okta-users: Tag contains all of your Okta Users Log data.
-        - Usage: tag=okta-users
-    - okta-system: Tag contains all of your Okta System Log data.
-        - Usage: tag=okta-system
-
-#### 1.2. [Macros](#1-2-macros)
-- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.
-- [Documentation](https://docs.gravwell.io/search/macros.html)
-- The Okta Kit for Gravwell makes use of the following macros:
-    - Tags
-        - $OKTA: Configuration Macro; Tag used for querying all of your Okta data; necessary for any queries within the Gravwell Okta Kit to run properly.
-        - $OKTA\_GROUPS: Configuration Macro; Tag used for Okta Groups data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates.
-        - $OKTA\_USERS: Configuration Macro; Tag used for Okta Users data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates.
-        - $OKTA\_SYSTEM: Configuration Macro; Tag used for Okta System Log data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboard, query library, scheduled searches, alerts, flows, and templates.
-    - EVX (Enumerated Value Extraction)
-        - $OKTA\_USER\_EVX: This macro extracts all possible Enumerated Values (EVs) from Okta User Logs.
-        - $OKTA\_SYSTEM\_EVX: This macro extracts all possible Enumerated Values (EVs) from Okta System Logs.
-    - Alert Components
-        - Alert Base
-            - $OKTA\_ALERT\_BASE: This is the base of which all alerts are built upon. This is necessary for the rest of the actual alerting logic to occur due to the Enumerated Value Extraction (EVX), EV enrichment and normalization performed by the dependencies listed below.
-            - $OKTA\_ALERT\_EVX: This macro extracts all of the necessary Enumerated Values (EVs) for the $OKTA\_CATALOG\_ALERTS and $OKTA\_MOD\_ALERTS macros from the Okta System Logs.
-            - $OKTA\_ENRICH\_COMMON: This is a dependency as a part of the $OKTA\_ALERT\_BASE which all alerts are built upon. This is necessary for the rest of the actual alerting logic to occur due to the Enumerated Value enrichment and normalization performed by the macro.
-        - Risk
-            - $OKTA\_MOD\_RISK\_SCORE: This rule dynamically calculates an Okta risk score based on event type, category, subcategory, modifications, severity, outcome, and proxy usage for modification event types. This is a dependency as a part of the $OKTA\_MOD\_ALERTS which all modification event type alerts are built upon. It calculates a risk score based on the event type, category, and subcategory with bumps for severity, outcome, proxy usage, modification event types, privileged & protected users then dumps it into a priority bucket. 
-            - $OKTA\_CATALOG\_RISK\_SCORE: This is a dependency as a part of the $OKTA\_CATALOG\_ALERTS which all catalog alerts are built upon. It calculates a risk score based on the event type, category, and subcategory with bumps for severity, outcome, proxy usage, modification event types, privileged & protected users then dumps it into a priority bucket. 
-        - Tuning
-            - $OKTA\_IP\_TUNING: Provides tuning for source IPs using okta\_ip\_allowlist.csv and okta\_ip\_denylist.csv.
-            - $OKTA\_USER\_TUNING: Provides tuning for users (actor/target) using okta\_user\_allowlist.csv and okta\_user\_denylist.csv, keyed on normalized usernames emitted by $OKTA\_ENRICH\_COMMON (actorUserNorm/targetUserNorm).
-        - Gating
-            - $OKTA\_CATALOG\_GATE: Catalog-driven gating dependency for Elastic and Sigma rulesets within $OKTA\_CATALOG\_ALERTS. 
-        - Reporting & Searching
-            - $OKTA\_ALERT\_META: This macro standardizes output for Okta Alerts that are being alerted upon. It dynamically changes values in the \_alert\_title based on the core of the query. e.g. tag=$OKTA\_SYSTEM $OKTA\_ALERT\_EVX $OKTA\_RISK\_SCORE $OKTA\_ALERT\_META
-            - $OKTA\_ALERT\_SEARCH: This macro enables you to search an alert by any of the Enumerated Values (EVs) created during the entire alert building query. The key fields to query to find more information typically are \_alert\_title, and context.
-            - $OKTA\_NORMALIZE\_IP: This macro normalizes clientIp and requestIp into a new EV named src that is used to search both fields for a specific IP address. It must be run after $OKTA\_ALERT\_BASE.
-            - $OKTA\_NORMALIZE\_ACTOR: This macro normalizes actorAltId and actorName into a new EV named actor that is used to search both fields for a specific actor. It must be run after $OKTA\_ALERT\_BASE.
-            - $OKTA\_NORMALIZE\_TARGET: This macro normalizes targetAltId and targetName into a new EV named target that is used to search both fields for a specific target. It must be run after $OKTA\_ALERT\_BASE.
-            - $OKTA\_NORMALIZE\_USER: This macro creates a new combined EV of actor and target meaning that you can search for a specific user as actor or target within the user EV without having to create an or statement for those EVs. This also means that you can independently query actor, target, and user which is useful in tracking a threat actor from the initial alert to other linked events. This macro must be used after both $OKTA\_NORMALIZE\_ACTOR, and $OKTA\_NORMALIZE\_TARGET.
-    - [Alert Queries](#8-1-alert-queries)  & [Scheduled Searches](#6-scheduled-searches) 
-        - $OKTA\_CATALOG\_ALERTS: Detects Elastic & Sigma alerts that are configured within the okta\_alerts\_catalog lookup resource. 
-        - $OKTA\_MOD\_ALERTS: Detects modification alerts that are configured within the okta\_alerts\_catalog lookup resource.
-    - [Flows](#6-1-flows)
-        - $GRAVWELL\_INSTANCE: Configuration Macro; Necessary for alerts within the Okta Kit to link data to the notification email
-        - $OKTA\_ALERT\_RECIPIENT: Configuration Macro: This is the address to which Okta Alert Flows will be sent to. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.
-        - $OKTA\_ALERT\_SENDER: Configuration Macro: This is the address to which Okta Alert Flows will be sent from. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.
-    - [Dashboard](#10-dashboards) Components
-        - $OKTA\_INVESTIGATION\_SEARCH: This is intended to be used in the Okta Investigation Templates so the queries are clean and modular.
-        - Authentication
-            - $OKTA\_FAILED\_AUTH: This macro is used by "Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP" in the Okta Investigation Dashboard and can be reused when looking at failed authentication events as long as outcomeResult, and message are extracted.
-            - $OKTA\_SUCCESSFUL\_AUTH: This macro is used by "Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP" in the Okta Investigation Dashboard and can be reused when looking at successful authentication events as long as outcomeResult, and message are extracted.
-            - $OKTA\_COMBINED\_AUTH: This macro is used by "Template - Okta - Investigation - Authentication Events for Actor, Target, and/or IP by Country [table]" in the Okta Investigation Dashboard and can be reused when looking at authentication events as long as outcomeResult, and message are extracted.
-        - Reporting
-            - $OKTA\_ALERT\_INFO: This macro standardizes output for Okta Alerts that are being alerted upon. It dynamically changes values in the \_alert\_title based on the core of the query. This is used for the Okta Investigation Dashboard to simply show the Alert Title and Alert Priority without the context as that will be displayed in the Modification Alert Events and the Catalog Alert Events.
+1. [Tags](#1-tags)
+2. [Macros](#2-macros)
+3. [How a detection query is built](#3-how-a-detection-query-is-built)
+4. [Alerting: one router, many dispatchers](#4-alerting-one-router-many-dispatchers)
+5. [Tuning out noise](#5-tuning-out-noise)
+6. [Resources](#6-resources)
+7. [Dashboards](#7-dashboards)
+8. [Templates and actionables](#8-templates-and-actionables)
+9. [Query library](#9-query-library)
+10. [Getting started](#10-getting-started)
+11. [References](#11-references)
 
 ***
 
-## 2. [Query Library](#2-query-library)  
-- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#10-searches), [scheduled searches](#8-scheduled-searches) via [alert queries](#10-1-alert-query), and [playbooks](#9-playbooks). 
-- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
-	- Updating a query in the library updates dependent dashboards scheduled searches automatically.
-	- Total queries: 43  
-	    - [Alert Queries](#8-1-alert-query): 2  
-	    - [Searches](#8-searches): 41   
+## 1. Tags
 
-***
+The Gravwell Okta ingester writes to two tags, and both names are fixed — the
+ingester will not let you change them.
 
-## 3. [Naming Schema](#3-naming-schema)  
-- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  
-- _QueryType - Company - Category - Severity/Priority - \_\_\_\_\_Name [Visualization - **if any**]_
-- Examples:
-    - [Alerts](#5-alerts): _Alert - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_
-    - [Scheduled Searches](#6-scheduled-searches): _ScheduledSearch - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_
-    - [Playbook](#7-playbooks): _Playbook - Okta - System - Event Types - Modification Alerts_
-    - [Searches](#8-searches): _Search - Okta - Authentication - Activated to Last Updated Average [numbercard]_
-    - [Alert Query](#8-1-alert-query): _AlertQuery - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_
-    - [Templates](#9-templates): _Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP_
+| Tag | Macro | Contents |
+| --- | --- | --- |
+| `okta` | `$OKTA` | The Okta System Log. One JSON object per event: sign-ins, MFA challenges, policy evaluations, admin actions, application access. |
+| `okta-users` | `$OKTA_USERS` | Okta user profile snapshots. One JSON record per user, re-published on every poll. |
 
-***
+That last point matters. `okta-users` is a **snapshot stream**, not an event
+stream: the same user appears once per poll cycle. Any count over a window has to
+collapse to one entry per user first, which is why every user query in this kit
+starts like this:
 
-## 4. [Resources](#4-resources)  
-- Purpose: Resources allow users to store persistent data for use in searches.
-- [Documentation](https://docs.gravwell.io/resources/resources.html)
-#### 4.1 [Lookups](#4-1-lookups)
-- Purpose: Lookup Resources are used by the lookup module to perform data enrichment and translation off of a static lookup table stored in a resource.
-- [Documentation](https://docs.gravwell.io/search/lookup/lookup.html)
-- Total: 8
-    - okta\_alerts\_catalog: This is a combination of Elastic and Sigma open source alerts cataloged for dashboards, macros, scheduled searches, alerts, and flows.
-    - okta\_eventTypes: Provides additional information for Okta event types that are used for enrichment and normalization.
-    - okta\_ip\_allowlist: Provides a tuning control to suppress alerts from known-good source IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.
-    - okta\_ip\_denylist: Provides a tuning control to force-include or escalate alerts from watchlisted source IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.
-    - okta\_privileged\_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.
-    - okta\_protected\_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.
-    - okta\_user\_allowlist: Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with expiry.
-    - okta\_user\_denylist: Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk\_score >= min\_risk, per alert or globally.
+```query
+tag=$OKTA_USERS
+| json
+	id
+	profile.department as department
+| unique id
+| stats count by department
+```
 
-***
+Drop the `unique id` and your department counts multiply by the number of polls in
+the timeframe.
 
-## 5. [Alerts](#5-alerts)  
-- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.  
-- [Documentation](https://docs.gravwell.io/alerts/alerts.html#alerts)
-	- Alerts are made up of Dispatchers and Consumers that ensure that when a dispatcher generates an event, all associated consumers are executed to process it. 
-    - [Documentation](https://docs.gravwell.io/alerts/alerts.html)
-- Total: 2
-    - Alert - Okta - System - Alert Catalog - Elastic & Sigma Rulesets
-    - Alert - Okta - System - Event Types - Modification Alerts
-- Naming Schema: _Alert - Okta - Category - Severity/Priority - AlertName_
-#### 5.1 [Dispatchers](#5-1-dispatchers)  
-- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs every hour looking for “bad” activity; every result returned by a scheduled search is considered an event.  
-    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)
-- [Documentation](https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers)
-#### 5.2 [Consumers](#5-2-consumers)
-- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.
-    - Consumers = [Flows](#6-1-flows)
-- [Documentation](https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer)  
+## 2. Macros
 
-***
+The kit ships seven macros. Five are configuration; two carry query logic.
 
-## 6. [Scheduled Searches](#6-scheduled-searches)  
-- Purpose: Scheduled Searches are dependent on the [alert query](#10-1-alert-query) queries titled _"AlertQuery - Okta - Category - Severity/Priority - AlertName"_ within the [Query Library](#4-query-library).
-- [Documentation](https://docs.gravwell.io/scripting/scheduledsearch.html)
-	- **IMPORTANT:** If an [Alert Query](#8-1-alert-query) is modified within the query library, it will be modified in the associated Scheduled Search. 
-	- **DISCLAIMER:** There are a few queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.
-		- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.
-		- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.
-- Total: 2
-    - ScheduledSearch - Okta - System - Alert Catalog - Elastic & Sigma Rulesets
-    - ScheduledSearch - Okta - System - Event Types - Modification Alerts
-- Naming Schema: _ScheduledSearch - Okta - Category - Severity/Priority - ScheduledSearchName_
-	- Cron schedules:
-	- _ScheduledSearch - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_: 15 \* \* \* \*
-	- _ScheduledSearch - Okta - System - Event Types - Modification Alerts_: 30 \* \* \* \*
-#### 6.1. [Flows](#6-1-flows)  
-- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.  
-- [Documentation](https://docs.gravwell.io/flows/flows.html)  
-- Total: 2  
-	- _Flow - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_  
-	- _Flow - Okta - System - Event Types - Modification Alerts_  
-- Dependencies: The above Flows have the following dependencies:  
-	- Notification  
-        - $GRAVWELL\_INSTANCE  
-	    - $OKTA\_ALERT\_RECIPIENT  
-	    - $OKTA\_ALERT\_SENDER  
-    - Flow - Okta - System - Alert Catalog - Elastic & Sigma Rulesets  
-        - ScheduledSearch - Okta - System - Alert Catalog - Elastic & Sigma Rulesets  
-            - AlertQuery - Okta - System - Alert Catalog - Elastic & Sigma Rulesets  
-                - $OKTA\_CATALOG\_ALERTS  
-                - $OKTA\_ALERT\_BASE  
-                - $OKTA\_ALERT\_EVX  
-                - $OKTA\_ENRICH\_COMMON  
-                - $OKTA\_CATALOG\_RISK\_SCORE  
-                - $OKTA\_IP\_TUNING  
-                - $OKTA\_USER\_TUNING  
-                - $OKTA\_CATALOG\_GATE  
-                - $OKTA\_ALERT\_META  
-	- Flow - Okta - System - Event Types - Modification Alerts  
-        - ScheduledSearch - Okta - System - Event Types - Modification Alerts  
-            - AlertQuery - Okta - System - Event Types - Modification Alerts  
-                - $OKTA\_ALERT\_BASE
-                - $OKTA\_ALERT\_EVX
-                - $OKTA\_ENRICH\_COMMON
-                - $OKTA\_MOD\_RISK\_SCORE
-                - $OKTA\_IP\_TUNING
-                - $OKTA\_USER\_TUNING
-                - $OKTA\_ALERT\_META
+**Configuration**
 
-***
+| Macro | Type | Default |
+| --- | --- | --- |
+| `$OKTA` | TAG | `okta` |
+| `$OKTA_USERS` | TAG | `okta-users` |
+| `$GRAVWELL_INSTANCE` | OTHER | Set this to your Gravwell base URL, no trailing slash. |
+| `$OKTA_ALERT_SENDER` | OTHER | From address for alert email. |
+| `$OKTA_ALERT_RECIPIENT` | OTHER | To address for alert email. |
 
-## 7. [Playbooks](#7-playbooks)  
-- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.
-- [Documentation](https://docs.gravwell.io/gui/playbooks/playbooks.html)
-- Total: 3
-    - Okta Kit for Gravwell - README
-    - Playbook - Okta - System - Alert Catalog - Elastic & Sigma Rulesets
-    - Playbook - Okta - System - Event Types - Modification Alerts
-- Naming Schema: _Playbook - Okta - Category - Severity/Priority - PlaybookName_
-- **Disclaimer:** This is a guide to assist with investigation and is not a definitive security assessment.
+**Query logic**
 
-***
+| Macro | What it does |
+| --- | --- |
+| `$OKTA_RISK_SCORE` | Scores an enriched event 0-100 and buckets it into `_priority`. |
+| `$OKTA_TUNING` | Drops allowlisted accounts and addresses; promotes denylisted ones to High. |
 
-## 8. [Searches](#8-searches)  
-- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view your Okta in an easily digestable format. 
-- [Documentation](https://docs.gravwell.io/gui/querylibrary/querylibrary.html)
-	- **IMPORTANT:** If a \"search\" query is modified within the query library, it will be modified in the associated [Dashboard](#10-dashboards) panel displaying that search. 
-	- **DISCLAIMER:** There are a few searches which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.
-		- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.
-		- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those searches are failing; I'd suggest troubleshooting here.
-	- Total: 47
-	- Naming Schema: _Search - Okta - Category - Severity/Priority - SearchName [Visualization - **if any**]__  
-    
-#### 8.1. [Alert Queries](#8-1-alert-queries) 
-- Alert Queries feed [Scheduled Searches](#6-scheduled-searches)
-**IMPORTANT:** If you need to update or tune, this is where you perform that action.
-	- **DISCLAIMER:** There are a few alert queries which take advantage of the [GeoIP] (https://docs.gravwell.io/search/geoip/geoip.html) module that requires the Gravwell Network Enrichment Kit (currently version 19) or your own curated GeoIP database.
-		- The Network Enrichment Kit can be found in the [Kits] (https://docs.gravwell.io/kits/kits.html) section of your Gravwell instance.
-		- **Note:** Any query containing \"from Outside Country\" is implicated in this so if those scheduled searches are failing; I'd suggest troubleshooting here.
-	- Total: 2
-	- Naming Schema: _AlertQuery - Okta - Category - Severity/Priority - AlertName_
-    	- _AlertQuery - Okta - System - Alert Catalog - Elastic & Sigma Rulesets_
-    	- _AlertQuery - Okta - System - Event Types - Modification Alerts_
-***
+Both are commented line by line. Open either in the search GUI and read it — that
+is the intended way to learn what the scoring does, and to change it.
 
-## 9. [Templates](#9-templates)  
-- Purpose: Templates are special objects which define a Gravwell query containing variables. 
-- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)
-- Total: 32
-	- Template - Okta - System - Event Types - Category Actor/Target [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Actor/Target [table]: Displays a table of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Actor/Target Result [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Actor/Target Result [table]: Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category [chart]: Displays a chart of events by category, and subcategory for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category [table]: Displays a table of events by category, and subcategory for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Result [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Result [table]: Displays a table of events by category, subcategory, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Event Type [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Event Type [table]: Displays a table of events by category, subcategory, and event type for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Event Type Result [chart]: Displays a chart of events by category, subcategory, event type, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Event Type Result [table]: Displays a table of events by category, subcategory, event type, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category [chart]: Displays a chart of events by category, and subcategory for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category [table]: Displays a table of events by category, and subcategory for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Result [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Result [table]: Displays a table of events by category, subcategory, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Event Type [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Event Type [table]: Displays a table of events by category, subcategory, and event type for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Event Type Result [chart]: Displays a chart of events by category, subcategory, event type, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Event Type Result [table]: Displays a table of events by category, subcategory, event type, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Actor/Target [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Actor/Target [table]: Displays a table of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Actor/Target Result [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.
-	- Template - Okta - System - Event Types - Category Actor/Target Result [table]: Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.
-	- Template - Okta - Investigation - All Events for Actor, Target, and/or IP: This template returns all Okta System Log events associated with a specific actor, target, and/or IP address.
-	- Template - Okta - Investigation - Authentication Events for Actor, Target, and/or IP by Country [table]: This template returns all authentication events in the Okta System Logs associated with a specific actor, target, and/or IP address by Country.
-    - Template - Okta - Investigation - Modification Alerts for Actor, Target, and/or IP [table]: This template returns all Modification Alerts found within Okta System Log events associated with a specific actor, target, and/or IP address.
-	- Template - Okta - Investigation - Modification Alert Events for Actor, Target, and/or IP [table]: This template returns all Modification Alert Events found within Okta System Log events associated with a specific actor, target, and/or IP address.
-	- Template - Okta - Investigation - Catalog Alerts for Actor, Target, and/or IP: This template returns all Catalog Alerts found within Okta System Log events associated with a specific actor, target, and/or IP address.
-	- Template - Okta - Investigation - Catalog Alert Events for Actor, Target, and/or IP: This template returns all Catalog Alert Events found within Okta System Log events associated with a specific actor, target, and/or IP address.
-	- Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP: This template returns all successful authentication events in the Okta System Logs associated with a specific actor, target, and/or IP address.
-	- Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP: This template returns all failed authentication attempts in the Okta System Logs associated with a specific actor, target, and/or IP address.
-***
+Nothing else in this kit hides query logic behind a macro. Every query spells out
+its own extraction, filtering, and enrichment, so you can read it top to bottom and
+lift pieces into your own searches.
 
-## 10. [Dashboards](#10-dashboards)
-- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time. 
-- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)
-- Total: 8
-	- Okta Actor/Target Overview: This Dashboard is a general overview of your Okta Actor/Target data.
-		- Template - Okta - System - Event Types - Category Actor/Target [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Actor/Target [table]: Displays a table of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Actor/Target Result [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Actor/Target Result [table]: Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.
-	- Okta Category Overview: This Dashboard is a general overview of your Okta Category data.
-		- Template - Okta - System - Event Types - Category [chart]: Displays a chart of events by category, and subcategory for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category [table]: Displays a table of events by category, and subcategory for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Result [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Result [table]: Displays a table of events by category, subcategory, and result for the category you enter into the variable.
-	- Okta Event Type Overview: This Dashboard is a general overview of your Okta Event Type data.
-		- Template - Okta - System - Event Types - Category Event Type [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Event Type [table]: Displays a table of events by category, subcategory, and event type for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Event Type Result [chart]: Displays a chart of events by category, subcategory, event type, and result for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Event Type Result [table]: Displays a table of events by category, subcategory, event type, and result for the category you enter into the variable.
-	- Okta General Overview: This Dashboard is a general overview of your Okta Category, Event Type, & Actor/Target data.
-        - Search - Okta - System - Event Types - Count by Tag [chart]: This will display the amount of events consumed by Okta Tag in a pie chart over the specified timeframe. 
-        - Search - Okta - System - Event Types - Count by Tag [table]: This will display the amount of events consumed by Okta Tag in a table over the specified timeframe. 
-        - Search - Okta - System - Event Types - Count by Category [chart]: Displays a chart of event types by category.
-        - Search - Okta - System - Event Types - Count by Category [table]: Displays a table of event types by category.
-        - Search - Okta - System - Event Types - Count by Category, Subcategory [chart]: Displays a chart of event types by category, and subcategory.
-        - Search - Okta - System - Event Types - Count by Category, Subcategory [table]: Displays a table of event types by category, and subcategory.
-		- Template - Okta - System - Event Types - Category [chart]: Displays a chart of events by category, and subcategory for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category [table]: Displays a table of events by category, and subcategory for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Result [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Result [table]: Displays a table of events by category, subcategory, and result for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Event Type [chart]: Displays a chart of events by category, subcategory, and event type for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Event Type [table]: Displays a table of events by category, subcategory, and event type for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Event Type Result [chart]: Displays a chart of events by category, subcategory, event type, and result for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Event Type Result [table]: Displays a table of events by category, subcategory, event type, and result for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Actor/Target [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Actor/Target [table]: Displays a table of events by category, subcategory, event type, actorAltId, and targetAltId for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Actor/Target Result [chart]: Displays a chart of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.
-		- Template - Okta - System - Event Types - Category Actor/Target Result [table]: Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.
-	- Okta Investigation: This dashboard is intended to be used for Okta investigations.
-		- Template - Okta - Investigation - All Events for Actor, Target, and/or IP
-		- Template - Okta - Investigation - Modification Alerts for Actor, Target, and/or IP [table]
-		- Template - Okta - Investigation - Modification Alert Events for Actor, Target, and/or IP [table]
-		- Template - Okta - Investigation - Catalog Alerts for Actor, Target, and/or IP
-		- Template - Okta - Investigation - Catalog Alert Events for Actor, Target, and/or IP
-		- Template - Okta - Investigation - Successful Authentication Events for Actor, Target, and/or IP
-		- Template - Okta - Investigation - Failed Authentication Attempts for Actor, Target, and/or IP
-	- Okta User Authentication Overview: This dashboard is a general overview of your Okta User Authentication data.
-		- Search - Okta - Authentication - Created to Activated Average [numbercard]: Displays a numbercard of the created to activated average/mean.
-		- Search - Okta - Authentication - Created to Last Updated Average [numbercard]: Displays a numbercard of the created to last updated average/mean.
-		- Search - Okta - Authentication - Activated to Last Updated Average [numbercard]: Displays a numbercard of the activated to last updated average/mean.
-		- Search - Okta - Authentication - Activated to Password Changed Average [numbercard]: Displays a numbercard of the activated to password changed average/mean.
-		- Search - Okta - Authentication - Last Login to Last Updated Average [numbercard]: Displays a numbercard of the last login to last updated average/mean.
-		- Search - Okta - Authentication - Last Login to Password Changed Average [numbercard]: Displays a numbercard of the last login to password changed average/mean.
-		- Search - Okta - Authentication - Last Updated to Password Changed Average [numbercard]: Displays a numbercard of the last updated to password changed average/mean.
-		- Search - Okta - Authentication - User Login [numbercard]: Displays a numbercard of the user logins by count.
-		- Search - Okta - Authentication - User Login [chart]: Displays a chart of user logins by count.
-		- Search - Okta - Authentication - Provider Names [numbercard]: Displays a numbercard of the credential provider names by count.
-		- Search - Okta - Authentication - Provider Names [chart]: Displays a chart of credential provider names by count.
-		- Search - Okta - Authentication - Provider Types [numbercard]: Displays a numbercard of the credential provider types by count.
-		- Search - Okta - Authentication - Provider Types [chart]: Displays a chart of credential provider types by count.
-		- Search - Okta - Authentication - Password Last Changed >= 30 Days [table]: Displays a numbercard of the last login to password changed average/mean.
-		- Search - Okta - Authentication - Active Users Last Password Change [table]: Displays a numbercard of the last login to password changed average/mean.
-	- Okta User Location Overview: This dashboard is a general overview of your Okta User Location data.
-		- Search - Okta - Users - User Country [numbercard]: Displays a numbercard of the user's Country by count.
-		- Search - Okta - Users - User Country [chart]: Displays a chart of the user's Country by count.
-		- Search - Okta - Users - User State [numbercard]: Displays a numbercard of the user's State by count.
-		- Search - Okta - Users - User State [chart]: Displays a chart of the user's State by count.
-		- Search - Okta - Users - User Timezone [numbercard]: Displays a numbercard of the user's Timezone by count.
-		- Search - Okta - Users - User Timezone [chart]: Displays a chart of the user's Timezone by count.
-	- Okta User Overview: This dashboard is a general overview of your Okta User data.
-		- Search - Okta - Users - Total Count [numbercard]: Displays a numbercard of total users.
-		- Search - Okta - Users - Status [chart]: Displays a chart of statuses by count.
-		- Search - Okta - Users - Status [numbercard]: Displays a numbercard of statuses by count.
-		- Search - Okta - Users - Division [chart]: Displays a chart of divisions by count.
-		- Search - Okta - Users - Division [numbercard]: Displays a numbercard of divisions by count.
-		- Search - Okta - Users - Division Count [numbercard]: Displays a numbercard of divisions by unique_count.
-		- Search - Okta - Users - Department [chart]: Displays a chart of departments by count.
-		- Search - Okta - Users - Department [numbercard]: Displays a numbercard of departments by count.
-		- Search - Okta - Users - Department Count [numbercard]: Displays a numbercard of departments by unique_count.
-		- Search - Okta - Users - User Type [chart]: Displays a chart of user types by count.
-		- Search - Okta - Users - User Type [numbercard]: Displays a numbercard of user types by count.
-		- Search - Okta - Users - User Type Count [numbercard]: Displays a numbercard of user types by unique_count.
-		- Search - Okta - Users - Job Title [chart]: Displays a chart of job title by count.
-		- Search - Okta - Users - Job Title [numbercard]: Displays a numbercard of job titles by count.
-		- Search - Okta - Users - Job Title Count [numbercard]: Displays a numbercard of job title by unique_count.
-		- Search - Okta - Users - Manager [chart]: Displays a chart of manager by unique_count.
-		- Search - Okta - Users - Manager [numbercard]: Displays a numbercard of manager by unique_count.
-		- Search - Okta - Users - Manager Count [numbercard]: Displays a numbercard of manager by unique_count.  
-#### 10.1 [Actionables](#10-1-actionables)
-- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.
-- [Documentation](https://docs.gravwell.io/gui/templates/templates.html)
-- Total: 3
-    - Okta Actor: Okta Actions on Actor to Launch the Okta Investigation Dashboard.
-    - Okta IP: Okta Actions on IP to Launch the Okta Investigation Dashboard.
-    - Okta Target: Okta Actions on Target to Launch the Okta Investigation Dashboard.
+> One gotcha if you write your own macros: Gravwell's macro expander does not
+> respect comments. A `$MACRO` reference inside a comment **inside that macro's own
+> expansion** expands recursively and breaks the query. Refer to macros without the
+> `$` in macro comments.
 
-***
+## 3. How a detection query is built
 
-## 11. [Useful Resources & References](#11-useful-resources-&-references)  
-- [Okta](https://www.okta.com/) 
-	- [API Event Types](https://developer.okta.com/docs/reference/api/event-types/)
-	- [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/)
-- [Sigma](https://sigmahq.io/)
-	- [Detection.FYI Detection Rules](https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta)
-	- [Sigma Detection Rules on GitHub](https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta)
-- [Elastic](https://www.elastic.co/)
-	- [Detection.FYI Detection Rules](https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta)
-	- [Elastic Detection Rules on GitHub](https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta)
+Every detection follows the same shape. Here is the whole of *Administrator Role
+Assigned to an Okta User*, minus the field list, so you can see the skeleton:
 
-***
+```query
+tag=$OKTA
+| json
+	eventType
+	severity
+	displayMessage as message
+	outcome.result as outcomeResult
+	actor.alternateId as actorAltId
+	client.ipAddress as clientIp
+	request.ipChain.[0].ip as requestIp
+	published
+	...
+| grep -e eventType "user.account.privilege.grant"
+| json
+	target.[0].type as targetType
+	target.[0].alternateId as targetAltId
+	target.[1].type as target2Type
+	target.[1].alternateId as target2AltId
+| eval
+	targetUser = "";
+	if (match(targetType, "(?i)user")) { targetUser = targetAltId; }
+	else if (match(target2Type, "(?i)user")) { targetUser = target2AltId; }
+| lookup -r okta_eventTypes eventType eventType (category subcategory is_mod)
+| eval
+	actorUserNorm = strings_tolower(strings_replace(actorAltId, "@.+", "", -1));
+	targetUserNorm = strings_tolower(strings_replace(targetUser, "@.+", "", -1));
+| lookup -r okta_privileged_actor actorUserNorm account (actor_weight actor_label)
+| lookup -r okta_protected_target targetUserNorm account (target_weight target_label)
+| geoip clientIp.CountryName as srcCountry clientIp.City as srcCity
+| geoip -r asn_db clientIp.ASNOrg as srcASNOrg
+$OKTA_RISK_SCORE
+$OKTA_TUNING
+```
 
-## 12. [Notes](#12-notes)  
-- The Network Enrichment Kit (v19) is a **dependency**.
+Six things worth knowing about that shape:
 
-***
+1. **The filter comes second.** It sits right after the `json` extraction, before
+   the target parsing, the lookups, and the geoip calls, so the cheap test runs
+   before the expensive work.
 
-## 13. [Image credits](#13-image-credits)
+2. **`target` is an array.** Okta puts the objects an event acted upon into a JSON
+   array whose contents vary: an `AppInstance` and an `AppUser` for an SSO event, a
+   `User` and an `AuthenticatorEnrollment` for an MFA event, a `Rule` for a policy
+   evaluation. There is no guarantee which slot holds the account, so the kit pulls
+   the first two and picks whichever one is a user.
 
-***
+3. **Accounts are normalised before they are used as keys.** `actorUserNorm` strips
+   the email domain and lower-cases what is left, so `Alice.Smith@example.com` and
+   `alice.smith` both key as `alice.smith`. Everything that keys on an account —
+   the allowlists, the denylists, the privileged-account weights — uses these.
+
+4. **Okta's own geolocation wins; the local database is a fallback.** Okta
+   resolves geography and network ownership at the edge, at the moment of the
+   request, and attaches it as `client.geographicalContext` and `securityContext`.
+   That is better data than a local database lookup, so the kit takes it whenever
+   it is there. Only events that arrive without it get handed to `geoip` — the
+   query builds a lookup key that is deliberately empty for everything else, so
+   `maxmind` and `asn_db` are consulted for the stragglers rather than on every
+   event. Each event carries a `geoSource` field saying which was used: `okta`,
+   `okta+maxmind` when Okta gave the country and a local lookup filled a gap, or
+   `maxmind` when Okta enriched nothing.
+
+   On a typical tenant that is well under 1% of events falling back. Worth knowing
+   when you read `srcASNOrg`: Okta writes operator names in lower case
+   (`comcast cable communications  llc`) and `asn_db` in upper (`COMCAST-7922`),
+   so the case tells you which source you are looking at.
+
+5. **There is no render module.** The query ends at `$OKTA_TUNING`. That is
+   deliberate: with no renderer the entry keeps every enumerated value it
+   accumulated, and Gravwell hands all of them to the alert as fields. Add a
+   `| table` and you would get only the columns you named.
+
+6. **Detections that aggregate are named `[table]`.** A handful of detections —
+   brute force, MFA bombing, session anomalies, rate limit abuse — cannot work on a
+   single entry, because the signal *is* the aggregate. Those end in `stats` and a
+   `table`, and their descriptions say which thresholds they use and where to change
+   them.
+
+## 4. Alerting: one router, many dispatchers
+
+There is exactly one alert in this kit: **Alert - Okta - Alert Router**.
+
+```
+78 scheduled searches  ──dispatchers──▶  Alert - Okta - Alert Router  ──consumer──▶  Flow (email)
+```
+
+Each detection has one scheduled search. Every one of those scheduled searches is a
+dispatcher on that single alert. Everything that should happen when a detection
+fires is configured once, as a consumer of that alert.
+
+**Why it is built this way.** Wiring notification per detection means 78 places to
+change when you add a Slack channel, and 78 places to get wrong. With one router
+you add a node to one flow, or add a second consumer, and every detection is
+covered.
+
+**Where alert names come from.** No query in this kit sets an alert title. The
+dispatching scheduled search's name *is* the alert name. Rename the scheduled
+search and you have renamed its alerts — no query edit needed.
+
+**What arrives on the event.** For the raw-entry detections, every enumerated value
+the query produced: `eventType`, `actorAltId`, `targetUser`, `clientIp`, `src`,
+`srcCountry`, `srcASNOrg`, `outcomeResult`, `outcomeReason`, `risk_score`,
+`_priority`, and the rest. Templates in the consumer flow reach them as
+`{{ .event.Contents.eventType }}` and so on.
+
+For the `[table]` detections, the columns of the aggregation arrive instead.
+
+**Adding a destination.** Open *Flow - Okta - Alert Router - Email Notification*
+and add a Slack, Teams, Mattermost, Google Chat, or PagerDuty node. Or add a second
+flow as another consumer on the alert. Either way it applies to all detections.
+
+**Everything ships disabled.** Enable a few scheduled searches, watch the volume,
+tune, then enable more. The **Okta Threat Overview** dashboard runs the statistical
+detections interactively so you can see what each would fire on before turning it
+on.
+
+## 5. Tuning out noise
+
+Four lookup resources control noise across every detection at once. All four are
+keyed on a **bare value** — an IP address, or a lower-cased username with the email
+domain stripped.
+
+| Resource | Columns | Effect |
+| --- | --- | --- |
+| `okta_user_allowlist` | `key,enabled,until_ymd,reason` | Drop events involving this account, as actor or target. |
+| `okta_ip_allowlist` | `key,enabled,until_ymd,reason` | Drop events from this source address. |
+| `okta_user_denylist` | `key,enabled,min_risk,reason` | Force events involving this account to at least High. |
+| `okta_ip_denylist` | `key,enabled,min_risk,reason` | Force events from this address to at least High. |
+
+`until_ymd` is a `YYYYMMDD` expiry compared against the event's `published` date.
+Leave it empty for a permanent exception. `min_risk` gates promotion on the risk
+score; leave it empty or `0` to always promote.
+
+Worked example — a directory sync service account that trips half the detections:
+
+```
+key,enabled,until_ymd,reason
+svc-okta-sync,1,,directory sync service account - permanently allowed
+```
+
+Add that row to `okta_user_allowlist` and every detection in the kit stops
+reporting it. `enabled=0` parks a row without deleting it, so you keep the record
+of why the exception existed.
+
+Two more resources feed the risk score rather than filtering:
+`okta_privileged_actor` weights accounts that perform actions, and
+`okta_protected_target` weights accounts that are acted upon — more heavily, since
+being the target of an admin action is worse than performing one.
+
+## 6. Resources
+
+| Resource | Rows | Purpose |
+| --- | --- | --- |
+| `okta_eventTypes` | ~1000 | Every Okta System Log event type mapped to a category, a subcategory, and `is_mod`. This is the backbone of the category dashboards and the risk score. |
+| `okta_privileged_actor` | small | Accounts whose actions carry extra risk weight. |
+| `okta_protected_target` | small | Accounts that carry extra risk weight when acted upon. |
+| `okta_user_allowlist` / `okta_user_denylist` | yours | Account-level noise control. |
+| `okta_ip_allowlist` / `okta_ip_denylist` | yours | Address-level noise control. |
+
+`okta_eventTypes` is worth browsing on its own. When you want to know what Okta
+event types exist in a given area, search it rather than the API docs:
+
+```query
+tag=$OKTA
+| json eventType
+| lookup -r okta_eventTypes eventType eventType (category subcategory is_mod)
+| stats count by category subcategory eventType
+| sort by count desc
+| table category subcategory eventType count
+```
+
+## 7. Dashboards
+
+| Dashboard | Use it for |
+| --- | --- |
+| **Okta General Overview** | Start here. Ingest health on both tags, event volume by category and subcategory, sign-in geography, and a risk-priority health check. |
+| **Okta Threat Overview** | Every statistical detection on one page. The fastest way to see whether anything is happening, and to sanity-check thresholds before enabling scheduled searches. |
+| **Okta Investigation** | One actor, one target, and/or one source address across every System Log event. Driven by three dashboard variables; the actionables jump straight here. |
+| **Okta Category Overview** | Drill into one `okta_eventTypes` category. |
+| **Okta Event Type Overview** | Drill into the event types inside one category, split by outcome. |
+| **Okta Actor/Target Overview** | Who did what to whom, inside one category. |
+| **Okta Sign-In Location Overview** | Sign-in countries, cities, network operators, a point map, and the two geography-based detections. |
+| **Okta User Overview** | Directory shape: totals, account status, division, department, job title, user type, manager. |
+| **Okta User Authentication Overview** | Credential hygiene: lifecycle interval averages, MFA factor mix, stale passwords, unused accounts, locked accounts. |
+
+## 8. Templates and actionables
+
+The **Investigation** templates all take the same three variables, and all three
+accept wildcards, so `*` in a slot means "any":
+
+| Variable | Matched against |
+| --- | --- |
+| Okta Actor | `actor.alternateId`, falling back to `actor.displayName` |
+| Okta Target | `target.alternateId` / `target.displayName`, either slot |
+| Okta IP | `client.ipAddress`, falling back to the first hop of `request.ipChain` |
+
+Three actionables — **Okta Actor**, **Okta Target**, and **Okta IP** — trigger on
+email addresses and IP addresses in any search result and open the Okta
+Investigation dashboard with that value filled in. That is the intended pivot from
+"I see something odd in a search" to "show me everything about it".
+
+## 9. Query library
+
+Names follow a fixed pattern so the library sorts usefully:
+
+```
+AlertQuery - Okta - <category> - <subcategory> - <what it detects>
+Search     - Okta - <area> - <what it shows> [renderer]
+Template   - Okta - <area> - <what it shows> [renderer]
+```
+
+`AlertQuery` items are detections and have a matching scheduled search. `Search`
+items are for looking at things. A `[table]`, `[chart]`, `[numbercard]`, or
+`[pointmap]` suffix tells you the render module; a detection with no suffix ships
+raw entries.
+
+## 10. Getting started
+
+1. **Install the Network Enrichment kit** if it is not already installed. This kit
+   depends on its `maxmind` and `asn_db` resources.
+2. **Onboard the data** with the Okta ingester. Confirm both tags are arriving with
+   *Search - Okta - System - Ingest - Event Count by Tag*.
+3. **Set the configuration macros.** `$OKTA` and `$OKTA_USERS` should already be
+   right. Set `$GRAVWELL_INSTANCE`, `$OKTA_ALERT_SENDER`, and
+   `$OKTA_ALERT_RECIPIENT`, and configure Account > Email Server > Email Server
+   Settings.
+4. **Look at Okta General Overview** to confirm the category breakdown is populated
+   and the risk-priority card is not all one bucket.
+5. **Look at Okta Threat Overview** over a week. Anything that lights up here is
+   what the corresponding scheduled search would alert on.
+6. **Enable a few scheduled searches**, starting with the ones whose event types you
+   know are rare in your org: API token creation, identity provider changes, admin
+   privilege grants, log stream changes.
+7. **Enable the notification flow** once you are happy with the volume.
+8. **Tune** using the allow and deny lists rather than by editing queries, so your
+   changes survive a kit upgrade.
+
+## 11. References
+
+- Okta System Log event types — https://developer.okta.com/docs/reference/api/event-types/
+- Okta System Log API — https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
+- Okta sign-in and recovery events — https://support.okta.com/help/s/article/User-Signin-and-Recovery-Events-in-the-Okta-System-Log
+- Okta user-category events — https://docs.axonius.com/docs/okta-user-category-events
+- Sigma Okta rules — https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta
+- Elastic Okta rules — https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta
+- Gravwell alerts — https://docs.gravwell.io/alerts/alerts.html
+- Gravwell flows — https://docs.gravwell.io/flows/flows.html
+- Gravwell search modules — https://docs.gravwell.io/search/search.html

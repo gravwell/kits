@@ -1,19 +1,31 @@
+// Okta user profile snapshots land on the OKTA_USERS tag, one JSON record per user.
 tag=$OKTA_USERS
+// Pull the two profile timestamps this average measures between.
 | json
-    passwordChanged
-    lastLogin
+	id
+	passwordChanged
+	lastLogin
+// The OKTA_USERS tag is a snapshot stream: the Gravwell Okta ingester re-publishes
+// every user profile on each poll, so one user appears many times in any window.
+// Collapse to one entry per Okta user id first, otherwise every number below is
+// multiplied by the number of polls in the timeframe.
+| unique id
+// Okta writes these as RFC3339 strings; the time module parses them into real
+// timestamps so they can be subtracted.
 | time passwordChanged passwordChangedTS
 | time lastLogin lastLoginTS
+// Elapsed seconds between the two, skipping users where either is unset.
 | eval
-    if (has(passwordChangedTS) && has(lastLoginTS)) {
-        passwordChangedToLastLoginSeconds = float(unix(lastLoginTS) - unix(passwordChangedTS));
-    }
-| eval has(passwordChangedToLastLoginSeconds)
-| stats mean(passwordChangedToLastLoginSeconds) as meanSeconds
+	if (has(passwordChangedTS) && has(lastLoginTS)) {
+		elapsedSeconds = float(unix(lastLoginTS) - unix(passwordChangedTS));
+	}
+| eval has(elapsedSeconds)
+// Average across every user that had both timestamps.
+| stats mean(elapsedSeconds) as meanSeconds
+// Break the mean into human-readable units for the numbercard.
 | eval
-    days    = math_floor(meanSeconds / 86400.0);
-    hours   = math_floor(math_mod(meanSeconds, 86400.0) / 3600.0);
-    minutes = math_floor(math_mod(meanSeconds, 3600.0) / 60.0);
-    seconds = math_floor(math_mod(meanSeconds, 60.0));
-| numbercard
-    days hours minutes seconds
+	days = math_floor(meanSeconds / 86400.0);
+	hours = math_floor(math_mod(meanSeconds, 86400.0) / 3600.0);
+	minutes = math_floor(math_mod(meanSeconds, 3600.0) / 60.0);
+	seconds = math_floor(math_mod(meanSeconds, 60.0));
+| numbercard days hours minutes seconds

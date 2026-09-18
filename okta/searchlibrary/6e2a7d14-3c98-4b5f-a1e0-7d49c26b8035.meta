@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Device - Okta Device Enrolled or Platform SSO Key Registered",
+	"Description": "A device was enrolled, a device token was issued, or a Platform SSO key was registered. An enrolled device is a standing authenticator, so an adversary who gets one enrolled no longer needs the password or the original factor.\n\nEvent types: device.enrollment.create, device.token.enrollment.create, device.platform_sso.keys.register, device.local_account.create, device.password_sync.enrollment.create, device.desktop_mfa.enrollment.create\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "6e2a7d14-3c98-4b5f-a1e0-7d49c26b8035",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

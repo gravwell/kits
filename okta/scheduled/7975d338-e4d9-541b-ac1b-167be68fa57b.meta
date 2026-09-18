@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - User - Risk - Okta User Risk Level Raised",
+	"Description": "Okta Identity Threat Protection changed a user's risk level or detected a risk signal. Okta raises risk on things it will not always block outright, so this is the feed that tells you which accounts its own model is unhappy about.\n\nEvent types: user.risk.change, user.risk.detect, policy.entity_risk.action\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/itp/overview.htm\n- https://developer.okta.com/docs/reference/api/event-types/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "7975d338-e4d9-541b-ac1b-167be68fa57b",
+	"SearchReference": "8b6d24e0-3f97-41ca-85b3-2d7e0a5c19f8"
+}

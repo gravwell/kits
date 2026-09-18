@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Users - Stale Accounts Not Used in 90 Days [table]",
+	"Description": "Lists ACTIVE Okta users that have not signed in for at least 90 days, plus active accounts that have never signed in. Every one of these is a live credential nobody is watching, which is exactly what an adversary wants.\n\nEdit the 90.0 in the query to change the threshold.\n\nRenders as a table.",
+	"GUID": "7ea19c34-6b52-4d80-9f13-2c8a5e07b4d6",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

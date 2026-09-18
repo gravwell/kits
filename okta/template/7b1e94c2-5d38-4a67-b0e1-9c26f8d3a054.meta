@@ -1,0 +1,36 @@
+{
+	"UUID": "7b1e94c2-5d38-4a67-b0e1-9c26f8d3a054",
+	"Name": "Template - Okta - Investigation - Application Access for Actor, Target, and/or IP [table]",
+	"Description": "Which applications were reached, and which were refused, for the actor, target, and source address you enter. Successes and failures are counted per application, so a run of failures against one app followed by a success tells you where the adversary was headed.\n\nAll three variables accept wildcards, and * matches everything.\n\nRenders as a table.\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "Okta Actor",
+				"description": "The account that performed the action, matched against actor.alternateId and actor.displayName.  Wildcards allowed; leave as * for any actor.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%2%%",
+				"label": "Okta Target",
+				"description": "The account or object the action was performed against, matched against target.alternateId and target.displayName.  Wildcards allowed; leave as * for any target.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%3%%",
+				"label": "Okta IP",
+				"description": "The source address, matched against client.ipAddress and the first hop of request.ipChain.  Wildcards allowed; leave as * for any address.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"okta"
+	]
+}

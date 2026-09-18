@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Application - OAuth2 - Okta OAuth2 Admin Consent Granted",
+	"Description": "An administrator granted consent on behalf of the whole org for an OAuth2 client's scopes, or a refresh token was detected being reused. Admin consent means no user ever sees a consent prompt for that client again; token reuse detection means a refresh token was presented twice, which is what happens when one has been stolen.\n\nEvent types: app.oauth2.admin.consent.grant, app.oauth2.as.token.detect_reuse, app.oauth2.token.detect_reuse\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "fbb558ee-b291-5656-b88c-f668e72bc520",
+	"SearchReference": "b03f7c26-4e91-48da-a5f7-6c19e0b28d43"
+}

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - IAM - Resourceset - Okta Admin Role Assignment Created [table]",
-  "Description": "Detects when a new admin role assignment is created. Which could be a sign of privilege escalation or persistence.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_admin_role_assignment_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
-  "GUID": "a8adaf78-53b9-5d21-8fdc-c7a31e7ce9bf",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - IAM - Resourceset - Okta Custom Admin Role or Resource Set Changed",
+	"Description": "A custom administrator role, its permissions, or a resource set binding was changed. Custom roles are how Okta does fine-grained delegated administration, so adding a permission to a role or binding a role to a wider resource set escalates privilege without ever touching the standard admin roles.\n\nEvent types: iam.role.create, iam.role.update, iam.role.permissions.add, iam.resourceset.create, iam.resourceset.update, iam.resourceset.bindings.add, iam.resourceset.resources.add\n\nReference(s):\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomRole/\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "a8adaf78-53b9-5d21-8fdc-c7a31e7ce9bf",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Provider Types [chart]",
-	"Description": "Displays a chart of credential provider types by count. ",
+	"Name": "Search - Okta - Users - Credential Provider Type [chart]",
+	"Description": "Counts Okta users by credential provider type, taken from the credentials.provider.type field of the user profile snapshot. OKTA means the password lives in Okta; ACTIVE_DIRECTORY, LDAP, or FEDERATION mean authentication is delegated elsewhere.\n\nRenders as a chart.",
 	"GUID": "1d4fd539-669b-46e3-bca9-56c8e3facdbb",
 	"Labels": [
 		"okta"

@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Created to Activated Average [numbercard]",
-	"Description": "Displays a numbercard of the created to activated average/mean.",
+	"Name": "Search - Okta - Users - Created to Activated Average [numbercard]",
+	"Description": "Average time between an Okta account being created and being activated. A long average means accounts sit unactivated after provisioning, which leaves staged credentials lying around.\n\nRenders as a numbercard broken into days, hours, minutes, and seconds.",
 	"GUID": "3ffd7959-dc10-4362-ac9d-86e4e6b5fd92",
 	"Labels": [
 		"okta"

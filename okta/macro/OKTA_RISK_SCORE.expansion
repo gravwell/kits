@@ -1,0 +1,99 @@
+// OKTA_RISK_SCORE -- scores an already-enriched Okta System Log event from
+// 0-100 and drops it into a priority bucket.  Every rule is inline below; open
+// this macro in the search GUI to read it.
+//
+// Requires these enumerated values to already exist:
+//   eventType severity outcomeResult isProxy   -- from the json module
+//   category subcategory is_mod                -- from: lookup -r okta_eventTypes
+//   actor_weight                               -- from: lookup -r okta_privileged_actor
+//   target_weight                              -- from: lookup -r okta_protected_target
+//   actorUserNorm targetUserNorm               -- lower-cased usernames
+//
+// Produces: risk_score (0-100), _priority, is_mod_final, risk_raw
+// Buckets:  Critical >= 90, High >= 75, Medium >= 55, Low >= 35, else Informational
+//
+// Every step below accumulates into the single value risk_raw rather than into a
+// named bump per step.  These queries ship raw entries, so every enumerated value
+// reaches the alert -- keeping the working set small keeps the alert readable.
+//
+// Step 1 of 6: pick a base score from the event type.  The most damaging Okta
+// operations (signing keys, OAuth2 clients, sign-on policy, credential and
+// factor resets) score highest because they hand an attacker durable access.
+// Anything we do not recognise falls through to a neutral 35.
+| eval
+	risk_raw = 35.0;
+	if (match(eventType, "(?i)^user\\.session\\.impersonation\\.")
+		|| match(eventType, "(?i)^(app|application)\\.(keys?|key_credential)(\\.|$).*\\.(create|delete|update|rotate|generate|revoke)$")) {
+		risk_raw = 90.0;
+	} else if (match(eventType, "(?i)^(user\\.account|group)\\.privilege\\.(grant|revoke)$")
+		|| match(eventType, "(?i)^oauth2\\.(client|clients|scope|scopes|claim|claims)(\\.|$).*\\.(create|delete|update|rotate|revoke)$")) {
+		risk_raw = 85.0;
+	} else if (match(eventType, "(?i)^policy\\.(mapping|rule|evaluate|execute|scheduled)(\\.|$).*\\.(create|delete|update|enable|disable)$")
+		|| match(eventType, "(?i)^application\\.policy(\\.|$).*\\.(create|delete|update|enable|disable)$")) {
+		risk_raw = 80.0;
+	} else if (match(eventType, "(?i)^user\\.(credential|mfa\\.factor|factor|grant|session)(\\.|$).*\\.(enroll|unenroll|reset|revoke|disable|enable|delete|create|update|activate|deactivate|suspend|unsuspend)$")
+		|| match(eventType, "(?i)^system\\.api_token\\.(create|revoke)$")) {
+		risk_raw = 80.0;
+	} else if (match(eventType, "(?i)^zone\\.(activate|deactivate|create|delete|update)$")
+		|| match(eventType, "(?i)^user\\.account\\.(reset_password|unlock|update_password|lock)$")) {
+		risk_raw = 75.0;
+	} else if (match(eventType, "(?i)^application\\..*\\.(grant|revoke|assign|unassign)$")) {
+		risk_raw = 70.0;
+	} else if (match(eventType, "(?i)^group\\.(rule|owner|role|profile|user|privilege)(\\.|$).*\\.(create|delete|update|assign|unassign|grant|revoke)$")) {
+		risk_raw = 70.0;
+	} else if (match(eventType, "(?i)^device\\.(platform_sso|token|local_account|user_os_account|enrollment)(\\.|$).*\\.(create|issue|register|sync|rotate|update|enable|disable)$")) {
+		risk_raw = 65.0;
+	} else if (match(eventType, "(?i)^(hook|event\\.hook|inline\\.hook)\\..*\\.(create|delete|update|enable|disable)$")) {
+		risk_raw = 60.0;
+	} else if (match(eventType, "(?i)^(directory|idp|identity|linked_objects)\\..*\\.(create|delete|update|import|link|unlink|map|unmap)$")) {
+		risk_raw = 60.0;
+	} else if (match(eventType, "(?i)^system\\.(rate_limit|api_token|email|brand|theme|custom_signout|well_known_uri)\\..*\\.(create|delete|update|enable|disable|set|unset|change)$")) {
+		risk_raw = 55.0;
+	} else if (match(eventType, "(?i)^(security|user\\.risk)\\.")) {
+		risk_raw = 55.0;
+	}
+// Step 2 of 6: decide whether this event changed configuration.  okta_eventTypes
+// marks the known ones with is_mod=1; the verb on the end of the event type
+// catches anything Okta has added since the lookup was last refreshed.
+| eval
+	is_mod_final = 0;
+	if (has("is_mod") && is_mod == 1) { is_mod_final = 1; }
+	if (is_mod_final == 0 && match(eventType, "(?i)\\.(create|delete|update|remove|add|assign|unassign|grant|revoke|enable|disable|activate|deactivate|rotate|generate|issue|reset|set|unset|change|map|unmap|link|unlink|clone|import|export|enroll|unenroll|provision|deprovision|migrate|rename|reassign|transfer|approve|deny|suspend|unsuspend|block|unblock|lock|unlock|reset_password|update_password|change_password|change_username|expire_password|forgot_password)$")) {
+		is_mod_final = 1;
+	}
+// Step 3 of 6: modification bump.  A configuration change is worse than a read,
+// but only bump events that are not already scored high so the total stays sane.
+| eval
+	if (is_mod_final == 1 && risk_raw < 60.0) { risk_raw = risk_raw + 15.0; }
+	else if (is_mod_final == 1 && risk_raw < 80.0) { risk_raw = risk_raw + 8.0; }
+// Step 4 of 6: signal bumps taken straight off the event.  Okta severity, a
+// successful outcome (the attacker got what they wanted), and traffic arriving
+// through an anonymising proxy all raise the score.
+| eval
+	if (has("severity") && match(severity, "(?i)ERROR")) { risk_raw = risk_raw + 10.0; }
+	else if (has("severity") && match(severity, "(?i)WARN")) { risk_raw = risk_raw + 5.0; }
+	if (has("outcomeResult") && match(outcomeResult, "(?i)(SUCCESS|ALLOW)")) { risk_raw = risk_raw + 5.0; }
+	if (has("isProxy") && isProxy == "true") { risk_raw = risk_raw + 5.0; }
+// Step 5 of 6: account-sensitivity bumps.  An explicit weight from the
+// okta_privileged_actor / okta_protected_target lookups always wins; otherwise
+// fall back to a name heuristic for root, admin, svc, sql and system accounts.
+// Being the target of an action is weighted higher than performing it.
+| eval
+	if (has("actor_weight")) { risk_raw = risk_raw + float(actor_weight); }
+	else if (has("actorUserNorm") && actorUserNorm != "" &&
+		match(actorUserNorm, "(?i)(^root$|(^|[^a-z])admin([^a-z]|$)|(^|[^a-z])svc([^a-z]|$)|(^|[^a-z])sql([^a-z]|$)|(^|[^a-z])system([^a-z]|$))")) {
+		risk_raw = risk_raw + 8.0;
+	}
+	if (has("target_weight")) { risk_raw = risk_raw + float(target_weight); }
+	else if (has("targetUserNorm") && targetUserNorm != "" &&
+		match(targetUserNorm, "(?i)(^root$|(^|[^a-z])admin([^a-z]|$)|(^|[^a-z])svc([^a-z]|$)|(^|[^a-z])sql([^a-z]|$)|(^|[^a-z])system([^a-z]|$))")) {
+		risk_raw = risk_raw + 12.0;
+	}
+// Step 6 of 6: clamp the total to 0-100 and bucket it into a priority.
+| eval
+	risk_score = math_round(math_min(math_max(risk_raw, 0.0), 100.0));
+	_priority = "Informational";
+	if (risk_score >= 90.0) { _priority = "Critical"; }
+	else if (risk_score >= 75.0) { _priority = "High"; }
+	else if (risk_score >= 55.0) { _priority = "Medium"; }
+	else if (risk_score >= 35.0) { _priority = "Low"; }

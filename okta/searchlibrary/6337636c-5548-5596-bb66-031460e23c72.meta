@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Security - Events - Okta Security Threat Detected [table]",
-  "Description": "Detects when an security threat is detected in Okta.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_security_threat_detected/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_security_threat_detected.yml",
-  "GUID": "6337636c-5548-5596-bb66-031460e23c72",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Security - Events - Okta Security Threat Detected",
+	"Description": "Okta ThreatInsight flagged the request as a threat. Okta scores requests against traffic it sees across every tenant, so this fires on addresses already implicated in credential attacks elsewhere.\n\nEvent types: security.threat.detected, security.request.blocked\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/security/threat-insight/okta-threatinsight-overview.htm\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "6337636c-5548-5596-bb66-031460e23c72",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

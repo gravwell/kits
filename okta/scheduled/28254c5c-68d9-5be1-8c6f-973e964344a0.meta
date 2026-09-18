@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - User - Authentication - Okta FastPass Phishing Detection",
+	"Description": "Okta FastPass refused to complete authentication because it detected a phishing attempt. FastPass binds the sign-in to the real Okta origin, so a proxy sitting between the user and Okta fails this check. A hit means someone reached a credential-phishing page for your org and got as far as the factor prompt.\n\nEvent type: user.authentication.auth_via_mfa with an outcome reason naming FastPass declining a phishing attempt\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_fastpass_phishing_detection/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_fastpass_phishing_detection.toml\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "28254c5c-68d9-5be1-8c6f-973e964344a0",
+	"SearchReference": "2868dc81-41bf-5a69-8f6b-5d5d2d396778"
+}

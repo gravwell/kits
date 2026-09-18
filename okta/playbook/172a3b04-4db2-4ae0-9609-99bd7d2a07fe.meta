@@ -9,7 +9,7 @@
 		"GIDs": []
 	},
 	"Name": "Okta Kit for Gravwell - Overview",
-	"Desc": "",
+	"Desc": "How the Okta kit is put together: the two tags, the seven macros, the shape of a detection query, the single alert router, and how to tune noise without editing queries.",
 	"Labels": [
 		"okta"
 	],

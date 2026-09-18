@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - System - Location - Sign-In Locations [pointmap]",
+	"Description": "Plots Okta sign-in activity on a map. Coordinates come from Okta's own client.geographicalContext.geolocation, which Okta resolves at the edge at request time; the maxmind resource from the Gravwell Network Enrichment kit is used only as a fallback for events that arrive without it.\n\nSign-ins clustered where your people are, plus one outlier, is the pattern worth chasing.\n\nRenders as a point map.",
+	"GUID": "3d7f61b2-9e04-4c8a-b573-1af26c95e830",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

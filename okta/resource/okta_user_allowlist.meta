@@ -1,11 +1,11 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "okta_user_allowlist",
-	"Description": "Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with optional expiry.\n\nFields: key,enabled,until_ymd,reason\n\nKey format: \u003cnormalized_user\u003e|\u003calert_name_or_*\u003e (uses actorUserNorm / targetUserNorm; until_ymd = YYYYMMDD; enabled = 1 or 0)\n\nExamples: This is currently what is in okta_user_allowlist.csv\nkey,enabled,until_ymd,reason\nalice|Alert - Okta - High - Okta Admin Role Assigned to a User or Group,1,20251231,\"temporary exception for migration\"\nbob|*,1,,\"permanent allow across all alerts\"\n\nReference(s):\n\nUsage:\n// OKTA_DYNAMIC + IP tuning\n$OKTA_ALERT_BASE\n$OKTA_ENRICH_COMMON\n$OKTA_RISK_SCORE_EXTENDED\n$OKTA_TUNE_IPLISTS\n$OKTA_CATALOG_GATE\n$OKTA_ALERT_META",
+	"Description": "Tuning control for $OKTA_TUNING: suppress Okta detections involving accounts you have vouched for, whether the account is the actor or the target. A row that is enabled and unexpired drops the event outright.\n\nFields: key,enabled,until_ymd,reason\n  - key: the lower-cased username with the email domain stripped, matched against both actorUserNorm and targetUserNorm (so bob@example.com is keyed as bob)\n  - enabled: 1 to apply the row, 0 to park it without deleting it\n  - until_ymd: YYYYMMDD expiry, compared against the event's published date; leave empty for a permanent exception\n  - reason: free text, so the next analyst knows why the exception exists\n\nCurrent contents:\nkey,enabled,until_ymd,reason\nsvc-okta-sync,1,,directory sync service account - permanently allowed\nalice,1,20261231,tenant migration exception - allowed until end of 2026\n\nUsage:\n$OKTA_RISK_SCORE\n$OKTA_TUNING",
 	"Labels": [
 		"okta"
 	],
-	"Size": 192,
-	"Hash": "i6CpvZWVMyLI3O5vzu/WKg==",
+	"Size": 171,
+	"Hash": "gPrIJR03/4seTLQVkWuzLA==",
 	"Data": ""
 }

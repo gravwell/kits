@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Users - User State [numbercard]",
-	"Description": "Displays a numbercard of the user's State by count.",
+	"Name": "Search - Okta - System - Location - Sign-In Network Operator [numbercard]",
+	"Description": "Counts Okta sign-in activity by the network operator that owns the source address. Residential ISPs and cloud hosting providers look very different here, and authentication arriving from a hosting provider is worth a second look.\n\nGeography and network ownership come from Okta's own client.geographicalContext and securityContext, which Okta resolves at the edge at request time. The maxmind and asn_db resources from the Gravwell Network Enrichment kit are used only as a fallback, for the small number of events that arrive without Okta's enrichment.\n\nRenders as one numbercard per operator.",
 	"GUID": "7c836a9a-83c2-46f8-bf54-e821dcac86d9",
 	"Labels": [
 		"okta"

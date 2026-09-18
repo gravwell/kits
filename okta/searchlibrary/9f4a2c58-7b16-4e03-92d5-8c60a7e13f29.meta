@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Lifecycle - System Logs - Okta Log Stream Deactivated or Deleted",
+	"Description": "An Okta log stream was deactivated or deleted. Log streams are how the System Log reaches your SIEM, so switching one off is a direct attempt to stop everything else in this kit from seeing what happens next. Treat it as anti-forensics.\n\nEvent types: system.log_stream.lifecycle.deactivate, system.log_stream.lifecycle.delete, system.log_stream.lifecycle.update\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://help.okta.com/en-us/content/topics/reports/log-streaming/log-streaming.htm",
+	"GUID": "9f4a2c58-7b16-4e03-92d5-8c60a7e13f29",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

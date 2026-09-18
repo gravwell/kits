@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - System API - Okta API Token Revoked [table]",
-  "Description": "Detects when a API Token is revoked.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_api_token_revoked/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
-  "GUID": "d733d774-7f20-5558-9356-700c11ecfc59",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Lifecycle - System API - Okta API Token Revoked",
+	"Description": "An Okta API token was revoked. Usually this is hygiene, but revoking the token a security tool authenticates with is a way to blind that tool, so check what the revoked token was used for.\n\nEvent type: system.api_token.revoke\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_attempt_to_revoke_okta_api_token/",
+	"GUID": "d733d774-7f20-5558-9356-700c11ecfc59",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication - Single Sign on or SSO [table]",
-  "Description": "Detects successful single sign-on (SSO) events to Okta applications from an unrecognized or \"unknown\" client device, as identified by the user-agent string. This activity may be indicative of exploitation of a vulnerability in Okta's Classic Engine, which could allow an attacker to bypass application-specific sign-on policies, such as device or network restrictions. The vulnerability potentially enables unauthorized access to applications using only valid, stolen credentials, without requiring additional authentication factors.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_successful_application_sso_from_unknown_client_device/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_successful_application_sso_from_unknown_client_device.toml",
-  "GUID": "75c18ec5-3941-5777-ad84-b7a6aa94ce46",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Authentication - Okta Application SSO from an Unknown Client Device",
+	"Description": "A successful SSO into an application where Okta could not identify the client device. Device-based sign-on policy rules cannot evaluate a device they cannot identify, so an unknown client is how a request slips past a rule that would otherwise have stopped it.\n\nEvent type: user.authentication.sso with client.device unknown or absent\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_successful_application_sso_from_unknown_client_device/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_successful_application_sso_from_unknown_client_device.toml",
+	"GUID": "75c18ec5-3941-5777-ad84-b7a6aa94ce46",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

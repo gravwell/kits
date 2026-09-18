@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Potential Okta Password in AlternateID Field [table]",
-  "Description": "Detects when a user has potentially entered their password into the username field, which will cause the password to be retained in log files.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_password_in_alternateid_field/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_password_in_alternateid_field.yml",
-  "GUID": "f08582d0-faf4-539f-9998-575ee252ed1f",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - System - Event Types - Potential Okta Password in the Username Field",
+	"Description": "The username submitted at sign-in does not look like a username: it has no @ and does not look like an Okta ID, but it does have the shape of a password. Users type their password into the username box, and when they do it lands in the System Log in cleartext and needs rotating.\n\nField: actor.alternateId\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "f08582d0-faf4-539f-9998-575ee252ed1f",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

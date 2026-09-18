@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Policy - Application - Okta Application Sign-On Policy Modified or Deleted [table]",
-  "Description": "Detects when an application Sign-on Policy is modified or deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_application_sign_on_policy_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
-  "GUID": "674836c8-1e9b-5a05-9b88-301b1a553e14",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Policy - Application - Okta Application Sign-On Policy Changed",
+	"Description": "An application sign-on policy or one of its rules was changed. These policies decide what an application demands at sign-in, so weakening one lets an adversary reach the application with stolen credentials alone.\n\nEvent types: application.policy.sign_on.update, application.policy.sign_on.rule.create, application.policy.sign_on.rule.delete\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_application_sign_on_policy_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_application_sign_on_policy_modified_or_deleted.yml",
+	"GUID": "674836c8-1e9b-5a05-9b88-301b1a553e14",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Application - OAuth2 - Okta OAuth2 Client Secret Read",
+	"Description": "Someone read an OAuth2 client's secret. Client secrets are written down once at setup; reading one later hands over API access as that client, so this should correspond to a known rotation.\n\nEvent type: app.oauth2.client.read_client_secret\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "7d2b48e1-5a63-4c97-bf10-3e6d9c25a074",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

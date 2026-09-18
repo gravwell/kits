@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Okta Admin Functions Access Through Proxy [table]",
-  "Description": "Detects access to Okta admin functions through proxy.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_admin_activity_from_proxy_query/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_admin_activity_from_proxy_query.yml",
-  "GUID": "1d066b02-465e-5993-a0a6-dfde9ff76d22",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - System - Session - Okta Admin Console Accessed",
+	"Description": "Someone opened the Okta admin console. Compare the actor, the source address, and the geolocation against who is supposed to be administering the org; admin console access from an unexpected address or country is worth chasing even when the credentials were valid.\n\nEvent types: user.session.access_admin_app, plus any request whose URI is under /admin\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "1d066b02-465e-5993-a0a6-dfde9ff76d22",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }
