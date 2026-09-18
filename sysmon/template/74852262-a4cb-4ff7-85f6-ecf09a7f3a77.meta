@@ -5,7 +5,7 @@
 	"Data": {
 		"variables": [
 			{
-				"name": "_GUID_",
+				"name": "%%GUID%%",
 				"label": "Process Guid",
 				"description": "Process Guid Value",
 				"required": true,

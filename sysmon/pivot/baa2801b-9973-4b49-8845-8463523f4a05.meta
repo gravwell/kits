@@ -51,7 +51,7 @@
 					"type": "template",
 					"reference": "d19183fe-5928-41d8-a58a-30c9341405ff",
 					"options": {
-						"variable": "_GUID_"
+						"variable": "%%GUID%%"
 					}
 				}
 			},

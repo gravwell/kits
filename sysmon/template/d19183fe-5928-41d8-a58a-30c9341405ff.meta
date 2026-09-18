@@ -5,7 +5,7 @@
 	"Data": {
 		"variables": [
 			{
-				"name": "_GUID_",
+				"name": "%%GUID%%",
 				"label": "ProcessGuid",
 				"description": "Sysmon Process GUID",
 				"required": true,

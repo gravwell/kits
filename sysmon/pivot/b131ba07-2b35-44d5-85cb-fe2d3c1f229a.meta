@@ -29,7 +29,7 @@
 					"type": "template",
 					"reference": "87d7b1c8-2aa4-4b09-816a-295d548b797b",
 					"options": {
-						"variable": "_HASH_"
+						"variable": "%%HASH%%"
 					}
 				}
 			}

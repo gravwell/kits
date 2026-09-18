@@ -1,4 +1,4 @@
-@SHA{tag=$SYSMON winlog $PROVIDER EventID==1 ProcessGuid=="_GUID_" Hashes |
+@SHA{tag=$SYSMON winlog $PROVIDER EventID==1 ProcessGuid=="%%GUID%%" Hashes |
 kv -e Hashes -sep "=" -d "," SHA256 | table SHA256};
 tag=$SYSMON winlog $PROVIDER EventID==1 Hashes Image Computer User |
 kv -e Hashes -sep "=" -d "," SHA256 |

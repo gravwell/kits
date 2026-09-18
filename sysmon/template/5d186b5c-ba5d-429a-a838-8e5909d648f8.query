@@ -1,2 +1,2 @@
-tag=$SYSMON winlog $PROVIDER ProcessGuid=="_GUID_" EventID==11 TargetFilename |
+tag=$SYSMON winlog $PROVIDER ProcessGuid=="%%GUID%%" EventID==11 TargetFilename |
 table TargetFilename TIMESTAMP

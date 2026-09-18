@@ -5,7 +5,7 @@
 	"Data": {
 		"variables": [
 			{
-				"name": "_HASH_",
+				"name": "%%HASH%%",
 				"label": "SHA256 Hash",
 				"description": "",
 				"required": true,
