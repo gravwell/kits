@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="dns" dns.type=="query" as dnstype src_ip dns.rrname as rrname dns.rrtype as rrtype
+| eval src_ip == "%%1%%"
+| count by rrname rrtype
+| table -nt rrname rrtype count

@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="flow" app_proto
+| require app_proto
+| count by app_proto
+| chart count by app_proto limit 15

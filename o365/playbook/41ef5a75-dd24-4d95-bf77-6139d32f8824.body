@@ -1,0 +1,68 @@
+The Gravwell Office 365 Kit provides a baseline set of queries, dashboards, templates, and investigative resources for the Office 365 cloud office suite. It covers Azure Active Directory activity, Exchange mailbox and mail-flow events, SharePoint file and sharing activity, and the General (Security & Compliance) audit feed.
+
+This playbook serves to get you oriented around the kit and provide some anchors into the data and dashboards. For full ingester setup, see the [O365 integration guide](https://docs.gravwell.io/integrations/cloud/office365.html) and the [ingester documentation page](https://docs.gravwell.io/ingesters/o365.html).
+
+# **Overview**
+
+## Scope notes
+Two things worth knowing before you go looking for data that isn't here:
+
+**"Azure Active Directory" in this kit means the O365 audit log's view of it, not full Entra ID sign-in logs.** The Azure dashboards and queries in this kit are built on the Office 365 Management Activity API's AzureActiveDirectory workload — a subset of AAD events (mostly login success/failure and directory-user activity) that Office 365's own unified audit log happens to capture, not the full Entra ID/Azure AD sign-in and diagnostic-log telemetry. If you need native Azure AD/Entra ID sign-in logs, that's a separate azure kit with its own, differently-shaped data.
+
+**DLP data is ingested by the integration but not used by this kit.** The O365 integration guide's default setup includes the ActivityFeed.ReadDlp permission and a 365-dlp tag (Content-Type DLP.All) alongside the four workloads above. This kit does not currently ship any queries, dashboards, or macros against that data — if you don't need DLP data ingested for another purpose, you can omit that permission when setting up the app registration.
+
+The kit expects Office 365 audit log data landed under a storage well such as:
+
+<pre>
+[Storage-Well "O365"]
+	Location=/opt/gravwell/storage/office365
+	Tags=365*
+	Accelerator-Name=fulltext
+	Accelerator-Args="-ignoreFloat -ignoreUUID"
+</pre>
+
+Queries, templates, and dashboards reach their data through four config macros — **$365-AZURE**, **$365-EXCHANGE**, **$365-SHAREPOINT**, and **$365-GENERAL** — which you can repoint at your own tag names at install time.
+
+The kit's autoextractors, by contrast, bind to the default tag names (**365-azure**, **365-exchange**, **365-sharepoint**, **365-general**) because the autoextractor item type takes a literal tag rather than a macro. If you retag your Office 365 feed, the queries follow your macro overrides but the autoextractors will not: update each autoextractor's tag in the UI after install, or interactive auto-extraction of fields for those tags will not apply.
+
+## Dependencies
+This kit depends on **io.gravwell.networkenrichment** (MinVersion 14), which supplies the asn_db resource used by the ASN and geolocation lookups on the login-activity map and the login-ratio table.
+
+# **Queries**
+Three lookup tables ship with the kit and can be used in your own searches:
+
+| Resource | Resolves | Helper macro |
+|---|---|---|
+| o365\_audit\_recordtype | numeric RecordType to its name | $RESOLVE\_O365\_RECORDTYPE |
+| o365\_audit\_usertype | numeric UserType to its name | $RESOLVE\_O365\_USERTYPE |
+| o365\_audit\_applicationid | ApplicationId GUID to an application name | none — use lookup -r o365\_audit\_applicationid ApplicationId id name as Application |
+
+# **Dashboards**
+9 dashboards are included with this kit, grouped by workload.
+
+## Office 365 - Azure Overview
+Azure Active Directory activity at a glance (see Scope notes above): overall activity distribution, active users, users failing to log in, login failure counts, a login-failure map, and per-user login success/failure ratios.
+
+## Office 365 - Azure User Investigative Dashboard
+A per-user drill-down for the same Azure Active Directory activity: login counts, geo-located operations, the distribution of operations by user, unique user agents seen, and operations broken out by workload.
+
+## Office 365 Exchange User Overview
+Exchange mailbox activity: activity overview, new and removed mailboxes, active mail users, email traffic usage, a login-activity map, and common vs. rare email attachment extensions.
+
+## Office 365 - Exchange User Investigative Dashboard
+A per-user drill-down for Exchange activity: client activity, operation distribution, and attachment activity.
+
+## Office 365 - Exchange IP Investigative Dashboard
+An IP-focused drill-down for Exchange activity: an overview, per-IP user activity, unique users, IP geolocation, and the clients/versions seen from an IP.
+
+## Office 365 - Sharepoint Overview
+SharePoint activity at a glance: a heatmap of users, guest domains receiving new shares, users touching executable files, users sharing externally, and users with a high volume of deletions.
+
+## Office 365 - Sharepoint User Investigation
+A per-user drill-down for SharePoint activity: file deletions, external shares, an activity heatmap, and operations.
+
+## Office 365 - Sharepoint Asset Investigation
+An asset-focused drill-down for SharePoint activity: an activity map, detailed results, and user activity.
+
+## Office 365 - General Overview
+The Security & Compliance audit feed across all workloads: workload distribution, user counts, threat intel, user locations, and Security & Compliance alert stats.

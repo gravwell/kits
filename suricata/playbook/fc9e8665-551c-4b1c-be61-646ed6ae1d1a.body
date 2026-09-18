@@ -1,0 +1,104 @@
+Welcome to the Suricata kit. This kit is designed to help you query and make the most of Suricata EVE JSON logs.
+
+This playbook serves to get you oriented around the kit and provide some anchors into the data and dashboards.
+
+See the [Gravwell Suricata Integration Guide](https://docs.gravwell.io/integrations/network/suricata.html) for step-by-step File Follower and storage well configuration.
+
+# **Overview**
+Suricata's EVE JSON output is a single unified log stream: every record carries a top-level event_type discriminator (alert, dns, http, tls, ssh, flow, fileinfo, anomaly, etc.), and the event-specific fields live in a nested object named after that type (alert.signature, dns.rcode, tls.sni, flow.bytes_toserver). Fields common to most event types (src_ip, dest_ip, dest_port, proto, app_proto) sit at the top level regardless of event_type.
+
+The standard pattern is: filter by event_type, pull the nested fields you need with json ... as alias, then pipe into eval/regex/stats/table/chart. A typical detection query looks like this:
+
+```shell
+tag=$SURICATA json event_type=="alert" alert.severity as severity alert.signature as signature alert.category as category src_ip dest_ip dest_port
+| eval severity == 1
+| table TIMESTAMP src_ip dest_ip dest_port signature category severity
+```
+
+**$SURICATA** is the kit's config macro; set it to whatever tag carries your EVE JSON ingest (default: suricata).
+
+## Inherent Limitations
+Suricata's alert **severity is inverted from what you might expect: 1 is highest priority, 3 is lowest.** Every severity-based query in this kit filters on that scale, not a CVSS-style one.
+
+Several event types depend on Suricata features that aren't on by default, and simply won't appear in EVE output until you enable them in suricata.yaml:
+- **TLS SNI / TLS version** require extended: yes under eve-log types.tls. Basic TLS logging only emits subject and issuerdn — no tls.sni, no tls.version.
+- **File-magic detections** (executable transfer, file types observed) require the files/fileinfo event type plus force-magic: yes under eve-log types.files, and a Suricata build with libmagic support. Without libmagic, the executable-transfer detection still runs but falls back to filename-suffix matching (.exe/.dll/.msi) only.
+- **JA3 fingerprinting** requires app-layer.protocols.tls.ja3-fingerprints enabled.
+- **Anomaly events** are opt-in; malformed/non-conforming protocol traffic isn't logged unless the anomaly event type is enabled.
+- **Geographic mapping** (the External Alert Sources Map) uses the geoip module, which needs the Gravwell Network Enrichment Kit or your own MaxMind database — without one it just renders an empty map.
+
+A couple of field-direction gotchas worth knowing before you write your own queries:
+- **DNS rcode only appears on response records, not queries** — the resolving server is the record's src_ip, so a client-focused query (like the NXDOMAIN burst detection) keys off dest_ip instead. If you filter DNS by src_ip expecting "the client," you'll get the resolver.
+- **DNS query/response dedup**: query and response records share the same rrname, so queries that only want to count distinct lookups filter to dns.type=="query" to avoid double-counting.
+- **Regex substring matching**: several detections (e.g. Suspicious HTTP User Agents) match substrings, not whole tokens — curl also matches libcurl-based agents. Tighten the pattern if that's too broad for your environment.
+- **TLS version string format has changed across Suricata releases** (TLSv1 vs TLS 1.0). The deprecated-TLS-version detection lists both; trim the in() list to match what your Suricata release actually emits.
+
+Nearly every detection in this kit ships with a starting-point threshold (port scan > 100 distinct ports/hour, NXDOMAIN > 25/hour, anomaly > 100/hour, large transfer > 100MB, severity ≤ 2 floors on the inbound/outbound alert detections) called out in its description — tune these in the final eval to fit your environment before you rely on them.
+
+# **Queries**
+A search library of 31 queries is provided, split between 12 detections (which also ship as disabled scheduled searches — see below) and 19 stats/dashboard-support queries, organized by event type.
+
+## Alerts
+The busiest category: 6 dashboard queries (Alert Actions, Alert Severity Distribution, Top Alert Signatures, Alerts by Category Over Time, Top Alerting Source/Destination IPs) plus the geoip-backed External Alert Sources Map, and 3 detections — High Severity Alerts, Inbound Alerts Targeting Internal Hosts, and Outbound Alerts from Internal Hosts. The inbound/outbound pair both filter on severity <= 2 and use the ip module against PRIVATE to separate internal from external addresses:
+
+```shell
+tag=$SURICATA json event_type=="alert" src_ip dest_ip dest_port alert.signature as signature alert.category as category alert.severity as severity
+| ip src_ip !~ PRIVATE dest_ip ~ PRIVATE
+| eval severity <= 2
+| table TIMESTAMP src_ip dest_ip dest_port signature category severity
+```
+
+## DNS
+Two dashboard queries (Top DNS Queries, DNS Response Codes) and one detection: DNS NXDOMAIN Burst by Source, which flags a client resolving more than 25 NXDOMAINs in an hour — a common DGA/C2 indicator (ATT&CK T1568.002). Remember the dest_ip-as-client quirk noted above.
+
+## TLS
+Two dashboard queries (Top TLS SNI, Top JA3 Client Fingerprints) and two detections: Self-Signed TLS Certificate (subject == issuerdn) and Deprecated TLS Version in Use (SSLv2/3, TLS 1.0/1.1), which is also tagged for compliance reporting.
+
+## HTTP
+Three dashboard queries (Top HTTP Hostnames, HTTP Status Codes Over Time, HTTP Methods) and two detections: Suspicious HTTP User Agents (curl, wget, python-requests, PowerShell, sqlmap, Nikto, nmap, masscan — ATT&CK T1071.001) and HTTP Request to Bare IP Host, a beaconing indicator that looks for requests where the Host header is a raw IP rather than a domain name.
+
+## SSH
+One dashboard query, SSH Client Software Versions — no dedicated SSH detections ship in this kit yet.
+
+## Flow
+Two dashboard queries (Top Talkers by Bytes, Application Protocol Distribution) and two detections: Possible Port Scan (> 100 distinct destination ports from one source/destination pair in an hour — ATT&CK T1046) and Large Outbound Data Transfer (private → public, > 100MB sent — ATT&CK T1048):
+
+```shell
+tag=$SURICATA json event_type=="flow" src_ip dest_ip dest_port
+| stats unique_count(dest_port) as ports by src_ip dest_ip over 1h
+| eval ports > 100
+| table -nt src_ip dest_ip ports
+```
+
+## Fileinfo
+One dashboard query (File Types Observed) and one detection, Executable File Transfer (ATT&CK T1105), which uses libmagic-derived file type when available and falls back to filename-suffix matching otherwise.
+
+## Anomaly
+One detection, Protocol Anomaly Burst — flags more than 100 anomaly events of the same type in an hour. Requires the anomaly event type to be enabled; see Inherent Limitations above.
+
+## Cross-Type
+Events Over Time by Type is the kit's pulse-check query — a simple count by event_type chart that's a good first thing to run after installing to confirm EVE JSON is actually flowing into the configured tag.
+
+# **Dashboards**
+5 dashboards are included with this kit.
+
+## Suricata Overview
+A high-level view of overall EVE activity: event volumes over time by type, alert severity breakdown, top alert signatures, application protocol distribution, top talkers by bytes, and file types observed. Start here to get a sense of what Suricata is seeing.
+
+## Suricata Alert Activity
+An alert-focused view: categories over time, allowed-vs-blocked actions (IPS mode only shows blocked traffic), top alerting sources and destinations, high-severity alerts, and a geoip map of external alert sources (requires the Network Enrichment Kit or your own GeoIP database).
+
+## Suricata Protocol Activity
+Protocol-level detail across DNS, TLS, HTTP, and SSH — top DNS queries and response codes, top TLS SNIs and deprecated TLS versions, top HTTP hostnames/status codes/methods, and SSH client versions.
+
+## Suricata IP Investigation
+An investigative, template-driven dashboard: enter an IP address once and every tile pivots to that IP across alerts, DNS, HTTP, TLS, and flow data (alert count and detail, DNS queries, HTTP activity, TLS SNI, ports contacted, and flow volume by peer). Defaults to a 7-day window since it's meant for investigation rather than daily monitoring.
+
+## Suricata Signature Investigation
+Another template-driven investigative dashboard: enter an alert signature name to see its total volume, activity trend over time, and the top sources and destinations involved. Also defaults to a 7-day window.
+
+# **Investigative Templates**
+The IP and Signature investigation dashboards are both built on templates — reusable query variables you can also drive directly from the search bar. The 7 IP-pivot templates (alert count, alert detail, DNS queries, HTTP activity, TLS SNI, ports contacted, flow volume) all key off a single IP address; the 4 signature-pivot templates (total alerts, activity over time, top sources, top destinations) key off an exact alert.signature string. Use these when you already have a specific IP or signature from an alert and want to pull its full history without hand-writing a new query.
+
+# **Scheduled Searches**
+All 12 detection queries also ship as scheduled searches (ScheduledSearch - Suricata - <name>), each referencing its search library query by GUID and running hourly on a staggered minute. **They ship disabled by default** — enable them and tune the thresholds noted above to your environment before relying on them for alerting.

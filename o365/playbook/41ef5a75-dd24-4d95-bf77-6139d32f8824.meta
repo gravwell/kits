@@ -1,0 +1,24 @@
+{
+	"UUID": "f958ad9c-24a9-4578-8baf-db8705811db9",
+	"GUID": "41ef5a75-dd24-4d95-bf77-6139d32f8824",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Office 365 - Kit Overview",
+	"Desc": "",
+	"Labels": [
+		"o365"
+	],
+	"LastUpdated": "2026-08-25T17:02:58.211780000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

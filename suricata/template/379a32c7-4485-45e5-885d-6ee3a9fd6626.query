@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="alert" alert.signature=="%%1%%" as signature dest_ip dest_port
+| count by dest_ip dest_port
+| top -n 20 count
+| table -nt dest_ip dest_port count
