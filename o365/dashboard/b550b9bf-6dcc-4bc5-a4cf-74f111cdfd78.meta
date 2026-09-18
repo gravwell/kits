@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Office 365 - Active Users and User Domains",
+				"alias": "Office 365 - Active Mail Users and User Domains",
 				"color": null,
 				"reference": {
 					"id": "35379d80-485c-4822-8f84-0c0542505b02",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Office 365 Email Traffic",
+				"alias": "Office 365 - New Mailbox Events",
 				"color": null,
 				"reference": {
 					"id": "e5b0ce97-5320-4ab8-aa2e-90e7eaf0980e",
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Office 365 Login Activity Map",
+				"alias": "Office 365 - Remove Mailbox Events",
 				"color": null,
 				"reference": {
 					"id": "a31b4633-4206-4481-9dd9-5fd8f24b69e4",
@@ -145,7 +145,7 @@
 			},
 			{
 				"id": 16680975482833,
-				"title": "Active Users",
+				"title": "Active Mail Users",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
@@ -218,5 +218,5 @@
 		"grid": {},
 		"version": 2
 	},
-	"Labels": null
+	"Labels": ["exchange", "o365"]
 }
