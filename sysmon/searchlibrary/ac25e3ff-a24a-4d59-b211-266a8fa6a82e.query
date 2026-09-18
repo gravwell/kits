@@ -1,3 +1,2 @@
 tag=$SYSMON winlog $PROVIDER EventID == 13 Image Computer RuleName ~ "Registry Run Keys" Details TargetObject |
-words Registry Run Keys |
 table Computer Image Details TargetObject TIMESTAMP
