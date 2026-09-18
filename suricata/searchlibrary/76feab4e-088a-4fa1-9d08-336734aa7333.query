@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="flow" src_ip dest_ip dest_port
+| stats unique_count(dest_port) as ports by src_ip dest_ip over 1h
+| eval ports > 100
+| table -nt src_ip dest_ip ports

@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Top HTTP Hostnames",
+ "Description": "The 20 most requested HTTP hostnames.",
+ "GUID": "39e80775-b956-47e6-adfd-3725c00552ef",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "http"
+ ],
+ "Metadata": {}
+}

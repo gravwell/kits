@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Alert Actions",
+ "Description": "Suricata alert counts by action (allowed vs blocked). Blocked appears when Suricata runs inline (IPS mode).",
+ "GUID": "21b1a365-ef6e-48c0-93c0-f66f9fe849a7",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "alert"
+ ],
+ "Metadata": {}
+}
