@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - Canary - Bird Management - Low - Device Commissioned",
+	"Description": "Detects when a bird has been commissioned.\n\ndevice_commission = Commission a Bird onto the Console.\n\nNote: the decommission action is emitted under a separate action_type and is not covered by this rule.\n\nReference(s):\nhttps://docs.canary.tools/bird-management/registrations.html\n\nhttps://docs.canary.tools/bird-management/registrations.html#commission-bird",
+	"GUID": "67fdcc06-ab17-4eb7-80c8-394338aefd39",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

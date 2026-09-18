@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_INCIDENT_SEARCH",
+	"Description": "This was built to search any and all Thinkst Canary Incident Alerts created from the $CANARY_INCIDENT_ALERT. \n\n**Everyone of those search options can handle wildcards and must be filled out**\n\nThis allows you to search any incident with the following options:\n    - result = \"%%1%%\"\n    - flock_id = \"%%2%%\"\n    - flock_name = \"%%3%%\"\n    - src_host = \"%%4%%\"\n    - src_port = \"%%5%%\"\n    - dst_host = \"%%6%%\"\n    - dst_port = \"%%7%%\"\n    - log_cat = \"%%8%%\"\n    - log_subcat = \"%%9%%\"\n    - log_desc = \"%%10%%\"\n    - _alert_title = \"%%11%%\"\n    - _alert_priority = \"%%12%%\"\n\nUSAGE:\n$CANARY_INCIDENT_SEARCH(result[string], flock_id[string], flock_name[string], src_host[string], src_port[string], dst_host[string], dst_port[string], log_cat[string], log_subcat[string], log_desc[string], _alert_title[string], _alert_priority[string])",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}
