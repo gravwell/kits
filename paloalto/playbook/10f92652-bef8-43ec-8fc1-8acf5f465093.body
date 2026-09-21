@@ -5,41 +5,41 @@ A toolkit for interacting with Palo Alto data in Gravwell. This kit includes que
 ***  
 
 ## Table of Contents  
-0. [Data Ingestion](#0-data-ingestion)  
-    0.1. [Simple Relay Ingester](#0-1-simple-relay-ingester)  
-    0.2. [Install & Configure IngesterType](#0-2-install--configure-simple-relay)  
-    0.3. [HTTP Ingester](#0-3-http-ingester)  
-    0.4. [Install & Configure HTTP Ingester](#0-4-install--configure-http-ingester)  
-    0.5. [Data Tags](#0-5-data-tags)  
-    0.6. [Working with the Data](#0-6-working-with-the-data)  
-1. [Tags & Macros](#1-tags--macros)  
-    1.1. [Tags](#1-1-tags)  
-    1.2. [Autoextractors](#1-2-autoextractors)  
-    1.3. [Macros](#1-3-macros)  
-2. [Query Library](#2-query-library)  
-3. [Naming Schema](#3-naming-schema)  
-4. [Resources](#4-resources)  
-    4.1. [Lookups](#4-1-lookups)  
-5. [Alerts](#5-alerts)  
-    5.1. [Dispatchers](#5-1-dispatchers)  
-    5.2. [Consumers](#5-2-consumers)  
-6. [Scheduled Searches](#6-scheduled-searches)  
-    6.1. [Flows](#6-1-flows)  
-7. [Playbooks](#7-playbooks)  
-    7.1. [Files](#7-1-files)  
-8. [Searches](#8-searches)  
-    8.1. [Dashboard Searches](#8-1-dashboard-searches)  
-    8.2. [Alert Queries](#8-2-alert-queries)  
-9. [Templates](#9-templates)  
-10. [Dashboards](#10-dashboards)  
-    10.1. [Actionables](#10-1-actionables)  
-11. [Useful Resources & References](#11-useful-resources--references)  
-12. [Notes](#12-notes)  
-13. [Image credits](#13-image-credits)  
+0. Data Ingestion  
+    0.1. Simple Relay Ingester  
+    0.2. Install & Configure IngesterType  
+    0.3. HTTP Ingester  
+    0.4. Install & Configure HTTP Ingester  
+    0.5. Data Tags  
+    0.6. Working with the Data  
+1. Tags & Macros  
+    1.1. Tags  
+    1.2. Autoextractors  
+    1.3. Macros  
+2. Query Library  
+3. Naming Schema  
+4. Resources  
+    4.1. Lookups  
+5. Alerts  
+    5.1. Dispatchers  
+    5.2. Consumers  
+6. Scheduled Searches  
+    6.1. Flows  
+7. Playbooks  
+    7.1. Files  
+8. Searches  
+    8.1. Dashboard Searches  
+    8.2. Alert Queries  
+9. Templates  
+10. Dashboards  
+    10.1. Actionables  
+11. Useful Resources & References  
+12. Notes  
+13. Image credits  
 
 ***  
 
-## 0. [Data Ingestion](#0-data-ingestion)
+## 0. Data Ingestion
 
 This kit provides tools for working with logs from Palo Alto next-gen firewalls. Note that at this time, only PAN-OS 10.x is supported.
 
@@ -47,12 +47,12 @@ Before you can use the kit, you'll need to get logs flowing from your Palo Alto 
 
 You can also send logs via the HTTP ingester; instructions for that are in the "Install & Configure HTTP Ingester" section below.
 
-#### 0.1 [Simple Relay Ingester](#0-1-simple-relay-ingester)
+#### 0.1 Simple Relay Ingester
 
 - Simple Relay is the go-to ingester for text based data sources that can be delivered over plaintext TCP, encrypted TCP, or plaintext UDP network connections via either IPv4 or IPv6.
     - [Documentation](https://docs.gravwell.io/ingesters/simple_relay.html)
 
-#### 0.2 [Install & Configure Simple Relay](#0-2-install--configure-simple-relay)
+#### 0.2 Install & Configure Simple Relay
 
 - Deploy the [Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html) ingester on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/ingesters/ingesters.html) for more information.
 - Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/simple\_relay.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_simple\_relay.service</kbd> to restart the ingester. This will make it start listening for incoming syslog on port 6601, with special rules to route Palo Alto logs into the correct Gravwell tags.
@@ -125,12 +125,12 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 - If any results appear, logs are coming in properly.
 
-#### 0.3 [HTTP Ingester](#0-3-http-ingester)
+#### 0.3 HTTP Ingester
 
 - HTTP Ingester can be used when you want Palo Alto to deliver logs over HTTP instead of syslog.
     - [Documentation](https://docs.gravwell.io/ingesters/http.html)
 
-#### 0.4 [Install & Configure HTTP Ingester](#0-4-install--configure-http-ingester)
+#### 0.4 Install & Configure HTTP Ingester
 
 - Deploy the [HTTP Ingester](https://docs.gravwell.io/ingesters/http.html) on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/ingesters/ingesters.html) for more information.
 - Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/gravwell\_http\_ingester.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_http\_ingester.service</kbd> to restart the ingester. By default, the HTTP ingester listens on port 8080; this config adds an HTTP endpoint at <kbd>/pan/logs</kbd>, with HTTP basic authentication in place. It also defines preprocessors with special rules to route Palo Alto logs to the correct Gravwell tags.
@@ -205,7 +205,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 - If any results appear, logs are coming in properly.
 - Warning: We strongly recommend changing the "Username" and "Password" fields before deploying. We also recommend setting up a TLS frontend for better security. Palo Alto also notes that HTTP/S forwarding is intended for lower-volume deployments and can lose logs at higher forwarding rates, so syslog via Simple Relay remains the recommended option for primary ingestion.
 
-#### 0.5 [Data Tags](#0-5-data-tags)
+#### 0.5 Data Tags
 
 - Palo Alto logs are sorted into tags on Gravwell based on the log family or format, using the mappings defined in the preprocessor configuration above. The tags are:
     - <kbd>pan_traffic</kbd>: [Traffic logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/traffic-log-fields)
@@ -231,7 +231,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 - The names in parentheses are the names of the fields used in Gravwell; thus to extract the source and destination IP addresses of a session, one would type <kbd>ax src dst</kbd>. See the next section for more information on extracting data fields.  
 - If your kit defines a <kbd>PAN_ALL</kbd> macro, update it to include <kbd>pan_audit</kbd>, <kbd>pan_tunnel</kbd>, and <kbd>pan_events</kbd> in addition to the existing PAN tags.  
 
-#### 0.6 [Working with the Data](#0-6-working-with-the-data)
+#### 0.6 Working with the Data
 
 - One key component of this kit is the pre-configured *auto extractors* which apply structure to the CSV-formatted logs in the system. Each log type contains *many* fields, so we recommend using a particular trick when exploring the extracted fields of a given data type. First, run a query on the tag using the ax module with no arguments, sent to the text renderer:
 
@@ -259,9 +259,9 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 1. [Tags & Macros](#1-tags--macros)  
+## 1. Tags & Macros  
 
-#### 1.1. [Tags](#1-1-tags)  
+#### 1.1. Tags  
 
 - Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.  
 - [Documentation](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
@@ -296,7 +296,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
     - pan\_userid: Tag used for all Palo Alto User ID data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates.  
         - Usage: ``tag=pan_userid``  
 
-#### 1.2. [Autoextractors](#1-2-autoextractors)  
+#### 1.2. Autoextractors  
 
 - Purpose: Autoextractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The *ax* module then automatically invokes the appropriate functionality of other modules.  
 - [Documentation](<https://docs.gravwell.io/configuration/autoextractors.html>)  
@@ -317,7 +317,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
     - Palo Alto Tunnel Logs: Gravwell generated CSV extraction for Palo Alto Tunnel Logs  
     - Palo Alto User ID Logs: Gravwell generated CSV extraction for Palo Alto User ID Logs  
 
-#### 1.3. [Macros](#1-3-macros)  
+#### 1.3. Macros  
 
 - Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.  
 - [Documentation](<https://docs.gravwell.io/search/macros.html>)  
@@ -342,18 +342,18 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 2. [Query Library](#2-query-library)  
+## 2. Query Library  
 
-- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-2-alert-queries), and [playbooks](#7-playbooks).  
+- Purpose: Queries within the Query Library drive [dashboards.  
 - [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
     - Updating a query in the library updates dependent dashboards and scheduled searches automatically.  
     - Total queries: ***45***  
-        - [8.1 Dashboard Searches](#8-1-dashboard-searches): ***45***  
-        - [8.2 Alert Queries](#8-2-alert-queries): ***0***  
+        - [8.1 Dashboard Searches: ***45***  
+        - [8.2 Alert Queries: ***0***  
 
 ***  
 
-## 3. [Naming Schema](#3-naming-schema)  
+## 3. Naming Schema  
 
 - Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  
 - *QueryType - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - if any]*  
@@ -364,13 +364,13 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 4. [Resources](#4-resources)  
+## 4. Resources  
 
 - Purpose: Resources allow users to store persistent data for use in searches.  
 - [Documentation](<https://docs.gravwell.io/resources/resources.html>)  
 - Total: ***1***  
 
-#### 4.1. [Lookups](#4-1-lookups)  
+#### 4.1. Lookups  
 
 - Purpose: Lookup Resources are used by the *lookup* module to perform data enrichment and translation off of a static lookup table stored in a resource.  
 - [Documentation](<https://docs.gravwell.io/search/lookup/lookup.html>)  
@@ -379,35 +379,35 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 5. [Alerts](#5-alerts)  
+## 5. Alerts  
 
 - Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.  
 - [Documentation](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
 - Total: ***0***  
 
-#### 5.1. [Dispatchers](#5-1-dispatchers)  
+#### 5.1. Dispatchers  
 
 - Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.  
-    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)  
+    - Dispatchers = [Scheduled Searches  
 - [Documentation](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
 - Total: ***0***  
 
-#### 5.2. [Consumers](#5-2-consumers)  
+#### 5.2. Consumers  
 
 - Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.  
-    - Consumers = [Flows](#6-1-flows)  
+    - Consumers = [Flows  
 - [Documentation](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
 - Total: ***0***  
 
 ***  
 
-## 6. [Scheduled Searches](#6-scheduled-searches)  
+## 6. Scheduled Searches  
 
-- Purpose: Scheduled Searches are typically dependent on *AlertQuery - Palo Alto - ...* queries within the [Query Library](#2-query-library).  
+- Purpose: Scheduled Searches are typically dependent on *AlertQuery - Palo Alto - ...* queries within the [Query Library.  
 - [Documentation](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
 - Total: ***0***  
 
-#### 6.1. [Flows](#6-1-flows)  
+#### 6.1. Flows  
 
 - Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.  
 - [Documentation](<https://docs.gravwell.io/flows/flows.html>)  
@@ -415,7 +415,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 7. [Playbooks](#7-playbooks)  
+## 7. Playbooks  
 
 - Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.  
 - [Documentation](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
@@ -430,7 +430,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
     - Palo Alto Payload Format: Shows the payload format of the logs  
     - Palo Alto Syslog Server Profile: Shows a configured syslog server within Palo Alto  
 
-#### 7.1. [Files](#7-1-files)  
+#### 7.1. Files  
 
 - Purpose: Gravwell users can upload small files for use in playbooks, as cover images for kits, etc. Typically, these files are created or selected at the point of use: via a picker in the playbook editor, in the kit builder, etc.  
 - [Documentation](<https://docs.gravwell.io/gui/files/files.html>)  
@@ -438,17 +438,17 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 8. [Searches](#8-searches)  
+## 8. Searches  
 
-- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view Palo Alto data in an easily digestible format or [scheduled searches](#6-scheduled-searches) to ultimately feed [alerts](#5-alerts).  
+- Purpose: These queries within the Query Library drive [dashboards.  
 - [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
 - Total: ***45***  
     - Dashboard Search Total: ***45***  
     - Alert Query Total: ***0***  
 
-#### 8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+#### 8.1. Dashboard Searches  
 
-- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view vendor data in an easily digestible format.  
+- Purpose: These queries within the Query Library drive [dashboards to quickly view vendor data in an easily digestible format.  
 - Total: ***45***  
     - Search - Palo Alto - NGFW - Config - Events - Count by Administrators [chart]: Displays a chart of configuration event counts by administrator.  
     - Search - Palo Alto - NGFW - Config - Events - Count by Client [chart]: Displays a chart of configuration event counts by client used to perform the action.  
@@ -497,16 +497,16 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
     - Search - Palo Alto - NGFW - Traffic - SaaS - Unsanctioned Applications [table]: Displays a table of unsanctioned SaaS applications with session counts and total traffic volume.  
 - Naming Schema: *Search - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
 
-#### 8.2. [Alert Queries](#8-2-alert-queries)  
+#### 8.2. Alert Queries  
 
-- Purpose: These queries within the Query Library drive [scheduled searches](#6-scheduled-searches) which ultimately feed [alerts](#5-alerts).  
+- Purpose: These queries within the Query Library drive [scheduled searches.  
 - IMPORTANT: If you need to update or tune, this is where you perform that action.  
 - Total: ***0***  
 - Naming Schema: *AlertQuery - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
 
 ***  
 
-## 9. [Templates](#9-templates)  
+## 9. Templates  
 
 - Purpose: Templates are special objects which define a Gravwell query containing variables.  
 - [Documentation](<https://docs.gravwell.io/gui/templates/templates.html>)  
@@ -519,7 +519,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 10. [Dashboards](#10-dashboards)  
+## 10. Dashboards  
 
 - Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.  
 - [Documentation](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
@@ -533,7 +533,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
     - Palo Alto User Behavior Overview: This dashboard is a general overview of User Behavior in your Palo Alto data.  
     - Palo Alto Wildfire Overview: This dashboard is a general overview of your Palo Alto Wildfire analysis submissions & verdicts.  
 
-#### 10.1. [Actionables](#10-1-actionables)  
+#### 10.1. Actionables  
 
 - Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.  
 - [Documentation](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
@@ -543,7 +543,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 11. [Useful Resources & References](#11-useful-resources--references)  
+## 11. Useful Resources & References  
 
 - Gravwell  
     - [Actionables](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
@@ -586,7 +586,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 12. [Notes](#12-notes)  
+## 12. Notes  
 
 - Default log source mapping for Palo Alto Kit:  
     - pan\_auth = Authentication  
@@ -606,7 +606,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 ***  
 
-## 13. [Image credits](#13-image-credits)  
+## 13. Image credits  
 
 - Icon: Palo Alto Icon  
 - Banner: Palo Alto Banner  

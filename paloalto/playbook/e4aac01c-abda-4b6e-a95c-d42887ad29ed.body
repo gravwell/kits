@@ -5,17 +5,17 @@ A toolkit for interacting with Palo Alto data in Gravwell. This playbook is a lo
 ***  
 
 ## Table of Contents  
-0. [Data Ingestion](#0-data-ingestion)  
-    0.1. [Simple Relay Ingester](#0-1-simple-relay-ingester)  
-    0.2. [Install & Configure IngesterType](#0-2-install--configure-simple-relay)  
-    0.3. [HTTP Ingester](#0-3-http-ingester)  
-    0.4. [Install & Configure HTTP Ingester](#0-4-install--configure-http-ingester)  
-    0.5. [Data Tags](#0-5-data-tags)  
-    0.6. [Working with the Data](#0-6-working-with-the-data)    
+0. Data Ingestion  
+    0.1. Simple Relay Ingester  
+    0.2. Install & Configure IngesterType  
+    0.3. HTTP Ingester  
+    0.4. Install & Configure HTTP Ingester  
+    0.5. Data Tags  
+    0.6. Working with the Data    
 
 ***  
 
-## 0. [Data Ingestion](#0-data-ingestion)
+## 0. Data Ingestion
 
 This kit provides tools for working with logs from Palo Alto next-gen firewalls. Note that at this time, only PAN-OS 10.x is supported.
 
@@ -23,12 +23,12 @@ Before you can use the kit, you'll need to get logs flowing from your Palo Alto 
 
 You can also send logs via the HTTP ingester; instructions for that are in the "Install & Configure HTTP Ingester" section below.
 
-#### 0.1 [Simple Relay Ingester](#0-1-simple-relay-ingester)
+#### 0.1 Simple Relay Ingester
 
 - Simple Relay is the go-to ingester for text based data sources that can be delivered over plaintext TCP, encrypted TCP, or plaintext UDP network connections via either IPv4 or IPv6.
     - [Documentation](https://docs.gravwell.io/ingesters/simple_relay.html)
 
-#### 0.2 [Install & Configure Simple Relay](#0-2-install--configure-simple-relay)
+#### 0.2 Install & Configure Simple Relay
 
 - Deploy the [Simple Relay](https://docs.gravwell.io/ingesters/simple_relay.html) ingester on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/ingesters/ingesters.html) for more information.
 - Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/simple\_relay.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_simple\_relay.service</kbd> to restart the ingester. This will make it start listening for incoming syslog on port 6601, with special rules to route Palo Alto logs into the correct Gravwell tags.
@@ -101,12 +101,12 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 - If any results appear, logs are coming in properly.
 
-#### 0.3 [HTTP Ingester](#0-3-http-ingester)
+#### 0.3 HTTP Ingester
 
 - HTTP Ingester can be used when you want Palo Alto to deliver logs over HTTP instead of syslog.
     - [Documentation](https://docs.gravwell.io/ingesters/http.html)
 
-#### 0.4 [Install & Configure HTTP Ingester](#0-4-install--configure-http-ingester)
+#### 0.4 Install & Configure HTTP Ingester
 
 - Deploy the [HTTP Ingester](https://docs.gravwell.io/ingesters/http.html) on a server which is both accessible from the Palo Alto device and which can route to the Gravwell indexer(s). Configure it with the appropriate Ingest-Secret value for your indexers and point either its Cleartext-Backend-Target or Encrypted-Backend-Target fields at the indexer addresses; refer to the [Ingesters documentation](https://docs.gravwell.io/ingesters/ingesters.html) for more information.
 - Drop the following config snippet into a new file named <kbd>/opt/gravwell/etc/gravwell\_http\_ingester.conf.d/paloalto.conf</kbd> on the ingester machine, then run <kbd>sudo systemctl restart gravwell\_http\_ingester.service</kbd> to restart the ingester. By default, the HTTP ingester listens on port 8080; this config adds an HTTP endpoint at <kbd>/pan/logs</kbd>, with HTTP basic authentication in place. It also defines preprocessors with special rules to route Palo Alto logs to the correct Gravwell tags.
@@ -181,7 +181,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 - If any results appear, logs are coming in properly.
 - Warning: We strongly recommend changing the "Username" and "Password" fields before deploying. We also recommend setting up a TLS frontend for better security. Palo Alto also notes that HTTP/S forwarding is intended for lower-volume deployments and can lose logs at higher forwarding rates, so syslog via Simple Relay remains the recommended option for primary ingestion.
 
-#### 0.5 [Data Tags](#0-5-data-tags)
+#### 0.5 Data Tags
 
 - Palo Alto logs are sorted into tags on Gravwell based on the log family or format, using the mappings defined in the preprocessor configuration above. The tags are:
     - <kbd>pan_traffic</kbd>: [Traffic logs](https://docs.paloaltonetworks.com/ngfw/administration/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/traffic-log-fields)
@@ -207,7 +207,7 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 - The names in parentheses are the names of the fields used in Gravwell; thus to extract the source and destination IP addresses of a session, one would type <kbd>ax src dst</kbd>. See the next section for more information on extracting data fields.  
 - If your kit defines a <kbd>PAN_ALL</kbd> macro, update it to include <kbd>pan_audit</kbd>, <kbd>pan_tunnel</kbd>, and <kbd>pan_events</kbd> in addition to the existing PAN tags.  
 
-#### 0.6 [Working with the Data](#0-6-working-with-the-data)
+#### 0.6 Working with the Data
 
 - One key component of this kit is the pre-configured *auto extractors* which apply structure to the CSV-formatted logs in the system. Each log type contains *many* fields, so we recommend using a particular trick when exploring the extracted fields of a given data type. First, run a query on the tag using the ax module with no arguments, sent to the text renderer:
 
