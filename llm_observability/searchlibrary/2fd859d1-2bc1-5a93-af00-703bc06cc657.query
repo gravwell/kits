@@ -1,0 +1,4 @@
+tag=$LLM_TAG $LLM_ASSISTANT_REPLIES model duration_ms
+| stats count as Replies mean(duration_ms) as MeanMs max(duration_ms) as MaxMs stddev(duration_ms) as StdDevMs by model
+| sort by MeanMs desc
+| table model Replies MeanMs MaxMs StdDevMs

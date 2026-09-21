@@ -1,0 +1,4 @@
+tag=$LLM_TAG intrinsic upstream_status
+| eval int(upstream_status) >= 400
+| stats count as Errors by upstream_status
+| chart Errors by upstream_status

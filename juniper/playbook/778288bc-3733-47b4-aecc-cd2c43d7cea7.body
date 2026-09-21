@@ -1,0 +1,86 @@
+This playbook describes the Juniper kit's components: the shared macros, resource lookup tables, searchlibrary queries, templates, and dashboards.
+
+# **Overview**
+
+Desired format and delivery method: syslog. The kit ingests Juniper syslog data via the **$JUNIPER\_TAG** config macro and the kit's **juniper\_tag** autoextractor.
+
+An integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/network/juniper.html) — see it for setup and installation steps.
+
+## Further resources
+
+- [System Log Explorer](https://apps.juniper.net/syslog-explorer/)
+- [Overview of System Logging](https://www.juniper.net/documentation/us/en/software/junos/network-mgmt/topics/topic-map/system-logging.html)
+- [Configure Syslog over TLS](https://www.juniper.net/documentation/us/en/software/junos/network-mgmt/topics/topic-map/syslog-over-tls.html)
+
+## Macros
+
+- **$JUNIPER\_TAG** — sets the Juniper tag name (config macro).
+- **$JUNIPER\_LOGIN\_HELPER** — shared regular-expression extractions for Juniper login events. Extracts **Event\_Name**, **Username**, **User\_Class**, **Client\_Mode**, and **SrcIP** from the raw message, with explicit handling for two event types: **UI\_DBASE\_LOGIN\_EVENT** (config-mode logins) and **SSHD\_LOGIN\_FAILED**.
+
+## Resources
+
+- **juniper\_facility** — translates Juniper's numeric facility codes to their names.
+- **juniper\_severity** — translates Juniper's numeric severity codes to their names.
+- **juniper\_logins\_exclusion\_list** — usernames to exclude from the failed-login searches. Ships empty (excludes nothing) until populated.
+
+## Extractors
+
+- **juniper\_tag** — syslog extraction for tag juniper.
+
+# **Queries**
+
+21 searchlibrary queries, grouped by what they report on:
+
+**Logins**
+- Juniper Logins — list of user logins.
+- Juniper Login Count by Hostname — count logins by hostname.
+- Juniper Logins by Client Mode — count logins by client mode.
+- Juniper Failed Logins by Src — count failed login attempts by source, with a count of unique usernames and destinations.
+- Juniper Failed Logins by Destination — count failed login attempts by destination, with a count of unique usernames and sources.
+- Juniper SSH Logins by User (sshd) — detail sshd accepted logins by user and unique source, across all authentication methods.
+- Juniper SSH Login Count by User (sshd) — count sshd accepted logins by user, across all authentication methods.
+- Juniper CLI Logins by User (mgd) — count **UI\_LOGIN\_EVENT** CLI logins by user, as reported by **mgd**.
+
+**Commands and configuration**
+- Juniper Command Count — count by command.
+- Juniper Latest Commands — display commands per user/hostname.
+- Juniper Configuration Changes by Hostname — count configuration changes by hostname.
+- Juniper Latest Configuration Changes — display configuration changes per user.
+- Juniper Configuration Errors — display configuration errors by hostname.
+
+**Alarms**
+- Juniper Alarms — detail alarms by set, class, reason.
+- Juniper Alarms Overview — count alarms by hostname, alarm set, color, class, reason.
+- Juniper Alarms by Hostname — count alarms by hostname.
+- Juniper Alarms by Class — count by alarm class.
+- Juniper Alarms by Set — count by alarm set.
+- Juniper Alarms Count by Color — count by alarm color.
+
+**General log volume**
+- Juniper Facility Count — count by logging facility.
+- Juniper Appname Count — count by appname.
+
+# **Templates**
+
+Four templates, providing parameterized per-user or per-hostname views:
+
+- Juniper Config Set — display configuration set per user/hostname.
+- Juniper User Commands — display executed commands per user/hostname.
+- Juniper User Logins — display logins per user/hostname.
+- Juniper User Config Mode — display users entering config mode per user/hostname.
+
+# **Dashboards**
+
+Three dashboards are included.
+
+## Juniper Overview
+
+Overview of Juniper alarms and user logins. 8 tiles: Juniper Alarms, Juniper Alarms Count by Color, Juniper Logins by Client Mode, Juniper SSH Logins by User, Juniper Alarms by Class, Juniper Alarms by Hostname, Juniper Login Count by Hostname, Juniper Logins.
+
+## Juniper User Overview
+
+Overview of user commands, configuration changes, and logins. 8 tiles: Juniper Logins by Client Mode, Juniper Latest Configuration Changes, Juniper Command Count, Juniper Failed Logins by Src, Juniper Failed Logins by Destination, Juniper Latest Commands, Juniper Configuration Changes by Hostname, Juniper Logins.
+
+## Juniper User Detail
+
+User commands, configuration changes, and login details. 4 tiles, built on the kit's templates rather than the searchlibrary queries above: Juniper User Login, Juniper User Commands, Juniper Config Set, Juniper User Config Mode.

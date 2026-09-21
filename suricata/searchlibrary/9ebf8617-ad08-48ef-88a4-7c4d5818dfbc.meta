@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Outbound Alerts from Internal Hosts",
+ "Description": "Suricata alerts where the source is an RFC-1918/private address and the destination is public. Outbound alert traffic from internal hosts can indicate compromised machines calling out. Limited to severity 1 and 2 alerts; tune the severity floor in the eval to fit your environment.",
+ "GUID": "9ebf8617-ad08-48ef-88a4-7c4d5818dfbc",
+ "Labels": [
+  "suricata",
+  "detection",
+  "command-and-control"
+ ],
+ "Metadata": {}
+}

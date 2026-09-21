@@ -1,0 +1,3 @@
+tag=$SURICATA json event_type=="alert" alert.signature=="%%1%%" as signature
+| stats count as alerts
+| numbercard alerts

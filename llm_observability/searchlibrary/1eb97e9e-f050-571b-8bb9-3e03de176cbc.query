@@ -1,0 +1,5 @@
+tag=$LLM_TAG intrinsic upstream_status model listener session_id request_id duration_ms
+| eval int(upstream_status) >= 400
+| sort by time desc
+| limit 200
+| table TIMESTAMP upstream_status model listener session_id request_id duration_ms DATA

@@ -1,5 +1,7 @@
 {
 	"Name": "JUNIPER_LOGIN_HELPER",
 	"Description": "Regular expression extractions for Juniper logs where the event_name EV contains \"LOGIN\"",
-	"Labels": null
+	"Labels": [
+		"juniper"
+	]
 }

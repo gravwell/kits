@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - User - Account - Locked Out or Account Locked [table] */
+tag=$OKTA_SYSTEM ax eventType == "user.account.lock"
+$OKTA_ALERT_EVX
+| eval displayMessage ~ "locked out" || displayMessage ~ "account locked"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Locked Out or Account Locked"
+$OKTA_ALERT_META

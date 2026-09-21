@@ -1,12 +1,12 @@
 {
 	"UUID": "87d7b1c8-2aa4-4b09-816a-295d548b797b",
-	"Name": "Sysmon Matching SHA256 Process Creation",
+	"Name": "Sysmon - Matching SHA256 Process Creation",
 	"Description": "Show all processes that match a given SHA256",
 	"Data": {
 		"variables": [
 			{
-				"name": "_HASH_",
-				"label": "SH256 Hash",
+				"name": "%%HASH%%",
+				"label": "SHA256 Hash",
 				"description": "",
 				"required": true,
 				"defaultValue": "",

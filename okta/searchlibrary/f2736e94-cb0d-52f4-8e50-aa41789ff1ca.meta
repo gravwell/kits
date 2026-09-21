@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - IDP - Okta Identity Provider Created [table]",
+  "Description": "Detects when a new identity provider is created for Okta.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_identity_provider_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_identity_provider_created.yml",
+  "GUID": "f2736e94-cb0d-52f4-8e50-aa41789ff1ca",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

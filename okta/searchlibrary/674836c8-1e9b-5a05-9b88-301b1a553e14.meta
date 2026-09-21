@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Policy - Application - Okta Application Sign-On Policy Modified or Deleted [table]",
+  "Description": "Detects when an application Sign-on Policy is modified or deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_application_sign_on_policy_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "GUID": "674836c8-1e9b-5a05-9b88-301b1a553e14",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

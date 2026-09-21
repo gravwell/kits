@@ -1,6 +1,7 @@
 {
 	"Name": "Office 365 - Exchange Active Users by Domain",
 	"Description": "Chart of unique active users by domain",
+	"Labels": ["o365", "exchange"],
 	"GUID": "966eec2c-a0df-45da-88b0-db4fea66cccc",
 	"Metadata": {
 		"timeframe": null

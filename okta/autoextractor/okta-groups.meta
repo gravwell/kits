@@ -1,0 +1,17 @@
+{
+	"Name": "okta-groups",
+	"Desc": "Gravwell-generated JSON extraction for tag okta-groups",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"okta-groups"
+	],
+	"Labels": [
+		"okta"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "3C162123-C5D4-4613-84A2-7B878AA6F997",
+	"LastUpdated": "2026-06-22T14:31:19.281632919Z"
+}

@@ -1,9 +1,11 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "juniper_logins_exclusion_list",
-	"Description": "List of users to exclude from \"Juniper Logins\" [excluded_users]",
-	"Labels": null,
-	"Size": 30,
-	"Hash": "3rVWaH0tecfPyHWZRgveLw==",
+	"Description": "List of users to exclude from the Juniper failed-login searches (Failed Logins by Src, Failed Logins by Destination) [excluded_users]",
+	"Labels": [
+		"juniper"
+	],
+	"Size": 16,
+	"Hash": "GAaCkPUZk7RokndOw4nLjA==",
 	"Data": ""
 }

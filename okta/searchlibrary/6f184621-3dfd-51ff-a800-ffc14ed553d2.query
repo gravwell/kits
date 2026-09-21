@@ -1,0 +1,11 @@
+/* AlertQuery - Okta - Identity Access Management - Policy - Rule - Okta New Admin Console Behaviours [table] */
+tag=$OKTA_SYSTEM ax eventType == "policy.evaluate_sign_on"
+$OKTA_ALERT_EVX
+| regex -e debugBehavior "(?i)POSITIVE"
+| regex -e debugLogOnlySecData "(?i)POSITIVE"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Okta New Admin Console Behaviours"
+$OKTA_ALERT_META

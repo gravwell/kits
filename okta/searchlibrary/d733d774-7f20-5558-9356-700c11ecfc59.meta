@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - System API - Okta API Token Revoked [table]",
+  "Description": "Detects when a API Token is revoked.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_api_token_revoked/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "GUID": "d733d774-7f20-5558-9356-700c11ecfc59",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

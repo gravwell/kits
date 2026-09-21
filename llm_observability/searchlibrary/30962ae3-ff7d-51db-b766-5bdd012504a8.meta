@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Semantic - Security Control Evasion [table]",
+	"Description": "Finds prompts asking the model to help turn off, evade, or work around a security control.\n\nRequires embeddings on the entries (vector preprocessor on the LLM listener) and an embedding model configured in the webserver's [AI] section. Without both, this query returns nothing. Tune sensitivity with the LLM_SEMANTIC_THRESHOLD config macro rather than editing the query.\n\n`embeddings` is an intrinsic enumerated value, so it is declared on the intrinsic extraction module alongside everything else the query needs; the semantic module cannot see it otherwise.",
+	"GUID": "30962ae3-ff7d-51db-b766-5bdd012504a8",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Alerts by Category Over Time",
+ "Description": "Chart of Suricata alert volume over time, split by alert category (limited to the top 10 categories).",
+ "GUID": "56a0faf4-e1d6-4a32-b1b4-5cbcaa6784a9",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "alert"
+ ],
+ "Metadata": {}
+}

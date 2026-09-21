@@ -1,0 +1,12 @@
+/* AlertQuery - Okta - Identity Access Management - User - Authentication / Session - High Number of Okta Device Token Cookies Generated for Authentication [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^(?:user\.session\.start|user\.authentication\..+)$"
+$OKTA_ALERT_EVX
+| regex -e requestUri "(?i)\/api\/v1\/authn"
+| regex -e outcomeReason "(?i)(INVALID\_CREDENTIALS|INVALID|CREDENTIALS)"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "High Number of Okta Device Token Cookies Generated for Authentication"
+$OKTA_ALERT_META

@@ -1,6 +1,6 @@
 {
-	"Name": "Juniper Count by SSH Login User ",
-	"Description": "Count SSH login by user",
+	"Name": "Juniper SSH Login Count by User (sshd)",
+	"Description": "Count sshd accepted logins by user, across all authentication methods",
 	"GUID": "95dcd4cb-adbf-4afb-8fe2-c3e74653618b",
 	"Labels": [
 		"juniper"

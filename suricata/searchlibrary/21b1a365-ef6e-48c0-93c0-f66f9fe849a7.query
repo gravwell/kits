@@ -1,0 +1,3 @@
+tag=$SURICATA json event_type=="alert" alert.action as action
+| count by action
+| chart count by action

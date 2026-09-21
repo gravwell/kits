@@ -9,11 +9,9 @@ json
     passwordChanged
     type.id as typeId
 
-    // optional
     realmId
     transitioningToStatus
 
-    // profile EVs (default Okta user profile schema)
     profile.profileUrl                       as profileUrl
     profile.lastName                         as lastName
     profile.zipCode                          as zipCode
@@ -46,23 +44,18 @@ json
     profile.middleName                       as middleName
     profile.userType                         as userType
 
-    // (optional) classification metadata
     classification.type                      as classificationType
     _embedded.classification.type            as embeddedClassificationType
 
-    // (optional) blocks metadata when expand=blocks
     _embedded.blocks                         as embeddedBlocks
 
-    // credentials provider EVs
     credentials.provider.type                as providerType
     credentials.provider.name                as providerName
 
-    // optional credentials EVs
     credentials.password                     as passwordObj
     credentials.recovery_question.question   as recoveryQuestion
     groupIds                                 as groupIds
 
-    // email EVs
     credentials.emails.[0].value             as primaryEmail
     credentials.emails.[0].status            as primaryEmailStatus
     credentials.emails.[0].type              as primaryEmailType
@@ -71,7 +64,6 @@ json
     credentials.emails.[1].status            as secondaryEmailStatus
     credentials.emails.[1].type              as secondaryEmailType
 
-    // link EVs
     _links.self.href                         as selfHref
     _links.activate.href                     as activateHref
     _links.deactivate.href                   as deactivateHref

@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - Lifecycle / Policy - Policy / Rule - Attempt to Delete an Okta Policy [table] */
+tag=$OKTA_SYSTEM ax
+| eval eventType ~ "policy" && eventType ~ "delete" && eventType ~ "remove"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Attempt to Delete an Okta Policy"
+$OKTA_ALERT_META

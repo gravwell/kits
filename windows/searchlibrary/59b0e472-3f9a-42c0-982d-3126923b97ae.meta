@@ -4,5 +4,12 @@
 	"GUID": "59b0e472-3f9a-42c0-982d-3126923b97ae",
 	"Metadata": {
 		"timeframe": null
-	}
+	},
+	"Labels": [
+		"windows",
+		"logon",
+		"T1550.002",
+		"lateral-movement",
+		"detection"
+	]
 }

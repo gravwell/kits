@@ -1,0 +1,8 @@
+{
+	"Name": "LLM_SEMANTIC_THRESHOLD",
+	"Description": "Configuration Macro; similarity threshold (0-100) handed to the semantic module by every semantic hunt in this kit. Lower it to widen the hunts, raise it to tighten them.",
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

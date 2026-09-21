@@ -1,4 +1,4 @@
-tag=$WINDOWS_LOGON winlog EventID == 4624 ElevatedToken=="%%1842" Computer SubjectUserName SubjectDomainName TargetUserSid TargetUserName !~ "$" TargetDomainName LogonType LogonProcessName WorkstationName as TargetInfo IpAddress
+tag=$WINDOWS_LOGON winlog EventID==4624 ElevatedToken=="%%1842" Computer SubjectUserName SubjectDomainName TargetUserSid TargetUserName !~ "$" TargetDomainName LogonType LogonProcessName WorkstationName as TargetInfo IpAddress
 | eval (
     !(strings_hassuffix(SubjectUserName,"$") == true && (TargetUserSid ~ "S-1-5-80" || TargetUserSid ~ "S-1-5-82" || TargetUserSid ~ "S-1-5-90" || TargetUserSid ~ "S-1-5-96")) 
     && !((SubjectUserName == "-" || strings_hassuffix(SubjectUserName,"$") == true) && TargetUserSid == "S-1-5-18") 

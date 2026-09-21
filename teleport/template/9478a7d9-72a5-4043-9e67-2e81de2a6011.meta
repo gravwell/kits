@@ -1,0 +1,23 @@
+{
+	"UUID": "9478a7d9-72a5-4043-9e67-2e81de2a6011",
+	"Name": "Teleport - Investigate Server",
+	"Description": "Session activity for a server accessed through Teleport - who connected and in which sessions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%hostname%%",
+				"label": "Server Hostname",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "web-01"
+			}
+		]
+	},
+	"Labels": [
+		"teleport",
+		"audit",
+		"server",
+		"investigation"
+	]
+}

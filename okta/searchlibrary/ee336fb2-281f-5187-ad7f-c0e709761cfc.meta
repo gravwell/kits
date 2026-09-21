@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Group - Privilege - Administrator Privileges Assigned to an Okta Group [table]",
+  "Description": "Detects when an administrator role is assigned to an Okta group. An adversary may attempt to assign administrator privileges to an Okta group in order to assign additional permissions to compromised user accounts and maintain access to their target organization.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_administrator_privileges_assigned_to_okta_group/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/persistence_administrator_privileges_assigned_to_okta_group.toml",
+  "GUID": "ee336fb2-281f-5187-ad7f-c0e709761cfc",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+	"Name": "Teleport - User Deleted",
+	"Description": "Detects deletion of Teleport users. Attackers may delete accounts to remove access or cover their tracks.",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1531",
+		"impact"
+	],
+	"Schedule": "21 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "2647f7b5-4ea3-49ea-85c1-b5e190786cc6",
+	"SearchReference": "909da95a-22f3-48d5-ac77-1012f8ecf4b4"
+}

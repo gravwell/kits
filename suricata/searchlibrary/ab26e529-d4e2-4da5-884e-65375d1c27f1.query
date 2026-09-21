@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="dns" dns.type=="query" as dnstype dns.rrname as rrname
+| count by rrname
+| top -n 20 count
+| table -nt rrname count

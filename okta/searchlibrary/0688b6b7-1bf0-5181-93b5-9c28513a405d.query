@@ -1,0 +1,12 @@
+/* AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Okta User Sessions Started from Different Geolocations [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^(?:user\.session\.start|user\.authentication\..*)$"
+$OKTA_ALERT_EVX
+| regex -e outcomeResult "(?i)SUCCESS"
+| regex -e actorId "(?i)unknown"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Okta User Sessions Started from Different Geolocations"
+$OKTA_ALERT_META

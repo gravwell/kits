@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Alert Severity Distribution",
+ "Description": "Distribution of Suricata alerts by severity. Severity 1 is the most severe.",
+ "GUID": "a10f9f42-e606-4fab-8b90-336ad69bd655",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "alert"
+ ],
+ "Metadata": {}
+}

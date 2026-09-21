@@ -1,0 +1,13 @@
+/* AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Okta Sign-In Events via Third-Party IdP [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^(?:user\.authentication\.auth_via_IDP|user\.authentication\.auth_via_inbound_SAML|user\.authentication\.auth_via_mfa|user\.authentication\.auth_via_social|user\.session\.start)$"
+$OKTA_ALERT_EVX
+| regex -e requestUri "(?i)\/oauth2\/.*\/v1\/authorize\/callback"
+| regex -e outcomeResult "(?i)FAILURE"
+| regex -e outcomeReason "(?i)A SAML assert with the same ID has already been processed by Okta for a previous request|nable to match transformed username|nable to resolve IdP endpoint|nable to validate SAML Response|nable to validate incoming SAML Assertion"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Okta Sign-In Events via Third-Party IdP"
+$OKTA_ALERT_META

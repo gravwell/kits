@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - Access Control - Network Zones - Attempt to Modify an Okta Network Zone [table] */
+tag=$OKTA_SYSTEM ax
+| eval eventType ~ "zone.update" || eventType ~ "network_zone.rule.disabled" || eventType ~ "zone.remove_blacklist"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Attempt to Modify an Okta Network Zone"
+$OKTA_ALERT_META

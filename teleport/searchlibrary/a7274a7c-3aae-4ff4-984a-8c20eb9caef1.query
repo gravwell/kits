@@ -1,0 +1,4 @@
+tag=$TELEPORT_AUDIT ax event=="lock.created" user name
+| json target.user as locked_user target.role as locked_role target.node as locked_node
+| alias user actor name lock_name
+| table actor lock_name locked_user locked_role locked_node

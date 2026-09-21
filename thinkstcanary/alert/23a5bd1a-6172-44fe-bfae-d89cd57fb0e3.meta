@@ -1,0 +1,51 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "00b7e6e2-7c31-4929-ae1d-a531638c6e59",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a flock has been deleted.\n\nflock_delete = Deleting a Flock will remove it from your Console. You can only delete an empty Flock, meaning you'll need to move (or remove) any Sensors from the Flock before deleting it.\n\nWARNING: You cannot delete the Default Flock, but you can Rename it if you want to.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#delete-flock",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "e7ead0b0-c500-4eee-aaee-9f6872af3c58",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "23a5bd1a-6172-44fe-bfae-d89cd57fb0e3",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-10-09T00:00:00Z",
+	"MaxEvents": 16,
+	"Name": "Alert - Canary - Flock Management - Low - Flock Deleted",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_thinkst_alerts",
+	"UID": 0,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - MFA / Session - Stolen Credentials Used to Login to Okta Account After MFA Reset",
+  "Description": "Stolen Credentials Used to Login to Okta Account After MFA Reset\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e65998cf-d4c7-56c6-a80f-5b9b7c483539",
+  "SearchReference": "d4af0ac9-8ba1-5394-a271-0aea6619cac3"
+}

@@ -1,0 +1,4 @@
+tag=$LLM_TAG $LLM_ASSISTANT_REPLIES model listener session_id duration_ms upstream_status
+| sort by duration_ms desc
+| limit 50
+| table TIMESTAMP duration_ms upstream_status model listener session_id DATA

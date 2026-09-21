@@ -10,8 +10,7 @@
 					"id": "ec300f4a-0b42-4b9e-814d-c75c69c952f2",
 					"type": "template"
 				},
-				"color": null,
-				"searchID": 31109968124
+				"color": null
 			},
 			{
 				"alias": "Office 365 User Login Success/Failure Numbercard",
@@ -19,8 +18,7 @@
 					"id": "d9aed2e0-a105-484d-9c69-cb99f5f7a72a",
 					"type": "template"
 				},
-				"color": null,
-				"searchID": 41803384329
+				"color": null
 			},
 			{
 				"alias": "Office 365 Azure Geo-Located User Operations",
@@ -28,8 +26,7 @@
 					"id": "f7b702bd-56df-4c1f-bfd8-9e0e20a70098",
 					"type": "template"
 				},
-				"color": null,
-				"searchID": 53826107939
+				"color": null
 			},
 			{
 				"alias": "Office 365 User OS Operation Distribution",
@@ -48,7 +45,7 @@
 				"color": null
 			},
 			{
-				"alias": "Office 365 User Workload  Operations",
+				"alias": "Office 365 User Workload Operations",
 				"reference": {
 					"id": "e6d7bd23-d805-44f5-9fb2-a1c3bd5cbce0",
 					"type": "template"
@@ -145,5 +142,5 @@
 		"version": 2,
 		"lastDataUpdate": "2022-11-29T14:52:13-07:00"
 	},
-	"Labels": null
+	"Labels": ["user"]
 }

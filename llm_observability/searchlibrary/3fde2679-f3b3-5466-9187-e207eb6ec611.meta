@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Latency Over Time by Model [chart]",
+	"Description": "Mean request duration per model over time. Watch for step changes that line up with provider incidents.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "3fde2679-f3b3-5466-9187-e207eb6ec611",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

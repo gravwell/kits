@@ -1,0 +1,12 @@
+{
+ "Name": "Suricata - Deprecated TLS Version in Use",
+ "Description": "TLS sessions negotiated with SSLv2, SSLv3, TLS 1.0, or TLS 1.1. The in() list includes both older (TLSv1) and newer (TLS 1.0) Suricata version-string formats; trim it to match what your Suricata release emits. Requires extended: yes under eve-log types.tls in suricata.yaml; basic TLS logging emits only subject and issuerdn.",
+ "GUID": "ce0faa84-e824-479e-a293-31dbd39d7de0",
+ "Labels": [
+  "suricata",
+  "detection",
+  "tls",
+  "compliance"
+ ],
+ "Metadata": {}
+}

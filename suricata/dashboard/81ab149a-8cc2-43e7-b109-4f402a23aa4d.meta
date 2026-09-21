@@ -1,0 +1,181 @@
+{
+ "UUID": "81ab149a-8cc2-43e7-b109-4f402a23aa4d",
+ "Name": "Suricata Overview",
+ "Description": "High-level view of Suricata EVE activity: event volumes, alert severity, top signatures, protocols, and talkers.",
+ "Data": {
+  "timeframe": {
+   "durationString": null,
+   "timeframe": "P1DT",
+   "timezone": null,
+   "start": null,
+   "end": null
+  },
+  "searches": [
+   {
+    "alias": "Suricata - Events Over Time by Type",
+    "color": null,
+    "reference": {
+     "id": "3ca8aa61-1bdb-413f-9d90-79c91aa14015",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Alert Severity Distribution",
+    "color": null,
+    "reference": {
+     "id": "a10f9f42-e606-4fab-8b90-336ad69bd655",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Top Alert Signatures",
+    "color": null,
+    "reference": {
+     "id": "47317a14-3cac-4bd4-8478-00067005a794",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Application Protocol Distribution",
+    "color": null,
+    "reference": {
+     "id": "657bad4c-3db8-44ea-8bf4-159aee8b7b42",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - Top Talkers by Bytes",
+    "color": null,
+    "reference": {
+     "id": "22220b49-b4c4-40c0-b7f6-30f15d04f64f",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   },
+   {
+    "alias": "Suricata - File Types Observed",
+    "color": null,
+    "reference": {
+     "id": "a7e06d12-91f4-4326-9877-1eafa4dda612",
+     "type": "savedQuery",
+     "extras": {
+      "defaultValue": null
+     }
+    }
+   }
+  ],
+  "tiles": [
+   {
+    "id": 9614498032362899,
+    "title": "Events Over Time by Type",
+    "renderer": "lineChart",
+    "hideZoom": true,
+    "span": {
+     "col": 8,
+     "row": 4,
+     "x": 0,
+     "y": 0
+    },
+    "searchesIndex": 0,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6044736112822404,
+    "title": "Alert Severity",
+    "renderer": "pieChart",
+    "hideZoom": true,
+    "span": {
+     "col": 4,
+     "row": 4,
+     "x": 8,
+     "y": 0
+    },
+    "searchesIndex": 1,
+    "rendererOptions": {}
+   },
+   {
+    "id": 4620553572557117,
+    "title": "Top Alert Signatures",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 4
+    },
+    "searchesIndex": 2,
+    "rendererOptions": {}
+   },
+   {
+    "id": 6059068574683861,
+    "title": "Application Protocols",
+    "renderer": "barChart",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 4
+    },
+    "searchesIndex": 3,
+    "rendererOptions": {
+     "Stack": "no",
+     "Orientation": "v",
+     "XAxisSplitLine": "no",
+     "YAxisSplitLine": "no",
+     "IncludeOther": "yes",
+     "LogScale": "no"
+    }
+   },
+   {
+    "id": 7830160825142620,
+    "title": "Top Talkers by Bytes",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 0,
+     "y": 9
+    },
+    "searchesIndex": 4,
+    "rendererOptions": {}
+   },
+   {
+    "id": 924294860281379,
+    "title": "File Types Observed",
+    "renderer": "table",
+    "hideZoom": true,
+    "span": {
+     "col": 6,
+     "row": 5,
+     "x": 6,
+     "y": 9
+    },
+    "searchesIndex": 5,
+    "rendererOptions": {}
+   }
+  ],
+  "linkZooming": false,
+  "grid": {},
+  "version": 2
+ },
+ "Labels": [
+  "suricata"
+ ]
+}

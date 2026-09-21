@@ -1,0 +1,3 @@
+tag=$LLM_TAG intrinsic event_type
+| stats count as Events by event_type
+| chart Events by event_type

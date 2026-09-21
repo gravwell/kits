@@ -1,0 +1,5 @@
+tag=$LLM_TAG intrinsic session_id event_type role model tool_name duration_ms
+| grep -e session_id "%%1%%"
+| sort by time asc
+| limit 500
+| table TIMESTAMP event_type role model tool_name duration_ms DATA

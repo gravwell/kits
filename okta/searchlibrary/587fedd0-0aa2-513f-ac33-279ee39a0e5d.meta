@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Okta Brute Force or Password Spraying Attack [table]",
+  "Description": "Identifies a high number of failed Okta user authentication attempts from a single IP address, which could be indicative of a brute force or password spraying attack. An adversary may attempt a brute force or password spraying attack to obtain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_brute_force_or_password_spraying/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_brute_force_or_password_spraying.toml",
+  "GUID": "587fedd0-0aa2-513f-ac33-279ee39a0e5d",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

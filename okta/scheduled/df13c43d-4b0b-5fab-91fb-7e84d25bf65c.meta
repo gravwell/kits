@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication / MFA / Session - Potentially Successful Okta MFA Bombing via Push Notifications",
+  "Description": "Detects when an attacker abuses the Multi-Factor authentication mechanism by repeatedly issuing login requests until the user eventually accepts the Okta push notification. An adversary may attempt to bypass the Okta MFA policies configured for an organization to obtain unauthorized access.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_potentially_successful_okta_bombing_via_push_notifications/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_potentially_successful_okta_bombing_via_push_notifications.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "df13c43d-4b0b-5fab-91fb-7e84d25bf65c",
+  "SearchReference": "6438b4a1-ccd5-56b3-8583-ff8a37be74f1"
+}

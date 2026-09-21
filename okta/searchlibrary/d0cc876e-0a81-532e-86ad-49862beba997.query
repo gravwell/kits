@@ -1,0 +1,9 @@
+/* AlertQuery - Okta - Identity Access Management - Audit - Application - Unauthorized Access to an Okta Application [table] */
+tag=$OKTA_SYSTEM ax eventType == "app.generic.unauth_app_access_attempt"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Unauthorized Access to an Okta Application"
+$OKTA_ALERT_META

@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - New sign-on behavior [table]",
+  "Description": "Detects events where Okta behavior detection has identified a new authentication behavior.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_new_authentication_behavior_detection/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_new_authentication_behavior_detection.toml",
+  "GUID": "98f6ea5b-9268-58a6-8ffc-ea37a913ceb6",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

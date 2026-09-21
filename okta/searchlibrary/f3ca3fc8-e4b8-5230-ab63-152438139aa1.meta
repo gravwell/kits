@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - MFA - MFA Deactivation with no Re-Activation for Okta User Account [table]",
+  "Description": "Detects multi-factor authentication (MFA) deactivation with no subsequent re-activation for an Okta user account. An adversary may deactivate MFA for an Okta user account in order to weaken the authentication requirements for the account.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_mfa_deactivation_with_no_reactivation/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_potentially_successful_okta_bombing_via_push_notifications.toml",
+  "GUID": "f3ca3fc8-e4b8-5230-ab63-152438139aa1",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

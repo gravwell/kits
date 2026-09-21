@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="alert" src_ip
+| ip src_ip !~ PRIVATE
+| geoip src_ip.Location
+| pointmap src_ip

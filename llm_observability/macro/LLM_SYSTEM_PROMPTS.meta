@@ -1,0 +1,8 @@
+{
+	"Name": "LLM_SYSTEM_PROMPTS",
+	"Description": "Declares the LLM intrinsic EVs and narrows to system prompts. Goes in the extraction position, immediately after the tag block, NOT after a pipe. Append any further enumerated values the query needs: tag=$LLM_TAG $LLM_SYSTEM_PROMPTS model session_id | ...",
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

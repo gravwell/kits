@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - Canary - Flock Management - Medium - IP Whitelist Cleared",
+	"Description": "Detects when IP Whitelist has been cleared.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/ignore-lists.html\n\nhttps://docs.canary.tools/console-settings/ignore-lists#remove-an-ignored-ip\n\nhttps://docs.canary.tools/flocks-settings/info#fetch-ignore-list-info",
+	"GUID": "b02aba28-ddd4-440a-9ee6-9a3d772774b3",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

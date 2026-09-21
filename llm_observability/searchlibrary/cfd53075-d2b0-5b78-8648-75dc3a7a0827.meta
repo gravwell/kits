@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Traffic by Listener [chart]",
+	"Description": "Event volume per proxy listener. Useful when one ingester fronts several upstream providers or several environments.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "cfd53075-d2b0-5b78-8648-75dc3a7a0827",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

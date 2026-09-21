@@ -1,0 +1,12 @@
+{
+	"Name": "Teleport - Top Servers by Session Count [Chart]",
+	"Description": "Servers with the most Teleport sessions started against them.",
+	"GUID": "53a8a3a8-6159-40e8-8f10-17ada0ca1db6",
+	"Labels": [
+		"teleport",
+		"audit",
+		"stats",
+		"session"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - Audit - Application - Unauthorized Access to an Okta Application",
+  "Description": "Identifies unauthorized access attempts to Okta applications.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_attempted_unauthorized_access/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_okta_user_attempted_unauthorized_access.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "3a3ec380-5c28-5466-8434-39655c24d876",
+  "SearchReference": "d0cc876e-0a81-532e-86ad-49862beba997"
+}

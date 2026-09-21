@@ -1,0 +1,51 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [
+		{
+			"ID": "00b7e6e2-7c31-4929-ae1d-a531638c6e59",
+			"Type": "flow"
+		}
+	],
+	"Description": "Detects when a flock has been renamed.\n\nflock_rename = Rename an existing Flock.\n\nReference(s):\nhttps://docs.canary.tools/flocks/actions.html\n\nhttps://docs.canary.tools/flocks/actions.html#rename-flock",
+	"Disabled": true,
+	"Dispatchers": [
+		{
+			"ID": "8b005658-9273-4ec1-9b5c-f5c464ea0d75",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "ca25772c-5301-4ec8-9d97-6a38349fd501",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"LastUpdated": "2025-10-09T00:00:00Z",
+	"MaxEvents": 16,
+	"Name": "Alert - Canary - Flock Management - Low - Flock Renamed",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_thinkst_alerts",
+	"UID": 0,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

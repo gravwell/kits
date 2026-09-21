@@ -1,0 +1,11 @@
+{
+	"Name": "Teleport - Audit Events Over Time [Chart]",
+	"Description": "Chart of Teleport audit events over time, keyed by event type (user.login, session.start, exec, and so on).",
+	"GUID": "7aaace86-543d-498f-bb23-c0c8910939cf",
+	"Labels": [
+		"teleport",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

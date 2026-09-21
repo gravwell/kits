@@ -3,7 +3,7 @@
 	"Name": "Office 365 - Azure Username",
 	"Description": "Investigate using Office 365 Azure Logs",
 	"Data": {
-		"menuLabel": "Email Address",
+		"menuLabel": "O365 Email Address",
 		"actions": [
 			{
 				"name": "Azure User Activity Overview",

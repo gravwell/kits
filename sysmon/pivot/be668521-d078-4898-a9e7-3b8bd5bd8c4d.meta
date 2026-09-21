@@ -1,9 +1,9 @@
 {
 	"UUID": "be668521-d078-4898-a9e7-3b8bd5bd8c4d",
-	"Name": "Sysmon DNS",
+	"Name": "Sysmon - DNS",
 	"Description": "",
 	"Data": {
-		"menuLabel": "DNS",
+		"menuLabel": "Sysmon DNS",
 		"triggers": [
 			{
 				"pattern": "/(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]+/g",

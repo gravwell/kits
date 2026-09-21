@@ -1,0 +1,47 @@
+name: PR title lint
+
+# Validates the "<Prefix>: <Name>" convention (docs/naming-conventions.md)
+# and applies the exact 1:1 label for a valid title — the authoritative
+# release-type label. labeler.yml's path-based new-kit/improvement guess is
+# a secondary signal, not the source of truth, because it can't
+# distinguish findings/fix/docs from a generic improvement.
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate title and apply label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const PREFIX_TO_LABEL = {
+              'New Kit': 'new-kit',
+              'Improvement': 'improvement',
+              'Findings': 'findings',
+              'Fix': 'fix',
+              'Docs': 'docs',
+            }
+            const title = context.payload.pull_request.title
+            const match = title.match(/^(New Kit|Improvement|Findings|Fix|Docs):\s+\S/)
+            if (!match) {
+              core.setFailed(
+                `PR title "${title}" must start with one of: ` +
+                Object.keys(PREFIX_TO_LABEL).map(p => `"${p}: "`).join(', ')
+              )
+              return
+            }
+            const label = PREFIX_TO_LABEL[match[1]]
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              labels: [label],
+            })

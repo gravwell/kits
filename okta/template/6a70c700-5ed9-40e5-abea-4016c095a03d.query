@@ -1,4 +1,3 @@
-// Template - Okta - Investigation - All Events for Actor, Target, and/or IP
 $OKTA_ALERT_BASE
 $OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
 | table published actorAltId actorName clientIp requestIp eventType targetAltId targetName outcomeResult outcomeReason severity isProxy requestUri

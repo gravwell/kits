@@ -1,0 +1,10 @@
+/* AlertQuery - Okta - Identity Access Management - System - Event Types - Max sign in attempts exceeded [table] */
+tag=$OKTA_SYSTEM
+$OKTA_ALERT_EVX
+| regex -e message "(?i)Max sign in attempts exceeded"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Max sign in attempts exceeded"
+$OKTA_ALERT_META

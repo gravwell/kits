@@ -1,0 +1,2 @@
+tag=$TELEPORT_AUDIT ax event=="session.recording.access" user sid
+| table user sid

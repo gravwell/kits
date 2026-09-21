@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - Lifecycle - Policy - Attempt to Deactivate an Okta Policy",
+  "Description": "Detects attempts to deactivate an Okta policy. An adversary may attempt to deactivate an Okta policy in order to weaken an organization's security controls. For example, an adversary may attempt to deactivate an Okta multi-factor authentication (MFA) policy in order to weaken the authentication requirements for user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_deactivate_okta_policy/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/defense_evasion_okta_attempt_to_deactivate_okta_policy.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "630589e6-776d-5bf9-92ba-00231d51fe61",
+  "SearchReference": "9db6f829-2712-578a-af57-66864c0e799e"
+}

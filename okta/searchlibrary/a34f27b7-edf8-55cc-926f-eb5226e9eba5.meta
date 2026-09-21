@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Max sign in attempts exceeded [table]",
+  "Description": "Detects when an user account is locked out.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_account_locked_out/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_account_locked_out.yml",
+  "GUID": "a34f27b7-edf8-55cc-926f-eb5226e9eba5",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

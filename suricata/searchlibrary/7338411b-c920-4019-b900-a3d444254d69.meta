@@ -1,0 +1,12 @@
+{
+ "Name": "Suricata - Top JA3 Client Fingerprints",
+ "Description": "The 20 most common JA3 TLS client fingerprints. Requires ja3 fingerprinting enabled in suricata.yaml (app-layer.protocols.tls.ja3-fingerprints).",
+ "GUID": "7338411b-c920-4019-b900-a3d444254d69",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "tls",
+  "ja3"
+ ],
+ "Metadata": {}
+}

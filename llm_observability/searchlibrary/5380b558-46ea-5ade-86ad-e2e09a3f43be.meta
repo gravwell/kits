@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Token Spend Over Time by Model [chart]",
+	"Description": "Total tokens billed per model over time.\n\nReads response.usage events, so the listener must be configured with Log-Usage=true.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "5380b558-46ea-5ade-86ad-e2e09a3f43be",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

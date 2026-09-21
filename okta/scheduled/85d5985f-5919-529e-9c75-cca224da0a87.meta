@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Session - Multiple Okta Sessions Detected for a Single User",
+  "Description": "Detects when a user has started multiple Okta sessions with the same user account and different session IDs. This may indicate that an attacker has stolen the user's session cookie and is using it to access the user's account from a different location.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/lateral_movement_multiple_sessions_for_single_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/lateral_movement_multiple_sessions_for_single_user.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "85d5985f-5919-529e-9c75-cca224da0a87",
+  "SearchReference": "cd334285-a6f7-5a99-a44f-1ab1f2c542e1"
+}

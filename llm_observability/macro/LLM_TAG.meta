@@ -1,0 +1,8 @@
+{
+	"Name": "LLM_TAG",
+	"Description": "Configuration Macro; tag that the Gravwell LLM ingester writes to. Every query in the LLM Observability kit resolves its data through this macro, so it must match the Tag-Name on your LLM listener.",
+	"Labels": [
+		"llm",
+		"ai"
+	]
+}

@@ -1,0 +1,3 @@
+tag=$LLM_TAG intrinsic listener
+| stats count as Events by listener
+| chart Events by listener

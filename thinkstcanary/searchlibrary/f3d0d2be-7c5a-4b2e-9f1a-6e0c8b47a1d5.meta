@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Canary - Audit - Count [numbercard]",
+	"Description": "Displays a numbercard of the total count of all audit trail events.\n\nReference(s):\nhttps://docs.canary.tools/console-settings/audit-trail.html",
+	"GUID": "f3d0d2be-7c5a-4b2e-9f1a-6e0c8b47a1d5",
+	"Labels": [
+		"thinkst",
+		"canary"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

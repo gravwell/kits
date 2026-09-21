@@ -1,0 +1,9 @@
+/* AlertQuery - Okta - Identity Access Management - Lifecycle - User - New Okta User Created [table] */
+tag=$OKTA_SYSTEM ax eventType == "user.lifecycle.create"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "New Okta User Created"
+$OKTA_ALERT_META

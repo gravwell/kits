@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - Policy - Okta Policy Modified or Deleted [table]",
+  "Description": "Detects when an Okta policy is modified or deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_policy_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "GUID": "9ba1da25-cd69-5a49-93a2-b34636093174",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

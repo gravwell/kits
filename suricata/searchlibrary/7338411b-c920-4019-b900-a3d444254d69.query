@@ -1,0 +1,5 @@
+tag=$SURICATA json event_type=="tls" tls.ja3.hash as ja3
+| require ja3
+| count by ja3
+| top -n 20 count
+| table -nt ja3 count

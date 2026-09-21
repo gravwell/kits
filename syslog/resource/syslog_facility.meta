@@ -1,7 +1,7 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "syslog_facility",
-	"Description": "Lookup table to turn syslog facility codes into text names and descriptions",
+	"Description": "Lookup table to turn syslog facility codes into text names",
 	"Labels": [
 		"syslog"
 	],

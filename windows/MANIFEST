@@ -3,7 +3,7 @@
 	"Name": "Windows",
 	"Desc": "# Gravwell Windows Kit\n\nThe Gravwell Windows Kit provides a baseline set of queries, dashboards, and investigative resources for builtin Windows audit logs.",
 	"Readme": "",
-	"Version": 2,
+	"Version": 3,
 	"MinVersion": {
 		"Major": 5,
 		"Minor": 4,
@@ -15,8 +15,8 @@
 		"Point": 99
 	},
 	"Icon": "9177296d-d3c1-4240-87e5-a89278c7fb4a",
-	"Banner": "044e554a-4cc4-49fc-9942-07e9ca778edd",
-	"Cover": "3add526e-3523-445d-bbfc-050c06546d81",
+	"Banner": "a75d008a-13d6-4d82-8641-d90a0315a0d8",
+	"Cover": "e791dd04-945c-416c-a290-5e3e96274a58",
 	"Items": [
 		{
 			"Name": "BSD 2-Clause",
@@ -249,16 +249,6 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "3add526e-3523-445d-bbfc-050c06546d81",
-			"Type": 7,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "044e554a-4cc4-49fc-9942-07e9ca778edd",
-			"Type": 7,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
 			"Name": "f1524abf-f14a-46a1-8998-ef3ed937a739",
 			"Type": 11,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -272,14 +262,14 @@
 	"Dependencies": [
 		{
 			"ID": "io.gravwell.windows.resource",
-			"MinVersion": 1
+			"MinVersion": 4
 		}
 	],
 	"ConfigMacros": [
 		{
 			"MacroName": "WINDOWS_ALL",
 			"Description": "Expression for or list of all windows tags",
-			"DefaultValue": "windows",
+			"DefaultValue": "windows_*",
 			"Value": "",
 			"Type": "TAG",
 			"InstalledByID": ""
@@ -287,7 +277,7 @@
 		{
 			"MacroName": "WINDOWS_GROUP",
 			"Description": "Windows tag containing group events",
-			"DefaultValue": "windows",
+			"DefaultValue": "windows_security",
 			"Value": "",
 			"Type": "TAG",
 			"InstalledByID": ""
@@ -295,7 +285,7 @@
 		{
 			"MacroName": "WINDOWS_LOGON",
 			"Description": "Windows tag containing logon events",
-			"DefaultValue": "windows",
+			"DefaultValue": "windows_security",
 			"Value": "",
 			"Type": "TAG",
 			"InstalledByID": ""
@@ -303,7 +293,7 @@
 		{
 			"MacroName": "WINDOWS_USER",
 			"Description": "Windows tag containing user account events",
-			"DefaultValue": "windows",
+			"DefaultValue": "windows_security",
 			"Value": "",
 			"Type": "TAG",
 			"InstalledByID": ""
@@ -311,7 +301,7 @@
 		{
 			"MacroName": "WINDOWS_EVENTLOG_CLEARED",
 			"Description": "Windows tags containing security and system events i.e. windows_security,windows_system",
-			"DefaultValue": "windows",
+			"DefaultValue": "windows_security,windows_system",
 			"Value": "",
 			"Type": "TAG",
 			"InstalledByID": ""

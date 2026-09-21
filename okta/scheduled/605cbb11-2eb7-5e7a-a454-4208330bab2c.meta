@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication / Session - Okta User Sessions Started from Different Geolocations",
+  "Description": "Detects when a specific Okta actor has multiple sessions started from different geolocations. Adversaries may attempt to launch an attack by using a list of known usernames and passwords to gain unauthorized access to user accounts from different locations.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "605cbb11-2eb7-5e7a-a454-4208330bab2c",
+  "SearchReference": "0688b6b7-1bf0-5181-93b5-9c28513a405d"
+}

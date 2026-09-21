@@ -1,0 +1,6 @@
+tag=$LLM_TAG intrinsic event_type == "%%2%%" session_id model listener embeddings
+| grep -e model "%%3%%"
+| semantic -t %%4%% -score risk_score "%%1%%"
+| sort by risk_score desc
+| limit 100
+| table TIMESTAMP risk_score session_id model listener DATA

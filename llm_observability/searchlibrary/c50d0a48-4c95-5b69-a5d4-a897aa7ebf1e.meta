@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Slowest Requests [table]",
+	"Description": "The fifty slowest individual requests in the timeframe, with the reply text.\n\nThe LLM ingester attaches its fields as intrinsic enumerated values, so the query declares the ones it needs on the `intrinsic` extraction module in the tag block.",
+	"GUID": "c50d0a48-4c95-5b69-a5d4-a897aa7ebf1e",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

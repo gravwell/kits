@@ -1,0 +1,4 @@
+tag=$SURICATA json event_type=="tls" tls.subject as subject tls.issuerdn as issuerdn src_ip dest_ip
+| eval subject == issuerdn
+| count by subject src_ip dest_ip
+| table -nt subject src_ip dest_ip count

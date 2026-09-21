@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - DNS Response Codes",
+ "Description": "Chart of DNS response volume by rcode (NOERROR, NXDOMAIN, SERVFAIL, ...). Only answer records carry an rcode; require drops queries.",
+ "GUID": "4e699960-46d2-48b5-91c9-b34294a438ef",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "dns"
+ ],
+ "Metadata": {}
+}

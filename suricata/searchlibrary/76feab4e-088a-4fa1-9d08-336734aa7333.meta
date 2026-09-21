@@ -1,0 +1,12 @@
+{
+ "Name": "Suricata - Possible Port Scan",
+ "Description": "Source/destination pairs where one source touched more than 100 distinct destination ports within an hour, based on Suricata flow records. Tune the threshold in the final eval to fit your environment.",
+ "GUID": "76feab4e-088a-4fa1-9d08-336734aa7333",
+ "Labels": [
+  "suricata",
+  "detection",
+  "T1046",
+  "discovery"
+ ],
+ "Metadata": {}
+}

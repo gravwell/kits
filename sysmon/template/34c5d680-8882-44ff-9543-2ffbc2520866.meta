@@ -1,11 +1,11 @@
 {
 	"UUID": "34c5d680-8882-44ff-9543-2ffbc2520866",
-	"Name": "Sysmon Process Guid Loaded Images",
+	"Name": "Sysmon - Process Guid Loaded Images",
 	"Description": "Show all loaded images by a specific process",
 	"Data": {
 		"variables": [
 			{
-				"name": "_GUID_",
+				"name": "%%GUID%%",
 				"label": "Process Guid",
 				"description": "Process Guid",
 				"required": true,

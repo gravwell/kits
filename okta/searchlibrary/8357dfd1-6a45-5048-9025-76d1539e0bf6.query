@@ -1,0 +1,9 @@
+/* AlertQuery - Okta - Identity Access Management - Application - OAuth2 - Unauthorized Scope for Public App OAuth2 Token Grant with Client Credentials [table] */
+tag=$OKTA_SYSTEM ax eventType == "app.oauth2.as.token.grant"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Unauthorized Scope for Public App OAuth2 Token Grant with Client Credentials"
+$OKTA_ALERT_META

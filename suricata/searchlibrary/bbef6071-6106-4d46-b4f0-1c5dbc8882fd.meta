@@ -1,0 +1,12 @@
+{
+ "Name": "Suricata - HTTP Request to Bare IP Host",
+ "Description": "HTTP requests where the Host header is a bare IPv4 address rather than a hostname. Legitimate for some internal tooling, but a common malware beaconing pattern.",
+ "GUID": "bbef6071-6106-4d46-b4f0-1c5dbc8882fd",
+ "Labels": [
+  "suricata",
+  "detection",
+  "http",
+  "command-and-control"
+ ],
+ "Metadata": {}
+}

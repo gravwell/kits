@@ -1,6 +1,8 @@
-# Okta Kit for Gravwell — README
+# Okta Kit for Gravwell — Overview
 
 A toolkit for interacting with Okta data in Gravwell. This kit includes queries, alerts, scheduled searches, resources, templates, and dashboards to help streamline your Okta data analysis.
+
+An integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/application/okta.html) to help you get started with ingest.
 
 ***
 
@@ -389,6 +391,5 @@ A toolkit for interacting with Okta data in Gravwell. This kit includes queries,
 ***
 
 ## 13. [Image credits](#13-image-credits)
-- icon: [UXWing] (https://uxwing.com/okta-icon/)
-- cover: [UXWing] (https://uxwing.com/okta-icon/)
-- banner: [UXWing] (https://uxwing.com/okta-icon/)
+
+***

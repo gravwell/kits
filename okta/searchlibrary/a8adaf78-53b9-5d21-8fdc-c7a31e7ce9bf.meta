@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - IAM - Resourceset - Okta Admin Role Assignment Created [table]",
+  "Description": "Detects when a new admin role assignment is created. Which could be a sign of privilege escalation or persistence.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_admin_role_assignment_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "GUID": "a8adaf78-53b9-5d21-8fdc-c7a31e7ce9bf",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

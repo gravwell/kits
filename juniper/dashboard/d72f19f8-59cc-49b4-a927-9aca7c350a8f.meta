@@ -56,17 +56,6 @@
 				}
 			},
 			{
-				"alias": "Juniper Logins",
-				"color": null,
-				"reference": {
-					"id": "8668804b-baa3-4b2a-bef7-4c60c100e95d",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
 				"alias": "Juniper Failed Logins by Destination",
 				"color": null,
 				"reference": {
@@ -89,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Juniper Config Changes by Hostname",
+				"alias": "Juniper Configuration Changes by Hostname",
 				"color": null,
 				"reference": {
 					"id": "a8d0fb86-f16d-4234-948c-99cfaaf82e1e",
@@ -179,7 +168,7 @@
 					"x": 0,
 					"y": 0
 				},
-				"searchesIndex": 8,
+				"searchesIndex": 7,
 				"rendererOptions": {}
 			},
 			{
@@ -193,7 +182,7 @@
 					"x": 8,
 					"y": 0
 				},
-				"searchesIndex": 5,
+				"searchesIndex": 4,
 				"rendererOptions": {}
 			},
 			{
@@ -207,7 +196,7 @@
 					"x": 2,
 					"y": 8
 				},
-				"searchesIndex": 6,
+				"searchesIndex": 5,
 				"rendererOptions": {}
 			},
 			{
@@ -221,7 +210,7 @@
 					"x": 5,
 					"y": 15
 				},
-				"searchesIndex": 7,
+				"searchesIndex": 6,
 				"rendererOptions": {}
 			}
 		],
@@ -229,5 +218,7 @@
 		"grid": {},
 		"version": 2
 	},
-	"Labels": null
+	"Labels": [
+		"juniper"
+	]
 }

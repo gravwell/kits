@@ -1,0 +1,9 @@
+{
+	"Tags": [],
+	"Ingesters": [],
+	"Assets": [
+		{ "Type": "image", "Source": "ai-cover.png", "Legend": "AI Agent Preview", "Featured": true},
+		{ "Type": "image", "Source": "ai-banner.png", "Legend": "AI Agent Preview", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}

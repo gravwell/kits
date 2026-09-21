@@ -1,0 +1,11 @@
+/* AlertQuery - Okta - Identity Access Management - User - MFA / Session - Stolen Credentials Used to Login to Okta Account After MFA Reset [table] */
+tag=$OKTA_SYSTEM ax
+| regex -e eventType "^(?:user\.mfa\.factor\.update|user\.session\.start|user\.authentication)$"
+$OKTA_ALERT_EVX
+| regex -e outcomeResult "(?i)SUCCESS|ALLOW"
+$OKTA_ENRICH_COMMON
+$OKTA_CATALOG_RISK_SCORE
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval _alert_name = "Stolen Credentials Used to Login to Okta Account After MFA Reset"
+$OKTA_ALERT_META

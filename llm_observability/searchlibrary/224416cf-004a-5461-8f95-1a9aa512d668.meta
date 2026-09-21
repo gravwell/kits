@@ -1,0 +1,12 @@
+{
+	"Name": "Search - LLM - Semantic - Data Exfiltration Intent [table]",
+	"Description": "Finds prompts asking the model to help move internal data somewhere external.\n\nRequires embeddings on the entries (vector preprocessor on the LLM listener) and an embedding model configured in the webserver's [AI] section. Without both, this query returns nothing. Tune sensitivity with the LLM_SEMANTIC_THRESHOLD config macro rather than editing the query.\n\n`embeddings` is an intrinsic enumerated value, so it is declared on the intrinsic extraction module alongside everything else the query needs; the semantic module cannot see it otherwise.",
+	"GUID": "224416cf-004a-5461-8f95-1a9aa512d668",
+	"Labels": [
+		"llm",
+		"ai"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

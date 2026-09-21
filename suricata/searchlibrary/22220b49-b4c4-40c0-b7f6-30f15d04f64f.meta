@@ -1,0 +1,11 @@
+{
+ "Name": "Suricata - Top Talkers by Bytes",
+ "Description": "The 20 source/destination pairs moving the most total bytes, from Suricata flow records.",
+ "GUID": "22220b49-b4c4-40c0-b7f6-30f15d04f64f",
+ "Labels": [
+  "suricata",
+  "dashboard",
+  "flow"
+ ],
+ "Metadata": {}
+}

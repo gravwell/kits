@@ -1,0 +1,11 @@
+{
+  "Name": "AlertQuery - Okta - Identity Access Management - User - MFA - Attempted Bypass of Okta MFA [table]",
+  "Description": "Detects attempts to bypass Okta multi-factor authentication (MFA). An adversary may attempt to bypass the Okta MFA policies configured for an organization in order to obtain unauthorized access to an application.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_attempted_bypass_of_okta_mfa/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_attempted_bypass_of_okta_mfa.toml",
+  "GUID": "85e5dca5-56f0-5291-9f48-de355d7809e0",
+  "Labels": [
+    "okta"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

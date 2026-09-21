@@ -1,0 +1,3 @@
+tag=$SURICATA json event_type=="alert" src_ip dest_ip dest_port alert.signature as signature alert.category as category alert.severity as severity
+| eval (src_ip == "%%1%%" || dest_ip == "%%1%%")
+| table TIMESTAMP src_ip dest_ip dest_port signature category severity

@@ -1,0 +1,16 @@
+{
+  "Name": "ScheduledSearch - Okta - Identity Access Management - Application - OAuth2 - First Occurrence of Okta User Session Started via Proxy",
+  "Description": "Identifies the first occurrence of an Okta user session started via a proxy.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_first_occurrence_user_session_started_via_proxy/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/initial_access_first_occurrence_user_session_started_via_proxy.toml",
+  "Labels": [
+    "okta"
+  ],
+  "Schedule": "*/15 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "b3950ebc-db69-5bdf-a3e7-536ae174edb8",
+  "SearchReference": "a155c371-5dd4-5b63-bfd5-f8afd139e3e1"
+}

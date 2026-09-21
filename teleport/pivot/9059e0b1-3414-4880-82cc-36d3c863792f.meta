@@ -1,0 +1,41 @@
+{
+	"UUID": "9059e0b1-3414-4880-82cc-36d3c863792f",
+	"Name": "Teleport - Investigate IP Address",
+	"Description": "Investigate Teleport audit activity for an IP address that appears in search results.",
+	"Data": {
+		"menuLabel": "Teleport - IP Address",
+		"actions": [
+			{
+				"name": "Teleport - IP Audit Activity",
+				"description": "Review Teleport audit activity from this IP address",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "7571c5e0-8136-48e8-b01b-d4a184198b0f",
+					"options": {
+						"variable": "%%ip_address%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": ["audit", "investigation", "ip", "teleport"]
+}
