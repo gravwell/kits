@@ -234,7 +234,7 @@
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
-			"Name": "APACHE-ERR",
+			"Name": "APACHE_ERR",
 			"Type": 8,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
@@ -617,7 +617,7 @@
 	"Dependencies": null,
 	"ConfigMacros": [
 		{
-			"MacroName": "APACHE-ERR",
+			"MacroName": "APACHE_ERR",
 			"Description": "Configuration macro for Apache errors tag",
 			"DefaultValue": "apache-err",
 			"Value": "",
