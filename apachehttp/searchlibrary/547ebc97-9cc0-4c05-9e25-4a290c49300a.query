@@ -1,5 +1,5 @@
 tag=$APACHE json remote_addr forwarded_for method uri status user_agent vhost
-| eval forwarded_for == "" && remote_addr != "127.0.0.1" && remote_addr != "172.17.100.144"
+| eval (len(forwarded_for) == 0 || forwarded_for == "-") && remote_addr != "127.0.0.1" && remote_addr != "::1"
 | stats count by remote_addr
 | sort by count desc
 | table remote_addr count
