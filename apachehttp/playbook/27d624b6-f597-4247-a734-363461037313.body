@@ -19,4 +19,4 @@ Refer to Kit Overview playbook for more detail on these components.
 None
 
 ## Changelog:
-**v1.0: Initial Release**
+**v1: Initial Release**

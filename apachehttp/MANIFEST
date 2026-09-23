@@ -2,7 +2,7 @@
 	"ID": "io.gravwell.apachehttp",
 	"Name": "Apache HTTP Server Detection Kit",
 	"Desc": "Provides tools, utilities, and detections to work with Apache HTTP server logs.",
-	"Readme": "This kit is designed to provide an out-of-the-box experience for working with Apache HTTP server logs.\n\nAn integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/application/apache.html)\n\nThis kit provides the following utilities:\n\n- Queries\n    - Detections\n    - Stats\n- Dashboards\n- Scheduled Searches\n- Actionables\n- Macros\n- Templates\n\nRefer to Kit Overview playbook for more detail on these components.\n\n## Dependencies\nNone\n\n## Changelog:\n**v1.0: Initial Release**\n",
+	"Readme": "This kit is designed to provide an out-of-the-box experience for working with Apache HTTP server logs.\n\nAn integration guide is available on [this documentation page](https://docs.gravwell.io/integrations/application/apache.html)\n\nThis kit provides the following utilities:\n\n- Queries\n    - Detections\n    - Stats\n- Dashboards\n- Scheduled Searches\n- Actionables\n- Macros\n- Templates\n\nRefer to Kit Overview playbook for more detail on these components.\n\n## Dependencies\nNone\n\n## Changelog:\n**v1: Initial Release**\n",
 	"Version": 1,
 	"MinVersion": {
 		"Major": 0,
@@ -296,11 +296,6 @@
 		{
 			"Name": "41ab1f36-6085-47db-8817-4fd0b6a040d2",
 			"Type": 5,
-			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"Name": "0df8c867-064d-4179-b72f-67ab802299ae",
-			"Type": 9,
 			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
 		},
 		{
