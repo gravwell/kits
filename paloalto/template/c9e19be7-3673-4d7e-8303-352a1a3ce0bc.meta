@@ -1,6 +1,6 @@
 {
 	"UUID": "c9e19be7-3673-4d7e-8303-352a1a3ce0bc",
-	"Name": "Template - Palo Alto - NGFW - Threat - Subtype - Count by Subtypes for User \u0026 IP [numbercard]",
+	"Name": "Palo Alto - NGFW - Template - Threat - Subtype - Count by Subtypes for User \u0026 IP [numbercard]",
 	"Description": "Displays a numbercard of threat event counts by subtype for the specified IP address.\n\nDependencies\n- Dashboard: Palo Alto Investigations",
 	"Data": {
 		"variables": [

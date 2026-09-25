@@ -1,4 +1,4 @@
-// Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [numbercard]
+/* Palo Alto - NGFW - Search - GlobalProtect - Authentication - Count by Status [numbercard] */
 tag=$PAN_GLOBALPROTECT ax stage=="login" status
 | stats count by status
 | numbercard (count "")

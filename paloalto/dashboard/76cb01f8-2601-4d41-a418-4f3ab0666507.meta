@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat/Traffic - Event Type - Count by Type [numbercard]",
+				"alias": "Palo Alto - NGFW - Search - Threat/Traffic - Event Type - Count by Type [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "9a538ea3-3656-4d12-a252-9b4c88487299",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS Application - SaaS Event Count [numbercard]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS Application - SaaS Event Count [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "2332615f-d68f-4635-98e2-f931ae86713c",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - URL - Count by Top Hostnames [table]",
+				"alias": "Palo Alto - NGFW - Search - Threat - URL - Count by Top Hostnames [table]",
 				"color": null,
 				"reference": {
 					"id": "f04b1ebf-96d1-4220-97da-291ab125f4d4",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - URL - Top Web Categories [chart]",
+				"alias": "Palo Alto - NGFW - Search - Threat - URL - Top Web Categories [chart]",
 				"color": null,
 				"reference": {
 					"id": "3afdb278-a9cb-4d28-afa9-1e06707ddb46",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - Application - Top Applications [chart]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - Application - Top Applications [chart]",
 				"color": null,
 				"reference": {
 					"id": "0102c2d0-b817-413f-affc-92d00b4fd452",
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - Application - Rare Applications [table]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - Application - Rare Applications [table]",
 				"color": null,
 				"reference": {
 					"id": "ed30530c-b91b-4e37-aa5a-c9c3c889832c",
@@ -78,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - Bytes - Total Traffic Volume [chart]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - Bytes - Total Traffic Volume [chart]",
 				"color": null,
 				"reference": {
 					"id": "741a45c8-9248-4922-97c2-a6b9b525e6d4",

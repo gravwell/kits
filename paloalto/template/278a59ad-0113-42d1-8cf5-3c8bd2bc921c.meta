@@ -1,6 +1,6 @@
 {
 	"UUID": "278a59ad-0113-42d1-8cf5-3c8bd2bc921c",
-	"Name": "Template - Palo Alto - NGFW - Traffic - Category - Count by Category [chart]",
+	"Name": "Palo Alto - NGFW - Template - Traffic - Category - Count by Category [chart]",
 	"Description": "Displays a chart of traffic event counts by application category for the specified IP address.\n\nDependencies\n- Dashboard: Palo Alto Investigations",
 	"Data": {
 		"variables": [

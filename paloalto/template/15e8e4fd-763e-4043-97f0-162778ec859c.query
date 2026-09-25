@@ -1,4 +1,4 @@
-// Template - Palo Alto - NGFW - Threat - Events - All Threat Events for User & IP [table]
+/* Palo Alto - NGFW - Template - Threat - Events - All Threat Events for User & IP [table] */
 tag=$PAN_THREAT ax src natsrc srcuser dst natdst dstuser threatid xff_ip category_of_app subcategory_of_app
 | alias threatid "Threat ID" src "Source" srcuser "Source User" dst "Destination" dstuser "Destination User" category_of_app "Category"
 | eval (srcuser~"%%user%%" || dstuser~"%%user%%") && (src~"%%ip%%" || natsrc~"%%ip%%" || dst~"%%ip%%" || natdst~"%%ip%%" || xff_ip~"%%ip%%")

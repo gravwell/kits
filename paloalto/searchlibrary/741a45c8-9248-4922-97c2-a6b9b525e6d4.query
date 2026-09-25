@@ -1,4 +1,4 @@
-// Search - Palo Alto - NGFW - Traffic - Bytes - Total Traffic Volume [chart]
+/* Palo Alto - NGFW - Search - Traffic - Bytes - Total Traffic Volume [chart] */
 tag=$PAN_TRAFFIC ax bytes 
 | stats sum(bytes) 
 | eval (Megabytes = sum / (1024 * 1024)) 

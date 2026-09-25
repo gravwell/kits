@@ -1,4 +1,4 @@
-// Template - Palo Alto - NGFW - Threat - WildFire - All Submissions for User & IP [table]
+/* Palo Alto - NGFW - Template - Threat - WildFire - All Submissions for User & IP [table] */
 tag=$PAN_THREAT ax subtype=="wildfire" 
 | alias 
     misc Filename

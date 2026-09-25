@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Count by Subtype [numbercard]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Count by Subtype [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "2e2a52c3-01c9-411e-9254-e205ac7b13fa",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Most Frequent Threat IDs [table]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Most Frequent Threat IDs [table]",
 				"color": null,
 				"reference": {
 					"id": "5a11f630-f7f2-4c98-9500-688928974ac3",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Count by Threat Source Location [chart]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Count by Threat Source Location [chart]",
 				"color": null,
 				"reference": {
 					"id": "80ade539-a898-480c-b9da-c284f3da09dc",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Count by Threat Destination Location [chart]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Count by Threat Destination Location [chart]",
 				"color": null,
 				"reference": {
 					"id": "8fbf3919-9199-41a0-b72e-07a4aed91ab7",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Scans Detected [table]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Scans Detected [table]",
 				"color": null,
 				"reference": {
 					"id": "2d5b39c9-8589-442f-b1dd-715ee4c6c677",
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Count by Scan Source Location [chart]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Count by Scan Source Location [chart]",
 				"color": null,
 				"reference": {
 					"id": "1812fddf-4109-4d57-b274-1da9981b426f",
@@ -78,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Count by Scan Types [chart]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Count by Scan Types [chart]",
 				"color": null,
 				"reference": {
 					"id": "fd4e2509-d685-49d4-b9c8-cdb8d1c0d153",
@@ -89,7 +89,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Threat Source Locations [heatmap]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Threat Source Locations [heatmap]",
 				"color": null,
 				"reference": {
 					"id": "3fd985ab-3814-433a-920c-42586088ca44",
@@ -100,7 +100,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Threat - Events - Scan Source Locations [heatmap]",
+				"alias": "Palo Alto - NGFW - Search - Threat - Events - Scan Source Locations [heatmap]",
 				"color": null,
 				"reference": {
 					"id": "4890dfae-9bc6-4428-8f02-c32b98a7ddab",

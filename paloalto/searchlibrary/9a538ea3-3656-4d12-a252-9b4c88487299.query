@@ -1,4 +1,4 @@
-// Search - Palo Alto - NGFW - Threat/Traffic - Event Type - Count by Type [numbercard]
+/* Palo Alto - NGFW - Search - Threat/Traffic - Event Type - Count by Type [numbercard] */
 tag=$PAN_THREAT_TRAFFIC ax subtype
 | tag=$PAN_TRAFFIC eval if (subtype == "end") {
     $(type) = "Traffic Events";

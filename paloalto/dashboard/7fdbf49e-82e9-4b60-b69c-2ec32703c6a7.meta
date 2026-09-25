@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Total Bytes Transferred [numbercard]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Total Bytes Transferred [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "9b25ad03-4189-445f-b27c-48ec3af4b0e7",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Action [chart]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Count by Action [chart]",
 				"color": null,
 				"reference": {
 					"id": "ce08d927-0617-41e5-9b44-22f8568c5ff0",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Application [chart]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Count by Application [chart]",
 				"color": null,
 				"reference": {
 					"id": "fe4898de-8dd2-46dc-a3bc-3263bdaae33a",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Application Distribution [table]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Application Distribution [table]",
 				"color": null,
 				"reference": {
 					"id": "47076a81-7c11-474f-86a1-4d1c3d53a8d8",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Applications [table]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Sanctioned Applications [table]",
 				"color": null,
 				"reference": {
 					"id": "bc005eda-32cf-4a11-accf-6684a2fb9af2",
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Unsanctioned Applications [table]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Unsanctioned Applications [table]",
 				"color": null,
 				"reference": {
 					"id": "308a0350-9e34-4e97-91e2-16d27ff0a350",
@@ -78,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Application Percentages [chart]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Sanctioned Application Percentages [chart]",
 				"color": null,
 				"reference": {
 					"id": "3233c046-6e37-4318-8b78-b5a4cb25f12a",
@@ -89,7 +89,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Sanctioned Category [chart]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Count by Sanctioned Category [chart]",
 				"color": null,
 				"reference": {
 					"id": "2a0213fe-5013-4649-a859-4e1ed8299c99",
@@ -100,7 +100,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Traffic - SaaS - Count by Unsanctioned Category [chart]",
+				"alias": "Palo Alto - NGFW - Search - Traffic - SaaS - Count by Unsanctioned Category [chart]",
 				"color": null,
 				"reference": {
 					"id": "e442e808-5c6e-4509-a66b-cb744a26aff6",

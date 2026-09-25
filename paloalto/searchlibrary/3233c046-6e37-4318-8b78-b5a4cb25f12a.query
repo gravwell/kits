@@ -1,4 +1,4 @@
-// Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Application Percentages [chart]
+/* Palo Alto - NGFW - Search - Traffic - SaaS - Sanctioned Application Percentages [chart] */
 tag=$PAN_TRAFFIC ax sanctioned_state_of_app
 | eval if (sanctioned_state_of_app == "yes") { state = "Sanctioned"; } else { state = "Non-sanctioned"; }
 | stats count by state

@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Search - Palo Alto - NGFW - Config - Events - Latest Events [table]",
+				"alias": "Palo Alto - NGFW - Search - Config - Events - Latest Events [table]",
 				"color": null,
 				"reference": {
 					"id": "52cd3303-4013-47e5-bc75-fa8f999222aa",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Administrators [chart]",
+				"alias": "Palo Alto - NGFW - Search - Config - Events - Count by Administrators [chart]",
 				"color": null,
 				"reference": {
 					"id": "8b60b817-ad70-4c99-95ec-c82c43e61d64",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Command [chart]",
+				"alias": "Palo Alto - NGFW - Search - Config - Events - Count by Command [chart]",
 				"color": null,
 				"reference": {
 					"id": "32e6de72-2601-41be-b6ed-dc4acb4e834e",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Results [chart]",
+				"alias": "Palo Alto - NGFW - Search - Config - Events - Count by Results [chart]",
 				"color": null,
 				"reference": {
 					"id": "17da5912-7283-4c8a-97a1-fb532c072fe8",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - Config - Events - Count by Client [chart]",
+				"alias": "Palo Alto - NGFW - Search - Config - Events - Count by Client [chart]",
 				"color": null,
 				"reference": {
 					"id": "1ef98531-447b-4dc0-8df2-3ad2e4815902",

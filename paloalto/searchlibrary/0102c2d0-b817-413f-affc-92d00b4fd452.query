@@ -1,4 +1,4 @@
-// Search - Palo Alto - NGFW - Traffic - Application - Top Applications [chart]
+/* Palo Alto - NGFW - Search - Traffic - Application - Top Applications [chart] */
 tag=$PAN_TRAFFIC ax app!="incomplete" 
 | alias app Application  
 | stats count by Application  

@@ -358,9 +358,9 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 - Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  
 - *QueryType - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - Name [Visualization - if any]*  
 - Examples:  
-    - Templates: *Template - Palo Alto - NGFW - GlobalProtect - Events - All VPN Events for User & IP [table]*  
-    - Searches: *Search - Palo Alto - NGFW - Config - Events - Count by Administrators [chart]*  
-    - Alert Queries: *AlertQuery - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+    - Templates: *Palo Alto - NGFW - Template - GlobalProtect - Events - All VPN Events for User & IP [table]*  
+    - Searches: *Palo Alto - NGFW - Search - Config - Events - Count by Administrators [chart]*  
+    - Alert Queries: *Palo Alto - NGFW - AlertQuery - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
 
 ***  
 
@@ -450,59 +450,59 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 
 - Purpose: These queries within the Query Library drive [dashboards to quickly view vendor data in an easily digestible format.  
 - Total: ***45***  
-    - Search - Palo Alto - NGFW - Config - Events - Count by Administrators [chart]: Displays a chart of configuration event counts by administrator.  
-    - Search - Palo Alto - NGFW - Config - Events - Count by Client [chart]: Displays a chart of configuration event counts by client used to perform the action.  
-    - Search - Palo Alto - NGFW - Config - Events - Count by Command [chart]: Displays a chart of configuration event counts by command executed.  
-    - Search - Palo Alto - NGFW - Config - Events - Count by Command [numbercard]: Displays a numbercard of configuration event counts by command executed.  
-    - Search - Palo Alto - NGFW - Config - Events - Count by Results [chart]: Displays a chart of configuration event counts by command result.  
-    - Search - Palo Alto - NGFW - Config - Events - Latest Events [table]: Displays a chart of configuration event counts by administrator.  
-    - Search - Palo Alto - NGFW - Event Types - Count by Tag [chart]: Displays a chart of event counts by TAG.  
-    - Search - Palo Alto - NGFW - Event Types - Count by Tag [numbercard]: Displays a numbercard of event counts by TAG.  
-    - Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [chart]: Displays a chart of GlobalProtect login attempt counts by status.  
-    - Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [numbercard]: Displays a numbercard of GlobalProtect login attempt counts by status.  
-    - Search - Palo Alto - NGFW - GlobalProtect - Authentication - Failed Logins [table]: Displays a table of failed GlobalProtect login attempts by user, region, and source IP.  
-    - Search - Palo Alto - NGFW - GlobalProtect - Diagnostics - Average Latency [chart]: Displays a chart of average pre-tunnel and post-tunnel latency for GlobalProtect gateway connections.  
-    - Search - Palo Alto - NGFW - GlobalProtect - Events - Count by Subtype [numbercard]: Displays a numbercard of GlobalProtect event counts by subtype.  
-    - Search - Palo Alto - NGFW - GlobalProtect - Session - GlobalProtect Users [table]: Displays a table of GlobalProtect users with associated client system and operating system information.  
-    - Search - Palo Alto - NGFW - Threat - Events - Count by Scan Source Location [chart]: Displays a chart of scan event counts by source location.  
-    - Search - Palo Alto - NGFW - Threat - Events - Count by Scan Types [chart]: Displays a chart of scan event counts by threat ID.  
-    - Search - Palo Alto - NGFW - Threat - Events - Count by Subtype [numbercard]: Displays a numbercard of threat event counts by subtype.  
-    - Search - Palo Alto - NGFW - Threat - Events - Count by Threat Destination Location [chart]: Displays a chart of threat event counts by destination location.  
-    - Search - Palo Alto - NGFW - Threat - Events - Count by Threat Source Location [chart]: Displays a chart of threat event counts by source location.  
-    - Search - Palo Alto - NGFW - Threat - Events - Most Frequent Threat IDs [table]: Displays a table of the most frequently observed threat IDs in threat events.  
-    - Search - Palo Alto - NGFW - Threat - Events - Scan Source Locations [heatmap]: Displays a heatmap of scan event source IP locations.  
-    - Search - Palo Alto - NGFW - Threat - Events - Scans Detected [table]: Displays a table of detected scan events grouped by source and threat ID.  
-    - Search - Palo Alto - NGFW - Threat - Events - Threat Source Locations [heatmap]: Displays a heatmap of threat event source IP locations.  
-    - Search - Palo Alto - NGFW - Threat - URL - Count by Top Hostnames [table]: Displays a table of hostname counts extracted from URL threat events.  
-    - Search - Palo Alto - NGFW - Threat - URL - Top Web Categories [chart]: Displays a numbercard of SaaS event counts by type.  
-    - Search - Palo Alto - NGFW - Threat - WildFire - Count by Application [chart]: Displays a chart of WildFire submission counts by application.  
-    - Search - Palo Alto - NGFW - Threat - WildFire - Count by Category [chart]: Displays a chart of WildFire verdict counts by category.  
-    - Search - Palo Alto - NGFW - Threat - WildFire - Count by Category [numbercard]: Displays a numbercard of WildFire verdict counts by category.  
-    - Search - Palo Alto - NGFW - Threat - WildFire - Count by File Type [chart]: Displays a chart of WildFire submission counts by file type.  
-    - Search - Palo Alto - NGFW - Threat - WildFire - Recent Wildfire Submissions [table]: Displays a table of recent non-benign WildFire file submissions including source, destination, and file details.  
-    - Search - Palo Alto - NGFW - Threat/Traffic - Event Type - Count by Type [numbercard]: Displays a numbercard of event counts by type.  
-    - Search - Palo Alto - NGFW - Traffic - Application - Rare Applications [table]: Displays a table of the least frequently observed applications in traffic logs.  
-    - Search - Palo Alto - NGFW - Traffic - Application - Top Applications [chart]: Displays a chart of the most frequently observed applications in traffic logs.  
-    - Search - Palo Alto - NGFW - Traffic - Bytes - Total Traffic Volume [chart]: Displays a chart of total traffic volume in megabytes based on summed byte counts from traffic logs.  
-    - Search - Palo Alto - NGFW - Traffic - Events - Count by Subtype [numbercard]: Displays a numbercard of threat event counts by subtype.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Application Distribution [table]: Displays a table of SaaS applications with session counts and total traffic volume by category and subcategory.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Count by Action [chart]: Displays a chart of SaaS traffic event counts by action.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Count by Application [chart]: Displays a chart of SaaS traffic session counts by application.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Count by Sanctioned Category [chart]: Displays a chart of the most frequently observed sanctioned SaaS application categories.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Count by Unsanctioned Category [chart]: Displays a chart of the least frequently observed sanctioned SaaS application categories.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - SaaS Event Count [numbercard]: Displays a numbercard of SaaS event counts by type.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Application Percentages [chart]: Displays a chart of SaaS traffic counts comparing sanctioned and non-sanctioned applications.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Sanctioned Applications [table]: Displays a table of sanctioned SaaS applications with session counts and total traffic volume.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Total Bytes Transferred [numbercard]: Displays a numbercard of total bytes transferred for SaaS traffic sessions.  
-    - Search - Palo Alto - NGFW - Traffic - SaaS - Unsanctioned Applications [table]: Displays a table of unsanctioned SaaS applications with session counts and total traffic volume.  
-- Naming Schema: *Search - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+    - Palo Alto - NGFW - Search - Config - Events - Count by Administrators [chart]: Displays a chart of configuration event counts by administrator.  
+    - Palo Alto - NGFW - Search - Config - Events - Count by Client [chart]: Displays a chart of configuration event counts by client used to perform the action.  
+    - Palo Alto - NGFW - Search - Config - Events - Count by Command [chart]: Displays a chart of configuration event counts by command executed.  
+    - Palo Alto - NGFW - Search - Config - Events - Count by Command [numbercard]: Displays a numbercard of configuration event counts by command executed.  
+    - Palo Alto - NGFW - Search - Config - Events - Count by Results [chart]: Displays a chart of configuration event counts by command result.  
+    - Palo Alto - NGFW - Search - Config - Events - Latest Events [table]: Displays a chart of configuration event counts by administrator.  
+    - Palo Alto - NGFW - Search - Event Types - Count by Tag [chart]: Displays a chart of event counts by TAG.  
+    - Palo Alto - NGFW - Search - Event Types - Count by Tag [numbercard]: Displays a numbercard of event counts by TAG.  
+    - Palo Alto - NGFW - Search - GlobalProtect - Authentication - Count by Status [chart]: Displays a chart of GlobalProtect login attempt counts by status.  
+    - Palo Alto - NGFW - Search - GlobalProtect - Authentication - Count by Status [numbercard]: Displays a numbercard of GlobalProtect login attempt counts by status.  
+    - Palo Alto - NGFW - Search - GlobalProtect - Authentication - Failed Logins [table]: Displays a table of failed GlobalProtect login attempts by user, region, and source IP.  
+    - Palo Alto - NGFW - Search - GlobalProtect - Diagnostics - Average Latency [chart]: Displays a chart of average pre-tunnel and post-tunnel latency for GlobalProtect gateway connections.  
+    - Palo Alto - NGFW - Search - GlobalProtect - Events - Count by Subtype [numbercard]: Displays a numbercard of GlobalProtect event counts by subtype.  
+    - Palo Alto - NGFW - Search - GlobalProtect - Session - GlobalProtect Users [table]: Displays a table of GlobalProtect users with associated client system and operating system information.  
+    - Palo Alto - NGFW - Search - Threat - Events - Count by Scan Source Location [chart]: Displays a chart of scan event counts by source location.  
+    - Palo Alto - NGFW - Search - Threat - Events - Count by Scan Types [chart]: Displays a chart of scan event counts by threat ID.  
+    - Palo Alto - NGFW - Search - Threat - Events - Count by Subtype [numbercard]: Displays a numbercard of threat event counts by subtype.  
+    - Palo Alto - NGFW - Search - Threat - Events - Count by Threat Destination Location [chart]: Displays a chart of threat event counts by destination location.  
+    - Palo Alto - NGFW - Search - Threat - Events - Count by Threat Source Location [chart]: Displays a chart of threat event counts by source location.  
+    - Palo Alto - NGFW - Search - Threat - Events - Most Frequent Threat IDs [table]: Displays a table of the most frequently observed threat IDs in threat events.  
+    - Palo Alto - NGFW - Search - Threat - Events - Scan Source Locations [heatmap]: Displays a heatmap of scan event source IP locations.  
+    - Palo Alto - NGFW - Search - Threat - Events - Scans Detected [table]: Displays a table of detected scan events grouped by source and threat ID.  
+    - Palo Alto - NGFW - Search - Threat - Events - Threat Source Locations [heatmap]: Displays a heatmap of threat event source IP locations.  
+    - Palo Alto - NGFW - Search - Threat - URL - Count by Top Hostnames [table]: Displays a table of hostname counts extracted from URL threat events.  
+    - Palo Alto - NGFW - Search - Threat - URL - Top Web Categories [chart]: Displays a numbercard of SaaS event counts by type.  
+    - Palo Alto - NGFW - Search - Threat - WildFire - Count by Application [chart]: Displays a chart of WildFire submission counts by application.  
+    - Palo Alto - NGFW - Search - Threat - WildFire - Count by Category [chart]: Displays a chart of WildFire verdict counts by category.  
+    - Palo Alto - NGFW - Search - Threat - WildFire - Count by Category [numbercard]: Displays a numbercard of WildFire verdict counts by category.  
+    - Palo Alto - NGFW - Search - Threat - WildFire - Count by File Type [chart]: Displays a chart of WildFire submission counts by file type.  
+    - Palo Alto - NGFW - Search - Threat - WildFire - Recent Wildfire Submissions [table]: Displays a table of recent non-benign WildFire file submissions including source, destination, and file details.  
+    - Palo Alto - NGFW - Search - Threat/Traffic - Event Type - Count by Type [numbercard]: Displays a numbercard of event counts by type.  
+    - Palo Alto - NGFW - Search - Traffic - Application - Rare Applications [table]: Displays a table of the least frequently observed applications in traffic logs.  
+    - Palo Alto - NGFW - Search - Traffic - Application - Top Applications [chart]: Displays a chart of the most frequently observed applications in traffic logs.  
+    - Palo Alto - NGFW - Search - Traffic - Bytes - Total Traffic Volume [chart]: Displays a chart of total traffic volume in megabytes based on summed byte counts from traffic logs.  
+    - Palo Alto - NGFW - Search - Traffic - Events - Count by Subtype [numbercard]: Displays a numbercard of threat event counts by subtype.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Application Distribution [table]: Displays a table of SaaS applications with session counts and total traffic volume by category and subcategory.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Count by Action [chart]: Displays a chart of SaaS traffic event counts by action.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Count by Application [chart]: Displays a chart of SaaS traffic session counts by application.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Count by Sanctioned Category [chart]: Displays a chart of the most frequently observed sanctioned SaaS application categories.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Count by Unsanctioned Category [chart]: Displays a chart of the least frequently observed sanctioned SaaS application categories.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - SaaS Event Count [numbercard]: Displays a numbercard of SaaS event counts by type.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Sanctioned Application Percentages [chart]: Displays a chart of SaaS traffic counts comparing sanctioned and non-sanctioned applications.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Sanctioned Applications [table]: Displays a table of sanctioned SaaS applications with session counts and total traffic volume.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Total Bytes Transferred [numbercard]: Displays a numbercard of total bytes transferred for SaaS traffic sessions.  
+    - Palo Alto - NGFW - Search - Traffic - SaaS - Unsanctioned Applications [table]: Displays a table of unsanctioned SaaS applications with session counts and total traffic volume.  
+- Naming Schema: *Palo Alto - NGFW - Search - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
 
 #### 8.2. Alert Queries  
 
 - Purpose: These queries within the Query Library drive [scheduled searches.  
 - IMPORTANT: If you need to update or tune, this is where you perform that action.  
 - Total: ***0***  
-- Naming Schema: *AlertQuery - Palo Alto - NGFW - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
+- Naming Schema: *Palo Alto - NGFW - AlertQuery - Category/Logtype - Subcategory/Log Subtype - Severity/Priority - SearchName [Visualization - if any]*  
 
 ***  
 
@@ -511,11 +511,11 @@ You can also send logs via the HTTP ingester; instructions for that are in the "
 - Purpose: Templates are special objects which define a Gravwell query containing variables.  
 - [Documentation](<https://docs.gravwell.io/gui/templates/templates.html>)  
 - Total: ***5***  
-    - Template - Palo Alto - NGFW - GlobalProtect - Events - All VPN Events for User & IP [table]: Displays a table of GlobalProtect sessions associated with the specified IP address including user and machine information.  
-    - Template - Palo Alto - NGFW - Threat - Events - All Threat Events for User & IP [table]: Displays a table of threat events associated with the specified IP address including source, destination, and threat ID.  
-    - Template - Palo Alto - NGFW - Threat - Subtype - Count by Subtypes for User & IP [numbercard]: Displays a numbercard of threat event counts by subtype for the specified IP address.  
-    - Template - Palo Alto - NGFW - Threat - WildFire - All Submissions for User & IP [table]: Displays a table of WildFire file submissions associated with the specified IP address.  
-    - Template - Palo Alto - NGFW - Traffic - Category - Count by Category [chart]: Displays a chart of traffic event counts by application category for the specified IP address.  
+    - Palo Alto - NGFW - Template - GlobalProtect - Events - All VPN Events for User & IP [table]: Displays a table of GlobalProtect sessions associated with the specified IP address including user and machine information.  
+    - Palo Alto - NGFW - Template - Threat - Events - All Threat Events for User & IP [table]: Displays a table of threat events associated with the specified IP address including source, destination, and threat ID.  
+    - Palo Alto - NGFW - Template - Threat - Subtype - Count by Subtypes for User & IP [numbercard]: Displays a numbercard of threat event counts by subtype for the specified IP address.  
+    - Palo Alto - NGFW - Template - Threat - WildFire - All Submissions for User & IP [table]: Displays a table of WildFire file submissions associated with the specified IP address.  
+    - Palo Alto - NGFW - Template - Traffic - Category - Count by Category [chart]: Displays a chart of traffic event counts by application category for the specified IP address.  
 
 ***  
 

@@ -1,4 +1,4 @@
-// Search - Palo Alto - NGFW - Threat - URL - Top Web Categories [chart]
+/* Palo Alto - NGFW - Search - Threat - URL - Top Web Categories [chart] */
 tag=$PAN_THREAT ax url_category_list 
 | split -clean -d "," url_category_list 
 | alias url_category_list url_category 

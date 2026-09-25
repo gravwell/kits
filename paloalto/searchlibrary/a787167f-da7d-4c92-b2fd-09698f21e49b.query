@@ -1,4 +1,4 @@
-// Search - Palo Alto - NGFW - GlobalProtect - Diagnostics - Average Latency [chart]
+/* Palo Alto - NGFW - Search - GlobalProtect - Diagnostics - Average Latency [chart] */
 tag=$PAN_GLOBALPROTECT ax eventid=="gateway-tunnel-latency" description
 | regex -e description "Pre-tunnel latency: (?P<pre>[^,]+), Post-tunnel latency: (?P<post>[^,]+)"
 /* We use toDuration to go from a string to a Duration */

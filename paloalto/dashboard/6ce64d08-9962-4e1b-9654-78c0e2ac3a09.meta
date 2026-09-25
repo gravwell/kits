@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [numbercard]",
+				"alias": "Palo Alto - NGFW - Search - GlobalProtect - Authentication - Count by Status [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "847bc392-e6f0-4aa3-ba1f-db7b9608c672",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Authentication - Count by Status [chart]",
+				"alias": "Palo Alto - NGFW - Search - GlobalProtect - Authentication - Count by Status [chart]",
 				"color": null,
 				"reference": {
 					"id": "d625b9af-4e63-40df-9392-62cbd04c8213",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Authentication - Failed Logins [table]",
+				"alias": "Palo Alto - NGFW - Search - GlobalProtect - Authentication - Failed Logins [table]",
 				"color": null,
 				"reference": {
 					"id": "029d59e0-bf7b-4fb0-a783-df0a644ca5b9",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Diagnostics - Average Latency [chart]",
+				"alias": "Palo Alto - NGFW - Search - GlobalProtect - Diagnostics - Average Latency [chart]",
 				"color": null,
 				"reference": {
 					"id": "a787167f-da7d-4c92-b2fd-09698f21e49b",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Palo Alto - NGFW - GlobalProtect - Session - GlobalProtect Users [table]",
+				"alias": "Palo Alto - NGFW - Search - GlobalProtect - Session - GlobalProtect Users [table]",
 				"color": null,
 				"reference": {
 					"id": "45a0354b-4971-4917-a273-a16dd78b5ee3",

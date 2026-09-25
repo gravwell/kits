@@ -1,6 +1,6 @@
 {
 	"UUID": "15e8e4fd-763e-4043-97f0-162778ec859c",
-	"Name": "Template - Palo Alto - NGFW - Threat - Events - All Threat Events for User \u0026 IP [table]",
+	"Name": "Palo Alto - NGFW - Template - Threat - Events - All Threat Events for User \u0026 IP [table]",
 	"Description": "Displays a table of threat events associated with the specified IP address including source, destination, and threat ID.\n\nDependencies\n- Dashboard: Palo Alto Investigations",
 	"Data": {
 		"variables": [

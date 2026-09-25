@@ -1,4 +1,4 @@
-// Template - Palo Alto - NGFW - GlobalProtect - Events - All VPN Events for User & IP [table]
+/* Palo Alto - NGFW - Template - GlobalProtect - Events - All VPN Events for User & IP [table] */
 tag=$PAN_GLOBALPROTECT ax 
 | alias srcuser User machinename Machine private_ip "GlobalProtect Private IP" public_ip "GlobalProtect Public IP"
 | unique "GlobalProtect Private IP" User Machine
