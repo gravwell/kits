@@ -1,0 +1,150 @@
+{
+	"UUID": "124497ed-89f1-4cd5-bd71-5bd086d7db35",
+	"Name": "Slack - Data & Apps",
+	"Description": "Data movement and application view: file downloads over time, public file links, workspace exports, app installations and scope changes, and external Slack Connect channels.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Slack - File Downloads Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "ab3ca752-4817-4c10-978c-f2a4c67340e7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Public File Link Created",
+				"color": null,
+				"reference": {
+					"id": "d15c299f-ef69-4f40-bfd1-13dd5b2a8dc3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Workspace Data Export",
+				"color": null,
+				"reference": {
+					"id": "16fccda0-98a6-4170-9b04-6f66581adc7d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - App Installed or Scopes Expanded",
+				"color": null,
+				"reference": {
+					"id": "0e4cbb6f-f15a-4c78-8018-b2cda2a77a2b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - External Slack Connect Channel or DM Established",
+				"color": null,
+				"reference": {
+					"id": "78147c55-50f2-47a6-a2e0-96623b9d84b7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17830000000300,
+				"title": "File Downloads Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000301,
+				"title": "Public File Links Created",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000302,
+				"title": "Workspace Data Exports",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000303,
+				"title": "Apps Installed or Scopes Expanded",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000304,
+				"title": "External Slack Connect Channels",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"slack",
+		"audit"
+	]
+}

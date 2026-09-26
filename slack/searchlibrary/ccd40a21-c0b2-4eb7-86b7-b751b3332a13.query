@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action actorName ipAddress
+| eval in(action, "audit_logs_export_csv_started", "audit_logs_export_json_started", "audit_logs_records_searched")
+| table action actorName ipAddress

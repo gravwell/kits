@@ -1,0 +1,2 @@
+tag=$SLACK_AUDIT ax action=="file_malicious_content_detected" actorName fileName fileTitle fileFiletype
+| table actorName fileName fileTitle fileFiletype

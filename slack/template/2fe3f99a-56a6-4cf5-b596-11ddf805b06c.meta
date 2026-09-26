@@ -1,0 +1,23 @@
+{
+	"UUID": "2fe3f99a-56a6-4cf5-b596-11ddf805b06c",
+	"Name": "Slack - Investigate IP Address",
+	"Description": "Audit activity originating from an IP address - which users acted from this address and what did they do?",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "203.0.113.10"
+			}
+		]
+	},
+	"Labels": [
+		"slack",
+		"audit",
+		"ip",
+		"investigation"
+	]
+}

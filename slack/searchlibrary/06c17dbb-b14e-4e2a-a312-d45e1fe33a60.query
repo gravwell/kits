@@ -1,0 +1,2 @@
+tag=$SLACK_AUDIT ax action actorName actorEmail entityType ipAddress
+| table action actorName actorEmail entityType ipAddress

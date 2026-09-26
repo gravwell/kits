@@ -1,0 +1,21 @@
+{
+	"Name": "Slack - Identity Provider Configuration Changed",
+	"Description": "Detects changes to the SAML or OIDC identity provider configuration. An attacker who can add or modify an IdP configuration can mint their own valid sign-ins to the workspace.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1556",
+		"persistence",
+		"defense-evasion"
+	],
+	"Schedule": "18 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "9a7250d2-ca36-48fd-8771-2cd4dc267fa4",
+	"SearchReference": "7511a94c-7167-460a-a6c0-b7525bde9665"
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "Slack - Events by Entity Type [Chart]",
+	"Description": "Distribution of Slack audit events by the type of object acted upon (user, channel, file, app, workspace, and so on).",
+	"GUID": "3247387f-7068-4dca-8125-191458cad217",
+	"Labels": [
+		"slack",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

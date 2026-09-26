@@ -1,0 +1,15 @@
+{
+	"Name": "slack-audit",
+	"Desc": "JSON field extraction for Slack Audit Logs API events",
+	"Module": "json",
+	"Tag": "slack-audit",
+	"Tags": null,
+	"Labels": [
+		"slack"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "1f38ec24-a4e6-457a-81ec-a14eea14cdda",
+	"LastUpdated": "2026-08-09T12:00:00.000000000-06:00"
+}

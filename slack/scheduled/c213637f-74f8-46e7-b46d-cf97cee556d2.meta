@@ -1,0 +1,20 @@
+{
+	"Name": "Slack - Public File Link Created",
+	"Description": "Detects creation of a public sharing link for a file. A public link makes the file retrievable by anyone with the URL, with no Slack authentication, and is a common accidental and deliberate exfiltration path.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1567",
+		"exfiltration"
+	],
+	"Schedule": "26 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c213637f-74f8-46e7-b46d-cf97cee556d2",
+	"SearchReference": "d15c299f-ef69-4f40-bfd1-13dd5b2a8dc3"
+}
