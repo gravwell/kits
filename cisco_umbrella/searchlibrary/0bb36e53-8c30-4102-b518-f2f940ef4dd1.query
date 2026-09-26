@@ -1,0 +1,4 @@
+tag=$UMBRELLA_AUDIT ax email logged_in_from
+| stats unique_count(logged_in_from) as ip_count by email over 1h
+| eval ip_count > 3
+| table -nt email ip_count

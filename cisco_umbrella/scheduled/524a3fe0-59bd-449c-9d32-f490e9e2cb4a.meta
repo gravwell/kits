@@ -1,0 +1,21 @@
+{
+	"Name": "Umbrella - Cryptomining Domain Activity",
+	"Description": "Detects requests for domains in the Cryptomining category, which may indicate unauthorized resource hijacking on the requesting host. Matches whether or not Umbrella blocked the request; the action column distinguishes them.",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"dns",
+		"T1496",
+		"impact"
+	],
+	"Schedule": "21 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "524a3fe0-59bd-449c-9d32-f490e9e2cb4a",
+	"SearchReference": "5223f3e6-dda8-40ee-972c-b5ef6948f21b"
+}

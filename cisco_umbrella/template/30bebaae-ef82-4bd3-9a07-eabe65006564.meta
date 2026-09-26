@@ -1,0 +1,24 @@
+{
+	"UUID": "30bebaae-ef82-4bd3-9a07-eabe65006564",
+	"Name": "Umbrella - Investigate Proxied URL",
+	"Description": "Proxy activity for a URL or hostname - which identities requested it, methods used, and how Umbrella responded.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%url%%",
+				"label": "URL or Hostname",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "example.com"
+			}
+		]
+	},
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"proxy",
+		"url",
+		"investigation"
+	]
+}

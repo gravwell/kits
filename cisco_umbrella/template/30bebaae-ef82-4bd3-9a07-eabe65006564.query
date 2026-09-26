@@ -1,0 +1,2 @@
+tag=$UMBRELLA_PROXY ax url ~ "%%url%%" policy_identity_label internal_client_ip action request_method status_code categories
+| table policy_identity_label internal_client_ip action request_method status_code categories url

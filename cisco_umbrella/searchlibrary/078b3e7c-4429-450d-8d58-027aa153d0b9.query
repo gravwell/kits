@@ -1,0 +1,2 @@
+tag=$UMBRELLA_PROXY ax action=="BLOCKED" dlp_status != "" policy_identity_label internal_client_ip url request_method
+| table policy_identity_label internal_client_ip url request_method dlp_status

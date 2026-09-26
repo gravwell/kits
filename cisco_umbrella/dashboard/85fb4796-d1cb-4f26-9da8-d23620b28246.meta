@@ -1,0 +1,200 @@
+{
+	"UUID": "85fb4796-d1cb-4f26-9da8-d23620b28246",
+	"Name": "Umbrella - DNS Overview",
+	"Description": "High-level view of Umbrella DNS activity: request volume over time by action, blocked request trends, top blocked domains, query types, response codes, top identities, and top categories.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Umbrella - DNS Requests Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "35886a6b-61ec-40e4-adfd-846808459191",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Blocked DNS Requests Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "a1c19409-21d8-4627-bc8c-a3d972dbd34c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Top Blocked Domains [Chart]",
+				"color": null,
+				"reference": {
+					"id": "376b25d5-5ae7-4d93-bacd-5ad6b33bcc78",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - DNS Query Types [Chart]",
+				"color": null,
+				"reference": {
+					"id": "b24cbc9a-2f1a-46b6-8d81-228ba20b10b4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - DNS Response Codes [Chart]",
+				"color": null,
+				"reference": {
+					"id": "797380b0-7efc-4e4d-adaa-f77df326725e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Top Identities by DNS Volume [Chart]",
+				"color": null,
+				"reference": {
+					"id": "6cb6c9a6-714f-46c4-afe0-b48a2c227f0c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Umbrella - Top DNS Categories [Chart]",
+				"color": null,
+				"reference": {
+					"id": "94b0ad7f-22b7-46fc-90d3-b0d2343c6a58",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17800000000100,
+				"title": "DNS Requests Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000101,
+				"title": "Blocked Requests Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000102,
+				"title": "Top Blocked Domains",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000103,
+				"title": "Query Types",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000104,
+				"title": "Response Codes",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 4,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000105,
+				"title": "Top Identities by Volume",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 8,
+					"y": 6
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17800000000106,
+				"title": "Top Categories",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"umbrella",
+		"cisco umbrella"
+	]
+}

@@ -1,0 +1,29 @@
+{
+	"Tags": [
+		"umbrella-dns",
+		"umbrella-proxy",
+		"umbrella-audit"
+	],
+	"Ingesters": [
+		"s3"
+	],
+	"Assets": [
+		{
+			"Type": "image",
+			"Source": "umbrella-cover.png",
+			"Legend": "Cisco Umbrella Cover",
+			"Featured": true
+		},
+		{
+			"Type": "image",
+			"Source": "umbrella-banner.png",
+			"Legend": "Cisco Umbrella Banner",
+			"Featured": true,
+			"Banner": true
+		},
+		{
+			"Type": "readme",
+			"Source": "README.md"
+		}
+	]
+}

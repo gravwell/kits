@@ -1,0 +1,12 @@
+{
+	"Name": "Umbrella - Proxy Requests Over Time [Chart]",
+	"Description": "Chart of requests passing through the Umbrella intelligent proxy over time, keyed by action (ALLOWED, BLOCKED).",
+	"GUID": "eaf139b8-9da9-47c0-97f2-2b89b3f2dbe2",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"stats",
+		"proxy"
+	],
+	"Metadata": {}
+}

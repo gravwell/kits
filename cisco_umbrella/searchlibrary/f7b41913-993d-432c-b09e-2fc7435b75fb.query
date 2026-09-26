@@ -1,0 +1,2 @@
+tag=$UMBRELLA_PROXY ax av_detections != "" policy_identity_label internal_client_ip url file_name
+| table policy_identity_label internal_client_ip url file_name av_detections

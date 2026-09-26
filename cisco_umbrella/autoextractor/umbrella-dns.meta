@@ -1,0 +1,16 @@
+{
+	"Name": "umbrella-dns",
+	"Desc": "CSV field extraction for Cisco Umbrella DNS logs (v13 schema)",
+	"Module": "csv",
+	"Tag": "umbrella-dns",
+	"Tags": null,
+	"Labels": [
+		"cisco",
+		"umbrella"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "83fa20f8-10f8-4ba9-92a7-f6c10968d932",
+	"LastUpdated": "2026-08-08T10:00:00.000000000-06:00"
+}

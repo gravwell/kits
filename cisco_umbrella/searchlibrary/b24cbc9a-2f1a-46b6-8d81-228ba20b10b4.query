@@ -1,0 +1,3 @@
+tag=$UMBRELLA_DNS ax query_type
+| count by query_type
+| chart count by query_type
