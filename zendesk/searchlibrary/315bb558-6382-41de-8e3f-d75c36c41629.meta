@@ -1,0 +1,14 @@
+{
+	"Name": "Zendesk - Spike in Login Events by Actor",
+	"Description": "Detects more than 10 login events for a single actor in a 10 minute window, which can indicate unusual session churn, a compromised account, or a misbehaving integration. Adjust the threshold to fit your environment.",
+	"GUID": "315bb558-6382-41de-8e3f-d75c36c41629",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1078.004",
+		"initial-access",
+		"persistence"
+	],
+	"Metadata": {}
+}

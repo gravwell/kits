@@ -1,0 +1,3 @@
+tag=$ZENDESK_AUDIT ax actor_name
+| count by actor_name
+| chart count by actor_name limit 10

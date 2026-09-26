@@ -1,0 +1,5 @@
+tag=$ZENDESK_AUDIT ax actor_name ip_address != "null"
+| eval ip_address != ""
+| stats unique_count(ip_address) as ip_count by actor_name over 1h
+| eval ip_count > 3
+| table -nt actor_name ip_count

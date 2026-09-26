@@ -1,0 +1,2 @@
+tag=$ZENDESK_AUDIT ax source_label ~ "%%item%%" actor_name action action_label change_description ip_address
+| table source_label actor_name action action_label change_description ip_address

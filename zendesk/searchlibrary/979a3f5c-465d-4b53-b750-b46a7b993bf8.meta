@@ -1,0 +1,13 @@
+{
+	"Name": "Zendesk - Business Rule Deleted",
+	"Description": "Detects deletion of Zendesk business rules (automations, macros, triggers, or views). Deleting rules can disable workflow protections or notifications that would otherwise reveal attacker activity.",
+	"GUID": "979a3f5c-465d-4b53-b750-b46a7b993bf8",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1562",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

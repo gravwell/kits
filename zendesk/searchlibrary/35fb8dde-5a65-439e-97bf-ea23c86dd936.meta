@@ -1,0 +1,13 @@
+{
+	"Name": "Zendesk - API Token Deleted",
+	"Description": "Detects deletion of Zendesk API tokens. Deleting tokens can break legitimate integrations or remove another administrator's access.",
+	"GUID": "35fb8dde-5a65-439e-97bf-ea23c86dd936",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1531",
+		"impact"
+	],
+	"Metadata": {}
+}

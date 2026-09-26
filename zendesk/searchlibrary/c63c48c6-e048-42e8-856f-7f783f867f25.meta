@@ -1,0 +1,11 @@
+{
+	"Name": "Zendesk - Login Events Over Time [Chart]",
+	"Description": "Chart of login events recorded in the Zendesk audit log over time.",
+	"GUID": "c63c48c6-e048-42e8-856f-7f783f867f25",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}
