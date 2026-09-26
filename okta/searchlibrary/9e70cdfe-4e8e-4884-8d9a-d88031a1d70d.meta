@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - Job Title Count [numbercard]",
-	"Description": "Displays a numbercard of job title by unique_count.",
+	"Description": "Counts how many distinct values of job titles exist across Okta users, taken from the profile.title field of the user profile snapshot.\n\nRenders as a numbercard.",
 	"GUID": "9e70cdfe-4e8e-4884-8d9a-d88031a1d70d",
 	"Labels": [
 		"okta"

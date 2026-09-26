@@ -1,3 +1,4 @@
-tag=$OKTA
+// Query both Okta tags so the tag column is meaningful.
+tag=$OKTA,$OKTA_USERS
 | stats count by TAG
 | chart count by TAG

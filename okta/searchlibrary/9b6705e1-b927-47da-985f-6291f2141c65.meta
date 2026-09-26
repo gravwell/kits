@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - Status [numbercard]",
-	"Description": "Displays a numbercard of statuses by count.",
+	"Description": "Counts Okta users by Okta account status, taken from the status field of the user profile snapshot.\n\nRenders as a numbercard.",
 	"GUID": "9b6705e1-b927-47da-985f-6291f2141c65",
 	"Labels": [
 		"okta"

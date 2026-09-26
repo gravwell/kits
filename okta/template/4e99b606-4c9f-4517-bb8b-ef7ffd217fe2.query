@@ -1,6 +1,83 @@
-$OKTA_ALERT_BASE
-$OKTA_CATALOG_RISK_SCORE
-$OKTA_IP_TUNING
-$OKTA_USER_TUNING
-$OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
-| table published actorAltId actorName clientIp requestIp eventType targetAltId targetName outcomeResult outcomeReason _priority isProxy requestUri
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+// Pull the System Log fields an investigation needs out of the raw JSON.
+| json
+	eventType
+	severity
+	displayMessage as message
+	outcome.result as outcomeResult
+	outcome.reason as outcomeReason
+	actor.id as actorId
+	actor.type as actorType
+	actor.alternateId as actorAltId
+	actor.displayName as actorName
+	client.ipAddress as clientIp
+	client.userAgent.rawUserAgent as userAgent
+	client.device as clientDevice
+	request.ipChain.[0].ip as requestIp
+	securityContext.isProxy as isProxy
+	securityContext.asOrg as asOrg
+	client.geographicalContext.country as oktaCountry
+	client.geographicalContext.city as oktaCity
+	debugContext.debugData.requestUri as requestUri
+	debugContext.debugData.dtHash as dtHash
+	authenticationContext.externalSessionId as sessionId
+	published
+	target.[0].type as targetType
+	target.[0].alternateId as targetAltId
+	target.[0].displayName as targetName
+	target.[1].type as target2Type
+	target.[1].alternateId as target2AltId
+	target.[1].displayName as target2Name
+// Collapse the actor down to one searchable value: Okta populates alternateId for
+// real accounts and falls back to displayName for system principals.
+| eval
+	actor = actorAltId;
+	if (!has(actorAltId) || actorAltId == "" || actorAltId == "null") { actor = actorName; }
+// Collapse the target the same way, taking whichever of the two target slots is
+// populated.
+| eval
+	target = targetAltId;
+	if (!has(target) || target == "" || target == "null") { target = targetName; }
+	if (!has(target) || target == "" || target == "null") { target = target2AltId; }
+	if (!has(target) || target == "" || target == "null") { target = target2Name; }
+// Collapse the source address: prefer the immediate client, fall back to the first
+// hop of Okta's forwarded chain.
+| eval
+	src = clientIp;
+	if (!has(src) || src == "" || src == "null") { src = requestIp; }
+// Apply the three dashboard variables.  Each accepts wildcards, and * matches
+// everything, so any combination of the three can be left open.
+| grep -e actor "%%1%%"
+| grep -e target "%%2%%"
+| grep -e src "%%3%%"
+// Map the event type onto a category and subcategory for context.
+| lookup -r okta_eventTypes eventType eventType (category subcategory is_mod)
+// Take Okta's own geography and network ownership when it is present.  Okta
+// resolves both at the edge at request time, so its answer beats a local database
+// lookup; the Network Enrichment kit is only a fallback below.
+| eval
+	srcCountry = "";
+	srcCity = "";
+	srcASNOrg = "";
+	if (has(oktaCountry) && oktaCountry != "" && oktaCountry != "null") { srcCountry = oktaCountry; }
+	if (has(oktaCity) && oktaCity != "" && oktaCity != "null") { srcCity = oktaCity; }
+	if (has(asOrg) && asOrg != "" && asOrg != "null") { srcASNOrg = asOrg; }
+// Hand geoip an address ONLY for the events Okta did not enrich.  Rows that already
+// have Okta's answer get an empty string, which resolves to nothing and passes
+// through untouched.
+| eval
+	geoIp = "";
+	asnIp = "";
+	if (srcCountry == "" || srcCity == "") { geoIp = src; }
+	if (srcASNOrg == "") { asnIp = src; }
+| geoip geoIp.CountryName as fbCountry geoIp.City as fbCity
+| geoip -r asn_db asnIp.ASNOrg as fbASNOrg
+| eval
+	if (srcCountry == "" && has(fbCountry)) { srcCountry = fbCountry; }
+	if (srcCity == "" && has(fbCity)) { srcCity = fbCity; }
+	if (srcASNOrg == "" && has(fbASNOrg)) { srcASNOrg = fbASNOrg; }
+// Keep the MFA and self-service recovery event families.
+| grep -e eventType "user.mfa." "user.authentication.auth_via_mfa" "user.account.reset_password" "user.account.update_password" "user.account.unlock" "user.account.unlock_token" "system.push.send_factor_verify_push" "system.email.password_reset" "system.email.account_unlock" "system.email.mfa_reset_notification" "system.email.mfa_enroll_notification" "system.sms.send_password_reset_message" "system.sms.send_account_unlock_message" "system.sms.send_factor_verify_message" "system.voice.send_password_reset_call" "system.voice.send_account_unlock_call" "system.voice.send_mfa_challenge_call"
+| sort by published desc
+| table published actor target src srcCountry srcASNOrg eventType category subcategory outcomeResult outcomeReason message

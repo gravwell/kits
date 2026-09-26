@@ -1,6 +1,39 @@
-tag=$OKTA_SYSTEM
-| json 
-    client.geographicalContext.state as state
-| stats count by state
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+| json
+	client.ipAddress as clientIp
+	client.geographicalContext.country as oktaCountry
+	client.geographicalContext.city as oktaCity
+	securityContext.asOrg as asOrg
+	request.ipChain.[0].ip as requestIp
+// Settle on one source address.
+| eval
+	src = "";
+	if (has("clientIp") && clientIp != "" && clientIp != "null") { src = clientIp; }
+	else if (has("requestIp") && requestIp != "" && requestIp != "null") { src = requestIp; }
+// Take Okta's own geography and network ownership when it is present: Okta resolves
+// it at the edge at request time, which is better data than a local database lookup.
+| eval
+	srcCountry = "";
+	srcCity = "";
+	srcASNOrg = "";
+	if (has(oktaCountry) && oktaCountry != "" && oktaCountry != "null") { srcCountry = oktaCountry; }
+	if (has(oktaCity) && oktaCity != "" && oktaCity != "null") { srcCity = oktaCity; }
+	if (has(asOrg) && asOrg != "" && asOrg != "null") { srcASNOrg = asOrg; }
+// Hand geoip an address ONLY for the events Okta did not enrich.  Rows that already
+// have Okta's answer get an empty string, which resolves to nothing, so the local
+// lookup is a fallback rather than a blanket second pass.
+| eval
+	geoIp = "";
+	asnIp = "";
+	if (srcCountry == "" || srcCity == "") { geoIp = src; }
+	if (srcASNOrg == "") { asnIp = src; }
+| geoip geoIp.CountryName as fbCountry geoIp.City as fbCity
+| geoip -r asn_db asnIp.ASNOrg as fbASNOrg
+| eval
+	if (srcCountry == "" && has(fbCountry)) { srcCountry = fbCountry; }
+	if (srcCity == "" && has(fbCity)) { srcCity = fbCity; }
+	if (srcASNOrg == "" && has(fbASNOrg)) { srcASNOrg = fbASNOrg; }
+| stats count by srcASNOrg
 | alias count " "
 | numbercard " "

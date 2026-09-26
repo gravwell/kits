@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Group / User - Account / Privilege - Okta Admin Role Assigned to an User or Group [table]",
-  "Description": "Detects when an the Administrator role is assigned to an user or group.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_admin_role_assigned_to_user_or_group/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
-  "GUID": "f968bfc1-fc13-5811-aff9-257e87d1a5c9",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Group / User - Privilege - Okta Admin Privilege Granted or Revoked (roll-up)",
+	"Description": "Roll-up of every admin privilege grant and revocation, to either a user or a group. Revocations matter too: removing the role from a security team account is how an adversary stops being watched.\n\nEvent types: user.account.privilege.grant, user.account.privilege.revoke, group.privilege.grant, group.privilege.revoke\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "f968bfc1-fc13-5811-aff9-257e87d1a5c9",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

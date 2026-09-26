@@ -1,0 +1,27 @@
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+| json
+	eventType
+	outcome.result as outcomeResult
+	target.[0].type as targetType
+	target.[0].displayName as targetName
+	target.[1].type as target2Type
+	target.[1].displayName as target2Name
+	uuid
+// Keep application sign-on activity.
+| grep -e eventType "user.authentication.sso" "app.oauth2.authorize" "application.policy.sign_on"
+// The application can land in either target slot, so take whichever is an app.
+| eval
+	appName = "unknown";
+	if (match(targetType, "(?i)^AppInstance$")) { appName = targetName; }
+	else if (match(target2Type, "(?i)^AppInstance$")) { appName = target2Name; }
+// Split each event into a success or a failure so both can be counted per app.
+| eval
+	ok = 0;
+	bad = 0;
+	if (match(outcomeResult, "(?i)(SUCCESS|ALLOW)")) { ok = 1; } else { bad = 1; }
+| stats sum(ok) as successes sum(bad) as failures count(uuid) as total by appName
+// A ratio makes a noisy app comparable with a quiet one.
+| eval failureRatio = math_round(100.0 * float(failures) / float(total))
+| sort by failures desc
+| table appName successes failures total failureRatio

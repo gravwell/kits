@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - Division Count [numbercard]",
-	"Description": "Displays a numbercard of divisions by unique_count.",
+	"Description": "Counts how many distinct values of divisions exist across Okta users, taken from the profile.division field of the user profile snapshot.\n\nRenders as a numbercard.",
 	"GUID": "9cb440d8-d7d7-485a-9882-6e2dbada0de0",
 	"Labels": [
 		"okta"

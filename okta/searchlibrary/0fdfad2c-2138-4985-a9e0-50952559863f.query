@@ -1,4 +1,7 @@
-tag=$OKTA json eventType
+// Query both Okta tags so the tag column is meaningful.
+tag=$OKTA,$OKTA_USERS
+// Only System Log entries carry an event type; user snapshots will group as empty.
+| json eventType
 | stats count by TAG eventType
 | sort by count desc
 | table TAG eventType count

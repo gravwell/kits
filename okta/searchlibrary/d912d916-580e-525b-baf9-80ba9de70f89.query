@@ -1,9 +1,0 @@
-/* AlertQuery - Okta - Identity Access Management - Lifecycle - System API - Attempt to Revoke Okta API Token [table] */
-tag=$OKTA_SYSTEM ax eventType == "system.api_token.revoke"
-$OKTA_ALERT_EVX
-$OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
-$OKTA_IP_TUNING
-$OKTA_USER_TUNING
-| eval _alert_name = "Attempt to Revoke Okta API Token"
-$OKTA_ALERT_META

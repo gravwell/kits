@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Session - Multiple Okta Sessions Detected for a Single User [table]",
-  "Description": "Detects when a user has started multiple Okta sessions with the same user account and different session IDs. This may indicate that an attacker has stolen the user's session cookie and is using it to access the user's account from a different location.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/lateral_movement_multiple_sessions_for_single_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/lateral_movement_multiple_sessions_for_single_user.toml",
-  "GUID": "cd334285-a6f7-5a99-a44f-1ab1f2c542e1",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Session - Multiple Okta Sessions Detected for a Single User [table]",
+	"Description": "Finds accounts running several concurrent Okta sessions from several source addresses. One person on a laptop and a phone is normal and shows up as two sessions from one or two addresses; an account shared with an adversary shows more sessions from more addresses.\n\nThresholds: 3 or more distinct external session IDs and 2 or more distinct source addresses. Edit the eval near the end of the query to tune them.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_multiple_sessions_detected_for_single_user/\n- https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta",
+	"GUID": "cd334285-a6f7-5a99-a44f-1ab1f2c542e1",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

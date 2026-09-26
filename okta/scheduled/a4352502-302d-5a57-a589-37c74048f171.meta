@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Access Control - Attack Protection - Okta Attack Protection or Behavior Settings Changed",
+	"Description": "Okta's attack protection settings, behaviour detection rules, or ThreatInsight configuration were changed. These are the controls that rate-limit password attacks and flag anomalous sign-ins, so an adversary who can turn them down gets to brute force quietly.\n\nEvent types: security.attack_protection.settings.update, security.behavior.settings.create, security.behavior.settings.update, security.behavior.settings.delete, security.threat.configuration.update, user.behavior.profile.reset\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/security/threat-insight/okta-threatinsight-overview.htm\n- https://developer.okta.com/docs/reference/api/event-types/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a4352502-302d-5a57-a589-37c74048f171",
+	"SearchReference": "cbb4f0f8-9d1a-4d64-8f9a-72e6f5a4d012"
+}

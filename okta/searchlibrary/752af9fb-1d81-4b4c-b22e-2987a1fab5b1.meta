@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Created to Last Updated Average [numbercard]",
-	"Description": "Displays a numbercard of the created to last updated average/mean.",
+	"Name": "Search - Okta - Users - Created to Last Updated Average [numbercard]",
+	"Description": "Average time between an Okta account being created and its profile last being updated, which is a rough measure of how long accounts stay in active administration.\n\nRenders as a numbercard broken into days, hours, minutes, and seconds.",
 	"GUID": "752af9fb-1d81-4b4c-b22e-2987a1fab5b1",
 	"Labels": [
 		"okta"

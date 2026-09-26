@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Multiple Okta User Authentication Events with Client Address [table]",
-  "Description": "Detects when a certain threshold of Okta user authentication events are reported for multiple users from the same client address. Adversaries may attempt to launch a credential stuffing or password spraying attack from the same device by using a list of known usernames and passwords to gain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_device_token_hashes_for_single_okta_session/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_authentication_for_multiple_users_from_single_source.toml",
-  "GUID": "0eeb706e-23c8-5fac-9358-5ee4a2227d2f",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Authentication - Okta Invalid Credential Attempts by Source [table]",
+	"Description": "Groups sign-in attempts Okta rejected for invalid credentials by source address, with the account count alongside. This is the narrower cousin of the brute force detection: it keys on Okta's INVALID_CREDENTIALS outcome reason rather than any failure, so it excludes policy denials and lockouts and shows only attempts where the password itself was wrong.\n\nThreshold: 10 or more invalid credential attempts from one address. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "0eeb706e-23c8-5fac-9358-5ee4a2227d2f",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

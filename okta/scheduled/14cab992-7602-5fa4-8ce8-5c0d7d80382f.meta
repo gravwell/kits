@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Lifecycle - System API - Okta API Token Revoked",
+	"Description": "An Okta API token was revoked. Usually this is hygiene, but revoking the token a security tool authenticates with is a way to blind that tool, so check what the revoked token was used for.\n\nEvent type: system.api_token.revoke\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_attempt_to_revoke_okta_api_token/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "14cab992-7602-5fa4-8ce8-5c0d7d80382f",
+	"SearchReference": "d733d774-7f20-5558-9356-700c11ecfc59"
+}

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - System API - Okta API Token Created [table]",
-  "Description": "Detects when a API Token is created.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_api_token_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
-  "GUID": "15168450-08ca-545a-a063-2072db980132",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Lifecycle - System API - Okta API Token Created",
+	"Description": "An Okta API token was created. An API token is a long-lived credential that bypasses interactive sign-in and MFA entirely, so creating one is a standard way to keep access to an org after the initial compromise.\n\nEvent type: system.api_token.create\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_attempt_to_create_okta_api_token/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/persistence_attempt_to_create_okta_api_token.toml",
+	"GUID": "15168450-08ca-545a-a063-2072db980132",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

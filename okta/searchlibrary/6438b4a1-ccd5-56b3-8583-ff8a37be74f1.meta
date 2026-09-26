@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / MFA / Session - Potentially Successful Okta MFA Bombing via Push Notifications [table]",
-  "Description": "Detects when an attacker abuses the Multi-Factor authentication mechanism by repeatedly issuing login requests until the user eventually accepts the Okta push notification. An adversary may attempt to bypass the Okta MFA policies configured for an organization to obtain unauthorized access.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_potentially_successful_okta_bombing_via_push_notifications/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_potentially_successful_okta_bombing_via_push_notifications.toml",
-  "GUID": "6438b4a1-ccd5-56b3-8583-ff8a37be74f1",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - MFA - Potentially Successful Okta MFA Bombing via Push Notifications [table]",
+	"Description": "The dangerous half of MFA fatigue: an account that denied or ignored several push prompts and then approved one. The approval at the end of a run of refusals is the moment the victim gave in, so unlike the plain MFA bombing detection this one implies the adversary is now inside.\n\nThresholds: 2 or more denied or ignored prompts and at least 1 success, per account. Edit the eval near the end of the query to tune them.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_potentially_successful_okta_mfa_bombing_via_push_notifications/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"GUID": "6438b4a1-ccd5-56b3-8583-ff8a37be74f1",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - Manager [numbercard]",
-	"Description": "Displays a numbercard of manager by unique_count.",
+	"Description": "Counts Okta users by the manager named in their profile. Users with no manager set are grouped under their own name.\n\nRenders as one numbercard per manager.",
 	"GUID": "e4f0ec4b-d6e5-4872-b89e-78d4d68bf8ea",
 	"Labels": [
 		"okta"

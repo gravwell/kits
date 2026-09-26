@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication - Okta FastPass Phishing Detection [table]",
-  "Description": "Detects when Okta FastPass prevents a known phishing site.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_fastpass_phishing_detection/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
-  "GUID": "2868dc81-41bf-5a69-8f6b-5d5d2d396778",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Authentication - Okta FastPass Phishing Detection",
+	"Description": "Okta FastPass refused to complete authentication because it detected a phishing attempt. FastPass binds the sign-in to the real Okta origin, so a proxy sitting between the user and Okta fails this check. A hit means someone reached a credential-phishing page for your org and got as far as the factor prompt.\n\nEvent type: user.authentication.auth_via_mfa with an outcome reason naming FastPass declining a phishing attempt\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_fastpass_phishing_detection/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_fastpass_phishing_detection.toml",
+	"GUID": "2868dc81-41bf-5a69-8f6b-5d5d2d396778",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

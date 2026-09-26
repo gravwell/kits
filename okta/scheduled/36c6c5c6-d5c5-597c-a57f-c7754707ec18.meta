@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Security - Events - Okta Attack Started",
+	"Description": "Okta declared an attack in progress against the org, or ended one. Okta raises this when it sees a coordinated credential attack rather than isolated failures, so treat it as confirmation that the failure volume you are seeing is an attack and not noise.\n\nEvent types: security.attack.start, security.attack.end\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "36c6c5c6-d5c5-597c-a57f-c7754707ec18",
+	"SearchReference": "5e8f3a17-92c4-4d6b-8e01-7a3c95f2b60d"
+}

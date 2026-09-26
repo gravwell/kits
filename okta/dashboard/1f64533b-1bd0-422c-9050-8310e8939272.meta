@@ -1,7 +1,7 @@
 {
 	"UUID": "1f64533b-1bd0-422c-9050-8310e8939272",
 	"Name": "Okta General Overview",
-	"Description": "This Dashboard is a general overview of your Okta Category, Event Type, \u0026 Actor/Target data.",
+	"Description": "Where to start with Okta data in Gravwell. The top row confirms ingest is healthy on both Okta tags. The middle rows break System Log volume down by the category and subcategory the okta_eventTypes lookup assigns. The bottom rows show where sign-ins are coming from geographically, taken from Okta's own geographical context where present and from the Gravwell Network Enrichment kit where not.\n\nThe risk priority card is a health check on the OKTA_RISK_SCORE macro: if everything lands in one bucket, the thresholds need tuning for your org.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,29 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target [table]",
-				"color": null,
-				"reference": {
-					"id": "9fc8f842-0a0f-47cb-ae65-f62d61ddc564",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Template - Okta - System - Event Types - ____ Category Actor/Target Result [table]",
-				"color": null,
-				"reference": {
-					"id": "6279d0b9-403f-4de4-9be7-0cb36489857a",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - System - Event Types - Count by Tag [pie]",
+				"alias": "Search - Okta - System - Ingest - Event Count by Tag [pie]",
 				"color": null,
 				"reference": {
 					"id": "1295cce8-5fa4-4ca0-805c-84f844933599",
@@ -45,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - System - Event Types - Count by Tag [table]",
+				"alias": "Search - Okta - System - Ingest - Event Count by Tag and Event Type [table]",
 				"color": null,
 				"reference": {
 					"id": "0fdfad2c-2138-4985-a9e0-50952559863f",
@@ -78,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - System - Event Types - Count by Category, Subcategory [chart]",
+				"alias": "Search - Okta - System - Event Types - Count by Category and Subcategory [chart]",
 				"color": null,
 				"reference": {
 					"id": "143060c3-acef-4d04-8a71-8c5f5a8b7952",
@@ -89,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - System - Event Types - Count by Category, Subcategory [table]",
+				"alias": "Search - Okta - System - Event Types - Count by Category and Subcategory [table]",
 				"color": null,
 				"reference": {
 					"id": "313c06f2-9e8f-4fc1-b325-2fc7c463bf42",
@@ -100,110 +78,55 @@
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - Category [chart]",
+				"alias": "Search - Okta - System - Event Types - Count by Risk Priority [numbercard]",
 				"color": null,
 				"reference": {
-					"id": "ba2624c4-7b49-430e-953a-f0d26454aefd",
-					"type": "template",
+					"id": "ce435158-0ea1-494f-a6fe-fd6155873f16",
+					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
 					}
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - Category [table]",
+				"alias": "Search - Okta - System - Location - Sign-In Country [chart]",
 				"color": null,
 				"reference": {
-					"id": "3885aad7-7e1b-4ef5-9141-9d6e61a8b432",
-					"type": "template",
+					"id": "6d57beef-f4be-483c-95b8-c3cb92ec6bfa",
+					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
 					}
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - Category Result [chart]",
+				"alias": "Search - Okta - System - Location - Sign-In City [chart]",
 				"color": null,
 				"reference": {
-					"id": "69391681-932e-4a0e-a438-ef71e2b0987b",
-					"type": "template",
+					"id": "799ba52e-3c47-4b72-ac05-468e4f58887a",
+					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
 					}
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - Category Result [table]",
+				"alias": "Search - Okta - System - Location - Sign-In Locations [pointmap]",
 				"color": null,
 				"reference": {
-					"id": "04c60191-796a-4cbc-925e-9491d88aa2c0",
-					"type": "template",
+					"id": "3d7f61b2-9e04-4c8a-b573-1af26c95e830",
+					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
 					}
 				}
 			},
 			{
-				"alias": "Template - Okta - System - Event Types - Category Event Type [chart]",
+				"alias": "Search - Okta - System - Admin Activity - Top Okta Administrators by Action [table]",
 				"color": null,
 				"reference": {
-					"id": "3111dbcf-0467-4c76-af03-1ab2ccb292e2",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Template - Okta - System - Event Types - Category Event Type [table]",
-				"color": null,
-				"reference": {
-					"id": "21cd89a7-a708-4b5c-9511-842352bcbc74",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Template - Okta - System - Event Types - Category Event Type Result [chart]",
-				"color": null,
-				"reference": {
-					"id": "dd83a1dd-6592-4d6b-94c1-9c2088627215",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Template - Okta - System - Event Types - Category Event Type Result [table]",
-				"color": null,
-				"reference": {
-					"id": "1a2dce93-9c88-43d0-b920-f8fd46ca1e5f",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Template - Okta - System - Event Types - Category Actor/Target [chart]",
-				"color": null,
-				"reference": {
-					"id": "ab8bef35-0085-44e6-94b9-84921f636359",
-					"type": "template",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Template - Okta - System - Event Types - Category Actor/Target Result [chart]",
-				"color": null,
-				"reference": {
-					"id": "325878f1-b349-4863-b244-07b4a02eb222",
-					"type": "template",
+					"id": "2f8b47d1-9c63-4e05-a71b-6d3f5c81e9ab",
+					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
 					}
@@ -212,8 +135,8 @@
 		],
 		"tiles": [
 			{
-				"id": 17636982809230,
-				"title": "Count by Tag",
+				"id": 1101781915292,
+				"title": "Event Count by Tag",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
@@ -221,6 +144,37 @@
 					"row": 7,
 					"x": 0,
 					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1684174362101,
+				"title": "Event Count by Tag and Event Type",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1857291992398,
+				"title": "Count by Category",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 7
 				},
 				"searchesIndex": 2,
 				"rendererOptions": {
@@ -229,29 +183,29 @@
 				}
 			},
 			{
-				"id": 17636983177711,
-				"title": "Count by Tag",
+				"id": 1302028847648,
+				"title": "Count by Category",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 7,
 					"x": 6,
-					"y": 0
+					"y": 7
 				},
 				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17636983783712,
-				"title": "Count by Category",
-				"renderer": "pieChart",
+				"id": 1884421294457,
+				"title": "Count by Category and Subcategory",
+				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 7,
 					"x": 0,
-					"y": 7
+					"y": 14
 				},
 				"searchesIndex": 4,
 				"rendererOptions": {
@@ -260,60 +214,60 @@
 				}
 			},
 			{
-				"id": 17636984123203,
-				"title": "Count by Category",
+				"id": 1329158149707,
+				"title": "Count by Category and Subcategory",
 				"renderer": "table",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 7,
 					"x": 6,
-					"y": 7
+					"y": 14
 				},
 				"searchesIndex": 5,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17636985582514,
-				"title": "Count by Category, Subcategory",
-				"renderer": "donutChart",
+				"id": 1228566228388,
+				"title": "Events by Risk Priority",
+				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 6,
-					"row": 6,
+					"col": 12,
+					"row": 4,
 					"x": 0,
-					"y": 14
+					"y": 21
 				},
 				"searchesIndex": 6,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 17636986110145,
-				"title": "Count by Category, Subcategory",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 6,
-					"x": 6,
-					"y": 14
-				},
-				"searchesIndex": 7,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17636987278756,
-				"title": "Category",
+				"id": 1184668226813,
+				"title": "Sign-In Country",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 7,
 					"x": 0,
-					"y": 20
+					"y": 25
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1255695530447,
+				"title": "Sign-In City",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 25
 				},
 				"searchesIndex": 8,
 				"rendererOptions": {
@@ -322,172 +276,31 @@
 				}
 			},
 			{
-				"id": 17636987898707,
-				"title": "Category",
-				"renderer": "table",
+				"id": 1211797528872,
+				"title": "Sign-In Locations",
+				"renderer": "pointmap",
 				"hideZoom": true,
 				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 6,
-					"y": 20
+					"col": 12,
+					"row": 9,
+					"x": 0,
+					"y": 32
 				},
 				"searchesIndex": 9,
 				"rendererOptions": {}
 			},
 			{
-				"id": 17636989018808,
-				"title": "Category Result",
-				"renderer": "donutChart",
+				"id": 1499840464378,
+				"title": "Top Administrators by Configuration Change",
+				"renderer": "table",
 				"hideZoom": true,
 				"span": {
-					"col": 6,
+					"col": 12,
 					"row": 8,
 					"x": 0,
-					"y": 27
+					"y": 41
 				},
 				"searchesIndex": 10,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 17636989518229,
-				"title": "Category Result",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 8,
-					"x": 6,
-					"y": 27
-				},
-				"searchesIndex": 11,
-				"rendererOptions": {}
-			},
-			{
-				"id": 176369904096910,
-				"title": "Category Event Type",
-				"renderer": "pieChart",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 0,
-					"y": 35
-				},
-				"searchesIndex": 12,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 176369909196611,
-				"title": "Category Event Type",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 6,
-					"y": 35
-				},
-				"searchesIndex": 13,
-				"rendererOptions": {}
-			},
-			{
-				"id": 176369912081112,
-				"title": "Category Event Type Result",
-				"renderer": "donutChart",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 0,
-					"y": 42
-				},
-				"searchesIndex": 14,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 176369916620413,
-				"title": "Category Event Type Result",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 6,
-					"y": 42
-				},
-				"searchesIndex": 15,
-				"rendererOptions": {}
-			},
-			{
-				"id": 176369920702714,
-				"title": "Category Actor/Target",
-				"renderer": "pieChart",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 0,
-					"y": 49
-				},
-				"searchesIndex": 16,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 176369927482315,
-				"title": "Category Actor/Target",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 6,
-					"y": 49
-				},
-				"searchesIndex": 0,
-				"rendererOptions": {}
-			},
-			{
-				"id": 176369930213916,
-				"title": "Category Actor/Target Result",
-				"renderer": "donutChart",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 0,
-					"y": 56
-				},
-				"searchesIndex": 17,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 176369935358317,
-				"title": "Category Actor/Target Result",
-				"renderer": "table",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 7,
-					"x": 6,
-					"y": 56
-				},
-				"searchesIndex": 1,
 				"rendererOptions": {}
 			}
 		],

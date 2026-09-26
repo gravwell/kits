@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Access Control - Network Zones - Attempt to Modify an Okta Network Zone [table]",
-  "Description": "Detects attempts to modify an Okta network zone. Okta network zones can be configured to limit or restrict access to a network based on IP addresses or geolocations. An adversary may attempt to modify, delete, or deactivate an Okta network zone in order to remove or weaken an organization's security controls.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_modify_okta_network_zone/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/defense_evasion_okta_attempt_to_modify_okta_network_zone.toml",
-  "GUID": "f7dc12d0-81b4-5564-bb84-f4538c01d027",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Access Control - Network Zones - Okta Network Zone Modified or Unblocked",
+	"Description": "A network zone was modified, or an address range was removed from a blocklist zone. Adding the adversary's own egress range to a trusted zone, or pulling it out of a blocklist, turns a location restriction into a no-op.\n\nEvent types: zone.update, zone.remove_blacklist, security.zone.remove_blacklist\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_modify_okta_network_zone/",
+	"GUID": "f7dc12d0-81b4-5564-bb84-f4538c01d027",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

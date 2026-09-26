@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - System - Event Types - Count by Category, Subcategory [table]",
-	"Description": "Detects a chart of event types by category, subcategory.\n\nReference(s):\nhttps://developer.okta.com/docs/reference/api/event-types/",
+	"Name": "Search - Okta - System - Event Types - Count by Category and Subcategory [table]",
+	"Description": "Counts System Log events by category, subcategory, and event type. This is the most detailed of the event type overviews; start here when you want to know exactly which event types are firing.\n\nRenders as a table.",
 	"GUID": "313c06f2-9e8f-4fc1-b325-2fc7c463bf42",
 	"Labels": [
 		"okta"

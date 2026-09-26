@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Users - User Timezone [chart]",
-	"Description": "Displays a chart of the user's Timezone by count.",
+	"Name": "Search - Okta - Users - Profile Timezone [chart]",
+	"Description": "Counts Okta users by profile timezone, taken from the profile.timezone field of the user profile snapshot.\n\nRenders as a chart.",
 	"GUID": "3f6b6dad-75f7-43e8-8844-b471e67abf10",
 	"Labels": [
 		"okta"

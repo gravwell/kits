@@ -1,12 +1,29 @@
-// Search - Okta - System - Event Types - Alert Title [Numbercard]
-$OKTA_ALERT_BASE
-$OKTA_CATALOG_RISK_SCORE
-$OKTA_IP_TUNING
-$OKTA_USER_TUNING
-$OKTA_NORMALIZE_IP
-$OKTA_NORMALIZE_ACTOR
-$OKTA_NORMALIZE_TARGET
-$OKTA_ALERT_SEARCH
-| stats count by _alert_title
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+// Pull the fields the risk score reads.
+| json
+	eventType
+	severity
+	outcome.result as outcomeResult
+	actor.alternateId as actorAltId
+	securityContext.isProxy as isProxy
+	target.[0].type as targetType
+	target.[0].alternateId as targetAltId
+	target.[1].type as target2Type
+	target.[1].alternateId as target2AltId
+// Expose whichever target slot holds an account.
+| eval
+	targetUser = "";
+	if (match(targetType, "(?i)user")) { targetUser = targetAltId; }
+	else if (match(target2Type, "(?i)user")) { targetUser = target2AltId; }
+| lookup -r okta_eventTypes eventType eventType (category subcategory is_mod)
+| eval
+	actorUserNorm = strings_tolower(strings_replace(actorAltId, "@.+", "", -1));
+	targetUserNorm = strings_tolower(strings_replace(targetUser, "@.+", "", -1));
+| lookup -r okta_privileged_actor actorUserNorm account (actor_weight actor_label)
+| lookup -r okta_protected_target targetUserNorm account (target_weight target_label)
+// Score the event from 0-100 and bucket it into a priority.
+$OKTA_RISK_SCORE
+| stats count by _priority
 | alias count " "
 | numbercard " "

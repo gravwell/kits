@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle / Policy - Policy / Rule - Attempt to Delete an Okta Policy [table]",
-  "Description": "Detects attempts to delete an Okta policy. An adversary may attempt to delete an Okta policy in order to weaken an organization's security controls. For example, an adversary may attempt to delete an Okta multi-factor authentication (MFA) policy in order to weaken the authentication requirements for user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_delete_okta_policy/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/defense_evasion_okta_attempt_to_delete_okta_policy.toml",
-  "GUID": "09356cf0-e94a-5870-b396-90e65bfc5805",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Lifecycle - Policy - Okta Policy Deleted",
+	"Description": "An Okta policy was deleted. Deleting a policy removes whatever protection it enforced, so an adversary who has reached the admin console may delete an MFA or sign-on policy to weaken authentication before moving on.\n\nEvent type: policy.lifecycle.delete\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_delete_okta_policy/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/defense_evasion_okta_attempt_to_delete_okta_policy.toml",
+	"GUID": "09356cf0-e94a-5870-b396-90e65bfc5805",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

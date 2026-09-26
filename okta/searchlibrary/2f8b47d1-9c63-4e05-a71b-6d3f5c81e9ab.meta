@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - System - Admin Activity - Top Okta Administrators by Action [table]",
+	"Description": "Ranks the accounts performing configuration changes in your Okta org, with the number of distinct event types each touched and where they worked from. Use it to answer \"who is actually administering this tenant\" and to spot an account that started making changes it never used to.\n\nRenders as a table.",
+	"GUID": "2f8b47d1-9c63-4e05-a71b-6d3f5c81e9ab",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

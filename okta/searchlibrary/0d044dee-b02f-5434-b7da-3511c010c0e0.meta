@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System / User - Account / Email / SMS / Voice - High Number of Okta User Password Reset or Unlock Attempts [table]",
-  "Description": "Identifies a high number of Okta user password reset or account unlock attempts. An adversary may attempt to obtain unauthorized access to Okta user accounts using these methods and attempt to blend in with normal activity in their target's environment and evade detection.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_suspicious_okta_user_password_reset_or_unlock_attempts/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/defense_evasion_suspicious_okta_user_password_reset_or_unlock_attempts.toml",
-  "GUID": "0d044dee-b02f-5434-b7da-3511c010c0e0",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - System / User - Recovery - High Number of Okta Password Reset or Unlock Attempts [table]",
+	"Description": "Counts the self-service recovery messages Okta sent per account: password reset and account unlock mail, SMS, and voice calls, plus the recovery tokens it issued. Account recovery is the standard way around MFA, so a burst against one account is someone working the recovery flow rather than the password.\n\nThreshold: 3 or more recovery messages per account. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://support.okta.com/help/s/article/User-Signin-and-Recovery-Events-in-the-Okta-System-Log\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "0d044dee-b02f-5434-b7da-3511c010c0e0",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Okta Brute Force or Password Spraying Attack [table]",
-  "Description": "Identifies a high number of failed Okta user authentication attempts from a single IP address, which could be indicative of a brute force or password spraying attack. An adversary may attempt a brute force or password spraying attack to obtain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_brute_force_or_password_spraying/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_brute_force_or_password_spraying.toml",
-  "GUID": "587fedd0-0aa2-513f-ac33-279ee39a0e5d",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - System - Authentication - Okta Brute Force or Password Spraying Attack [table]",
+	"Description": "Groups failed authentications by source address to separate the two shapes of password attack. A brute force is many attempts against one account, so attempts climbs while distinctAccounts stays at 1. Password spraying is a few attempts against many accounts, so distinctAccounts climbs while attempts per account stays under the lockout threshold.\n\nThresholds: 20 or more failures, or failures against 5 or more distinct accounts, from one source address inside the search window. Edit the eval near the end of the query to tune them for your org's size.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_brute_force_or_password_spraying_attack/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_brute_force_or_password_spraying_attack.yml",
+	"GUID": "587fedd0-0aa2-513f-ac33-279ee39a0e5d",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

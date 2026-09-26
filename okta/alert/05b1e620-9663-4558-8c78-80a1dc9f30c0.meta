@@ -10,11 +10,319 @@
 			"Type": "flow"
 		}
 	],
-	"Description": "Detects modification alerts that are configured within the okta_alerts_catalog lookup resource. \nOverall, the query enriches raw Okta System Log events, computes a risk score in $OKTA_MOD_RISK_SCORE, applies user/IP tuning (allow/deny) in $OKTA_USER_TUNING and $OKTA_IP_TUNING, and emits a consistent alert title, priority, and context in $OKTA_ALERT_META.\n\nInputs and dependencies:\nEvent source: Okta System Log (tag=$OKTA_SYSTEM).\nDependencies \u0026 Lookups:\n  - $OKTA_ALERT_BASE\n    - tag=$OKTA_SYSTEM\n    - $OKTA_ALERT_EVX: Performs Enumerated Value Extraction (EVX).\n    - $OKTA_ENRICH_COMMON: Performs Enumerated Value enrichment, normalization, and high priority user tuning control.\n      - okta_eventTypes: Maps eventType to category, subcategory, is_mod for risk categorization and alert naming scheme.\n      - okta_privileged_actor: Provides a tuning control for High Privileged Actor Accounts and weigh their severity/priority differently compared to an end user.\n      - okta_protected_target: Provides a tuning control for High Privileged Target Accounts and weigh their severity/priority differently compared to an end user.\n  - $OKTA_MOD_RISK_SCORE: Performs risk calculations based on high priority user tuning control based on modification event types.\n    - Requires okta_privileged_actor and okta_protected_target to be run prior otherwise it will not work properly. \n  - $OKTA_IP_TUNING: Provides a tuning control for IP addresses causing noisy false positives and true negatives. \n    - okta_ip_allowlist.csv: Provides a tuning control to suppress alerts from known-good IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n    - okta_ip_denylist.csv: Provides a tuning control to force-include or escalate alerts from watchlisted IPs (resolved from clientIp, else requestIp), per alert or globally, with expiry.\n  - $OKTA_USER_TUNING: Provides a tuning control for end users causing noisy false positives and true negatives.\n    - okta_user_allowlist.csv: Provides a tuning control to suppress known-benign alerts for specific users (actor or target), either for a single alert name or globally, with expiry.\n    - okta_user_denylist.csv: Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score \u003e= min_risk, per alert or globally.\n  - $OKTA_ALERT_META: Normalized alert output (e.g. _alert_title, _alert_priority, and context)\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n  - Sigma:\n    - https://detection.fyi/sigmahq/sigma/identity/okta/?query=okta\n    - https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n  - Elastic:\n    - https://detection.fyi/elastic/detection-rules/integrations/okta/?query=okta\n    - https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"Description": "Single routing point for every Okta detection in this kit.\n\nEvery detection scheduled search in the kit is a dispatcher on this one alert, and\neverything that should happen when a detection fires is wired up once here as a\nconsumer. Adding a detection means adding its scheduled search as a dispatcher; it\ndoes not mean adding another alert.\n\nDispatchers\n  One scheduled search per detection, named \"ScheduledSearch - Okta - ...\". The\n  scheduled search name is the alert name: nothing inside the queries sets an\n  alert title, so what you see in the alert feed is the dispatcher that produced\n  it. Rename a scheduled search and you rename its alerts.\n\n  All dispatchers ship disabled. Enable the ones you want, a few at a time, and\n  tune before moving on.\n\nConsumers\n  One flow, \"Flow - Okta - Alert Router - Email Notification\", which emails the\n  alert to $OKTA_ALERT_RECIPIENT from $OKTA_ALERT_SENDER with links back to\n  $GRAVWELL_INSTANCE. Set those three configuration macros before enabling it, and\n  configure Account \u003e Email Server \u003e Email Server Settings.\n\n  To add a Slack, Teams, or PagerDuty destination, add a node to that one flow, or\n  add a second flow as another consumer here. Either way it applies to every\n  detection at once.\n\nFields on the events\n  Most detections ship raw Okta System Log entries with no render module, so every\n  enumerated value the query produced arrives as a field: eventType, actorAltId,\n  targetUser, clientIp, src, srcCountry, srcASNOrg, outcomeResult, outcomeReason,\n  risk_score, _priority, and the rest of the extraction.\n\n  The detections whose names end in [table] aggregate with stats instead, so they\n  ship the columns of that aggregation (counts, distinct counts, thresholds) rather\n  than raw entries. Their descriptions say which columns.\n\nTuning\n  Noise control is shared too. Add an account or an address to okta_user_allowlist\n  or okta_ip_allowlist to suppress it across every detection, or to the matching\n  denylist to force it up to priority High. See the OKTA_TUNING macro.\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://docs.gravwell.io/alerts/alerts.html",
 	"Disabled": true,
 	"Dispatchers": [
 		{
-			"ID": "bd52363c-e32f-4b4d-ad66-046037147f31",
+			"ID": "7faf1e9f-3429-56e2-b60c-48390c90d062",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "01489419-55db-51f8-bfc7-a1f930334edb",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "115f94ab-a54b-5d6c-a2ef-778a1765928d",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "f091f34f-dc94-51f3-aa61-5d322945c5f0",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "031a0fc7-dd37-54ca-8d94-ec8d5a998c2b",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ad1a5be3-1899-58dd-8021-8f4783ff50d8",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "d556bb48-b77e-53fb-b622-6ed44802584d",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "92e8afaf-02d5-5680-a74c-f37a8834e437",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e99f59a4-1dbd-5224-b1eb-a73f9a72c1f8",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "18789a1a-2cd5-5dee-9564-0e4f9d0287f4",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "620c819d-3f4d-5d89-8fe7-7d54dc74ab64",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "1cea99da-f3f9-57d4-96de-5a8bb4a48ebc",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e0d2b773-6319-56a4-897d-02a58aa15a8f",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "16d2243f-2fef-5579-a97d-894e7479b1d5",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e7577bf2-307d-5c71-b84e-f635f54cdddf",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "48f848a7-4bbc-5768-a242-0459de032d33",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "b11818a2-d431-5dcc-b82c-b6355cbcb8c2",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ecec604b-a204-5ae0-85c0-a172ce9dd040",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "2f7507c8-0f89-5bd7-939c-b1b0f84c083f",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "effc12a5-41ac-56fe-8910-3640c194a85b",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "baec4f83-0359-51ea-a7be-3a6e2717d900",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "a4352502-302d-5a57-a589-37c74048f171",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e5aef344-926d-5468-a86c-3a5c99903be2",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "14cab992-7602-5fa4-8ce8-5c0d7d80382f",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "4cf7cd05-c4f5-558a-9aee-d62ea95ad8df",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "1753b1ba-79d6-56ae-91e2-3b2b8764b263",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e28cca45-b9d4-51ae-94bb-f49a97be673b",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "b4113f14-dd76-599a-9a62-aeba4997a677",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ed2a20ed-1f5e-5e79-a1e4-5b863265c2e7",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "81f2c0a8-59b1-5924-aeab-06cda692d6b2",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "a7179065-d545-5188-87ba-9b5a74476b6d",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "8a82332e-d777-5f3c-9433-d6deb454abf2",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "d623df43-a80a-518c-a711-ac579813f0aa",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "0e8393ee-51b6-5e5e-a1d9-8a1cd63aa33b",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "33a06f12-b984-51b0-bcb8-99b166f5ae19",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ebe98b3d-141b-5b8b-b003-0f54ae3cea0c",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "9fbf3f0a-2e8e-5ded-a55e-95d7af71bea4",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "1aa052b8-fb08-5ac0-9e3b-4626120c3dc9",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "75a69b82-a61d-5483-8b88-24dd05350370",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "a2fad311-9305-5d59-857c-784cfc4e6c38",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "0a487185-9b0c-54a9-b545-b09ea701b397",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "18473156-7ae0-5db5-bbdf-8432d77b2f7b",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "bd3672bc-d401-52f3-a940-17b8a20be055",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "89e22026-57f1-5f81-945e-0ab414597ab9",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "28254c5c-68d9-5be1-8c6f-973e964344a0",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "2519f71e-aec4-53c0-903e-f49169b93130",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "dd78b2a1-72f6-5757-9196-f41b6783ecb7",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "7975d338-e4d9-541b-ac1b-167be68fa57b",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "a903986e-1479-541a-9f0d-f85272658bf0",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "96ec1b96-3c45-5ee5-8426-1a17de7abcc6",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "36c6c5c6-d5c5-597c-a57f-c7754707ec18",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "75535dac-e5ab-597f-aa2d-5b7d76261045",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "b41b46ea-90ac-5351-b0bf-64ada39c3eed",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "3164c67c-6a98-524c-b573-7289f344df43",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "dd715e4e-f577-5068-8c9b-57deeeffc1eb",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ef953c88-f6ad-5745-b6a5-6799c5d5994a",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "fbb558ee-b291-5656-b88c-f668e72bc520",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "3b809e1a-7d7e-53ea-b603-5f2d5eda3e18",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "5f190e70-7e12-5aa8-98d8-c60f8086e690",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "0ebc2914-b7c8-5020-bd07-b86161f0b657",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "eb6aa441-0399-572b-a65d-2bc6c2416d4e",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "9a8a28e3-caad-5636-a1d7-3d0062af748c",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "f71e3802-ee4a-5bf4-994f-3eb6ee4ac6aa",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ea6ec421-708a-5714-980a-e233f5da2135",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "11a740e0-fc8c-53b0-a24c-082e191146ec",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "5af0530b-c26f-55ea-baac-c87fb12863de",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "c83dc376-6113-5531-afa1-8b024160a825",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "abd53d16-d69b-505a-9bd2-e7c9e613d390",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "7d0df654-f8cb-57cb-a326-4f357d67d1c9",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "d13558b2-a80a-59e2-8d06-cc6ed96df55f",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "abb1f912-87a9-5f48-ab5e-5456ef995905",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "6d10016e-e1eb-5556-bde4-44d7b1033426",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ffbec52d-492c-5ec5-96e8-ebcf07ec6e2d",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "744887c1-7dbb-5ca3-b9f2-59b341f3855c",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "6dec7f8b-d4b2-501b-b6aa-54af34b6c387",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e8f5b9a9-2470-5428-a0e8-caa109c0f1cc",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "c5e2933b-92f7-5f67-a6e7-4c18cd0f3c00",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "9147105a-e60e-5cbf-9936-0b809f95dd5c",
 			"Type": "scheduledsearch"
 		}
 	],
@@ -25,15 +333,51 @@
 	"Labels": [
 		"okta"
 	],
-	"LastUpdated": "2025-11-20T14:16:58.28914996Z",
+	"LastUpdated": "0001-01-01T00:00:00Z",
 	"MaxEvents": 75,
-	"Name": "Alert - Okta - System - Event Types - Modification Alerts",
+	"Name": "Alert - Okta - Alert Router",
 	"SaveSearchDuration": 604800,
 	"SaveSearchEnabled": false,
 	"Schemas": {
 		"Simple": [
 			{
 				"Name": "eventType",
+				"Type": "string"
+			},
+			{
+				"Name": "published",
+				"Type": "string"
+			},
+			{
+				"Name": "actorAltId",
+				"Type": "string"
+			},
+			{
+				"Name": "targetUser",
+				"Type": "string"
+			},
+			{
+				"Name": "src",
+				"Type": "string"
+			},
+			{
+				"Name": "outcomeResult",
+				"Type": "string"
+			},
+			{
+				"Name": "category",
+				"Type": "string"
+			},
+			{
+				"Name": "subcategory",
+				"Type": "string"
+			},
+			{
+				"Name": "risk_score",
+				"Type": "number"
+			},
+			{
+				"Name": "_priority",
 				"Type": "string"
 			}
 		],

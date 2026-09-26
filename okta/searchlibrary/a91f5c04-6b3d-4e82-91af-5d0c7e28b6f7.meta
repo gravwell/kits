@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Lifecycle - IDP - Okta Identity Provider Client Secret Read",
+	"Description": "Someone read the client secret of a configured identity provider. Reading it is not normal operations after setup; the secret lets the holder impersonate the Okta side of that federation.\n\nEvent type: system.idp.lifecycle.read_client_secret\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "a91f5c04-6b3d-4e82-91af-5d0c7e28b6f7",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

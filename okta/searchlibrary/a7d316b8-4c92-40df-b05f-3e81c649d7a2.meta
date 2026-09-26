@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - System - Authentication - MFA Factor Types in Use [chart]",
+	"Description": "Counts successful MFA authentications by the factor type that satisfied them. Phishing-resistant factors (FastPass, WebAuthn) and phishable ones (SMS, voice, security question) show up side by side, which makes this the fastest way to see how much of your org is still reachable by a credential phishing page.\n\nRenders as a chart.",
+	"GUID": "a7d316b8-4c92-40df-b05f-3e81c649d7a2",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

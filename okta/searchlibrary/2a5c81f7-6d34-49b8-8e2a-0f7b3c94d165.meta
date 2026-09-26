@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Hooks - Okta Inline or Event Hook Created or Modified",
+	"Description": "An inline or event hook was created, modified, or activated. Hooks send Okta data to an external URL, and inline hooks can change the outcome of the authentication they are attached to, so a hook pointing at adversary infrastructure is both exfiltration and a way to influence sign-in decisions.\n\nEvent types: inline_hook.created, inline_hook.updated, inline_hook.activated, event_hook.created, event_hook.updated, event_hook.activated, system.hook.key.created\n\nReference(s):\n- https://developer.okta.com/docs/concepts/inline-hooks/\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "2a5c81f7-6d34-49b8-8e2a-0f7b3c94d165",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - Status [chart]",
-	"Description": "Displays a chart of statuses by count.",
+	"Description": "Counts Okta users by Okta account status, taken from the status field of the user profile snapshot. Okta statuses are STAGED, PROVISIONED, ACTIVE, RECOVERY, PASSWORD_EXPIRED, LOCKED_OUT, SUSPENDED, and DEPROVISIONED.\n\nRenders as a chart.",
 	"GUID": "6c03be5c-0707-4671-9532-c8070d7b9a56",
 	"Labels": [
 		"okta"

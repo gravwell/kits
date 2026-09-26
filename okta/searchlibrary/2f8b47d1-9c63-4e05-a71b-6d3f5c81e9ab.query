@@ -1,0 +1,26 @@
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+| json
+	eventType
+	actor.alternateId as actorAltId
+	actor.type as actorType
+	client.ipAddress as clientIp
+	client.geographicalContext.country as oktaCountry
+	uuid
+// Keep only events the okta_eventTypes lookup marks as configuration changes.
+| lookup -r okta_eventTypes eventType eventType (category subcategory is_mod)
+| grep -e is_mod "1"
+// Take Okta's own country when present, and only geolocate locally for the events
+// that arrived without it.
+| eval
+	srcCountry = "";
+	geoIp = "";
+	if (has(oktaCountry) && oktaCountry != "" && oktaCountry != "null") { srcCountry = oktaCountry; }
+	else { geoIp = clientIp; }
+| geoip geoIp.CountryName as fbCountry
+| eval
+	if (srcCountry == "" && has(fbCountry)) { srcCountry = fbCountry; }
+	actorUserNorm = strings_tolower(strings_replace(actorAltId, "@.+", "", -1));
+| stats count(uuid) as changes unique_count(eventType) as eventTypes unique_count(clientIp) as sources unique_count(srcCountry) as countries by actorUserNorm actorType
+| sort by changes desc
+| table actorUserNorm actorType changes eventTypes sources countries

@@ -1,15 +1,21 @@
+// Okta user profile snapshots land on the OKTA_USERS tag, one JSON record per user.
 tag=$OKTA_USERS
 | json
-    lastLogin
+	id
+	lastLogin
+// The OKTA_USERS tag is a snapshot stream: the Gravwell Okta ingester re-publishes
+// every user profile on each poll, so one user appears many times in any window.
+// Collapse to one entry per Okta user id first, otherwise every number below is
+// multiplied by the number of polls in the timeframe.
+| unique id
+// Okta leaves lastLogin unset until the account's first successful sign-in.
 | eval
-    hasLogin = 0;
-    neverLogin = 0;
-    if (has(lastLogin) && lastLogin != "" && lastLogin != "null") {
-        hasLogin = 1;
-    } else {
-        neverLogin = 1;
-    }
-| stats
-    sum(hasLogin) as yes
-    sum(neverLogin) as no
+	hasLogin = 0;
+	neverLogin = 0;
+	if (has(lastLogin) && lastLogin != "" && lastLogin != "null") {
+		hasLogin = 1;
+	} else {
+		neverLogin = 1;
+	}
+| stats sum(hasLogin) as yes sum(neverLogin) as no
 | numbercard (yes "Has Logged In") (no "Never Logged In")

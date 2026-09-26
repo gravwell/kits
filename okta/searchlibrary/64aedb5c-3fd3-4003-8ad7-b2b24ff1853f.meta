@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - Manager [chart]",
-	"Description": "Displays a chart of manager by unique_count.",
+	"Description": "Counts Okta users by the manager named in their profile, which shows the shape of the reporting tree and where it is missing. Users with no manager set are grouped under their own name so they stay visible instead of collapsing into one empty bucket.\n\nRenders as a chart.",
 	"GUID": "64aedb5c-3fd3-4003-8ad7-b2b24ff1853f",
 	"Labels": [
 		"okta"

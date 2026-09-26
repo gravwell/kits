@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - User - MFA - Attempted Bypass of Okta MFA",
+	"Description": "Okta recorded an attempt to bypass MFA. Okta emits this when a sign-in tried to get past the factor requirement rather than satisfy it.\n\nEvent type: user.mfa.attempt_bypass\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_attempted_bypass_of_mfa/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_attempted_bypass_of_mfa.yml\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "89e22026-57f1-5f81-945e-0ab414597ab9",
+	"SearchReference": "85e5dca5-56f0-5291-9f48-de355d7809e0"
+}
