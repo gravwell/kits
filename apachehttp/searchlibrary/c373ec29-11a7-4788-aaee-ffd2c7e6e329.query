@@ -1,2 +1,2 @@
 tag=$APACHE_ERR grep "apr_thread_create"
-| table time DATA
+| table TIMESTAMP DATA

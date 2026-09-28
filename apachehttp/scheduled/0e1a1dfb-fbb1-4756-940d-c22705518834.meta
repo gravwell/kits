@@ -1,5 +1,5 @@
 {
-	"Name": "Apache - Apache Threading Error",
+	"Name": "Apache - Threading Error",
 	"Description": "Detects an issue in apache logs that reports threading related errors",
 	"Labels": [
 		"apache",

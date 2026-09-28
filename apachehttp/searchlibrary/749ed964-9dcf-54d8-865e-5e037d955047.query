@@ -1,0 +1,4 @@
+tag=$APACHE json remote_addr bytes
+| stats sum(bytes) as total_bytes count by remote_addr
+| sort by total_bytes desc
+| table remote_addr total_bytes count

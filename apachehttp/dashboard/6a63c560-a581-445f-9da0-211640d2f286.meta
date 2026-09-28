@@ -65,6 +65,17 @@
 						"defaultValue": null
 					}
 				}
+			},
+			{
+				"alias": "Apache - Bandwidth By Client",
+				"color": null,
+				"reference": {
+					"id": "749ed964-9dcf-54d8-865e-5e037d955047",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
@@ -137,11 +148,29 @@
 				},
 				"searchesIndex": 4,
 				"rendererOptions": {}
+			},
+			{
+				"id": 4021304767028355,
+				"title": "Bandwidth By Client",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 5,
+					"x": 0,
+					"y": 11
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
 			}
 		],
 		"linkZooming": false,
 		"grid": {},
 		"version": 2
 	},
-	"Labels": ["apache", "baseline", "stats"]
+	"Labels": [
+		"apache",
+		"baseline",
+		"stats"
+	]
 }

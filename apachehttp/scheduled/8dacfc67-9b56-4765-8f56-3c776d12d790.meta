@@ -1,5 +1,5 @@
 {
-	"Name": "Apache - Apache Segmentation Fault",
+	"Name": "Apache - Segmentation Fault",
 	"Description": "Detects a segmentation fault error message caused by a crashing apache worker process",
 	"Labels": [
 		"apache",

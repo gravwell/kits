@@ -1,0 +1,6 @@
+tag=$APACHE json uri duration
+| stats mean(duration) as avg_us max(duration) as max_us count by uri
+| eval count >= 10
+| eval avg_ms = avg_us / 1000.0; max_ms = max_us / 1000.0;
+| sort by avg_ms desc
+| table uri avg_ms max_ms count

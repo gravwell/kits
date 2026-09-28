@@ -1,0 +1,4 @@
+tag=$APACHE json duration
+| stats mean(duration) as avg_us max(duration) as max_us
+| eval avg_ms = avg_us / 1000.0; max_ms = max_us / 1000.0;
+| chart avg_ms max_ms

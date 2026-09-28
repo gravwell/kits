@@ -1,0 +1,13 @@
+{
+	"Name": "Apache - Bandwidth By Client",
+	"Description": "Total response bytes sent to each client, with request count. Surfaces heavy consumers and possible bulk downloads.",
+	"GUID": "749ed964-9dcf-54d8-865e-5e037d955047",
+	"Labels": [
+		"apache",
+		"stats",
+		"bandwidth",
+		"ip-activity",
+		"operations"
+	],
+	"Metadata": {}
+}

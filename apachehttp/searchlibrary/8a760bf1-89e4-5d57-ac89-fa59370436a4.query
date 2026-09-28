@@ -1,0 +1,3 @@
+tag=$APACHE_ERR regex "^\[[^\]]+\] \[[\w-]+:(?P<loglevel>\w+)\]"
+| stats count by loglevel
+| chart count by loglevel
