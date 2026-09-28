@@ -87,6 +87,28 @@
 						"defaultValue": null
 					}
 				}
+			},
+			{
+				"alias": "Nginx - Site Health",
+				"color": null,
+				"reference": {
+					"id": "35aecfd9-6a4c-55ea-952a-64abc4777997",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Requests By Site Over Time",
+				"color": null,
+				"reference": {
+					"id": "d5c353f5-e234-557c-956b-aa3b2951cac7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
@@ -186,6 +208,34 @@
 					"y": 11
 				},
 				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 2892100485539350,
+				"title": "Site Health",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 0,
+					"y": 18
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 4021721594979448,
+				"title": "Requests By Site Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 7,
+					"y": 18
+				},
+				"searchesIndex": 8,
 				"rendererOptions": {}
 			}
 		],

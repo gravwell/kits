@@ -14,25 +14,29 @@ Configuration macros are used in the queries to easily swap in whichever tag you
 - $NGINX - the integration guide assumes you use tag=nginx on ingester, and have configured Nginx for json output
 - $NGINX_ERR - the integration guide assumes you use tag=nginx-err
 
-This tag looks at an entire tag as a whole, and doesn't provide options to filter by a specific host
+Queries cover the whole tag. To look at one site, filter on the vhost field (see below). To look at one server, filter on the [src field](https://docs.gravwell.io/search/src/src.html).
 
 ## Nginx Connection Logs
-The kit expects the JSON log format from the [integration guide](https://docs.gravwell.io/integrations/application/nginx.html), plus a query field that logs the query string. If your log format doesn't have it, add a "query" field set to $query_string after the "uri" line.
+The kit expects the JSON log format from the [integration guide](https://docs.gravwell.io/integrations/application/nginx.html), including the query and vhost fields. If your log format doesn't have them, add a "query" field set to $query_string after the "uri" line, and a "vhost" field set to $server_name as the last field.
 
 The uri field is the path only, so without the query field these detections never fire: Nginx - Web Open Redirect Attempt, Nginx - SQL Injection Strings In URI, Nginx - Webshell Regeorg Detection Via Web Logs, Nginx - Windows Webshell Strings, and Nginx - Cross Site Scripting Strings. Ten more check both the path and the query string, and miss attacks carried in the query string.
 
-Connection logs contain the following fields. Queries provided in the kit apply broadly to all Nginx logs in your Gravwell instance. The [src field](https://docs.gravwell.io/search/src/src.html) can be used to specify which particular server you'd like to filter on when narrowing your search to specific sources of connection logs.
+The vhost field is the name of the server block that handled the request, so sites on the same server can be told apart. It's the first name in that block's server_name, so list each site's main hostname first. A catch-all block (server_name _;) logs _, which marks requests that matched no named site, such as scanners hitting the server's IP. The Site Health and Requests By Site Over Time queries need this field and return nothing without it, and logs written before you add it have no vhost.
 
+Connection logs contain the following fields:
+
+- time
 - remote_addr
 - method
-- uri
-- query
+- uri (the path only)
+- query (the query string, without the leading ?)
 - status
 - bytes_sent
 - referer
 - user_agent
-- request_time
-- upstream
+- request_time (seconds)
+- upstream (the backend address; empty for content nginx serves itself)
+- vhost
 
 ## Nginx Error Logs
 Error logs are assumed to be in nginx's default error log format. An autoextractor is configured for tag=nginx-err, and can be accessed with the ax processor. This autoextractor must be updated if you use a different tag than nginx-err.
@@ -60,16 +64,19 @@ Fields after message are only present when nginx logs them for that event. For e
 Queries are broken out into 2 types and have appropriate labels applied for reference. 
 
 ## Stats
-- Primarily used by dashboards to genereate metrics and data that provides an overview of activity, though can be used for ad hoc searches in query studio.
+- Primarily used by dashboards to generate metrics and data that provides an overview of activity, though can be used for ad hoc searches in query studio. Operational queries (errors, response times, upstream health, error log activity, per-site health) carry the operations label.
 
 ## Detections
-- Queries built to detect very specific behavior that is indicative of malicious activity. These can be used ad hoc, serve as a basis for your own detection engineering efforts, or enabled as scheduled searches which can be used for alerts. 
+- Queries built to detect very specific behavior that is indicative of malicious activity. These can be used ad hoc, serve as a basis for your own detection engineering efforts, or enabled as scheduled searches which can be used for alerts. Every detection ships with a disabled scheduled search.
 
 # Dashboards
-3 dashboards are provided in this kit. 
+4 dashboards are provided in this kit. 
 
 ## Nginx - Traffic Overview
-High-level statistics of connections. Volume over time, top URI, user agent frequency, top client IPs, and HTTP status code distribution.
+High-level statistics of connections. Volume over time, top URI, user agent frequency, top client IPs, HTTP status code distribution, and bandwidth by client.
+
+## Nginx - Operations
+Server health. Response time and server errors over time, error log levels over time, slowest URIs, upstream (backend) health, server errors by URI, top error log messages, and a per-site (vhost) health table with request volume by site.
 
 ## Nginx - Attack Surface
 This dashboard may indicate suspicious activity. Queries are built with lists, and likely need to be extended and customized for your purposes, but these serve as a solid starting point.

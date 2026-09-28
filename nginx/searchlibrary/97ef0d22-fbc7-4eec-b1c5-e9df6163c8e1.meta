@@ -1,5 +1,5 @@
 {
-	"Name": "Nginx - Nginx Core Dump",
+	"Name": "Nginx - Core Dump",
 	"Description": "Detects a core dump of a crashing Nginx worker process, which could be a signal of a serious problem or exploitation attempts.",
 	"GUID": "97ef0d22-fbc7-4eec-b1c5-e9df6163c8e1",
 	"Labels": [
