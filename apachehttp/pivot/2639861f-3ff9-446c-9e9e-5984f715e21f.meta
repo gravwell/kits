@@ -31,7 +31,7 @@
 		],
 		"triggers": [
 			{
-				"pattern": "/[1-5]\\d{2}/g",
+				"pattern": "/(?<![\\d.])[1-5]\\d{2}(?![\\d.])/g",
 				"hyperlink": true,
 				"disabled": false
 			}
