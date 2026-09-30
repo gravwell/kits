@@ -2,9 +2,10 @@ name: PR title lint
 
 # Validates the "<Prefix>: <Name>" convention (docs/naming-conventions.md)
 # and applies the exact 1:1 label for a valid title — the authoritative
-# release-type label. labeler.yml's path-based new-kit/improvement guess is
-# a secondary signal, not the source of truth, because it can't
-# distinguish findings/fix/docs from a generic improvement.
+# release-type label, and (as of 2026-09-08) the only one: labeler.yml's
+# competing path-based new-kit/improvement guess is retired entirely, not
+# just superseded — see docs/kit-pipeline.md's "Release classification
+# and labeler.yml's retirement."
 
 on:
   pull_request_target:

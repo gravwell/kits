@@ -14,7 +14,7 @@ on:
 
 permissions:
   contents: read
-  issues: read
+  issues: write
   pull-requests: write
 
 env:
@@ -115,10 +115,6 @@ jobs:
 
             findings=()
 
-            if ! grep -qF "'$d/**'" .github/labeler.yml; then
-              findings+=("- \`labeler.yml\` doesn't list \`$d/**\` yet — the next PR touching this kit will mislabel as \`new-kit\` again.")
-            fi
-
             if ! grep -qE "^[[:space:]]*-[[:space:]]*$d[[:space:]]*\$" .github/ISSUE_TEMPLATE/kit_change.yml; then
               findings+=("- \`kit_change.yml\`'s Kit dropdown doesn't list \`$d\` yet — nobody can file an Existing Kit Change issue against it until it's added.")
             fi
@@ -149,6 +145,16 @@ jobs:
           # github-setup-checklist.md, labels step) — `gh pr edit --add-label`
           # fails if a label doesn't exist yet, hence `|| true` so a missing
           # label doesn't break the whole job, just silently skips syncing.
+          #
+          # Also requires `issues: write` above, not just `pull-requests:
+          # write` -- confirmed real 2026-09-03: `gh pr edit`'s combined
+          # add+remove runs as one call that needs `issues: write` for the
+          # remove half (`removeLabelsFromLabelable`), and failed the whole
+          # call (add included) with "Resource not accessible by
+          # integration" on two real PRs (#323, #324) when this only had
+          # `issues: read`. The `|| true` masked it silently -- both PRs'
+          # real kitcheck verdicts (O365: 2 warnings, needs-attention;
+          # Juniper: clean, pass) never got applied.
           shopt -s nullglob
           json_files=(kitcheck-*.json)
           verdict=$(python3 .github/scripts/kitcheck_aggregate.py "${json_files[@]}")

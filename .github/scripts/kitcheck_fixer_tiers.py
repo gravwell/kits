@@ -47,6 +47,19 @@ Re-synced 2026-09-03: added `check_playbook_code_spans` and
 `bin/playbookmdfix` ("Full -- no skip cases, both fixes unconditionally
 safe by construction" per kit-utilities' own coverage table). Previously
 fell through to "manual" for lack of any fixer.
+
+Re-synced 2026-09-18: added `check_template_variables` (new check, same
+pass), covered by kit-utilities' new `bin/templatevarfix` ("full -- no
+skip cases" per its own coverage table). One caveat this file's own
+"fails safe only for coverage existence" rule doesn't fully cover: the
+check's "error" finding (a Data.variables[] entry with no name at all)
+isn't actually fixable by `templatevarfix` -- there's no old value to
+transform -- only its "warning" finding (a wrongly-wrapped but present
+name) is. Both currently share one section string
+("Peer Review:In-Platform"), so this can't be split the way
+`check_naming_consistency`/`check_content_labels` are below; not split
+out because the error case is purely defensive validation, not yet
+observed on any real kit in the 35-kit fleet this was checked against.
 """
 
 # Keyed on (check, section). A section of None matches any section for
@@ -68,6 +81,7 @@ FIXER_TIERS = {
     ("check_images", None): ("partial", "bin/artlink"),
     ("check_playbook_code_spans", None): ("mechanical", "bin/playbookmdfix"),
     ("check_playbook_underscore_emphasis", None): ("mechanical", "bin/playbookmdfix"),
+    ("check_template_variables", None): ("mechanical", "bin/templatevarfix"),
 }
 
 
