@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Alerts - Tracking Critical Atlas Alert [table]",
+  "Description": "Detects tracking Atlas alerts for critical outage, exposure, disk, backup, replication, and threshold events before they become fully open incidents.",
+  "GUID": "0a37ce29-7016-5ab1-ad53-8079896b1c66",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

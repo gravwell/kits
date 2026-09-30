@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Network Access - World Open Network Access Entry [table]",
+  "Description": "Detects Atlas network access list entries open to the Internet.",
+  "GUID": "c7bbc707-ce58-51ba-9693-95370453e497",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

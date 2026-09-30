@@ -1,0 +1,12 @@
+{
+	"Name": "Search - MongoDB - Database - Diagnostics - Overview - Count by Severity [numbercard]",
+	"Description": "This displays a numbercard of all MongoDB Severity (severity) values by count.\n\nReference(s):\n- https://mongodb.com/docs/manual/reference/log-messages",
+	"GUID": "bfe9a601-265d-5f9d-baba-86d25734561f",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

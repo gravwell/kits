@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_DIAG_ENRICH_COMMON",
+	"Description": "Common enrichment macro for MongoDB Diagnostics alerts and investigation templates.",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

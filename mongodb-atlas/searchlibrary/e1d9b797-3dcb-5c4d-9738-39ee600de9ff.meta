@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Secret ID [chart]",
+  "Description": "This displays a chart of all Secret ID (secretId) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgserviceaccounts",
+  "GUID": "e1d9b797-3dcb-5c4d-9738-39ee600de9ff",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

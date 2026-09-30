@@ -1,0 +1,402 @@
+<km>
+
+***  
+
+A toolkit for interacting with MongoDB Audit data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline MongoDB Audit analysis across Audit log sources.  
+
+***  
+
+## Table of Contents  
+1. [Tags & Macros](#1-tags--macros)  
+    1.1. [Tags](#1-1-tags)  
+    1.2. [Autoextractors](#1-2-autoextractors)  
+    1.3. [Macros](#1-3-macros)  
+2. [Query Library](#2-query-library)  
+3. [Naming Schema](#3-naming-schema)  
+4. [Resources](#4-resources)  
+    4.1. [Lookups](#4-1-lookups)  
+5. [Alerts](#5-alerts)  
+    5.1. [Dispatchers](#5-1-dispatchers)  
+    5.2. [Consumers](#5-2-consumers)  
+6. [Scheduled Searches](#6-scheduled-searches)  
+    6.1. [Flows](#6-1-flows)  
+7. [Playbooks](#7-playbooks)  
+    7.1. [Files](#7-1-files)  
+8. [Searches](#8-searches)  
+    8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+    8.2. [Alert Queries](#8-2-alert-queries)  
+9. [Templates](#9-templates)  
+10. [Dashboards](#10-dashboards)  
+    10.1. [Actionables](#10-1-actionables)  
+11. [Useful Resources & References](#11-useful-resources--references)  
+12. [Notes](#12-notes)  
+13. [Image credits](#13-image-credits)  
+
+***  
+
+## 1. [Tags & Macros](#1-tags--macros)  
+
+#### 1.1. [Tags](#1-1-tags)  
+
+- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.  
+- [Documentation](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+- The MongoDB Audit Kit for Gravwell makes use of the following tags:  
+- Total: ***1***  
+    - mongodb-audit: Tag used for all MongoDB Audit data; necessary for any queries within the Gravwell MongoDB Audit Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-audit`  
+
+#### 1.2. [Autoextractors](#1-2-autoextractors)  
+
+- Purpose: Autoextractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The *ax* module then automatically invokes the appropriate functionality of other modules.  
+- [Documentation](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+- The MongoDB Audit Kit for Gravwell makes use of the following autoextractors:  
+- Total: ***1***  
+    - mongodb-audit: Gravwell-generated JSON extraction for tag mongodb-audit  
+
+#### 1.3. [Macros](#1-3-macros)  
+
+- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.  
+- [Documentation](<https://docs.gravwell.io/search/macros.html>)  
+- The MongoDB Audit Kit for Gravwell makes use of the following macros:  
+- Total: ***9***  
+    - GRAVWELL\_INSTANCE: Configuration Macro; Necessary for alerts within the MongoDB Kit to run properly; >:<change_to_your_specific_port>/  
+    - MONGODB\_AUDIT: Configuration Macro; Tag used for MongoDB Audit structured log data.  
+    - MONGODB\_AUDIT\_ALERT\_META: Macro used for MongoDB Audit alerts.  
+    - MONGODB\_AUDIT\_ALERT\_RECIPIENT: This is the address to which MongoDB Alert Flows will be sent to.  
+    - MONGODB\_AUDIT\_ALERT\_SENDER: This is the address to which MongoDB Alert Flows will be sent from.  
+    - MONGODB\_AUDIT\_CATEGORY\_LOOKUP: Macro used for MongoDB Audit alerts.  
+    - MONGODB\_AUDIT\_ENRICH\_COMMON: Macro used for MongoDB Audit alerts.  
+    - MONGODB\_AUDIT\_RESULT\_LOOKUP: Macro used for MongoDB Audit alerts.  
+    - MONGODB\_AUDIT\_RISK\_SCORE: Macro used for MongoDB Audit alerts.  
+
+***  
+
+## 2. [Query Library](#2-query-library)  
+
+- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-2-alert-queries), and [playbooks](#7-playbooks).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.  
+    - Total queries: ***69***  
+        - [8.1 Dashboard Searches](#8-1-dashboard-searches): ***34***  
+        - [8.2 Alert Queries](#8-2-alert-queries): ***35***  
+
+***  
+
+## 3. [Naming Schema](#3-naming-schema)  
+
+- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  
+- *QueryType - MongoDB - Database - {Logtype} - {Logsubtype} - Name [Visualization - if any]*  
+- Examples:  
+    - Templates: *Template - MongoDB - Database - Audit - Investigation - Total Events [numbercard]*  
+    - Searches: *Search - MongoDB - Database - Audit - Overview - Count by Tag [numbercard]*  
+    - Alert Queries: *AlertQuery - MongoDB - Database - Audit - Overview - Count by Tag [numbercard]*  
+
+***  
+
+## 4. [Resources](#4-resources)  
+
+- Purpose: Resources allow users to store persistent data for use in searches.  
+- [Documentation](<https://docs.gravwell.io/resources/resources.html>)  
+- Total: ***4***  
+
+#### 4.1. [Lookups](#4-1-lookups)  
+
+- Purpose: Lookup Resources are used by the *lookup* module to perform data enrichment and translation off of a static lookup table stored in a resource.  
+- [Documentation](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+- Total: ***4***  
+    - mongodb-audit-evs: MongoDB audit log field lookup.  
+    - mongodb-audit-categories: MongoDB Audit tag-to-category mapping used by generated category overview templates.  
+    - mongodb-audit-result-codes: MongoDB audit result code lookup.  
+    - mongodb-audit-actionType: MongoDB mongo-schema audit action type catalog mapping atype/actionType values to categories, subcategories, parameter fields, result codes, and alert severity.  
+
+***  
+
+## 5. [Alerts](#5-alerts)  
+
+- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+- Total: ***0***  
+
+#### 5.1. [Dispatchers](#5-1-dispatchers)  
+
+- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.  
+    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+- Total: ***35***  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - All Roles Dropped From Database [table]: Detects removal of all roles from a MongoDB database.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - All Users Dropped From Database [table]: Detects removal of all users from a MongoDB database.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Abandoned [table]: Detects incomplete or abandoned MongoDB authentication attempts.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Failure [table]: Detects failed MongoDB authentication audit events.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Failure Spike By Remote IP [table]: Detects repeated failed MongoDB authentication attempts by remote IP.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Mechanism Unavailable [table]: Detects MongoDB authentication attempts using an unavailable authentication mechanism.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Cluster Parameter Changed [table]: Detects MongoDB cluster parameter changes.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Created [table]: Detects MongoDB collection or view creation.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Dropped [table]: Detects MongoDB collection or view deletion.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Renamed [table]: Detects MongoDB collection rename activity.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Sharded [table]: Detects MongoDB collection sharding activity.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Database Created [table]: Detects MongoDB database creation.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Database Dropped [table]: Detects MongoDB database deletion.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Direct Auth Collection Mutation [table]: Detects direct modification of MongoDB authentication collections.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - High Risk Administrative Action [table]: Detects high-risk MongoDB administrative audit actions.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Build Aborted [table]: Detects aborted MongoDB index builds.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Created [table]: Detects MongoDB index creation activity.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Dropped [table]: Detects MongoDB index deletion activity.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Privileges Granted To Role [table]: Detects privilege grants to MongoDB roles.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Privileges Revoked From Role [table]: Detects privilege revocation from MongoDB roles.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Replica Set Reconfigured [table]: Detects MongoDB replica set reconfiguration.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Created [table]: Detects MongoDB role creation.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Dropped [table]: Detects MongoDB role deletion.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Granted To User [table]: Detects MongoDB role grants to users.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Revoked From User [table]: Detects MongoDB role revocation from users.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Updated [table]: Detects MongoDB role updates.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Shard Added [table]: Detects MongoDB shard additions.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Shard Removed [table]: Detects MongoDB shard removals.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Sharding Enabled [table]: Detects MongoDB sharding enablement.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Shutdown [table]: Detects MongoDB shutdown audit events.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Unauthorized Operation [table]: Detects MongoDB authorization failures.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Unauthorized Operation Spike By User [table]: Detects repeated MongoDB authorization failures by user and remote IP.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - User Created [table]: Detects MongoDB database user creation.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - User Dropped [table]: Detects MongoDB database user deletion.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - User Updated [table]: Detects MongoDB database user updates including password and role changes.  
+
+#### 5.2. [Consumers](#5-2-consumers)  
+
+- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.  
+    - Consumers = [Flows](#6-1-flows)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+- Total: ***1***  
+    - Flow - MongoDB Audit - Email Alerts: Detects when a Scheduled Search has fired and will email the email address input at $MONGODB\_AUDIT\_ALERT\_RECIPIENT from $MONGODB\_AUDIT\_ALERT\_SENDER.  
+
+***  
+
+## 6. [Scheduled Searches](#6-scheduled-searches)  
+
+- Purpose: Scheduled Searches are typically dependent on *AlertQuery - MongoDB Audit - ...* queries within the [Query Library](#2-query-library).  
+- [Documentation](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+- Total: ***35***  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - All Roles Dropped From Database [table]: Detects removal of all roles from a MongoDB database.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - All Users Dropped From Database [table]: Detects removal of all users from a MongoDB database.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Abandoned [table]: Detects incomplete or abandoned MongoDB authentication attempts.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Failure [table]: Detects failed MongoDB authentication audit events.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Failure Spike By Remote IP [table]: Detects repeated failed MongoDB authentication attempts by remote IP.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Mechanism Unavailable [table]: Detects MongoDB authentication attempts using an unavailable authentication mechanism.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Cluster Parameter Changed [table]: Detects MongoDB cluster parameter changes.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Created [table]: Detects MongoDB collection or view creation.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Dropped [table]: Detects MongoDB collection or view deletion.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Renamed [table]: Detects MongoDB collection rename activity.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Sharded [table]: Detects MongoDB collection sharding activity.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Database Created [table]: Detects MongoDB database creation.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Database Dropped [table]: Detects MongoDB database deletion.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Direct Auth Collection Mutation [table]: Detects direct modification of MongoDB authentication collections.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - High Risk Administrative Action [table]: Detects high-risk MongoDB administrative audit actions.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Build Aborted [table]: Detects aborted MongoDB index builds.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Created [table]: Detects MongoDB index creation activity.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Dropped [table]: Detects MongoDB index deletion activity.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Privileges Granted To Role [table]: Detects privilege grants to MongoDB roles.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Privileges Revoked From Role [table]: Detects privilege revocation from MongoDB roles.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Replica Set Reconfigured [table]: Detects MongoDB replica set reconfiguration.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Created [table]: Detects MongoDB role creation.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Dropped [table]: Detects MongoDB role deletion.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Granted To User [table]: Detects MongoDB role grants to users.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Revoked From User [table]: Detects MongoDB role revocation from users.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Updated [table]: Detects MongoDB role updates.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Shard Added [table]: Detects MongoDB shard additions.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Shard Removed [table]: Detects MongoDB shard removals.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Sharding Enabled [table]: Detects MongoDB sharding enablement.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Shutdown [table]: Detects MongoDB shutdown audit events.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Unauthorized Operation [table]: Detects MongoDB authorization failures.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - Unauthorized Operation Spike By User [table]: Detects repeated MongoDB authorization failures by user and remote IP.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - User Created [table]: Detects MongoDB database user creation.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - User Dropped [table]: Detects MongoDB database user deletion.  
+    - ScheduledSearch - MongoDB - Database - Audit - Alerts - User Updated [table]: Detects MongoDB database user updates including password and role changes.  
+
+#### 6.1. [Flows](#6-1-flows)  
+
+- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.  
+- [Documentation](<https://docs.gravwell.io/flows/flows.html>)  
+- Total: ***1***  
+    - Flow - MongoDB Audit - Email Alerts: Detects when a Scheduled Search has fired and will email the email address input at $MONGODB\_AUDIT\_ALERT\_RECIPIENT from $MONGODB\_AUDIT\_ALERT\_SENDER.  
+
+***  
+
+## 7. [Playbooks](#7-playbooks)  
+
+- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.  
+- [Documentation](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+- Total: ***2***  
+    - MongoDB Audit Kit - Overview: Overview of the items included in the MongoDB Audit Kit.  
+    - MongoDB Audit Kit - Readme: A toolkit for interacting with MongoDB Audit logs.  
+
+#### 7.1. [Files](#7-1-files)  
+
+- Purpose: Gravwell users can upload small files for use in playbooks, as cover images for kits, etc. Typically, these files are created or selected at the point of use: via a picker in the playbook editor, in the kit builder, etc.  
+- [Documentation](<https://docs.gravwell.io/gui/files/files.html>)  
+- Total: ***0***  
+
+***  
+
+## 8. [Searches](#8-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view MongoDB Audit data in an easily digestible format or [scheduled searches](#6-scheduled-searches) to ultimately feed [alerts](#5-alerts).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+- Total: ***69***  
+    - Dashboard Search Total: ***34***  
+    - Alert Query Total: ***35***  
+
+#### 8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view MongoDB Audit data in an easily digestible format.  
+- Total: ***34***  
+    - Search - MongoDB - Database - Audit - Overview - Count by Action Type [chart]: This displays a chart of all Action Type (actionType) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Action Type [numbercard]: This displays a numbercard of all MongoDB Action Type (actionType) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Database [chart]: This displays a chart of all Database (database) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Database [numbercard]: This displays a numbercard of all MongoDB Database (database) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Mechanism [chart]: This displays a chart of all Mechanism (mechanism) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Mechanism [numbercard]: This displays a numbercard of all MongoDB Mechanism (mechanism) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Namespace [chart]: This displays a chart of all Namespace (namespace) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Namespace [numbercard]: This displays a numbercard of all MongoDB Namespace (namespace) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Operation [chart]: This displays a chart of all Operation (operation) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Operation [numbercard]: This displays a numbercard of all MongoDB Operation (operation) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Remote IP [chart]: This displays a chart of all Remote IP (remoteIp) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Remote IP [numbercard]: This displays a numbercard of all MongoDB Remote IP (remoteIp) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Result [chart]: This displays a chart of all Result (result) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Result [numbercard]: This displays a numbercard of all MongoDB Result (result) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Role [chart]: This displays a chart of all Role (role) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Role [numbercard]: This displays a numbercard of all MongoDB Role (role) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Role Database [chart]: This displays a chart of all Role Database (roleDatabase) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Role Database [numbercard]: This displays a numbercard of all MongoDB Role Database (roleDatabase) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Tag [chart]: This displays a chart of all MongoDB Tag values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by Tag [numbercard]: This displays a numbercard of all MongoDB Tag values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by User [chart]: This displays a chart of all User (user) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by User [numbercard]: This displays a numbercard of all MongoDB User (user) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by User Database [chart]: This displays a chart of all User Database (userDatabase) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Count by User Database [numbercard]: This displays a numbercard of all MongoDB User Database (userDatabase) values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Rare Action Type [numbercard]: This displays the bottom Action Type (actionType) during the specified timeframe.  
+    - Search - MongoDB - Database - Audit - Overview - Rare Remote IP [numbercard]: This displays the bottom Remote IP (remoteIp) during the specified timeframe.  
+    - Search - MongoDB - Database - Audit - Overview - Rare Result [numbercard]: This displays the bottom Result (result) during the specified timeframe.  
+    - Search - MongoDB - Database - Audit - Overview - Rare User [numbercard]: This displays the bottom User (user) during the specified timeframe.  
+    - Search - MongoDB - Database - Audit - Overview - Top Action Type [numbercard]: This displays the top Action Type (actionType) during the specified timeframe.  
+    - Search - MongoDB - Database - Audit - Overview - Top Remote IP [numbercard]: This displays the top Remote IP (remoteIp) during the specified timeframe.  
+    - Search - MongoDB - Database - Audit - Overview - Top Result [numbercard]: This displays the top Result (result) during the specified timeframe.  
+    - Search - MongoDB - Database - Audit - Overview - Top User [numbercard]: This displays the top User (user) during the specified timeframe.  
+    - Search - MongoDB - Database - Audit - Overview - Total Events [chart]: This displays a chart of all MongoDB values by count.  
+    - Search - MongoDB - Database - Audit - Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count.  
+- Naming Schema: *Search - MongoDB - Database - Audit - Overview - Count by Tag [numbercard]*  
+
+#### 8.2. [Alert Queries](#8-2-alert-queries)  
+
+- Purpose: These queries within the Query Library drive [scheduled searches](#6-scheduled-searches) which ultimately feed [alerts](#5-alerts).  
+- IMPORTANT: If you need to update or tune, this is where you perform that action.  
+- Total: ***35***  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - All Roles Dropped From Database [table]: Detects removal of all roles from a MongoDB database.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - All Users Dropped From Database [table]: Detects removal of all users from a MongoDB database.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Authentication Abandoned [table]: Detects incomplete or abandoned MongoDB authentication attempts.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Authentication Failure [table]: Detects failed MongoDB authentication audit events.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Authentication Failure Spike By Remote IP [table]: Detects repeated failed MongoDB authentication attempts by remote IP.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Authentication Mechanism Unavailable [table]: Detects MongoDB authentication attempts using an unavailable authentication mechanism.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Cluster Parameter Changed [table]: Detects MongoDB cluster parameter changes.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Collection Created [table]: Detects MongoDB collection or view creation.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Collection Dropped [table]: Detects MongoDB collection or view deletion.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Collection Renamed [table]: Detects MongoDB collection rename activity.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Collection Sharded [table]: Detects MongoDB collection sharding activity.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Database Created [table]: Detects MongoDB database creation.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Database Dropped [table]: Detects MongoDB database deletion.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Direct Auth Collection Mutation [table]: Detects direct modification of MongoDB authentication collections.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - High Risk Administrative Action [table]: Detects high-risk MongoDB administrative audit actions.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Index Build Aborted [table]: Detects aborted MongoDB index builds.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Index Created [table]: Detects MongoDB index creation activity.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Index Dropped [table]: Detects MongoDB index deletion activity.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Privileges Granted To Role [table]: Detects privilege grants to MongoDB roles.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Privileges Revoked From Role [table]: Detects privilege revocation from MongoDB roles.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Replica Set Reconfigured [table]: Detects MongoDB replica set reconfiguration.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Role Created [table]: Detects MongoDB role creation.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Role Dropped [table]: Detects MongoDB role deletion.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Role Granted To User [table]: Detects MongoDB role grants to users.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Role Revoked From User [table]: Detects MongoDB role revocation from users.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Role Updated [table]: Detects MongoDB role updates.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Shard Added [table]: Detects MongoDB shard additions.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Shard Removed [table]: Detects MongoDB shard removals.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Sharding Enabled [table]: Detects MongoDB sharding enablement.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Shutdown [table]: Detects MongoDB shutdown audit events.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Unauthorized Operation [table]: Detects MongoDB authorization failures.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - Unauthorized Operation Spike By User [table]: Detects repeated MongoDB authorization failures by user and remote IP.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - User Created [table]: Detects MongoDB database user creation.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - User Dropped [table]: Detects MongoDB database user deletion.  
+    - AlertQuery - MongoDB - Database - Audit - Alerts - User Updated [table]: Detects MongoDB database user updates including password and role changes.  
+- Naming Schema: *AlertQuery - MongoDB - Database - Audit - Overview - Count by Tag [numbercard]*  
+
+***  
+
+## 9. [Templates](#9-templates)  
+
+- Purpose: Templates are special objects which define a Gravwell query containing variables.  
+- [Documentation](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- Total: ***5***  
+    - Template - MongoDB - Database - Audit - Investigation - Count by Category [numbercard]: This is intended to show a numbercard of events by category for the User or IP that you are investigating within the time frame that you specify.  
+    - Template - MongoDB - Database - Audit - Investigation - Count by Result [numbercard]: This is intended to show a numbercard of events by result when you're investigating a User or IP for possible nefarious actions.  
+    - Template - MongoDB - Database - Audit - Investigation - Count by Subcategory [numbercard]: This is intended to show a numbercard of events by subcategory for the User or IP that you are investigating within the time frame that you specify.  
+    - Template - MongoDB - Database - Audit - Investigation - Recent Events [table]: This is intended to show a table of the recent events when you're investigating a User or IP for possible nefarious actions.  
+    - Template - MongoDB - Database - Audit - Investigation - Total Events [numbercard]: This is intended to show a numbercard of total events for the User or IP that you are investigating within the time frame that you specify.  
+
+***  
+
+## 10. [Dashboards](#10-dashboards)  
+
+- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.  
+- [Documentation](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+- Total: ***2***  
+    - MongoDB Audit General Overview: This Dashboard is a general overview of your MongoDB Audit logs.  
+    - MongoDB Audit Investigation: Investigate MongoDB Audit activity for a User or IP.  
+
+#### 10.1. [Actionables](#10-1-actionables)  
+
+- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.  
+- [Documentation](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+- Total: ***2***  
+    - MongoDB Audit User: MongoDB Audit Actions on Actor to Launch MongoDB Audit Investigation Dashboard.  
+    - MongoDB Audit IP: MongoDB Audit Actions on IP to Launch MongoDB Audit Investigation Dashboard.  
+
+***  
+
+## 11. [Useful Resources & References](#11-useful-resources--references)  
+
+- Gravwell  
+    - [Actionables](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+    - [Alerts](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+    - [Autoextractors](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+    - [Consumers](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+    - [Dashboards](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+    - [Dispatchers](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+    - [Files](<https://docs.gravwell.io/gui/files/files.html>)  
+    - [Flows](<https://docs.gravwell.io/flows/flows.html>)  
+    - [Lookup Module](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+    - [Macros](<https://docs.gravwell.io/search/macros.html>)  
+    - [Playbooks](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+    - [Query Library](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - [regexrouter Preprocessor](<https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html>)  
+    - [Resources](<https://docs.gravwell.io/resources/resources.html>)  
+    - [Scheduled Searches](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+    - [Simple Relay](<https://docs.gravwell.io/ingesters/simple_relay.html>)  
+    - [Tags](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+    - [Templates](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- MongoDB Audit   
+    - [MongoDB Audit: Auditing](<https://www.mongodb.com/docs/manual/core/auditing/>)  
+    - [MongoDB Audit: Configure Auditing](<https://www.mongodb.com/docs/manual/tutorial/configure-auditing/>)
+    - [MongoDB Audit: Configure Filters](<https://www.mongodb.com/docs/manual/tutorial/configure-audit-filters/>)  
+    - [MongoDB Audit: Mongo Schema Audit Messages](<https://www.mongodb.com/docs/manual/reference/audit-message/mongo/>)  
+    - [MongoDB Audit: OCSF Schema Audit Messages](<https://www.mongodb.com/docs/manual/reference/audit-message/ocsf/>)  
+
+***  
+
+## 12. [Notes](#12-notes)  
+
+- Default log source mapping for MongoDB Audit Kit:  
+    - mongodb-audit = Audit  
+
+***  
+
+## 13. [Image credits](#13-image-credits)  
+
+- Total: ***0***  
+
+</km>

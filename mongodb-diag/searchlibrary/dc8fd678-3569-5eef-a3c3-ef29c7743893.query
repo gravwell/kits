@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Database - Diagnostics - Alerts - Unauthorized Operation [table]*/
+tag=$MONGODB_DIAG ax
+| regex -e message "(?i)unauthorized|not authorized|requires authentication|requires privilege|permission denied|auth failed"
+| eval _alert_name = "Unauthorized Operation";
+$MONGODB_DIAG_ENRICH_COMMON
+$MONGODB_DIAG_RISK_SCORE
+$MONGODB_DIAG_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _severity context

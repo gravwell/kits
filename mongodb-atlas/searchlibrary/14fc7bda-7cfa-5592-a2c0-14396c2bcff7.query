@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Count by Auth Result [chart] */
+tag=$MONGODB_ATLAS_ACCESS ax authResult
+| stats count as " " by authResult
+| chart " " by authResult

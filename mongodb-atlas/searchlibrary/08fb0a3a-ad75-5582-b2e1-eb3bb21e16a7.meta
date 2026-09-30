@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by OIDC Auth Type [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Oidc Auth Type (oidcAuthType) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "08fb0a3a-ad75-5582-b2e1-eb3bb21e16a7",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Custom Database Roles - Dangerous Custom Database Role Action [table]*/
+tag=$MONGODB_ATLAS_CUSTOM_ROLES ax
+| regex -e action "(?i)(anyAction|drop|dropDatabase|kill|shutdown|compact|repairDatabase|createUser|dropUser|grantRole|revokeRole|bypassDocumentValidation|convertToCapped|collMod|setUserWriteBlockMode)"
+| eval _alert_name = "Dangerous Custom Database Role Action";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

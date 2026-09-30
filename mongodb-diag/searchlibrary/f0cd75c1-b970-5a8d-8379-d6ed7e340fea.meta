@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - User Or Role Admin Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: User Or Role Admin Command Logged.",
+	"GUID": "f0cd75c1-b970-5a8d-8379-d6ed7e340fea",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

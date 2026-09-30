@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Shutdown [table]",
+  "Description": "Detects MongoDB shutdown audit events.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "0568a72d-09f0-5141-9334-a8c8b7be0587",
+  "SearchReference": "29ca7c98-542f-52de-9732-76094a38128c"
+}

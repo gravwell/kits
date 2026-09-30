@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Network Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Network Error.",
+	"GUID": "65bbb011-81df-5cfb-acda-38d2a5ce484b",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

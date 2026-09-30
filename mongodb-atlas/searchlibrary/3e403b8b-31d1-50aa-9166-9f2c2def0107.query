@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Overview - Count by Name [chart] */
+tag=$MONGODB_ATLAS ax name
+| stats count as " " by name
+| chart " " by name

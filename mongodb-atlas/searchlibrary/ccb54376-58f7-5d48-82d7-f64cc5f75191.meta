@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Cluster Count [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Cluster Count (clusterCount) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "ccb54376-58f7-5d48-82d7-f64cc5f75191",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

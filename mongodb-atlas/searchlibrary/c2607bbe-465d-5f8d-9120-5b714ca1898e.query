@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Total Events [chart] */
+tag=$MONGODB_ATLAS_ALERT_CONFIGS
+| stats count
+| alias count " "
+| chart " "

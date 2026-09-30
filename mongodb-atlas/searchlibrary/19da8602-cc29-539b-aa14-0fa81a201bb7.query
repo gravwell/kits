@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Org Users Overview - Rare Org Membership Status [numbercard] */
+tag=$MONGODB_ATLAS_ORG_USERS ax orgMembershipStatus
+| stats count by orgMembershipStatus
+| bottom -n 1 count
+| numbercard (count " ")

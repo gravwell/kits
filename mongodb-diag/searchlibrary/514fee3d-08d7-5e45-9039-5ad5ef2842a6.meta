@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Slow Collection Scan [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Slow Collection Scan.",
+	"GUID": "514fee3d-08d7-5e45-9039-5ad5ef2842a6",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

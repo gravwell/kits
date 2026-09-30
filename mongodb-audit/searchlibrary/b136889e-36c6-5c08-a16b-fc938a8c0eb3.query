@@ -1,0 +1,9 @@
+/* AlertQuery - MongoDB - Database - Audit - Alerts - Unauthorized Operation Spike By User [table]*/
+tag=$MONGODB_AUDIT ax timestamp actionType == "authCheck" result == 13 user userDatabase localIp remoteIp database namespace command args param roles
+| count by user userDatabase localIp remoteIp database namespace command
+| sort by count desc
+| eval message = "Unauthorized Operation Spike By User";
+$MONGODB_AUDIT_ENRICH_COMMON
+$MONGODB_AUDIT_RISK_SCORE
+$MONGODB_AUDIT_ALERT_META
+| table timestamp actionType result user userDatabase localIp remoteIp database namespace command args param roles

@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Role or Federation Change [table]*/
+tag=$MONGODB_ATLAS_EVENTS ax
+| regex -e eventTypeName "^(USER_ROLES_CHANGED_AUDIT|ROLE_MAPPING_(CREATED|DELETED|UPDATED)|ORG_SETTINGS_(CONFIGURED|DELETED|UPDATED)|RESTRICT_ORG_MEMBERSHIP_DISABLED|RESTRICT_ORG_MEMBERSHIP_ENABLED)$"
+| eval _alert_name = "Organization Role or Federation Change";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Dropped [table]",
+  "Description": "Detects MongoDB index deletion activity.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "80447c56-7082-5cbc-bdcc-0e9453b27fa3",
+  "SearchReference": "a4acbb6b-6f1e-52e2-9400-2c3cd9c796f6"
+}

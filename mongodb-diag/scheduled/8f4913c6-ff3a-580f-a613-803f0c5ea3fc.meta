@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Documents Examined [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: High Documents Examined.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "8f4913c6-ff3a-580f-a613-803f0c5ea3fc",
+	"SearchReference": "a62f0ccc-8667-5325-a4fb-1d4a60c9494b"
+}

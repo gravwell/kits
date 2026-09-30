@@ -1,0 +1,22 @@
+{
+	"UUID": "015cfa2f-626b-4267-8a37-c8aed1b1f453",
+	"GUID": "104d864e-613f-58b8-bfca-26e051da0903",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "MongoDB Diagnostics Kit - Readme",
+	"Desc": "A toolkit for interacting with MongoDB Diagnostics data.",
+	"Labels": null,
+	"LastUpdated": "2026-07-10T16:38:48.673694301Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "https://gravwell.io"
+	},
+	"Synced": false
+}

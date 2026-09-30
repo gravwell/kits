@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Query Rejected [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Query Rejected.",
+	"GUID": "efb14d48-e4c6-5598-ace4-1ea800a0c237",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

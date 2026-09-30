@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Service Accounts - High Privilege Service Account [table]",
+  "Description": "Detects service accounts with owner/admin-style roles.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "2cb80e64-b6b1-519f-88f0-54f53d9f078d",
+  "SearchReference": "ecd084bc-ed9d-523a-9b21-8e24ef42482f"
+}

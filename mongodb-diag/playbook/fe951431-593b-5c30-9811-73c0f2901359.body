@@ -1,0 +1,480 @@
+***  
+
+A toolkit for interacting with MongoDB Diagnostics data in Gravwell. This kit includes queries, resources (lookups), templates, autoextractors, macros, dashboards, alerts, scheduled searches, and flows to help streamline MongoDB Diagnostics analysis across Diag log sources.  
+
+***  
+
+## Table of Contents  
+1. [Tags & Macros](#1-tags--macros)  
+    1.1. [Tags](#1-1-tags)  
+    1.2. [Autoextractors](#1-2-autoextractors)  
+    1.3. [Macros](#1-3-macros)  
+2. [Query Library](#2-query-library)  
+3. [Naming Schema](#3-naming-schema)  
+4. [Resources](#4-resources)  
+    4.1. [Lookups](#4-1-lookups)  
+5. [Alerts](#5-alerts)  
+    5.1. [Dispatchers](#5-1-dispatchers)  
+    5.2. [Consumers](#5-2-consumers)  
+6. [Scheduled Searches](#6-scheduled-searches)  
+    6.1. [Flows](#6-1-flows)  
+7. [Playbooks](#7-playbooks)  
+    7.1. [Files](#7-1-files)  
+8. [Searches](#8-searches)  
+    8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+    8.2. [Alert Queries](#8-2-alert-queries)  
+9. [Templates](#9-templates)  
+10. [Dashboards](#10-dashboards)  
+    10.1. [Actionables](#10-1-actionables)  
+11. [Useful Resources & References](#11-useful-resources--references)  
+12. [Notes](#12-notes)  
+13. [Image credits](#13-image-credits)  
+
+***  
+
+## 1. [Tags & Macros](#1-tags--macros)  
+
+#### 1.1. [Tags](#1-1-tags)  
+
+- Purpose: Tags are an essential Gravwell concept. Every entry has a single tag associated with it; these tags allow us to separate and categorize data at a basic level.  
+- [Documentation](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+- The MongoDB Diagnostics Kit for Gravwell makes use of the following tags:  
+- Total: ***1***  
+    - mongodb-diag: Tag used for all MongoDB Diagnostics data; necessary for any queries within the Gravwell MongoDB Diagnostics Kit to run properly for dashboards, query library, and templates.  
+        - Usage: `tag=mongodb-diag`  
+
+#### 1.2. [Autoextractors](#1-2-autoextractors)  
+
+- Purpose: Autoextractors are simply definitions that can be applied to tags and describe how to correctly extract fields from the data in a given tag. The *ax* module then automatically invokes the appropriate functionality of other modules.  
+- [Documentation](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+- The MongoDB Diagnostics Kit for Gravwell makes use of the following autoextractors:  
+- Total: ***1***  
+    - mongodb-diag: Gravwell-generated JSON extraction for tag mongodb-diag  
+
+#### 1.3. [Macros](#1-3-macros)  
+
+- Purpose: Search macros are a powerful feature that can help you use Gravwell more effectively. Macros can turn long, repetitive search queries into easily-remembered shortcuts.  
+- [Documentation](<https://docs.gravwell.io/search/macros.html>)  
+- The MongoDB Diagnostics Kit for Gravwell makes use of the following macros:  
+- Total: ***10***  
+    - GRAVWELL\_INSTANCE: Configuration Macro; Necessary for alerts within the MongoDB Kit to run properly; >:<change_to_your_specific_port>/  
+    - MONGODB\_DIAG: Configuration Macro; Tag used for MongoDB Diagnostics structured log data.  
+    - MONGODB\_DIAG\_ALERT\_META: Alert metadata macro for MongoDB Diagnostics alert titles and context tables.  
+    - MONGODB\_DIAG\_ALERT\_RECIPIENT: This is the address to which MongoDB Alert Flows will be sent to.  
+    - MONGODB\_DIAG\_ALERT\_SENDER: This is the address to which MongoDB Alert Flows will be sent from.  
+    - MONGODB\_DIAG\_COMPONENT\_LOOKUP: Lookup macro used to enrich MongoDB Diagnostics events with structured log component metadata.  
+        - Usage: 
+        ```
+        tag=$MONGODB_DIAG ax
+        $MONGODB_DIAG_COMPONENT_LOOKUP 
+        | table component componentDescription componentParent
+        ```
+    - MONGODB\_DIAG\_ENRICH\_COMMON: Common enrichment macro for MongoDB Diagnostics alerts and investigation templates.  
+    - $MONGODB_DIAG_NORMALIZE_SERVICE: This macro normalizes Service from an abbreviation to the full word.  
+    - MONGODB\_DIAG\_RISK\_SCORE: Risk scoring macro for MongoDB Diagnostics events based on severity, component, diagnostic message, and slow operation context.  
+    - MONGODB\_DIAG\_SEVERITY\_LOOKUP: Lookup macro used to enrich MongoDB Diagnostics events with structured log severity names.  
+     - Usage: 
+        ```
+        tag=$MONGODB_DIAG ax
+        $MONGODB_DIAG_SEVERITY_LOOKUP 
+        | table severity severityName severityDescription
+        ```
+
+***  
+
+## 2. [Query Library](#2-query-library)  
+
+- Purpose: Queries within the Query Library drive [dashboards](#10-dashboards) via [searches](#8-searches), [scheduled searches](#6-scheduled-searches) via [alert queries](#8-2-alert-queries), and [playbooks](#7-playbooks).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - Updating a query in the library updates dependent dashboards and scheduled searches automatically.  
+    - Total queries: ***82***  
+        - [8.1 Dashboard Searches](#8-1-dashboard-searches): ***20***  
+        - [8.2 Alert Queries](#8-2-alert-queries): ***62***  
+
+***  
+
+## 3. [Naming Schema](#3-naming-schema)  
+
+- Purpose: The use of a standard naming convention enables users to quickly understand the function, severity, and context of a query or component. This approach facilitates efficient identification, reuse, and troubleshooting without ambiguity.  
+- *QueryType - MongoDB - Database - {Logtype} - {Logsubtype} - Name [Visualization - if any]*  
+- Examples:  
+    - Templates: *Template - MongoDB - Database - Diagnostics - Investigation - Total Events [numbercard]*  
+    - Searches: *Search - MongoDB Diagnostics - MongoDB Diagnostics - {Logtype} - {Logsubtype} - {Name} [Visualization - if any]*  
+    - Alert Queries: *AlertQuery - MongoDB Diagnostics - MongoDB Diagnostics - {Logtype} - Alerts - Fatal Message [Visualization - if any]*  
+
+***  
+
+## 4. [Resources](#4-resources)  
+
+- Purpose: Resources allow users to store persistent data for use in searches.  
+- [Documentation](<https://docs.gravwell.io/resources/resources.html>)  
+- Total: ***3***  
+
+#### 4.1. [Lookups](#4-1-lookups)  
+
+- Purpose: Lookup Resources are used by the *lookup* module to perform data enrichment and translation off of a static lookup table stored in a resource.  
+- [Documentation](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+- Total: ***3***  
+    - mongodb-severity: MongoDB structured log severity lookup.  
+    - mongodb-components: MongoDB structured log component lookup.  
+    - mongodb-evs: MongoDB structured log field lookup.  
+
+***  
+
+## 5. [Alerts](#5-alerts)  
+
+- Purpose: Alerts notify you of potential nefarious actions that took place within and/or against your environment by tying dispatchers and consumers together.  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+- Total: ***0***  
+
+#### 5.1. [Dispatchers](#5-1-dispatchers)  
+
+- Purpose: Dispatchers generate events. A typical dispatcher would be a scheduled search that runs on an interval; every result returned by a scheduled search is considered an event.  
+    - Dispatchers = [Scheduled Searches](#6-scheduled-searches)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+- Total: ***62***  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Access Control Not Enabled [table]: Detects MongoDB diagnostic log events matching: Access Control Not Enabled.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Authentication Failure [table]: Detects MongoDB diagnostic log events matching: Authentication Failure.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Authentication Failure Spike By Remote [table]: Detects MongoDB diagnostic log events matching: Authentication Failure Spike By Remote.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Backup Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Backup Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Checkpoint Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Checkpoint Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Client Metadata Observed [table]: Detects MongoDB diagnostic log events matching: Client Metadata Observed.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Command Error [table]: Detects MongoDB diagnostic log events matching: Command Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Component Error Spike [table]: Detects MongoDB diagnostic log events matching: Component Error Spike.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Connection Accepted Spike By Remote [table]: Detects MongoDB diagnostic log events matching: Connection Accepted Spike By Remote.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Connection Churn By Remote [table]: Detects MongoDB diagnostic log events matching: Connection Churn By Remote.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Database Or Collection Drop Command Logged [table]: Detects MongoDB diagnostic log events matching: Database Or Collection Drop Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Debug Logging Enabled [table]: Detects MongoDB diagnostic log events matching: Debug Logging Enabled.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Election Activity [table]: Detects MongoDB diagnostic log events matching: Election Activity.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Error Code Spike [table]: Detects MongoDB diagnostic log events matching: Error Code Spike.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Error Message [table]: Detects MongoDB diagnostic log events matching: Error Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Fatal Message [table]: Detects MongoDB diagnostic log events matching: Fatal Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Fatal Or Error Message [table]: Detects MongoDB diagnostic log events matching: Fatal Or Error Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Feature Compatibility Version Changed [table]: Detects MongoDB diagnostic log events matching: Feature Compatibility Version Changed.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - FTDC Warning Or Error [table]: Detects MongoDB diagnostic log events matching: FTDC Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Documents Examined [table]: Detects MongoDB diagnostic log events matching: High Documents Examined.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Risk Administrative Command Logged [table]: Detects MongoDB diagnostic log events matching: High Risk Administrative Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Scan Low Return [table]: Detects MongoDB diagnostic log events matching: High Scan Low Return.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Yield Slow Operation [table]: Detects MongoDB diagnostic log events matching: High Yield Slow Operation.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Index Build Failed Or Aborted [table]: Detects MongoDB diagnostic log events matching: Index Build Failed Or Aborted.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Index Build Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Index Build Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Initial Sync Activity [table]: Detects MongoDB diagnostic log events matching: Initial Sync Activity.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Insecure Startup Warning [table]: Detects MongoDB diagnostic log events matching: Insecure Startup Warning.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Journal Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Journal Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Large Log Message [table]: Detects MongoDB diagnostic log events matching: Large Log Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Large Response Returned [table]: Detects MongoDB diagnostic log events matching: Large Response Returned.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Log Message Truncated [table]: Detects MongoDB diagnostic log events matching: Log Message Truncated.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Long Running Operation [table]: Detects MongoDB diagnostic log events matching: Long Running Operation.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Network Error [table]: Detects MongoDB diagnostic log events matching: Network Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Parameter Changed [table]: Detects MongoDB diagnostic log events matching: Parameter Changed.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Primary Election Or Stepdown [table]: Detects MongoDB diagnostic log events matching: Primary Election Or Stepdown.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Process Shutdown [table]: Detects MongoDB diagnostic log events matching: Process Shutdown.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Process Startup [table]: Detects MongoDB diagnostic log events matching: Process Startup.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Query Rejected [table]: Detects MongoDB diagnostic log events matching: Query Rejected.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replica Set Heartbeat Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Replica Set Heartbeat Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replica Set Reconfiguration Command Logged [table]: Detects MongoDB diagnostic log events matching: Replica Set Reconfiguration Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replication Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Replication Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Rollback Activity [table]: Detects MongoDB diagnostic log events matching: Rollback Activity.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Rollback Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Rollback Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Shard Administrative Command Logged [table]: Detects MongoDB diagnostic log events matching: Shard Administrative Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Sharding Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Sharding Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Shutdown Command Logged [table]: Detects MongoDB diagnostic log events matching: Shutdown Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Collection Scan [table]: Detects MongoDB diagnostic log events matching: Slow Collection Scan.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query [table]: Detects MongoDB diagnostic log events matching: Slow Query.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query Over 30 Seconds [table]: Detects MongoDB diagnostic log events matching: Slow Query Over 30 Seconds.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query Over 5 Seconds [table]: Detects MongoDB diagnostic log events matching: Slow Query Over 5 Seconds.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query With No Index Use [table]: Detects MongoDB diagnostic log events matching: Slow Query With No Index Use.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Startup Warning [table]: Detects MongoDB diagnostic log events matching: Startup Warning.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Storage Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Storage Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - TLS Or Certificate Error [table]: Detects MongoDB diagnostic log events matching: TLS Or Certificate Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Transaction Error Or Warning [table]: Detects MongoDB diagnostic log events matching: Transaction Error Or Warning.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Transient Transaction Error [table]: Detects MongoDB diagnostic log events matching: Transient Transaction Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Unauthorized Operation [table]: Detects MongoDB diagnostic log events matching: Unauthorized Operation.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Unexpected Mongo Shell Client [table]: Detects MongoDB diagnostic log events matching: Unexpected Mongo Shell Client.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - User Or Role Admin Command Logged [table]: Detects MongoDB diagnostic log events matching: User Or Role Admin Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Warning Spike By Message [table]: Detects MongoDB diagnostic log events matching: Warning Spike By Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - WiredTiger Recovery Activity [table]: Detects MongoDB diagnostic log events matching: WiredTiger Recovery Activity.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Write Operation Slow [table]: Detects MongoDB diagnostic log events matching: Write Operation Slow.  
+
+#### 5.2. [Consumers](#5-2-consumers)  
+
+- Purpose: Consumers process and respond to events. A typical consumer would be a flow that sends an email to an administrator, or opens a ticket in the ticketing system. Each consumer runs once per event.  
+    - Consumers = [Flows](#6-1-flows)  
+- [Documentation](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+- Total: ***1***  
+    - Flow - MongoDB Diagnostics - Email Alerts: Detects when a Scheduled Search has fired and will email the email address input at $MONGODB\_DIAG\_ENRICH\_COMMON\_ALERT\_RECIPIENT from $MONGODB\_DIAG\_ENRICH\_COMMON\_ALERT\_SENDER.  
+
+***  
+
+## 6. [Scheduled Searches](#6-scheduled-searches)  
+
+- Purpose: Scheduled Searches are typically dependent on *AlertQuery - MongoDB Diagnostics - ...* queries within the [Query Library](#2-query-library).  
+- [Documentation](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+- Total: ***62***  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Access Control Not Enabled [table]: Detects MongoDB diagnostic log events matching: Access Control Not Enabled.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Authentication Failure [table]: Detects MongoDB diagnostic log events matching: Authentication Failure.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Authentication Failure Spike By Remote [table]: Detects MongoDB diagnostic log events matching: Authentication Failure Spike By Remote.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Backup Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Backup Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Checkpoint Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Checkpoint Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Client Metadata Observed [table]: Detects MongoDB diagnostic log events matching: Client Metadata Observed.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Command Error [table]: Detects MongoDB diagnostic log events matching: Command Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Component Error Spike [table]: Detects MongoDB diagnostic log events matching: Component Error Spike.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Connection Accepted Spike By Remote [table]: Detects MongoDB diagnostic log events matching: Connection Accepted Spike By Remote.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Connection Churn By Remote [table]: Detects MongoDB diagnostic log events matching: Connection Churn By Remote.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Database Or Collection Drop Command Logged [table]: Detects MongoDB diagnostic log events matching: Database Or Collection Drop Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Debug Logging Enabled [table]: Detects MongoDB diagnostic log events matching: Debug Logging Enabled.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Election Activity [table]: Detects MongoDB diagnostic log events matching: Election Activity.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Error Code Spike [table]: Detects MongoDB diagnostic log events matching: Error Code Spike.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Error Message [table]: Detects MongoDB diagnostic log events matching: Error Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Fatal Message [table]: Detects MongoDB diagnostic log events matching: Fatal Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Fatal Or Error Message [table]: Detects MongoDB diagnostic log events matching: Fatal Or Error Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Feature Compatibility Version Changed [table]: Detects MongoDB diagnostic log events matching: Feature Compatibility Version Changed.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - FTDC Warning Or Error [table]: Detects MongoDB diagnostic log events matching: FTDC Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Documents Examined [table]: Detects MongoDB diagnostic log events matching: High Documents Examined.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Risk Administrative Command Logged [table]: Detects MongoDB diagnostic log events matching: High Risk Administrative Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Scan Low Return [table]: Detects MongoDB diagnostic log events matching: High Scan Low Return.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Yield Slow Operation [table]: Detects MongoDB diagnostic log events matching: High Yield Slow Operation.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Index Build Failed Or Aborted [table]: Detects MongoDB diagnostic log events matching: Index Build Failed Or Aborted.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Index Build Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Index Build Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Initial Sync Activity [table]: Detects MongoDB diagnostic log events matching: Initial Sync Activity.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Insecure Startup Warning [table]: Detects MongoDB diagnostic log events matching: Insecure Startup Warning.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Journal Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Journal Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Large Log Message [table]: Detects MongoDB diagnostic log events matching: Large Log Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Large Response Returned [table]: Detects MongoDB diagnostic log events matching: Large Response Returned.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Log Message Truncated [table]: Detects MongoDB diagnostic log events matching: Log Message Truncated.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Long Running Operation [table]: Detects MongoDB diagnostic log events matching: Long Running Operation.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Network Error [table]: Detects MongoDB diagnostic log events matching: Network Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Parameter Changed [table]: Detects MongoDB diagnostic log events matching: Parameter Changed.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Primary Election Or Stepdown [table]: Detects MongoDB diagnostic log events matching: Primary Election Or Stepdown.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Process Shutdown [table]: Detects MongoDB diagnostic log events matching: Process Shutdown.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Process Startup [table]: Detects MongoDB diagnostic log events matching: Process Startup.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Query Rejected [table]: Detects MongoDB diagnostic log events matching: Query Rejected.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replica Set Heartbeat Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Replica Set Heartbeat Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replica Set Reconfiguration Command Logged [table]: Detects MongoDB diagnostic log events matching: Replica Set Reconfiguration Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replication Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Replication Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Rollback Activity [table]: Detects MongoDB diagnostic log events matching: Rollback Activity.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Rollback Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Rollback Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Shard Administrative Command Logged [table]: Detects MongoDB diagnostic log events matching: Shard Administrative Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Sharding Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Sharding Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Shutdown Command Logged [table]: Detects MongoDB diagnostic log events matching: Shutdown Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Collection Scan [table]: Detects MongoDB diagnostic log events matching: Slow Collection Scan.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query [table]: Detects MongoDB diagnostic log events matching: Slow Query.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query Over 30 Seconds [table]: Detects MongoDB diagnostic log events matching: Slow Query Over 30 Seconds.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query Over 5 Seconds [table]: Detects MongoDB diagnostic log events matching: Slow Query Over 5 Seconds.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query With No Index Use [table]: Detects MongoDB diagnostic log events matching: Slow Query With No Index Use.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Startup Warning [table]: Detects MongoDB diagnostic log events matching: Startup Warning.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Storage Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Storage Warning Or Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - TLS Or Certificate Error [table]: Detects MongoDB diagnostic log events matching: TLS Or Certificate Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Transaction Error Or Warning [table]: Detects MongoDB diagnostic log events matching: Transaction Error Or Warning.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Transient Transaction Error [table]: Detects MongoDB diagnostic log events matching: Transient Transaction Error.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Unauthorized Operation [table]: Detects MongoDB diagnostic log events matching: Unauthorized Operation.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Unexpected Mongo Shell Client [table]: Detects MongoDB diagnostic log events matching: Unexpected Mongo Shell Client.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - User Or Role Admin Command Logged [table]: Detects MongoDB diagnostic log events matching: User Or Role Admin Command Logged.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Warning Spike By Message [table]: Detects MongoDB diagnostic log events matching: Warning Spike By Message.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - WiredTiger Recovery Activity [table]: Detects MongoDB diagnostic log events matching: WiredTiger Recovery Activity.  
+    - ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Write Operation Slow [table]: Detects MongoDB diagnostic log events matching: Write Operation Slow.  
+
+#### 6.1. [Flows](#6-1-flows)  
+
+- Purpose: Flows provide a no-code method for developing advanced automations in Gravwell.  
+- [Documentation](<https://docs.gravwell.io/flows/flows.html>)  
+- Total: ***1***  
+    - Flow - MongoDB Diagnostics - Email Alerts: Detects when a Scheduled Search has fired and will email the email address input at $MONGODB\_DIAG\_ENRICH\_COMMON\_ALERT\_RECIPIENT from $MONGODB\_DIAG\_ENRICH\_COMMON\_ALERT\_SENDER.  
+
+***  
+
+## 7. [Playbooks](#7-playbooks)  
+
+- Purpose: Playbooks are hypertext documents within Gravwell which help guide users through common tasks, describe functionality, and record information about data in the system.  
+- [Documentation](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+- Total: ***2***  
+    - MongoDB Diagnostics Kit - Overview: Overview of the items included in the MongoDB Diagnostics Kit.  
+    - MongoDB Diagnostics Kit - Readme: A toolkit for interacting with MongoDB Diagnostics data.  
+
+#### 7.1. [Files](#7-1-files)  
+
+- Purpose: Gravwell users can upload small files for use in playbooks, as cover images for kits, etc. Typically, these files are created or selected at the point of use: via a picker in the playbook editor, in the kit builder, etc.  
+- [Documentation](<https://docs.gravwell.io/gui/files/files.html>)  
+- Total: ***0***  
+
+***  
+
+## 8. [Searches](#8-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view MongoDB Diagnostics data in an easily digestible format or [scheduled searches](#6-scheduled-searches) to ultimately feed [alerts](#5-alerts).  
+- [Documentation](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+- Total: ***82***  
+    - Dashboard Search Total: ***20***  
+    - Alert Query Total: ***62***  
+
+#### 8.1. [Dashboard Searches](#8-1-dashboard-searches)  
+
+- Purpose: These queries within the Query Library drive [dashboards](#10-dashboards) to quickly view MongoDB Diagnostics data in an easily digestible format.  
+- Total: ***20***  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Component [chart]: This displays a chart of all Component (component) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Component [numbercard]: This displays a numbercard of all MongoDB Component (component) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Context [chart]: This displays a chart of all Context (context) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Context [numbercard]: This displays a numbercard of all MongoDB Context (context) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Message [chart]: This displays a chart of all Message (message) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Message [numbercard]: This displays a numbercard of all MongoDB Message (message) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Service [chart]: This displays a chart of all Service (service) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Service [numbercard]: This displays a numbercard of all MongoDB Service (service) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Severity [chart]: This displays a chart of all Severity (severity) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Count by Severity [numbercard]: This displays a numbercard of all MongoDB Severity (severity) values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Rare Component [numbercard]: This displays the bottom Component (component) during the specified timeframe.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Rare Context [numbercard]: This displays the bottom Context (context) during the specified timeframe.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Rare Service [numbercard]: This displays the bottom Service (service) during the specified timeframe.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Rare Severity [numbercard]: This displays the bottom Severity (severity) during the specified timeframe.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Top Component [numbercard]: This displays the top Component (component) during the specified timeframe.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Top Context [numbercard]: This displays the top Context (context) during the specified timeframe.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Top Service [numbercard]: This displays the top Service (service) during the specified timeframe.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Top Severity [numbercard]: This displays the top Severity (severity) during the specified timeframe.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Total Events [chart]: This displays a chart of all MongoDB values by count.  
+    - Search - MongoDB - Database - Diagnostics - Overview - Total Events [numbercard]: This displays a numbercard of all MongoDB events by count.  
+- Naming Schema: *Search - MongoDB Diagnostics - MongoDB Diagnostics - {Logtype} - {Logsubtype} - {Name} [Visualization - if any]*  
+
+#### 8.2. [Alert Queries](#8-2-alert-queries)  
+
+- Purpose: These queries within the Query Library drive [scheduled searches](#6-scheduled-searches) which ultimately feed [alerts](#5-alerts).  
+- IMPORTANT: If you need to update or tune, this is where you perform that action.  
+- Total: ***62***  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Access Control Not Enabled [table]: Detects MongoDB diagnostic log events matching: Access Control Not Enabled.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Authentication Failure [table]: Detects MongoDB diagnostic log events matching: Authentication Failure.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Authentication Failure Spike By Remote [table]: Detects MongoDB diagnostic log events matching: Authentication Failure Spike By Remote.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Backup Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Backup Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Checkpoint Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Checkpoint Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Client Metadata Observed [table]: Detects MongoDB diagnostic log events matching: Client Metadata Observed.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Command Error [table]: Detects MongoDB diagnostic log events matching: Command Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Component Error Spike [table]: Detects MongoDB diagnostic log events matching: Component Error Spike.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Connection Accepted Spike By Remote [table]: Detects MongoDB diagnostic log events matching: Connection Accepted Spike By Remote.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Connection Churn By Remote [table]: Detects MongoDB diagnostic log events matching: Connection Churn By Remote.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Database Or Collection Drop Command Logged [table]: Detects MongoDB diagnostic log events matching: Database Or Collection Drop Command Logged.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Debug Logging Enabled [table]: Detects MongoDB diagnostic log events matching: Debug Logging Enabled.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Election Activity [table]: Detects MongoDB diagnostic log events matching: Election Activity.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Error Code Spike [table]: Detects MongoDB diagnostic log events matching: Error Code Spike.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Error Message [table]: Detects MongoDB diagnostic log events matching: Error Message.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Fatal Message [table]: Detects MongoDB diagnostic log events matching: Fatal Message.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Fatal Or Error Message [table]: Detects MongoDB diagnostic log events matching: Fatal Or Error Message.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Feature Compatibility Version Changed [table]: Detects MongoDB diagnostic log events matching: Feature Compatibility Version Changed.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - FTDC Warning Or Error [table]: Detects MongoDB diagnostic log events matching: FTDC Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Documents Examined [table]: Detects MongoDB diagnostic log events matching: High Documents Examined.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Risk Administrative Command Logged [table]: Detects MongoDB diagnostic log events matching: High Risk Administrative Command Logged.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Scan Low Return [table]: Detects MongoDB diagnostic log events matching: High Scan Low Return.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Yield Slow Operation [table]: Detects MongoDB diagnostic log events matching: High Yield Slow Operation.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Index Build Failed Or Aborted [table]: Detects MongoDB diagnostic log events matching: Index Build Failed Or Aborted.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Index Build Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Index Build Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Initial Sync Activity [table]: Detects MongoDB diagnostic log events matching: Initial Sync Activity.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Insecure Startup Warning [table]: Detects MongoDB diagnostic log events matching: Insecure Startup Warning.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Journal Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Journal Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Large Log Message [table]: Detects MongoDB diagnostic log events matching: Large Log Message.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Large Response Returned [table]: Detects MongoDB diagnostic log events matching: Large Response Returned.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Log Message Truncated [table]: Detects MongoDB diagnostic log events matching: Log Message Truncated.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Long Running Operation [table]: Detects MongoDB diagnostic log events matching: Long Running Operation.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Network Error [table]: Detects MongoDB diagnostic log events matching: Network Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Parameter Changed [table]: Detects MongoDB diagnostic log events matching: Parameter Changed.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Primary Election Or Stepdown [table]: Detects MongoDB diagnostic log events matching: Primary Election Or Stepdown.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Process Shutdown [table]: Detects MongoDB diagnostic log events matching: Process Shutdown.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Process Startup [table]: Detects MongoDB diagnostic log events matching: Process Startup.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Query Rejected [table]: Detects MongoDB diagnostic log events matching: Query Rejected.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Replica Set Heartbeat Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Replica Set Heartbeat Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Replica Set Reconfiguration Command Logged [table]: Detects MongoDB diagnostic log events matching: Replica Set Reconfiguration Command Logged.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Replication Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Replication Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Rollback Activity [table]: Detects MongoDB diagnostic log events matching: Rollback Activity.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Rollback Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Rollback Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Shard Administrative Command Logged [table]: Detects MongoDB diagnostic log events matching: Shard Administrative Command Logged.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Sharding Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Sharding Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Shutdown Command Logged [table]: Detects MongoDB diagnostic log events matching: Shutdown Command Logged.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Slow Collection Scan [table]: Detects MongoDB diagnostic log events matching: Slow Collection Scan.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Slow Query [table]: Detects MongoDB diagnostic log events matching: Slow Query.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Slow Query Over 30 Seconds [table]: Detects MongoDB diagnostic log events matching: Slow Query Over 30 Seconds.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Slow Query Over 5 Seconds [table]: Detects MongoDB diagnostic log events matching: Slow Query Over 5 Seconds.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Slow Query With No Index Use [table]: Detects MongoDB diagnostic log events matching: Slow Query With No Index Use.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Startup Warning [table]: Detects MongoDB diagnostic log events matching: Startup Warning.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Storage Warning Or Error [table]: Detects MongoDB diagnostic log events matching: Storage Warning Or Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - TLS Or Certificate Error [table]: Detects MongoDB diagnostic log events matching: TLS Or Certificate Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Transaction Error Or Warning [table]: Detects MongoDB diagnostic log events matching: Transaction Error Or Warning.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Transient Transaction Error [table]: Detects MongoDB diagnostic log events matching: Transient Transaction Error.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Unauthorized Operation [table]: Detects MongoDB diagnostic log events matching: Unauthorized Operation.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Unexpected Mongo Shell Client [table]: Detects MongoDB diagnostic log events matching: Unexpected Mongo Shell Client.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - User Or Role Admin Command Logged [table]: Detects MongoDB diagnostic log events matching: User Or Role Admin Command Logged.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Warning Spike By Message [table]: Detects MongoDB diagnostic log events matching: Warning Spike By Message.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - WiredTiger Recovery Activity [table]: Detects MongoDB diagnostic log events matching: WiredTiger Recovery Activity.  
+    - AlertQuery - MongoDB - Database - Diagnostics - Alerts - Write Operation Slow [table]: Detects MongoDB diagnostic log events matching: Write Operation Slow.  
+- Naming Schema: *AlertQuery - MongoDB Diagnostics - MongoDB Diagnostics - {Logtype} - Alerts - Fatal Message [Visualization - if any]*  
+
+***  
+
+## 9. [Templates](#9-templates)  
+
+- Purpose: Templates are special objects which define a Gravwell query containing variables.  
+- [Documentation](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- Total: ***5***  
+    - Template - MongoDB - Database - Diagnostics - Investigation - Count by Component [numbercard]: This is intended to show a numbercard of MongoDB Diagnostics events by structured log component for the investigation scope.  
+    - Template - MongoDB - Database - Diagnostics - Investigation - Count by Message [numbercard]: This is intended to show a numbercard of MongoDB Diagnostics events by diagnostic message for the investigation scope.  
+    - Template - MongoDB - Database - Diagnostics - Investigation - Count by Severity [numbercard]: This is intended to show a numbercard of MongoDB Diagnostics events by structured log severity for the investigation scope.  
+    - Template - MongoDB - Database - Diagnostics - Investigation - Recent Events [table]: This is intended to show recent MongoDB Diagnostics events for the identity, IP, namespace, or component that you are investigating.  
+    - Template - MongoDB - Database - Diagnostics - Investigation - Total Events [numbercard]: This is intended to show a numbercard of total MongoDB Diagnostics events for the identity, IP, namespace, or component that you are investigating.  
+
+***  
+
+## 10. [Dashboards](#10-dashboards)  
+
+- Purpose: Dashboards are Gravwell’s way of showing the results from multiple searches at the same time.  
+- [Documentation](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+- Total: ***2***  
+    - MongoDB Diagnostics General Overview: This Dashboard is a general overview of your MongoDB Diagnostic structured logs.  
+    - MongoDB Diagnostics Investigation: Investigate MongoDB Diagnostics activity for an identity, IP, namespace, or component.  
+
+#### 10.1. [Actionables](#10-1-actionables)  
+
+- Purpose: Actionables provide a way to create custom menus that key on any text rendered in a query; users can take different actions on that text by selecting options in the menus.  
+- [Documentation](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+- Total: ***4***  
+    - MongoDB Diagnostics Identity: MongoDB Diagnostics actions on user, principalName, application, client, or context to launch the MongoDB Diagnostics Investigation dashboard.  
+    - MongoDB Diagnostics IP: MongoDB Diagnostics actions on remote address, client address, or host to launch the MongoDB Diagnostics Investigation dashboard.  
+    - MongoDB Diagnostics Namespace: MongoDB Diagnostics actions on namespace, database, or collection to launch the MongoDB Diagnostics Investigation dashboard.  
+    - MongoDB Diagnostics Component: MongoDB Diagnostics actions on structured log component to launch the MongoDB Diagnostics Investigation dashboard.  
+
+***  
+
+## 11. [Useful Resources & References](#11-useful-resources--references)  
+
+- Gravwell  
+    - [Actionables](<https://docs.gravwell.io/gui/actionables/actionables.html>)  
+    - [Alerts](<https://docs.gravwell.io/alerts/alerts.html#alerts>)  
+    - [Autoextractors](<https://docs.gravwell.io/configuration/autoextractors.html>)  
+    - [Consumers](<https://docs.gravwell.io/alerts/alerts.html#defining-a-consumer>)  
+    - [Dashboards](<https://docs.gravwell.io/gui/dashboards/dashboards.html>)  
+    - [Dispatchers](<https://docs.gravwell.io/alerts/alerts.html#adding-dispatchers>)  
+    - [Files](<https://docs.gravwell.io/gui/files/files.html>)  
+    - [Flows](<https://docs.gravwell.io/flows/flows.html>)  
+    - [Lookup Module](<https://docs.gravwell.io/search/lookup/lookup.html>)  
+    - [Macros](<https://docs.gravwell.io/search/macros.html>)  
+    - [Playbooks](<https://docs.gravwell.io/gui/playbooks/playbooks.html>)  
+    - [Query Library](<https://docs.gravwell.io/gui/querylibrary/querylibrary.html>)  
+    - [regexrouter Preprocessor](<https://docs.gravwell.io/ingesters/preprocessors/regexrouter.html>)  
+    - [Resources](<https://docs.gravwell.io/resources/resources.html>)  
+    - [Scheduled Searches](<https://docs.gravwell.io/scripting/scheduledsearch.html>)  
+    - [Simple Relay](<https://docs.gravwell.io/ingesters/simple_relay.html>)  
+    - [Tags](<https://docs.gravwell.io/ingesters/ingesters.html#tags>)  
+    - [Templates](<https://docs.gravwell.io/gui/templates/templates.html>)  
+- MongoDB    
+    - [MongoDB: Log Messages](<https://mongodb.com/docs/manual/reference/log-messages>)  
+    - [MongoDB: JSON Log Output Format](<https://www.mongodb.com/docs/manual/reference/log-messages/#std-label-log-message-json-output-format>)  
+    - [MongoDB: Extended JSON (v2)](<https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/#std-label-mongodb-extended-json-v2>)  
+    - [MongoDB: Severity Levels](<https://www.mongodb.com/docs/manual/reference/log-messages/#std-label-log-severity-levels>)  
+    - [MongoDB: Components](<https://www.mongodb.com/docs/manual/reference/log-messages/#std-label-log-message-components>)  
+    - [MongoDB: Filter by Known Log ID](<https://www.mongodb.com/docs/manual/reference/log-messages/#std-label-log-message-parsing-example-filter-id>)  
+
+***  
+
+## 12. [Notes](#12-notes)  
+
+- Default log source mapping for MongoDB Diagnostics Kit:  
+    - mongodb-diag = Diag  
+
+***  
+
+## 13. [Image credits](#13-image-credits)  
+
+- Total: ***0***  

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Secret ID [chart] */
+tag=$MONGODB_ATLAS_SERVICE_ACCOUNTS ax secretId
+| json -x secretId
+| stats count as " " by secretId
+| chart " " by secretId

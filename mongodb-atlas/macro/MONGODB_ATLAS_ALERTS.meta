@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_ALERTS",
+	"Description": "Configuration Macro; Tag used for MongoDB Atlas alert API data.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

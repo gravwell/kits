@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Mechanism Unavailable [table]",
+  "Description": "Detects MongoDB authentication attempts using an unavailable authentication mechanism.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "1e07b7bd-cebe-5ea2-b17a-4028e5189134",
+  "SearchReference": "1e2278a8-8ca5-573a-afff-d75ec30867e2"
+}

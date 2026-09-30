@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Observability Export Disabled or Changed [table]",
+  "Description": "Detects S3, OTel, or host external log export changes that could reduce monitoring coverage.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "401e1fb8-d639-59a8-ad2b-ba7c81fd25a1",
+  "SearchReference": "67e2ddd7-9d0b-55db-b294-212024634eb1"
+}

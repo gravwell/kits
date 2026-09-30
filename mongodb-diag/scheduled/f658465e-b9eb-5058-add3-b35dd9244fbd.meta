@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Debug Logging Enabled [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Debug Logging Enabled.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f658465e-b9eb-5058-add3-b35dd9244fbd",
+	"SearchReference": "6892152b-f9fd-5e77-86a5-88e246dbd9fc"
+}

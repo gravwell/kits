@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Failure [table]",
+  "Description": "Detects failed MongoDB authentication audit events.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "c641caf2-9075-5481-84ba-9d48483e8a52",
+  "SearchReference": "75092159-11ec-52f1-822f-c1ed20deb637"
+}

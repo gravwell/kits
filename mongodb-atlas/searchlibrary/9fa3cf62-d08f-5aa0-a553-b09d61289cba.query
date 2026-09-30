@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Mongo DB Version [chart] */
+tag=$MONGODB_ATLAS_CLUSTERS ax mongoDBVersion
+| stats count as " " by mongoDBVersion
+| chart " " by mongoDBVersion

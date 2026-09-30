@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Unauthorized Operation [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Unauthorized Operation.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "8ca9cf4b-bf15-5fc1-a8df-c65b4a3b0073",
+	"SearchReference": "dc8fd678-3569-5eef-a3c3-ef29c7743893"
+}

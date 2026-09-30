@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Matcher Field Name [numbercard] */
+tag=$MONGODB_ATLAS_ALERT_CONFIGS ax matcherFieldName
+| stats count by matcherFieldName
+| numbercard (count " ")

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - FTDC Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: FTDC Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "867bd923-85cb-5417-82fb-9f38e90e81bd",
+	"SearchReference": "4eea717a-36fa-5e57-91e2-e9d46d5361d0"
+}

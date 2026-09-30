@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Fatal Or Error Message [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Fatal Or Error Message.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "de2dea69-410f-5366-9871-a8f4aa70e711",
+	"SearchReference": "872a83b1-5e18-5f78-82bc-b442a350530a"
+}

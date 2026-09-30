@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Audit - Overview - Count by Mechanism [numbercard] */
+tag=$MONGODB_AUDIT ax mechanism
+| stats count by mechanism
+| numbercard (count " ")

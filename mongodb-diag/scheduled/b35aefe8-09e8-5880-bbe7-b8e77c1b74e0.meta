@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Write Operation Slow [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Write Operation Slow.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "b35aefe8-09e8-5880-bbe7-b8e77c1b74e0",
+	"SearchReference": "0f98bb13-6e57-5265-8e69-25390256f51c"
+}

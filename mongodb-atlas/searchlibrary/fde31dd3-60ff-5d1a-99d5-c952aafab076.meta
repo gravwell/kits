@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization UI or Public API Access List Change [table]",
+  "Description": "Detects organization UI IP access list disabling/enabling and public API access-list policy changes.",
+  "GUID": "fde31dd3-60ff-5d1a-99d5-c952aafab076",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

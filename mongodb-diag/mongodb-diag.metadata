@@ -1,0 +1,38 @@
+{
+  "Tags": [
+    "["mongodb-diag"]"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "mongodb-diag-new-cover.png",
+      "Legend": "MongoDB Diagnostics Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "mongodb-diag-new-banner.png",
+      "Legend": "MongoDB Diagnostics Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "mongodb-diag-new-cover.png"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "mongodb-diag-new-banner.png"
+    }
+  ],
+  "readme": "README.md"
+}

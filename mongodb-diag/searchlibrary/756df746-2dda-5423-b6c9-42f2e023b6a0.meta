@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Feature Compatibility Version Changed [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Feature Compatibility Version Changed.",
+	"GUID": "756df746-2dda-5423-b6c9-42f2e023b6a0",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

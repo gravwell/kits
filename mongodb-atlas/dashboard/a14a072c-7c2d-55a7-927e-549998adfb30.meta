@@ -1,0 +1,180 @@
+{
+	"UUID": "a14a072c-7c2d-55a7-927e-549998adfb30",
+	"Name": "MongoDB Atlas Investigation",
+	"Description": "Investigate MongoDB Atlas Admin API alerts and high-signal activity by user/API key/service account, IP/CIDR, project or organization scope, and Atlas event type.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "thisMonth",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - MongoDB - Atlas - Admin API - Investigation - Total Events [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "e1b651e2-55b7-500f-bfe0-d0a632bf374d",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Atlas - Admin API - Investigation - Count by Priority [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "c7a8b096-d9b6-555c-8e04-f47ae11e076f",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Atlas - Admin API - Investigation - Count by Status [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1fd936c3-c728-59a2-81d4-4a097258a63a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Atlas - Admin API - Investigation - Count by Event Type [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5bb17eb6-346f-56b2-8cc2-c89107754e80",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Atlas - Admin API - Investigation - Recent Events [table]",
+				"color": null,
+				"reference": {
+					"id": "36b91e10-4a72-52d1-96c2-702b24936bb7",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6170950710542845,
+				"title": "Total Events [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6213277228979612,
+				"title": "Count by Priority [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6003413603103153,
+				"title": "Count by Status [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6136259207847101,
+				"title": "Count by Event Type [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6057021635479181,
+				"title": "Recent Events [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

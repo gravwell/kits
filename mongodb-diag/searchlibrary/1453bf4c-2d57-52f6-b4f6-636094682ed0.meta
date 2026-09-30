@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Slow Query With No Index Use [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Slow Query With No Index Use.",
+	"GUID": "1453bf4c-2d57-52f6-b4f6-636094682ed0",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

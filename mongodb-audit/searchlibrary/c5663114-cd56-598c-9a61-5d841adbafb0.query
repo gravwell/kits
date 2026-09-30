@@ -1,0 +1,6 @@
+/* Search - MongoDB - Database - Audit - Overview - Rare Result [numbercard] */
+tag=$MONGODB_AUDIT ax result
+$MONGODB_AUDIT_RESULT_LOOKUP
+| stats count by resultName
+| bottom -n 1 count
+| numbercard (count " ")

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Org Activity Overview - Rare Event Type Name [numbercard] */
+tag=$MONGODB_ATLAS_ORG_ACTIVITY ax eventTypeName
+| stats count by eventTypeName
+| bottom -n 1 count
+| numbercard (count " ")

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Long Running Operation [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Long Running Operation.",
+	"GUID": "51250ddb-8683-5286-ad4c-df82c0b24520",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Programmatic API Keys - High Privilege API Key [table]",
+  "Description": "Detects programmatic API keys with owner/admin-style roles.",
+  "GUID": "a66c11ac-3558-5ea0-97f5-8970ef338a18",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

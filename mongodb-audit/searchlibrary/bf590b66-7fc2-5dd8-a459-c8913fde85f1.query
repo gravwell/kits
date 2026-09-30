@@ -1,0 +1,7 @@
+/* AlertQuery - MongoDB - Database - Audit - Alerts - Unauthorized Operation [table]*/
+tag=$MONGODB_AUDIT ax timestamp actionType == "authCheck" result == 13 user userDatabase role roleDatabase localIp remoteIp remotePort database namespace command args param roles
+| eval message = "Unauthorized Operation";
+$MONGODB_AUDIT_ENRICH_COMMON
+$MONGODB_AUDIT_RISK_SCORE
+$MONGODB_AUDIT_ALERT_META
+| table timestamp actionType result user userDatabase role roleDatabase localIp remoteIp remotePort database namespace command args param roles

@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Top Inherited Role [numbercard]",
+  "Description": "This displays the top Inherited Role (inheritedRole) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupcustomdbroleroles",
+  "GUID": "c5096191-8ee3-5b93-a446-b2ee1701cd1b",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Index Build Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Index Build Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "ca3d9ce9-4edd-556e-be68-25fc28c48b22",
+	"SearchReference": "f3d81235-231f-570b-8bf4-ca53fc848123"
+}

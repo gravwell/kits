@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Count by Failure Reason [chart] */
+tag=$MONGODB_ATLAS_ACCESS ax failureReason
+| stats count as " " by failureReason
+| chart " " by failureReason

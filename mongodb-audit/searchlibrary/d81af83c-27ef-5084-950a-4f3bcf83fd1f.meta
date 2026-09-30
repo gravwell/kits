@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - User Updated [table]",
+  "Description": "Detects MongoDB database user updates including password and role changes.",
+  "GUID": "d81af83c-27ef-5084-950a-4f3bcf83fd1f",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

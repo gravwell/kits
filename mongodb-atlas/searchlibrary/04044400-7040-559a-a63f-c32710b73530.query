@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by PIT Enabled [numbercard] */
+tag=$MONGODB_ATLAS_CLUSTERS ax pitEnabled
+| stats count by pitEnabled
+| numbercard (count " ")

@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Delete After Date [chart]",
+  "Description": "This displays a chart of all Delete After Date (deleteAfterDate) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "3ed84e91-3e84-5826-a183-7c47b23326dc",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

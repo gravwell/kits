@@ -1,0 +1,45 @@
+{
+	"UUID": "7d8aeb67-2d24-5faf-8462-e7d1a09e047a",
+	"Name": "Template - MongoDB - Database - Diagnostics - Investigation - Recent Events [table]",
+	"Description": "This is intended to show recent MongoDB Diagnostics events for the identity, IP, namespace, or component that you are investigating.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%identity%%",
+				"label": "User / Principal / Client / Context",
+				"description": "What MongoDB user, principal, application, client, or context are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "Remote IP / Host / Client",
+				"description": "What remote address, client address, or host are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%namespace%%",
+				"label": "Namespace / Database / Collection",
+				"description": "What namespace, database, or collection are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%component%%",
+				"label": "Component",
+				"description": "What MongoDB log component are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

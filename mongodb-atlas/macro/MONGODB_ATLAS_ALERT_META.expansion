@@ -1,0 +1,23 @@
+/* MONGODB_ATLAS_ALERT_META */
+| eval
+    _who = _atlas_user;
+    _ip = "";
+        if (_atlas_ip != "unknown") { _ip = printf(" from %v", _atlas_ip); }
+    _scope = "";
+        if (_atlas_scope_id != "unknown") { _scope = printf(" in scope %v", _atlas_scope_id); }
+    _when = "";
+        if (has("timestamp") && timestamp != "" && timestamp != "null") { _when = printf("At %v, ", timestamp); }
+        else if (has("updated") && updated != "" && updated != "null") { _when = printf("At %v, ", updated); }
+    _status = "";
+        if (_atlas_status != "unknown") { _status = printf(" with status %v", _atlas_status); }
+    _metric_context = "";
+        if (has("metricName") && metricName != "" && metricName != "null") { _metric_context = printf(" metric=%v", metricName); }
+    _host_context = "";
+        if (has("hostname") && hostname != "" && hostname != "null") { _host_context = printf(" host=%v", hostname); }
+        else if (has("replicaSetName") && replicaSetName != "" && replicaSetName != "null") { _host_context = printf(" replicaSet=%v", replicaSetName); }
+    context = _when + _who + _ip + _scope + " triggered " + "\"" + _atlas_event_type + "\"" + _status + _metric_context + _host_context;
+    _alert_header = "| Context |";
+    _alert_divider = "|-----|";
+    _alert_data = printf("|%v|", context);
+    _alert_title = printf("Alert: %v - %v - %v - %v - %v - %v", _vendor, _product, _category, _subcategory, _priority, _alert_name);
+| alias _status _severity

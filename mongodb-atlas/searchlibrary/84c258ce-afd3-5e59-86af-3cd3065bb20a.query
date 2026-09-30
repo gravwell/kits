@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Database Users Overview - Top Database Name [numbercard] */
+tag=$MONGODB_ATLAS_DATABASE_USERS ax databaseName
+| stats count by databaseName
+| top -n 1 count
+| numbercard (count " ")

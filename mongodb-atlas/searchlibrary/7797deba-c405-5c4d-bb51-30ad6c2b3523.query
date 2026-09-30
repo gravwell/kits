@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Rare Role Name [numbercard] */
+tag=$MONGODB_ATLAS_CUSTOM_ROLES ax roleName
+| stats count by roleName
+| bottom -n 1 count
+| numbercard (count " ")

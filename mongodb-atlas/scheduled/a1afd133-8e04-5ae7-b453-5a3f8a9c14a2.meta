@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Locked Suspended or Temporarily Activated [table]",
+  "Description": "Detects suspicious organization lock, suspension, temporary activation, or linked-organization changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a1afd133-8e04-5ae7-b453-5a3f8a9c14a2",
+  "SearchReference": "7f8abaa8-b846-5fca-9eb5-f3cb53740773"
+}

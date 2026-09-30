@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Billing Spike [table]",
+  "Description": "Detects organization billing change events over configured thresholds.",
+  "GUID": "ada52b5b-5cf2-5bed-b76c-3be74327cbc5",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

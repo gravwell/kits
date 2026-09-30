@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Organization Users - Pending or Invited Organization User [table]",
+  "Description": "Detects organization users with invited or pending membership states.",
+  "GUID": "402fd2e0-772b-5c66-b8eb-96d4dfbd325e",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

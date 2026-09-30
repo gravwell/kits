@@ -1,0 +1,22 @@
+{
+	"UUID": "1505da86-7ab6-5041-9b5b-6ffff271053d",
+	"GUID": "1505da86-7ab6-5041-9b5b-6ffff271053d",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "MongoDB Atlas Kit - Overview",
+	"Desc": "Overview of the items included in the MongoDB Atlas Kit.",
+	"Labels": ["mongodb", "mongodb-atlas"],
+	"LastUpdated": "2026-07-10T14:16:49.961521Z",
+	"Author": {
+  "Name": "Gravwell",
+  "Email": "info@gravwell.io",
+  "Company": "Gravwell",
+  "URL": "https://gravwell.io"
+},
+	"Synced": false
+}

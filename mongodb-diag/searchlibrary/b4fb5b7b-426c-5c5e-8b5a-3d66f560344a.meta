@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Sharding Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Sharding Warning Or Error.",
+	"GUID": "b4fb5b7b-426c-5c5e-8b5a-3d66f560344a",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

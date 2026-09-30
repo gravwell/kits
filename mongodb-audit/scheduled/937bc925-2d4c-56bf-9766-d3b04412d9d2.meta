@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Created [table]",
+  "Description": "Detects MongoDB index creation activity.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "937bc925-2d4c-56bf-9766-d3b04412d9d2",
+  "SearchReference": "4d50ac9d-3ddb-5fda-9f14-a634bd73488c"
+}

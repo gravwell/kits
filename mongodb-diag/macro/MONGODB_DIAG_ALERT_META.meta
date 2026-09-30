@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_DIAG_ALERT_META",
+	"Description": "Alert metadata macro for MongoDB Diagnostics alert titles and context tables.",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

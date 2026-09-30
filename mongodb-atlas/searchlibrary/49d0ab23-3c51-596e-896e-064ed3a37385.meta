@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Rare Roles [numbercard]",
+  "Description": "This displays the bottom Roles (roles) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgserviceaccounts",
+  "GUID": "49d0ab23-3c51-596e-896e-064ed3a37385",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

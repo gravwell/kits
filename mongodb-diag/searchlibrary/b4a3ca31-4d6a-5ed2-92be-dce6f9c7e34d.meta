@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Shard Administrative Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Shard Administrative Command Logged.",
+	"GUID": "b4a3ca31-4d6a-5ed2-92be-dce6f9c7e34d",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

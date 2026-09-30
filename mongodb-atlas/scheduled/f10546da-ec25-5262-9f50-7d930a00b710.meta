@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Service Account Event Observed [table]",
+  "Description": "Detects MongoDB Atlas service account lifecycle, role, secret, group-assignment, and access-list events from the Atlas events endpoints.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "f10546da-ec25-5262-9f50-7d930a00b710",
+  "SearchReference": "b8608561-0da3-590a-b543-7bd877e35a1f"
+}

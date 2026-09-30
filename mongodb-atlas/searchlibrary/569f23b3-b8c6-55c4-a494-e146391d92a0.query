@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Status [numbercard] */
+tag=$MONGODB_ATLAS_BACKUPS ax status
+| stats count by status
+| numbercard (count " ")

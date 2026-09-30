@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Open Security Posture Alert [table]",
+  "Description": "Detects open Atlas alerts that indicate degraded security posture, missing MFA, exposed hosts, disabled UI access controls, or expiring service account secrets.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "edb00415-d8c1-57d6-8fff-639eaf69a237",
+  "SearchReference": "b4b8855e-21f1-5eb6-92aa-d5095b30ab40"
+}

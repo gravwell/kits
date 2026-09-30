@@ -1,0 +1,18 @@
+{
+	"Name": "mongodb-atlas-activity",
+	"Desc": "Gravwell-generated JSON extraction for tag mongodb-atlas-activity",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"mongodb-atlas-activity"
+	],
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "9340e6ff-09ab-55e3-b4f6-614e4b0ef854",
+	"LastUpdated": "2026-07-10T14:16:49.961521Z"
+}

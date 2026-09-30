@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Cluster Count [numbercard] */
+tag=$MONGODB_ATLAS_PROJECTS ax clusterCount
+| stats count by clusterCount
+| numbercard (count " ")

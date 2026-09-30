@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Network Access - Temporary Network Access Entry [table]",
+  "Description": "Detects temporary Atlas network access entries with deleteAfterDate set.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "f472baf6-c309-56f1-b0a6-74f26f2cd90d",
+  "SearchReference": "19ecd53d-5dfc-5f04-a838-32e7eb9a25ba"
+}

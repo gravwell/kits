@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Election Activity [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Election Activity.",
+	"GUID": "dc4adcfc-fba6-53b0-a342-9ea133670581",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

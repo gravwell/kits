@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Is Global Admin [chart] */
+tag=$MONGODB_ATLAS_ORG_ACTIVITY ax isGlobalAdmin
+| stats count as " " by isGlobalAdmin
+| chart " " by isGlobalAdmin

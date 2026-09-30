@@ -1,0 +1,297 @@
+tag,event_type_category,eventTypeName,source
+mongodb-atlas-events,Alert Acknowledgement Audit Types,ALERT_ACKNOWLEDGED_AUDIT,operation-listorgevents
+mongodb-atlas-events,Alert Acknowledgement Audit Types,ALERT_UNACKNOWLEDGED_AUDIT,operation-listorgevents
+mongodb-atlas-events,Alert Configuration Audit Types,ALERT_CONFIG_DISABLED_AUDIT,operation-listorgevents
+mongodb-atlas-events,Alert Configuration Audit Types,ALERT_CONFIG_ENABLED_AUDIT,operation-listorgevents
+mongodb-atlas-events,Alert Configuration Audit Types,ALERT_CONFIG_ADDED_AUDIT,operation-listorgevents
+mongodb-atlas-events,Alert Configuration Audit Types,ALERT_CONFIG_DELETED_AUDIT,operation-listorgevents
+mongodb-atlas-events,Alert Configuration Audit Types,ALERT_CONFIG_CHANGED_AUDIT,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_CREATED,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_DELETED,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_ACCESS_LIST_ENTRY_ADDED,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_ACCESS_LIST_ENTRY_DELETED,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_ROLES_CHANGED,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_DESCRIPTION_CHANGED,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_ADDED_TO_GROUP,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_REMOVED_FROM_GROUP,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_UI_IP_ACCESS_LIST_INHERITANCE_ENABLED,operation-listorgevents
+mongodb-atlas-events,API User Event Types,API_KEY_UI_IP_ACCESS_LIST_INHERITANCE_DISABLED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_CREATED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_DELETED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_ROLES_CHANGED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_DETAILS_CHANGED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_ADDED_TO_GROUP,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_REMOVED_FROM_GROUP,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_ACCESS_LIST_ENTRY_ADDED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_ACCESS_LIST_ENTRY_DELETED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_SECRET_ADDED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_SECRET_DELETED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_UI_IP_ACCESS_LIST_INHERITANCE_ENABLED,operation-listorgevents
+mongodb-atlas-events,Service Account Event Types,SERVICE_ACCOUNT_UI_IP_ACCESS_LIST_INHERITANCE_DISABLED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,AWS_PAYMENT_PAID,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CHARGE_SUCCEEDED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CHARGE_FAILED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CHARGE_PROCESSING,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CHARGE_PENDING_REVERSAL,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,BRAINTREE_CHARGE_FAILED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,INVOICE_CLOSED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CHECK_PAYMENT_RECEIVED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,WIRE_TRANSFER_PAYMENT_RECEIVED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,DISCOUNT_APPLIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_ISSUED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_PULLED_FWD,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_END_DATE_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PROMO_CODE_APPLIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PAYMENT_FORGIVEN,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,REFUND_ISSUED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ACCOUNT_DOWNGRADED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ACCOUNT_UPGRADED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ACCOUNT_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,SUPPORT_PLAN_ACTIVATED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,SUPPORT_PLAN_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,SUPPORT_PLAN_CANCELLATION_SCHEDULED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,INITIATE_SALESFORCE_SERVICE_CLOUD_SYNC,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,INVOICE_ADDRESS_CHANGED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,INVOICE_ADDRESS_ADDED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PREPAID_PLAN_ACTIVATED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ELASTIC_INVOICING_MODE_ACTIVATED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ELASTIC_INVOICING_MODE_DEACTIVATED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,TERMINATE_PAID_SERVICES,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,BILLING_EMAIL_ADDRESS_ADDED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,BILLING_EMAIL_ADDRESS_CHANGED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,BILLING_EMAIL_ADDRESS_REMOVED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,AWS_BILLING_ACCOUNT_CREDIT_ISSUED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,GCP_BILLING_ACCOUNT_CREDIT_ISSUED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_SFOLID_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PREPAID_PLAN_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,AWS_USAGE_REPORTED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,AZURE_USAGE_REPORTED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,GCP_USAGE_REPORTED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,VERCEL_USAGE_REPORTED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,BECAME_PAYING_ORG,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,BECAME_LINKED_ORG,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,NEW_LINKED_ORG,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,UNLINKED_ORG,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ORG_LINKED_TO_PAYING_ORG,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ORG_UNLINKED_FROM_PAYING_ORG,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ORG_UNLINK_REQUESTED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ORG_UNLINK_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PAYMENT_UPDATED_THROUGH_API,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,AZURE_BILLING_ACCOUNT_CREDIT_ISSUED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_START_DATE_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_ELASTIC_INVOICING_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_TYPE_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_AMOUNT_CENTS_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_AMOUNT_REMAINING_CENTS_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_TOTAL_BILLED_CENTS_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_AWS_CUSTOMER_ID_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_AWS_PRODUCT_CODE_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_AWS_LICENSE_ARN_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_AWS_ACCOUNT_ID_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_GCP_MARKETPLACE_ENTITLEMENT_ID_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_AZURE_SUBSCRIPTION_ID_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CREDIT_AZURE_PRIVATE_PLAN_ID_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,TARGETED_REBILL_EXECUTED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,LEGACY_REBILL_EXECUTED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,EVERGREEN_DEAL_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,GRACE_PERIOD_ACTIVATED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,GRACE_PERIOD_NO_LONGER_IN_EFFECT,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PENDING_DEAL_ACTIVATION_ADDED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PENDING_DEAL_ACTIVATION_CANCELED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PENDING_DEAL_APPLIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PENDING_DEAL_ACTIVATION_FAILED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,EVERGREEN_PRIORITY_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,CROSS_ORG_OPERATION_TICKET_TRACKING,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ADMIN_OVERRIDE_PAYMENT_METHOD_DELETED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,ADMIN_OVERRIDE_PAYMENT_METHOD_EXPIRED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PAYMENT_METHOD_FLAGGED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PAYMENT_METHOD_UNFLAGGED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,MARKETPLACE_REFUND_ISSUED,operation-listorgevents
+mongodb-atlas-events,Billing Event Types,PAYMENT_DUE_DATE_EXTENDED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,FEDERATION_SETTINGS_CREATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,FEDERATION_SETTINGS_DELETED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,FEDERATION_SETTINGS_UPDATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,IDENTITY_PROVIDER_CREATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,IDENTITY_PROVIDER_UPDATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,IDENTITY_PROVIDER_DELETED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,IDENTITY_PROVIDER_ACTIVATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,OIDC_IDENTITY_PROVIDER_UPDATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,IDENTITY_PROVIDER_DEACTIVATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,IDENTITY_PROVIDER_JWKS_REVOKED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,OIDC_IDENTITY_PROVIDER_ENABLED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,OIDC_IDENTITY_PROVIDER_DISABLED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,DOMAINS_ASSOCIATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,DOMAIN_CREATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,DOMAIN_DELETED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,DOMAIN_VERIFIED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,ORG_SETTINGS_CONFIGURED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,ORG_SETTINGS_UPDATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,ORG_SETTINGS_DELETED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,RESTRICT_ORG_MEMBERSHIP_ENABLED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,RESTRICT_ORG_MEMBERSHIP_DISABLED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,ROLE_MAPPING_CREATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,ROLE_MAPPING_UPDATED,operation-listorgevents
+mongodb-atlas-events,Federation Settings Event Types,ROLE_MAPPING_DELETED,operation-listorgevents
+mongodb-atlas-events,Group Audit Types,GROUP_DELETED,operation-listorgevents
+mongodb-atlas-events,Group Audit Types,GROUP_CREATED,operation-listorgevents
+mongodb-atlas-events,Group Audit Types,GROUP_MOVED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_COMPLETED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_TARGET_CLUSTER_CREATED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_DATABASE_USERS_IMPORTED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_IP_WHITELIST_IMPORTED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_TARGET_CLUSTER_SET,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_DATABASE_RENAMED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_LIVE_IMPORT_STARTED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_LIVE_IMPORT_READY_FOR_CUTOVER,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_LIVE_IMPORT_CUTOVER_COMPLETE,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_LIVE_IMPORT_ERROR,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_LIVE_IMPORT_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_DUMP_AND_RESTORE_TEST_STARTED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_DUMP_AND_RESTORE_TEST_SKIPPED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_DUMP_AND_RESTORE_STARTED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_SUPPORT_PLAN_SELECTED,operation-listorgevents
+mongodb-atlas-events,Mlab Migration Audit Types,MLAB_MIGRATION_SUPPORT_PLAN_OPTED_OUT,operation-listorgevents
+mongodb-atlas-events,Atlas Audit Types,ORG_LIMIT_UPDATED,operation-listorgevents
+mongodb-atlas-events,Atlas Audit Types,SHADOW_CLUSTER_ORG_OPT_IN,operation-listorgevents
+mongodb-atlas-events,Atlas Audit Types,SHADOW_CLUSTER_ORG_OPT_OUT,operation-listorgevents
+mongodb-atlas-events,Atlas Audit Types,ATLAS_MAINTENANCE_FLEET_ACTIVE_WAVE_CLOSED_BY_ADMIN,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CREATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,CUSTOM_SESSION_TIMEOUT_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,SECURITY_CONTACT_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,OPERATIONS_CONTACT_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CREDIT_CARD_ADDED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CREDIT_CARD_UPDATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CREDIT_CARD_CURRENT,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CREDIT_CARD_ABOUT_TO_EXPIRE,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_PAYPAL_LINKED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_PAYPAL_UPDATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_PAYPAL_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_OVERRIDE_PAYMENT_METHOD_ADDED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_BANK_ACCOUNT_ADDED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_BANK_ACCOUNT_UPDATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_WALLET_ADDED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_WALLET_UPDATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_ACTIVATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_TEMPORARILY_ACTIVATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_SUSPENSION_DATE_CHANGED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_SUSPENDED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_ADMIN_SUSPENDED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_ADMIN_LOCKED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CLUSTERS_DELETED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CLUSTERS_PAUSED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_LOCKED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_LOCKED_ACCELERATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_UNDER_FINANCIAL_PROTECTION,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_NO_FINANCIAL_PROTECTION,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_RENAMED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ALL_ORG_USERS_HAVE_MFA,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_USERS_WITHOUT_MFA,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_INVOICE_UNDER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_INVOICE_OVER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_DAILY_BILL_UNDER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_DAILY_BILL_OVER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_DAILY_BILLING_CHANGE_NORMAL,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_DAILY_BILLING_CHANGE_OVER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_WEEKLY_BILLING_CHANGE_NORMAL,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_WEEKLY_BILLING_CHANGE_OVER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_MONTHLY_BILLING_CHANGE_NORMAL,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_MONTHLY_BILLING_CHANGE_OVER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_GROUP_CHARGES_UNDER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_GROUP_CHARGES_OVER_THRESHOLD,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_TWO_FACTOR_AUTH_REQUIRED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_TWO_FACTOR_AUTH_OPTIONAL,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_PUBLIC_API_ACCESS_LIST_REQUIRED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_PUBLIC_API_ACCESS_LIST_NOT_REQUIRED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_EMPLOYEE_ACCESS_RESTRICTED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_EMPLOYEE_ACCESS_UNRESTRICTED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CONNECTED_TO_MLAB,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_DISCONNECTED_FROM_MLAB,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_IDP_CERTIFICATE_CURRENT,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_IDP_CERTIFICATE_ABOUT_TO_EXPIRE,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CONNECTED_TO_VERCEL,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_DISCONNECTED_TO_VERCEL,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_CONNECTION_UNINSTALLED_FROM_VERCEL,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_UI_IP_ACCESS_LIST_ENABLED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_UI_IP_ACCESS_LIST_DISABLED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_EDITED_UI_IP_ACCESS_LIST_ENTRIES,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_SERVICE_ACCOUNT_MAX_SECRET_VALIDITY_EDITED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_SERVICE_ACCOUNT_SECRETS_EXPIRED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_SERVICE_ACCOUNT_SECRETS_NO_LONGER_EXPIRED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_SERVICE_ACCOUNT_SECRETS_EXPIRING,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_SERVICE_ACCOUNT_SECRETS_NO_LONGER_EXPIRING,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_MONGODB_VERSION_EOL_EXTENSION_ACCEPTED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_MONGODB_VERSION_EOL_EXTENSION_PENDING,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_MONGODB_VERSION_EOL_EXTENSION_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_BAAS_EOL_EXTENSION_ACCEPTED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_BAAS_EOL_EXTENSION_PENDING,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_BAAS_EOL_EXTENSION_CANCELED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,GROUP_MOVED_FROM_ORG,operation-listorgevents
+mongodb-atlas-events,Org Event Types,SANDBOX_ENABLED_FOR_ORG,operation-listorgevents
+mongodb-atlas-events,Org Event Types,SANDBOX_DISABLED_FOR_ORG,operation-listorgevents
+mongodb-atlas-events,Org Event Types,SANDBOX_CONFIG_DELETED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,SANDBOX_TEMPLATE_UPDATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_DELEGATION_SETTINGS_UPDATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORGANIZATION_VOYAGE_SETTINGS_CREATED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORGANIZATION_VOYAGE_SETTINGS_DELETED,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_WAVE_ASSIGNMENT_MODE_MANUAL,operation-listorgevents
+mongodb-atlas-events,Org Event Types,ORG_WAVE_ASSIGNMENT_MODE_ENV_TAG_MAPPING,operation-listorgevents
+mongodb-atlas-events,Org Event Types,PROJECT_CREATED_VIA_ANIS,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,AWS_SELF_SERVE_ACCOUNT_LINKED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,AWS_SELF_SERVE_ACCOUNT_LINK_PENDING,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,AWS_SELF_SERVE_ACCOUNT_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,AWS_SELF_SERVE_ACCOUNT_LINK_FAILED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,GCP_SELF_SERVE_ACCOUNT_LINK_PENDING,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,GCP_SELF_SERVE_ACCOUNT_LINK_FAILED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,AZURE_SELF_SERVE_ACCOUNT_LINKED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,AZURE_SELF_SERVE_ACCOUNT_LINK_PENDING,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,AZURE_SELF_SERVE_ACCOUNT_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,AZURE_SELF_SERVE_ACCOUNT_LINK_FAILED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,GCP_SELF_SERVE_ACCOUNT_LINKED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,GCP_SELF_SERVE_ACCOUNT_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_SELF_SERVE_ACCOUNT_LINKED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_SELF_SERVE_ACCOUNT_LINK_PENDING,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_SELF_SERVE_ACCOUNT_CANCELLED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_SELF_SERVE_ACCOUNT_LINK_FAILED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_INVOICE_CREATED,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_INVOICE_NOT_PAID,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_INVOICE_OVERDUE,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_INVOICE_PAID,operation-listorgevents
+mongodb-atlas-events,Partner Event Types,VERCEL_INVOICE_REFUNDED,operation-listorgevents
+mongodb-atlas-events,Support Event Types,SUPPORT_EMAILS_SENT_SUCCESSFULLY,operation-listorgevents
+mongodb-atlas-events,Support Event Types,SUPPORT_EMAILS_SENT_FAILURE,operation-listorgevents
+mongodb-atlas-events,Team Event Types,TEAM_CREATED,operation-listorgevents
+mongodb-atlas-events,Team Event Types,TEAM_DELETED,operation-listorgevents
+mongodb-atlas-events,Team Event Types,TEAM_UPDATED,operation-listorgevents
+mongodb-atlas-events,Team Event Types,TEAM_NAME_CHANGED,operation-listorgevents
+mongodb-atlas-events,Team Event Types,TEAM_ADDED_TO_GROUP,operation-listorgevents
+mongodb-atlas-events,Team Event Types,TEAM_REMOVED_FROM_GROUP,operation-listorgevents
+mongodb-atlas-events,Team Event Types,TEAM_ROLES_MODIFIED,operation-listorgevents
+mongodb-atlas-events,User Event Types,JOINED_ORG,operation-listorgevents
+mongodb-atlas-events,User Event Types,JOINED_TEAM,operation-listorgevents
+mongodb-atlas-events,User Event Types,INVITED_TO_ORG,operation-listorgevents
+mongodb-atlas-events,User Event Types,ORG_INVITATION_DELETED,operation-listorgevents
+mongodb-atlas-events,User Event Types,REMOVED_FROM_ORG,operation-listorgevents
+mongodb-atlas-events,User Event Types,REMOVED_FROM_TEAM,operation-listorgevents
+mongodb-atlas-events,User Event Types,USER_ROLES_CHANGED_AUDIT,operation-listorgevents
+mongodb-atlas-events,User Event Types,ORG_FLEX_CONSULTING_PURCHASED,operation-listorgevents
+mongodb-atlas-events,User Event Types,ORG_FLEX_CONSULTING_PURCHASE_FAILED,operation-listorgevents
+mongodb-atlas-events,User Event Types,INVITED_TO_TEAM,operation-listorgevents
+mongodb-atlas-events,Resource Event Types,TAGS_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Resource Event Types,GROUP_TAGS_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Atlas Resource Policy Audit Types,RESOURCE_POLICY_CREATED,operation-listorgevents
+mongodb-atlas-events,Atlas Resource Policy Audit Types,RESOURCE_POLICY_MODIFIED,operation-listorgevents
+mongodb-atlas-events,Atlas Resource Policy Audit Types,RESOURCE_POLICY_DELETED,operation-listorgevents
+mongodb-atlas-events,Atlas Resource Policy Audit Types,RESOURCE_POLICY_VIOLATED,operation-listorgevents
+mongodb-atlas-events,AI Models APIs Event Types,AI_MODELS_APIS_USAGE_TIER_UPDATED,operation-listorgevents
+mongodb-atlas-events,AI Models APIs Event Types,AI_MODELS_APIS_FREE_TOKENS_ADMIN_ADJUSTED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_CLIENT_CREATED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_CLIENT_UPDATED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_CLIENT_DELETED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_CLIENT_SECRET_CREATED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_CLIENT_SECRET_DELETED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_AUTHORIZATION_GRANTED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_AUTHORIZATION_DENIED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_TOKEN_ISSUED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_TOKEN_REVOKED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_USER_CONSENT_GRANTED,operation-listorgevents
+mongodb-atlas-events,OAuth Audit Types,OAUTH_USER_CONSENT_REVOKED,operation-listorgevents

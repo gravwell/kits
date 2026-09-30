@@ -1,0 +1,1 @@
+roleName actions actions.[].action as action actions.[].resources as actionResources actions.[].resources.[].cluster as actionResourceCluster actions.[].resources.[].collection as actionResourceCollection actions.[].resources.[].db as actionResourceDatabase inheritedRoles inheritedRoles.[].db as inheritedRoleDatabase inheritedRoles.[].role as inheritedRole

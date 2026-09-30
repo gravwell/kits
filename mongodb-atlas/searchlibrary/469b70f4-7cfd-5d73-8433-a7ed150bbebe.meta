@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Org ID [chart]",
+  "Description": "This displays a chart of all Role Org ID (roleOrgId) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listapikeys",
+  "GUID": "469b70f4-7cfd-5d73-8433-a7ed150bbebe",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

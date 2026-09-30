@@ -1,0 +1,2 @@
+/* MONGODB_AUDIT_RESULT_LOOKUP */
+| lookup -r mongodb-audit-result-codes result result (resultName)

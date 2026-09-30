@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Client Metadata Observed [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Client Metadata Observed.",
+	"GUID": "14630496-ab15-5435-baba-cf71f9955fb1",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

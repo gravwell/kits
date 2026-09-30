@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_AUDIT",
+	"Description": "Configuration Macro; Tag used for MongoDB Audit structured log data.",
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}

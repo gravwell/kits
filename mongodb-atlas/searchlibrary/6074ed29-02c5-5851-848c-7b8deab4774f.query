@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Count by Role Name [chart] */
+tag=$MONGODB_ATLAS_CUSTOM_ROLES ax roleName
+| stats count as " " by roleName
+| chart " " by roleName

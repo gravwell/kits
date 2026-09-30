@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Network Access - World Open Network Access Entry [table]",
+  "Description": "Detects Atlas network access list entries open to the Internet.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "8596c137-2287-5aa7-963c-5e7e52655c10",
+  "SearchReference": "c7bbc707-ce58-51ba-9693-95370453e497"
+}

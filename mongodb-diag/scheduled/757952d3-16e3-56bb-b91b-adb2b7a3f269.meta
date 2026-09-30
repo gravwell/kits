@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Error Message [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Error Message.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "757952d3-16e3-56bb-b91b-adb2b7a3f269",
+	"SearchReference": "3553c206-05db-5c44-98ac-4e56d1bd4b78"
+}

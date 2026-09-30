@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Maintenance Control Weakened [table]",
+  "Description": "Detects maintenance deferral, protected hours changes, or maintenance auto-defer changes that can affect patch cadence.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "5edd280a-64ea-52ac-87df-7658dbd066d3",
+  "SearchReference": "759aaedf-78e6-50b7-8cba-d9bb3c93aff1"
+}

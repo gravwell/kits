@@ -1,0 +1,16 @@
+{
+  "Name": "Flow - MongoDB Atlas - Email Alerts",
+  "Description": "Detects when a Scheduled Search has fired and will email the email address input at $MONGODB_ATLAS_ALERT_RECIPIENT from $MONGODB_ATLAS_ALERT_SENDER.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "3 * * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "a0b39475-02e6-5432-acfa-1fc2b6a83902",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

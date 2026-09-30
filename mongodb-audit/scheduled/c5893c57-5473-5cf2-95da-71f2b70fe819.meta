@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Updated [table]",
+  "Description": "Detects MongoDB role updates.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "c5893c57-5473-5cf2-95da-71f2b70fe819",
+  "SearchReference": "bd268180-be69-5a81-9c0e-12d0a01d5c9d"
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - TLS Or Certificate Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: TLS Or Certificate Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "7f502812-3b0c-525d-9051-472edfff7689",
+	"SearchReference": "ed012541-f1e9-5f95-97eb-9b07ccd435cf"
+}

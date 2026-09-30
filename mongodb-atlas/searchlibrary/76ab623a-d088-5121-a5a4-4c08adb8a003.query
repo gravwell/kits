@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Total Events [chart] */
+tag=$MONGODB_ATLAS_SERVICE_ACCOUNTS
+| stats count
+| alias count " "
+| chart " "

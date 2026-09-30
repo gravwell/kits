@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Index Dropped [table]",
+  "Description": "Detects MongoDB index deletion activity.",
+  "GUID": "a4acbb6b-6f1e-52e2-9400-2c3cd9c796f6",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

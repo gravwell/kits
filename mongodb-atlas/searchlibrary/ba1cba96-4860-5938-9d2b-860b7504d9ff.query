@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Metric Name [numbercard] */
+tag=$MONGODB_ATLAS_ALERTS ax metricName
+| stats count by metricName
+| numbercard (count " ")

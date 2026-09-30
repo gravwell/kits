@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Shard Administrative Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Shard Administrative Command Logged.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "eb2f1421-1c4f-5fec-b88f-4c777dc02474",
+	"SearchReference": "b4a3ca31-4d6a-5ed2-92be-dce6f9c7e34d"
+}

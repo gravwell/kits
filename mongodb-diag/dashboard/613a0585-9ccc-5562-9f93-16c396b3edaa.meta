@@ -1,0 +1,180 @@
+{
+	"UUID": "613a0585-9ccc-5562-9f93-16c396b3edaa",
+	"Name": "MongoDB Diagnostics Investigation",
+	"Description": "Investigate MongoDB Diagnostics activity for an identity, IP, namespace, or component.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "thisMonth",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - MongoDB - Database - Diagnostics - Investigation - Total Events [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "af3ca29d-5e83-5198-80f9-9c8f29bad74c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Database - Diagnostics - Investigation - Count by Severity [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "5df9a0ca-1138-5424-8d96-2824ec5d9ea3",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Database - Diagnostics - Investigation - Count by Component [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "212d0c31-79d0-5f76-89fd-9492ba83422d",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Database - Diagnostics - Investigation - Count by Message [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "95279b15-117b-5bbd-b16c-66b8281f9e31",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Database - Diagnostics - Investigation - Recent Events [table]",
+				"color": null,
+				"reference": {
+					"id": "7d8aeb67-2d24-5faf-8462-e7d1a09e047a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6181327132340876,
+				"title": "Total Events [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6221851157459767,
+				"title": "Count by Severity [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6232481504569478,
+				"title": "Count by Component [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6097080654207005,
+				"title": "Count by Message [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6105976377003728,
+				"title": "Recent Events [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

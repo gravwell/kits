@@ -1,0 +1,29 @@
+{
+	"UUID": "b54f2cd2-a21a-5f05-b5e7-4c575fa82092",
+	"Name": "Template - MongoDB - Database - Audit - Investigation - Recent Events [table]",
+	"Description": "This is intended to show a table of the recent events when you're investigating a User or IP for possible nefarious actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "What User are you investigating/searching for?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}

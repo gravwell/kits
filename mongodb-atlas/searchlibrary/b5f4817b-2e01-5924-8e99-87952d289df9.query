@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization MFA Posture Weakened [table]*/
+tag=$MONGODB_ATLAS_EVENTS ax
+| regex -e eventTypeName "^(ORG_USERS_WITHOUT_MFA|USERS_WITHOUT_MULTI_FACTOR_AUTH|ORG_TWO_FACTOR_AUTH_OPTIONAL|ORG_TWO_FACTOR_AUTH_REQUIRED)$"
+| eval _alert_name = "Organization MFA Posture Weakened";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

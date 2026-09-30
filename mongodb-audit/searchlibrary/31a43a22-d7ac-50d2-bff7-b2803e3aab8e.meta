@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Collection Dropped [table]",
+  "Description": "Detects MongoDB collection or view deletion.",
+  "GUID": "31a43a22-d7ac-50d2-bff7-b2803e3aab8e",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

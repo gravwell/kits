@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Audit - Overview - Count by Database [chart] */
+tag=$MONGODB_AUDIT ax database
+| stats count as " " by database
+| chart " " by database

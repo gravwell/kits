@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Index Created [table]",
+  "Description": "Detects MongoDB index creation activity.",
+  "GUID": "4d50ac9d-3ddb-5fda-9f14-a634bd73488c",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Fatal Or Error Message [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Fatal Or Error Message.",
+	"GUID": "872a83b1-5e18-5f78-82bc-b442a350530a",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

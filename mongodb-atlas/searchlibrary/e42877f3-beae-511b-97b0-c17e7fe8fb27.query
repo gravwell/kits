@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Rare Username [numbercard] */
+tag=$MONGODB_ATLAS_ACCESS ax username
+| stats count by username
+| bottom -n 1 count
+| numbercard (count " ")

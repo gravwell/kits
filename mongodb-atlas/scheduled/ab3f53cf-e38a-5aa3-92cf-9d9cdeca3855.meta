@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Alerts - Tracking Critical Atlas Alert [table]",
+  "Description": "Detects tracking Atlas alerts for critical outage, exposure, disk, backup, replication, and threshold events before they become fully open incidents.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "ab3f53cf-e38a-5aa3-92cf-9d9cdeca3855",
+  "SearchReference": "0a37ce29-7016-5ab1-ad53-8079896b1c66"
+}

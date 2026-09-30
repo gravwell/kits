@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Count by Context [chart] */
+tag=$MONGODB_DIAG ax context
+| stats count as " " by context
+| chart " " by context

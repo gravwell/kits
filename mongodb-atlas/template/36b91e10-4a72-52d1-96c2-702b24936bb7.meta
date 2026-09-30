@@ -1,0 +1,45 @@
+{
+	"UUID": "36b91e10-4a72-52d1-96c2-702b24936bb7",
+	"Name": "Template - MongoDB - Atlas - Admin API - Investigation - Recent Events [table]",
+	"Description": "This is intended to show recent MongoDB Atlas alert, activity, access, identity, network, backup, and cluster events for an investigation.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User/API Key/Service Account",
+				"description": "What Atlas user, API key public key, service account client ID, or acknowledging username are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP/CIDR",
+				"description": "What remote IP address, access-list IP, or CIDR block are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%scopeId%%",
+				"label": "Project Group ID/Org ID",
+				"description": "What Atlas project groupId or organization orgId are you investigating?",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%eventTypeName%%",
+				"label": "Event Type",
+				"description": "What Atlas eventTypeName, alert typeName, metricName, auth result, or state name are you investigating?",
+				"required": true,
+				"defaultValue": "_",
+				"previewValue": "_"
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

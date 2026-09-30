@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Projects Overview - Count by Region Usage Restrictions [numbercard] */
+tag=$MONGODB_ATLAS_PROJECTS ax regionUsageRestrictions
+| stats count by regionUsageRestrictions
+| numbercard (count " ")

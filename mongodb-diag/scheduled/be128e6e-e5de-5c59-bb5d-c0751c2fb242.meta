@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Index Build Failed Or Aborted [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Index Build Failed Or Aborted.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "be128e6e-e5de-5c59-bb5d-c0751c2fb242",
+	"SearchReference": "410f01b8-9a23-5bb9-bf17-5e1d910dbc12"
+}

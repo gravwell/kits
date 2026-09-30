@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Authentication Abandoned [table]",
+  "Description": "Detects incomplete or abandoned MongoDB authentication attempts.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "4ff808f2-6811-5ca8-b264-c0d0ff10c956",
+  "SearchReference": "ec343cfe-05d9-5190-8409-b2c08101a91d"
+}

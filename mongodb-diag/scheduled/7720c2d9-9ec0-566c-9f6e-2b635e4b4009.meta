@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Initial Sync Activity [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Initial Sync Activity.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "7720c2d9-9ec0-566c-9f6e-2b635e4b4009",
+	"SearchReference": "cd718b51-b19a-57d4-83d3-7f1ff9e96308"
+}

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Projects Overview - Total Events [chart] */
+tag=$MONGODB_ATLAS_PROJECTS
+| stats count
+| alias count " "
+| chart " "

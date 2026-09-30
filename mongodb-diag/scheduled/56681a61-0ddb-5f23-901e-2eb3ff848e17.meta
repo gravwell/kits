@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Rollback Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Rollback Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "56681a61-0ddb-5f23-901e-2eb3ff848e17",
+	"SearchReference": "8f402944-3075-5207-9d08-c28880080053"
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Roles [chart]",
+  "Description": "This displays a chart of all Roles (roles) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgserviceaccounts",
+  "GUID": "f41a72a6-daf0-5d03-bb1c-08e5f47ec0a3",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Rare Status [numbercard] */
+tag=$MONGODB_ATLAS_ALERTS ax status
+| stats count by status
+| bottom -n 1 count
+| numbercard (count " ")

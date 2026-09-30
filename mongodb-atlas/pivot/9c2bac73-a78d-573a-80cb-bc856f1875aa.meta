@@ -1,0 +1,49 @@
+{
+	"UUID": "9c2bac73-a78d-573a-80cb-bc856f1875aa",
+	"Name": "MongoDB Atlas Project or Organization",
+	"Description": "MongoDB Atlas Actions on project groupId or organization orgId to launch the MongoDB Atlas Investigation dashboard.",
+	"Data": {
+		"menuLabel": "MongoDB Atlas",
+		"actions": [
+			{
+				"name": "Investigate Project or Org",
+				"description": "MongoDB Atlas Actions on project groupId or organization orgId to launch the MongoDB Atlas Investigation dashboard.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "a14a072c-7c2d-55a7-927e-549998adfb30",
+					"options": {
+						"variable": "scopeId"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "\\W{1,}(groupId|orgId)\\W{1,}(?<scopeId>[a-fA-F0-9]{24})",
+				"hyperlink": true,
+				"disabled": false
+			},
+			{
+				"pattern": "\\b[a-fA-F0-9]{24}\\b",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

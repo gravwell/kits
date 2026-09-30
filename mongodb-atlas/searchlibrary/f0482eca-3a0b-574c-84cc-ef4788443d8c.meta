@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Resource Policy Violation or Change [table]",
+  "Description": "Detects resource policy creation, deletion, modification, or violation events.",
+  "GUID": "f0482eca-3a0b-574c-84cc-ef4788443d8c",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

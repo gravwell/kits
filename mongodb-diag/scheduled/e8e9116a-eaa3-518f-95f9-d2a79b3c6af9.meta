@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Query Rejected [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Query Rejected.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e8e9116a-eaa3-518f-95f9-d2a79b3c6af9",
+	"SearchReference": "efb14d48-e4c6-5598-ace4-1ea800a0c237"
+}

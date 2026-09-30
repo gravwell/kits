@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Org Activity Overview - Count by Remote Address [chart] */
+tag=$MONGODB_ATLAS_ORG_ACTIVITY ax remoteAddress
+| stats count as " " by remoteAddress
+| chart " " by remoteAddress

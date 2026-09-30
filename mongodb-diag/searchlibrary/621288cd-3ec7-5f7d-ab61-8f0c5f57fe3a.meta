@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Shutdown Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Shutdown Command Logged.",
+	"GUID": "621288cd-3ec7-5f7d-ab61-8f0c5f57fe3a",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Rare Auth Result [numbercard] */
+tag=$MONGODB_ATLAS_ACCESS ax authResult
+| stats count by authResult
+| bottom -n 1 count
+| numbercard (count " ")

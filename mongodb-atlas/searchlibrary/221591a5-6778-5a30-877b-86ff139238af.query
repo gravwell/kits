@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Network Access Overview - Top IP Address [numbercard] */
+tag=$MONGODB_ATLAS_NETWORK_ACCESS ax ipAddress
+| stats count by ipAddress
+| top -n 1 count
+| numbercard (count " ")

@@ -1,0 +1,29 @@
+{
+	"UUID": "1148b397-6e3e-533a-90a6-83d133cd0e46",
+	"Name": "Template - MongoDB - Database - Audit - Investigation - Count by Subcategory [numbercard]",
+	"Description": "This is intended to show a numbercard of events by subcategory for the User or IP that you are investigating within the time frame that you specify.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "What User are you investigating/searching for?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}
