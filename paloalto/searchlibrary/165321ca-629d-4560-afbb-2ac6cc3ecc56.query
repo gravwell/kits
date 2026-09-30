@@ -1,0 +1,3 @@
+tag=$PAN_ALL stats count by TAG
+| alias count " "
+| chart " " by TAG

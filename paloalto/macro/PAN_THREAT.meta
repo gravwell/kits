@@ -1,8 +1,7 @@
 {
 	"Name": "PAN_THREAT",
-	"Description": "Palo Alto tag containing type=threat events",
+	"Description": "Configuration Macro; Tag used for all Palo Alto Threat data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates. ",
 	"Labels": [
-		"palo",
-		"RecordType"
+		"palo"
 	]
 }

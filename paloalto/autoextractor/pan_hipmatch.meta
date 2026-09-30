@@ -1,12 +1,17 @@
 {
-	"Name": "Palo Alto hipmatch",
-	"Desc": "Palo Alto hipmatch log format",
+	"Name": "Palo Alto HIP Match Logs",
+	"Desc": "Gravwell generated CSV extraction for Palo Alto HIP Match Logs",
 	"Module": "csv",
-	"Tag": "pan_hipmatch",
-	"Labels": null,
-	"UID": 2,
+	"Tag": "",
+	"Tags": [
+		"pan_hipmatch"
+	],
+	"Labels": [
+		"palo"
+	],
+	"UID": 1,
 	"GIDs": null,
-	"Global": false,
-	"UUID": "91b614f3-ffe7-4bd5-84f8-b1b66cca859c",
-	"LastUpdated": "2022-03-31T16:30:55.428733784Z"
+	"Global": true,
+	"UUID": "f3025abb-27c1-4f09-855a-4c6afed9aeeb",
+	"LastUpdated": "2026-03-18T14:35:56.440718427Z"
 }

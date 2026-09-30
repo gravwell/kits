@@ -1,6 +1,6 @@
 {
 	"Name": "PAN_GLOBALPROTECT",
-	"Description": "Palo Alto tag containing type=globalprotect events",
+	"Description": "Configuration Macro; Tag used for all Palo Alto GlobalProtect data; necessary for any queries within the Gravwell Palo Alto Kit to run properly for dashboards, query library, and templates. ",
 	"Labels": [
 		"palo",
 		"RecordType"
