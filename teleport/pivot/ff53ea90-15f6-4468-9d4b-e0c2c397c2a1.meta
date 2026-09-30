@@ -1,0 +1,41 @@
+{
+	"UUID": "ff53ea90-15f6-4468-9d4b-e0c2c397c2a1",
+	"Name": "Teleport - Investigate Session",
+	"Description": "Investigate all Teleport audit events for a session ID that appears in search results.",
+	"Data": {
+		"menuLabel": "Teleport - Session",
+		"actions": [
+			{
+				"name": "Teleport - Session Timeline",
+				"description": "Review all audit events for this Teleport session",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "e06954b4-0dc1-4af8-bfbb-45dc6f0b849a",
+					"options": {
+						"variable": "%%session_id%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": ["audit", "investigation", "session", "teleport"]
+}

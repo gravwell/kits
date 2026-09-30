@@ -1,0 +1,12 @@
+{
+	"Name": "Teleport - Failed Logins Over Time [Chart]",
+	"Description": "Chart of failed Teleport login attempts over time.",
+	"GUID": "e7b15b08-ee17-41cb-b75a-1fd659aea60b",
+	"Labels": [
+		"teleport",
+		"audit",
+		"stats",
+		"authentication"
+	],
+	"Metadata": {}
+}

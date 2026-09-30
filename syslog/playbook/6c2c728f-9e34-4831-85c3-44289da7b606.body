@@ -1,0 +1,62 @@
+# Overview
+
+Welcome to the Gravwell Syslog kit. This is a generic, "getting started with syslog" kit: an overview dashboard, a handful of investigative dashboards, and a small query library for RFC 5424-parsed syslog messages. It doesn't attempt to make sense of the message body itself — for a specific syslog source, look for a derivative kit such as the Linux Syslog kit (io.gravwell.linuxsyslog).
+
+# Getting Data In
+
+See the [Gravwell Syslog Integration Guide](https://docs.gravwell.io/integrations/generic/syslog.html) for Simple Relay listener configuration (protocol, port, Keep-Priority).
+
+This kit expects syslog messages to be ingested into the syslog tag and read with Gravwell's syslog search module, which extracts the standard RFC 5424 fields (Hostname, Appname, Severity, Facility, SRC).
+
+# Basic Query Syntax
+
+This kit provides a configuration macro named $SYSLOG which must be configured to point at the tag containing your syslog data. By default it points at the tag syslog.
+
+Here is an example query using the syslog module:
+
+```
+tag=$SYSLOG syslog Hostname
+| stats count by Hostname
+| table Hostname count
+```
+
+# Dashboards
+
+5 dashboards are provided in this kit.
+
+## Syslog - Overview
+An overview dashboard of syslog activity.
+
+## Syslog - Host and Severity Overview
+Basic overview of syslog severity distribution and active hosts.
+
+## Syslog - investigate Host
+Investigation dashboard for parsed syslog messages having a given Hostname field.
+
+## Syslog - Investigate Appname
+Investigation dashboard for a given Appname.
+
+## Syslog - investigate SRC
+Investigation dashboard showing all syslog activity for a given SRC address.
+
+# Actionables
+
+## Syslog
+When a hostname or application name appears in search results, an option under the "Syslog" menu will investigate that Appname or Hostname.
+
+## Syslog - IP Address
+When an IPv4 address appears in search results, an option under the "Syslog" menu will show syslog activity for that source address.
+
+# Templates
+9 templates are provided, breaking down syslog activity by Hostname, Appname, SRC, and Severity, plus one for messages missing a Hostname field.
+
+# Macros
+One configuration macro controls which tag the kit queries.
+
+- $SYSLOG (default syslog)
+
+If your tag differs from the default you must update the macro value to match.
+
+# Resources
+- syslog_facility — turns syslog facility codes into text names
+- syslog_severity — turns syslog severity codes into text names

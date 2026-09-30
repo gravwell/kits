@@ -1,4 +1,4 @@
-tag=$SYSMON winlog $PROVIDER EventID==8 Computer SourceImage TargetImage StartModule StartFunction |
+tag=$SYSMON winlog $PROVIDER EventID==8 SourceImage TargetImage |
 stats unique_count(TargetImage) by SourceImage |
 sort by unique_count desc |
 table SourceImage unique_count

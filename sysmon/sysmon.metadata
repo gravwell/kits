@@ -1,6 +1,6 @@
 {
 	"Ingesters": ["winevent"],
-	"Tags": ["windows", "sysmon"],
+	"Tags": ["sysmon"],
 	"Assets": [
 		{ "Type": "image", "Source": "cover.png", "Legend": "Windows Sysmon", "Featured": true},
 		{ "Type": "image", "Source": "banner.png", "Legend": "Windows Sysmon", "Featured": true, "Banner": true},

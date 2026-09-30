@@ -1,0 +1,13 @@
+{
+	"Name": "Teleport - User Deleted",
+	"Description": "Detects deletion of Teleport users. Attackers may delete accounts to remove access or cover their tracks.",
+	"GUID": "909da95a-22f3-48d5-ac77-1012f8ecf4b4",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1531",
+		"impact"
+	],
+	"Metadata": {}
+}

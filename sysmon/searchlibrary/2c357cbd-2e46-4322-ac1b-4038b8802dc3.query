@@ -1,4 +1,5 @@
 tag=$SYSMON winlog $PROVIDER EventID==22 QueryName |
+sort by time asc |
 diff TIMESTAMP by QueryName |
 require -s diff |
 stats mean(diff) stddev(diff) count by QueryName |

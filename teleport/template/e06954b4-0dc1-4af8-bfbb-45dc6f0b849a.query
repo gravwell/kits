@@ -1,0 +1,2 @@
+tag=$TELEPORT_AUDIT ax sid == "%%session_id%%" event user login server_hostname command
+| table event user login server_hostname command

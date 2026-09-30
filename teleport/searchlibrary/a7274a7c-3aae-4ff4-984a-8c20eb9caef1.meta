@@ -1,0 +1,13 @@
+{
+	"Name": "Teleport - Lock Created",
+	"Description": "Detects creation of Teleport locks, which block users, roles, or nodes from accessing the cluster. Locks are a legitimate administrative response tool, but an unexpected lock can indicate an attacker disrupting administrator access.",
+	"GUID": "a7274a7c-3aae-4ff4-984a-8c20eb9caef1",
+	"Labels": [
+		"teleport",
+		"audit",
+		"detection",
+		"T1531",
+		"impact"
+	],
+	"Metadata": {}
+}

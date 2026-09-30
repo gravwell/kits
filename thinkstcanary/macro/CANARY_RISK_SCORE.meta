@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_RISK_SCORE",
+	"Description": "This was built to dynamically calculate a risk score specifically for Thinkst Canary starting at \"30\" based on the incident category/subcategory, events_count within an incident, username implicated (higher for admin|root|etc.)\n\nCritical >= 90\nHigh >= 75\nMedium >= 55\nLow =< 55\n\nUsage: \n$CANARY_INCIDENT_OPEN $CANARY_RISK_SCORE",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

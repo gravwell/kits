@@ -1,0 +1,2 @@
+tag=$TELEPORT_AUDIT ax "addr.remote" ~ "%%ip_address%%" event user login
+| table event user login "addr.remote"

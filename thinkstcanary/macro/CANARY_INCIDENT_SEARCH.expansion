@@ -1,0 +1,49 @@
+tag=$CANARY_INCIDENT,$CANARY_AUDIT
+| unique TIMESTAMP
+| json
+    TIMESTAMP
+    TAG
+    summary
+    action_type
+    description.flock_id
+    description.flock_name
+    description.acknowledged
+    description.logtype
+    description.events_count
+    description.events_list
+    description.events
+    description.src_host
+    description.src_port
+    description.dst_host
+    description.dst_port
+    description.events.[0] as event0
+    description.events.[0].INSTANCE_NAME as instance
+    description.events.[0].USERNAME as username
+    description.events.[0].type as type
+| eval logtype!=""
+| eval result = (acknowledged=="True") ? "Acknowledged" : ((acknowledged=="False") ? "Not Acknowledged" : ((action_type=="incident_unacknowledge") ? "Unacknowledged" : ""))
+| eval result!=""
+| grep -e result "%%1%%"
+| grep -e flock_id "%%2%%"
+| grep -e flock_name "%%3%%"
+| grep -e src_host "%%4%%"
+| grep -e src_port "%%5%%"
+| grep -e dst_host "%%6%%"
+| grep -e dst_port "%%7%%"
+| lower summary
+| lookup -r canary_logtypes_alert logtype logtype (
+    vendor as vendor
+    product as product
+    description as log_desc
+    category as log_cat
+    subcategory as log_subcat
+    )
+| grep -e log_cat "%%8%%"
+| grep -e log_subcat "%%9%%"
+| grep -e log_desc "%%10%%"
+$CANARY_RISK_SCORE
+$CANARY_INCIDENT_META
+| grep -e _alert_title "%%11%%"
+| grep -e _alert_priority "%%12%%"
+| lookup -r iana_ports dst_port Number (Name as dst_port_name Description as dst_port_desc)
+| table TIMESTAMP _alert_title _alert_priority flock_id flock_name result src_host src_port dst_host dst_port dst_port_name log_cat log_subcat log_desc

@@ -1,4 +1,4 @@
-tag=$SYSMON winlog $PROVIDER RuleName != "" |
+tag=$SYSMON winlog $PROVIDER RuleName != "-" |
 kv -s -e RuleName -d "," -sep "=" technique_id technique_name |
-stats count by technique_name |
-table technique_name count
+stats count by technique_name technique_id |
+table technique_id technique_name count

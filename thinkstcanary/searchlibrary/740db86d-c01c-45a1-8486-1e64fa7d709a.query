@@ -1,0 +1,12 @@
+tag=$CANARY_AUDIT json timestamp action_type user user_ip message flock_id flock_name
+| eval in(action_type,
+    "user_login_failed"
+    )
+| regex -e message "(?P<operation>Login\s\w+)"
+| lower operation
+| regex -e message "using\s(?P<method>.*?)?\."
+| ip user_ip
+| geoip user_ip.Location user_ip.City user_ip.Country user_ip.CountryName
+| eval (Country!="US"||CountryName!="United States")
+| printf -e context "at %v, %v had a %v fail due to %v via %v action from %v in %v, %v (%v)" timestamp user operation method action_type user_ip City Country CountryName
+| $CANARY_ALERT_META("Canary", "User Management", "High", "Login Attempt From Outside Country")

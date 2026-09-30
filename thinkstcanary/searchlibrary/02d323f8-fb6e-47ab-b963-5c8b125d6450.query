@@ -1,0 +1,13 @@
+tag=$CANARY_AUDIT json action_type flock_id flock_name message timestamp user user_ip
+| eval in(action_type, 
+    "flock_alter_config"
+    )
+| eval message~"ignorelist"
+| eval message!~"added"
+| regex -e message "(?P<operation>(Saved|Cleared|Disabled|Enabled))"
+| regex -e message "(?P<event_type>ignorelist.*?)?\:\s"
+| regex -e message "ign\w+\s\w+\/\w+\:\s(?P<ignorelist>.*?)?\;"
+| regex -e message "(?P<ignorelist_action>removed)"
+| regex -e message "removed\:\s(?P<ignorelist_removed>((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\,)|(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}){1,}){1,})"
+| printf -e context "at %v, %v (%v) %v %v via %v action where %v was removed from the ignorelist: \"%v\" in %v Flock" timestamp user user_ip operation event_type action_type ignorelist_removed ignorelist flock_name
+| $CANARY_ALERT_META("Canary", "Flock Management", "Low", "Ignorelist IP/Port Removed")

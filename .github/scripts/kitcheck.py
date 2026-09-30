@@ -390,7 +390,15 @@ def check_playbooks(root, findings):
 # bare module names beyond this one confirmed, repeated real pattern --
 # same "scope from real fleet evidence, don't build ahead of it"
 # discipline as the rest of this file.
-_QUERY_LIKE_RE = re.compile(r"^\s*\(?\s*(tag\s*=|\$[A-Z_][A-Z0-9_]*|dump\b)")
+#
+# Optional leading "@name{" (a Gravwell named-subquery: the pipeline's
+# results are bound to @name for a later stage to reference, e.g.
+# "@count{tag=$SYSMON ... | stats count as total}; tag=$SYSMON ... |
+# enrich -r @count total") -- confirmed real and legitimate (Windows
+# Sysmon's Kit Overview playbook, 2026-09-17), previously a false
+# positive because the actual tag=/$MACRO/dump start is pushed past the
+# "@name{" prefix this regex didn't account for.
+_QUERY_LIKE_RE = re.compile(r"^\s*(?:@[A-Za-z_][A-Za-z0-9_]*\{\s*)?\(?\s*(tag\s*=|\$[A-Z_][A-Z0-9_]*|dump\b)")
 
 
 def _playbook_fenced_blocks(text):
@@ -405,17 +413,57 @@ def _playbook_fenced_blocks(text):
     # the thing this check exists to look at, was never inspected at
     # all). A fence line's own info-string content doesn't matter for
     # telling code from prose; only whether the line starts with ```.
+    #
+    # Two further real, confirmed shapes (Windows Sysmon's Kit Overview
+    # playbook, 2026-09-18) that a pure line-start/toggle scan mishandles:
+    #
+    # 1. A single-line span, open and close backticks on the same line
+    #    (e.g. "```tag=$SYSMON ... | chart count```", used repeatedly for
+    #    short one-liner queries). Treated as a complete, self-contained
+    #    block instead of toggling state -- otherwise this opening marker
+    #    would pair with some unrelated closing marker possibly
+    #    paragraphs away, misreading everything between as one giant
+    #    block.
+    # 2. A fence glued directly to real content with no newline, on
+    #    either side (e.g. an opening "```tag=$SYSMON ... GrantedAccess |"
+    #    continuing straight into query text, or a closing
+    #    "...table Computer count Flags```" with no newline before the
+    #    marker). The closing side is handled by searching for the
+    #    marker anywhere in the line, not just at its start. The opening
+    #    side only captures the glued content when it itself looks
+    #    query-like (_QUERY_LIKE_RE) -- an ordinary info string
+    #    (```json, ```shell, ```{note}, all confirmed real in
+    #    aws_cloudtrail) never matches that pattern, so normal fenced
+    #    blocks are unaffected; a real query glued to its own opening
+    #    fence no longer goes missing from the block _first_significant_
+    #    line looks at, which would otherwise misclassify a genuine query
+    #    as prose.
     lines = text.splitlines()
     in_block = False
     current = []
     for line in lines:
-        if line.strip().startswith("```"):
-            if in_block:
-                yield "\n".join(current)
-                current = []
-            in_block = not in_block
+        stripped = line.strip()
+        if not in_block and stripped.startswith("```"):
+            content_after = line[line.find("```") + 3:]
+            close_idx = content_after.find("```")
+            if close_idx != -1:
+                yield content_after[:close_idx]
+                continue
+            in_block = True
+            current = []
+            if _QUERY_LIKE_RE.match(content_after):
+                current.append(content_after)
             continue
         if in_block:
+            close_idx = line.find("```")
+            if close_idx != -1:
+                prefix = line[:close_idx]
+                if prefix.strip():
+                    current.append(prefix)
+                yield "\n".join(current)
+                current = []
+                in_block = False
+                continue
             current.append(line)
     if in_block and current:
         yield "\n".join(current)
@@ -426,15 +474,53 @@ def _strip_fenced_blocks(text):
     # text with fenced regions (and their ``` marker lines) removed, so
     # an inline-span scan never re-inspects a fenced block's own content
     # as if it were a separate inline span.
+    #
+    # A <pre>-stripping variant of this was tried and reverted the same
+    # day (2026-09-04), on the reasoning that <pre> is raw HTML Gravwell
+    # passes through untouched. That premise didn't hold: live-rendering
+    # evidence (kit-utilities' docs/playbookmd-spec.md, "Current status
+    # 2026-09-04") confirmed Gravwell doesn't render *any* raw HTML
+    # correctly in a playbook, <pre> included -- it gets pulled out of
+    # its paragraph and rendered oddly, not passed through as intended.
+    # Whether content inside <pre> still runs through Gravwell's Markdown
+    # emphasis engine (and is therefore still exposed to the underscore
+    # bug this helper's caller checks for) isn't confirmed either way,
+    # but "not confirmed safe" means this check should keep scanning it,
+    # not exempt it -- same reasoning kit-utilities' own playbookmdfix
+    # already reached for the identical question (see that file's "Bug 2"
+    # section). Revisit if the platform's raw-HTML rendering bug is fixed
+    # and <pre> is then live-confirmed as an actual safe zone.
+    #
+    # Same single-line-span and glued-fence shapes _playbook_fenced_blocks
+    # handles (see its docstring comment) apply here too -- a single-line
+    # span contributes nothing to kept prose (the whole line is fence
+    # interior) and doesn't toggle state; a closing marker glued to
+    # trailing content keeps that trailing part, since it's outside the
+    # fence. Unlike _playbook_fenced_blocks, glued content right after an
+    # *opening* marker never needs capturing here -- it's fence interior
+    # either way, so it's correctly excluded regardless of what it looks
+    # like.
     lines = text.splitlines()
     in_block = False
     kept = []
     for line in lines:
-        if line.strip().startswith("```"):
-            in_block = not in_block
+        stripped = line.strip()
+        if not in_block and stripped.startswith("```"):
+            content_after = line[line.find("```") + 3:]
+            if "```" in content_after:
+                continue
+            in_block = True
             continue
-        if not in_block:
-            kept.append(line)
+        if in_block:
+            close_idx = line.find("```")
+            if close_idx != -1:
+                in_block = False
+                trailing = line[close_idx + 3:]
+                if trailing.strip():
+                    kept.append(trailing)
+                continue
+            continue
+        kept.append(line)
     return "\n".join(kept)
 
 
@@ -473,13 +559,12 @@ def check_playbook_code_spans(root, findings):
     # never an error. The Markdown spec also treats 4-space/1-tab
     # indentation as a code block, deliberately not checked here: too
     # easy to false-positive against an ordinarily indented nested list.
-    # Known, confirmed-real gap: a fence glued directly to its content
-    # with no newline (e.g. "count Flags```") isn't reliably parsed here
-    # either -- real malformed fence usage seen in the wild (sysmon's
-    # Kit Overview playbook, which also independently has 13 of its 16
-    # fenced blocks as prose/headers/an image rather than queries --
-    # that playbook's rendering is very likely broken today) -- a human
-    # still needs to catch the glued-fence case by eye.
+    # A single-line span and a fence glued directly to its content with
+    # no newline (e.g. "count Flags```") -- real malformed fence usage
+    # confirmed in the wild on Sysmon's Kit Overview playbook -- used to
+    # desync every fence pairing for the rest of the file; fixed in
+    # _playbook_fenced_blocks (see its own comment), which is what this
+    # function actually iterates over.
     playbook_dir = root / "playbook"
     if not playbook_dir.exists():
         return
@@ -669,6 +754,42 @@ def check_actionables(root, findings):
                     f"this content's triggers={patterns!r}; also used by {others}")
 
 
+# A real Gravwell template variable is %%NAME%% -- confirmed as the
+# exclusive, 100%-consistent convention across every other real kit
+# checked (juniper, o365, thinkst-canary, okta, duo, cisco_asa,
+# aws_cloudtrail, github — ~140 declared variables, zero exceptions).
+# Windows Sysmon was found using "_GUID_"/"_HASH_" (underscore-wrapped)
+# for 10 of its 24 templates instead, confirmed real 2026-09-18 — not a
+# broken reference (every pivot action referencing those templates
+# correctly used the matching "_GUID_"/"_HASH_" form, so nothing was
+# actually mis-substituting), just a style outlier next to the rest of
+# the fleet.
+_TEMPLATE_VAR_RE = re.compile(r"^%%[^%]+%%$")
+
+
+def check_template_variables(root, findings):
+    template_dir = root / "template"
+    if not template_dir.exists():
+        return
+    for p in sorted(template_dir.glob("*.meta")):
+        d = _load_json_safe(p)
+        if not isinstance(d, dict):
+            continue
+        name = d.get("Name", p.stem)
+        data = d.get("Data") or {}
+        for v in data.get("variables") or []:
+            if not isinstance(v, dict):
+                continue
+            vname = v.get("name")
+            if not isinstance(vname, str) or not vname.strip():
+                finding(findings, "error", PEER_REVIEW_PLATFORM, f"template/{p.name} ({name})",
+                        "a Data.variables[] entry has no name")
+            elif not _TEMPLATE_VAR_RE.match(vname):
+                finding(findings, "warning", PEER_REVIEW_PLATFORM, f"template/{p.name} ({name})",
+                        f"variable {vname!r} doesn't use the %%NAME%% convention every other "
+                        "real kit uses exclusively")
+
+
 def check_content_labels(root, findings):
     # Standards §7: dashboards/actionables(pivot)/macros/templates should
     # carry "EVs used" labels; detections need ATT&CK + metadata labels.
@@ -825,7 +946,26 @@ def _content_names(root):
     return out
 
 
+# Resource-type words some kits lead content names with, ahead of the kit
+# name: "<Type> - <Kit> - ...". Survey of the full kits_mike fleet + samples
+# (2026-09-25): exactly these four, each in 4-8 kits (auth0, duo, github,
+# okta, thinkst-canary, cisco_asa, cisco_ftd, fortinet), always followed by
+# " - " and the kit name. They are one convention, not rival prefixes:
+# searchlibrary/ legitimately mixes "AlertQuery - Okta - ..." with
+# "Search - Okta - ...", scheduled/ mixes "ScheduledSearch - ..." with
+# "Flow - ...". Without skipping them, per-directory dominance picked one
+# type word and flagged every sibling of the other (+192 fleet false
+# positives). Deliberately an explicit list, not "any single word before
+# ' - '": "Okta - Foo" style names would otherwise lose their kit prefix.
+_RESOURCE_TYPE_PREFIXES = frozenset({"Search", "AlertQuery", "ScheduledSearch", "Flow"})
+
+
 def _prefix_of(name: str) -> str:
+    # A leading resource-type segment ("AlertQuery - ", "Search - ", ...) is
+    # skipped so the comparison lands on the kit-name segment after it.
+    head, sep, rest = name.strip().partition(" - ")
+    if sep and head.strip() in _RESOURCE_TYPE_PREFIXES and rest.strip():
+        name = rest
     # Always just the first word, regardless of whether a " - " separator is
     # present. An earlier version branched on dash-presence (full phrase
     # before " - " if present, else first word) and that inconsistency
@@ -849,20 +989,37 @@ def check_naming_consistency(root, findings):
             finding(findings, "warning", "naming hygiene", path,
                     f"name has leading/trailing whitespace: {name!r}")
 
-    if len(contents) < 3:
-        return  # not enough samples to establish a dominant prefix meaningfully
-
-    from collections import Counter
-    prefixes = Counter(_prefix_of(name) for _, name in contents)
-    dominant, dominant_count = prefixes.most_common(1)[0]
-    if dominant_count / len(contents) <= 0.5:
-        return  # no clear dominant convention in this kit, don't guess
-
+    # Dominant prefix is computed per resource kind (dashboard/searchlibrary/
+    # scheduled/pivot independently), not pooled across all four combined --
+    # fixed 2026-09-04 after a confirmed real false-positive class (LLM
+    # Observability, aws_guardduty): real fleet convention has two
+    # legitimate, different prefix conventions depending on resource kind
+    # (dashboards use the kit's own name; searchlibrary/scheduled/alert
+    # content often uses a resource-type word instead, e.g. "Search - ...").
+    # Pooling let whichever kind had more raw content decide "the" dominant
+    # prefix for every kind — aws_guardduty's 2 dashboards ("AWS GuardDuty -
+    # ...") were flagged because its searchlibrary/scheduled volume made
+    # "GuardDuty" the pooled-wide winner, despite both dashboards agreeing
+    # with each other. See DECISIONS.md for the full trail.
+    from collections import Counter, defaultdict
+    by_dir = defaultdict(list)
     for path, name in contents:
-        if _prefix_of(name) != dominant:
-            finding(findings, "warning", f"{STANDARDS} {SEC['6']}", path,
-                    f"name {name!r} doesn't share this kit's dominant naming prefix "
-                    f"({dominant!r}) — possible leftover from another kit or inconsistent naming")
+        by_dir[path.split("/", 1)[0]].append((path, name))
+
+    for d, items in by_dir.items():
+        if len(items) < 3:
+            continue  # not enough samples in this directory to establish a dominant prefix meaningfully
+
+        prefixes = Counter(_prefix_of(name) for _, name in items)
+        dominant, dominant_count = prefixes.most_common(1)[0]
+        if dominant_count / len(items) <= 0.5:
+            continue  # no clear dominant convention within this directory, don't guess
+
+        for path, name in items:
+            if _prefix_of(name) != dominant:
+                finding(findings, "warning", f"{STANDARDS} {SEC['6']}", path,
+                        f"name {name!r} doesn't share this kit's dominant naming prefix "
+                        f"within {d}/ ({dominant!r}) — possible leftover from another kit or inconsistent naming")
 
 
 def check_readme_content(root, findings):
@@ -950,6 +1107,7 @@ def run_all_checks(root: Path, base_manifest=None, is_new_kit=False):
     check_playbook_underscore_emphasis(root, findings)
     check_dashboards(root, findings)
     check_actionables(root, findings)
+    check_template_variables(root, findings)
     check_content_labels(root, findings)
     check_detection_labels(root, findings)
     check_scheduled_searches(root, findings)

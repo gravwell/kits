@@ -1,0 +1,8 @@
+{
+	"Name": "CANARY_INCIDENT_FULL",
+	"Description": "This allows you to free-text search all Thinkst Canary Incident and Audit records. Each term is applied as a separate filter, so all five must match (logical AND).\n\nterm1 = \"%%1%%\"\nterm2 = \"%%2%%\"\nterm3 = \"%%3%%\"\nterm4 = \"%%4%%\"\nterm5 = \"%%5%%\"\n\nAll options must at least contain \"*\"\n\n$CANARY_INCIDENT_FULL(\"*\", \"*\", \"*\", \"*\", \"*\")\n$CANARY_INCIDENT_FULL(term1[string], term2[string], term3[string], term4[string], term5[string])",
+	"Labels": [
+		"thinkst",
+		"canary"
+	]
+}

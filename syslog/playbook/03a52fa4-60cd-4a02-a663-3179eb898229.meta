@@ -1,0 +1,24 @@
+{
+	"UUID": "38f2c558-8173-4be1-8460-727bac2f83f2",
+	"GUID": "03a52fa4-60cd-4a02-a663-3179eb898229",
+	"UID": 2,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Syslog - Readme",
+	"Desc": "",
+	"Labels": [
+		"syslog"
+	],
+	"LastUpdated": "2026-09-17T21:18:08.740882000Z",
+	"Author": {
+		"Name": "Gravwell",
+		"Email": "info@gravwell.io",
+		"Company": "Gravwell",
+		"URL": "gravwell.io"
+	},
+	"Synced": false
+}

@@ -1,0 +1,2 @@
+tag=$TELEPORT_AUDIT ax event=="exec" user login command exitCode
+| table user login command exitCode
