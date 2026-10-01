@@ -23,6 +23,11 @@ The uri field is the path only, so without the query field these detections neve
 
 The vhost field is the name of the server block that handled the request, so sites on the same server can be told apart. It's the first name in that block's server_name, so list each site's main hostname first. A catch-all block (server_name _;) logs _, which marks requests that matched no named site, such as scanners hitting the server's IP. The Site Health and Requests By Site Over Time queries need this field and return nothing without it, and logs written before you add it have no vhost.
 
+```
+tag=$NGINX ax
+| table
+```
+
 Connection logs contain the following fields:
 
 - time
