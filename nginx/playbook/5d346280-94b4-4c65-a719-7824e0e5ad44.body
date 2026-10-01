@@ -50,6 +50,8 @@ Error logs are assumed to be in nginx's default error log format. An autoextract
 tag=$NGINX_ERR ax
 ```
 
+Error logs contain the following fields:
+
 - timestamp
 - loglevel (debug, info, notice, warn, error, crit, alert, emerg)
 - pid
