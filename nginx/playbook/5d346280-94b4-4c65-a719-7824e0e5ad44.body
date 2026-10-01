@@ -48,6 +48,7 @@ Error logs are assumed to be in nginx's default error log format. An autoextract
 
 ```
 tag=$NGINX_ERR ax
+| table
 ```
 
 Error logs contain the following fields:
