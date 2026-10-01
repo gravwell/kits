@@ -19,6 +19,13 @@ Queries cover the whole tag. To look at one site, filter on the vhost field (see
 ## Apache Connection Logs
 The kit expects the JSON LogFormat from the [integration guide](https://docs.gravwell.io/integrations/application/apache.html). Connection logs contain the following fields:
 
+```
+tag=$APACHE ax
+| table
+```
+
+Connection logs contain the following fields:
+
 - time
 - remote_addr
 - method
