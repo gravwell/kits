@@ -1,0 +1,14 @@
+{
+	"Name": "Nginx - Site Health",
+	"Description": "Per site (vhost): request count, 5xx and 4xx counts, mean and max response time in seconds. Answers 'which site is having problems?' on a multi-site server. Requests that matched no named server block show as the catch-all's name (often '_').",
+	"GUID": "35aecfd9-6a4c-55ea-952a-64abc4777997",
+	"Labels": [
+		"nginx",
+		"stats",
+		"vhost",
+		"errors",
+		"latency",
+		"operations"
+	],
+	"Metadata": {}
+}

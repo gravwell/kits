@@ -1,0 +1,10 @@
+{
+	"Name": "Nginx - Suspicious UA Over Time",
+	"Description": "Scanner and attack-tool user agents seen over time",
+	"GUID": "72a9aa90-1316-4eee-b765-94aca1b45db1",
+	"Labels": [
+		"nginx",
+		"stats"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - Windows Webdav User Agent",
+	"Description": "Detects WebDav DownloadCradle",
+	"GUID": "d8a54087-00a3-4eed-9c12-885c06563721",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"uri",
+		"webdav",
+		"initial-access",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

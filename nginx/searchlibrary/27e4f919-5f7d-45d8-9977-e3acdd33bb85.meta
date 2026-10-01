@@ -1,0 +1,12 @@
+{
+	"Name": "Nginx - HTTP Status Code Distribution",
+	"Description": "Status frequency by HTTP status category",
+	"GUID": "27e4f919-5f7d-45d8-9977-e3acdd33bb85",
+	"Labels": [
+		"nginx",
+		"stats",
+		"http-status",
+		"baseline"
+	],
+	"Metadata": {}
+}

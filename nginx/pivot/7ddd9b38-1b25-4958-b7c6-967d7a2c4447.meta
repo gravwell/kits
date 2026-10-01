@@ -1,0 +1,110 @@
+{
+	"UUID": "7ddd9b38-1b25-4958-b7c6-967d7a2c4447",
+	"Name": "Nginx - IP Lookup",
+	"Description": "",
+	"Data": {
+		"menuLabel": "Nginx IP",
+		"actions": [
+			{
+				"name": "Investigate IP Dashboard",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "e07cf2ab-1f56-465b-9815-f884a11347fd",
+					"options": {
+						"variable": "%%investigate_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "IP Activity Timeline Search",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "4e8b591c-7f21-41cc-95fe-caccfdbf3db8",
+					"options": {
+						"variable": "%%investigate_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "URIs and Methods Search",
+				"description": "Review the URIs and Methods used by an IP address",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "b839ab2c-4ddd-4f7f-87e1-c87a08c90793",
+					"options": {
+						"variable": "%%investigate_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			},
+			{
+				"name": "User Agent Review",
+				"description": "Review User Agents for this IP address in Nginx logs.",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "6e1b4023-cfb8-4681-b05a-1dcbbaca1c52",
+					"options": {
+						"variable": "%%investigate_ip%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": ["ip investigate", "nginx", "web server"]
+}

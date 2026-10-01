@@ -1,0 +1,3 @@
+tag=$NGINX_ERR regex "\[(?P<loglevel>[a-z]+)\]"
+| stats count by loglevel
+| chart count by loglevel

@@ -1,0 +1,3 @@
+tag=$NGINX json remote_addr == %%investigate_ip%% method uri status
+| count by uri method status
+| table

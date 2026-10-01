@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - Web Open Redirect Attempt",
+	"Description": "Detects open redirect exploitation attempts where common redirect parameters contain external URLs, used for phishing, OAuth token theft, and SSRF pivoting.",
+	"GUID": "15473910-9ff2-4bc0-be75-cb0ec4b7e679",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"open-redirect",
+		"initial-access",
+		"bespoke",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

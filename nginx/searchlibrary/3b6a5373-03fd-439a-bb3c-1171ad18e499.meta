@@ -1,0 +1,13 @@
+{
+	"Name": "Nginx - Crypto Miner User Agent",
+	"Description": "Detects suspicious user agent strings used by crypto miners in proxy logs",
+	"GUID": "3b6a5373-03fd-439a-bb3c-1171ad18e499",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

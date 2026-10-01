@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Exploit Framework User Agent",
+	"Description": "Detects suspicious user agent strings used by exploit / pentest frameworks like Metasploit in proxy logs",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "26 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "5c118ad6-167a-443e-b9bd-b92254cf2b37",
+	"SearchReference": "1f90ee62-e1eb-43ec-b6d3-c52a8e651237"
+}

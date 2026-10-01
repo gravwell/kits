@@ -1,0 +1,4 @@
+tag=$NGINX_ERR regex "\[(?P<loglevel>[a-z]+)\] \d+#\d+: (?:\*\d+ )?(?P<message>[^,]+)"
+| stats count by loglevel message
+| sort by count desc
+| table loglevel message count

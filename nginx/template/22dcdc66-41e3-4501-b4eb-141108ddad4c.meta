@@ -1,0 +1,18 @@
+{
+	"UUID": "22dcdc66-41e3-4501-b4eb-141108ddad4c",
+	"Name": "Nginx - Investigate IP - Error Pattern Detail",
+	"Description": "Table details view of 4xx/5xx requests from an IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate-ip",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": ["ip investigate", "nginx", "web server"]
+}

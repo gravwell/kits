@@ -1,0 +1,23 @@
+{
+	"Name": "Nginx - Windows Webdav User Agent",
+	"Description": "Detects WebDav DownloadCradle",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"uri",
+		"webdav",
+		"initial-access",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "36 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "ca3e4a84-d41c-44e3-af13-56dc7228be0f",
+	"SearchReference": "d8a54087-00a3-4eed-9c12-885c06563721"
+}

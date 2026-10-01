@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Path Traversal Exploitation Attempts",
+	"Description": "Detects path traversal exploitation attempts",
+	"GUID": "023dd213-813d-41a4-b1d3-e9e7fd0c57b9",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"path-traversal",
+		"initial-access",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

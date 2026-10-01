@@ -1,0 +1,14 @@
+{
+	"Name": "Nginx - Web Method Distribution",
+	"Description": "HTTP method distribution — unusual methods (TRACE, CONNECT, PUT, DELETE) indicate reconnaissance or exploitation",
+	"GUID": "2ac3395f-85b6-4a1c-91a4-427a55c0e67d",
+	"Labels": [
+		"nginx",
+		"stats",
+		"http-method",
+		"baseline"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

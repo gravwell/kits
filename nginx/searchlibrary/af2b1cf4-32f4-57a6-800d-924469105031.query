@@ -1,0 +1,6 @@
+tag=$NGINX json uri status request_time
+| eval status != 101
+| stats mean(request_time) as avg_seconds max(request_time) as max_seconds count by uri
+| eval count >= 10
+| sort by avg_seconds desc
+| table uri avg_seconds max_seconds count

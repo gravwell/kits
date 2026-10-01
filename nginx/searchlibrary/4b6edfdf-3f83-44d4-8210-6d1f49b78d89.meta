@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Windows Powershell User Agent",
+	"Description": "Detects Windows PowerShell Web Access",
+	"GUID": "4b6edfdf-3f83-44d4-8210-6d1f49b78d89",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"defense-evasion",
+		"T1071.001",
+		"defense-evasion",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

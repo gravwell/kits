@@ -1,0 +1,23 @@
+{
+	"Name": "Nginx - Web Open Redirect Attempt",
+	"Description": "Detects open redirect exploitation attempts where common redirect parameters contain external URLs, used for phishing, OAuth token theft, and SSRF pivoting.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"open-redirect",
+		"initial-access",
+		"bespoke",
+		"T1190",
+		"initial-access"
+	],
+	"Schedule": "44 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "73576e3a-2abf-4075-96f9-8e9c6de30448",
+	"SearchReference": "15473910-9ff2-4bc0-be75-cb0ec4b7e679"
+}

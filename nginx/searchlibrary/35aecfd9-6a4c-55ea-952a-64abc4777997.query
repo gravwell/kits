@@ -1,0 +1,8 @@
+tag=$NGINX json vhost status request_time
+| eval status != 101
+| eval
+    if (status >= 500) { server_error = 1; } else { server_error = 0; }
+    if (status >= 400 && status < 500) { client_error = 1; } else { client_error = 0; }
+| stats count sum(server_error) as server_errors sum(client_error) as client_errors mean(request_time) as avg_seconds max(request_time) as max_seconds by vhost
+| sort by count desc
+| table vhost count server_errors client_errors avg_seconds max_seconds

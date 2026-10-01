@@ -1,0 +1,17 @@
+{
+	"Name": "Nginx - Hacktool - Empire Useragent URI Combo",
+	"Description": "Detects user agent and URI paths used by empire agents",
+	"GUID": "cc38f56f-a244-454d-ab6d-940559141e00",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"uri",
+		"c2",
+		"command-and-control",
+		"T1071.001",
+		"defense-evasion",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

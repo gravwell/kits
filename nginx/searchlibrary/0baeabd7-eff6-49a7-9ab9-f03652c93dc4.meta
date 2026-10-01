@@ -1,0 +1,18 @@
+{
+	"Name": "Nginx - Web Linux Command Injection",
+	"Description": "Detects Linux command injection payloads in HTTP query strings, including shell operators, subshell syntax, and common reconnaissance commands targeting Linux systems.",
+	"GUID": "0baeabd7-eff6-49a7-9ab9-f03652c93dc4",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"bespoke",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,18 @@
+{
+	"Name": "Nginx - Suspicious Windows Strings In URI",
+	"Description": "Detects suspicious Windows strings in URI which could indicate possible exfiltration or webshell communication",
+	"GUID": "508fc7d3-b1c8-470e-8d22-ba438ef52f37",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"path-traversal",
+		"webshell",
+		"initial-access",
+		"persistence",
+		"T1505.003",
+		"persistence",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

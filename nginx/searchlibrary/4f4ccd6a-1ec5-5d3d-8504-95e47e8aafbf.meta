@@ -1,0 +1,10 @@
+{
+	"Name": "Nginx - Response Time Over Time",
+	"Description": "Mean and max response time (seconds) over time. The operator's 'is the site getting slower?' view.",
+	"GUID": "4f4ccd6a-1ec5-5d3d-8504-95e47e8aafbf",
+	"Labels": [
+		"nginx",
+		"stats"
+	],
+	"Metadata": {}
+}

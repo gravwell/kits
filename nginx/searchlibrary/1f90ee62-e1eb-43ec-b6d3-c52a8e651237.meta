@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Exploit Framework User Agent",
+	"Description": "Detects suspicious user agent strings used by exploit / pentest frameworks like Metasploit in proxy logs",
+	"GUID": "1f90ee62-e1eb-43ec-b6d3-c52a8e651237",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

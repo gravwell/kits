@@ -1,0 +1,14 @@
+{
+	"Name": "Nginx - Error Rate By IP",
+	"Description": "4xx responses per source IP — high error rates indicate directory enumeration or scanning",
+	"GUID": "982e7792-8181-4831-a2f9-9d0529eb67ed",
+	"Labels": [
+		"nginx",
+		"stats",
+		"http-status",
+		"scanning",
+		"reconnaissance",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

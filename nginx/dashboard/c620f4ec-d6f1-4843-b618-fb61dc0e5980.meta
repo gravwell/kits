@@ -1,0 +1,175 @@
+{
+	"UUID": "c620f4ec-d6f1-4843-b618-fb61dc0e5980",
+	"Name": "Nginx - Traffic Overview",
+	"Description": "Overview of the web requests received by Nginx web server.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Nginx - Request Volume Over Time",
+				"color": null,
+				"reference": {
+					"id": "d0c029af-455f-4407-8329-2d8768f6bb85",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Top Requested URI",
+				"color": null,
+				"reference": {
+					"id": "a1e95b09-f508-47d6-a828-449e4bb2efa0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - User Agents",
+				"color": null,
+				"reference": {
+					"id": "c94d8e67-39b3-4415-8608-7f4bb1f04177",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - HTTP Status Code Distribution",
+				"color": null,
+				"reference": {
+					"id": "27e4f919-5f7d-45d8-9977-e3acdd33bb85",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Top Requesting IPs",
+				"color": null,
+				"reference": {
+					"id": "c4a41501-c306-4bb6-83e2-0bc40f34cadd",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Bandwidth By Client",
+				"color": null,
+				"reference": {
+					"id": "1dcc49df-ebf1-5f41-bfe9-743f96d983ce",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 8059720446304587,
+				"title": "Request Volume Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1127578588360571,
+				"title": "HTTP Status Code Distribution",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 6,
+					"x": 7,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 3872314920054056,
+				"title": "Top Client IPs",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 5,
+					"x": 7,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 5696114259421112,
+				"title": "Top Requested URI",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 7,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6401738353877884,
+				"title": "User Agent Frequency",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 7,
+					"x": 4,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 3261989012407340,
+				"title": "Bandwidth By Client",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 11,
+					"row": 5,
+					"x": 0,
+					"y": 11
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"nginx",
+		"web server"
+	]
+}

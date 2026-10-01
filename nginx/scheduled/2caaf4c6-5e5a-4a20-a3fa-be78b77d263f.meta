@@ -1,0 +1,20 @@
+{
+	"Name": "Nginx - Core Dump",
+	"Description": "Detects a core dump of a crashing Nginx worker process, which could be a signal of a serious problem or exploitation attempts.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"impact",
+		"T1499.004",
+		"impact"
+	],
+	"Schedule": "35 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "2caaf4c6-5e5a-4a20-a3fa-be78b77d263f",
+	"SearchReference": "97ef0d22-fbc7-4eec-b1c5-e9df6163c8e1"
+}

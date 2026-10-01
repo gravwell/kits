@@ -1,0 +1,251 @@
+{
+	"UUID": "6ea6e771-1b66-552b-aaf1-3f6078bd32c3",
+	"Name": "Nginx - Operations",
+	"Description": "Monitor Nginx server health: response times, server errors, upstream status, and error log activity.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Nginx - Response Time Over Time",
+				"color": null,
+				"reference": {
+					"id": "4f4ccd6a-1ec5-5d3d-8504-95e47e8aafbf",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Server Errors Over Time",
+				"color": null,
+				"reference": {
+					"id": "fa941ddb-df01-52ef-bb99-4d27615734b0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Error Log Levels Over Time",
+				"color": null,
+				"reference": {
+					"id": "a6e191ad-2c11-5f72-be3a-531610f8fdfc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Slowest URIs",
+				"color": null,
+				"reference": {
+					"id": "af2b1cf4-32f4-57a6-800d-924469105031",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Upstream Health",
+				"color": null,
+				"reference": {
+					"id": "001603b3-82b9-5efb-bd16-8136d042c3c0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Server Errors By URI",
+				"color": null,
+				"reference": {
+					"id": "ee354d98-0e54-5854-9bea-c5f85654200b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Error Log Top Messages",
+				"color": null,
+				"reference": {
+					"id": "eeeaeefd-bbd2-5b85-b122-3af7c2f8e4bc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Site Health",
+				"color": null,
+				"reference": {
+					"id": "35aecfd9-6a4c-55ea-952a-64abc4777997",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Requests By Site Over Time",
+				"color": null,
+				"reference": {
+					"id": "d5c353f5-e234-557c-956b-aa3b2951cac7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 4123253383654066,
+				"title": "Response Time Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 9580955520645003,
+				"title": "Server Errors Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 5,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 8755191905066582,
+				"title": "Error Log Levels Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 7317468541757867,
+				"title": "Slowest URIs",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 7,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6034740484386121,
+				"title": "Upstream Health",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 7,
+					"x": 7,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6144367105284018,
+				"title": "Server Errors By URI",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 7,
+					"x": 0,
+					"y": 11
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 3224532971820043,
+				"title": "Error Log Top Messages",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 7,
+					"x": 7,
+					"y": 11
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 2892100485539350,
+				"title": "Site Health",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 0,
+					"y": 18
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 4021721594979448,
+				"title": "Requests By Site Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 7,
+					"y": 18
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"nginx",
+		"web server",
+		"operations"
+	]
+}

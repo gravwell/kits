@@ -1,0 +1,25 @@
+{
+	"Name": "Nginx - Bitsadmin User Agent Detected",
+	"Description": "Detects inbound requests carrying the Microsoft BITS user agent, indicating potential use of BITSAdmin as a LOLBin download or C2 channel.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"defense-evasion",
+		"T1071.001",
+		"T1197",
+		"command-and-control",
+		"defense-evasion",
+		"persistence",
+		"s0190"
+	],
+	"Schedule": "34 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "979f2e57-008e-4a4b-859b-f7f3e7700d10",
+	"SearchReference": "27b4aeeb-7b87-46e5-a5a5-d28a16b38cb5"
+}

@@ -1,0 +1,17 @@
+{
+	"Name": "Nginx - Successful IIS Shortname Fuzzing Scan",
+	"Description": "When IIS uses an old .Net Framework it's possible to enumerate folders with the symbol ~",
+	"GUID": "f5602ee4-f1d7-45e6-8e3a-d58c7dfb6d66",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"scanning",
+		"enumeration",
+		"initial-access",
+		"reconnaissance",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

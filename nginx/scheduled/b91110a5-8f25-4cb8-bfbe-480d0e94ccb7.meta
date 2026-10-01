@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Suspicious User-agents Related To Recon Tools",
+	"Description": "Detects known suspicious (default) user-agents related to scanning/recon tools",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"scanning",
+		"initial-access",
+		"T1190",
+		"initial-access"
+	],
+	"Schedule": "5 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "b91110a5-8f25-4cb8-bfbe-480d0e94ccb7",
+	"SearchReference": "35089a04-fd7c-4d46-88ed-bfbf817879e9"
+}

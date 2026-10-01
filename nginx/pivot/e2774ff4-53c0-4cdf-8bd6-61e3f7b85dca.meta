@@ -1,0 +1,41 @@
+{
+	"UUID": "e2774ff4-53c0-4cdf-8bd6-61e3f7b85dca",
+	"Name": "Nginx - Status Code",
+	"Description": "Status code actionable for Nginx logs",
+	"Data": {
+		"menuLabel": "Nginx Status Code",
+		"actions": [
+			{
+				"name": "Nginx - HTTP Status Code Search",
+				"description": null,
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "945bc13b-e7e9-4e3c-b138-95b4dbcd97ae",
+					"options": {
+						"variable": "%%http_status%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/(?<![\\d.])[1-5]\\d{2}(?![\\d.])/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": ["nginx"]
+}

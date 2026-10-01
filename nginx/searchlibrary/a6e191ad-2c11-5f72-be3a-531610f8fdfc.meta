@@ -1,0 +1,10 @@
+{
+	"Name": "Nginx - Error Log Levels Over Time",
+	"Description": "nginx error-log events over time by level (notice, warn, error, crit). Reloads show as notice; TLS failures as crit.",
+	"GUID": "a6e191ad-2c11-5f72-be3a-531610f8fdfc",
+	"Labels": [
+		"nginx",
+		"stats"
+	],
+	"Metadata": {}
+}

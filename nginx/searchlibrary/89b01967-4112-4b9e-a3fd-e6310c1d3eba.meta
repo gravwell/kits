@@ -1,0 +1,17 @@
+{
+	"Name": "Nginx - Web Shellshock Attempt",
+	"Description": "Detects Shellshock exploitation attempts (CVE-2014-6271) via the '() { :; };' pattern injected into HTTP headers including User-Agent, Referer, and Cookie.",
+	"GUID": "89b01967-4112-4b9e-a3fd-e6310c1d3eba",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"rce",
+		"initial-access",
+		"execution",
+		"bespoke",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

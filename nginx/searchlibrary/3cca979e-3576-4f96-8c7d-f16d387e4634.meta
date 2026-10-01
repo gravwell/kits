@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Apt User Agent",
+	"Description": "Detects suspicious user agent strings used in APT malware in proxy logs",
+	"GUID": "3cca979e-3576-4f96-8c7d-f16d387e4634",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

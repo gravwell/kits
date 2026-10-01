@@ -1,0 +1,1 @@
+^(?P<timestamp>\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}) \[(?P<loglevel>[a-z]+)\] (?P<pid>\d+)#(?P<tid>\d+): (?:\*(?P<connection_id>\d+) )?(?P<message>.*?)(?:, client: (?P<client_ip>[^,]+))?(?:, server: (?P<server>[^,]*))?(?:, request: "(?P<request>[^"]*)")?(?:, upstream: "(?P<upstream>[^"]*)")?(?:, host: "(?P<host>[^"]*)")?(?:, referrer: "(?P<referer>[^"]*)")?$

@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - HTTP Request With Empty User Agent",
+	"Description": "Detects a potentially suspicious empty user agent strings in proxy log. Could potentially indicate an uncommon request method.",
+	"GUID": "4fcda41d-2c45-4f62-8ad4-e7d50fbf7e31",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"defense-evasion",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

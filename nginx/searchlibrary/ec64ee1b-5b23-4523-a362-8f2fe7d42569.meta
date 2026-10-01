@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Windows Webshell Strings",
+	"Description": "Detects common commands used in Windows webshells",
+	"GUID": "ec64ee1b-5b23-4523-a362-8f2fe7d42569",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"webshell",
+		"persistence",
+		"T1505.003",
+		"persistence"
+	],
+	"Metadata": {}
+}

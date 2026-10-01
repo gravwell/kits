@@ -1,0 +1,3 @@
+tag=$NGINX json vhost
+| stats count by vhost
+| chart count by vhost

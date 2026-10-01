@@ -1,0 +1,10 @@
+{
+	"Name": "Nginx - Slowest URIs",
+	"Description": "Endpoints by mean response time in seconds (request_time), with max and request count. Endpoints with fewer than 10 requests are excluded so one-off slow requests don't dominate.",
+	"GUID": "af2b1cf4-32f4-57a6-800d-924469105031",
+	"Labels": [
+		"nginx",
+		"stats"
+	],
+	"Metadata": {}
+}

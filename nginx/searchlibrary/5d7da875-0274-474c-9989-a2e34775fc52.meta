@@ -1,0 +1,14 @@
+{
+	"Name": "Nginx - Web Attack Indicators By IP",
+	"Description": "Source IPs with the most requests matching attack indicator patterns (SQLi, XSS, path traversal, RCE, scanners)",
+	"GUID": "5d7da875-0274-474c-9989-a2e34775fc52",
+	"Labels": [
+		"nginx",
+		"stats",
+		"uri",
+		"scanning",
+		"reconnaissance",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

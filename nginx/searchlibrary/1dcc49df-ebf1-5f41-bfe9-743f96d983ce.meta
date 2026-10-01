@@ -1,0 +1,10 @@
+{
+	"Name": "Nginx - Bandwidth By Client",
+	"Description": "Total bytes sent to each client, with request count. Surfaces heavy consumers and possible bulk downloads.",
+	"GUID": "1dcc49df-ebf1-5f41-bfe9-743f96d983ce",
+	"Labels": [
+		"nginx",
+		"stats"
+	],
+	"Metadata": {}
+}

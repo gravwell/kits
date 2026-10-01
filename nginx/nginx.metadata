@@ -1,0 +1,9 @@
+{
+	"Ingesters": ["file follower"],
+	"Tags": ["nginx"],
+	"Assets": [
+		{ "Type": "image", "Source": "cover.png", "Legend": "Nginx", "Featured": true},
+		{ "Type": "image", "Source": "banner.png", "Legend": "Nginx", "Featured": true, "Banner": true},
+		{ "Type": "readme", "Source": "README.md"}
+	]
+}

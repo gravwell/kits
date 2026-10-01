@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Webshell Regeorg Detection Via Web Logs",
+	"Description": "Certain strings in the uri_query field when combined with null referer and null user agent can indicate activity associated with the webshell ReGeorg.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"webshell",
+		"persistence",
+		"T1505.003",
+		"persistence"
+	],
+	"Schedule": "18 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "14fbf147-4a89-41a5-aff2-168d0c6b1bd1",
+	"SearchReference": "d72809b4-6d0f-4dc3-9b2f-9e44374cf0ff"
+}

@@ -1,0 +1,18 @@
+{
+	"Name": "Nginx - F5 Big-ip Icontrol Rest API Command Execution - Webserver",
+	"Description": "Detects POST requests to the F5 BIG-IP iControl Rest API bash endpoint, which allows the execution of commands on the BIG-IP",
+	"GUID": "04da9b8b-28bb-4197-becd-f6e56fad6d08",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"uri",
+		"scanning",
+		"initial-access",
+		"execution",
+		"T1190",
+		"execution",
+		"initial-access"
+	],
+	"Metadata": {}
+}

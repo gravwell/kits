@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Suspicious Base64 Encoded User-agent",
+	"Description": "Detects suspicious encoded User-Agent strings, as seen used by some malware.",
+	"GUID": "1fcd2e7f-9f20-45e0-a6f9-b01a046d6374",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

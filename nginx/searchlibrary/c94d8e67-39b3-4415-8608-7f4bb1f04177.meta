@@ -1,0 +1,12 @@
+{
+	"Name": "Nginx - User Agents",
+	"Description": "User-agent distribution across all requests — baseline for identifying anomalous or rare UAs",
+	"GUID": "c94d8e67-39b3-4415-8608-7f4bb1f04177",
+	"Labels": [
+		"nginx",
+		"stats",
+		"user-agent",
+		"baseline"
+	],
+	"Metadata": {}
+}

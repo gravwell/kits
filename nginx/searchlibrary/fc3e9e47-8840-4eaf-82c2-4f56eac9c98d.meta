@@ -1,0 +1,17 @@
+{
+	"Name": "Nginx - Jndiexploit Pattern",
+	"Description": "Detects exploitation attempt using the JNDI-Exploit-Kit",
+	"GUID": "fc3e9e47-8840-4eaf-82c2-4f56eac9c98d",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,4 @@
+tag=$NGINX json status request_time
+| eval status != 101
+| stats mean(request_time) as avg_seconds max(request_time) as max_seconds
+| chart avg_seconds max_seconds
