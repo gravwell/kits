@@ -1,0 +1,4 @@
+/* Palo Alto - NGFW - Search - Config - Events - Count by Command [chart] */
+tag=$PAN_CONFIG ax cmd
+| stats count by cmd
+| chart count by cmd

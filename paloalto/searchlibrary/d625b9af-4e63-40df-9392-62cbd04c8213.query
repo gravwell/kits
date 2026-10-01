@@ -1,0 +1,4 @@
+/* Palo Alto - NGFW - Search - GlobalProtect - Authentication - Count by Status [chart] */
+tag=$PAN_GLOBALPROTECT ax stage=="login" status
+| stats count by status
+| chart count by status

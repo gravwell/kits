@@ -1,0 +1,4 @@
+/* Palo Alto - NGFW - Search - Config - Administrator - Configuration Administrators [chart] */
+tag=$PAN_CONFIG ax admin
+| stats count by admin
+| chart count by admin

@@ -1,6 +1,8 @@
 {
 	"GUID": "50cb5863-6867-47da-bc49-7bef73317ddc",
-	"Name": "payloadformat",
-	"Desc": "Payload Format",
-	"Labels": null
+	"Name": "Palo Alto Payload Format",
+	"Desc": "Shows the payload format of the Palo Alto logs",
+	"Labels": [
+		"palo"
+	]
 }
