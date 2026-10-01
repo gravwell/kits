@@ -54,6 +54,7 @@ Error logs are assumed to be in Apache's default error log format. An autoextrac
 
 ```
 tag=$APACHE_ERR ax
+| table
 ```
 
 Error logs contain the following fields:
