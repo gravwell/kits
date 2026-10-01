@@ -1,0 +1,8 @@
+tag=$APACHE json vhost status duration
+| eval
+    if (status >= 500) { server_error = 1; } else { server_error = 0; }
+    if (status >= 400 && status < 500) { client_error = 1; } else { client_error = 0; }
+| stats count sum(server_error) as server_errors sum(client_error) as client_errors mean(duration) as avg_us max(duration) as max_us by vhost
+| eval avg_ms = avg_us / 1000.0; max_ms = max_us / 1000.0;
+| sort by count desc
+| table vhost count server_errors client_errors avg_ms max_ms

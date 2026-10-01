@@ -1,0 +1,24 @@
+{
+	"Name": "Apache - Bitsadmin User Agent Detected",
+	"Description": "Detects inbound requests carrying the Microsoft BITS user agent, indicating potential use of BITSAdmin as a LOLBin download or C2 channel. Original Sigma rules distinguish IP vs. TLD targeting, but destination fields are unavailable in reverse-proxy logs; this rule fires on BITS UA presence alone.",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"defense-evasion",
+		"T1071.001",
+		"T1197",
+		"command-and-control",
+		"persistence",
+		"s0190"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "57aba3ac-436e-474c-985c-68f6a14ad1dc",
+	"SearchReference": "87ed7948-8b33-4eef-ab09-b74c009eb587"
+}

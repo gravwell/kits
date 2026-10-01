@@ -1,0 +1,23 @@
+{
+	"Name": "Apache - Suspicious External Webdav Execution",
+	"Description": "Detects executables launched from external WebDAV shares using the WebDAV Explorer integration, commonly seen in initial access campaigns.",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"webdav",
+		"initial-access",
+		"T1584",
+		"T1566",
+		"resource-development"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "30fc358b-a9f7-4570-ad26-6dc77fc2c62b",
+	"SearchReference": "941391e0-552d-49e1-bf9d-ebf30a75768a"
+}

@@ -1,0 +1,5 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval match(user_agent, "Mozilla\/5\.0 [(]Windows NT 6\.1; WOW64; Trident\/7\.0; rv:11\.0[)] like Gecko") &&
+       method == "POST" &&
+       match(uri, "(?i)^/(admin/get|news|login/process)\.php$")
+| table time remote_addr forwarded_for method uri status user_agent vhost

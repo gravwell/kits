@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Site Health",
+	"Description": "Per site (vhost): request count, 5xx and 4xx counts, mean and max response time in milliseconds. Answers 'which site is having problems?' on a multi-site server.",
+	"GUID": "e9bec503-3b77-59e6-8541-eadc0070cc49",
+	"Labels": [
+		"apache",
+		"stats",
+		"vhost",
+		"errors",
+		"latency",
+		"operations"
+	],
+	"Metadata": {}
+}

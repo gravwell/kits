@@ -1,0 +1,23 @@
+{
+	"Name": "Apache - Jndiexploit Pattern",
+	"Description": "Detects exploitation attempt using the JNDI-Exploit-Kit",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"T1190"
+	],
+	"Schedule": "51 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "92eed6de-9ada-45cc-b263-c4d86577a83b",
+	"SearchReference": "6196afef-c0e9-43c7-9d8b-d53c12101ab7"
+}

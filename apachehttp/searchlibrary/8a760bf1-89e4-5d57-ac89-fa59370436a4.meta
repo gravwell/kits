@@ -1,0 +1,12 @@
+{
+	"Name": "Apache - Error Log Levels Over Time",
+	"Description": "Apache error-log events over time by level (notice, warn, error, crit). Restarts and reloads show as notice.",
+	"GUID": "8a760bf1-89e4-5d57-ac89-fa59370436a4",
+	"Labels": [
+		"apache",
+		"stats",
+		"error-log",
+		"operations"
+	],
+	"Metadata": {}
+}

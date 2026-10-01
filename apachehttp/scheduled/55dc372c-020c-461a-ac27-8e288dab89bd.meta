@@ -1,0 +1,23 @@
+{
+	"Name": "Apache - Windows Webdav User Agent",
+	"Description": "Detects WebDav DownloadCradle",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"uri",
+		"webdav",
+		"initial-access",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "22 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "55dc372c-020c-461a-ac27-8e288dab89bd",
+	"SearchReference": "d7c8d4bc-533e-4a68-a101-0272226f0e46"
+}

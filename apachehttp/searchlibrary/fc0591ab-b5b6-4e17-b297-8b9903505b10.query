@@ -1,0 +1,17 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(query, "(?i)[{][{]")                    ||
+    match(query, "[$][{]")                         ||
+    match(query, "(?i)<%=")                        ||
+    match(query, "(?i)#[{]")                       ||
+    match(query, "(?i)%7B%7B")                     ||
+    match(query, "(?i)%24%7B")                     ||
+    match(query, "(?i)%23%7B")                     ||
+    match(query, "(?i)T[(]org[.]apache")           ||
+    match(query, "(?i)freemarker[.]template")      ||
+    match(uri,   "(?i)[{][{]")                    ||
+    match(uri,   "[$][{]")                         ||
+    match(uri,   "(?i)<%=")                        ||
+    match(uri,   "(?i)%7B%7B")                     ||
+    match(uri,   "(?i)%24%7B")
+| table time remote_addr forwarded_for method uri query status user_agent vhost

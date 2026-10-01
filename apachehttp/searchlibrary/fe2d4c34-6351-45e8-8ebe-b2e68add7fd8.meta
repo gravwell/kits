@@ -1,0 +1,19 @@
+{
+	"Name": "Apache - Web Directory Enumeration",
+	"Description": "Detects directory and path enumeration attacks by identifying a high volume of 404/403 responses to distinct URIs from a single source IP within a short time window.",
+	"GUID": "fe2d4c34-6351-45e8-8ebe-b2e68add7fd8",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"http-status",
+		"scanning",
+		"enumeration",
+		"initial-access",
+		"reconnaissance",
+		"bespoke",
+		"aggregation-required",
+		"T1595.003"
+	],
+	"Metadata": {}
+}

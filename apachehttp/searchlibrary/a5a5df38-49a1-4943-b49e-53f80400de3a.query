@@ -1,0 +1,12 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(uri,   "[.][.]/")              ||
+    match(uri,   "[.][.]%2[fF]")         ||
+    match(uri,   "[.][.]%5[cC]")         ||
+    match(uri,   "%252[fF]")             ||
+    match(uri,   "%2[eE]%2[eE][/%5C]")  ||
+    match(query, "[.][.]%2[fF]")         ||
+    match(query, "[.][.]%5[cC]")         ||
+    match(query, "%252[fF]")             ||
+    match(query, "[.][.]/")
+| table time remote_addr forwarded_for method uri query status user_agent vhost

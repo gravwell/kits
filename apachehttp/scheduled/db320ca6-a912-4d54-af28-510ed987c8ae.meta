@@ -1,0 +1,22 @@
+{
+	"Name": "Apache - Potential Base64 Encoded User-agent",
+	"Description": "Detects User Agent strings that end with an equal sign, which can be a sign of base64 encoding.",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "29 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "db320ca6-a912-4d54-af28-510ed987c8ae",
+	"SearchReference": "e32a41df-755f-471e-ad7a-518cd79747fe"
+}

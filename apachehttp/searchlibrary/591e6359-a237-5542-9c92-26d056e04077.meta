@@ -1,0 +1,13 @@
+{
+	"Name": "Apache - Server Errors Over Time",
+	"Description": "5xx responses over time, split by status code. Separate from the status-class breakdown because 5xx volume is too small to see next to 2xx.",
+	"GUID": "591e6359-a237-5542-9c92-26d056e04077",
+	"Labels": [
+		"apache",
+		"stats",
+		"http-status",
+		"errors",
+		"operations"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,23 @@
+{
+	"Name": "Apache - Hack Tool User Agent",
+	"Description": "Detects suspicious user agent strings user by hack tools in proxy logs",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"scanning",
+		"initial-access",
+		"T1190",
+		"T1110",
+		"credential-access"
+	],
+	"Schedule": "11 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e41d4525-0471-4095-9ab1-dc669775aec8",
+	"SearchReference": "849d86eb-2760-48a4-9e0c-dc4eac4e4b1c"
+}

@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Exploit Framework User Agent",
+	"Description": "Detects suspicious user agent strings used by exploit / pentest frameworks like Metasploit in proxy logs",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001"
+	],
+	"Schedule": "44 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "384f7a28-9328-4bdc-83a4-b9453e370425",
+	"SearchReference": "a60bc789-2f36-4ea5-9327-4b6fdcd1866f"
+}

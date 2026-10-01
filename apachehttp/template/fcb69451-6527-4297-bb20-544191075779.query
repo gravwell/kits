@@ -1,0 +1,2 @@
+tag=$APACHE json time remote_addr == %%investigate_ip%% method uri status bytes duration vhost
+| table

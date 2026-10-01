@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Apt User Agent",
+	"Description": "Detects suspicious user agent strings used in APT malware in proxy logs",
+	"GUID": "6671909d-adf6-4884-a7da-976cd6155f87",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001"
+	],
+	"Metadata": {}
+}

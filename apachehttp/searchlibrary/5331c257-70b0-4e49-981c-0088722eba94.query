@@ -1,0 +1,3 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval method == "POST" && match(uri, "/mgmt/tm/util/bash")
+| table time remote_addr forwarded_for method uri status user_agent vhost

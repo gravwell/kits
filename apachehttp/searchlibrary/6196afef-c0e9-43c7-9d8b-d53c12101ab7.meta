@@ -1,0 +1,16 @@
+{
+	"Name": "Apache - Jndiexploit Pattern",
+	"Description": "Detects exploitation attempt using the JNDI-Exploit-Kit",
+	"GUID": "6196afef-c0e9-43c7-9d8b-d53c12101ab7",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"T1190"
+	],
+	"Metadata": {}
+}

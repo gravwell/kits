@@ -1,0 +1,23 @@
+{
+	"Name": "Apache - Server Side Template Injection Strings",
+	"Description": "Detects SSTI attempts sent via GET requests in access logs",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"ssti",
+		"injection",
+		"initial-access",
+		"T1221",
+		"stealth"
+	],
+	"Schedule": "5 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "1f5b647f-cf05-48aa-b793-249ef31f1c9a",
+	"SearchReference": "fc0591ab-b5b6-4e17-b297-8b9903505b10"
+}

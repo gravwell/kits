@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Web Susp HTTP Methods",
+	"Description": "Detects suspicious HTTP methods including TRACE and TRACK (Cross-Site Tracing vector), PUT to non-API paths (attempted file upload), and DELETE to arbitrary resources.",
+	"Labels": [
+		"apache",
+		"detection",
+		"http-method",
+		"initial-access",
+		"bespoke",
+		"T1190"
+	],
+	"Schedule": "8 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "e45bccba-a4e3-4a46-9f61-b81cf3b7b541",
+	"SearchReference": "ed22560d-6052-4d69-a6e3-efa2aadc7d1c"
+}

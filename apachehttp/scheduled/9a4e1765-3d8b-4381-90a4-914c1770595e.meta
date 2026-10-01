@@ -1,0 +1,22 @@
+{
+	"Name": "Apache - Suspicious Base64 Encoded User-agent",
+	"Description": "Detects suspicious encoded User-Agent strings, as seen used by some malware.",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "26 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "9a4e1765-3d8b-4381-90a4-914c1770595e",
+	"SearchReference": "feceaee6-9825-401a-b578-a5f806121a5e"
+}

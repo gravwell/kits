@@ -1,0 +1,22 @@
+{
+	"Name": "Apache - Source Code Enumeration Detection By Keyword",
+	"Description": "Detects source code enumeration that use GET requests by keyword searches in URL strings",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"enumeration",
+		"discovery",
+		"reconnaissance",
+		"T1083"
+	],
+	"Schedule": "59 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "b0967231-f640-40c9-aa62-d248de38c6d4",
+	"SearchReference": "2ef339df-e9bd-44f1-a3fc-408f77f80d4d"
+}

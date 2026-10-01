@@ -1,0 +1,21 @@
+tag=$APACHE json time remote_addr forwarded_for method uri query status user_agent vhost
+| eval
+    match(query, "(?i)redirect=https?://")     ||
+    match(query, "(?i)url=https?://")          ||
+    match(query, "(?i)next=https?://")         ||
+    match(query, "(?i)return=https?://")       ||
+    match(query, "(?i)goto=https?://")         ||
+    match(query, "(?i)target=https?://")       ||
+    match(query, "(?i)dest=https?://")         ||
+    match(query, "(?i)destination=https?://")  ||
+    match(query, "(?i)redir=https?://")        ||
+    match(query, "(?i)forward=https?://")      ||
+    match(query, "(?i)link=https?://")         ||
+    match(query, "(?i)ref=https?://")          ||
+    match(query, "(?i)continue=https?://")     ||
+    match(query, "(?i)back=https?://")         ||
+    match(query, "(?i)jump=https?://")         ||
+    match(query, "(?i)to=https?://")           ||
+    match(query, "(?i)r=https?://")            ||
+    match(query, "(?i)u=https?://")
+| table time remote_addr method uri query status user_agent vhost

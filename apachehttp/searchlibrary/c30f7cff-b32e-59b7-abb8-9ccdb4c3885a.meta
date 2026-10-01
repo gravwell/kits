@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Server Errors By URI",
+	"Description": "Endpoints returning 5xx, by status code. Answers 'which endpoints are failing?'",
+	"GUID": "c30f7cff-b32e-59b7-abb8-9ccdb4c3885a",
+	"Labels": [
+		"apache",
+		"stats",
+		"http-status",
+		"errors",
+		"operations",
+		"uri"
+	],
+	"Metadata": {}
+}

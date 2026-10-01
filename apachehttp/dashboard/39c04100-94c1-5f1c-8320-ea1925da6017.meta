@@ -1,0 +1,226 @@
+{
+	"UUID": "39c04100-94c1-5f1c-8320-ea1925da6017",
+	"Name": "Apache - Operations",
+	"Description": "Monitor Apache server health: response times, server errors, and error log activity.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Apache - Response Time Over Time",
+				"color": null,
+				"reference": {
+					"id": "e96a0f4a-926f-5d89-8e42-1da08cb778da",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Server Errors Over Time",
+				"color": null,
+				"reference": {
+					"id": "591e6359-a237-5542-9c92-26d056e04077",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Error Log Levels Over Time",
+				"color": null,
+				"reference": {
+					"id": "8a760bf1-89e4-5d57-ac89-fa59370436a4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Slowest URIs",
+				"color": null,
+				"reference": {
+					"id": "6c6f5179-8855-5f93-b37f-6d429640d464",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Server Errors By URI",
+				"color": null,
+				"reference": {
+					"id": "c30f7cff-b32e-59b7-abb8-9ccdb4c3885a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Error Log Top Messages",
+				"color": null,
+				"reference": {
+					"id": "70b2db6b-1810-5be5-b756-2c3281fa663e",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Site Health",
+				"color": null,
+				"reference": {
+					"id": "e9bec503-3b77-59e6-8541-eadc0070cc49",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Apache - Requests By Site Over Time",
+				"color": null,
+				"reference": {
+					"id": "45dc9d53-8dd4-52d1-be9d-535d74bc6067",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 3112513667926112,
+				"title": "Response Time Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1297080775520394,
+				"title": "Server Errors Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 5,
+					"row": 4,
+					"x": 5,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 8498866169473252,
+				"title": "Error Log Levels Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 4014318815105547,
+				"title": "Slowest URIs",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 7,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 6600868909874457,
+				"title": "Server Errors By URI",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 7,
+					"x": 7,
+					"y": 4
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 3445849893671975,
+				"title": "Error Log Top Messages",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 14,
+					"row": 7,
+					"x": 0,
+					"y": 11
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 7483516079408823,
+				"title": "Site Health",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 0,
+					"y": 18
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 8117546987841679,
+				"title": "Requests By Site Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 7,
+					"row": 6,
+					"x": 7,
+					"y": 18
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"apache",
+		"web server",
+		"operations"
+	]
+}

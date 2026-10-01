@@ -1,0 +1,22 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval
+    match(user_agent, "(?i)sqlmap")          ||
+    match(user_agent, "(?i)nikto")           ||
+    match(user_agent, "(?i)nmap scripting")  ||
+    match(user_agent, "(?i)nessus")          ||
+    match(user_agent, "(?i)acunetix")        ||
+    match(user_agent, "(?i)dirbuster")       ||
+    match(user_agent, "(?i)gobuster")        ||
+    match(user_agent, "(?i)wpscan")          ||
+    match(user_agent, "(?i)masscan")         ||
+    match(user_agent, "(?i)wfuzz")           ||
+    match(user_agent, "(?i)zaproxy")         ||
+    match(user_agent, "(?i)w3af")            ||
+    match(user_agent, "(?i)openvas")         ||
+    match(user_agent, "(?i)nuclei")          ||
+    match(user_agent, "(?i)ffuf/")           ||
+    match(user_agent, "(?i)feroxbuster")     ||
+    match(user_agent, "(?i)dirb")            ||
+    match(user_agent, "(?i)commix")          ||
+    match(user_agent, "(?i)whatweb")
+| table time remote_addr forwarded_for method uri status user_agent vhost

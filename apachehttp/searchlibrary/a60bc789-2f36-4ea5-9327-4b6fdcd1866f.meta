@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Exploit Framework User Agent",
+	"Description": "Detects suspicious user agent strings used by exploit / pentest frameworks like Metasploit in proxy logs",
+	"GUID": "a60bc789-2f36-4ea5-9327-4b6fdcd1866f",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001"
+	],
+	"Metadata": {}
+}

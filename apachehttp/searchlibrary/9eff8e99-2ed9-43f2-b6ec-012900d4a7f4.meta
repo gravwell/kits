@@ -1,0 +1,16 @@
+{
+	"Name": "Apache - Successful IIS Shortname Fuzzing Scan",
+	"Description": "When IIS uses an old .Net Framework it's possible to enumerate folders with the symbol ~",
+	"GUID": "9eff8e99-2ed9-43f2-b6ec-012900d4a7f4",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"scanning",
+		"enumeration",
+		"initial-access",
+		"reconnaissance",
+		"T1190"
+	],
+	"Metadata": {}
+}

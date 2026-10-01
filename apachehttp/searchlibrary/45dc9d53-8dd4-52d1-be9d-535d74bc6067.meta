@@ -1,0 +1,13 @@
+{
+	"Name": "Apache - Requests By Site Over Time",
+	"Description": "Request volume over time, split by site (vhost). Shows which sites carry the load and when one drops off or spikes.",
+	"GUID": "45dc9d53-8dd4-52d1-be9d-535d74bc6067",
+	"Labels": [
+		"apache",
+		"stats",
+		"vhost",
+		"baseline",
+		"operations"
+	],
+	"Metadata": {}
+}

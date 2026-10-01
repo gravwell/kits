@@ -1,0 +1,4 @@
+tag=$APACHE json status
+| eval status >= 500
+| stats count by status
+| chart count by status

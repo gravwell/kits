@@ -1,0 +1,17 @@
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval
+    match(uri, "(?i)/[.]git/config")            ||
+    match(uri, "(?i)/[.]git/HEAD")              ||
+    match(uri, "(?i)/[.]git/index")             ||
+    match(uri, "(?i)/[.]git/COMMIT_EDITMSG")    ||
+    match(uri, "(?i)/[.]git/packed-refs")       ||
+    match(uri, "(?i)/[.]git/refs/")             ||
+    match(uri, "(?i)/[.]git/objects/")          ||
+    match(uri, "(?i)/[.]git/logs/")             ||
+    match(uri, "(?i)/[.]git/FETCH_HEAD")        ||
+    match(uri, "(?i)/[.]svn/entries")           ||
+    match(uri, "(?i)/[.]svn/wc[.]db")           ||
+    match(uri, "(?i)/[.]svn/pristine/")         ||
+    match(uri, "(?i)/[.]hg/manifest")           ||
+    match(uri, "(?i)/[.]bzr/branch-format")
+| table time remote_addr forwarded_for method uri status user_agent vhost

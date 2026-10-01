@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Path Traversal Exploitation Attempts",
+	"Description": "Detects path traversal exploitation attempts",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"path-traversal",
+		"initial-access",
+		"T1190"
+	],
+	"Schedule": "25 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "7846e9ee-c7f0-47cb-9946-db05d7137657",
+	"SearchReference": "a5a5df38-49a1-4943-b49e-53f80400de3a"
+}

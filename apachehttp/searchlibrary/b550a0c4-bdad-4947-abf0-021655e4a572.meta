@@ -1,0 +1,12 @@
+{
+	"Name": "Apache - HTTP Status Code Distribution",
+	"Description": "Status frequency by HTTP status category",
+	"GUID": "b550a0c4-bdad-4947-abf0-021655e4a572",
+	"Labels": [
+		"apache",
+		"stats",
+		"http-status",
+		"baseline"
+	],
+	"Metadata": {}
+}

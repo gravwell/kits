@@ -1,0 +1,13 @@
+{
+	"Name": "Apache - Slowest URIs",
+	"Description": "Endpoints by mean response time in milliseconds, with max and request count. Apache logs duration in microseconds (%D); converted to ms after aggregation. Endpoints with fewer than 10 requests are excluded so one-off slow requests don't dominate.",
+	"GUID": "6c6f5179-8855-5f93-b37f-6d429640d464",
+	"Labels": [
+		"apache",
+		"stats",
+		"latency",
+		"performance",
+		"operations"
+	],
+	"Metadata": {}
+}

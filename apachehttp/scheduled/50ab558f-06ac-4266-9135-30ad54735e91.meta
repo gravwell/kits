@@ -1,0 +1,22 @@
+{
+	"Name": "Apache - SQL Injection Strings In URI",
+	"Description": "Detects potential SQL injection attempts via GET requests in access logs.",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"sql-injection",
+		"injection",
+		"initial-access",
+		"T1190"
+	],
+	"Schedule": "59 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "50ab558f-06ac-4266-9135-30ad54735e91",
+	"SearchReference": "f4413585-bff3-48cc-a87d-a366321d14cb"
+}

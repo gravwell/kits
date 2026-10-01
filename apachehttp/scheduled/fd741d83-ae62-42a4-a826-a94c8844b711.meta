@@ -1,0 +1,21 @@
+{
+	"Name": "Apache - Hacktool - Babyshark Agent Default URL Pattern",
+	"Description": "Detects Baby Shark C2 Framework default communication patterns",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001"
+	],
+	"Schedule": "59 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "fd741d83-ae62-42a4-a826-a94c8844b711",
+	"SearchReference": "46f35e2d-2e55-4cf7-92af-526f518bfa54"
+}

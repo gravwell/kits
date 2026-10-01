@@ -1,0 +1,26 @@
+{
+	"Name": "Apache - Web Directory Enumeration",
+	"Description": "Detects directory and path enumeration attacks by identifying a high volume of 404/403 responses to distinct URIs from a single source IP within a short time window.",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"http-status",
+		"scanning",
+		"enumeration",
+		"initial-access",
+		"reconnaissance",
+		"bespoke",
+		"aggregation-required",
+		"T1595.003"
+	],
+	"Schedule": "41 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "ad932a51-6bdb-40f3-9c49-f58bdacb508d",
+	"SearchReference": "fe2d4c34-6351-45e8-8ebe-b2e68add7fd8"
+}

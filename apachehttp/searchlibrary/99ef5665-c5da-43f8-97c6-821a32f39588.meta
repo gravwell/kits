@@ -1,0 +1,14 @@
+{
+	"Name": "Apache - Windows Webshell Strings",
+	"Description": "Detects common commands used in Windows webshells",
+	"GUID": "99ef5665-c5da-43f8-97c6-821a32f39588",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"webshell",
+		"persistence",
+		"T1505.003"
+	],
+	"Metadata": {}
+}

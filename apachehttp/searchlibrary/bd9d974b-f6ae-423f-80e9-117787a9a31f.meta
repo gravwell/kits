@@ -1,0 +1,16 @@
+{
+	"Name": "Apache - Web Shellshock Attempt",
+	"Description": "Detects Shellshock exploitation attempts (CVE-2014-6271) via the '() { :; };' pattern injected into HTTP headers including User-Agent, Referer, and Cookie.",
+	"GUID": "bd9d974b-f6ae-423f-80e9-117787a9a31f",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"rce",
+		"initial-access",
+		"execution",
+		"bespoke",
+		"T1190"
+	],
+	"Metadata": {}
+}

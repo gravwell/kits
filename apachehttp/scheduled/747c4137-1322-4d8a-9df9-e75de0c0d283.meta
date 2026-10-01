@@ -1,0 +1,24 @@
+{
+	"Name": "Apache - Suspicious Windows Strings In URI",
+	"Description": "Detects suspicious Windows strings in URI which could indicate possible exfiltration or webshell communication",
+	"Labels": [
+		"apache",
+		"detection",
+		"uri",
+		"path-traversal",
+		"webshell",
+		"initial-access",
+		"persistence",
+		"T1505.003",
+		"exfiltration"
+	],
+	"Schedule": "28 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "747c4137-1322-4d8a-9df9-e75de0c0d283",
+	"SearchReference": "58a77eac-5437-42e3-b47c-4f89415e0b3c"
+}

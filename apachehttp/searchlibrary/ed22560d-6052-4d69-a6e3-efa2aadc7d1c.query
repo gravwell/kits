@@ -1,0 +1,5 @@
+tag=$APACHE json time remote_addr method uri status user_agent
+| eval method == "TRACE" || method == "TRACK" || method == "CONNECT" ||
+       (method == "PUT"    && !match(uri, "(?i)^/api/")) ||
+       (method == "DELETE" && !match(uri, "(?i)^/api/"))
+| table time remote_addr method uri status user_agent

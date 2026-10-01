@@ -1,0 +1,12 @@
+{
+	"Name": "Apache - Error Log Top Messages",
+	"Description": "Most frequent Apache error-log messages by level, module and AH error code (redirect loops, access denied by configuration, backend failures).",
+	"GUID": "70b2db6b-1810-5be5-b756-2c3281fa663e",
+	"Labels": [
+		"apache",
+		"stats",
+		"error-log",
+		"operations"
+	],
+	"Metadata": {}
+}

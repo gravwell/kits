@@ -1,0 +1,15 @@
+{
+	"Name": "Apache - Potential Base64 Encoded User-agent",
+	"Description": "Detects User Agent strings that end with an equal sign, which can be a sign of base64 encoding.",
+	"GUID": "e32a41df-755f-471e-ad7a-518cd79747fe",
+	"Labels": [
+		"apache",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

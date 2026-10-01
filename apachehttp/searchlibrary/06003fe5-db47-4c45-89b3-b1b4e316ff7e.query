@@ -1,0 +1,6 @@
+// Implements a representative subset of the Sigma proxy_ua_malware rule.
+// The full rule contains 90+ known-malware UA strings; see the Sigma source for the
+// complete list: https://github.com/SigmaHQ/sigma/blob/master/rules/web/proxy_generic/proxy_ua_malware.yml
+tag=$APACHE json time remote_addr forwarded_for method uri status user_agent vhost
+| eval match(user_agent, "(?i)(zeroup|CholTBAgent|backdoorbot|RookIE/|antSword/v|Lilith-Bot|ZeroStresser|BunnyStealer|BunnyLoader|BunnyShell|SPARK-COMMIT|SouthSide|B1D3N_RIM|AYAYAYAY1337|23591|^M$|^-$)")
+| table time remote_addr forwarded_for method uri status user_agent vhost

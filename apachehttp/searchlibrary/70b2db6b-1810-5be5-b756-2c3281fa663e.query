@@ -1,0 +1,4 @@
+tag=$APACHE_ERR regex "^\[[^\]]+\] \[(?P<module>[\w-]+):(?P<loglevel>\w+)\] \[pid \d+(?::tid \d+)?\](?: \[client [^\]]+\])?\s*(?:(?P<error_code>AH\d+): )?(?P<message>[^,]+)"
+| stats count by loglevel module error_code message
+| sort by count desc
+| table loglevel module error_code message count
