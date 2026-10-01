@@ -1,3 +1,2 @@
-tag=$NGINX_ERR
-| grep "signal 11"
+tag=$NGINX_ERR grep "signal 11"
 | table
