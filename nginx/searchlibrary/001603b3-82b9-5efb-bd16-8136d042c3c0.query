@@ -1,8 +1,8 @@
 tag=$NGINX json upstream status request_time
 | eval status != 101
 | eval
-if (len(upstream) == 0) { upstream = "(local)"; }
-if (status >= 500) { server_error = 1; } else { server_error = 0; }
+    if (len(upstream) == 0) { upstream = "(local)"; }
+    if (status >= 500) { server_error = 1; } else { server_error = 0; }
 | stats count sum(server_error) as server_errors mean(request_time) as avg_seconds max(request_time) as max_seconds by upstream
 | sort by count desc
 | table upstream count server_errors avg_seconds max_seconds
