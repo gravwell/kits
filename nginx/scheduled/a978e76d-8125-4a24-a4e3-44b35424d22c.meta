@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Suspicious Base64 Encoded User-agent",
+	"Description": "Detects suspicious encoded User-Agent strings, as seen used by some malware.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "23 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a978e76d-8125-4a24-a4e3-44b35424d22c",
+	"SearchReference": "1fcd2e7f-9f20-45e0-a6f9-b01a046d6374"
+}

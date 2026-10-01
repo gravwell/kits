@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Suspicious User-agents Related To Recon Tools",
+	"Description": "Detects known suspicious (default) user-agents related to scanning/recon tools",
+	"GUID": "35089a04-fd7c-4d46-88ed-bfbf817879e9",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"scanning",
+		"initial-access",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

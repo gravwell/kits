@@ -1,0 +1,18 @@
+{
+	"UUID": "6e1b4023-cfb8-4681-b05a-1dcbbaca1c52",
+	"Name": "Nginx - Investigate IP - User Agent Review",
+	"Description": "Review the user agents that have come from this IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": ["ip investigate", "nginx", "web server"]
+}

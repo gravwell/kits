@@ -1,0 +1,12 @@
+{
+	"Name": "Nginx - Top Requested URI",
+	"Description": "Table of which URI are requested most",
+	"GUID": "a1e95b09-f508-47d6-a828-449e4bb2efa0",
+	"Labels": [
+		"nginx",
+		"stats",
+		"uri",
+		"baseline"
+	],
+	"Metadata": {}
+}

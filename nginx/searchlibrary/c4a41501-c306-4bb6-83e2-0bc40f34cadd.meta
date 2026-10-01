@@ -1,0 +1,12 @@
+{
+	"Name": "Nginx - Top Requesting IPs",
+	"Description": "Top source IPs by total request volume — surfacing unusually active or scanning hosts",
+	"GUID": "c4a41501-c306-4bb6-83e2-0bc40f34cadd",
+	"Labels": [
+		"nginx",
+		"stats",
+		"baseline",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

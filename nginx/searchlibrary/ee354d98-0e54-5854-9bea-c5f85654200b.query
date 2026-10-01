@@ -1,0 +1,5 @@
+tag=$NGINX json uri status upstream
+| eval status >= 500
+| stats count by uri status upstream
+| sort by count desc
+| table uri status upstream count

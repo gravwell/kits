@@ -1,0 +1,24 @@
+{
+	"Name": "Nginx - Jndiexploit Pattern",
+	"Description": "Detects exploitation attempt using the JNDI-Exploit-Kit",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"T1190",
+		"initial-access"
+	],
+	"Schedule": "49 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0f5ba585-8b44-4658-993a-d51195c24cc3",
+	"SearchReference": "fc3e9e47-8840-4eaf-82c2-4f56eac9c98d"
+}

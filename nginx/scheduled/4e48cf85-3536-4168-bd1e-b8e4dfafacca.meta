@@ -1,0 +1,23 @@
+{
+	"Name": "Nginx - HTTP Request With Empty User Agent",
+	"Description": "Detects a potentially suspicious empty user agent strings in proxy log. Could potentially indicate an uncommon request method.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"evasion",
+		"defense-evasion",
+		"T1071.001",
+		"defense-evasion",
+		"command-and-control"
+	],
+	"Schedule": "39 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4e48cf85-3536-4168-bd1e-b8e4dfafacca",
+	"SearchReference": "4fcda41d-2c45-4f62-8ad4-e7d50fbf7e31"
+}

@@ -1,0 +1,18 @@
+{
+	"UUID": "adc5074a-86ed-4a82-b92e-7e593c112158",
+	"Name": "Nginx - Investigate IP - HTTP Status Breakdown",
+	"Description": "HTTP status distribution for an IP address",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": ["ip investigate", "nginx", "web server"]
+}

@@ -1,0 +1,21 @@
+{
+	"Name": "Nginx - Rclone Activity Via Proxy",
+	"Description": "Detects the use of rclone, a command-line program to manage files on cloud storage, via its default user-agent string",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"exfiltration",
+		"T1567.002",
+		"exfiltration"
+	],
+	"Schedule": "26 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c4e87ef8-300a-4be5-95a2-ae6e076e8641",
+	"SearchReference": "241f00de-3b55-4cf9-9f68-43dc99a31d97"
+}

@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Windows Powershell User Agent",
+	"Description": "Detects Windows PowerShell Web Access",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"defense-evasion",
+		"T1071.001",
+		"defense-evasion",
+		"command-and-control"
+	],
+	"Schedule": "7 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "4bbb9104-c6d4-424b-a2b6-18e7b0e70406",
+	"SearchReference": "4b6edfdf-3f83-44d4-8210-6d1f49b78d89"
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - SQL Injection Strings In URI",
+	"Description": "Detects potential SQL injection attempts via GET requests in access logs.",
+	"GUID": "e6983264-d5f8-444c-beb2-131571febf3c",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"sql-injection",
+		"injection",
+		"initial-access",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

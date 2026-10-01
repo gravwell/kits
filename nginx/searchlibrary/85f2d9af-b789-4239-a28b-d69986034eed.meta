@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Hacktool - Babyshark Agent Default URL Pattern",
+	"Description": "Detects Baby Shark C2 Framework default communication patterns. Useful as a sample to show how to check for URL patterns in an alert.",
+	"GUID": "85f2d9af-b789-4239-a28b-d69986034eed",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

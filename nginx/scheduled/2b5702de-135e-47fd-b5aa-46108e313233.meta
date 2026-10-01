@@ -1,0 +1,24 @@
+{
+	"Name": "Nginx - Hacktool - Cobaltstrike Malleable Profile Patterns - Proxy",
+	"Description": "Detects cobalt strike malleable profiles patterns (URI, User-Agents, Methods). Useful sample to show patterns for user_agent, query, and URI matching ",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"uri",
+		"c2",
+		"command-and-control",
+		"T1071.001",
+		"defense-evasion",
+		"command-and-control"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "2b5702de-135e-47fd-b5aa-46108e313233",
+	"SearchReference": "dc6e1c01-b467-4478-beae-5eb09b2f4b64"
+}

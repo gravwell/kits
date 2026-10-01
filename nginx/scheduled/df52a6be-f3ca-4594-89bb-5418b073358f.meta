@@ -1,0 +1,24 @@
+{
+	"Name": "Nginx - Hack Tool User Agent",
+	"Description": "Detects suspicious user agent strings user by hack tools in proxy logs",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"scanning",
+		"initial-access",
+		"T1190",
+		"T1110",
+		"initial-access",
+		"credential-access"
+	],
+	"Schedule": "28 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "df52a6be-f3ca-4594-89bb-5418b073358f",
+	"SearchReference": "c46e9f52-9f91-4ad0-bef4-2af168ef4f8f"
+}

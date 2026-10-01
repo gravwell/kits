@@ -1,0 +1,17 @@
+{
+	"Name": "Nginx - Hack Tool User Agent",
+	"Description": "Detects suspicious user agent strings user by hack tools in proxy logs",
+	"GUID": "c46e9f52-9f91-4ad0-bef4-2af168ef4f8f",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"scanning",
+		"initial-access",
+		"T1190",
+		"T1110",
+		"initial-access",
+		"credential-access"
+	],
+	"Metadata": {}
+}

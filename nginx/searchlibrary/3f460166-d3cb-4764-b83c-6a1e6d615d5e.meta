@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - Cross Site Scripting Strings",
+	"Description": "Detects XSS attempts injected via GET requests in access logs",
+	"GUID": "3f460166-d3cb-4764-b83c-6a1e6d615d5e",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"xss",
+		"injection",
+		"initial-access",
+		"T1189",
+		"initial-access"
+	],
+	"Metadata": {}
+}

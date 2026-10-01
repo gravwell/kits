@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Path Traversal Exploitation Attempts",
+	"Description": "Detects path traversal exploitation attempts",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"path-traversal",
+		"initial-access",
+		"T1190",
+		"initial-access"
+	],
+	"Schedule": "42 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "14fd4544-df34-4e07-a824-e3a78d83250f",
+	"SearchReference": "023dd213-813d-41a4-b1d3-e9e7fd0c57b9"
+}

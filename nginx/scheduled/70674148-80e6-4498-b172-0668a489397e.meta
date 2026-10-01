@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Potential Hello-world Scraper Botnet Activity",
+	"Description": "Detects network traffic potentially associated with a scraper botnet variant that uses the 'Hello-World/1.0' user-agent string.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"scanning",
+		"reconnaissance",
+		"T1595",
+		"reconnaissance"
+	],
+	"Schedule": "50 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "70674148-80e6-4498-b172-0668a489397e",
+	"SearchReference": "ad0c5cc6-15b2-4ba4-8c37-6c2522f13441"
+}

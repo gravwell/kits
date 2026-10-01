@@ -1,0 +1,10 @@
+{
+	"Name": "Nginx - Server Errors By URI",
+	"Description": "Endpoints returning 5xx, with the backend that served them. Answers 'which endpoints are failing, and is it one backend?'",
+	"GUID": "ee354d98-0e54-5854-9bea-c5f85654200b",
+	"Labels": [
+		"nginx",
+		"stats"
+	],
+	"Metadata": {}
+}

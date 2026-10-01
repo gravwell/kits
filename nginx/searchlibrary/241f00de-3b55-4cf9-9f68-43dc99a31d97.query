@@ -1,0 +1,3 @@
+tag=$NGINX json time remote_addr method uri query status user_agent
+| eval match(user_agent, "^rclone/v")
+| table time remote_addr method uri query status user_agent

@@ -1,0 +1,23 @@
+{
+	"Name": "Nginx - SQL Injection Strings In URI",
+	"Description": "Detects potential SQL injection attempts via GET requests in access logs.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"sql-injection",
+		"injection",
+		"initial-access",
+		"T1190",
+		"initial-access"
+	],
+	"Schedule": "34 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "6533ce42-08bf-42e0-bafa-2d882ffa32b8",
+	"SearchReference": "e6983264-d5f8-444c-beb2-131571febf3c"
+}

@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - Web LFI RFI In Access Logs",
+	"Description": "Detects local and remote file inclusion payload patterns in HTTP access logs, including PHP stream wrappers and external URL inclusion attempts.",
+	"GUID": "19e4e350-ea90-4fa2-837a-3f6e8683b379",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"path-traversal",
+		"initial-access",
+		"bespoke",
+		"T1190",
+		"initial-access"
+	],
+	"Metadata": {}
+}

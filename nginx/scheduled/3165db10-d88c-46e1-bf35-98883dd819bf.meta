@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Web Susp HTTP Methods",
+	"Description": "Detects suspicious HTTP methods including TRACE and TRACK (Cross-Site Tracing vector), PUT to non-API paths (attempted file upload), and DELETE to arbitrary resources.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"http-method",
+		"initial-access",
+		"bespoke",
+		"T1190",
+		"initial-access"
+	],
+	"Schedule": "37 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "3165db10-d88c-46e1-bf35-98883dd819bf",
+	"SearchReference": "333946ba-2e56-4253-847b-3d7630431e90"
+}

@@ -1,0 +1,10 @@
+{
+	"Name": "Nginx - Upstream Health",
+	"Description": "Per backend (upstream): request count, 5xx count, mean and max response time. Requests nginx served itself show as '(local)'. Answers 'is it nginx or the backend?'",
+	"GUID": "001603b3-82b9-5efb-bd16-8136d042c3c0",
+	"Labels": [
+		"nginx",
+		"stats"
+	],
+	"Metadata": {}
+}

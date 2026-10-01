@@ -1,0 +1,10 @@
+{
+	"Name": "Nginx - Error Log Top Messages",
+	"Description": "Most frequent nginx error-log messages by level (config reloads, TLS handshake failures, upstream connect failures, oversized bodies).",
+	"GUID": "eeeaeefd-bbd2-5b85-b122-3af7c2f8e4bc",
+	"Labels": [
+		"nginx",
+		"stats"
+	],
+	"Metadata": {}
+}

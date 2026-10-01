@@ -1,0 +1,5 @@
+tag=$NGINX json uri status
+| eval status == 404
+| stats count by uri
+| sort by count desc
+| table uri count

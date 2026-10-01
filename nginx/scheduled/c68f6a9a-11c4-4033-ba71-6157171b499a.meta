@@ -1,0 +1,25 @@
+{
+	"Name": "Nginx - Suspicious Windows Strings In URI",
+	"Description": "Detects suspicious Windows strings in URI which could indicate possible exfiltration or webshell communication",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"path-traversal",
+		"webshell",
+		"initial-access",
+		"persistence",
+		"T1505.003",
+		"persistence",
+		"exfiltration"
+	],
+	"Schedule": "37 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c68f6a9a-11c4-4033-ba71-6157171b499a",
+	"SearchReference": "508fc7d3-b1c8-470e-8d22-ba438ef52f37"
+}

@@ -1,0 +1,24 @@
+{
+	"Name": "Nginx - Pwndrp Access",
+	"Description": "Detects downloads from PwnDrp web servers developed for red team testing and most likely also used for criminal activity",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"uri",
+		"initial-access",
+		"T1071.001",
+		"T1102.001",
+		"T1102.003",
+		"command-and-control"
+	],
+	"Schedule": "23 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "9c8202ce-ef6f-45e5-bc78-86f7d3903b81",
+	"SearchReference": "b2e32c77-5bab-4484-b2ab-4e0275e36f06"
+}

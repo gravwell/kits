@@ -1,0 +1,3 @@
+tag=$NGINX json uri
+| count by uri
+| table

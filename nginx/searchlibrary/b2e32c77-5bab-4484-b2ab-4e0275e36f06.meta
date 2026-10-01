@@ -1,0 +1,17 @@
+{
+	"Name": "Nginx - Pwndrp Access",
+	"Description": "Detects downloads from PwnDrp web servers developed for red team testing and most likely also used for criminal activity",
+	"GUID": "b2e32c77-5bab-4484-b2ab-4e0275e36f06",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"uri",
+		"initial-access",
+		"T1071.001",
+		"T1102.001",
+		"T1102.003",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

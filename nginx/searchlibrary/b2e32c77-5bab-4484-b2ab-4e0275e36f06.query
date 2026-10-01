@@ -1,0 +1,3 @@
+tag=$NGINX json time remote_addr method uri status user_agent
+| eval match(uri, "/pwndrop/")
+| table time remote_addr method uri status user_agent

@@ -1,0 +1,24 @@
+{
+	"Name": "Nginx - Suspicious External Webdav Execution",
+	"Description": "Detects executables launched from external WebDAV shares using the WebDAV Explorer integration, commonly seen in initial access campaigns.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"webdav",
+		"initial-access",
+		"T1584",
+		"T1566",
+		"initial-access",
+		"resource-development"
+	],
+	"Schedule": "12 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a3d3ebba-edd2-4cdf-9767-5a91529277ad",
+	"SearchReference": "d5e36fd1-ec78-44c1-b9a3-49887712347a"
+}

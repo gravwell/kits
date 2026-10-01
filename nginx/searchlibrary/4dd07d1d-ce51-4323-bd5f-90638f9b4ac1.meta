@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - Suspicious UA By IP",
+	"Description": "Scanner and attack-tool user agents seen, grouped by source IP",
+	"GUID": "4dd07d1d-ce51-4323-bd5f-90638f9b4ac1",
+	"Labels": [
+		"nginx",
+		"stats",
+		"user-agent",
+		"scanning",
+		"reconnaissance",
+		"ip-activity"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

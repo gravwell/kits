@@ -1,0 +1,23 @@
+{
+	"Name": "Nginx - Pua - Advanced Ip/port Scanner Update Check",
+	"Description": "Detect the update check performed by Advanced IP/Port Scanner utilities.",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"scanning",
+		"reconnaissance",
+		"T1590",
+		"discovery",
+		"reconnaissance"
+	],
+	"Schedule": "39 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c6bdbcb8-f697-4f67-b5be-c6f9ecaea19e",
+	"SearchReference": "905247c2-53b7-4659-b4bd-8f755fe4ff82"
+}

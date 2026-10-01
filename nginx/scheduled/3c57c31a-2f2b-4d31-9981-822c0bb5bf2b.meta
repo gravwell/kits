@@ -1,0 +1,22 @@
+{
+	"Name": "Nginx - Apt User Agent",
+	"Description": "Detects suspicious user agent strings used in APT malware in proxy logs",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"c2",
+		"command-and-control",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Schedule": "51 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "3c57c31a-2f2b-4d31-9981-822c0bb5bf2b",
+	"SearchReference": "3cca979e-3576-4f96-8c7d-f16d387e4634"
+}

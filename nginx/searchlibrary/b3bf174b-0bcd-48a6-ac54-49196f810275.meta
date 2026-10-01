@@ -1,0 +1,15 @@
+{
+	"Name": "Nginx - Top Probed URIs",
+	"Description": "Most frequently requested URIs that returned 404 — reveals what attackers are probing for",
+	"GUID": "b3bf174b-0bcd-48a6-ac54-49196f810275",
+	"Labels": [
+		"nginx",
+		"stats",
+		"uri",
+		"http-status",
+		"enumeration",
+		"reconnaissance",
+		"ip-activity"
+	],
+	"Metadata": {}
+}

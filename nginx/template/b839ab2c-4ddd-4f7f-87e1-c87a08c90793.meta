@@ -1,0 +1,18 @@
+{
+	"UUID": "b839ab2c-4ddd-4f7f-87e1-c87a08c90793",
+	"Name": "Nginx - Investigate IP - URIs and Methods",
+	"Description": "Table view of counts by URI, method, and status for an IP address.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": ["ip investigate", "nginx", "web server"]
+}

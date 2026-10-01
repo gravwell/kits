@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - Server Side Template Injection Strings",
+	"Description": "Detects SSTI attempts sent via GET requests in access logs",
+	"GUID": "145f1edc-ba5a-4db2-8cc5-49c5a3d78fa6",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"ssti",
+		"injection",
+		"initial-access",
+		"T1221",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

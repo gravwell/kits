@@ -1,0 +1,151 @@
+{
+	"UUID": "28bab5eb-35c6-428c-8436-041cc980c6b4",
+	"Name": "Nginx - Attack Surface",
+	"Description": "Review indicators related to errors, probing, and suspicious access patterns.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Nginx - Suspicious UA Over Time",
+				"color": null,
+				"reference": {
+					"id": "72a9aa90-1316-4eee-b765-94aca1b45db1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Suspicious UA By IP",
+				"color": null,
+				"reference": {
+					"id": "4dd07d1d-ce51-4323-bd5f-90638f9b4ac1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Error Rate By IP",
+				"color": null,
+				"reference": {
+					"id": "982e7792-8181-4831-a2f9-9d0529eb67ed",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Errors Over Time",
+				"color": null,
+				"reference": {
+					"id": "a9b5033c-75e0-42d9-9e3e-b3d4c28e92ef",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Nginx - Top Probed URIs",
+				"color": null,
+				"reference": {
+					"id": "b3bf174b-0bcd-48a6-ac54-49196f810275",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 4624960177916321,
+				"title": "Suspicious UA by IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 9,
+					"x": 0,
+					"y": 4
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 831928395558905,
+				"title": "URI Probing - Top Targets",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 13,
+					"x": 10,
+					"y": 0
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 5087966520837259,
+				"title": "Request Errors by IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 9,
+					"x": 6,
+					"y": 4
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 7644527328514330,
+				"title": "Suspicious User Agents Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 4,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1479145851266933,
+				"title": "Errors Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 4,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"nginx",
+		"attack surface",
+		"web server"
+	]
+}

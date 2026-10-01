@@ -1,0 +1,13 @@
+{
+	"Name": "Nginx - Suspicious User Agent",
+	"Description": "Detects suspicious malformed user agent strings in proxy logs",
+	"GUID": "5d6fcc34-167b-48b0-a7d6-eb79bd30f92a",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

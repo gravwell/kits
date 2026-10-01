@@ -1,0 +1,13 @@
+{
+	"Name": "Nginx - Requests By Site Over Time",
+	"Description": "Request volume over time, split by site (vhost). Shows which sites carry the load and when one drops off or spikes.",
+	"GUID": "d5c353f5-e234-557c-956b-aa3b2951cac7",
+	"Labels": [
+		"nginx",
+		"stats",
+		"vhost",
+		"baseline",
+		"operations"
+	],
+	"Metadata": {}
+}

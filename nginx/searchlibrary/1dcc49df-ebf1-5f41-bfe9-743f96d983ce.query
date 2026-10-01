@@ -1,0 +1,4 @@
+tag=$NGINX json remote_addr bytes_sent
+| stats sum(bytes_sent) as total_bytes count by remote_addr
+| sort by total_bytes desc
+| table remote_addr total_bytes count

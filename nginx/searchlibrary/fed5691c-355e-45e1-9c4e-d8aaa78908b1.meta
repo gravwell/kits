@@ -1,0 +1,16 @@
+{
+	"Name": "Nginx - Source Code Enumeration Detection By Keyword",
+	"Description": "Detects source code enumeration that use GET requests by keyword searches in URL strings",
+	"GUID": "fed5691c-355e-45e1-9c4e-d8aaa78908b1",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"enumeration",
+		"discovery",
+		"reconnaissance",
+		"T1083",
+		"discovery"
+	],
+	"Metadata": {}
+}

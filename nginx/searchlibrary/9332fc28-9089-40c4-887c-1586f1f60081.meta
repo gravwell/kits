@@ -1,0 +1,18 @@
+{
+	"Name": "Nginx - Web Encoding Evasion",
+	"Description": "Detects URL encoding evasion techniques in HTTP requests including double encoding, null byte injection, and Unicode normalization sequences used to bypass WAFs and input filters.",
+	"GUID": "9332fc28-9089-40c4-887c-1586f1f60081",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"path-traversal",
+		"evasion",
+		"initial-access",
+		"defense-evasion",
+		"bespoke",
+		"T1190",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

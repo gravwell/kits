@@ -1,0 +1,18 @@
+{
+	"UUID": "4e8b591c-7f21-41cc-95fe-caccfdbf3db8",
+	"Name": "Nginx - Investigate IP - Activity Timeline",
+	"Description": "All Nginx events for this IP",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%investigate_ip%%",
+				"label": "investigate_ip",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": ""
+			}
+		]
+	},
+	"Labels": ["ip investigate", "nginx", "web server"]
+}

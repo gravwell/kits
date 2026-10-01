@@ -1,0 +1,11 @@
+{
+	"Name": "Nginx - Request Volume Over Time",
+	"Description": "Count of all Nginx request events in 1h increments",
+	"GUID": "d0c029af-455f-4407-8329-2d8768f6bb85",
+	"Labels": [
+		"nginx",
+		"stats",
+		"baseline"
+	],
+	"Metadata": {}
+}

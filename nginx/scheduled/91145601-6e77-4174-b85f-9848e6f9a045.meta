@@ -1,0 +1,24 @@
+{
+	"Name": "Nginx - Java Payload Strings",
+	"Description": "Detects possible Java payloads in web access logs",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"rce",
+		"injection",
+		"initial-access",
+		"execution",
+		"T1190",
+		"initial-access"
+	],
+	"Schedule": "54 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "91145601-6e77-4174-b85f-9848e6f9a045",
+	"SearchReference": "6e1ab4a4-9b4a-4ba6-a163-9c35237b2077"
+}

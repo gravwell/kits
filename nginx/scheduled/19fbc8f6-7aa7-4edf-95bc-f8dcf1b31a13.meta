@@ -1,0 +1,23 @@
+{
+	"Name": "Nginx - Server Side Template Injection Strings",
+	"Description": "Detects SSTI attempts sent via GET requests in access logs",
+	"Labels": [
+		"nginx",
+		"detection",
+		"uri",
+		"ssti",
+		"injection",
+		"initial-access",
+		"T1221",
+		"defense-evasion"
+	],
+	"Schedule": "21 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "19fbc8f6-7aa7-4edf-95bc-f8dcf1b31a13",
+	"SearchReference": "145f1edc-ba5a-4db2-8cc5-49c5a3d78fa6"
+}

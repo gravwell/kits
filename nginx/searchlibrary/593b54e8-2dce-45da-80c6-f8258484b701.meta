@@ -1,0 +1,13 @@
+{
+	"Name": "Nginx - Malware User Agent",
+	"Description": "Detects suspicious user agent strings used by malware in proxy logs",
+	"GUID": "593b54e8-2dce-45da-80c6-f8258484b701",
+	"Labels": [
+		"nginx",
+		"detection",
+		"user-agent",
+		"T1071.001",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

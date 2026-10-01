@@ -1,0 +1,2 @@
+tag=$NGINX json time remote_addr == %%investigate_ip%% method uri status bytes_sent request_time
+| table
