@@ -1,3 +1,2 @@
-tag=$NGINX
-| count over 1h
+tag=$NGINX count over 1h
 | chart count
