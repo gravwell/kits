@@ -1,0 +1,2 @@
+tag=$ZENDESK_AUDIT ax action=="destroy" source_type=="apitoken" actor_name source_label change_description ip_address
+| table actor_name source_label change_description ip_address

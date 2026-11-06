@@ -1,0 +1,22 @@
+{
+	"UUID": "961e3ee1-52e9-4b9c-bb7b-ee477715084a",
+	"Name": "Zendesk - Investigate Audited Item",
+	"Description": "Audit history for an item by name (a user, rule, token, or other audited object) - who changed it and how.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%item%%",
+				"label": "Item Name",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "Ticket assignment trigger"
+			}
+		]
+	},
+	"Labels": [
+		"zendesk",
+		"audit",
+		"investigation"
+	]
+}

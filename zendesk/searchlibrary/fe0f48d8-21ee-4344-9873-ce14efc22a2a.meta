@@ -1,0 +1,11 @@
+{
+	"Name": "Zendesk - Audit Events Over Time [Chart]",
+	"Description": "Chart of Zendesk audit log events over time, keyed by the action performed (create, update, destroy, login, exported).",
+	"GUID": "fe0f48d8-21ee-4344-9873-ce14efc22a2a",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

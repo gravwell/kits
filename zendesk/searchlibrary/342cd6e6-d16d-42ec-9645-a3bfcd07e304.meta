@@ -1,0 +1,13 @@
+{
+	"Name": "Zendesk - Burst of Destroy Actions by Actor",
+	"Description": "Detects an actor performing more than 10 destroy actions in a 10 minute window. Bulk deletion of users, rules, or other configuration can indicate destructive tampering. Adjust the threshold to fit your environment.",
+	"GUID": "342cd6e6-d16d-42ec-9645-a3bfcd07e304",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1485",
+		"impact"
+	],
+	"Metadata": {}
+}

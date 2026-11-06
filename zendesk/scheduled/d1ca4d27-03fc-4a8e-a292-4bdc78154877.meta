@@ -1,0 +1,20 @@
+{
+	"Name": "Zendesk - Account Data Exported",
+	"Description": "Detects export operations recorded in the Zendesk audit log. Bulk exports of tickets or other account data can indicate data theft by a compromised or malicious account.",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1567",
+		"exfiltration"
+	],
+	"Schedule": "0 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "d1ca4d27-03fc-4a8e-a292-4bdc78154877",
+	"SearchReference": "e14f377d-8486-4f61-8001-aa36dcbbbd74"
+}

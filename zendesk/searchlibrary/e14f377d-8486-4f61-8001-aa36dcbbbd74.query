@@ -1,0 +1,2 @@
+tag=$ZENDESK_AUDIT ax action=="exported" actor_name source_type source_label change_description ip_address
+| table actor_name source_type source_label change_description ip_address

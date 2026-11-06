@@ -1,0 +1,20 @@
+{
+	"Name": "Zendesk - Excessive Configuration Changes by Actor",
+	"Description": "Detects an actor making more than 30 audited changes in a 10 minute window, which can indicate scripted tampering with the Zendesk account configuration. Adjust the threshold to fit your environment.",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1562",
+		"defense-evasion"
+	],
+	"Schedule": "49 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "9caa2fe0-0195-4060-a2ab-94753617070a",
+	"SearchReference": "76ade016-9bd6-4303-a721-198fbaf3a437"
+}

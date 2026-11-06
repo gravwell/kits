@@ -1,0 +1,3 @@
+tag=$ZENDESK_AUDIT ax source_type
+| count by source_type
+| chart count by source_type
