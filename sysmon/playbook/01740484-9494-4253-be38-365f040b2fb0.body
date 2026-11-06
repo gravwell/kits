@@ -29,6 +29,10 @@ The Windows Resource kit supplies windows\_access\_flags and windows\_error\_cod
 
 ## Changelog
 
+**v8: Actionable fix**
+- The Sysmon - Computer actionable no longer turns text into links automatically. Its hostname pattern matched almost every word in search results, so it is now offered only when you select text.
+- The Sysmon - DNS actionable no longer turns text into links automatically. Its domain-name pattern also matched file names such as svchost.exe and ntdll.dll, so it is now offered only when you select text.
+
 **v7: Audit remediation**
 - Corrected the ProcessGuid File Delete template to Event ID 23, the Sysmon Errors search (Event ID 255 emits no RuleName), and the registry Environment path literal.
 - Fixed time-windowed aggregation on the Integrity Level deviation chart and the network_services composite join.
