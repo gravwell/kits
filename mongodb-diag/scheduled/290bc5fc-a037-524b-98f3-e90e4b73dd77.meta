@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Collection Scan [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Slow Collection Scan.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "290bc5fc-a037-524b-98f3-e90e4b73dd77",
+	"SearchReference": "514fee3d-08d7-5e45-9039-5ad5ef2842a6"
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Clusters - Cluster Client Log Redaction Disabled [table]",
+  "Description": "Detects clusters where client log redaction is disabled.",
+  "GUID": "e0c31e16-7770-527e-9889-aa663c4e2579",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

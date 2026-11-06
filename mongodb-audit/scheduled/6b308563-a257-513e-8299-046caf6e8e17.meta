@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Privileges Granted To Role [table]",
+  "Description": "Detects privilege grants to MongoDB roles.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "6b308563-a257-513e-8299-046caf6e8e17",
+  "SearchReference": "dc7b4bd3-5840-5bb0-a8bd-b92982ae6b86"
+}

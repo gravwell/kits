@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Locked Suspended or Temporarily Activated [table]",
+  "Description": "Detects suspicious organization lock, suspension, temporary activation, or linked-organization changes.",
+  "GUID": "7f8abaa8-b846-5fca-9eb5-f3cb53740773",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

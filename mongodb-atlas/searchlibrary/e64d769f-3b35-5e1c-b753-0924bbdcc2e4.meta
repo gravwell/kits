@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Critical Atlas Alert Configuration Defined [table]",
+  "Description": "Detects Atlas alert configurations for high-impact events so coverage can be audited and compared against expected baseline.",
+  "GUID": "e64d769f-3b35-5e1c-b753-0924bbdcc2e4",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

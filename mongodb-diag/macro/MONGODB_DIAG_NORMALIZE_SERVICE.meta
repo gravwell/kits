@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_DIAG_NORMALIZE_SERVICE",
+	"Description": "This macro normalizes Service from an abbreviation to the full word.",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

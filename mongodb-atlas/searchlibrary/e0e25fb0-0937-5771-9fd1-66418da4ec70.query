@@ -1,0 +1,6 @@
+/* Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Notification Type [numbercard] */
+tag=$MONGODB_ATLAS_ALERT_CONFIGS ax notifications
+| json -x notifications 
+| json -e notifications typeName as notificationType
+| stats count by notificationType
+| numbercard (count " ")

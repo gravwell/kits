@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_AUDIT_RISK_SCORE",
+	"Description": "Macro used for MongoDB Audit alerts.",
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Clusters - Cluster Paused [table]",
+  "Description": "Detects clusters in a paused state.",
+  "GUID": "3846d188-514d-5faa-9e80-ea0fc4d19f97",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

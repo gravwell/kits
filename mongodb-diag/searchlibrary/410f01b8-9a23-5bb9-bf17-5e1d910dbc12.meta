@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Index Build Failed Or Aborted [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Index Build Failed Or Aborted.",
+	"GUID": "410f01b8-9a23-5bb9-bf17-5e1d910dbc12",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

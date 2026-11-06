@@ -1,0 +1,5 @@
+/* Search - MongoDB - Database - Audit - Overview - Total Events [chart] */
+tag=$MONGODB_AUDIT
+| stats count
+| alias count " "
+| chart " "

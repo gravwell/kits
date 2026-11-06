@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Termination Protection Enabled [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Termination Protection Enabled (terminationProtectionEnabled) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "89f1ebb9-c4d1-5697-8694-579878415bff",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

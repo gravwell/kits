@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Hostname [chart] */
+tag=$MONGODB_ATLAS_ALERTS ax hostname
+| stats count as " " by hostname
+| chart " " by hostname

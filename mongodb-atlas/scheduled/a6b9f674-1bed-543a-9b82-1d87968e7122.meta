@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - MongoDB Employee Support Access [table]",
+  "Description": "Detects MongoDB employee SSH sessions or temporary infrastructure access bypass events.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a6b9f674-1bed-543a-9b82-1d87968e7122",
+  "SearchReference": "4393a2b5-5c7d-561b-b319-91edfd64147c"
+}

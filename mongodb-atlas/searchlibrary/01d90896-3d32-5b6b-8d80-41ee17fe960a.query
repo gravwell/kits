@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Paused [chart] */
+tag=$MONGODB_ATLAS_CLUSTERS ax paused
+| stats count as " " by paused
+| chart " " by paused

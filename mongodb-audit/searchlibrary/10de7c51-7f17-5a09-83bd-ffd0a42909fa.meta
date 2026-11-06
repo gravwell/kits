@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Role Dropped [table]",
+  "Description": "Detects MongoDB role deletion.",
+  "GUID": "10de7c51-7f17-5a09-83bd-ffd0a42909fa",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

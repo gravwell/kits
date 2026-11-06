@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Insecure Startup Warning [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Insecure Startup Warning.",
+	"GUID": "d14258db-435e-5551-8f80-c11714b2ce29",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Authentication Failure [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Authentication Failure.",
+	"GUID": "03394ec6-ae03-534c-a189-54d2bf8d9189",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

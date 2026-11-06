@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Process Shutdown [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Process Shutdown.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "08358823-08f3-5c90-b15c-30c1c931524f",
+	"SearchReference": "f99cb3b8-fad1-574d-981b-22848a2b06c7"
+}

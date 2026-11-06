@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Startup Warning [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Startup Warning.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "da66134a-78f0-5bb0-bd30-e016e93a1e4d",
+	"SearchReference": "d1d6f6d2-d743-5b31-8936-7a72c9d176c3"
+}

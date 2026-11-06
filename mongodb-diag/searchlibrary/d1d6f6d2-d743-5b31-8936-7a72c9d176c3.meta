@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Startup Warning [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Startup Warning.",
+	"GUID": "d1d6f6d2-d743-5b31-8936-7a72c9d176c3",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

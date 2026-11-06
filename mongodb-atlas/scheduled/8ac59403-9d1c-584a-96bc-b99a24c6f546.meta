@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Cloud Backups - Backup Failure Status [table]",
+  "Description": "Detects backup snapshot records with failed, canceled, expired, or fallback failure statuses.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "8ac59403-9d1c-584a-96bc-b99a24c6f546",
+  "SearchReference": "f905d4cc-11ae-5cee-ae75-fe6740bcc5b1"
+}

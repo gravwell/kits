@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Critical Atlas Alert Configuration Defined [table]",
+  "Description": "Detects Atlas alert configurations for high-impact events so coverage can be audited and compared against expected baseline.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a447dd00-20e8-5382-8949-1227ba565061",
+  "SearchReference": "e64d769f-3b35-5e1c-b753-0924bbdcc2e4"
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Project Security Checkup Degraded [table]",
+  "Description": "Detects project events indicating security checkup failures, exposed hosts, or security checkup alert configuration changes.",
+  "GUID": "6983feac-1868-57ab-9116-873d6edf1eb9",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

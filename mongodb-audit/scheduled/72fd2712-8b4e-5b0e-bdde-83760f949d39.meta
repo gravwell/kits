@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Dropped [table]",
+  "Description": "Detects MongoDB role deletion.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "72fd2712-8b4e-5b0e-bdde-83760f949d39",
+  "SearchReference": "10de7c51-7f17-5a09-83bd-ffd0a42909fa"
+}

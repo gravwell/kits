@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Index Build Aborted [table]",
+  "Description": "Detects aborted MongoDB index builds.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "ca1c10d0-b722-54aa-a95f-d045cf73f3f6",
+  "SearchReference": "f45eaa3c-5095-577b-98c0-eab866186284"
+}

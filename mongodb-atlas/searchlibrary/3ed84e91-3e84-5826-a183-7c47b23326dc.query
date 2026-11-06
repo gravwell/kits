@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Delete After Date [chart] */
+tag=$MONGODB_ATLAS_NETWORK_ACCESS ax deleteAfterDate
+| stats count as " " by deleteAfterDate
+| chart " " by deleteAfterDate

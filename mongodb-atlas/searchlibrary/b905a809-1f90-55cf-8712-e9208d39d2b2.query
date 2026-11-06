@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Paused [numbercard] */
+tag=$MONGODB_ATLAS_CLUSTERS ax paused
+| stats count by paused
+| numbercard (count " ")

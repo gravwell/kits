@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Connection Accepted Spike By Remote [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Connection Accepted Spike By Remote.",
+	"GUID": "69e608e0-a0a2-5f97-9499-05c3f1322d6e",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

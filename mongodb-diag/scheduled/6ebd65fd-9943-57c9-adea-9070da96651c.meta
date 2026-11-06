@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Large Response Returned [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Large Response Returned.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "6ebd65fd-9943-57c9-adea-9070da96651c",
+	"SearchReference": "0960a9c2-95b3-502b-b528-be007cd8572f"
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Large Log Message [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Large Log Message.",
+	"GUID": "dbdd7e0f-4cad-51db-ab36-977de2ff40a5",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Masked Secret Value [chart] */
+tag=$MONGODB_ATLAS_SERVICE_ACCOUNTS ax maskedSecretValue
+| json -x maskedSecretValue
+| stats count as " " by maskedSecretValue
+| chart " " by maskedSecretValue

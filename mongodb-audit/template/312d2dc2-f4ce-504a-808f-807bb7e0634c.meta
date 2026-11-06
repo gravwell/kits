@@ -1,0 +1,29 @@
+{
+	"UUID": "312d2dc2-f4ce-504a-808f-807bb7e0634c",
+	"Name": "Template - MongoDB - Database - Audit - Investigation - Total Events [numbercard]",
+	"Description": "This is intended to show a numbercard of total events for the User or IP that you are investigating within the time frame that you specify.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%user%%",
+				"label": "User",
+				"description": "What User are you investigating/searching for?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "IP",
+				"description": "What IP Address are you investigating/searching for?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}

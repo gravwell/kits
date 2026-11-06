@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - API Key Lifecycle or Permission Change [table]*/
+tag=$MONGODB_ATLAS_ACTIVITY ax
+| regex -e eventTypeName "^API_KEY_(CREATED|DELETED|DESCRIPTION_CHANGED|ADDED_TO_GROUP|REMOVED_FROM_GROUP|ROLES_CHANGED|ACCESS_LIST_ENTRY_ADDED|ACCESS_LIST_ENTRY_DELETED|UI_IP_ACCESS_LIST_INHERITANCE_DISABLED|UI_IP_ACCESS_LIST_INHERITANCE_ENABLED)$"
+| eval _alert_name = "API Key Lifecycle or Permission Change";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

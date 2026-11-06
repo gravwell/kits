@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Count by Hostname [numbercard] */
+tag=$MONGODB_ATLAS_ACCESS ax hostname
+| stats count by hostname
+| numbercard (count " ")

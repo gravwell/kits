@@ -1,0 +1,46 @@
+{
+	"UUID": "848dd9f6-aa2d-552c-b6e4-a18d32384a51",
+	"Name": "MongoDB Diagnostics Namespace",
+	"Description": "MongoDB Diagnostics actions on namespace, database, or collection to launch the MongoDB Diagnostics Investigation dashboard.",
+	"Data": {
+		"menuLabel": "MongoDB Diagnostics",
+		"actions": [
+			{
+				"name": "Investigate Namespace",
+				"description": "MongoDB Diagnostics actions on namespace, database, or collection to launch the MongoDB Diagnostics Investigation dashboard.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "613a0585-9ccc-5562-9f93-16c396b3edaa",
+					"options": {
+						"variable": "namespace"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "\\W{1,}(namespace|ns|database|db|collection)\\W{1,}(?\u003cnamespace\u003e[^\"]+)",
+				"hyperlink": true,
+				"disabled": false
+			},
+			{
+				"pattern": "\\b[A-Za-z0-9_$-]+\\.[A-Za-z0-9_$.-]+\\b",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

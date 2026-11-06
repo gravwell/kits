@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Database Or Collection Drop Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Database Or Collection Drop Command Logged.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f709183f-d775-5d13-bddd-141dda2150f3",
+	"SearchReference": "18a98abb-6519-506e-bc15-5ce20ea50a16"
+}

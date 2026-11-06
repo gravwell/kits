@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization MFA Posture Weakened [table]",
+  "Description": "Detects organization-level MFA posture alerts or MFA requirement changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "f1614dfc-7a1b-5f5d-9944-d5105013a67b",
+  "SearchReference": "b5f4817b-2e01-5924-8e99-87952d289df9"
+}

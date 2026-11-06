@@ -1,0 +1,8 @@
+"result","resultName","description"
+"0","Success","Operation succeeded"
+"13","Unauthorized","Unauthorized to perform the operation"
+"18","Authentication Failed","Authentication failed"
+"26","NamespaceNotFound","If the collection or view does not exist, the audit message shows the return code as result: 26."
+"276","Index Build Aborted","Index build was aborted"
+"334","Mechanism Unavailable","Authentication mechanism unavailable"
+"337","Authentication Abandoned","Authentication was abandoned or incomplete"

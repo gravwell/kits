@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Database Dropped [table]",
+  "Description": "Detects MongoDB database deletion.",
+  "GUID": "21313afa-27fb-51eb-836d-5f2064c1b209",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

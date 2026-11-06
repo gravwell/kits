@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Process Startup [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Process Startup.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a6f91f55-d424-594a-aaf6-c36050cba29a",
+	"SearchReference": "108bfe6c-2a69-50b9-b086-b7f350562462"
+}

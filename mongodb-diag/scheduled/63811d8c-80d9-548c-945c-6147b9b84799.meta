@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Connection Churn By Remote [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Connection Churn By Remote.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "63811d8c-80d9-548c-945c-6147b9b84799",
+	"SearchReference": "0c89550f-efa3-5826-b9ee-42cc0a949bc7"
+}

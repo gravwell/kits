@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Org Users Overview - Count by Group Roles [chart] */
+tag=$MONGODB_ATLAS_ORG_USERS ax groupRoles
+| json -x groupRoles
+| stats count as " " by groupRoles
+| chart " " by groupRoles

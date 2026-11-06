@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Replication Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Replication Warning Or Error.",
+	"GUID": "8756ae72-06af-5482-9cfc-241451b0445e",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

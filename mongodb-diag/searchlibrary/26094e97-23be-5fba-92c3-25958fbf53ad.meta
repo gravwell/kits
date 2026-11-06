@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Rollback Activity [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Rollback Activity.",
+	"GUID": "26094e97-23be-5fba-92c3-25958fbf53ad",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

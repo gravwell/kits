@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Network Permission Entry Change [table]",
+  "Description": "Detects Atlas project network permission entries being added, removed, or updated.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "4548115b-414c-5a6f-b96c-2091eaef8afc",
+  "SearchReference": "ea1f1aaf-e4b6-55d6-bc29-82b552b9ca19"
+}

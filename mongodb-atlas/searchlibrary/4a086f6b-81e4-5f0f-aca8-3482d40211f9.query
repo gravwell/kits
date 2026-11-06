@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Rare Mongo DB Major Version [numbercard] */
+tag=$MONGODB_ATLAS_CLUSTERS ax mongoDBMajorVersion
+| stats count by mongoDBMajorVersion
+| bottom -n 1 count
+| numbercard (count " ")

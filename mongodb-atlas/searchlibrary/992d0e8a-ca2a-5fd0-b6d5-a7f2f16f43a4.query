@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Description [numbercard] */
+tag=$MONGODB_ATLAS_API_KEYS ax desc
+| stats count by desc
+| numbercard (count " ")

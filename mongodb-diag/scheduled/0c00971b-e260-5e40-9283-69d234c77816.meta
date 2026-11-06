@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Log Message Truncated [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Log Message Truncated.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0c00971b-e260-5e40-9283-69d234c77816",
+	"SearchReference": "4d80846f-ce9c-5c8e-9fd2-aa403576266d"
+}

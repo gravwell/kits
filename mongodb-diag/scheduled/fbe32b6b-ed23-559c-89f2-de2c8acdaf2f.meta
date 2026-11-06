@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Replication Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Replication Warning Or Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "fbe32b6b-ed23-559c-89f2-de2c8acdaf2f",
+	"SearchReference": "8756ae72-06af-5482-9cfc-241451b0445e"
+}

@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Sharded [table]",
+  "Description": "Detects MongoDB collection sharding activity.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a718b1a6-fe1b-566f-a410-c84734953eb3",
+  "SearchReference": "56498671-245e-5ee5-8baf-989f9b06ed43"
+}

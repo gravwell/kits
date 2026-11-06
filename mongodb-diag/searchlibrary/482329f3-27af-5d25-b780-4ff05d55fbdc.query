@@ -1,0 +1,5 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Rare Context [numbercard] */
+tag=$MONGODB_DIAG ax context
+| stats count by context
+| bottom -n 1 count
+| numbercard (count " ")

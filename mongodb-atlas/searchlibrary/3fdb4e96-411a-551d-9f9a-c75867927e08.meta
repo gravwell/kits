@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Clusters - Cluster Unsafe Protection Settings [table]",
+  "Description": "Detects clusters with point-in-time restore, termination protection, or client-log redaction disabled.",
+  "GUID": "3fdb4e96-411a-551d-9f9a-c75867927e08",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

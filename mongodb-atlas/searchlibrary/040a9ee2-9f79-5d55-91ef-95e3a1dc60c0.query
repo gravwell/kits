@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Overview - Rare Org ID [numbercard] */
+tag=$MONGODB_ATLAS ax orgId
+| stats count by orgId
+| bottom -n 1 count
+| numbercard (count " ")

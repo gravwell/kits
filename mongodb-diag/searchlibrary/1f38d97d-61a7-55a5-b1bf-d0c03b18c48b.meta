@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Access Control Not Enabled [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Access Control Not Enabled.",
+	"GUID": "1f38d97d-61a7-55a5-b1bf-d0c03b18c48b",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Sharding Enabled [table]",
+  "Description": "Detects MongoDB sharding enablement.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "66e93db3-2a82-56d9-98f6-5126145cb497",
+  "SearchReference": "59ad79f6-67ff-587c-868d-1a99146f05ef"
+}

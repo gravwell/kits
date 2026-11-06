@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Group ID [numbercard] */
+tag=$MONGODB_ATLAS_ACTIVITY ax groupId
+| stats count by groupId
+| numbercard (count " ")

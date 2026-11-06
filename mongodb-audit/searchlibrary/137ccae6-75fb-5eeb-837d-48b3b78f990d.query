@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Audit - Overview - Count by Role Database [chart] */
+tag=$MONGODB_AUDIT ax roleDatabase
+| stats count as " " by roleDatabase
+| chart " " by roleDatabase

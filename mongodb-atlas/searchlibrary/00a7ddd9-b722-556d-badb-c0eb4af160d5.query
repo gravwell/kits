@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Enabled [chart] */
+tag=$MONGODB_ATLAS_ALERT_CONFIGS ax enabled
+| stats count as " " by enabled
+| chart " " by enabled

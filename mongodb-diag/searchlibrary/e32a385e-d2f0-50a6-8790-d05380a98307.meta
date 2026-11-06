@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Transient Transaction Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Transient Transaction Error.",
+	"GUID": "e32a385e-d2f0-50a6-8790-d05380a98307",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

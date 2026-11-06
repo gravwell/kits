@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Slow Query With No Index Use [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Slow Query With No Index Use.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "fcaa0135-5adb-52a4-a63c-cc55218bbcbf",
+	"SearchReference": "1453bf4c-2d57-52f6-b4f6-636094682ed0"
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Index Build Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Index Build Warning Or Error.",
+	"GUID": "f3d81235-231f-570b-8bf4-ca53fc848123",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

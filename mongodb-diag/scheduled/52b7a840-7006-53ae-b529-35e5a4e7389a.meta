@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Yield Slow Operation [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: High Yield Slow Operation.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "52b7a840-7006-53ae-b529-35e5a4e7389a",
+	"SearchReference": "84997f4e-fb05-5f9c-9af2-c869f9949e38"
+}

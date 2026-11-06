@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Frequency Type [numbercard] */
+tag=$MONGODB_ATLAS_BACKUPS ax frequencyType
+| stats count by frequencyType
+| numbercard (count " ")

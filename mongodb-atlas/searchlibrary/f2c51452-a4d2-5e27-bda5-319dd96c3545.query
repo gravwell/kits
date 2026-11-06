@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Database Name [chart] */
+tag=$MONGODB_ATLAS_DATABASE_USERS ax databaseName
+| stats count as " " by databaseName
+| chart " " by databaseName

@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by MongoDB Version [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Mongo DB Version (mongoDBVersion) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "4f3a5fe1-4d2f-5ccd-8cbb-128a5c964d48",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

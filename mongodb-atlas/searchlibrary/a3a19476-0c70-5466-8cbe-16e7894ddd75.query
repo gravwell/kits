@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alert Configs Overview - Count by Matcher Operator [chart] */
+tag=$MONGODB_ATLAS_ALERT_CONFIGS ax matcherOperator
+| stats count as " " by matcherOperator
+| chart " " by matcherOperator

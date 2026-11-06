@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - FTDC Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: FTDC Warning Or Error.",
+	"GUID": "4eea717a-36fa-5e57-91e2-e9d46d5361d0",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

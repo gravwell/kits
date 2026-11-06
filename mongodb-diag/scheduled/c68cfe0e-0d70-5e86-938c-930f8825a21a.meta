@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - User Or Role Admin Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: User Or Role Admin Command Logged.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c68cfe0e-0d70-5e86-938c-930f8825a21a",
+	"SearchReference": "f0cd75c1-b970-5a8d-8379-d6ed7e340fea"
+}

@@ -1,0 +1,6 @@
+/* Template - MongoDB - Database - Audit - Investigation - Recent Events [table] */
+tag=$MONGODB_AUDIT ax timestamp user userDatabase actionType result localIp localPort remoteIp remotePort database paramUser param roles
+| eval (user ~ "%%user%%" && (localIp ~ "%%ip%%" || remoteIp ~ "%%ip%%"))
+| lookup -r mongodb-audit-result-codes result result (resultName)
+| lookup -r mongodb-audit-actionType actionType actionType (category subcategory severity)
+| table timestamp user userDatabase actionType result resultName category subcategory severity localIp localPort remoteIp remotePort database paramUser param roles

@@ -1,0 +1,49 @@
+{
+	"UUID": "fce2b4e6-b997-558f-b042-01b928a7da3f",
+	"Name": "MongoDB Atlas Event Type",
+	"Description": "MongoDB Atlas Actions on eventTypeName, alert typeName, or metricName to launch the MongoDB Atlas Investigation dashboard.",
+	"Data": {
+		"menuLabel": "MongoDB Atlas",
+		"actions": [
+			{
+				"name": "Investigate Event Type",
+				"description": "MongoDB Atlas Actions on eventTypeName, alert typeName, or metricName to launch the MongoDB Atlas Investigation dashboard.",
+				"placeholder": null,
+				"command": {
+					"type": "dashboard",
+					"reference": "a14a072c-7c2d-55a7-927e-549998adfb30",
+					"options": {
+						"variable": "eventTypeName"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "\\W{1,}(eventTypeName|typeName|metricName)\\W{1,}(?<eventTypeName>[A-Z0-9_]+)",
+				"hyperlink": true,
+				"disabled": false
+			},
+			{
+				"pattern": "\\b[A-Z][A-Z0-9_]{4,}\\b",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

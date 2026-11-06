@@ -1,0 +1,18 @@
+{
+	"Name": "mongodb-audit",
+	"Desc": "Gravwell-generated JSON extraction for tag mongodb-audit",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"mongodb-audit"
+	],
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "c542e46d-0e4e-5c7a-8412-52c9c6490bc6",
+	"LastUpdated": "2026-07-09T21:22:52.488737Z"
+}

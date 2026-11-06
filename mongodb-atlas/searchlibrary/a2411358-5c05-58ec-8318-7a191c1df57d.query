@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by Comment [numbercard] */
+tag=$MONGODB_ATLAS_NETWORK_ACCESS ax comment
+| stats count by comment
+| numbercard (count " ")

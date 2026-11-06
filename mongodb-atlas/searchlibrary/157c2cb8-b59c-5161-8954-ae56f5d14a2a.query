@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Access Overview - Count by Group ID [chart] */
+tag=$MONGODB_ATLAS_ACCESS ax groupId
+| stats count as " " by groupId
+| chart " " by groupId

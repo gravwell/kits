@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Unauthorized Operation [table]",
+  "Description": "Detects MongoDB authorization failures.",
+  "GUID": "bf590b66-7fc2-5dd8-a459-c8913fde85f1",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

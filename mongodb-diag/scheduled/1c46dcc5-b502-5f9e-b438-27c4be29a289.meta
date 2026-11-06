@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Shutdown Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Shutdown Command Logged.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "1c46dcc5-b502-5f9e-b438-27c4be29a289",
+	"SearchReference": "621288cd-3ec7-5f7d-ab61-8f0c5f57fe3a"
+}

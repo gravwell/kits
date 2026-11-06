@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Count by Termination Protection Enabled [numbercard] */
+tag=$MONGODB_ATLAS_CLUSTERS ax terminationProtectionEnabled
+| stats count by terminationProtectionEnabled
+| numbercard (count " ")

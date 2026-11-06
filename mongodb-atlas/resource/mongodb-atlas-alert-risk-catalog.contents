@@ -1,0 +1,61 @@
+risk,tag,eventTypeName,reason
+critical,mongodb-atlas-alerts,HOST_DOWN,Host outage
+critical,mongodb-atlas-alerts,NO_PRIMARY,Replica set has no primary
+critical,mongodb-atlas-alerts,HOST_EXPOSED,Host exposed to public Internet
+critical,mongodb-atlas-alerts,HOST_NOT_ENOUGH_DISK_SPACE,Insufficient disk space
+critical,mongodb-atlas-alerts,OUTSIDE_METRIC_THRESHOLD,Metric outside threshold
+critical,mongodb-atlas-alerts,OUTSIDE_SPACE_USED_THRESHOLD,Space usage outside threshold
+critical,mongodb-atlas-alerts,HOST_ROLLBACK,Host rollback
+critical,mongodb-atlas-alerts,REPLICATION_OPLOG_WINDOW_RUNNING_OUT,Replication oplog window running out
+critical,mongodb-atlas-alerts,CPS_SNAPSHOT_FAILED,Cloud backup snapshot failed
+critical,mongodb-atlas-alerts,CPS_SNAPSHOT_BEHIND,No snapshot taken over configured period
+critical,mongodb-atlas-alerts,CPS_RESTORE_FAILED,Restore failed
+critical,mongodb-atlas-alerts,CPS_OPLOG_BEHIND,Cloud backup oplog capture behind
+high,mongodb-atlas-events,API_KEY_ROLES_CHANGED,API key roles changed
+high,mongodb-atlas-events,ALERT_CONFIG_DISABLED_AUDIT,Alert configuration disabled
+high,mongodb-atlas-activity,MONGODB_USER_ADDED,Database user added
+high,mongodb-atlas-activity,MONGODB_USER_DELETED,Database user deleted
+high,mongodb-atlas-activity,MONGODB_ROLE_UPDATED,Custom database role updated
+high,mongodb-atlas-activity,NETWORK_PERMISSION_ENTRY_ADDED,Network permission entry added
+high,mongodb-atlas-activity,RESTRICTED_EMPLOYEE_ACCESS_BYPASS,Temporary infrastructure access granted to MongoDB Support
+high,mongodb-atlas-events,ORG_USERS_WITHOUT_MFA,Organization users without MFA
+high,mongodb-atlas-events,USER_ROLES_CHANGED_AUDIT,User role changed
+high,mongodb-atlas-events,ORG_UI_IP_ACCESS_LIST_DISABLED,Atlas UI IP access list disabled
+high,mongodb-atlas-events,SERVICE_ACCOUNT_CREATED,Service account created
+high,mongodb-atlas-events,SERVICE_ACCOUNT_DELETED,Service account deleted
+high,mongodb-atlas-events,SERVICE_ACCOUNT_ROLES_CHANGED,Service account roles changed
+medium,mongodb-atlas-events,SERVICE_ACCOUNT_DETAILS_CHANGED,Service account details changed
+high,mongodb-atlas-events,SERVICE_ACCOUNT_ADDED_TO_GROUP,Service account added to project
+high,mongodb-atlas-events,SERVICE_ACCOUNT_REMOVED_FROM_GROUP,Service account removed from project
+high,mongodb-atlas-events,SERVICE_ACCOUNT_ACCESS_LIST_ENTRY_ADDED,Service account access list entry added
+high,mongodb-atlas-events,SERVICE_ACCOUNT_ACCESS_LIST_ENTRY_DELETED,Service account access list entry deleted
+critical,mongodb-atlas-events,SERVICE_ACCOUNT_SECRET_ADDED,Service account secret added
+high,mongodb-atlas-events,SERVICE_ACCOUNT_SECRET_DELETED,Service account secret deleted
+high,mongodb-atlas-events,SERVICE_ACCOUNT_UI_IP_ACCESS_LIST_INHERITANCE_ENABLED,Service account UI IP access list inheritance enabled
+high,mongodb-atlas-events,SERVICE_ACCOUNT_UI_IP_ACCESS_LIST_INHERITANCE_DISABLED,Service account UI IP access list inheritance disabled
+high,mongodb-atlas-events,API_KEY_CREATED,API key created
+high,mongodb-atlas-events,API_KEY_DELETED,API key deleted
+high,mongodb-atlas-events,API_KEY_ACCESS_LIST_ENTRY_ADDED,API key access list entry added
+high,mongodb-atlas-events,API_KEY_ACCESS_LIST_ENTRY_DELETED,API key access list entry deleted
+high,mongodb-atlas-events,API_KEY_DESCRIPTION_CHANGED,API key description changed
+high,mongodb-atlas-events,API_KEY_ADDED_TO_GROUP,API key added to project
+high,mongodb-atlas-events,API_KEY_REMOVED_FROM_GROUP,API key removed from project
+high,mongodb-atlas-events,API_KEY_UI_IP_ACCESS_LIST_INHERITANCE_ENABLED,API key UI IP access list inheritance enabled
+high,mongodb-atlas-events,API_KEY_UI_IP_ACCESS_LIST_INHERITANCE_DISABLED,API key UI IP access list inheritance disabled
+high,mongodb-atlas-events,ALERT_CONFIG_ENABLED_AUDIT,Alert configuration enabled
+high,mongodb-atlas-events,ALERT_CONFIG_ADDED_AUDIT,Alert configuration added
+high,mongodb-atlas-events,ALERT_CONFIG_DELETED_AUDIT,Alert configuration deleted
+high,mongodb-atlas-events,ALERT_CONFIG_CHANGED_AUDIT,Alert configuration changed
+high,mongodb-atlas-events,OAUTH_CLIENT_CREATED,OAuth client created
+high,mongodb-atlas-events,OAUTH_CLIENT_UPDATED,OAuth client updated
+high,mongodb-atlas-events,OAUTH_CLIENT_DELETED,OAuth client deleted
+high,mongodb-atlas-events,OAUTH_CLIENT_SECRET_CREATED,OAuth client secret created
+high,mongodb-atlas-events,OAUTH_CLIENT_SECRET_DELETED,OAuth client secret deleted
+high,mongodb-atlas-events,OAUTH_AUTHORIZATION_GRANTED,OAuth authorization granted
+high,mongodb-atlas-events,OAUTH_AUTHORIZATION_DENIED,OAuth authorization denied
+high,mongodb-atlas-events,OAUTH_TOKEN_ISSUED,OAuth token issued
+high,mongodb-atlas-events,OAUTH_TOKEN_REVOKED,OAuth token revoked
+high,mongodb-atlas-events,OAUTH_USER_CONSENT_GRANTED,OAuth user consent granted
+high,mongodb-atlas-events,OAUTH_USER_CONSENT_REVOKED,OAuth user consent revoked
+medium,mongodb-atlas-events,ALERT_ACKNOWLEDGED_AUDIT,Alert acknowledged
+medium,mongodb-atlas-events,ALERT_UNACKNOWLEDGED_AUDIT,Alert unacknowledged

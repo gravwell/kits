@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Process Shutdown [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Process Shutdown.",
+	"GUID": "f99cb3b8-fad1-574d-981b-22848a2b06c7",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

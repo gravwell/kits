@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Rollback Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Rollback Warning Or Error.",
+	"GUID": "8f402944-3075-5207-9d08-c28880080053",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Index Build Aborted [table]",
+  "Description": "Detects aborted MongoDB index builds.",
+  "GUID": "f45eaa3c-5095-577b-98c0-eab866186284",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

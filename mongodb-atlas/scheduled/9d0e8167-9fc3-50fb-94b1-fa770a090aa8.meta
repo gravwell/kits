@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Alerts - Open Atlas Search Node Alert [table]",
+  "Description": "Detects open Atlas Search alerts for mongot OOM, stopped replication, throttling, and failed index builds.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "9d0e8167-9fc3-50fb-94b1-fa770a090aa8",
+  "SearchReference": "4af3e086-c2bb-5242-b932-9077bc12da57"
+}

@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - MongoBleed Affected MongoDB Version Observed [table]",
+  "Description": "Detects MongoDB Server versions affected by CVE-2025-14847 / MongoBleed in cluster inventory. Atlas was patched by MongoDB, but this flags any reported affected version for review.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "f7b21f12-973c-592a-bc11-c3f4eb7f3379",
+  "SearchReference": "2c864a3f-e5bf-5c0e-bce6-85c90ca2f7e3"
+}

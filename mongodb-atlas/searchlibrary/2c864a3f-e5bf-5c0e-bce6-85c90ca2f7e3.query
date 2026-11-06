@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Clusters - MongoBleed Affected MongoDB Version Observed [table]*/
+tag=$MONGODB_ATLAS_CLUSTERS ax
+| regex -e mongoDBVersion "^(8\.2\.[0-2]|8\.0\.([0-9]|1[0-6])|7\.0\.([0-9]|1[0-9]|2[0-7])|6\.0\.([0-9]|1[0-9]|2[0-6])|5\.0\.([0-9]|[12][0-9]|3[01])|4\.4\.([0-9]|1[0-9]|2[0-9])|4\.2\.|4\.0\.|3\.6\.)"
+| eval _alert_name = "MongoBleed Affected MongoDB Version Observed";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

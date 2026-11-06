@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Network Access Overview - Count by AWS Security Group [numbercard] */
+tag=$MONGODB_ATLAS_NETWORK_ACCESS ax awsSecurityGroup
+| stats count by awsSecurityGroup
+| numbercard (count " ")

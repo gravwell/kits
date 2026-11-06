@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by LDAP Auth Type [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Ldap Auth Type (ldapAuthType) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "db468e17-6f83-57e1-977e-f43bc031deca",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

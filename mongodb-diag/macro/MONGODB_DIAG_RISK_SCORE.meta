@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_DIAG_RISK_SCORE",
+	"Description": "Risk scoring macro for MongoDB Diagnostics events based on severity, component, diagnostic message, and slow operation context.",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

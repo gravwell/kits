@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Total Events [numbercard] */
+tag=$MONGODB_ATLAS_CUSTOM_ROLES
+| stats count
+| numbercard (count " ")

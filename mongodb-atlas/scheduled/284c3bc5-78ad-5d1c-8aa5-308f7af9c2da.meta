@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Billing Spike [table]",
+  "Description": "Detects organization billing change events over configured thresholds.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "284c3bc5-78ad-5d1c-8aa5-308f7af9c2da",
+  "SearchReference": "ada52b5b-5cf2-5bed-b76c-3be74327cbc5"
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Role Revoked From User [table]",
+  "Description": "Detects MongoDB role revocation from users.",
+  "GUID": "d6bcdc62-630f-5bcb-a828-da4709bc2d2b",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

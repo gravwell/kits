@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Count by Context [numbercard] */
+tag=$MONGODB_DIAG ax context
+| stats count by context
+| numbercard (count " ")

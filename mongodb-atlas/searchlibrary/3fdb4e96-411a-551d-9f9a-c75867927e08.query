@@ -1,0 +1,9 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Clusters - Cluster Unsafe Protection Settings [table]*/
+tag=$MONGODB_ATLAS_CLUSTERS ax
+| regex -e pitEnabled "(?i)^false$|^0$"
+| regex -e terminationProtectionEnabled "(?i)^false$|^0$"
+| eval _alert_name = "Cluster Unsafe Protection Settings";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

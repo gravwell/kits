@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_AUDIT_ALERT_SENDER",
+	"Description": "This is the address to which MongoDB Alert Flows will be sent from.",
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}
