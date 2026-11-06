@@ -1,0 +1,20 @@
+{
+	"Name": "Slack - External Slack Connect Channel or DM Established",
+	"Description": "Detects Slack Connect invitations and connections that link a channel or DM to an external organization. Each one creates a data path out of the workspace to a party you do not control. The two connect_dm actions act on a direct message rather than a channel, so the channel columns are empty for those rows - the entity type column distinguishes them.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1567",
+		"exfiltration"
+	],
+	"Schedule": "42 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "81d8f87e-286d-4e4a-b22d-b0bdc28cb1b3",
+	"SearchReference": "78147c55-50f2-47a6-a2e0-96623b9d84b7"
+}

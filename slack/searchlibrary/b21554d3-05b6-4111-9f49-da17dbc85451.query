@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action actorName detailPreviousValue detailNewValue locationName
+| eval in(action, "pref.two_factor_auth_changed", "pref.two_factor_prevent_sms_changed", "pref.sso_setting_changed", "pref.session_duration_changed", "pref.session_duration_type_changed", "pref.sign_in_with_slack_disabled")
+| table action actorName detailPreviousValue detailNewValue locationName

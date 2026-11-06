@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax entityType
+| count by entityType
+| chart count by entityType

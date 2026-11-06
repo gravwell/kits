@@ -1,0 +1,11 @@
+{
+	"Name": "Slack - Top Actions [Chart]",
+	"Description": "The most frequent Slack audit actions. Slack defines several hundred action values, so the chart is limited to the top 15.",
+	"GUID": "76bdc53d-7159-482c-86c8-ec5a95a6c35b",
+	"Labels": [
+		"slack",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

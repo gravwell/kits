@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax appName contextAppName action actorName appScopes appIsDistributed
+| eval appName ~ "%%app%%" || contextAppName ~ "%%app%%"
+| table appName contextAppName action actorName appScopes appIsDistributed

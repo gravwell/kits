@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax actorName
+| count by actorName
+| chart count by actorName limit 10

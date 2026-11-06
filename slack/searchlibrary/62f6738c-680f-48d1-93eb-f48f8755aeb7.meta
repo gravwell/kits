@@ -1,0 +1,11 @@
+{
+	"Name": "Slack - Top Source IP Addresses [Chart]",
+	"Description": "Source IP addresses responsible for the most Slack audit events. Events with no IP address (system-initiated actions) are excluded.",
+	"GUID": "62f6738c-680f-48d1-93eb-f48f8755aeb7",
+	"Labels": [
+		"slack",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

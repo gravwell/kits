@@ -1,0 +1,4 @@
+tag=$SLACK_AUDIT ax ipAddress != "null"
+| eval ipAddress != ""
+| count by ipAddress
+| chart count by ipAddress limit 10

@@ -1,0 +1,20 @@
+{
+	"Name": "Slack - Anomaly Flagged by Slack",
+	"Description": "Surfaces events that Slack's own anomaly detection flagged, along with any session resets triggered in response. Slack raises these for behavior such as sign-ins from unexpected locations or devices.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1078",
+		"initial-access"
+	],
+	"Schedule": "54 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "47ab70b5-8a0c-4c8d-ac6a-0daccd7fd300",
+	"SearchReference": "5f884867-f753-4d87-9188-3cc7ca456bd7"
+}

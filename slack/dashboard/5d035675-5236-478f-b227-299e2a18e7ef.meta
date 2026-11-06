@@ -1,0 +1,175 @@
+{
+	"UUID": "5d035675-5236-478f-b227-299e2a18e7ef",
+	"Name": "Slack - Audit Overview",
+	"Description": "High-level view of Slack audit activity: event volume over time, the most frequent actions, top actors, entity type distribution, top workspaces, and recent events.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Slack - Audit Events Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "a083c592-d1f6-465c-a570-1721d60f996c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Top Actions [Chart]",
+				"color": null,
+				"reference": {
+					"id": "76bdc53d-7159-482c-86c8-ec5a95a6c35b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Top Actors [Chart]",
+				"color": null,
+				"reference": {
+					"id": "cfade0e8-2e88-4c6f-8dda-943fcfdf6be5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Events by Entity Type [Chart]",
+				"color": null,
+				"reference": {
+					"id": "3247387f-7068-4dca-8125-191458cad217",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Top Workspaces by Activity [Chart]",
+				"color": null,
+				"reference": {
+					"id": "552101a6-6c76-4aef-bdae-d413763ba311",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Recent Audit Events",
+				"color": null,
+				"reference": {
+					"id": "06c17dbb-b14e-4e2a-a312-d45e1fe33a60",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17830000000100,
+				"title": "Audit Events Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000101,
+				"title": "Top Actions",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000102,
+				"title": "Top Actors",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000103,
+				"title": "Events by Entity Type",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000104,
+				"title": "Top Workspaces",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000105,
+				"title": "Recent Audit Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"slack",
+		"audit"
+	]
+}

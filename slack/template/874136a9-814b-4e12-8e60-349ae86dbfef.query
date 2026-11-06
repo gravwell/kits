@@ -1,0 +1,2 @@
+tag=$SLACK_AUDIT ax channelName ~ "%%channel%%" action actorName channelPrivacy channelIsShared
+| table channelName action actorName channelPrivacy channelIsShared

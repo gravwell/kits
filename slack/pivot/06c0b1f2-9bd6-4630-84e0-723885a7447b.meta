@@ -1,0 +1,41 @@
+{
+	"UUID": "06c0b1f2-9bd6-4630-84e0-723885a7447b",
+	"Name": "Slack - Investigate User by Email",
+	"Description": "Investigate Slack audit activity for an email address that appears in search results.",
+	"Data": {
+		"menuLabel": "Slack",
+		"actions": [
+			{
+				"name": "Slack - User Audit Activity",
+				"description": "Review Slack audit activity for this user",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "f8572324-5821-451e-9dc9-f9da5ddba00d",
+					"options": {
+						"variable": "%%actor%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

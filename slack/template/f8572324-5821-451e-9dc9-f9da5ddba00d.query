@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax actorName actorEmail targetUserName targetUserEmail action entityType ipAddress
+| eval actorName ~ "%%actor%%" || actorEmail ~ "%%actor%%" || targetUserName ~ "%%actor%%" || targetUserEmail ~ "%%actor%%"
+| table actorName actorEmail targetUserName targetUserEmail action entityType ipAddress
