@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - User Login [numbercard]",
-	"Description": "Displays a numbercard of the user logins by count.",
+	"Name": "Search - Okta - Users - Has Logged In vs Never Logged In [numbercard]",
+	"Description": "Splits Okta users into those that have signed in at least once and those that never have. Accounts that were created and never used are the ones worth questioning: either onboarding stalled, or somebody created an account nobody asked for.\n\nRenders as two numbercards.",
 	"GUID": "35e5963e-0542-4dd8-a058-21b03cf97fb1",
 	"Labels": [
 		"okta"

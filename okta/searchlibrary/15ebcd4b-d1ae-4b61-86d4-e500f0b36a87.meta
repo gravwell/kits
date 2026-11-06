@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Activated to Password Changed Average [numbercard]",
-	"Description": "Displays a numbercard of the activated to password changed average/mean.",
+	"Name": "Search - Okta - Users - Activated to Password Changed Average [numbercard]",
+	"Description": "Average time between an Okta account being activated and its password last changing. A long average means users are keeping the password they were onboarded with.\n\nRenders as a numbercard broken into days, hours, minutes, and seconds.",
 	"GUID": "15ebcd4b-d1ae-4b61-86d4-e500f0b36a87",
 	"Labels": [
 		"okta"

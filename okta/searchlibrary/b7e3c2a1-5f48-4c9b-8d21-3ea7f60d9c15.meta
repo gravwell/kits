@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Lifecycle - System API - Okta API Token Enabled or Modified",
+	"Description": "An Okta API token was enabled or had its settings changed. Re-enabling a token that was parked, or relaxing the network condition on one, restores a credential that bypasses interactive sign-in.\n\nEvent types: system.api_token.enable, system.api_token.update\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "b7e3c2a1-5f48-4c9b-8d21-3ea7f60d9c15",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

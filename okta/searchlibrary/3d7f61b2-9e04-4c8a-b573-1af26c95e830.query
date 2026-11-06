@@ -1,0 +1,41 @@
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+| json
+	client.ipAddress as clientIp
+	client.geographicalContext.country as oktaCountry
+	client.geographicalContext.geolocation.lat as oktaLat
+	client.geographicalContext.geolocation.lon as oktaLon
+	securityContext.asOrg as asOrg
+	request.ipChain.[0].ip as requestIp
+// Settle on one source address.
+| eval
+	src = "";
+	if (has("clientIp") && clientIp != "" && clientIp != "null") { src = clientIp; }
+	else if (has("requestIp") && requestIp != "" && requestIp != "null") { src = requestIp; }
+// Take Okta's own coordinates, country, and network operator when present.
+| eval
+	srcLat = "";
+	srcLon = "";
+	srcCountry = "";
+	srcASNOrg = "";
+	if (has(oktaLat) && oktaLat != "" && oktaLat != "null") { srcLat = oktaLat; srcLon = oktaLon; }
+	if (has(oktaCountry) && oktaCountry != "" && oktaCountry != "null") { srcCountry = oktaCountry; }
+	if (has(asOrg) && asOrg != "" && asOrg != "null") { srcASNOrg = asOrg; }
+// Hand geoip an address only for the events Okta did not enrich.
+| eval
+	geoIp = "";
+	asnIp = "";
+	if (srcLat == "" || srcCountry == "") { geoIp = src; }
+	if (srcASNOrg == "") { asnIp = src; }
+| geoip geoIp.Lat as fbLat geoIp.Long as fbLon geoIp.CountryName as fbCountry
+| geoip -r asn_db asnIp.ASNOrg as fbASNOrg
+| eval
+	if (srcLat == "" && has(fbLat)) { srcLat = fbLat; srcLon = fbLon; }
+	if (srcCountry == "" && has(fbCountry)) { srcCountry = fbCountry; }
+	if (srcASNOrg == "" && has(fbASNOrg)) { srcASNOrg = fbASNOrg; }
+// Only plot events that ended up with coordinates.
+| eval srcLat != ""
+| stats count by srcLat srcLon src srcCountry srcASNOrg
+// The pointmap renderer takes separate latitude and longitude enumerated values,
+// so Okta's own coordinates can be used directly without a Location lookup.
+| pointmap -lat srcLat -long srcLon src srcCountry srcASNOrg count

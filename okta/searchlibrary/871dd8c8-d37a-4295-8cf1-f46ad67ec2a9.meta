@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Last Login to Last Updated Average [numbercard]",
-	"Description": "Displays a numbercard of the last login to last updated average/mean.",
+	"Name": "Search - Okta - Users - Last Updated to Last Login Average [numbercard]",
+	"Description": "Average time between an Okta profile last being updated and the account last signing in.\n\nRenders as a numbercard broken into days, hours, minutes, and seconds.",
 	"GUID": "871dd8c8-d37a-4295-8cf1-f46ad67ec2a9",
 	"Labels": [
 		"okta"

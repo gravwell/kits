@@ -1,5 +1,7 @@
-tag=$OKTA_SYSTEM json eventType
-| lookup -r okta_eventTypes eventType eventType (category as category subcategory as subcategory)
-| stats count by TAG category subcategory eventType
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+| json eventType
+| lookup -r okta_eventTypes eventType eventType (category subcategory)
+| stats count by category subcategory eventType
 | sort by count desc
-| table TAG category subcategory eventType count
+| table category subcategory eventType count

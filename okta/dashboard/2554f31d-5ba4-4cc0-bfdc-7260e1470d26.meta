@@ -1,11 +1,11 @@
 {
 	"UUID": "2554f31d-5ba4-4cc0-bfdc-7260e1470d26",
 	"Name": "Okta User Overview",
-	"Description": "This Dashboard is a general overview of your Okta User data.",
+	"Description": "The shape of your Okta user directory, from the user profile snapshots on the OKTA_USERS tag: how many users there are, what state they are in, and how they break down by division, department, job title, user type, and manager.\n\nEvery count here collapses to one entry per Okta user id first, so the numbers do not grow with the dashboard timeframe.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
-			"timeframe": "P1DT",
+			"timeframe": "P30DT",
 			"timezone": null,
 			"start": null,
 			"end": null
@@ -16,6 +16,61 @@
 				"color": null,
 				"reference": {
 					"id": "18c0e9ee-f214-44f9-8aca-80fbbd501907",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Division Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9cb440d8-d7d7-485a-9882-6e2dbada0de0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Department Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "fffec025-50d6-44a6-92e9-6055afd4d7f6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Job Title Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9e70cdfe-4e8e-4884-8d9a-d88031a1d70d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - User Type Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "7c25c0ca-989b-4a9a-aaa2-2224e9aeb508",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Users - Manager Count [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "765a6179-1862-405b-b48a-4434e919b021",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -89,28 +144,6 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User Type [numbercard]",
-				"color": null,
-				"reference": {
-					"id": "57fbef18-044c-4fbd-9417-c332f47fe5ba",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - Users - User Type [chart]",
-				"color": null,
-				"reference": {
-					"id": "87afea96-3af3-4da7-9a85-b6bb2612cf30",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
 				"alias": "Search - Okta - Users - Job Title [numbercard]",
 				"color": null,
 				"reference": {
@@ -133,10 +166,10 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - Division Count [numbercard]",
+				"alias": "Search - Okta - Users - User Type [numbercard]",
 				"color": null,
 				"reference": {
-					"id": "9cb440d8-d7d7-485a-9882-6e2dbada0de0",
+					"id": "57fbef18-044c-4fbd-9417-c332f47fe5ba",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -144,10 +177,10 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - Department Count [numbercard]",
+				"alias": "Search - Okta - Users - User Type [chart]",
 				"color": null,
 				"reference": {
-					"id": "fffec025-50d6-44a6-92e9-6055afd4d7f6",
+					"id": "87afea96-3af3-4da7-9a85-b6bb2612cf30",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -155,40 +188,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - Title Count [numbercard]",
-				"color": null,
-				"reference": {
-					"id": "9e70cdfe-4e8e-4884-8d9a-d88031a1d70d",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - Users - User Type Count [numbercard]",
-				"color": null,
-				"reference": {
-					"id": "7c25c0ca-989b-4a9a-aaa2-2224e9aeb508",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - Users - Manager Count [numbercard]",
-				"color": null,
-				"reference": {
-					"id": "765a6179-1862-405b-b48a-4434e919b021",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - Users - Count by Manager [numbercard]",
+				"alias": "Search - Okta - Users - Manager [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "e4f0ec4b-d6e5-4872-b89e-78d4d68bf8ea",
@@ -208,17 +208,28 @@
 						"defaultValue": null
 					}
 				}
+			},
+			{
+				"alias": "Search - Okta - Users - Account Creation by Day [chart]",
+				"color": null,
+				"reference": {
+					"id": "fc055c0e-84e0-440a-a56e-a6b4953e5f32",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
 			{
-				"id": 17635258764640,
+				"id": 1006540298047,
 				"title": "Total Users",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 4,
-					"row": 3,
+					"row": 4,
 					"x": 0,
 					"y": 0
 				},
@@ -226,263 +237,274 @@
 				"rendererOptions": {}
 			},
 			{
-				"id": 17635261179391,
-				"title": "User Status",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 16,
-					"row": 7,
-					"x": 0,
-					"y": 3
-				},
-				"searchesIndex": 1,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17635261837332,
-				"title": "User Status Chart",
-				"renderer": "pieChart",
-				"hideZoom": true,
-				"span": {
-					"col": 10,
-					"row": 7,
-					"x": 16,
-					"y": 3
-				},
-				"searchesIndex": 2,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17635264121333,
-				"title": "Division Numbercard",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 16,
-					"row": 6,
-					"x": 0,
-					"y": 10
-				},
-				"searchesIndex": 3,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17635264499364,
-				"title": "Division Chart",
-				"renderer": "donutChart",
-				"hideZoom": true,
-				"span": {
-					"col": 10,
-					"row": 6,
-					"x": 16,
-					"y": 10
-				},
-				"searchesIndex": 4,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 17635267320085,
-				"title": "Department Numbercard",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 16,
-					"row": 6,
-					"x": 0,
-					"y": 16
-				},
-				"searchesIndex": 5,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17635267619226,
-				"title": "Department Chart",
-				"renderer": "donutChart",
-				"hideZoom": true,
-				"span": {
-					"col": 10,
-					"row": 6,
-					"x": 16,
-					"y": 16
-				},
-				"searchesIndex": 6,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 17635271335977,
-				"title": "User Type Numbercard",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 16,
-					"row": 6,
-					"x": 0,
-					"y": 29
-				},
-				"searchesIndex": 7,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17635271711408,
-				"title": "User Type Chart",
-				"renderer": "donutChart",
-				"hideZoom": true,
-				"span": {
-					"col": 10,
-					"row": 6,
-					"x": 16,
-					"y": 29
-				},
-				"searchesIndex": 8,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 17635278214899,
-				"title": "Title Numbercard",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 16,
-					"row": 7,
-					"x": 0,
-					"y": 22
-				},
-				"searchesIndex": 9,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "no",
-					"NumberCardLabelFontSize": "20",
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": "20"
-				}
-			},
-			{
-				"id": 176352787832210,
-				"title": "Job Title Chart",
-				"renderer": "donutChart",
-				"hideZoom": true,
-				"span": {
-					"col": 10,
-					"row": 7,
-					"x": 16,
-					"y": 22
-				},
-				"searchesIndex": 10,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
-			},
-			{
-				"id": 176356110276711,
+				"id": 1179657928344,
 				"title": "Total Divisions",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 4,
-					"row": 3,
+					"row": 4,
 					"x": 4,
 					"y": 0
 				},
-				"searchesIndex": 11,
+				"searchesIndex": 1,
 				"rendererOptions": {}
 			},
 			{
-				"id": 176356118461012,
+				"id": 1250685231978,
 				"title": "Total Departments",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 4,
-					"row": 3,
+					"row": 4,
 					"x": 8,
 					"y": 0
 				},
-				"searchesIndex": 12,
+				"searchesIndex": 2,
 				"rendererOptions": {}
 			},
 			{
-				"id": 176356124892613,
+				"id": 1833077678787,
 				"title": "Total Job Titles",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 4,
-					"row": 3,
-					"x": 12,
-					"y": 0
+					"row": 4,
+					"x": 0,
+					"y": 4
 				},
-				"searchesIndex": 13,
+				"searchesIndex": 3,
 				"rendererOptions": {}
 			},
 			{
-				"id": 176356150494614,
+				"id": 1789179677212,
 				"title": "Total User Types",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 4,
-					"row": 3,
-					"x": 16,
-					"y": 0
+					"row": 4,
+					"x": 4,
+					"y": 4
 				},
-				"searchesIndex": 14,
+				"searchesIndex": 4,
 				"rendererOptions": {}
 			},
 			{
-				"id": 176356400394615,
+				"id": 1450932164334,
 				"title": "Total Managers",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
 					"col": 4,
-					"row": 3,
-					"x": 20,
-					"y": 0
+					"row": 4,
+					"x": 8,
+					"y": 4
 				},
-				"searchesIndex": 15,
+				"searchesIndex": 5,
 				"rendererOptions": {}
 			},
 			{
-				"id": 176356420735716,
-				"title": "Manager Numbercard",
+				"id": 1133324611143,
+				"title": "Account Status",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 16,
-					"row": 6,
+					"col": 6,
+					"row": 7,
 					"x": 0,
-					"y": 35
+					"y": 8
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1204351914777,
+				"title": "Account Status",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1160453913202,
+				"title": "Division",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 15
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1722206400324,
+				"title": "Division",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 15
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1404598847133,
+				"title": "Department",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 22
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1360700845558,
+				"title": "Department",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 22
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1431728149192,
+				"title": "Job Title",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 29
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1604845779489,
+				"title": "Job Title",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 29
+				},
+				"searchesIndex": 13,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1675873083123,
+				"title": "User Type",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 36
+				},
+				"searchesIndex": 14,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1631975081548,
+				"title": "User Type",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 36
+				},
+				"searchesIndex": 15,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 1703002385182,
+				"title": "Manager",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 43
 				},
 				"searchesIndex": 16,
 				"rendererOptions": {}
 			},
 			{
-				"id": 176356443676717,
-				"title": "Manager Chart",
+				"id": 1659104383607,
+				"title": "Manager",
 				"renderer": "pieChart",
 				"hideZoom": true,
 				"span": {
-					"col": 10,
-					"row": 6,
-					"x": 16,
-					"y": 35
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 43
 				},
 				"searchesIndex": 17,
 				"rendererOptions": {
 					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				}
+			},
+			{
+				"id": 1832222013904,
+				"title": "Account Creation by Day",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 50
+				},
+				"searchesIndex": 18,
+				"rendererOptions": {}
 			}
 		],
 		"linkZooming": false,

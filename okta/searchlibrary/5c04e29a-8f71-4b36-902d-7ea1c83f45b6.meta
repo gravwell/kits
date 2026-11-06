@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - System - Authentication - Sign-In Outcomes by Application [table]",
+	"Description": "Counts successful and failed sign-ins per application, with a failure ratio. An application whose failure ratio is far above the rest is either misconfigured or being attacked directly.\n\nRenders as a table.",
+	"GUID": "5c04e29a-8f71-4b36-902d-7ea1c83f45b6",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

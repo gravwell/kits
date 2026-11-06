@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Application - OAuth2 - First Occurrence of Okta User Session Started via Proxy [table]",
-  "Description": "Identifies the first occurrence of an Okta user session started via a proxy.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_first_occurrence_user_session_started_via_proxy/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/initial_access_first_occurrence_user_session_started_via_proxy.toml",
-  "GUID": "a155c371-5dd4-5b63-bfd5-f8afd139e3e1",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Application - OAuth2 - Okta OAuth2 Client Created or Modified",
+	"Description": "An OAuth2 client application was created, modified, or activated, or its credentials were changed. A new OAuth2 client with a client secret the adversary holds is API access to the org that does not depend on any user account.\n\nEvent types: app.oauth2.client.lifecycle.create, app.oauth2.client.lifecycle.update, app.oauth2.client.lifecycle.activate, app.oauth2.credentials.lifecycle.create, app.oauth2.credentials.lifecycle.activate\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/reference/api/oauth-clients/",
+	"GUID": "a155c371-5dd4-5b63-bfd5-f8afd139e3e1",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

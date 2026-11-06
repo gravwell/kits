@@ -1,6 +1,8 @@
+// Okta user profile snapshots land on the OKTA_USERS tag, one JSON record per user.
 tag=$OKTA_USERS
-| json 
-    profile.employeeNumber as employeeNumber
-| stats count
+| json id
+// Count distinct user ids, not entries: the ingester re-publishes every profile
+// on each poll, so counting entries would count polls.
+| stats unique_count(id) as count
 | alias count " "
 | numbercard " "

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - Application - Attempt to Modify an Okta Application [table]",
-  "Description": "Detects attempts to modify an Okta application. An adversary may attempt to modify, deactivate, or delete an Okta application in order to weaken an organization's security controls or disrupt their business operations.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_okta_attempt_to_modify_okta_application/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/impact_okta_attempt_to_modify_okta_application.toml",
-  "GUID": "9c6913ce-145b-585f-af78-ef2f2ad0a33c",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Lifecycle - Application - Okta Application Modified",
+	"Description": "An Okta application was modified. Check the SAML or OIDC settings in particular: changing an ACS URL or redirect URI can quietly redirect authenticated sessions to infrastructure the adversary controls.\n\nEvent type: application.lifecycle.update\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_okta_attempt_to_modify_okta_application/",
+	"GUID": "9c6913ce-145b-585f-af78-ef2f2ad0a33c",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Application - OAuth2 - Okta OAuth2 Admin Consent Granted",
+	"Description": "An administrator granted consent on behalf of the whole org for an OAuth2 client's scopes, or a refresh token was detected being reused. Admin consent means no user ever sees a consent prompt for that client again; token reuse detection means a refresh token was presented twice, which is what happens when one has been stolen.\n\nEvent types: app.oauth2.admin.consent.grant, app.oauth2.as.token.detect_reuse, app.oauth2.token.detect_reuse\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "b03f7c26-4e91-48da-a5f7-6c19e0b28d43",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

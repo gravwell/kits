@@ -1,6 +1,6 @@
 {
 	"Name": "okta-users",
-	"Desc": "Gravwell-generated JSON extraction for tag okta-users",
+	"Desc": "Gravwell-generated JSON extraction for the Okta user profile snapshot tag. Makes every user record field available to the \"ax\" module so ad-hoc searches do not have to spell out a json extraction.",
 	"Module": "json",
 	"Tag": "",
 	"Tags": [
@@ -12,6 +12,6 @@
 	"UID": 1,
 	"GIDs": null,
 	"Global": true,
-	"UUID": "240C733A-480E-411C-BBCA-64E75E35D736",
+	"UUID": "240c733a-480e-411c-bbca-64e75e35d736",
 	"LastUpdated": "2026-06-22T14:31:19.281632919Z"
 }

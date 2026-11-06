@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - User - Session - Okta Session Started via an Anonymising Proxy",
+	"Description": "A session started from an address Okta flagged as an anonymising proxy or Tor exit. Users behind a corporate VPN do not normally trip this; a sign-in that does is either someone deliberately hiding where they are, or an adversary using commodity proxy infrastructure.\n\nEvent type: user.session.start with securityContext.isProxy true\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_session_start_via_anonymising_proxy/\n- https://github.com/SigmaHQ/sigma/tree/master/rules/identity/okta\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "744887c1-7dbb-5ca3-b9f2-59b341f3855c",
+	"SearchReference": "422b6952-b2f2-5bfb-8799-52031876bc27"
+}

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Policy - Rule - Okta New Admin Console Behaviours [table]",
-  "Description": "Detects when Okta identifies new activity in the Admin Console.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_new_behaviours_admin_console/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
-  "GUID": "6f184621-3dfd-51ff-a800-ffc14ed553d2",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Policy - Rule - Okta Behavior Rule Fired POSITIVE",
+	"Description": "A sign-on policy evaluation reported at least one behaviour rule as POSITIVE. Okta ThreatInsight behaviour rules flag a new device, a new IP, a new country, or impossible travel; a POSITIVE result means the sign-in did not look like this account's normal behaviour.\n\nThe behaviours arrive as a string map in debugContext.debugData.behaviors and, when the rules are in log-only mode, in debugContext.debugData.logOnlySecurityData.\n\nEvent type: policy.evaluate_sign_on\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/security/behavior-detection/about-behavior-detection.htm\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "6f184621-3dfd-51ff-a800-ffc14ed553d2",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

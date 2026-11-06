@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Users - Department Count [numbercard]",
-	"Description": "Displays a numbercard of departments by unique_count.",
+	"Description": "Counts how many distinct values of departments exist across Okta users, taken from the profile.department field of the user profile snapshot.\n\nRenders as a numbercard.",
 	"GUID": "fffec025-50d6-44a6-92e9-6055afd4d7f6",
 	"Labels": [
 		"okta"

@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Application / Support / System - Integration / Org - Possible Okta DoS Attack [table]",
-  "Description": "Detects possible Denial of Service (DoS) attacks against an Okta organization. An adversary may attempt to disrupt an organization's business operations by performing a DoS attack against its Okta service.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_possible_okta_dos_attack/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/impact_possible_okta_dos_attack.toml",
-  "GUID": "0f50782f-46a9-5e63-b2be-278afe52d6a6",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - System - Org - Possible Okta Denial of Service or Rate Limit Abuse [table]",
+	"Description": "Counts Okta rate limit warnings and violations. Okta rate-limits per org, so sustained violations either mean an integration has gone into a retry loop or someone is deliberately burning the org's budget to degrade authentication for everyone.\n\nThreshold: 5 or more rate limit events in the window. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://developer.okta.com/docs/reference/rate-limits/\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "0f50782f-46a9-5e63-b2be-278afe52d6a6",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

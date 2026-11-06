@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Active Users Last Password Change [table]",
-	"Description": "Displays a numbercard of the last login to password changed average/mean.",
+	"Name": "Search - Okta - Users - Active Users by Password Age [table]",
+	"Description": "Lists every ACTIVE Okta user by how long ago their password changed, oldest first. Unlike the 30 day view this has no threshold, so it is the one to use when you want the whole distribution rather than just the stale end.\n\nRenders as a table.",
 	"GUID": "31f71f13-70d7-4943-9773-adff579065a3",
 	"Labels": [
 		"okta"

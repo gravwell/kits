@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Workflows - Okta Workflow Created, Modified or Exported",
+	"Description": "An Okta Workflow, folder, or connection was created, modified, imported, or exported. Workflows run with their connection's authority and can call any API they are connected to, so a new or edited flow is code execution inside your identity provider. Exports also carry the flow's data out of Okta.\n\nEvent types: workflows.user.flow.create, workflows.user.flow.activate, workflows.user.flow.import, workflows.user.flow.export, workflows.user.connection.create, workflows.user.folder.import, workflows.user.folder.export\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/workflows/workflows-main.htm\n- https://developer.okta.com/docs/reference/api/event-types/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0ebc2914-b7c8-5020-bd07-b86161f0b657",
+	"SearchReference": "c18e5b93-2f47-4a6d-b0c1-9e37d54a8f62"
+}

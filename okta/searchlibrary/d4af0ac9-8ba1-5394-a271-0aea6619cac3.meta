@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - MFA / Session - Stolen Credentials Used to Login to Okta Account After MFA Reset [table]",
-  "Description": "Stolen Credentials Used to Login to Okta Account After MFA Reset\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset.toml",
-  "GUID": "d4af0ac9-8ba1-5394-a271-0aea6619cac3",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - MFA / Session - Okta Sign-In Straight After an MFA Reset [table]",
+	"Description": "Finds accounts where an MFA factor was reset or deactivated and a successful sign-in followed inside the same window. That order is the whole attack: clear the factor, then use the password you already have. It is also what a helpdesk reset looks like, so check whether the reset came from a support account and whether the sign-in came from the user's usual address.\n\nThresholds: at least 1 factor reset and at least 1 successful sign-in for the same account. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta",
+	"GUID": "d4af0ac9-8ba1-5394-a271-0aea6619cac3",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

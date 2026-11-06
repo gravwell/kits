@@ -1,6 +1,6 @@
 {
 	"Name": "OKTA",
-	"Description": "Configuration Macro; Tag used for querying all of your Okta data; necessary for any queries within the Gravwell Okta Kit to run properly.",
+	"Description": "Configuration Macro; Tag holding the Okta System Log. The Gravwell Okta ingester writes every system event (sign-ins, MFA challenges, policy evaluations, admin actions, application access) to this tag. Required by every System Log query, template, dashboard, scheduled search, and alert in this kit.\n\nDefault: okta",
 	"Labels": [
 		"okta"
 	]

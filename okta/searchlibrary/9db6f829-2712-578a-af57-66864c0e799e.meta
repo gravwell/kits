@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - Policy - Attempt to Deactivate an Okta Policy [table]",
-  "Description": "Detects attempts to deactivate an Okta policy. An adversary may attempt to deactivate an Okta policy in order to weaken an organization's security controls. For example, an adversary may attempt to deactivate an Okta multi-factor authentication (MFA) policy in order to weaken the authentication requirements for user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_deactivate_okta_policy/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/defense_evasion_okta_attempt_to_deactivate_okta_policy.toml",
-  "GUID": "9db6f829-2712-578a-af57-66864c0e799e",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Lifecycle - Policy - Okta Policy Deactivated",
+	"Description": "An Okta policy was deactivated. A deactivated policy stops being enforced without leaving an obvious gap in the policy list, which makes it a quieter way to disable a control than deleting it.\n\nEvent type: policy.lifecycle.deactivate\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_deactivate_okta_policy/",
+	"GUID": "9db6f829-2712-578a-af57-66864c0e799e",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

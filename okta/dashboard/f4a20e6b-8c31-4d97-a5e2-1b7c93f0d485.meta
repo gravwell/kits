@@ -1,0 +1,349 @@
+{
+	"UUID": "f4a20e6b-8c31-4d97-a5e2-1b7c93f0d485",
+	"Name": "Okta Threat Overview",
+	"Description": "The detections that matter most, on one page, so you can see whether anything is happening without enabling a single scheduled search.\n\nTop row: Okta's own opinion, via ThreatInsight and behaviour rules. Middle: the credential attack shapes, brute force and password spraying, invalid credential volume by source, and MFA fatigue. Bottom: session anomalies and proxied authentication.\n\nEvery tile is one of the kit's detection queries, so what you see here is exactly what the corresponding scheduled search would alert on. Use it to pick which detections to enable and to sanity-check thresholds before you do.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "AlertQuery - Okta - System - Authentication - Okta Brute Force or Password Spraying Attack [table]",
+				"color": null,
+				"reference": {
+					"id": "587fedd0-0aa2-513f-ac33-279ee39a0e5d",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - Authentication - Okta Invalid Credential Attempts by Source [table]",
+				"color": null,
+				"reference": {
+					"id": "0eeb706e-23c8-5fac-9358-5ee4a2227d2f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - Authentication - Okta Max Sign-In Attempts Exceeded [table]",
+				"color": null,
+				"reference": {
+					"id": "a34f27b7-edf8-55cc-926f-eb5226e9eba5",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - MFA - Potential Okta MFA Bombing via Push Notifications [table]",
+				"color": null,
+				"reference": {
+					"id": "8a188024-aec5-5258-b6d2-68ab8941c403",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - MFA - Potentially Successful Okta MFA Bombing via Push Notifications [table]",
+				"color": null,
+				"reference": {
+					"id": "6438b4a1-ccd5-56b3-8583-ff8a37be74f1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - System / User - Recovery - High Number of Okta Password Reset or Unlock Attempts [table]",
+				"color": null,
+				"reference": {
+					"id": "0d044dee-b02f-5434-b7da-3511c010c0e0",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - MFA / Session - Okta Sign-In Straight After an MFA Reset [table]",
+				"color": null,
+				"reference": {
+					"id": "d4af0ac9-8ba1-5394-a271-0aea6619cac3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - Session - Okta Session Used From More Than One Country or Network [table]",
+				"color": null,
+				"reference": {
+					"id": "9e2cd5fc-5c1f-5e06-9f1e-25b6f06cc8a4",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - Session - Multiple Okta Sessions Detected for a Single User [table]",
+				"color": null,
+				"reference": {
+					"id": "cd334285-a6f7-5a99-a44f-1ab1f2c542e1",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - Authentication - Okta Authentication Through a Proxy Chain [table]",
+				"color": null,
+				"reference": {
+					"id": "90cb4212-082a-5fc1-88ac-b8eb8cd999a6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - Authentication - One Okta Device Token Hash Across Many Accounts [table]",
+				"color": null,
+				"reference": {
+					"id": "da8352ea-e420-5137-a414-ab12d8e28d17",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - User - Authentication - High Number of Okta Device Tokens from One Source [table]",
+				"color": null,
+				"reference": {
+					"id": "2ab0a09b-3585-510a-ba2f-1283fe48151b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "AlertQuery - Okta - System - Org - Possible Okta Denial of Service or Rate Limit Abuse [table]",
+				"color": null,
+				"reference": {
+					"id": "0f50782f-46a9-5e63-b2be-278afe52d6a6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 1018568047111,
+				"title": "Brute Force or Password Spraying",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1600960493920,
+				"title": "Invalid Credential Attempts by Source",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 8
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1671987797554,
+				"title": "Max Sign-In Attempts Exceeded",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 8
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1845105427851,
+				"title": "Potential MFA Bombing",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 16
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1289842283101,
+				"title": "Potentially Successful MFA Bombing",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 16
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1872234729910,
+				"title": "Password Reset or Unlock Bursts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 24
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1316971585160,
+				"title": "Sign-In Straight After an MFA Reset",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 24
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1216379663841,
+				"title": "Sessions from More Than One Country or Network",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 32
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1172481662266,
+				"title": "Multiple Concurrent Sessions per User",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 32
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1243508965900,
+				"title": "Authentication Through a Proxy Chain",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 40
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1199610964325,
+				"title": "One Device Token Across Many Accounts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 40
+				},
+				"searchesIndex": 10,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1761363451447,
+				"title": "High Device Token Volume from One Source",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 0,
+					"y": 48
+				},
+				"searchesIndex": 11,
+				"rendererOptions": {}
+			},
+			{
+				"id": 1443755898256,
+				"title": "Rate Limit Abuse",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 8,
+					"x": 6,
+					"y": 48
+				},
+				"searchesIndex": 12,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

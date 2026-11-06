@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Users - Accounts in a Locked or Recovery State [table]",
+	"Description": "Lists Okta users sitting in a state that is not simply active or deprovisioned: LOCKED_OUT, PASSWORD_EXPIRED, RECOVERY, SUSPENDED, PROVISIONED, or STAGED. LOCKED_OUT and RECOVERY in particular are where password attacks and recovery abuse leave a trace on the account itself.\n\nRenders as a table.",
+	"GUID": "bd63e0a7-4c19-482f-9d5a-1e7b30c86f24",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

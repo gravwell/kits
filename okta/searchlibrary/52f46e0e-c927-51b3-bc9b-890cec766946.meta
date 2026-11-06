@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Unauthorized Access to App [table]",
-  "Description": "Detects when unauthorized access to app occurs.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_unauthorized_access_to_app/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_unauthorized_access_to_app.yml",
-  "GUID": "52f46e0e-c927-51b3-bc9b-890cec766946",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Policy - Application - Okta Application Access Denied by Sign-On Policy",
+	"Description": "An application sign-on policy denied access. This is the policy working as intended, but a run of denials against one account or from one address is worth a look: it means something is repeatedly trying to reach an application it cannot satisfy the policy for.\n\nEvent type: application.policy.sign_on.deny_access\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "52f46e0e-c927-51b3-bc9b-890cec766946",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

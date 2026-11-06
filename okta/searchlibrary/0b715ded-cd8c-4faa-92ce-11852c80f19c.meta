@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Password Last Changed \u003e= 30 Days [table]",
-	"Description": "Displays a numbercard of the last login to password changed average/mean.",
+	"Name": "Search - Okta - Users - Password Not Changed in 30 Days or More [table]",
+	"Description": "Lists Okta users whose password has not changed in at least 30 days, oldest first, along with users who have no recorded password change at all. Long-lived passwords are the ones most likely to appear in a breach corpus.\n\nEdit the 30.0 in the query to change the threshold.\n\nRenders as a table.",
 	"GUID": "0b715ded-cd8c-4faa-92ce-11852c80f19c",
 	"Labels": [
 		"okta"

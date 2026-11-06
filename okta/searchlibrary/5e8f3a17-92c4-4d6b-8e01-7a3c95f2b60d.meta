@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Security - Events - Okta Attack Started",
+	"Description": "Okta declared an attack in progress against the org, or ended one. Okta raises this when it sees a coordinated credential attack rather than isolated failures, so treat it as confirmation that the failure volume you are seeing is an attack and not noise.\n\nEvent types: security.attack.start, security.attack.end\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "5e8f3a17-92c4-4d6b-8e01-7a3c95f2b60d",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

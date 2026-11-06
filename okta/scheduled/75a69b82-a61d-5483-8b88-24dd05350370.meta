@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - User - Account - Okta User Primary Email or Profile Identity Changed",
+	"Description": "A user's primary email, secondary email, or user type was changed. Changing the primary email redirects password reset and factor enrolment mail, which turns self-service recovery into an account takeover path.\n\nEvent types: user.account.update_primary_email, user.account.update_secondary_email, user.account.update_user_type\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://docs.axonius.com/docs/okta-user-category-events\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "75a69b82-a61d-5483-8b88-24dd05350370",
+	"SearchReference": "6c3e9b17-4d58-42fa-b731-0e8a5c96f2d4"
+}

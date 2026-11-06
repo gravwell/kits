@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Access Control - Application Keys - Okta Application Signing Key Generated, Rotated or Cloned",
+	"Description": "An application signing key was generated, rotated, or cloned. Whoever holds an app's signing key can mint SAML assertions that app will accept, so cloning one is a way to forge authentication to that app indefinitely.\n\nEvent types: app.keys.generate, app.keys.rotate, app.keys.clone\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "ef953c88-f6ad-5745-b6a5-6799c5d5994a",
+	"SearchReference": "4c9e17a3-8b52-4f0d-91e6-2d7a3c85f19b"
+}

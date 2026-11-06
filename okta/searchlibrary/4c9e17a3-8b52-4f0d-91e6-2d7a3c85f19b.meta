@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Access Control - Application Keys - Okta Application Signing Key Generated, Rotated or Cloned",
+	"Description": "An application signing key was generated, rotated, or cloned. Whoever holds an app's signing key can mint SAML assertions that app will accept, so cloning one is a way to forge authentication to that app indefinitely.\n\nEvent types: app.keys.generate, app.keys.rotate, app.keys.clone\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "4c9e17a3-8b52-4f0d-91e6-2d7a3c85f19b",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

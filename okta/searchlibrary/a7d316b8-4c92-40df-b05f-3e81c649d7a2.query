@@ -1,0 +1,22 @@
+// Okta writes every System Log event to the OKTA tag as a single JSON object.
+tag=$OKTA
+| json
+	eventType
+	outcome.result as outcomeResult
+	authenticationContext.credentialType as credType
+	target.[0].type as targetType
+	target.[0].displayName as targetName
+	target.[1].type as target2Type
+	target.[1].displayName as target2Name
+// Keep successful MFA authentications.
+| grep -e eventType "user.authentication.auth_via_mfa" "user.mfa.factor.activate" "user.authentication.verify"
+| grep -e outcomeResult "SUCCESS"
+// Okta names the factor either in credentialType or in the authenticator target,
+// so take whichever is populated.
+| eval
+	factor = "unknown";
+	if (has(credType) && credType != "" && credType != "null") { factor = credType; }
+	else if (match(targetType, "(?i)Authenticator")) { factor = targetName; }
+	else if (match(target2Type, "(?i)Authenticator")) { factor = target2Name; }
+| stats count by factor
+| chart count by factor

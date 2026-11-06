@@ -1,0 +1,11 @@
+{
+	"Name": "AlertQuery - Okta - Access Control - Attack Protection - Okta Attack Protection or Behavior Settings Changed",
+	"Description": "Okta's attack protection settings, behaviour detection rules, or ThreatInsight configuration were changed. These are the controls that rate-limit password attacks and flag anomalous sign-ins, so an adversary who can turn them down gets to brute force quietly.\n\nEvent types: security.attack_protection.settings.update, security.behavior.settings.create, security.behavior.settings.update, security.behavior.settings.delete, security.threat.configuration.update, user.behavior.profile.reset\n\nReference(s):\n- https://help.okta.com/en-us/content/topics/security/threat-insight/okta-threatinsight-overview.htm\n- https://developer.okta.com/docs/reference/api/event-types/",
+	"GUID": "cbb4f0f8-9d1a-4d64-8f9a-72e6f5a4d012",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

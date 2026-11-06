@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Lifecycle - Application - Okta Application Modified or Deleted [table]",
-  "Description": "Detects when an application is modified or deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_application_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
-  "GUID": "ae47500e-f1a1-53ee-b409-165c6735bb26",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Lifecycle - Application - Any Okta Application Change (roll-up)",
+	"Description": "Roll-up of every Okta application lifecycle change: create, update, activate, deactivate, and delete. Use this one when you would rather review all application churn in a single feed than run the per-verb detections.\n\nEvent types: application.lifecycle.create, application.lifecycle.update, application.lifecycle.activate, application.lifecycle.deactivate, application.lifecycle.delete\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"GUID": "ae47500e-f1a1-53ee-b409-165c6735bb26",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

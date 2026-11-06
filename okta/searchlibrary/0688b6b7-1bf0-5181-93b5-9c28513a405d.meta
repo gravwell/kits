@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Okta User Sessions Started from Different Geolocations [table]",
-  "Description": "Detects when a specific Okta actor has multiple sessions started from different geolocations. Adversaries may attempt to launch an attack by using a list of known usernames and passwords to gain unauthorized access to user accounts from different locations.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations.toml",
-  "GUID": "0688b6b7-1bf0-5181-93b5-9c28513a405d",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - User - Session - Okta User Sessions Started from Different Countries [table]",
+	"Description": "Finds accounts that successfully started sessions from more than one country inside the search window. Two countries in fifteen minutes is not travel; it is either a VPN the user turned on, or two people using the same credentials.\n\nCountries come from Okta's own client.geographicalContext, which Okta resolves at the edge at request time, falling back to the maxmind resource from the Gravwell Network Enrichment kit for events that arrive without it.  The geoSource field on each event says which was used.\n\nThreshold: 2 or more distinct countries per account. Edit the eval near the end of the query to tune it.\n\nThis detection uses stats, so it renders as a table rather than shipping raw entries.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations.toml",
+	"GUID": "0688b6b7-1bf0-5181-93b5-9c28513a405d",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

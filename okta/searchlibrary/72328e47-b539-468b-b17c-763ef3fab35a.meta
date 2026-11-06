@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - System - Event Types - Count by Category [table]",
-	"Description": "Detects a chart of event types by category.\n\nReference(s):\nhttps://developer.okta.com/docs/reference/api/event-types/",
+	"Description": "Counts System Log events by the category the okta_eventTypes lookup assigns to each event type. Categories are Okta's own grouping (User, Application, Policy, System, Lifecycle, Device and so on), so this is the fastest way to see what kind of activity your org generates.\n\nRenders as a table.",
 	"GUID": "72328e47-b539-468b-b17c-763ef3fab35a",
 	"Labels": [
 		"okta"

@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - Okta - Lifecycle - System Logs - Okta Log Stream Deactivated or Deleted",
+	"Description": "An Okta log stream was deactivated or deleted. Log streams are how the System Log reaches your SIEM, so switching one off is a direct attempt to stop everything else in this kit from seeing what happens next. Treat it as anti-forensics.\n\nEvent types: system.log_stream.lifecycle.deactivate, system.log_stream.lifecycle.delete, system.log_stream.lifecycle.update\n\nReference(s):\n- https://developer.okta.com/docs/reference/api/event-types/\n- https://help.okta.com/en-us/content/topics/reports/log-streaming/log-streaming.htm\n\nThis scheduled search is a dispatcher on \"Alert - Okta - Alert Router\". Its name is what appears as the alert name, so rename it here if you want the alerts named differently.\n\nIt ships disabled; enable it once you have reviewed the query and are happy with the volume it produces.",
+	"Labels": [
+		"okta"
+	],
+	"Schedule": "*/15 * * * *",
+	"Duration": -900,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "5f190e70-7e12-5aa8-98d8-c60f8086e690",
+	"SearchReference": "9f4a2c58-7b16-4e03-92d5-8c60a7e13f29"
+}

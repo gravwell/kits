@@ -1,11 +1,11 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Policy - Rule - Attempt to Delete an Okta Policy Rule [table]",
-  "Description": "Detects attempts to deactivate a rule within an Okta policy. An adversary may attempt to deactivate a rule within an Okta policy in order to remove or weaken an organization's security controls.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_deactivate_okta_policy_rule/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/defense_evasion_okta_attempt_to_deactivate_okta_policy_rule.toml",
-  "GUID": "7afc66b2-73d6-54fb-b6e1-08fec7aec820",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "AlertQuery - Okta - Policy - Rule - Okta Policy Rule Deleted",
+	"Description": "A rule inside an Okta policy was deleted.\n\nEvent type: policy.rule.delete\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/defense_evasion_okta_attempt_to_delete_okta_policy_rule/",
+	"GUID": "7afc66b2-73d6-54fb-b6e1-08fec7aec820",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - Authentication - Activated to Last Updated Average [numbercard]",
-	"Description": "Displays a numbercard of the activated to last updated average/mean.",
+	"Name": "Search - Okta - Users - Activated to Last Updated Average [numbercard]",
+	"Description": "Average time between an Okta account being activated and its profile last being updated.\n\nRenders as a numbercard broken into days, hours, minutes, and seconds.",
 	"GUID": "093d40e8-0095-4563-876d-c229ade695aa",
 	"Labels": [
 		"okta"
