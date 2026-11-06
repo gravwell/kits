@@ -1,0 +1,22 @@
+{
+	"Name": "Umbrella - DNS Tunneling VPN Category Activity",
+	"Description": "Detects requests for domains in the DNS Tunneling VPN category. DNS tunneling services can be used to bypass security controls and exfiltrate data over DNS. Matches whether or not Umbrella blocked the request; the action column distinguishes them.",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"dns",
+		"T1572",
+		"command-and-control",
+		"exfiltration"
+	],
+	"Schedule": "14 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "5650005f-eddd-4dee-abb7-8b8a6a009f85",
+	"SearchReference": "6e575bfc-4653-42ce-9395-32f13505afb0"
+}

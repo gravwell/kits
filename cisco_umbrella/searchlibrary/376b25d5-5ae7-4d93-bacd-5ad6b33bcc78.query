@@ -1,0 +1,3 @@
+tag=$UMBRELLA_DNS ax action=="Blocked" domain
+| count by domain
+| chart count by domain limit 10

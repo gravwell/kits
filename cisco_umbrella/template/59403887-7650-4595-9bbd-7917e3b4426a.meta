@@ -1,0 +1,24 @@
+{
+	"UUID": "59403887-7650-4595-9bbd-7917e3b4426a",
+	"Name": "Umbrella - Investigate Identity",
+	"Description": "DNS activity for an Umbrella identity (user, roaming computer, or network) - requested domains, categories, and policy actions.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%identity%%",
+				"label": "Identity",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "Active Directory User (adusername@example.net)"
+			}
+		]
+	},
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"dns",
+		"identity",
+		"investigation"
+	]
+}

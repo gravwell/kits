@@ -1,0 +1,2 @@
+tag=$UMBRELLA_PROXY ax amp_disposition=="Malicious" policy_identity_label internal_client_ip url amp_malware_name sha256
+| table policy_identity_label internal_client_ip url amp_malware_name sha256

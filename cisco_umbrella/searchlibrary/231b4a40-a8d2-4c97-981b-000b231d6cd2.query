@@ -1,0 +1,3 @@
+tag=$UMBRELLA_PROXY ax status_code
+| count by status_code
+| chart count by status_code

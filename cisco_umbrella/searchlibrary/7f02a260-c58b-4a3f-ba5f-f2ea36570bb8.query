@@ -1,0 +1,4 @@
+tag=$UMBRELLA_DNS ax response_code=="NXDOMAIN" most_granular_identity
+| count by most_granular_identity over 10m
+| eval count > 100
+| table -nt most_granular_identity count

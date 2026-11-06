@@ -1,0 +1,22 @@
+{
+	"UUID": "5abdbe34-a33f-4345-a5d5-aa21e44d85c5",
+	"GUID": "a3b98b4d-cda8-45e0-b298-1307032eb707",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Umbrella - Kit Overview",
+	"Desc": "Overview of the Cisco Umbrella kit: data sources, ingest guidance, queries, dashboards, actionables, templates, and macros.",
+	"Labels": null,
+	"LastUpdated": "2026-08-08T10:00:00.000000000-06:00",
+	"Author": {
+		"Name": "Mike Wade",
+		"Email": "mike.wade@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

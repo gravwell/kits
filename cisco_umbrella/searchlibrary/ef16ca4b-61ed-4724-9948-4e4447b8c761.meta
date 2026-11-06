@@ -1,0 +1,15 @@
+{
+	"Name": "Umbrella - Certificate Error on Proxied Request",
+	"Description": "Detects proxied requests with certificate or protocol errors. Certificate errors can indicate connections to impersonated or compromised infrastructure.",
+	"GUID": "ef16ca4b-61ed-4724-9948-4e4447b8c761",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"proxy",
+		"T1557",
+		"credential-access",
+		"collection"
+	],
+	"Metadata": {}
+}

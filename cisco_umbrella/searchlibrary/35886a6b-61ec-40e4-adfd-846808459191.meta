@@ -1,0 +1,12 @@
+{
+	"Name": "Umbrella - DNS Requests Over Time [Chart]",
+	"Description": "Chart of DNS requests seen by Umbrella resolvers over time, keyed by the policy action (Allowed, Blocked, Proxied).",
+	"GUID": "35886a6b-61ec-40e4-adfd-846808459191",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"stats",
+		"dns"
+	],
+	"Metadata": {}
+}

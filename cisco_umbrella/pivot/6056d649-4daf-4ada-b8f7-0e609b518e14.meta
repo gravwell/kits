@@ -1,0 +1,41 @@
+{
+	"UUID": "6056d649-4daf-4ada-b8f7-0e609b518e14",
+	"Name": "Umbrella - Investigate Domain",
+	"Description": "Investigate Umbrella DNS activity for a domain that appears in search results.",
+	"Data": {
+		"menuLabel": "Umbrella",
+		"actions": [
+			{
+				"name": "Umbrella - Domain DNS Activity",
+				"description": "Review Umbrella DNS activity for this domain",
+				"placeholder": null,
+				"command": {
+					"type": "template",
+					"reference": "a0bb0c4b-8dcb-4354-ac50-f673f5921476",
+					"options": {
+						"variable": "%%domain%%"
+					}
+				},
+				"noValueUrlEncode": false,
+				"start": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				},
+				"end": {
+					"type": "string",
+					"placeholder": null,
+					"format": null
+				}
+			}
+		],
+		"triggers": [
+			{
+				"pattern": "/\\b(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,}\\b/g",
+				"hyperlink": true,
+				"disabled": false
+			}
+		]
+	},
+	"Labels": null
+}

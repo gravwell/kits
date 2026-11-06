@@ -1,0 +1,14 @@
+{
+	"Name": "Umbrella - Antivirus Detection on Proxied File",
+	"Description": "Detects files proxied through Umbrella that triggered a detection from the antivirus engine used in file inspection.",
+	"GUID": "f7b41913-993d-432c-b09e-2fc7435b75fb",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"proxy",
+		"T1105",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

@@ -1,0 +1,2 @@
+tag=$UMBRELLA_AUDIT ax type=="logexportconfigurations" email user action logged_in_from before after
+| table email user action logged_in_from before after

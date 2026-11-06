@@ -1,0 +1,14 @@
+{
+	"Name": "Umbrella - Newly Seen Domain Activity",
+	"Description": "Detects requests for domains in the Newly Seen Domains category. Newly registered or newly observed domains are frequently used for phishing and malware delivery. Matches whether or not Umbrella blocked the request; the action column distinguishes them.",
+	"GUID": "96e032b4-b5b1-4b6b-abcc-13e8047511b9",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"dns",
+		"T1568",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

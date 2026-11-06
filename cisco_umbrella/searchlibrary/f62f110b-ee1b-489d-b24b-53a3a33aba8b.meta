@@ -1,0 +1,14 @@
+{
+	"Name": "Umbrella - Log Export Configuration Changed",
+	"Description": "Detects changes to the Umbrella log export (S3 log management) configuration. An attacker with dashboard access may modify log export settings to disable security telemetry collection.",
+	"GUID": "f62f110b-ee1b-489d-b24b-53a3a33aba8b",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"audit",
+		"T1562.008",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

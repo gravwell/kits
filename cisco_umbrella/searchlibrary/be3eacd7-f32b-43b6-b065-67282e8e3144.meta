@@ -1,0 +1,15 @@
+{
+	"Name": "Umbrella - Allowed DNS Request to Malicious Domain",
+	"Description": "Detects DNS requests that were allowed despite the destination being categorized as Malware, Command and Control, or Phishing. These represent potential policy gaps where known-bad destinations are reachable.",
+	"GUID": "be3eacd7-f32b-43b6-b065-67282e8e3144",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"dns",
+		"T1071.004",
+		"command-and-control",
+		"initial-access"
+	],
+	"Metadata": {}
+}

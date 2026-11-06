@@ -1,0 +1,16 @@
+{
+	"Name": "umbrella-proxy",
+	"Desc": "CSV field extraction for Cisco Umbrella proxy logs (v12 schema)",
+	"Module": "csv",
+	"Tag": "umbrella-proxy",
+	"Tags": null,
+	"Labels": [
+		"cisco",
+		"umbrella"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "689c77db-0790-4fdd-9898-b40094f1c078",
+	"LastUpdated": "2026-08-08T10:00:00.000000000-06:00"
+}
