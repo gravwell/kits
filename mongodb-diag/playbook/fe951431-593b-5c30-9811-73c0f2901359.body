@@ -4,6 +4,15 @@ A toolkit for interacting with MongoDB Diagnostics data in Gravwell. This kit in
 
 ***  
 
+## Integration Guide & Data Requirements  
+
+- Integration guide: [MongoDB Server](<https://docs.gravwell.io/integrations/application/mongodb.html>). It sets up File Follower on each MongoDB server to collect the server log (*mongod.log*) under the *mongodb-diag* tag.  
+- Entry format: each entry must be one MongoDB server log line, a single JSON object with nothing around it. MongoDB Community and Enterprise write the server log in this JSON format from version 4.4. The *mongodb-diag* autoextractor reads its top-level fields (*t*, *s*, *c*, *id*, *ctx*, *msg*, *attr*). The guide's File Follower setup stores entries in this form.  
+- Syslog: don't collect the server log through syslog (*systemLog.destination: syslog*, or a syslog forwarder reading the file). Each entry then starts with a syslog header in front of the JSON, and the autoextractor extracts no fields from it.  
+- Tag: the kit's searches read the tag set in the *MONGODB\_DIAG* macro (default *mongodb-diag*), and the *mongodb-diag* autoextractor applies only to the *mongodb-diag* tag. If you store the server log under another tag, change both the macro and the autoextractor's tag.  
+
+***  
+
 ## Table of Contents  
 1. [Tags & Macros](#1-tags--macros)  
     1.1. [Tags](#1-1-tags)  

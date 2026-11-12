@@ -6,6 +6,17 @@ A toolkit for interacting with MongoDB Audit data in Gravwell. This kit includes
 
 ***  
 
+## Integration Guide & Data Requirements  
+
+- Integration guide: [MongoDB Server](<https://docs.gravwell.io/integrations/application/mongodb.html#audit-log-mongodb-enterprise>), section "Audit Log (MongoDB Enterprise)". It turns on auditing in MongoDB Enterprise and sets up File Follower on each MongoDB server to collect the audit log under the *mongodb-audit* tag. MongoDB Community doesn't write an audit log.  
+- Entry format: each entry must be one audit event, a single JSON object with nothing around it, in MongoDB's default *mongo* schema. The guide's settings produce this form: *auditLog.destination: file* and *auditLog.format: JSON*. The *BSON* format is binary. The *syslog* destination puts a syslog header in front of each event, and MongoDB notes that the syslog message limit can truncate audit messages without any error.  
+- Schema: the kit reads the *mongo* schema fields (*atype*, *ts*, *users*, *roles*, *param*, *result*). MongoDB 8.0 added the *auditLog.schema* setting. Its default is *mongo*, and the guide doesn't set it. With *auditLog.schema: OCSF*, MongoDB writes a different JSON structure (*activity\_id*, *class\_uid*, *actor*, *src\_endpoint* and so on) that the kit's autoextractor and searches don't read, so dashboards stay empty and alerts don't fire. Leave *auditLog.schema* unset or set it to *mongo*.  
+- Audit filter: the kit expects MongoDB's default auditing. An *auditLog.filter* that leaves out authentication (*authenticate*), authorization (*authCheck*) or user and role management events removes events the kit's alerts depend on.  
+- Authorization successes: the kit doesn't need *auditAuthorizationSuccess*. Its authorization alerts (Unauthorized Operation, Unauthorized Operation Spike By User) look for failed checks (result 13), which MongoDB audits by default. Turning it on adds an event for every authorized operation, and MongoDB notes that it degrades performance more than logging failures only.  
+- Tag: the kit's searches read the tag set in the *MONGODB\_AUDIT* macro (default *mongodb-audit*), and the *mongodb-audit* autoextractor applies only to the *mongodb-audit* tag. If you store the audit log under another tag, change both the macro and the autoextractor's tag.  
+
+***  
+
 ## Table of Contents  
 1. [Tags & Macros](#1-tags--macros)  
     1.1. [Tags](#1-1-tags)  

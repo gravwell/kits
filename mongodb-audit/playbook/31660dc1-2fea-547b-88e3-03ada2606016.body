@@ -4,7 +4,7 @@ This kit provides ready-to-roll dashboards, queries, alerts, flows, templates, a
 
 The MongoDB Audit Kit is licensed under the BSD 2-Clause and the contents are available on [GitHub](https://github.com/gravwell/kits/tree/main/mongodb-audit).
 
-There is an [Integration Guide](https://docs.gravwell.io/integrations/application/mongodb-audit.html) to assist you in quickly onboarding data for The MongoDB Audit Kit.
+There is an [Integration Guide](https://docs.gravwell.io/integrations/application/mongodb.html#audit-log-mongodb-enterprise) to assist you in quickly onboarding data for The MongoDB Audit Kit.
 
 ## Dependencies
 - None

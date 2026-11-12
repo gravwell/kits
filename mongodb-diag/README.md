@@ -4,7 +4,7 @@ This kit provides ready-to-roll dashboards, queries, alerts, flows, templates, a
 
 The MongoDB Diagnostics Kit is licensed under the BSD 2-Clause and the contents are available on [GitHub](https://github.com/gravwell/kits/tree/main/mongodb-diag).
 
-There is an [Integration Guide](https://docs.gravwell.io/integrations/application/mongodb-diag.html) to assist you in quickly onboarding data for The MongoDB Diagnostics Kit.
+There is an [Integration Guide](https://docs.gravwell.io/integrations/application/mongodb.html) to assist you in quickly onboarding data for The MongoDB Diagnostics Kit.
 
 ## Dependencies
 - None
