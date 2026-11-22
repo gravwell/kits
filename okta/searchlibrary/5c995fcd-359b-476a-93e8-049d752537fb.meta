@@ -1,0 +1,12 @@
+{
+	"Name": "Search - Okta - Kit Health - Event Types Missing from Lookup [table]",
+	"Description": "Lists Okta eventTypes seen in the data that have no row in the okta_eventTypes lookup resource. Events of a missing type get no category or subcategory and are scored only by the fallback modification heuristic. Should be empty; add rows for anything listed (descriptions: https://developer.okta.com/docs/reference/api/event-types/).",
+	"GUID": "5c995fcd-359b-476a-93e8-049d752537fb",
+	"Labels": [
+		"okta",
+		"kit-health"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

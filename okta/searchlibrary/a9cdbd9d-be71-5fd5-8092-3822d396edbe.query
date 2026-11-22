@@ -1,0 +1,4 @@
+tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS actor.alternateId as user
+$OKTA_GEO
+| stats count by user geoIp geoLat geoLon
+| pointmap -lat geoLat -long geoLon user geoIp

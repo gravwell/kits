@@ -1,0 +1,94 @@
+// OKTA_RISK_SCORE("catalog") or OKTA_RISK_SCORE("mod"): one scoring table for every Okta alert.
+// "mod" = the modification feed: only modification event types, lower default base, no extra modification bump,
+// and only Low priority or above is kept. "catalog" = detections: every event is scored and kept.
+// The target privilege bump uses targetUserNorm, which the OKTA_ENRICH_COMMON macro only sets when a person other
+// than the actor was acted on. Okta's own automation (actorType SystemPrincipal, system@okta.com) never gets the actor privilege bump.
+| eval
+    et = eventType;
+    cat = category;
+    sub = subcategory;
+    _profile = "%%1%%";
+
+    base = 35.0;
+    if (_profile == "mod") { base = 25.0; }
+
+    if (match(et, "(?i)^(user\\.account\\.privilege|group\\.privilege)\\.(grant|revoke)$")
+        || match(et, "(?i)^iam\\.(resourceset|role)\\.")) {
+        base = 90.0;
+    } else if (match(et, "(?i)^(app|application)\\.(keys?|key_credential)(\\..*)?\\.(create|delete|update|rotate|generate|revoke)$")) {
+        base = 90.0;
+    } else if (match(et, "(?i)^system\\.idp\\.lifecycle\\.")
+        || match(et, "(?i)^system\\.api_token\\.(create|enable|revoke)$")
+        || match(et, "(?i)^app\\.oauth2\\.client\\.read_client_secret$")
+        || match(et, "(?i)^app\\.oauth2\\.credentials\\.lifecycle\\.(create|activate)$")
+        || match(et, "(?i)^app\\.oauth2\\.client\\.privilege\\.grant$")) {
+        base = 85.0;
+    } else if (match(et, "(?i)^oauth2\\.(client|clients|scope|scopes|claim|claims)(\\..*)?\\.(create|delete|update|rotate|revoke)$")) {
+        base = 85.0;
+    } else if (match(et, "(?i)^user\\.mfa\\.factor\\.(deactivate|reset_all|suspend)$")
+        || match(et, "(?i)^user\\.mfa\\.attempt_bypass$")) {
+        base = 80.0;
+    } else if (match(et, "(?i)^policy\\.lifecycle\\.(create|update|delete|deactivate|activate)$")
+        || match(et, "(?i)^policy\\.(mapping|rule|evaluate|execute|scheduled)(\\..*)?\\.(create|delete|update|enable|disable|deactivate)$")
+        || match(et, "(?i)^application\\.policy(\\..*)?\\.(create|delete|update|enable|disable)$")) {
+        base = 80.0;
+    } else if (match(et, "(?i)^user\\.(credential|factor|grant|session)(\\..*)?\\.(enroll|unenroll|reset|revoke|disable|enable|delete|create|update)$")) {
+        base = 80.0;
+    } else if (match(et, "(?i)^zone\\.(activate|deactivate|create|delete|update)$")) {
+        base = 75.0;
+    } else if (match(et, "(?i)^app\\.oauth2\\.(client|credentials)\\.lifecycle\\.")
+        || match(et, "(?i)^app\\.oauth2\\.client\\.privilege\\.revoke$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^security\\.(threat\\.detected|breached_credential\\.detected|protected_action\\.attempt)$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^application\\..*\\.(grant|revoke|assign|unassign)$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^group\\.(rule|owner|role|profile|user)(\\..*)?\\.(create|delete|update|assign|unassign)$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^device\\.(platform_sso|token|local_account|user_os_account|enrollment)(\\..*)?\\.(create|issue|register|sync|rotate|update|enable|disable)$")) {
+        base = 65.0;
+    } else if (match(et, "(?i)^user\\.mfa\\.factor\\.(activate|update)$")) {
+        base = 40.0;
+    } else if (match(et, "(?i)^(hook|event\\.hook|inline\\.hook)\\..*\\.(create|delete|update|enable|disable)$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^(directory|idp|identity|linked_objects)\\..*\\.(create|delete|update|import|link|unlink|map|unmap)$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^system\\.(rate_limit|email|brand|theme|custom_signout|well_known_uri)\\..*\\.(create|delete|update|enable|disable|set|unset|change)$")) {
+        base = 55.0;
+    };
+
+    sev_bump = 0.0;
+    if (has("severity") && match(severity, "(?i)ERROR")) { sev_bump = 10.0; }
+    else if (has("severity") && match(severity, "(?i)WARN")) { sev_bump = 5.0; }
+    res_bump = 0.0;
+    if (has("outcomeResult") && match(outcomeResult, "(?i)(SUCCESS|ALLOW)")) { res_bump = 5.0; }
+    proxy_bump = 0.0;
+    if (has("isProxy") && isProxy == "true") { proxy_bump = 5.0; }
+    mod_bump = 0.0;
+    if (_profile == "catalog" && has("is_mod_final") && is_mod_final == 1) {
+        if (base < 60.0) { mod_bump = 15.0; }
+        else if (base < 80.0) { mod_bump = 8.0; }
+    }
+    actor_priv_bump = 0.0;
+    if (has("actorType") && actorType == "SystemPrincipal") { actor_priv_bump = 0.0; }
+    else if (has("actor_weight") && actor_weight != "") { actor_priv_bump = float(actor_weight); }
+    else if (has("actorUserNorm") && actorUserNorm != "" &&
+             match(actorUserNorm, "(?i)(^root$|(^|[^a-z])admin([^a-z]|$)|(^|[^a-z])svc([^a-z]|$)|(^|[^a-z])sql([^a-z]|$)|(^|[^a-z])system([^a-z]|$))")) {
+        actor_priv_bump = 8.0;
+    }
+    target_priv_bump = 0.0;
+    if (has("target_weight") && target_weight != "") { target_priv_bump = float(target_weight); }
+    else if (has("targetUserNorm") && targetUserNorm != "" &&
+             match(targetUserNorm, "(?i)(^root$|(^|[^a-z])admin([^a-z]|$)|(^|[^a-z])svc([^a-z]|$)|(^|[^a-z])sql([^a-z]|$)|(^|[^a-z])system([^a-z]|$))")) {
+        target_priv_bump = 12.0;
+    }
+    risk_raw   = base + mod_bump + sev_bump + res_bump + proxy_bump + actor_priv_bump + target_priv_bump;
+    risk_score = math_round( math_min( math_max(risk_raw, 0.0), 100.0 ) );
+    _category    = cat;
+    _subcategory = sub;
+    _alert_name = et;
+    if (has("message") && message != "" && message != "null") { _alert_name = message; }
+    _vendor  = "Okta";
+    _product = "System Log";
+$OKTA_RISK_PRIORITY
+| eval _profile != "mod" || (is_mod_final == 1 && _priority != "Informational")

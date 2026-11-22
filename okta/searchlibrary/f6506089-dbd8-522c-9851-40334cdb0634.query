@@ -1,0 +1,3 @@
+tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS
+$OKTA_GEO
+| heatmap -lat geoLat -long geoLon

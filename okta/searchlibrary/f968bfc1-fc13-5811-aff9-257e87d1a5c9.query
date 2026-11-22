@@ -1,10 +1,10 @@
-/* AlertQuery - Okta - Identity Access Management - Group / User - Account / Privilege - Okta Admin Role Assigned to an User or Group [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType "^(?:group\.privilege\.grant|user\.account\.privilege\.grant)$"
+/* Okta - Admin & Configuration Changes - Okta Admin Role Assigned to a User or Group */
+tag=$OKTA_SYSTEM json eventType
+| regex -e eventType "^(?:group\.privilege\.grant|user\.account\.privilege\.grant|iam\.resourceset\.bindings\.add)$"
 $OKTA_ALERT_EVX
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Okta Admin Role Assigned to an User or Group"
-$OKTA_ALERT_META
+| eval _alert_name = "Okta Admin Role Assigned to a User or Group"
+$OKTA_ALERT_META("Persistence", "T1098.003")

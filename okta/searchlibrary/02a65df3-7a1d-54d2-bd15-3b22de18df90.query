@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("division")
+| stats sum(value) as users by key
+| sort by users desc
+| alias key division
+| table division users

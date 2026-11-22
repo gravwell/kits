@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("division")
+| eval n = 0; if (key != "(none)") { n = 1; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

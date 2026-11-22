@@ -1,0 +1,6 @@
+tag=$OKTA_SYSTEM json eventType==user.session.start
+$OKTA_ALERT_EVX
+$OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
+$OKTA_GEO
+| stats count by actorAltId clientIp outcomeResult geoLat geoLon
+| pointmap -lat geoLat -long geoLon actorAltId clientIp outcomeResult

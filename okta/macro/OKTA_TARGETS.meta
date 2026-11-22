@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_TARGETS",
+	"Description": "Selects targets from an Okta System Log event without splitting the event. Expects `target` (raw array), `t0Id`/`t0Type`/`t0AltId`/`t0Name` (first element), `actorAltId` and `actorName` to be extracted already (both $OKTA_ALERT_EVX and $OKTA_SYSTEM_EVX do this).\n\nProduces:\n  - typed targets (absent when the event has none): targetUser*, targetAppUser*, targetApp* (Id, AltId, Name)\n  - targetUserIsActor / targetAppUserIsActor: the user target is the actor (login without domain, or display name, matches)\n  - primary target targetId/targetType/targetAltId/targetName: the user acted on (if not the actor) > the app account acted on (if not the actor) > the app > the first target\n\nKnown assumption: Okta serializes each target as {\"id\",\"type\",\"alternateId\",\"displayName\",...}. The 'Okta - Kit Health - Target Key Order Changed' alert fires if that changes; typed targets would then be empty and the primary target falls back to the first element.\n\nDetections that need every target (e.g. OAuth scopes) split locally with `json -x target`, match exactly, then `unique uuid`.",
+	"Labels": [
+		"okta"
+	]
+}

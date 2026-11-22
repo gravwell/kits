@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Divisions [numbercard]",
+	"Description": "Distinct divisions in user profiles (profile.division). From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"GUID": "4378bc4d-424d-5703-9a15-14803805cdf6",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication / MFA / Session - Potential Okta MFA Bombing via Push Notifications",
-  "Description": "Detects when an attacker abuses the Multi-Factor authentication mechanism by repeatedly issuing login requests until the user eventually accepts the Okta push notification. An adversary may attempt to bypass the Okta MFA policies configured for an organization to obtain unauthorized access.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_mfa_bombing_via_push_notifications/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_mfa_bombing_via_push_notifications.toml",
+  "Name": "Okta - Authentication & Sessions - Potential Okta MFA Bombing via Push Notifications",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Credential Access / T1621\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Potential Okta MFA Bombing via Push Notifications\" or \"<ip>|Potential Okta MFA Bombing via Push Notifications\"\n\nDetects possible MFA fatigue (push bombing) against one user within the search window (15 minutes when scheduled): 5 or more Okta Verify push notifications, or 3 or more pushes together with 2 or more denied, unanswered or abandoned prompts. An inner query counts per user; one alert per user per window, with the counts in the alert text. Risk floor High (75).\n\nFalse positives: users who repeatedly retry sign-in, or a phone without connectivity. Limitation: bursts that straddle two windows are split, which is why the denied/unanswered branch exists.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_mfa_bombing_via_push_notifications/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_mfa_bombing_via_push_notifications.toml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "credential-access",
+    "T1621"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "2,17,32,47 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

@@ -1,0 +1,13 @@
+/* Okta - Threats & Platform - Okta Protected Action Attempted or Request Blocked */
+tag=$OKTA_SYSTEM json eventType
+$OKTA_ALERT_EVX
+| eval in(eventType, "security.protected_action.attempt", "security.request.blocked")
+$OKTA_ENRICH_COMMON
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("55")
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval
+    _alert_name = "Okta Protected Action Attempted or Request Blocked";
+    message = printf("%v", eventType);
+$OKTA_ALERT_META("Initial Access", "T1078")

@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_RISK_SCORE",
+	"Description": "Single risk-scoring table for every Okta alert. Call it with a profile: $OKTA_RISK_SCORE(\"catalog\") in detections, $OKTA_RISK_SCORE(\"mod\") for the modification feed.\n\nScore = base (by eventType family) + severity bump (ERROR +10, WARN +5) + outcome bump (SUCCESS/ALLOW +5) + proxy bump (+5) + modification bump (catalog profile only: +15 below base 60, +8 below base 80) + actor privilege bump (okta_privileged_actor weight, or +8 for root/admin/svc/sql/system-like logins; never for Okta's own SystemPrincipal) + target privilege bump (okta_protected_target weight, or +12 for the same name patterns; only when a person other than the actor was acted on). Clamped to 0-100.\n\nPriority mapping:\n- Critical >= 90\n- High >= 75\n- Medium >= 55\n- Low >= 40\n- Informational < 40\n\nProfiles: \"mod\" keeps modification event types only (is_mod_final = 1), uses default base 25, no modification bump, and keeps Low priority and above. \"catalog\" scores and keeps every event (default base 35).\n\nOutputs: risk_score, _alert_risk, _priority, _alert_priority, _category, _subcategory, _alert_name, _vendor, _product.\n\nRequires: $OKTA_ALERT_EVX and $OKTA_ENRICH_COMMON earlier in the query.",
+	"Labels": [
+		"okta"
+	]
+}

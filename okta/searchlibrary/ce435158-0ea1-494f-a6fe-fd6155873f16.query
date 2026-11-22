@@ -1,6 +1,6 @@
-// Search - Okta - System - Event Types - Alert Title [Numbercard]
+/* Search - Okta - System - Event Types - Alert Title [Numbercard] */
 $OKTA_ALERT_BASE
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
 $OKTA_NORMALIZE_IP

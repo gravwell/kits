@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Job Titles [numbercard]",
+	"Description": "Distinct job titles in user profiles (profile.title). From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"GUID": "5d125385-566c-5f0f-9cd3-4b85947e19ff",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,12 +1,21 @@
-/* AlertQuery - Okta - Identity Access Management - System - Event Types - Multiple Device Token Hashes for Single Okta Session [table] */
-tag=$OKTA_SYSTEM
+/* Okta - Authentication & Sessions - Okta Session Used from Multiple Countries */
+@agg{tag=$OKTA_SYSTEM json authenticationContext.rootSessionId as rootSessionId client.device as clientDevice client.geographicalContext.country as clientCountry
+| eval rootSessionId != "unknown" && clientDevice == "Computer"
+| stats count as n by rootSessionId clientCountry
+| stats count as countries by rootSessionId
+| eval countries >= 2
+| table rootSessionId countries};
+tag=$OKTA_SYSTEM json authenticationContext.rootSessionId as rootSessionId client.device as clientDeviceRaw client.geographicalContext.country as clientCountry
 $OKTA_ALERT_EVX
-| regex -e dtHash ".*"
-| regex -e actorAltId "(?i)[^system\@okta\.com]"
-| regex -e authExternalSessionId "(?i)[^unknown]"
+| eval clientDeviceRaw == "Computer"
+| lookup -s -r @agg rootSessionId rootSessionId countries
+| unique rootSessionId clientCountry
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("75")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Multiple Device Token Hashes for Single Okta Session"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Okta Session Used from Multiple Countries";
+    message = printf("One Okta session (rootSessionId) was used from %v countries in the search window; this event came from %v", countries, clientCountry);
+$OKTA_ALERT_META("Credential Access", "T1539")

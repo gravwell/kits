@@ -14,6 +14,10 @@
 
     if (has("category") && category != "" && category != "null") { _cat = category; }
     if (has("subcategory") && subcategory != "" && subcategory != "null") { _sub = printf("/%v", subcategory); }
+    _tgt = "";
+    if (has("targetName") && targetName != "" && targetName != "null") { _tgt = targetName + " "; }
+    else if (has("targetAltId") && targetAltId != "" && targetAltId != "null") { _tgt = targetAltId + " "; }
+    if (_tgt != "") { _tgt = _tgt + "in "; }
 
     if (has("method") && method != "" && method != "null") { _verb = method; }
 
@@ -23,7 +27,7 @@
     if (has("requestUri") && requestUri != "" && requestUri != "null") { _uri = printf(" [uri=%v]", requestUri); }
 
     context = _when + _who + _name + _ip +
-              " performed " + _verb + " against " + _cat + _sub +
+              " performed " + _verb + " against " + _tgt + _cat + _sub +
               _out + _msg + _sev + _uri;
 | eval _alert_header = "| Context |"
 | eval _alert_divider = "|-----|"
@@ -32,4 +36,16 @@
     "Alert: %v - %v - %v - %v - %v - %v",
     _vendor, _product, _category, _subcategory, _priority, _alert_name
   )
-| table _alert_title _alert_priority context
+// Common alert fields (see notes: alert contract). user = the person acted on, else the actor.
+| eval
+    user = "";
+    if (has("targetUserNorm") && targetUserNorm != "") { user = targetRaw; }
+    else if (has("actorAltId")) { user = actorAltId; }
+    src_ip = "";
+    if (has("src") && src != "-") { src_ip = src; }
+    else if (has("clientIp") && clientIp != "" && clientIp != "null") { src_ip = clientIp; }
+    target = "";
+    if (has("targetName") && targetName != "" && targetName != "null") { target = targetName; }
+    else if (has("targetAltId") && targetAltId != "" && targetAltId != "null") { target = targetAltId; }
+    _mitre_tactic = "%%1%%"; _mitre_technique = "%%2%%";
+| table _alert_title _alert_priority _alert_name _alert_risk _vendor _product _category _subcategory user src_ip target eventType _mitre_tactic _mitre_technique context published

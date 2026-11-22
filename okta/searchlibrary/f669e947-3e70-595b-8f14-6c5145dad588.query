@@ -1,0 +1,4 @@
+tag=_alerts json Contents._vendor==Okta Contents._alert_name as detection Contents._alert_priority as priority Contents.user as user Contents.src_ip as src_ip
+| stats count as alerts unique_count(user) as users unique_count(src_ip) as sources by detection priority
+| sort by alerts desc
+| table detection priority alerts users sources

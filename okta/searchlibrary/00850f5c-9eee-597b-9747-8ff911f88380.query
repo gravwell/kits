@@ -1,0 +1,3 @@
+tag=_aggs_okta_users ax metric==last_signin key value
+| stats mean(value) as users by key
+| chart users by key

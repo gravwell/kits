@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - User Type [chart]",
+	"Description": "Users by user type (profile.userType, or the user type id). From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"GUID": "6fb4f0ae-0fb3-5b66-a310-b78e4e13ad96",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

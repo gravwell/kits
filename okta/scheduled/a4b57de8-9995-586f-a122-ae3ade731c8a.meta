@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Account - User Reported Suspicious Activity",
-  "Description": "Detects when a user reports suspicious activity for their Okta account. These events should be investigated, as they can help security teams identify when an adversary is attempting to gain access to their network.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user.toml",
+  "Name": "Okta - Account & MFA Changes - User Reported Suspicious Activity",
+  "Description": "Alert: Alert - Okta - Account & MFA Changes\nMITRE ATT&CK: Initial Access / T1078\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|User Reported Suspicious Activity\" or \"<ip>|User Reported Suspicious Activity\"\n\nDetects when a user reports suspicious activity for their Okta account. These events should be investigated, as they can help security teams identify when an adversary is attempting to gain access to their network.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_suspicious_activity_reported_by_okta_user.toml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "account-mfa-changes",
+    "initial-access",
+    "T1078"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "4,19,34,49 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

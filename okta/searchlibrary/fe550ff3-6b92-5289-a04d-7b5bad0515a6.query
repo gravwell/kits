@@ -1,0 +1,8 @@
+tag=$OKTA_SYSTEM json eventType outcome.result as res actor.alternateId as user client.ipAddress as ip debugContext.debugData.dtHash as dtHash
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && has(dtHash) && dtHash != ""
+| eval failed = 0; if (res == "FAILURE") { failed = 1; }
+| stats count as signins sum(failed) as failures unique_count(user) as users unique_count(ip) as sources by dtHash
+| eval users > 1
+| sort by users desc
+| limit 50
+| table dtHash users sources signins failures

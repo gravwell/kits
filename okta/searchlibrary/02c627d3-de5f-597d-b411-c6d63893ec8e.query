@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("title")
+| stats sum(value) as users by key
+| sort by users desc
+| alias key title
+| table title users

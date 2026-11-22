@@ -1,0 +1,8 @@
+@run{tag=_aggs_okta_users ax metric
+| eval t = unix(TIMESTAMP);
+| stats max(t) as newest by metric
+| table metric newest};
+tag=_aggs_okta_users ax metric==%%1%% key value
+| eval t = unix(TIMESTAMP);
+| lookup -r @run metric metric newest
+| eval t == int(newest)

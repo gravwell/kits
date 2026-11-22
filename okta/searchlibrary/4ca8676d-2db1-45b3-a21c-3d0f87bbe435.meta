@@ -1,0 +1,15 @@
+{
+	"Name": "Okta - Admin & Configuration Changes - Sensitive Okta OAuth Scope Granted to an App",
+	"Description": "Alert: Alert - Okta - Admin & Configuration Changes\nMITRE ATT&CK: Persistence / T1098.003\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Sensitive Okta OAuth Scope Granted to an App\" or \"<ip>|Sensitive Okta OAuth Scope Granted to an App\"\n\nAdministrator consent that grants an app a sensitive Okta API scope (app.oauth2.admin.consent.grant). Each granted scope is matched exactly against the okta_sensitive_oauth_scopes lookup (tier High or Medium; tier None suppresses a scope); any other org-level okta.<resource>.manage scope is High. End-user self-service scopes (okta.myAccount.*, okta.enduser.*) are ignored. One alert per consent event, listing every scope granted.\n\nThe event is split per scope only inside this rule (json -x target, then unique uuid) so that matching is exact: a substring test on the raw grant would match okta.users.manage against okta.users.manage.self.\n\nFalse positives: approved integrations; add them to okta_user_allowlist or set the scope tier to None.",
+	"GUID": "4ca8676d-2db1-45b3-a21c-3d0f87bbe435",
+	"Labels": [
+		"okta",
+		"detection",
+		"admin-configuration-changes",
+		"persistence",
+		"T1098.003"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

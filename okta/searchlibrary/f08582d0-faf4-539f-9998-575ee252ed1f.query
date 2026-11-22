@@ -1,10 +1,13 @@
-/* AlertQuery - Okta - Identity Access Management - System - Event Types - Potential Okta Password in AlternateID Field [table] */
-tag=$OKTA_SYSTEM
+/* Okta - Authentication & Sessions - Potential Okta Password in AlternateID Field */
+tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==FAILURE actor.alternateId as rawAlt
 $OKTA_ALERT_EVX
-| regex -e actorAltId "(^0oa.*|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10})"
+| eval has("rawAlt") && rawAlt != "unknown" && rawAlt != "" && !match(rawAlt, "@")
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("55")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Potential Okta Password in AlternateID Field"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Potential Okta Password in AlternateID Field";
+    message = printf("Failed sign-in where the username field held a %v-character value that is not an email address. The value is not shown because it may be a password.", len(rawAlt)); actorAltId = "[redacted: possible password]"; actorName = "[redacted]"; actorRaw = "[redacted]";
+$OKTA_ALERT_META("Credential Access", "T1552")

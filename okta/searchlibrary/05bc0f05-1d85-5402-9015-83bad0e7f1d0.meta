@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Active Users Never Signed In [numbercard]",
+	"Description": "Active users with no lastLogin. From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"GUID": "05bc0f05-1d85-5402-9015-83bad0e7f1d0",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

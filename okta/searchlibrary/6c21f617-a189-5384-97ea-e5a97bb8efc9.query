@@ -1,0 +1,3 @@
+tag=_alerts json Contents._vendor==Okta Contents._alert_priority as priority
+| stats count by priority
+| chart count by priority

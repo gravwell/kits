@@ -2,7 +2,8 @@ $OKTA_ALERT_BASE
 $OKTA_NORMALIZE_IP
 $OKTA_COMBINED_AUTH
 $OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
-| geoip src.Location src.CountryName as Country
-| stats count(loginDisposition) as loginDispositionCount by src Country
-| sort by loginDispositionCount desc
-| table published actorAltId actorName targetAltId targetName src eventType outcomeResult outcomeReason loginDisposition loginDispositionCount Country category subcategory
+$OKTA_GEO
+| eval ok = 0; failed = 0; if (loginDisposition == "success") { ok = 1; } else if (loginDisposition == "failure") { failed = 1; }
+| stats count as events sum(ok) as successful sum(failed) as failed unique_count(actorAltId) as actors unique_count(src) as sources by geoCountry
+| sort by events desc
+| table geoCountry events successful failed actors sources

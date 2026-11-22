@@ -1,11 +1,15 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Multiple Okta User Authentication Events with Same Device Token Hash [table]",
-  "Description": "Detects when a high number of Okta user authentication events are reported for multiple users in a short time frame. Adversaries may attempt to launch a credential stuffing or password spraying attack from the same device by using a list of known usernames and passwords to gain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_authentication_for_multiple_users_with_the_same_device_token_hash/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_authentication_for_multiple_users_with_the_same_device_token_hash.toml",
-  "GUID": "da8352ea-e420-5137-a414-ab12d8e28d17",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "Okta - Authentication & Sessions - Okta Password Spray from One Device",
+	"Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Credential Access / T1110.003\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Password Spray from One Device\" or \"<ip>|Okta Password Spray from One Device\"\n\nOne device token hash (debugData.dtHash) with failed authentications (INVALID_CREDENTIALS) for three or more different users within the search window. Catches sprays that rotate IPs but reuse one browser/device.\n\nFalse positives: shared kiosk devices.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_authentication_for_multiple_users_with_the_same_device_token_hash/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_okta_authentication_for_multiple_users_with_the_same_device_token_hash.toml",
+	"GUID": "da8352ea-e420-5137-a414-ab12d8e28d17",
+	"Labels": [
+		"okta",
+		"detection",
+		"authentication-sessions",
+		"credential-access",
+		"T1110.003"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

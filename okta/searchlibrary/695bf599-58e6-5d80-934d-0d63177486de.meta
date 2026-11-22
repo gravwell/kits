@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Average Password Age [numbercard]",
+	"Description": "Average days since active users last changed their password. From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"GUID": "695bf599-58e6-5d80-934d-0d63177486de",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

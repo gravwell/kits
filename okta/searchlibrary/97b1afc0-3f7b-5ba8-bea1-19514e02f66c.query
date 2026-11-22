@@ -1,0 +1,4 @@
+tag=$OKTA_SYSTEM json eventType
+| regex -e eventType "rate_limit\.violation$|rate_limit_exceeded$|rate_limit_warning$"
+| stats count by eventType
+| chart count by eventType

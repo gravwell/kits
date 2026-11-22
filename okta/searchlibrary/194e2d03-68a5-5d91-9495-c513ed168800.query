@@ -1,0 +1,4 @@
+$OKTA_USER_AGG("status")
+| stats sum(value) as count
+| alias count " "
+| numbercard " "

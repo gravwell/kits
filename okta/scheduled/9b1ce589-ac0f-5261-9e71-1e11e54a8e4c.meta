@@ -1,0 +1,15 @@
+{
+	"Name": "Okta - User Aggregates",
+	"Description": "Every hour, computes Okta user-directory aggregates (status, user type, division, department, job title, manager, timezone, last sign-in and password age of active users, credential providers, average password age, average days from created to activated) from the newest record per user in the last 25 hours, and ingests them into the _aggs_okta_users tag as metric,key,value rows. The Okta User Overview and User Authentication Overview dashboards and the timezone table on Okta Sign-In Locations read only that tag, so they load instantly at any time range; detections never read it. Needs the hosted ingester's daily full user snapshot to cover users who have not changed.",
+	"Labels": [
+		"okta",
+		"aggregates",
+		"agg"
+	],
+	"Schedule": "17 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": false,
+		"RunImmediately": true
+	},
+	"ScheduledType": "flow"
+}

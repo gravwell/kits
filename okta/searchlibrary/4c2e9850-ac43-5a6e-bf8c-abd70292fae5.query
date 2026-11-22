@@ -1,0 +1,3 @@
+$OKTA_USER_AGG("provider_name")
+| stats sum(value) as users by key
+| chart users by key

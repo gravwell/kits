@@ -1,0 +1,7 @@
+tag=$OKTA_SYSTEM json eventType outcome.result as res outcome.reason as reason actor.alternateId as user client.ipAddress as ip debugContext.debugData.dtHash as dtHash
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && res == "FAILURE" && match(reason, "INVALID_CREDENTIALS")
+$OKTA_GEO
+| stats count as failures unique_count(ip) as sources unique_count(geoCountry) as countries by user
+| sort by failures desc
+| limit 50
+| table user failures sources countries

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Okta Alerts over Time by Priority [chart]",
+	"Description": "Alerts the Okta kit raised (tag _alerts, Contents._vendor Okta) over time, by priority.",
+	"GUID": "6c21f617-a189-5384-97ea-e5a97bb8efc9",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

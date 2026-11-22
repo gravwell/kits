@@ -1,6 +1,6 @@
 {
 	"Name": "OKTA",
-	"Description": "Configuration Macro; Tag used for querying all of your Okta data; necessary for any queries within the Gravwell Okta Kit to run properly.",
+	"Description": "All Okta tags: the System Log tag ($OKTA_SYSTEM) and the user profile tag ($OKTA_USERS). Usage: tag=$OKTA",
 	"Labels": [
 		"okta"
 	]

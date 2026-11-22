@@ -1,0 +1,13 @@
+/* Okta - Threats & Platform - Okta Support Access to the Org */
+tag=$OKTA_SYSTEM json eventType
+$OKTA_ALERT_EVX
+| eval in(eventType, "support.org.view", "user.session.impersonation.grant", "support.org.update")
+$OKTA_ENRICH_COMMON
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("55")
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval
+    _alert_name = "Okta Support Access to the Org";
+    message = printf("Okta support access activity: %v", eventType);
+$OKTA_ALERT_META("Initial Access", "T1199")

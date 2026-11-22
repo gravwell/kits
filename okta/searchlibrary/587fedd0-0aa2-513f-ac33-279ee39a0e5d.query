@@ -1,11 +1,20 @@
-/* AlertQuery - Okta - Identity Access Management - System - Event Types - Okta Brute Force or Password Spraying Attack [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType ".*auth.*"
+/* Okta - Authentication & Sessions - Okta Brute Force Against One Account */
+@agg{tag=$OKTA_SYSTEM json eventType actor.alternateId as actorAltId client.ipAddress as clientIp outcome.result as res outcome.reason as reason debugContext.debugData.dtHash as dtHash
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && res == "FAILURE" && match(reason, "INVALID_CREDENTIALS")
+| stats count as failures by actorAltId
+| eval failures >= 5
+| table actorAltId failures};
+tag=$OKTA_SYSTEM json eventType outcome.result as res outcome.reason as reason
 $OKTA_ALERT_EVX
-| regex -e outcomeResult "(?i)FAIL|DENY"
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && res == "FAILURE" && match(reason, "INVALID_CREDENTIALS")
+| lookup -s -r @agg actorAltId actorAltId failures
+| unique actorAltId
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("65")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Okta Brute Force or Password Spraying Attack"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Okta Brute Force Against One Account";
+    message = printf("%v failed sign-in attempts with invalid credentials for this user in the search window", failures);
+$OKTA_ALERT_META("Credential Access", "T1110.001")

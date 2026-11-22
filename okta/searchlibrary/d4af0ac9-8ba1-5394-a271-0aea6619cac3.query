@@ -1,11 +1,21 @@
-/* AlertQuery - Okta - Identity Access Management - User - MFA / Session - Stolen Credentials Used to Login to Okta Account After MFA Reset [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType "^(?:user\.mfa\.factor\.update|user\.session\.start|user\.authentication)$"
+/* Okta - Authentication & Sessions - Okta Sign-In from a New IP After MFA Reset */
+@resets{start=-12h tag=$OKTA_SYSTEM json eventType actor.alternateId as resetBy client.ipAddress as resetIp target
+| eval in(eventType, "user.mfa.factor.deactivate", "user.mfa.factor.reset_all")
+| regex -p -e target "\"type\":\"User\",\"alternateId\":\"(?P<subjectUser>[^\"]*)\""
+| eval if (!has("subjectUser")) { subjectUser = resetBy; } resetKey = subjectUser + "|" + resetIp;
+| stats count as resets by subjectUser resetKey
+| table subjectUser resetKey resets};
+tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS
 $OKTA_ALERT_EVX
-| regex -e outcomeResult "(?i)SUCCESS|ALLOW"
+| lookup -s -r @resets actorAltId subjectUser resets
+| eval resetKey = actorAltId + "|" + clientIp
+| lookup -v -r @resets resetKey resetKey resets
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("75")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Stolen Credentials Used to Login to Okta Account After MFA Reset"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Okta Sign-In from a New IP After MFA Reset";
+    message = printf("Successful Okta sign-in from %v within 12 hours after this user's MFA factors were reset or deactivated (from a different IP)", clientIp);
+$OKTA_ALERT_META("Initial Access", "T1078")

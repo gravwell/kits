@@ -1,0 +1,7 @@
+tag=$OKTA_SYSTEM json eventType==user.session.start securityContext.isProxy==true actor.alternateId as user outcome.result as result
+$OKTA_GEO
+| eval ok = 0; failed = 0; if (result == "SUCCESS") { ok = 1; } else { failed = 1; }
+| stats sum(ok) as successful sum(failed) as failed unique_count(user) as users by geoIp geoCountry geoAsOrg
+| sort by users desc
+| limit 50
+| table geoIp geoCountry geoAsOrg users successful failed

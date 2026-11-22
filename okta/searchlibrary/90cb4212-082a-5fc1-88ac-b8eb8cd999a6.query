@@ -1,11 +1,21 @@
-/* AlertQuery - Okta - Identity Access Management - User - Authentication - Multiple Okta User Auth Events with Same Device Token Hash Behind a Proxy [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType "^user\.authentication\..*$"
+/* Okta - Authentication & Sessions - Multiple Okta Users Authenticating from the Same Device Behind a Proxy */
+@agg{tag=$OKTA_SYSTEM json eventType actor.alternateId as actorAltId debugContext.debugData.dtHash as dtHash securityContext.isProxy as isProxyRaw securityContext.risk.reasons as riskReasons
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && ((has("isProxyRaw") && isProxyRaw == "true") || (has("riskReasons") && riskReasons ~ "Anonymizing Proxy"))
+| stats count as n by dtHash actorAltId
+| stats count as users by dtHash
+| eval users >= 2
+| table dtHash users};
+tag=$OKTA_SYSTEM json eventType securityContext.isProxy as isProxyRaw securityContext.risk.reasons as riskReasons
 $OKTA_ALERT_EVX
-| regex -e dtHash ".*"
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && ((has("isProxyRaw") && isProxyRaw == "true") || (has("riskReasons") && riskReasons ~ "Anonymizing Proxy"))
+| lookup -s -r @agg dtHash dtHash users
+| unique dtHash actorAltId
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("75")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Multiple Okta User Auth Events with Same Device Token Hash Behind a Proxy"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Multiple Okta Users Authenticating from the Same Device Behind a Proxy";
+    message = printf("Device token hash used by %v different users behind an anonymizing proxy in the search window", users);
+$OKTA_ALERT_META("Credential Access", "T1110.003")

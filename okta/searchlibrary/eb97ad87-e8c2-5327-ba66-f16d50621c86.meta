@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Password Age of Active Users over Time [chart]",
+	"Description": "Active users by password age, over time. From the hourly user aggregates (tag _aggs_okta_users), averaged per time bucket.",
+	"GUID": "eb97ad87-e8c2-5327-ba66-f16d50621c86",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,28 @@
+/* Okta - Authentication & Sessions - Okta Sign-In by a Recently Deactivated User */
+@off{start=-30d tag=$OKTA_SYSTEM json eventType target
+| eval in(eventType, "user.lifecycle.deactivate", "user.lifecycle.suspend")
+| regex -p -e target "\"type\":\"User\",\"alternateId\":\"(?P<subjectUser>[^\"]*)\""
+| eval has("subjectUser")
+| stats count as offEvents by subjectUser
+| table subjectUser offEvents};
+@on{start=-30d tag=$OKTA_SYSTEM json eventType target
+| eval in(eventType, "user.lifecycle.activate", "user.lifecycle.reactivate", "user.lifecycle.unsuspend")
+| regex -p -e target "\"type\":\"User\",\"alternateId\":\"(?P<subjectUser>[^\"]*)\""
+| eval has("subjectUser")
+| stats count as onEvents by subjectUser
+| table subjectUser onEvents};
+tag=$OKTA_SYSTEM json eventType outcome.result==SUCCESS
+$OKTA_ALERT_EVX
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)")
+| lookup -s -r @off actorAltId subjectUser offEvents
+| lookup -v -r @on actorAltId subjectUser onEvents
+| unique actorAltId
+$OKTA_ENRICH_COMMON
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("90")
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval
+    _alert_name = "Okta Sign-In by a Recently Deactivated User";
+    message = "Successful Okta authentication by a user who was deactivated or suspended in the previous 30 days and not re-activated since";
+$OKTA_ALERT_META("Initial Access", "T1078")

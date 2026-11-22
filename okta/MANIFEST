@@ -2,12 +2,12 @@
     "ID": "io.gravwell.okta",
     "Name": "Okta",
     "Desc": "A toolkit for interacting with your Okta data.",
-    "Readme": "# Okta Kit\n\nThis kit provides ready-to-roll dashboards, queries, alerts, flows, templates, and playbooks.\n\nThe Okta Kit is licensed under the BSD 2-Clause license and the contents are available on [GitHub](https://github.com/gravwell/kits/tree/main/okta).\n\nThere is an [Integration Guide](https://docs.gravwell.io/integrations/application/okta.html) to assist you in quickly onboarding data for the Okta Kit.\n\n## Dependencies\n- Gravwell Network Enrichment Kit\n\n## Changelog\n- 1.0: Initial Release",
+    "Readme": "# Okta Kit\n\nDetections, alerts, dashboards, saved queries, templates and investigation playbooks for the\nOkta System Log.\n\nThe Okta Kit is licensed under the BSD 2-Clause license and the contents are available on\n[GitHub](https://github.com/gravwell/kits/tree/main/okta).\n\n## Data\n\n| Tag (config macro) | Default | Required | Contents |\n|---|---|---|---|\n| `$OKTA_SYSTEM` | `okta` | yes | Okta System Log events, one JSON event per entry, timestamped by `published` |\n| `$OKTA_USERS` | `okta-users` | no | Okta user profile records; only the user dashboards and queries use it |\n\nThe user dashboards count each user once, from their newest record in the time range\n(`$OKTA_LATEST_USERS`). They show the whole directory only if every user is written at least\nonce per dashboard time range. The Okta hosted ingester does this with a daily full snapshot\n(versions after 1.0.0); version 1.0.0 only writes users when they change.\n\nThe user-directory dashboards don't search the user records. An hourly flow, **Okta - User\nAggregates**, computes the directory figures from the last 25 hours of user records and writes\nthem to the tag `_aggs_okta_users` as `metric,key,value` rows (CSV autoextractor\n`okta-user-aggregates`). The figures cover:\n\n- users by status, user type, division, department, job title, manager and timezone;\n- last sign-in and password age of active users;\n- credential providers;\n- average password age and onboarding time.\n\n**Okta User Overview**, **Okta User Authentication Overview** (except its user table) and the\ntimezone table on **Okta Sign-In Locations** read only that tag, taking the newest run through\n`$OKTA_USER_AGG(\"\u003cmetric\u003e\")`. They load instantly at any time range, and a week shows the\ntrend. The first figures appear after the\nflow's first run (at install, then at minute 17 of every hour). The flow needs the daily\nsnapshot to count users who haven't changed, and its owner needs permission to ingest.\nThe aggregates only feed those dashboards. Detections never read them; they search the System\nLog directly, so they work from the moment the kit is installed, with or without aggregate\nhistory.\n\nBoth are written by the Gravwell Okta hosted ingester; see the\n[Integration Guide](https://docs.gravwell.io/integrations/application/okta.html). Any other\ningest path works if each entry is one System Log event as returned by the Okta API\n(`/api/v1/logs`). Change the config macros at install if your tags differ. The kit's\nqueries use `json`, not `ax`, so they work on any tag. The `okta` and `okta-users`\nautoextractors only matter for your own `ax` searches; `okta-user-aggregates` parses the kit's\nown `_aggs_okta_users` tag.\n\n## Dependencies\n\n- Gravwell 5.10.0 or newer.\n- Gravwell Network Enrichment kit (version 19 or newer), installed automatically, as a\n  fallback only. Locations on the maps and in the country tables come from Okta itself\n  (`client.geographicalContext` and `securityContext`), which Okta resolves when the request\n  happens. The `$OKTA_GEO` macro uses the Network Enrichment kit's GeoIP database (the\n  `geoip` module) only for events Okta didn't place (about 0.5% in a sample org), and records\n  which source it used in `geoSource` (`okta`, `maxmind`, or `none`).\n\n## After installing\n\nAll six alerts and their 49 scheduled searches are enabled at install. With no consumers attached,\nan alert only writes its events to the tag `_alerts`, so nothing is sent anywhere until you\nadd one. `_alerts` is shared by every kit's alerts; the Okta kit's events have `Contents._vendor`\nset to `Okta`.\n\n1. Read the alerts. The fields are under `Contents`:\n   `tag=_alerts json Contents._vendor==Okta Contents._alert_title as title Contents.context as context | table title context`.\n   The Investigation dashboard's \"Okta Alerts\" tile does this for one actor, target or IP,\n   and the **Okta Threat Overview** dashboard shows them by priority and detection.\n2. To notify someone, add a consumer to the alert (Automation > Alerts): a flow that sends\n   email, posts to Slack, Teams or a webhook, or opens a ticket. The kit ships no consumers\n   because every team routes alerts differently.\n3. Add your own administrators and service accounts to the tuning lookups (below).\n4. To turn off one detection, disable its scheduled search (Automation > Scheduled Searches;\n   labels `okta`, `detection` and the group, for example `authentication-sessions`). To turn\n   off a whole group, disable the alert and its scheduled searches.\n\n### Alerts\n\n| Alert | Detections |\n|---|---|\n| Alert - Okta - Authentication & Sessions | 24 |\n| Alert - Okta - Admin & Configuration Changes | 13 |\n| Alert - Okta - Account & MFA Changes | 5 |\n| Alert - Okta - Threats & Platform | 5 |\n| Alert - Okta - Modification Feed | 1 |\n| Alert - Okta - Kit Health | 1 |\n\nEvery detection runs every 15 minutes over the previous 15 minutes. Start minutes are\nspread across the quarter hour so the searches don't all run at once. Detections that need\nhistory look further back on their own (14 days for \"Admin Console Access from a New IP\",\n30 days for \"Sign-In by a Recently Deactivated User\", 24 hours for \"Admin Role Granted to a\nNew User\", 12 hours for \"Sign-In from a New IP After MFA Reset\", 4 hours for \"Sessions\nStarted from Different Geolocations\"). Those look-backs scan the System Log tag every 15\nminutes; on a large org, lengthen their schedules if search load matters.\n\n### Alert events\n\nEach security alert event carries the same fields (in `_alerts`, under `Contents`;\n`Metadata` holds the alert and scheduled search that raised it):\n\n| Field | Meaning |\n|---|---|\n| `_alert_title` | `Alert: Okta - System Log - <category> - <subcategory> - <priority> - <detection>` |\n| `_alert_priority` | Critical (risk ≥ 90), High (≥ 75), Medium (≥ 55), Low (≥ 40), Informational |\n| `_alert_name` | detection name; the key used by the tuning lookups |\n| `_alert_risk` | risk score, 0-100 |\n| `_vendor`, `_product` | `Okta`, `System Log` |\n| `_category`, `_subcategory` | from the `okta_eventTypes` lookup |\n| `user` | the person acted on if there is one, otherwise the actor |\n| `src_ip` | client IP (or the first IP of the request chain) |\n| `target` | the primary target: the user acted on, else the app account, else the app, else the first target |\n| `eventType`, `published` | from the Okta event |\n| `_mitre_tactic`, `_mitre_technique` | ATT&CK mapping |\n| `context` | one readable sentence: who did what to whom, from where, with what result |\n\n**Risk score**: every event starts from a base score for its event type (privilege\ngrants 90, API tokens and identity providers 85, MFA and policy changes 80, and so on).\nBumps are added for warning or error severity, a successful outcome, an anonymizing proxy,\na privileged actor or a protected target. Many detections also set a minimum (the Priority\ncolumn below), so a password spray is never reported below High.\n\n### Detections\n\n\"In the window\" means within the 15-minute search window.\n\n#### Authentication & Sessions (24)\n\n| Detection | Fires on | Priority | ATT&CK |\n|---|---|---|---|\n| Attempted Bypass of Okta MFA | `user.mfa.attempt_bypass` | by risk score | Credential Access, T1111 |\n| Multiple Okta Sessions for One User from Different IPs | 2+ new sessions from 2+ IPs for one user in the window | Medium minimum | Lateral Movement, T1550.004 |\n| Multiple Okta Users Authenticating from the Same Device Behind a Proxy | One device token used by 2+ users through an anonymizing proxy | High minimum | Credential Access, T1110.003 |\n| Okta Admin Console Access from a New IP | Admin Console access from an IP the admin has not used for it in 14 days | Medium minimum | Initial Access, T1078.004 |\n| Okta Admin Console Access via Anonymizing Proxy | Admin Console access through an anonymizing proxy | High minimum | Initial Access, T1078.004 |\n| Okta Brute Force Against One Account | 5+ invalid-credential failures for one user in the window | Medium minimum | Credential Access, T1110.001 |\n| Okta FastPass Phishing Detection | FastPass declined to sign in to a phishing origin | by risk score | Initial Access, T1566 |\n| Okta Many Device Tokens from One IP on Failed Sign-Ins | 10+ device tokens on invalid-credential failures from one IP in the window | Medium minimum | Credential Access, T1110 |\n| Okta New Admin Console Behaviours | Admin Console sign-on with a new device, IP, location or velocity flag | High minimum | Initial Access, T1078.004 |\n| Okta OAuth Refresh Token Reuse Detected | Rotated refresh token presented again (org or custom authorization server) | High minimum | Credential Access, T1528 |\n| Okta Password Spray from One Device | One device token failing for 3+ users in the window | High minimum | Credential Access, T1110.003 |\n| Okta Password Spray from One IP | One IP failing for 3+ users in the window | High minimum | Credential Access, T1110.003 |\n| Okta Session Start via Anonymizing Proxy | Session start (success or failure) through an anonymizing proxy | Medium minimum | Command and Control, T1090.003 |\n| Okta Session Used from Multiple Countries | One browser session (root session ID) seen from 2+ countries; phone events ignored | High minimum | Credential Access, T1539 |\n| Okta Sign-In Events via Third-Party IdP | Inbound IdP / SAML sign-in rejected (replayed or invalid assertion, unknown endpoint) | by risk score | Initial Access, T1199 |\n| Okta Sign-In by a Recently Deactivated User | Successful sign-in by a user deactivated or suspended in the previous 30 days and not re-activated | Critical minimum | Initial Access, T1078 |\n| Okta Sign-In from a New IP After MFA Reset | Sign-in within 12 hours of an MFA reset, from an IP not used for the reset | High minimum | Initial Access, T1078 |\n| Okta Sign-In with Elevated Risk or New Behavior | Okta risk HIGH or Velocity / New Country (High), risk MEDIUM (Medium) | Medium or High minimum | Initial Access, T1078 |\n| Okta User Session Impersonation | `user.session.impersonation.initiate` | by risk score | Defense Evasion, T1550 |\n| Okta User Sessions Started from Different Geolocations | Sessions for one user from 2+ countries within 4 hours | High minimum | Initial Access, T1078 |\n| Potential Okta MFA Bombing via Push Notifications | 5+ pushes, or 3+ pushes with 2+ denied / unanswered, for one user in the window | High minimum | Credential Access, T1621 |\n| Potential Okta Password in AlternateID Field | Failed sign-in whose username is not an email address (value masked in the alert) | Medium minimum | Credential Access, T1552 |\n| Potentially Successful Okta MFA Bombing via Push Notifications | Push bombing followed by a successful MFA | Critical minimum | Credential Access, T1621 |\n| Unauthorized Access to an Okta Application | User tried to open an app they are not assigned to | by risk score | Initial Access, T1078 |\n\n#### Admin & Configuration Changes (13)\n\n| Detection | Fires on | Priority | ATT&CK |\n|---|---|---|---|\n| Okta API Token Created | `system.api_token.create` | by risk score | Persistence, T1136 |\n| Okta API Token Revoked | `system.api_token.revoke` | by risk score | Impact, T1531 |\n| Okta Admin Role Assigned to a User or Group | Admin role granted to a user, a group, or through a resource set binding | by risk score | Persistence, T1098.003 |\n| Okta Admin Role Granted to a New User | Admin role granted to an account created in the previous 24 hours | Critical minimum | Persistence, T1098.003 |\n| Okta Application Modified, Deactivated or Deleted | `application.lifecycle.update/deactivate/delete` | by risk score | Impact, T1489 |\n| Okta Application Sign-On Policy Modified or Deleted | `application.policy.sign_on.update/delete` | by risk score | Defense Evasion, T1562 |\n| Okta Identity Provider Created | `system.idp.lifecycle.create` | by risk score | Persistence, T1556.007 |\n| Okta Network Zone Modified, Deactivated or Deleted | Network zone changed, deactivated, deleted or blocklist entry removed | by risk score | Defense Evasion, T1562 |\n| Okta OAuth Client Secret or Credential Accessed or Created | OAuth client secret read; client credential created or activated; client privilege granted | Medium or High minimum | Credential Access, T1552 |\n| Okta Policy Modified, Deactivated or Deleted | `policy.lifecycle.update/deactivate/delete` | by risk score | Defense Evasion, T1562 |\n| Okta Policy Rule Modified, Deactivated or Deleted | `policy.rule.update/deactivate/delete` | by risk score | Defense Evasion, T1562 |\n| Sensitive Okta OAuth Scope Granted to an App | Admin consent for a scope listed in `okta_sensitive_oauth_scopes` (exact match), or any org-level `okta.*.manage` scope | Medium or High minimum | Persistence, T1098.003 |\n| Unauthorized Scope for Public App OAuth2 Token Grant with Client Credentials | Client-credentials token request refused with `no_matching_scope` | Medium minimum | Defense Evasion, T1550.001 |\n\n#### Account & MFA Changes (5)\n\n| Detection | Fires on | Priority | ATT&CK |\n|---|---|---|---|\n| High Number of Okta Password Reset or Unlock Events for One User | 3+ password reset / unlock events for one user in the window | Medium minimum | Credential Access, T1110 |\n| Locked Out or Account Locked | Account lockouts (`user.account.lock`, `user.account.lock.limit`) | by risk score | Credential Access, T1110 |\n| New Okta User Created | `user.lifecycle.create` | by risk score | Persistence, T1136.003 |\n| Okta MFA Reset or Deactivated | MFA factor deactivated or all factors reset | by risk score | Persistence, T1556.006 |\n| User Reported Suspicious Activity | End user reported suspicious activity | by risk score | Initial Access, T1078 |\n\n#### Threats & Platform (5)\n\n| Detection | Fires on | Priority | ATT&CK |\n|---|---|---|---|\n| Okta Protected Action Attempted or Request Blocked | `security.protected_action.attempt`, `security.request.blocked` | Medium minimum | Initial Access, T1078 |\n| Okta Security Threat Detected | `security.threat.detected` (ThreatInsight) | by risk score | Credential Access, T1110 |\n| Okta Support Access to the Org | Okta Support viewed or changed the org, or was granted impersonation | Medium minimum | Initial Access, T1199 |\n| Okta ThreatInsight Threat Suspected Promotion | Any event with `debugData.threatSuspected` true | by risk score | Credential Access, T1110 |\n| Possible Okta DoS Attack | Rate-limit and concurrency-limit violations | Medium minimum | Impact, T1498 |\n\n#### Modification Feed (1)\n\n| Detection | Fires on | Priority |\n|---|---|---|\n| Risk-Scored Modification Feed | Every configuration or account change scoring Low (40) or above; at most 50 events per run | Low and above |\n\nThe modification feed is a review queue, not a detection. It overlaps with the Admin &\nConfiguration Changes detections and is noisier; if you attach a notification to it, expect\nmore volume than from the other alerts, or disable it if you only want detections.\n\n#### Kit Health (1)\n\n| Detection | Fires on | Priority |\n|---|---|---|\n| Target Key Order Changed | Okta changed how target objects are serialized (see Known assumptions) | Critical |\n\n## Tuning\n\nAll tuning is in lookup resources (Resources page). Rows ship disabled (`enabled` = 0) as\nexamples. Logins are compared without the `@domain` part and in lowercase.\n\n| Lookup | Key | Effect |\n|---|---|---|\n| `okta_user_allowlist` | `<login>\\|<detection name>` or `<login>\\|*` | drop alerts where this account is the actor or the person acted on; optional expiry `until_ymd` (YYYYMMDD) |\n| `okta_ip_allowlist` | `<ip>\\|<detection name>` or `<ip>\\|*` | drop alerts from this source IP; optional expiry |\n| `okta_user_denylist` | same as the user allowlist | raise to at least High, optionally only when the risk score ≥ `min_risk` |\n| `okta_ip_denylist` | same as the IP allowlist | raise to at least High, optionally only when the risk score ≥ `min_risk` |\n| `okta_privileged_actor` | `account` | add `actor_weight` to the risk score when this account acts |\n| `okta_protected_target` | `account` | add `target_weight` when this account is acted on (never when it acts on itself) |\n| `okta_sensitive_oauth_scopes` | `scope` | scopes that make \"Sensitive Okta OAuth Scope Granted to an App\" fire, with tier High or Medium; tier `None` silences a scope |\n| `okta_eventTypes` | `eventType` | category, subcategory and whether the event type is a modification |\n\nThe detection name is the part of the scheduled search name after the group, for example\n`jsmith|Okta Admin Console Access from a New IP`. To change a threshold or the schedule,\nedit the saved query or the scheduled search (an upgrade of the kit replaces your edits).\n\"Search - Okta - Kit Health - Event Types Missing from Lookup\" lists event types in your\ndata that `okta_eventTypes` doesn't know about yet.\n\n## Known assumptions\n\n- **Target serialization.** An Okta event has one actor and a list of targets (users, apps,\n  app accounts, groups, policies...). The kit reads targets by type with a regular\n  expression rather than splitting the list, so every event stays one row and no alert is\n  counted once per target. This relies on Okta writing each target's keys in the order\n  `id, type, alternateId, displayName`, which held for every target in 90 days of\n  production data. If Okta ever changes that order, the typed target fields\n  (`targetUser*`, `targetAppUser*`, `targetApp*`) come back empty and detections fall back\n  to the first target. The **Kit Health - Target Key Order Changed** alert fires\n  (Critical) as soon as one event in the window doesn't match; report it to the kit\n  maintainers.\n- **Window and ingest delay.** A detection only sees events whose `published` time falls in\n  its 15-minute window at the moment it runs. Events that arrive after the window has been\n  searched are not alerted on. If your ingester routinely lags by minutes, lengthen the\n  scheduled search duration (with some duplicate alerts as the cost).\n- **Okta-side features.** Some detections depend on Okta features your org may not have\n  (ThreatInsight, FastPass, behavior detection and risk scoring, Okta Support access\n  logging). They stay silent rather than failing when the events are absent.\n\n## Tests\n\n`tests/okta_fixtures.py` holds synthetic Okta events (example.com users, documentation\nIP ranges) for every detection, including cases that must not fire. It imports them into a\nseparate tag, runs every detection over every case's 15-minute window on a Gravwell\ninstance with the kit installed, and checks that exactly the expected detections fire. See\n`tests/README.md`.\n\n## Changelog\n\n- 1.0: Initial release.\n  - 49 detections grouped into 6 alerts (5 security alerts plus Kit Health), each detection a\n    producer on its alert, all enabled at install. Alert events go to `_alerts` with a\n    common field set.\n  - Detections every 15 minutes; one risk score (`$OKTA_RISK_SCORE`) with per-detection\n    minimum priorities; ATT&CK labels; tuning lookups for users, IPs, privileged accounts\n    and OAuth scopes.\n  - Dashboards: General, Category, Event Type, Actor/Target, Investigation, User,\n    User Authentication overviews (both from hourly pre-computed aggregates in\n    `_aggs_okta_users`, written by the \"Okta - User Aggregates\" flow), Sign-In Locations\n    (maps and per-country tables) and\n    Threat Overview (the alerts raised, plus the signals the statistical detections watch,\n    ranked without thresholds); locations from Okta's own geolocation;\n    20 templates; 3 actionables (actor, target, IP) that open the Investigation dashboard,\n    which includes the alerts and sign-in locations for that actor, target or IP.\n  - Playbooks: kit overview and alert response.\n",
     "Version": 1,
     "MinVersion":
     {
-        "Major": 0,
-        "Minor": 0,
+        "Major": 5,
+        "Minor": 10,
         "Point": 0
     },
     "MaxVersion":
@@ -62,38 +62,8 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "46063398-1d67-4591-aa8f-28e0450eb19d",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "bd52363c-e32f-4b4d-ad66-046037147f31",
             "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "0ac35f09-fa74-49ee-977a-3b2fcb1b3b50",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "6bbaf0a8-5a71-45e8-99f0-405ad8241b8b",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "okta-groups",
-            "Type": 4,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "okta-system",
-            "Type": 4,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "okta-users",
-            "Type": 4,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
@@ -122,22 +92,12 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "OKTA_MOD_RISK_SCORE",
-            "Type": 8,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "OKTA_IP_TUNING",
             "Type": 8,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
             "Name": "OKTA_USER_TUNING",
-            "Type": 8,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "OKTA_CATALOG_RISK_SCORE",
             "Type": 8,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -157,22 +117,12 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "GRAVWELL_INSTANCE",
-            "Type": 8,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "OKTA_ALERT_EVX",
             "Type": 8,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
             "Name": "OKTA_MOD_ALERTS",
-            "Type": 8,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "OKTA_ALERT_SENDER",
             "Type": 8,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -192,11 +142,6 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "OKTA_GROUPS",
-            "Type": 8,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "OKTA_NORMALIZE_IP",
             "Type": 8,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -208,11 +153,6 @@
         },
         {
             "Name": "OKTA_NORMALIZE_ACTOR",
-            "Type": 8,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "OKTA_ALERT_RECIPIENT",
             "Type": 8,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -283,11 +223,6 @@
         },
         {
             "Name": "3ba6dde2-cbed-4649-b878-2178e9883134",
-            "Type": 6,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "4e99b606-4c9f-4517-bb8b-ef7ffd217fe2",
             "Type": 6,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -422,201 +357,6 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "410dcf6d-f2b2-4a45-b8ba-1891c50b7aa7",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "ab3d97e4-d6c0-4a9b-9986-324eb0d297d4",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "b92ae85f-1fae-43d4-971a-6abae73dff8d",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "a0db95af-e9ef-4e92-bd08-17048f458862",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "5c38ffc8-7c8e-4bed-852a-291053760f7b",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "871dd8c8-d37a-4295-8cf1-f46ad67ec2a9",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "f2ea3c81-130e-40be-8d10-76606371e3c1",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "35e5963e-0542-4dd8-a058-21b03cf97fb1",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "752af9fb-1d81-4b4c-b22e-2987a1fab5b1",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "31f71f13-70d7-4943-9773-adff579065a3",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "093d40e8-0095-4563-876d-c229ade695aa",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "1d4fd539-669b-46e3-bca9-56c8e3facdbb",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "0b715ded-cd8c-4faa-92ce-11852c80f19c",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "3ffd7959-dc10-4362-ac9d-86e4e6b5fd92",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "15ebcd4b-d1ae-4b61-86d4-e500f0b36a87",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "8e4f336f-a99f-46fe-9779-d6cd31f01191",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "9e70cdfe-4e8e-4884-8d9a-d88031a1d70d",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "64aedb5c-3fd3-4003-8ad7-b2b24ff1853f",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "6c03be5c-0707-4671-9532-c8070d7b9a56",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "87afea96-3af3-4da7-9a85-b6bb2612cf30",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "9cb440d8-d7d7-485a-9882-6e2dbada0de0",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "fffec025-50d6-44a6-92e9-6055afd4d7f6",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "765a6179-1862-405b-b48a-4434e919b021",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "0c1ab0d3-ab8d-460b-b809-a4708f146a53",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "e4f0ec4b-d6e5-4872-b89e-78d4d68bf8ea",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "4f44df25-11f5-4733-89f9-a68f309503a8",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "57fbef18-044c-4fbd-9417-c332f47fe5ba",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "722fd173-e915-4603-a7a5-7ab0200e14cd",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "92787e5c-3502-4950-81de-938b8ece7c6f",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "7c25c0ca-989b-4a9a-aaa2-2224e9aeb508",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "18c0e9ee-f214-44f9-8aca-80fbbd501907",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "4ef90d94-4295-43b5-8e64-15749f5fe038",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "9b6705e1-b927-47da-985f-6291f2141c65",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "6d57beef-f4be-483c-95b8-c3cb92ec6bfa",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "ba6c1f9e-3728-45ad-9cdb-5d080fff5089",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "3f6b6dad-75f7-43e8-8844-b471e67abf10",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "db8ca78a-1260-4e56-9437-511b4bd96dcc",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "799ba52e-3c47-4b72-ac05-468e4f58887a",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "7c836a9a-83c2-46f8-bf54-e821dcac86d9",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "6891c879-5215-4064-b3bb-b0dea413e0ec",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -657,18 +397,8 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "3d24235b-0f55-40ab-bb02-f5818d8af11e",
-            "Type": 12,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "05b1e620-9663-4558-8c78-80a1dc9f30c0",
             "Type": 12,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "0280170f-5f25-5722-a916-da62520be5fa",
-            "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
@@ -688,16 +418,6 @@
         },
         {
             "Name": "1b8426d2-72c7-5b57-ad6f-b33bacce6e4f",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "1b9d434c-1e74-52f0-9ce5-162f0ee17a01",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "1bae7a09-10be-5e47-82d6-1c5e70ee9b44",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -727,22 +447,7 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "39da2436-8b7f-5d99-a635-852f48e4374b",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "3a3e6376-f083-5695-87ad-9db10bd2f20a",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "3a3ec380-5c28-5466-8434-39655c24d876",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "3a671566-3a58-57fb-aaa1-2adbe59d9aab",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -757,22 +462,7 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "4ae706e2-4120-595e-bbac-0d3254d1b7bb",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "55e5c2ad-3cf4-5892-a651-7d61360275b1",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "57d80f4c-1f5d-525c-a875-62fbcedcde5a",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "590c0c71-0bdb-51cf-a756-aa351d45c9e7",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -783,21 +473,6 @@
         },
         {
             "Name": "618bfca6-2df2-5dd2-be0b-d4a97df1a0ad",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "630589e6-776d-5bf9-92ba-00231d51fe61",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "635d3dff-0a36-5e1e-bac2-e8e1f57a981d",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "6805012a-ba05-53d0-84f7-68fe372db130",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -822,11 +497,6 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "793f1b37-5830-5f25-bf50-75554caaca34",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "797c8fd8-9f11-50fc-b5e6-ca3c9f01e2c4",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -842,11 +512,6 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "8985e941-01f4-51e4-97cf-f21719dc048d",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "910c7cf8-0542-5f4e-8646-076f78a09f1e",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -857,27 +522,7 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "9aeeeeed-0823-59ff-92f4-5f11e383b562",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "9b1e5189-7b29-544c-ad9c-aff08c1900b0",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "9c91f59b-6832-535a-ac5d-ca88284d396b",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "9cd90b8c-d553-5fc5-8991-0b517ba1124a",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "a06d8eba-4201-51c7-aff4-36ea5b573764",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -892,22 +537,7 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "b3950ebc-db69-5bdf-a3e7-536ae174edb8",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "ba532e9d-4bea-5c74-8d4d-ed662b02d680",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "bdacd47e-96d1-54ac-b712-1dca32224f71",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "c4a952ac-5381-5b33-926a-1289aeb585a3",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -922,22 +552,7 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "d5cc4acb-00db-5010-87ad-983c9a2fcdea",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "d94b977f-a9b5-55d7-a856-b0142687dd96",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "d97f572a-a054-59c4-a4df-c3ddcbc58804",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "dc6a11be-5e08-5192-bc91-87ebe7c341fb",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -958,16 +573,6 @@
         },
         {
             "Name": "ed2321b8-7d04-596f-b6f4-da8636867806",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "ee70ac72-7796-5b16-9acd-fce8a521a7dc",
-            "Type": 2,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "f0cac77b-b18f-5970-887c-dab182e1326d",
             "Type": 2,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -993,11 +598,6 @@
         },
         {
             "Name": "0688b6b7-1bf0-5181-93b5-9c28513a405d",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "09356cf0-e94a-5870-b396-90e65bfc5805",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -1032,16 +632,6 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "1d5a28ab-8978-5a03-bc2e-2b99d9abf275",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "1d5abe27-b2ef-5cba-b83e-136740d335c6",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "26dc614a-dbee-5700-a655-f63b5af6580c",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -1062,37 +652,7 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "3b85cf5f-9eb6-5889-8bf1-56c68da121cf",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "422b6952-b2f2-5bfb-8799-52031876bc27",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "43923775-2b56-57ec-a208-5bdd711e5bec",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "4c18d8d1-4751-5a87-86d9-20d599163e15",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "50e4f87b-bba5-596d-9be0-425862f9c4b5",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "52f46e0e-c927-51b3-bc9b-890cec766946",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "5556b332-6c30-5741-803b-a2f41d2b72ae",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -1122,27 +682,7 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "6e9e8540-5482-5553-b4b3-5266fde275ee",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "6f184621-3dfd-51ff-a800-ffc14ed553d2",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "74c635b1-f8ba-56a6-91b4-1c5281ce1753",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "75c18ec5-3941-5777-ad84-b7a6aa94ce46",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "7afc66b2-73d6-54fb-b6e1-08fec7aec820",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -1177,52 +717,12 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "9c6913ce-145b-585f-af78-ef2f2ad0a33c",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "9ca743c4-7c89-5094-a327-350b4d0e6184",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "9db6f829-2712-578a-af57-66864c0e799e",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "9e2cd5fc-5c1f-5e06-9f1e-25b6f06cc8a4",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "a155c371-5dd4-5b63-bfd5-f8afd139e3e1",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "a205faa9-79bc-53b3-b8d2-70413389c406",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "a34f27b7-edf8-55cc-926f-eb5226e9eba5",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "a8adaf78-53b9-5d21-8fdc-c7a31e7ce9bf",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "ae47500e-f1a1-53ee-b409-165c6735bb26",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "c475683a-507a-5981-adb9-1b95d469f0e3",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -1233,11 +733,6 @@
         },
         {
             "Name": "cd334285-a6f7-5a99-a44f-1ab1f2c542e1",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "cf9276be-7df1-5e5b-bb4d-83cb5f61d45e",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -1257,11 +752,6 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "d912d916-580e-525b-baf9-80ba9de70f89",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "da8352ea-e420-5137-a414-ab12d8e28d17",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -1273,11 +763,6 @@
         },
         {
             "Name": "e1f645ce-5ec1-50d2-8ff8-320f3808f675",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "ee336fb2-281f-5187-ad7f-c0e709761cfc",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -1297,16 +782,6 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "f3ca3fc8-e4b8-5230-ab63-152438139aa1",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "f7dc12d0-81b4-5564-bb84-f4538c01d027",
-            "Type": 9,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
             "Name": "f968bfc1-fc13-5811-aff9-257e87d1a5c9",
             "Type": 9,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
@@ -1317,12 +792,7 @@
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
         {
-            "Name": "okta-groups",
-            "Type": 4,
-            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
-        },
-        {
-            "Name": "okta-system",
+            "Name": "okta",
             "Type": 4,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         },
@@ -1330,22 +800,419 @@
             "Name": "okta-users",
             "Type": 4,
             "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_TARGETS",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "d2509108-7fc0-49f3-86b5-b26c48a306e1",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "687f0a99-eeb0-4da0-9d29-4a91a670688c",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "57bc3c50-bf07-464c-827c-cfd2d4eb8aa6",
+            "Type": 12,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "5c995fcd-359b-476a-93e8-049d752537fb",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_RISK_SCORE",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_RISK_PRIORITY",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_RISK_FLOOR",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "777d56ed-4686-42eb-ae2f-b081a1c8c831",
+            "Type": 12,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "56d4712f-ff6b-4a32-ba87-073dbe3985be",
+            "Type": 12,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "d453d131-9451-4740-a9ed-1810d0807317",
+            "Type": 12,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "54d59749-f74e-42a6-8119-ff5e13738557",
+            "Type": 12,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "bca7b662-4234-43ab-a308-49df3e6b9381",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "e1cfb6ee-6445-428e-a86d-6ff8c8dc73a4",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "1fe2d463-8a1c-48cc-b88c-504873be5942",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "76a6f6ea-4420-4ba4-ac4e-d823c59b4127",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4ca8676d-2db1-45b3-a21c-3d0f87bbe435",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4b726baf-aef7-4bbb-ad63-334c6b8e4339",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "036b1104-f296-4970-95a3-723338a74138",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "cb966bea-0abb-4e5b-b08a-1bff66ee2ef1",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "a842817b-62f8-4763-a1fd-27f32035c4ba",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "9e889cb6-bc87-41c8-9a3e-484e326c78f6",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "41bc5554-a9eb-472c-a430-8a51f2022f5d",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "a9410227-691c-485d-ba28-53935978d043",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "83c0f1e7-1bc0-431e-884e-c5085c0b677e",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ac9da7ee-2886-423f-a63b-e62502fcdd0a",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4f9ba97d-aaec-4d1c-90c3-ddd00388b570",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "35276948-1bee-407f-91bf-616dad0e7435",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "okta_sensitive_oauth_scopes",
+            "Type": 1,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_LATEST_USERS",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "f6506089-dbd8-522c-9851-40334cdb0634",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "a9cdbd9d-be71-5fd5-8092-3822d396edbe",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "9502a73d-b430-55dd-bcb4-f393e6f26976",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "88191f82-d7e3-503f-9fdd-15af3a5d3695",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "e8d65ae0-9893-56ac-ade8-164e9c8d7176",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ad619988-a775-5918-a853-2ab362d2dcb9",
+            "Type": 6,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_GEO",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6c21f617-a189-5384-97ea-e5a97bb8efc9",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "f669e947-3e70-595b-8f14-6c5145dad588",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "a0328e0b-063e-55bd-852a-eed8606bdc81",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "2be8b04f-d9dd-5261-a58a-d92cd387ab16",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "fe550ff3-6b92-5289-a04d-7b5bad0515a6",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "a4b9fbc4-779a-5b20-9bdb-f3404495a8f3",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "10890b77-ba0e-52a0-b46e-607058311f9f",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "b514306c-ce43-5b74-adfe-ae8acf1fe063",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "56d175cc-386a-5fe3-b288-5c7cafd97790",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "1102ca98-fd9a-52c4-b630-b8c9ce77a972",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "3d7b7740-3462-51dc-87e0-8746601d85a9",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "e9cf1033-29f9-52c3-954f-72925700423b",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "97b1afc0-3f7b-5ba8-bea1-19514e02f66c",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ff7f86b4-3821-595c-af45-49237b42014c",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "495940ae-1aca-5aa1-84d9-51726bd41638",
+            "Type": 3,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "9b1ce589-ac0f-5261-9e71-1e11e54a8e4c",
+            "Type": 2,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "_aggs_okta_users",
+            "Type": 4,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "faf6b1b2-7936-55cb-8b19-133665505e20",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "05bc0f05-1d85-5402-9015-83bad0e7f1d0",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6e68de93-3c74-5065-8e72-265e881c7825",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "c45e5760-99af-5b29-b91f-b66d8a2df9ef",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "695bf599-58e6-5d80-934d-0d63177486de",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "65a15245-bd8a-5858-bb5d-32c3d583bbe7",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "44435d15-80dc-5780-85b6-7e17e549c08f",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4155560f-1027-5913-9521-634ee72b20a0",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "afd060fb-613f-54e7-84b4-5c489c0402be",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4c2e9850-ac43-5a6e-bf8c-abd70292fae5",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "00850f5c-9eee-597b-9747-8ff911f88380",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "eb97ad87-e8c2-5327-ba66-f16d50621c86",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "c177e655-9a57-5c8b-9a62-f8d0d0241b41",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "OKTA_USER_AGG",
+            "Type": 8,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "194e2d03-68a5-5d91-9495-c513ed168800",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "4378bc4d-424d-5703-9a15-14803805cdf6",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "45a5d468-74de-5677-a167-f6f27691df11",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "5d125385-566c-5f0f-9cd3-4b85947e19ff",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "061ef436-8891-5e5e-8f34-9d32c8f12851",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "5848b414-e3a1-57e4-839d-06cd872b3e71",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "ba77cf7f-89e0-5861-bba3-28c0ad05fdaa",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "6fb4f0ae-0fb3-5b66-a310-b78e4e13ad96",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "02a65df3-7a1d-54d2-bd15-3b22de18df90",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "46a54ea7-34f2-51d9-add9-04caf6392ce0",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "02c627d3-de5f-597d-b411-c6d63893ec8e",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+            "Name": "cbb60b67-5ad8-5f3d-8425-2d81d9b758d9",
+            "Type": 9,
+            "Hash": "0000000000000000000000000000000000000000000000000000000000000000"
         }
     ],
-    "Dependencies": [],
+    "Dependencies": [
+        {
+            "ID": "io.gravwell.networkenrichment",
+            "MinVersion": 19
+        }
+    ],
     "ConfigMacros":
     [
         {
-            "MacroName": "OKTA_GROUPS",
-            "Description": "Configuration Macro; Tag used for Okta Groups data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates.",
-            "DefaultValue": "okta-groups",
-            "Value": "",
-            "Type": "TAG",
-            "InstalledByID": ""
-        },
-        {
             "MacroName": "OKTA_USERS",
-            "Description": "Configuration Macro; Tag used for Okta Users data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboards, query library, and templates.",
+            "Description": "Tag containing Okta user profile records. The Gravwell Okta hosted ingester writes them to the tag okta-users (default). Optional: used only by the Okta user dashboards and queries. If you change the tag and want `ax` to work on it, change the okta-users autoextractor's tag too.",
             "DefaultValue": "okta-users",
             "Value": "",
             "Type": "TAG",
@@ -1353,34 +1220,10 @@
         },
         {
             "MacroName": "OKTA_SYSTEM",
-            "Description": "Configuration Macro; Tag used for Okta System Log data; necessary for any queries within the Gravwell Okta Kit to run properly for dashboard, query library, scheduled searches, alerts, flows, and templates.",
-            "DefaultValue": "okta-system",
+            "Description": "Tag containing Okta System Log data. The Gravwell Okta hosted ingester writes it to the tag okta (default). Used by every Okta dashboard, query, template, scheduled search and alert. The kit's queries do not depend on the okta autoextractor; if you change the tag and want `ax` to work on it, change the autoextractor's tag too.",
+            "DefaultValue": "okta",
             "Value": "",
             "Type": "TAG",
-            "InstalledByID": ""
-        },
-        {
-            "MacroName": "OKTA_ALERT_SENDER",
-            "Description": "Configuration Macro: This is the address to which Okta Alert Flows will be sent from. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.",
-            "DefaultValue": "replace_me@with_valid_sender.address",
-            "Value": "",
-            "Type": "OTHER",
-            "InstalledByID": ""
-        },
-        {
-            "MacroName": "OKTA_ALERT_RECIPIENT",
-            "Description": "Configuration Macro: This is the address to which Okta Alert Flows will be sent to. Email Server Settings must be configured under Account > Email Server > Email Server Settings in order for your alerts to function properly.",
-            "DefaultValue": "replace_me@with_valid_recipient.address",
-            "Value": "",
-            "Type": "OTHER",
-            "InstalledByID": ""
-        },
-        {
-            "MacroName": "GRAVWELL_INSTANCE",
-            "Description": "Configuration Macro; Necessary for alerts within the Okta Kit to run properly",
-            "DefaultValue": "https://<change_me_to_your_specific_url>:<change_to_your_specific_port>",
-            "Value": "",
-            "Type": "OTHER",
             "InstalledByID": ""
         }
     ]

@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("manager")
+| stats sum(value) as users by key
+| sort by users desc
+| alias key manager
+| table manager users

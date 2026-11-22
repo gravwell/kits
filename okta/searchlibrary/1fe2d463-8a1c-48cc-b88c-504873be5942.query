@@ -1,0 +1,14 @@
+/* Okta - Admin & Configuration Changes - Okta OAuth Client Secret or Credential Accessed or Created */
+tag=$OKTA_SYSTEM json eventType
+$OKTA_ALERT_EVX
+| eval in(eventType, "app.oauth2.client.read_client_secret", "app.oauth2.credentials.lifecycle.create", "app.oauth2.credentials.lifecycle.activate", "app.oauth2.client.privilege.grant")
+| eval _floor = 75.0; if (eventType == "app.oauth2.client.read_client_secret") { _floor = 55.0; }
+$OKTA_ENRICH_COMMON
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR(_floor)
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval
+    _alert_name = "Okta OAuth Client Secret or Credential Accessed or Created";
+    message = printf("OAuth client credential activity: %v", eventType);
+$OKTA_ALERT_META("Credential Access", "T1552")

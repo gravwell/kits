@@ -1,11 +1,15 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Multiple Device Token Hashes for Single Okta Session [table]",
-  "Description": "This rule detects when a specific Okta actor has multiple device token hashes for a single Okta session. This may indicate an authenticated session has been hijacked or is being used by multiple devices. Adversaries may hijack a session to gain unauthorized access to Okta admin console, applications, tenants, or other resources.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_device_token_hashes_for_single_okta_session/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_multiple_device_token_hashes_for_single_okta_session.toml",
-  "GUID": "9e2cd5fc-5c1f-5e06-9f1e-25b6f06cc8a4",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "Okta - Authentication & Sessions - Okta Session Used from Multiple Countries",
+	"Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Credential Access / T1539\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Session Used from Multiple Countries\" or \"<ip>|Okta Session Used from Multiple Countries\"\n\nOne Okta session (authenticationContext.rootSessionId) used from two or more countries within the search window, counting only computer-side events. Phone-side events (Okta Verify pushes over cellular networks) are excluded because they legitimately come from other networks. A session moving between countries within minutes suggests a stolen session cookie being replayed.\n\nFalse positives: VPN clients that switch exit countries mid-session.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_device_token_hashes_for_single_okta_session/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/credential_access_multiple_device_token_hashes_for_single_okta_session.toml",
+	"GUID": "9e2cd5fc-5c1f-5e06-9f1e-25b6f06cc8a4",
+	"Labels": [
+		"okta",
+		"detection",
+		"authentication-sessions",
+		"credential-access",
+		"T1539"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

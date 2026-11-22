@@ -1,10 +1,10 @@
-/* AlertQuery - Okta - Identity Access Management - Lifecycle - Application - Okta Application Modified or Deleted [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType "^application\.lifecycle\.(?:update|delete)$"
+/* Okta - Admin & Configuration Changes - Okta Application Modified, Deactivated or Deleted */
+tag=$OKTA_SYSTEM json eventType
+| regex -e eventType "^application\.lifecycle\.(?:update|deactivate|delete)$"
 $OKTA_ALERT_EVX
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Okta Application Modified or Deleted"
-$OKTA_ALERT_META
+| eval _alert_name = "Okta Application Modified, Deactivated or Deleted"
+$OKTA_ALERT_META("Impact", "T1489")

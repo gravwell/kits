@@ -1,0 +1,19 @@
+/* Okta - Admin & Configuration Changes - Okta Admin Role Granted to a New User */
+@new{start=-24h tag=$OKTA_SYSTEM json eventType==user.lifecycle.create target
+| regex -p -e target "\"type\":\"User\",\"alternateId\":\"(?P<subjectUser>[^\"]*)\""
+| eval has("subjectUser")
+| stats count as created by subjectUser
+| table subjectUser created};
+tag=$OKTA_SYSTEM json eventType==user.account.privilege.grant
+$OKTA_ALERT_EVX
+| eval has("targetUserAltId")
+| lookup -s -r @new targetUserAltId subjectUser created
+$OKTA_ENRICH_COMMON
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("90")
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval
+    _alert_name = "Okta Admin Role Granted to a New User";
+    message = "Administrator role granted to a user created in the previous 24 hours";
+$OKTA_ALERT_META("Persistence", "T1098.003")

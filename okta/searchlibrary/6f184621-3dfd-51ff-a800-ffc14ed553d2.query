@@ -1,11 +1,21 @@
-/* AlertQuery - Okta - Identity Access Management - Policy - Rule - Okta New Admin Console Behaviours [table] */
-tag=$OKTA_SYSTEM ax eventType == "policy.evaluate_sign_on"
+/* Okta - Authentication & Sessions - Okta New Admin Console Behaviours */
+/* Sign-on policy evaluation for the Okta Admin Console where Okta flags a new geo-location, device, IP, country, city, state or velocity. */
+/* Okta reports behaviors in two fields with different formats (New Device=POSITIVE and "New Device":"POSITIVE"); either one counts. */
+tag=$OKTA_SYSTEM json eventType==policy.evaluate_sign_on
 $OKTA_ALERT_EVX
-| regex -e debugBehavior "(?i)POSITIVE"
-| regex -e debugLogOnlySecData "(?i)POSITIVE"
+| eval has("targetAppName") && targetAppName == "Okta Admin Console"
+| eval match(debugBehavior, "(New Geo-Location|New Device|New IP|New Country|New City|New State|Velocity)\\W+POSITIVE") || match(debugLogOnlySecData, "(New Geo-Location|New Device|New IP|New Country|New City|New State|Velocity)\\W+POSITIVE")
+| regex -p -a -e debugBehavior "(?P<behaviorsA>New Geo-Location|New Device|New IP|New Country|New City|New State|Velocity)=POSITIVE"
+| regex -p -a -e debugLogOnlySecData "\"(?P<behaviorsB>New Geo-Location|New Device|New IP|New Country|New City|New State|Velocity)\":\"POSITIVE\""
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("75")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Okta New Admin Console Behaviours"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Okta New Admin Console Behaviours";
+    _b = "";
+    if (has("behaviorsA")) { _b = printf("%v", behaviorsA); }
+    if (has("behaviorsB")) { _b = _b + printf(" %v", behaviorsB); }
+    message = printf("Okta Admin Console sign-on with new behavior(s): %v", _b);
+$OKTA_ALERT_META("Initial Access", "T1078.004")

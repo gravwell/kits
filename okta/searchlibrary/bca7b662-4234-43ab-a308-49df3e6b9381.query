@@ -1,0 +1,13 @@
+/* Okta - Authentication & Sessions - Okta OAuth Refresh Token Reuse Detected */
+tag=$OKTA_SYSTEM json eventType
+| regex -e eventType "^app\.oauth2\.(?:as\.)?token\.detect_reuse$"
+$OKTA_ALERT_EVX
+$OKTA_ENRICH_COMMON
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("75")
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval
+    _alert_name = "Okta OAuth Refresh Token Reuse Detected";
+    message = "Okta detected reuse of an already-rotated OAuth refresh token";
+$OKTA_ALERT_META("Credential Access", "T1528")

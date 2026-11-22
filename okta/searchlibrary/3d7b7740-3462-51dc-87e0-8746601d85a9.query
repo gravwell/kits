@@ -1,0 +1,7 @@
+tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS actor.alternateId as user
+$OKTA_GEO
+| stats count as signins unique_count(geoCountry) as countries unique_count(geoIp) as sources by user
+| eval countries > 1
+| sort by countries desc
+| limit 50
+| table user countries sources signins

@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("last_signin")
+| eval n = 0; if (key == "never") { n = value; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

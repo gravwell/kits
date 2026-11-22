@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Sign-Ins Okta Rated Risky [table]",
+	"Description": "Okta sign-ins (user.session.start) where Okta's risk engine (securityContext.risk.level) rated the sign-in MEDIUM or HIGH, by user, risk level and source IP, with location from $OKTA_GEO.",
+	"GUID": "56d175cc-386a-5fe3-b288-5c7cafd97790",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

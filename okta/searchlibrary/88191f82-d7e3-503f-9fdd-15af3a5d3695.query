@@ -1,0 +1,7 @@
+tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result as result actor.alternateId as user
+$OKTA_GEO
+| eval ok = 0; failed = 0; if (result == "SUCCESS") { ok = 1; } else { failed = 1; }
+| stats sum(ok) as ok sum(failed) as failed by geoCountry geoState geoCity user
+| stats count as users sum(ok) as successful sum(failed) as failed by geoCountry geoState geoCity
+| sort by successful desc
+| table geoCountry geoState geoCity users successful failed

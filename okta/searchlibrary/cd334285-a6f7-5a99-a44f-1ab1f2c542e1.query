@@ -1,12 +1,25 @@
-/* AlertQuery - Okta - Identity Access Management - User - Session - Multiple Okta Sessions Detected for a Single User [table] */
-tag=$OKTA_SYSTEM ax eventType == "user.session.start"
+/* Okta - Authentication & Sessions - Multiple Okta Sessions for One User from Different IPs */
+@sess{tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS actor.alternateId as actorAltId authenticationContext.externalSessionId as sid client.ipAddress as clientIp
+| stats count as n by actorAltId sid
+| stats count as sessions by actorAltId
+| eval sessions >= 2
+| table actorAltId sessions};
+@ips{tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS actor.alternateId as actorAltId client.ipAddress as clientIp
+| stats count as n by actorAltId clientIp
+| stats count as ips by actorAltId
+| eval ips >= 2
+| table actorAltId ips};
+tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS
 $OKTA_ALERT_EVX
-| regex -e actorId "(?i)okta.*"
-| regex -e actorName "(?i)okta.*"
-| regex -e authExternalSessionId ".*"
+| lookup -s -r @sess actorAltId actorAltId sessions
+| lookup -s -r @ips actorAltId actorAltId ips
+| unique actorAltId clientIp
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("55")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Multiple Okta Sessions Detected for a Single User"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Multiple Okta Sessions for One User from Different IPs";
+    message = printf("%v new Okta sessions from %v different IPs for this user in the search window; this one from %v", sessions, ips, clientIp);
+$OKTA_ALERT_META("Lateral Movement", "T1550.004")

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Device Tokens Used by Several Users [table]",
+	"Description": "Okta device tokens (debugContext.debugData.dtHash) seen on sign-ins for more than one user: users, source IPs, sign-ins and failures. One browser signing in as many users is password spraying or shared kiosks.",
+	"GUID": "fe550ff3-6b92-5289-a04d-7b5bad0515a6",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

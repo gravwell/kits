@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("status")
+| eval n = 0; if (key == "ACTIVE") { n = value; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

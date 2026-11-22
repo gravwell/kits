@@ -1,11 +1,21 @@
-/* AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Multiple Okta User Authentication Events with Client Address [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType "^(?:user\.session\.start|user\.authentication\..*)$"
+/* Okta - Authentication & Sessions - Okta Password Spray from One IP */
+@agg{tag=$OKTA_SYSTEM json eventType actor.alternateId as actorAltId client.ipAddress as clientIp outcome.result as res outcome.reason as reason debugContext.debugData.dtHash as dtHash
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && res == "FAILURE" && match(reason, "INVALID_CREDENTIALS")
+| stats count as n by clientIp actorAltId
+| stats count as users sum(n) as failures by clientIp
+| eval users >= 3
+| table clientIp users failures};
+tag=$OKTA_SYSTEM json eventType outcome.result as res outcome.reason as reason
 $OKTA_ALERT_EVX
-| regex -e outcomeReason "(?i)(INVALID\_CREDENTIALS|INVALID|CREDENTIALS)"
+| eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && res == "FAILURE" && match(reason, "INVALID_CREDENTIALS")
+| lookup -s -r @agg clientIp clientIp (users failures)
+| unique clientIp
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("75")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Multiple Okta User Authentication Events with Client Address"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Okta Password Spray from One IP";
+    message = printf("%v failed sign-ins with invalid credentials for %v different users from %v in the search window", failures, users, clientIp);
+$OKTA_ALERT_META("Credential Access", "T1110.003")

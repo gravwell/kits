@@ -1,12 +1,21 @@
-/* AlertQuery - Okta - Identity Access Management - User - Authentication / Session - Okta User Sessions Started from Different Geolocations [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType "^(?:user\.session\.start|user\.authentication\..*)$"
+/* Okta - Authentication & Sessions - Okta User Sessions Started from Different Geolocations */
+/* A successful Okta session in the search window (15 minutes when scheduled) for a user who had successful sessions from more than one country in the 4 hours before the window plus the window itself. */
+/* The inner query finds the users; the main query keeps one session per user and country so each alert shows a real event. */
+@multi{start=-4h tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS actor.alternateId as actorAltId client.geographicalContext.country as clientCountry
+| stats count by actorAltId clientCountry
+| stats count as countries by actorAltId
+| eval countries > 1
+| table actorAltId countries};
+tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==SUCCESS client.geographicalContext.country as clientCountry
 $OKTA_ALERT_EVX
-| regex -e outcomeResult "(?i)SUCCESS"
-| regex -e actorId "(?i)unknown"
+| lookup -s -r @multi actorAltId actorAltId countries
+| unique actorAltId clientCountry
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("75")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Okta User Sessions Started from Different Geolocations"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Okta User Sessions Started from Different Geolocations";
+    message = printf("Successful Okta session from %v; this user had successful sessions from %v countries in the search window", clientCountry, countries);
+$OKTA_ALERT_META("Initial Access", "T1078")

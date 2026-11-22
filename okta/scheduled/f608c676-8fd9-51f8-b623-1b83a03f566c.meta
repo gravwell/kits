@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - Lifecycle - Application - Okta Application Modified or Deleted",
-  "Description": "Detects when an application is modified or deleted.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_application_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Name": "Okta - Admin & Configuration Changes - Okta Application Modified, Deactivated or Deleted",
+  "Description": "Alert: Alert - Okta - Admin & Configuration Changes\nMITRE ATT&CK: Impact / T1489\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Application Modified, Deactivated or Deleted\" or \"<ip>|Okta Application Modified, Deactivated or Deleted\"\n\nDetects Okta application integrations being modified, deactivated or deleted (application.lifecycle.update / deactivate / delete). An attacker may disable or change an app to disrupt access or alter its sign-on configuration. Merges the separate modify, deactivate and delete rules.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_application_modified_or_deleted/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "admin-configuration-changes",
+    "impact",
+    "T1489"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "12,27,42,57 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

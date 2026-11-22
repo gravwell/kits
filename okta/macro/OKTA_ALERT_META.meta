@@ -1,6 +1,6 @@
 {
 	"Name": "OKTA_ALERT_META",
-	"Description": "This macro standardizes output for Okta Alerts that are being alerted upon. It dynamically changes values in the _alert_title based on the core of the query.",
+	"Description": "Usage: $OKTA_ALERT_META(\"<MITRE tactic>\", \"<MITRE technique id>\") as the last line of an Okta detection. Builds the alert context and emits the common alert fields: _alert_title _alert_priority _alert_name _alert_risk _vendor _product _category _subcategory user src_ip target eventType _mitre_tactic _mitre_technique context published. These are the fields every Okta alert schema declares.",
 	"Labels": [
 		"okta"
 	]

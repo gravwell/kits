@@ -56,8 +56,9 @@
     request.ipChain.geographicalContext.geolocation.lon as requestLON
     request.ipChain.version as requestVersion
     request.ipChain.source as requestSource
-    target.id as targetId
-    target.type as targetType
-    target.alternateId as targetAltId
-    target.displayName as targetName
-    target.detailEntry as targetDetail
+    target
+    target.[0].id as t0Id
+    target.[0].type as t0Type
+    target.[0].alternateId as t0AltId
+    target.[0].displayName as t0Name
+$OKTA_TARGETS

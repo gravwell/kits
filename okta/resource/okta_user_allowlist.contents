@@ -1,3 +1,3 @@
 key,enabled,until_ymd,reason
-alice|Alert - Okta - High - Okta Admin Role Assigned to a User or Group,1,20251231,"temporary exception for migration"
-bob|*,1,,"permanent allow across all alerts"
+example.user|Okta Admin Role Assigned to a User or Group,0,20261231,"EXAMPLE (disabled): suppress one alert for one user until a date. Key = login without @domain, lowercase | alert name"
+example.svc|*,0,,"EXAMPLE (disabled): suppress every Okta alert where this account is the actor or target"

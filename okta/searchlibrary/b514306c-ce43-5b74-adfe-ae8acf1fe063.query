@@ -1,0 +1,7 @@
+tag=$OKTA_SYSTEM json eventType client.ipAddress as ip actor.alternateId as user debugContext.debugData.threatSuspected as threatSuspected
+| eval in(eventType, "security.threat.detected", "security.request.blocked") || (has(threatSuspected) && threatSuspected == "true")
+$OKTA_GEO
+| stats count as events unique_count(user) as users unique_count(eventType) as eventTypes by ip geoCountry geoAsOrg
+| sort by events desc
+| limit 50
+| table ip geoCountry geoAsOrg events users eventTypes

@@ -1,0 +1,7 @@
+tag=$OKTA_SYSTEM json eventType==user.session.start securityContext.risk.level as risk actor.alternateId as user outcome.result as result
+| eval risk == "MEDIUM" || risk == "HIGH"
+$OKTA_GEO
+| stats count as signins by user risk geoIp geoCountry result
+| sort by signins desc
+| limit 50
+| table user risk geoIp geoCountry result signins

@@ -1,10 +1,22 @@
-/* AlertQuery - Okta - Identity Access Management - System - Event Types - New sign-on behavior [table] */
-tag=$OKTA_SYSTEM
+/* Okta - Authentication & Sessions - Okta Sign-In with Elevated Risk or New Behavior */
+/* Okta's own risk engine on user.session.start: High when Okta rates the sign-in HIGH risk or flags Velocity or New Country; */
+/* Medium when Okta rates it MEDIUM. New device / IP / location alone at LOW risk is not alerted (Okta already weighed it). */
+tag=$OKTA_SYSTEM json eventType==user.session.start securityContext.risk.level as oktaRisk
 $OKTA_ALERT_EVX
-| regex -e message "(?i)New sign\-on behavior"
+| eval
+    _floor = 0.0; _why = "";
+    if (has("oktaRisk") && oktaRisk == "HIGH") { _floor = 75.0; _why = "Okta risk HIGH"; }
+    if (has("debugBehavior") && match(debugBehavior, "Velocity=POSITIVE")) { _floor = 75.0; _why = _why + " Velocity"; }
+    if (has("debugBehavior") && match(debugBehavior, "New Country=POSITIVE")) { _floor = 75.0; _why = _why + " New Country"; }
+    if (_floor == 0.0 && has("oktaRisk") && oktaRisk == "MEDIUM") { _floor = 55.0; _why = "Okta risk MEDIUM"; }
+| eval _floor > 0.0
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR(_floor)
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "New sign-on behavior"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Okta Sign-In with Elevated Risk or New Behavior";
+    _beh = "none reported"; if (has("debugBehavior")) { _beh = debugBehavior; }
+    message = printf("Okta sign-in flagged: %v; behaviors: %v", _why, _beh);
+$OKTA_ALERT_META("Initial Access", "T1078")

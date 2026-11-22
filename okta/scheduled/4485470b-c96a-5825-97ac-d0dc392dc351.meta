@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication - Multiple Okta User Auth Events with Same Device Token Hash Behind a Proxy",
-  "Description": "Detects when Okta user authentication events are reported for multiple users with the same device token hash behind a proxy.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_auth_events_from_single_device_behind_proxy/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_multiple_auth_events_from_single_device_behind_proxy.toml",
+  "Name": "Okta - Authentication & Sessions - Multiple Okta Users Authenticating from the Same Device Behind a Proxy",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Credential Access / T1110.003\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Multiple Okta Users Authenticating from the Same Device Behind a Proxy\" or \"<ip>|Multiple Okta Users Authenticating from the Same Device Behind a Proxy\"\n\nAuthentication events from an anonymizing proxy (securityContext.isProxy, or Okta risk reason \"Anonymizing Proxy\") where one device token hash (debugData.dtHash) is used by two or more different users in the search window. One device signing in as several people through a proxy is typical of credential stuffing or password spraying.\n\nFalse positives: shared kiosks behind a corporate proxy that Okta classifies as anonymizing.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_multiple_auth_events_from_single_device_behind_proxy/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_multiple_auth_events_from_single_device_behind_proxy.toml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "credential-access",
+    "T1110.003"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "2,17,32,47 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

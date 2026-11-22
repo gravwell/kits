@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Credential Provider Names [chart]",
+	"Description": "Users by credential provider name (credentials.provider.name). From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"GUID": "4c2e9850-ac43-5a6e-bf8c-abd70292fae5",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

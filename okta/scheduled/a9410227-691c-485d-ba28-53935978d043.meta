@@ -1,0 +1,20 @@
+{
+  "Name": "Okta - Threats & Platform - Okta Protected Action Attempted or Request Blocked",
+  "Description": "Alert: Alert - Okta - Threats & Platform\nMITRE ATT&CK: Initial Access / T1078\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Protected Action Attempted or Request Blocked\" or \"<ip>|Okta Protected Action Attempted or Request Blocked\"\n\nOkta security controls engaging: an attempt to perform a protected action (security.protected_action.attempt: admin actions that require step-up authentication) or a request blocked by Okta (security.request.blocked, e.g. network zone or ThreatInsight blocks). Review who attempted it and from where.",
+  "Labels": [
+    "okta",
+    "detection",
+    "threats-platform",
+    "initial-access",
+    "T1078"
+  ],
+  "Schedule": "13,28,43,58 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": false,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a9410227-691c-485d-ba28-53935978d043",
+  "SearchReference": "41bc5554-a9eb-472c-a430-8a51f2022f5d"
+}

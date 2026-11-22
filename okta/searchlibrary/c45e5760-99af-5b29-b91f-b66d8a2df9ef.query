@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("password_age")
+| eval n = 0; if (key == "91-365 days" || key == "over 1 year" || key == "never set") { n = value; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

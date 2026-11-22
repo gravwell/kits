@@ -1,13 +1,28 @@
-/* AlertQuery - Okta - Identity Access Management - User - Authentication / MFA / Session - Potentially Successful Okta MFA Bombing via Push Notifications [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType "^(?:user\.mfa\.okta_verify\.deny_push|user\.authentication\.auth_via_mfa|user\.authentication\.sso|user\.authentication\.verify|user\.session\.start)$"
+/* Okta - Authentication & Sessions - Potentially Successful Okta MFA Bombing via Push Notifications */
+/* Per user within the search window (15 minutes when scheduled): 5+ Okta Verify pushes, or 3+ pushes with 2+ denied, unanswered or abandoned prompts, followed by at least one successful MFA in the same window. */
+/* One alert per user per window. Bursts that straddle two windows are split, which is why the denied/unanswered branch exists. */
+@mfa{tag=$OKTA_SYSTEM json eventType actor.alternateId as actorAltId outcome.result as res
+| eval in(eventType, "system.push.send_factor_verify_push", "user.mfa.okta_verify.deny_push", "user.authentication.auth_via_mfa")
+| eval
+    p = 0; d = 0; u = 0; s = 0;
+    if (eventType == "system.push.send_factor_verify_push") { p = 1; }
+    if (eventType == "user.mfa.okta_verify.deny_push" || (eventType == "user.authentication.auth_via_mfa" && res == "DENY")) { d = 1; }
+    if (eventType == "user.authentication.auth_via_mfa" && (res == "UNANSWERED" || res == "ABANDONED")) { u = 1; }
+    if (eventType == "user.authentication.auth_via_mfa" && res == "SUCCESS") { s = 1; }
+| stats sum(p) as pushes sum(d) as denies sum(u) as unanswered sum(s) as successes by actorAltId
+| eval pushes >= 5 || (pushes >= 3 && denies + unanswered >= 2)
+| eval successes >= 1
+| table actorAltId pushes denies unanswered successes};
+tag=$OKTA_SYSTEM json eventType==system.push.send_factor_verify_push
 $OKTA_ALERT_EVX
-| regex -e outcomeResult "(?i)SUCCESS|ALLOW"
-| regex -e outcomeReason "(?i)(INVALID\_CREDENTIALS|INVALID|CREDENTIALS)"
-| regex -e actorId "(?i).*"
+| lookup -s -r @mfa actorAltId actorAltId (pushes denies unanswered successes)
+| unique actorAltId
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("90")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Potentially Successful Okta MFA Bombing via Push Notifications"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Potentially Successful Okta MFA Bombing via Push Notifications";
+    message = printf("%v Okta Verify pushes, %v denied, %v unanswered or abandoned, %v successful MFA for this user in the search window", pushes, denies, unanswered, successes);
+$OKTA_ALERT_META("Credential Access", "T1621")

@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication / Session - Okta User Sessions Started from Different Geolocations",
-  "Description": "Detects when a specific Okta actor has multiple sessions started from different geolocations. Adversaries may attempt to launch an attack by using a list of known usernames and passwords to gain unauthorized access to user accounts from different locations.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations.toml",
+  "Name": "Okta - Authentication & Sessions - Okta User Sessions Started from Different Geolocations",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1078\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta User Sessions Started from Different Geolocations\" or \"<ip>|Okta User Sessions Started from Different Geolocations\"\n\nDetects one user with successful Okta sessions (user.session.start) from more than one country: each successful session in the search window is checked against the user's successful sessions in the 4 hours before it. Two countries within a few hours usually means shared or stolen credentials or a VPN/proxy hop. An inner query finds the users; each alert is one real session per country so the context shows where each came from. Risk floor High (75).\n\nFalse positives: travel with in-flight or airport Wi-Fi, users on corporate VPN exits in another country. Tune with okta_user_allowlist (user|Okta User Sessions Started from Different Geolocations).\n\nLimitations: sessions that straddle two windows are not compared. Okta's own New Country / Velocity behaviors are covered by 'Okta Sign-In with Elevated Risk or New Behavior'.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/initial_access_okta_user_sessions_started_from_different_geolocations.toml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "initial-access",
+    "T1078"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "13,28,43,58 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

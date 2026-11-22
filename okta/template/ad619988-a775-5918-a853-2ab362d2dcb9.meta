@@ -1,0 +1,36 @@
+{
+	"UUID": "ad619988-a775-5918-a853-2ab362d2dcb9",
+	"Name": "Template - Okta - Investigation - Sign-In Locations for Actor, Target, and/or IP [pointmap]",
+	"Description": "Okta sign-ins (user.session.start) for an actor, target and/or IP, one point per actor, client IP and outcome. Variables are wildcard patterns. Locations come from Okta (client.geographicalContext), with the geoip module (MaxMind, Network Enrichment kit) only for events Okta did not place ($OKTA_GEO).",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%1%%",
+				"label": "Okta Actor",
+				"description": "This is the user (actorAltId or actorName) who performed the action.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%2%%",
+				"label": "Okta Target",
+				"description": "This is the user (targetAltId or targetName) whom the action was performed against.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			},
+			{
+				"name": "%%3%%",
+				"label": "Okta IP",
+				"description": "This is either the clientIp or the requestIp from which the action was performed.",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"okta"
+	]
+}

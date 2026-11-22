@@ -1,0 +1,20 @@
+{
+  "Name": "Okta - Authentication & Sessions - Okta Admin Console Access from a New IP",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1078.004\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Admin Console Access from a New IP\" or \"<ip>|Okta Admin Console Access from a New IP\"\n\nOkta Admin Console access (user.session.access_admin_app) from an IP address the administrator has not used for the Admin Console in the 14 days before the search window. Admin sessions from unfamiliar networks are a high-value signal for account takeover.\n\nFalse positives: admins travelling or on a new ISP. The first 14 days after install have less history, so expect more alerts then.",
+  "Labels": [
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "initial-access",
+    "T1078.004"
+  ],
+  "Schedule": "13,28,43,58 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": false,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "cb966bea-0abb-4e5b-b08a-1bff66ee2ef1",
+  "SearchReference": "036b1104-f296-4970-95a3-723338a74138"
+}

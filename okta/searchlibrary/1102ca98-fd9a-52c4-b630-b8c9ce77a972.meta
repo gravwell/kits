@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - New-Behavior Sign-Ins by User [table]",
+	"Description": "Sign-on policy evaluations (policy.evaluate_sign_on) where Okta flagged a new geo-location, device, IP or country, or impossible travel (Velocity), counted per user and behavior.",
+	"GUID": "1102ca98-fd9a-52c4-b630-b8c9ce77a972",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

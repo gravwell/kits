@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_LATEST_USERS",
+	"Description": "The newest record for each Okta user in the time range (last id), so user dashboards count people rather than records. The Okta hosted ingester writes every user once a day (a full snapshot) and again whenever the user changes, so one user can have several records. Usage: $OKTA_LATEST_USERS | json profile.department as department | stats count by department",
+	"Labels": [
+		"okta"
+	]
+}

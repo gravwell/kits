@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Failed Sign-In Locations [pointmap]",
+	"Description": "One point per user and source IP with failed Okta sign-ins. Click a point for the user, the IP and the failure reason. Locations from $OKTA_GEO.",
+	"GUID": "ff7f86b4-3821-595c-af45-49237b42014c",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

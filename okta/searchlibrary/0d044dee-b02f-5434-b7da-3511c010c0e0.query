@@ -1,10 +1,24 @@
-/* AlertQuery - Okta - Identity Access Management - System / User - Account / Email / SMS / Voice - High Number of Okta User Password Reset or Unlock Attempts [table] */
-tag=$OKTA_SYSTEM ax
-| regex -e eventType "^(?:system\.email\.account_unlock\.sent_message|system\.email\.password_reset\.sent_message|system\.sms\.send_account_unlock_message|system\.sms\.send_password_reset_message|system\.voice\.send_account_unlock_call|system\.voice\.send_password_reset_call|user\.account\.unlock_token)$"
+/* Okta - Account & MFA Changes - High Number of Okta Password Reset or Unlock Events for One User */
+@agg{tag=$OKTA_SYSTEM json eventType actor.alternateId as actorAltId target
+| eval in(eventType, "user.account.reset_password", "user.account.unlock", "user.account.unlock_token", "system.email.password_reset.sent_message", "system.email.account_unlock.sent_message", "system.sms.send_password_reset_message", "system.sms.send_account_unlock_message", "system.voice.send_password_reset_call", "system.voice.send_account_unlock_call")
+| regex -p -e target "\"type\":\"User\",\"alternateId\":\"(?P<subjectUser>[^\"]*)\""
+| eval if (!has("subjectUser")) { subjectUser = actorAltId; }
+| stats count as resets by subjectUser
+| eval resets >= 3
+| table subjectUser resets};
+tag=$OKTA_SYSTEM json eventType target
 $OKTA_ALERT_EVX
+| eval in(eventType, "user.account.reset_password", "user.account.unlock", "user.account.unlock_token", "system.email.password_reset.sent_message", "system.email.account_unlock.sent_message", "system.sms.send_password_reset_message", "system.sms.send_account_unlock_message", "system.voice.send_password_reset_call", "system.voice.send_account_unlock_call")
+| regex -p -e target "\"type\":\"User\",\"alternateId\":\"(?P<subjectUser>[^\"]*)\""
+| eval if (!has("subjectUser")) { subjectUser = actorAltId; }
+| lookup -s -r @agg subjectUser subjectUser resets
+| unique subjectUser
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("55")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "High Number of Okta User Password Reset or Unlock Attempts"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "High Number of Okta Password Reset or Unlock Events for One User";
+    message = printf("%v password reset or unlock events for %v in the search window", resets, subjectUser);
+$OKTA_ALERT_META("Credential Access", "T1110")

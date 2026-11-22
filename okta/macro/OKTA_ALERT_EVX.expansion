@@ -1,4 +1,5 @@
 | json
+    uuid
     eventType
     severity
     outcome.result as outcomeResult
@@ -20,9 +21,8 @@
     client.device as clientDevice
     authenticationContext.externalSessionId as authExternalSessionId
     target
-| json -x target
-| json -e target
-    id as targetId
-    type as targetType
-    alternateId as targetAltId
-    displayName as targetName
+    target.[0].id as t0Id
+    target.[0].type as t0Type
+    target.[0].alternateId as t0AltId
+    target.[0].displayName as t0Name
+$OKTA_TARGETS

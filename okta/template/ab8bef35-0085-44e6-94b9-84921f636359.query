@@ -1,8 +1,13 @@
-tag=$OKTA_SYSTEM json 
-    eventType 
-    actor.alternateId as actorAltId
-    target.alternateId as targetAltId
+tag=$OKTA_SYSTEM
+$OKTA_ALERT_EVX
 | lookup -r okta_eventTypes eventType eventType (category subcategory)
 | grep -e category "%%okta_category%%"
-| stats count by category subcategory eventType actorAltId targetAltId
-| chart count by actorAltId targetAltId
+| eval
+    if (!has("actorName") || actorName == "") { actorName = actorAltId; }
+    if (!has("targetType") || targetType == "") { targetName = "(no target)"; targetAltId = ""; targetType = ""; }
+    else if (!has("targetName") || targetName == "") { targetName = targetAltId; }
+| printf -e actor "%v (%v)" actorName actorType
+| printf -e target "%v (%v)" targetName targetType
+| eval if (targetType == "") { target = "(no target)"; }
+| stats count by actor target
+| chart count by actor target

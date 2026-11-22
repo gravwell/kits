@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("department")
+| stats sum(value) as users by key
+| sort by users desc
+| alias key department
+| table department users

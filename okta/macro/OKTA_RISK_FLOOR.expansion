@@ -1,0 +1,2 @@
+| eval if (risk_score < %%1%%) { risk_score = %%1%%; }
+$OKTA_RISK_PRIORITY

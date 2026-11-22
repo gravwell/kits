@@ -1,0 +1,25 @@
+/* Okta - Authentication & Sessions - Okta Admin Console Access from a New IP */
+@hist{start=-14d tag=$OKTA_SYSTEM json eventType==user.session.access_admin_app actor.alternateId as actorAltId client.ipAddress as clientIp
+| eval pairKey = actorAltId + "|" + clientIp
+| stats count as total by pairKey
+| table pairKey total};
+@now{tag=$OKTA_SYSTEM json eventType==user.session.access_admin_app actor.alternateId as actorAltId client.ipAddress as clientIp
+| eval pairKey = actorAltId + "|" + clientIp
+| stats count as recent by pairKey
+| table pairKey recent};
+tag=$OKTA_SYSTEM json eventType==user.session.access_admin_app
+$OKTA_ALERT_EVX
+| eval pairKey = actorAltId + "|" + clientIp
+| lookup -s -r @hist pairKey pairKey total
+| lookup -s -r @now pairKey pairKey recent
+| eval total == recent
+| unique pairKey
+$OKTA_ENRICH_COMMON
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("65")
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval
+    _alert_name = "Okta Admin Console Access from a New IP";
+    message = printf("First Okta Admin Console access by this administrator from %v in at least 14 days", clientIp);
+$OKTA_ALERT_META("Initial Access", "T1078.004")

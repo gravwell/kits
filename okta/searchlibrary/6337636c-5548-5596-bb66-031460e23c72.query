@@ -1,9 +1,9 @@
-/* AlertQuery - Okta - Identity Access Management - Security - Events - Okta Security Threat Detected [table] */
-tag=$OKTA_SYSTEM ax eventType == "security.threat.detected"
+/* Okta - Threats & Platform - Okta Security Threat Detected */
+tag=$OKTA_SYSTEM json eventType == "security.threat.detected"
 $OKTA_ALERT_EVX
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
 | eval _alert_name = "Okta Security Threat Detected"
-$OKTA_ALERT_META
+$OKTA_ALERT_META("Credential Access", "T1110")

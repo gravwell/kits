@@ -1,0 +1,11 @@
+{
+	"VersionNumber": 1,
+	"ResourceName": "okta_sensitive_oauth_scopes",
+	"Description": "Okta API scopes treated as sensitive when an admin grants them to an app (used by \"Sensitive Okta OAuth Scope Granted to an App\"). Columns: scope (exact name), tier (High, Medium, or None to ignore a scope), reason. Any org-level okta.<resource>.manage scope not listed here is treated as High; end-user okta.myAccount.* / okta.enduser.* scopes are ignored.",
+	"Labels": [
+		"okta"
+	],
+	"Size": 1335,
+	"Hash": "fE5gvjSzJmocXwLoQuaD1A==",
+	"Data": ""
+}

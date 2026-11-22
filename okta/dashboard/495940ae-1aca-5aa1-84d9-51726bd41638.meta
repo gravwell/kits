@@ -1,0 +1,374 @@
+{
+	"UUID": "495940ae-1aca-5aa1-84d9-51726bd41638",
+	"Name": "Okta Threat Overview",
+	"Description": "Is anything happening? The alerts the kit raised (tag _alerts) by priority and detection, then the signals the statistical detections watch, ranked and without thresholds so activity below the alert line shows too: invalid-credential failures by IP and user, shared device tokens, Okta Verify push activity, Okta threat signals, risky and new-behavior sign-ins, users in several countries, proxies, password resets, rate limits and a map of failed sign-ins. Locations come from Okta (client.geographicalContext).",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P1DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - Okta - Threats - Okta Alerts over Time by Priority [chart]",
+				"color": null,
+				"reference": {
+					"id": "6c21f617-a189-5384-97ea-e5a97bb8efc9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Okta Alerts by Detection [table]",
+				"color": null,
+				"reference": {
+					"id": "f669e947-3e70-595b-8f14-6c5145dad588",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Invalid Credential Sign-Ins by Source IP [table]",
+				"color": null,
+				"reference": {
+					"id": "a0328e0b-063e-55bd-852a-eed8606bdc81",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Invalid Credential Sign-Ins by User [table]",
+				"color": null,
+				"reference": {
+					"id": "2be8b04f-d9dd-5261-a58a-d92cd387ab16",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Device Tokens Used by Several Users [table]",
+				"color": null,
+				"reference": {
+					"id": "fe550ff3-6b92-5289-a04d-7b5bad0515a6",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Okta Verify Push Activity by User [table]",
+				"color": null,
+				"reference": {
+					"id": "a4b9fbc4-779a-5b20-9bdb-f3404495a8f3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Okta Threat Signals by Source IP [table]",
+				"color": null,
+				"reference": {
+					"id": "b514306c-ce43-5b74-adfe-ae8acf1fe063",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Sign-Ins Okta Rated Risky [table]",
+				"color": null,
+				"reference": {
+					"id": "56d175cc-386a-5fe3-b288-5c7cafd97790",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - New-Behavior Sign-Ins by User [table]",
+				"color": null,
+				"reference": {
+					"id": "1102ca98-fd9a-52c4-b630-b8c9ce77a972",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Users Signing In from Several Countries [table]",
+				"color": null,
+				"reference": {
+					"id": "3d7b7740-3462-51dc-87e0-8746601d85a9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Sign-Ins Through Proxies or Anonymizers [table]",
+				"color": null,
+				"reference": {
+					"id": "e9cf1033-29f9-52c3-954f-72925700423b",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Password Reset and Unlock Requests by User [table]",
+				"color": null,
+				"reference": {
+					"id": "10890b77-ba0e-52a0-b46e-607058311f9f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Rate Limit Violations over Time [chart]",
+				"color": null,
+				"reference": {
+					"id": "97b1afc0-3f7b-5ba8-bea1-19514e02f66c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - Okta - Threats - Failed Sign-In Locations [pointmap]",
+				"color": null,
+				"reference": {
+					"id": "ff7f86b4-3821-595c-af45-49237b42014c",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17638000000001,
+				"title": "Okta Alerts by Priority",
+				"renderer": "areaChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 0
+				},
+				"rendererOptions": {},
+				"searchesIndex": 0
+			},
+			{
+				"id": 17638000000002,
+				"title": "Okta Alerts by Detection",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 0
+				},
+				"rendererOptions": {},
+				"searchesIndex": 1
+			},
+			{
+				"id": 17638000000003,
+				"title": "Invalid Credentials by Source IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 6
+				},
+				"rendererOptions": {},
+				"searchesIndex": 2
+			},
+			{
+				"id": 17638000000004,
+				"title": "Invalid Credentials by User",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 6
+				},
+				"rendererOptions": {},
+				"searchesIndex": 3
+			},
+			{
+				"id": 17638000000005,
+				"title": "Device Tokens Used by Several Users",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 13
+				},
+				"rendererOptions": {},
+				"searchesIndex": 4
+			},
+			{
+				"id": 17638000000006,
+				"title": "Okta Verify Push Activity",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 13
+				},
+				"rendererOptions": {},
+				"searchesIndex": 5
+			},
+			{
+				"id": 17638000000007,
+				"title": "Okta Threat Signals by Source IP",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 19
+				},
+				"rendererOptions": {},
+				"searchesIndex": 6
+			},
+			{
+				"id": 17638000000008,
+				"title": "Sign-Ins Okta Rated Risky",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 19
+				},
+				"rendererOptions": {},
+				"searchesIndex": 7
+			},
+			{
+				"id": 17638000000009,
+				"title": "New-Behavior Sign-Ins",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 25
+				},
+				"rendererOptions": {},
+				"searchesIndex": 8
+			},
+			{
+				"id": 17638000000010,
+				"title": "Users Signing In from Several Countries",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 25
+				},
+				"rendererOptions": {},
+				"searchesIndex": 9
+			},
+			{
+				"id": 17638000000011,
+				"title": "Sign-Ins Through Proxies or Anonymizers",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 31
+				},
+				"rendererOptions": {},
+				"searchesIndex": 10
+			},
+			{
+				"id": 17638000000012,
+				"title": "Password Reset and Unlock Requests",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 31
+				},
+				"rendererOptions": {},
+				"searchesIndex": 11
+			},
+			{
+				"id": 17638000000013,
+				"title": "Rate Limit Violations",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 0,
+					"y": 37
+				},
+				"rendererOptions": {},
+				"searchesIndex": 12
+			},
+			{
+				"id": 17638000000014,
+				"title": "Failed Sign-In Locations",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 6,
+					"x": 6,
+					"y": 37
+				},
+				"rendererOptions": {},
+				"searchesIndex": 13
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"okta"
+	]
+}

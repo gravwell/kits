@@ -1,0 +1,7 @@
+{
+	"Name": "OKTA_GEO",
+	"Description": "Location of an Okta System Log event's client, taken from Okta itself (client.geographicalContext and securityContext), which Okta resolves at the edge when the request happens. Only events without Okta coordinates fall back to the geoip module (MaxMind, Network Enrichment kit). Produces geoIp, geoLat, geoLon, geoCountry, geoState, geoCity, geoAsOrg and geoSource (okta, maxmind, or none when neither knows the address). Usage: tag=$OKTA_SYSTEM json eventType==user.session.start $OKTA_GEO | heatmap -lat geoLat -long geoLon",
+	"Labels": [
+		"okta"
+	]
+}

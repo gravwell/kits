@@ -1,9 +1,13 @@
-/* AlertQuery - Okta - Identity Access Management - User - Session - Okta User Session Start Via An Anonymising Proxy Service [table] */
-tag=$OKTA_SYSTEM ax eventType == "user.session.start"
+/* Okta - Authentication & Sessions - Okta Session Start via Anonymizing Proxy */
+tag=$OKTA_SYSTEM json eventType==user.session.start securityContext.isProxy as isProxyRaw securityContext.risk.reasons as riskReasons
 $OKTA_ALERT_EVX
+| eval ((has("isProxyRaw") && isProxyRaw == "true") || (has("riskReasons") && riskReasons ~ "Anonymizing Proxy"))
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("55")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Okta User Session Start Via An Anonymising Proxy Service"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Okta Session Start via Anonymizing Proxy";
+    message = printf("Okta session started through an anonymizing proxy (outcome %v)", outcomeResult);
+$OKTA_ALERT_META("Command and Control", "T1090.003")

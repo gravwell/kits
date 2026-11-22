@@ -1,7 +1,7 @@
 {
 	"UUID": "7a6f94c8-f959-4dd5-9b58-cb5ae0137b96",
-	"Name": "Okta User Location Overview",
-	"Description": "This Dashboard is a general overview of your Okta User Location data.",
+	"Name": "Okta Sign-In Locations",
+	"Description": "Where Okta sign-ins come from: a heatmap and a map of sign-ins by user and IP, and tables by country and city, all using Okta's own geolocation (client.geographicalContext; geoip fallback via $OKTA_GEO), plus user profile timezones (from the hourly user aggregates).",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,10 +12,10 @@
 		},
 		"searches": [
 			{
-				"alias": "Search - Okta - Users - User Country [numbercard]",
+				"alias": "Search - Okta - Sign-Ins - Sign-In Locations [heatmap]",
 				"color": null,
 				"reference": {
-					"id": "ba6c1f9e-3728-45ad-9cdb-5d080fff5089",
+					"id": "f6506089-dbd8-522c-9851-40334cdb0634",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -23,10 +23,10 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User Country [chart]",
+				"alias": "Search - Okta - Sign-Ins - Sign-Ins by User and IP [pointmap]",
 				"color": null,
 				"reference": {
-					"id": "6d57beef-f4be-483c-95b8-c3cb92ec6bfa",
+					"id": "a9cdbd9d-be71-5fd5-8092-3822d396edbe",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -34,10 +34,10 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User State [numbercard]",
+				"alias": "Search - Okta - Sign-Ins - Sign-Ins by Country [table]",
 				"color": null,
 				"reference": {
-					"id": "7c836a9a-83c2-46f8-bf54-e821dcac86d9",
+					"id": "9502a73d-b430-55dd-bcb4-f393e6f26976",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -45,10 +45,10 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User State [chart]",
+				"alias": "Search - Okta - Sign-Ins - Sign-Ins by City [table]",
 				"color": null,
 				"reference": {
-					"id": "799ba52e-3c47-4b72-ac05-468e4f58887a",
+					"id": "88191f82-d7e3-503f-9fdd-15af3a5d3695",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -56,21 +56,10 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - Users - User Timezone [numbercard]",
+				"alias": "Search - Okta - User Aggregates - User Timezone [table]",
 				"color": null,
 				"reference": {
-					"id": "db8ca78a-1260-4e56-9437-511b4bd96dcc",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - Users - User Timezone [chart]",
-				"color": null,
-				"reference": {
-					"id": "3f6b6dad-75f7-43e8-8844-b471e67abf10",
+					"id": "e8d65ae0-9893-56ac-ade8-164e9c8d7176",
 					"type": "savedQuery",
 					"extras": {
 						"defaultValue": null
@@ -80,101 +69,74 @@
 		],
 		"tiles": [
 			{
-				"id": 17635601835090,
-				"title": "User Country Numbercard",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 5,
-					"x": 0,
-					"y": 0
-				},
-				"searchesIndex": 0,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17635602040401,
-				"title": "User Country Chart",
-				"renderer": "pieChart",
-				"hideZoom": true,
-				"span": {
-					"col": 6,
-					"row": 5,
-					"x": 6,
-					"y": 0
-				},
-				"searchesIndex": 1,
-				"rendererOptions": {}
-			},
-			{
-				"id": 17635602400212,
-				"title": "User State Numbercard",
-				"renderer": "numberCard",
+				"id": 17637000000001,
+				"title": "Sign-In Locations",
+				"renderer": "heatmap",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 8,
 					"x": 0,
-					"y": 5
+					"y": 0
 				},
-				"searchesIndex": 2,
-				"rendererOptions": {}
+				"rendererOptions": {},
+				"searchesIndex": 0
 			},
 			{
-				"id": 17635602598703,
-				"title": "User State Chart",
-				"renderer": "donutChart",
+				"id": 17637000000002,
+				"title": "Sign-Ins by User and IP",
+				"renderer": "pointmap",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 8,
 					"x": 6,
-					"y": 5
+					"y": 0
 				},
-				"searchesIndex": 3,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value"
-				}
+				"rendererOptions": {},
+				"searchesIndex": 1
 			},
 			{
-				"id": 17635602904414,
-				"title": "User Timezone Numbercard",
-				"renderer": "numberCard",
+				"id": 17637000000003,
+				"title": "Sign-Ins by Country",
+				"renderer": "table",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 7,
 					"x": 0,
-					"y": 13
+					"y": 8
 				},
-				"searchesIndex": 4,
-				"rendererOptions": {
-					"Range": "no",
-					"Precision": "no",
-					"NumberCardLabelFontSize": 24,
-					"NumberCardNumberFontSize": 48,
-					"NumberCardWidth": 25
-				}
+				"rendererOptions": {},
+				"searchesIndex": 2
 			},
 			{
-				"id": 17635603089575,
-				"title": "User Timezone Chart",
-				"renderer": "donutChart",
+				"id": 17637000000004,
+				"title": "Sign-Ins by City",
+				"renderer": "table",
 				"hideZoom": true,
 				"span": {
 					"col": 6,
 					"row": 7,
 					"x": 6,
-					"y": 13
+					"y": 8
 				},
-				"searchesIndex": 5,
-				"rendererOptions": {
-					"IncludeOther": "no",
-					"SortCategoricalAxisBy": "value",
-					"Orientation": "v"
-				}
+				"rendererOptions": {},
+				"searchesIndex": 3
+			},
+			{
+				"id": 17637000000005,
+				"title": "User Profile Timezones",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 15
+				},
+				"rendererOptions": {},
+				"searchesIndex": 4
 			}
 		],
 		"linkZooming": false,

@@ -1,0 +1,3 @@
+$OKTA_USER_AGG("last_signin")
+| stats sum(value) as users by key
+| chart users by key

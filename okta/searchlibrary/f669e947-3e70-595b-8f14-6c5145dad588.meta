@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Okta Alerts by Detection [table]",
+	"Description": "Alerts the Okta kit raised (tag _alerts, Contents._vendor Okta) by detection and priority: alerts, distinct users and source IPs. Open the Investigation dashboard for one user or IP.",
+	"GUID": "f669e947-3e70-595b-8f14-6c5145dad588",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

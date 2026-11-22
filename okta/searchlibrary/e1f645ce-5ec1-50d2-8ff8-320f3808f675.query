@@ -1,10 +1,9 @@
-/* AlertQuery - Okta - Identity Access Management - User - Account - User Reported Suspicious Activity [table] */
-tag=$OKTA_SYSTEM ax eventType == "user.account.report_suspicious_activity_by_enduser"
+/* Okta - Account & MFA Changes - User Reported Suspicious Activity */
+tag=$OKTA_SYSTEM json eventType == "user.account.report_suspicious_activity_by_enduser"
 $OKTA_ALERT_EVX
-| regex -e message "(?i)User Reported Suspicious Activity"
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
 | eval _alert_name = "User Reported Suspicious Activity"
-$OKTA_ALERT_META
+$OKTA_ALERT_META("Initial Access", "T1078")

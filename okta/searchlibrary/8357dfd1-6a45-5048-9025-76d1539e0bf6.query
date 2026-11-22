@@ -1,9 +1,13 @@
-/* AlertQuery - Okta - Identity Access Management - Application - OAuth2 - Unauthorized Scope for Public App OAuth2 Token Grant with Client Credentials [table] */
-tag=$OKTA_SYSTEM ax eventType == "app.oauth2.as.token.grant"
+/* Okta - Admin & Configuration Changes - Unauthorized Scope for Public App OAuth2 Token Grant with Client Credentials */
+tag=$OKTA_SYSTEM json eventType outcome.result as res outcome.reason as reason debugContext.debugData.grantType as grantType
 $OKTA_ALERT_EVX
+| eval in(eventType, "app.oauth2.as.token.grant", "app.oauth2.token.grant") && res == "FAILURE" && reason == "no_matching_scope" && grantType == "client_credentials"
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR("55")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
-| eval _alert_name = "Unauthorized Scope for Public App OAuth2 Token Grant with Client Credentials"
-$OKTA_ALERT_META
+| eval
+    _alert_name = "Unauthorized Scope for Public App OAuth2 Token Grant with Client Credentials";
+    message = "OAuth client-credentials token request refused: the client asked for a scope it is not granted (no_matching_scope)";
+$OKTA_ALERT_META("Defense Evasion", "T1550.001")

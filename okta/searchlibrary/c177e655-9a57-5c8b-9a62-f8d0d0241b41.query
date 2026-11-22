@@ -1,0 +1,16 @@
+$OKTA_LATEST_USERS
+| json status passwordChanged lastLogin profile.login as login profile.firstName as firstName profile.lastName as lastName
+| eval status == "ACTIVE"
+| eval user = strings_trimspace(firstName + " " + lastName); if (user == "") { user = login; }
+| time passwordChanged pcTS
+| time lastLogin llTS
+| eval
+    passwordDays = 999999;
+    if (has(pcTS)) { passwordDays = (unix(NOW) - unix(pcTS)) / 86400; }
+    signinDays = "";
+    if (has(llTS)) { signinDays = printf("%d", (unix(NOW) - unix(llTS)) / 86400); }
+    password = "never set";
+    if (has(pcTS)) { password = printf("%d", passwordDays); }
+| sort by passwordDays desc
+| alias password "Password Age in Days" signinDays "Days Since Sign-In"
+| table user login "Password Age in Days" "Days Since Sign-In"

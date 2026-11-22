@@ -1,9 +1,9 @@
-/* AlertQuery - Okta - Identity Access Management - Lifecycle - User - New Okta User Created [table] */
-tag=$OKTA_SYSTEM ax eventType == "user.lifecycle.create"
+/* Okta - Account & MFA Changes - New Okta User Created */
+tag=$OKTA_SYSTEM json eventType == "user.lifecycle.create"
 $OKTA_ALERT_EVX
 $OKTA_ENRICH_COMMON
-$OKTA_CATALOG_RISK_SCORE
+$OKTA_RISK_SCORE("catalog")
 $OKTA_IP_TUNING
 $OKTA_USER_TUNING
 | eval _alert_name = "New Okta User Created"
-$OKTA_ALERT_META
+$OKTA_ALERT_META("Persistence", "T1136.003")

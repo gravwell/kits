@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("avg_days_created_to_activated")
+| eval n = 0; if (true) { n = value; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

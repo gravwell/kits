@@ -1,6 +1,6 @@
-$OKTA_ALERT_BASE
-$OKTA_CATALOG_RISK_SCORE
-$OKTA_IP_TUNING
-$OKTA_USER_TUNING
-$OKTA_INVESTIGATION_SEARCH("%%1%%","%%2%%","%%3%%")
-$OKTA_ALERT_INFO
+tag=_alerts json Contents._vendor==Okta Contents._alert_title as _alert_title Contents._alert_priority as _alert_priority Contents._alert_name as _alert_name Contents.user as user Contents.src_ip as src_ip Contents.target as target Contents.eventType as eventType Contents.context as context Contents.published as published
+| grep -e context "*%%1%%*"
+| grep -e target "%%2%%"
+| grep -e src_ip "%%3%%"
+| sort by published desc
+| table published _alert_priority _alert_name user target src_ip eventType context

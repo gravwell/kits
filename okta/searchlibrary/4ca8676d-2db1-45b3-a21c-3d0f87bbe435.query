@@ -1,0 +1,21 @@
+/* Okta - Admin & Configuration Changes - Sensitive Okta OAuth Scope Granted to an App */
+tag=$OKTA_SYSTEM json eventType==app.oauth2.admin.consent.grant
+$OKTA_ALERT_EVX
+| regex -a -e target "\"type\":\"ConsentGrant\",\"alternateId\":(?:null|\"[^\"]*\"),\"displayName\":\"(?P<grantedScopes>[^\"]*)\""
+| json -x target
+| json -e target displayName as scope
+| lookup -r okta_sensitive_oauth_scopes scope scope (tier reason)
+| eval has("tier") || (match(scope, "^okta\\.[A-Za-z]+\\.manage$") && !match(scope, "^okta\\.(myAccount|enduser)\\."))
+| eval if (!has("tier")) { tier = "High"; reason = "org-level manage scope not in okta_sensitive_oauth_scopes"; }
+| eval tier != "None"
+| eval _floor = 55.0; if (tier == "High") { _floor = 75.0; }
+| unique uuid
+$OKTA_ENRICH_COMMON
+$OKTA_RISK_SCORE("catalog")
+$OKTA_RISK_FLOOR(_floor)
+$OKTA_IP_TUNING
+$OKTA_USER_TUNING
+| eval
+    _alert_name = "Sensitive Okta OAuth Scope Granted to an App";
+    message = printf("Admin consent granted for sensitive scope %v (%v: %v); all scopes in this grant: %v", scope, tier, reason, grantedScopes);
+$OKTA_ALERT_META("Persistence", "T1098.003")

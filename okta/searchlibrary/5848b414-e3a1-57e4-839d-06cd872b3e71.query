@@ -1,0 +1,5 @@
+$OKTA_USER_AGG("manager")
+| eval n = 0; if (key != "(no manager)") { n = 1; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

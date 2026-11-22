@@ -1,11 +1,11 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "okta_user_denylist",
-	"Description": "Provides a tuning control to force-include or escalate alerts for specific users, optionally only when risk_score \u003e= min_risk, per alert or globally.\n\nFields: key,enabled,min_risk,reason\n\nKey format: \u003cnormalized_user\u003e|\u003calert_name_or_*\u003e (enabled = 1 or 0; empty min_risk or 0 = always force)\n\nExamples: This is currently what is in okta_user_denylist.csv\nkey,enabled,min_risk,reason\nsvc-admin|*,1,0,\"always force include service admin\"\ncharlie|Alert - Okta - Medium - App Assignment Changed,1,65,\"repeat offender\"\n\nReference(s):\n\nUsage:\n// OKTA_DYNAMIC_PATTERN + IP tuning\n$OKTA_ALERT_BASE\n$OKTA_ENRICH_COMMON\n$OKTA_RISK_SCORE_EXTENDED\n$OKTA_TUNE_IPLISTS\n$OKTA_ALERT_META",
+	"Description": "Escalate Okta alerts for an account (actor or person acted on) to at least High.\n\nColumns: key,enabled,min_risk,reason\nKey: \u003clogin\u003e|\u003cdetection name\u003e or \u003clogin\u003e|*. min_risk (optional): only escalate when the risk score is at least this value; empty or 0 = always. This raises the priority of alerts a detection already produced; it does not create alerts.\n\nThe detection name is the scheduled search name after the group, e.g. \"Okta Admin Console Access from a New IP\". Logins are lowercase and without @domain. Rows with enabled = 0 are ignored; the shipped rows are disabled examples. Used by every Okta detection and the modification feed through $OKTA_USER_TUNING / $OKTA_IP_TUNING.",
 	"Labels": [
 		"okta"
 	],
-	"Size": 158,
-	"Hash": "Zx4lHmm01KyrQCBbUEbxlA==",
+	"Size": 265,
+	"Hash": "XRp49TisfTTXHLQX/EMeAA==",
 	"Data": ""
 }

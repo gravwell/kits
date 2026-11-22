@@ -1,0 +1,20 @@
+{
+  "Name": "Okta - Authentication & Sessions - Okta Sign-In by a Recently Deactivated User",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1078\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Sign-In by a Recently Deactivated User\" or \"<ip>|Okta Sign-In by a Recently Deactivated User\"\n\nSuccessful authentication by a user who was deactivated or suspended (user.lifecycle.deactivate / suspend) in the 30 days before the search window and has not been activated, reactivated or unsuspended since. A deactivated account should not be able to sign in; this points to a lifecycle bug, a backdoor, or a session that survived offboarding.\n\nLimitation: a user deactivated, reactivated and deactivated again inside 30 days is treated as reactivated.",
+  "Labels": [
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "initial-access",
+    "T1078"
+  ],
+  "Schedule": "3,18,33,48 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": false,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "ac9da7ee-2886-423f-a63b-e62502fcdd0a",
+  "SearchReference": "83c0f1e7-1bc0-431e-884e-c5085c0b677e"
+}
