@@ -1,7 +1,7 @@
 /* Okta - User Aggregates */
-@users{tag=$OKTA_USERS json id status created activated lastLogin passwordChanged type.id as userTypeId profile.userType as userType profile.division as division profile.department as department profile.title as title profile.manager as manager profile.timezone as timezone credentials.provider.type as providerType credentials.provider.name as providerName
+@users{tag=$OKTA_USERS json id status created activated passwordChanged type.id as userTypeId profile.userType as userType profile.division as division profile.department as department profile.title as title profile.manager as manager profile.timezone as timezone credentials.provider.type as providerType credentials.provider.name as providerName
 | last id
-| table id status created activated lastLogin passwordChanged userTypeId userType division department title manager timezone providerType providerName};
+| table id status created activated passwordChanged userTypeId userType division department title manager timezone providerType providerName};
 @status{dump -r @users
 | eval key = status; if (key == "" || key == "null") { key = "(none)"; }
 | stats count as value by key
@@ -17,13 +17,22 @@
 | stats count as value by key
 | eval metric = "provider_name";
 | table metric key value};
+@signins{tag=$OKTA json eventType==user.session.start outcome.result==SUCCESS actor.id as key
+| stats max(TIMESTAMP) as lastTS by key
+| eval value = unix(lastTS);
+| table key value};
+@user_last_signin{dump -r @signins
+| dump -p -r okta_user_aggregates metric=="user_last_signin" key value
+| stats max(value) as value by key
+| eval metric = "user_last_signin";
+| table metric key value};
 @last_signin{dump -r @users
 | eval status == "ACTIVE"
-| time lastLogin lastLoginTS
+| lookup -r @user_last_signin id key (value as lastSignin)
 | eval
     key = "never";
-    if (has(lastLoginTS)) {
-        days = (unix(NOW) - unix(lastLoginTS)) / 86400;
+    if (has(lastSignin) && lastSignin != "") {
+        days = (unix(NOW) - int(lastSignin)) / 86400;
         if (days <= 30) { key = "30 days or less"; }
         else if (days <= 90) { key = "31-90 days"; }
         else if (days <= 365) { key = "91-365 days"; }
@@ -117,6 +126,7 @@ dump -r @status
 | dump -p -r @timezone
 | dump -p -r @last_signin_history
 | dump -p -r @password_age_history
+| dump -p -r @user_last_signin
 | eval
     ts = unix(NOW);
     rowkey = metric + "|" + key;

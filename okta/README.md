@@ -26,7 +26,8 @@ hours and saves them to the resource `okta_user_aggregates` with `table -save -u
 the results with `dump -p`. The figures cover:
 
 - users by status, user type, division, department, job title, manager and timezone;
-- last sign-in and password age of active users;
+- last sign-in and password age of active users (last sign-in from successful `user.session.start`
+  events in the System Log, not from the user records);
 - credential providers;
 - average password age and onboarding time.
 
@@ -42,7 +43,16 @@ finds no users changes nothing. Tiles that add up such rows can therefore read h
 Users, Active Users Never Signed In, Active Users Without Sign-In for 90 Days and Active Users with
 Password Older Than 90 Days include the last count of any status or bucket that has since emptied,
 and the department, division, job title and manager tables keep rows for groups nobody is in. The current figures don't depend on the time range; the "over
-Time" charts follow it. The kit ships the resource with only its header row, so the dashboards
+Time" charts follow it.
+
+Last sign-in doesn't come from the user records: their `lastLogin` is only as fresh as the last
+time the user record changed. The search takes the newest successful `user.session.start` per
+user (`actor.id`) from `$OKTA` in its window, keeps the newer of that and the value it stored
+before, and saves it as `user_last_signin` rows (`rowkey` = `user_last_signin|<user id>`). A user
+who didn't sign in during the window keeps their last sign-in, and "never" means no successful
+sign-in since the resource started tracking. Run the **Okta - User Aggregates** saved query
+manually over a long range (for example 365 days) after installing to seed it from the System
+Log you already have. The kit ships the resource with only its header row, so the dashboards
 are empty until the first run that finds users (at install, then at minute 17 of every hour).
 Upgrading the kit resets the resource and its history the same way. The search needs the daily
 snapshot to count users who haven't changed, and its owner needs permission to write resources.

@@ -1,16 +1,18 @@
-@users{tag=$OKTA_USERS json id status passwordChanged lastLogin profile.login as login profile.firstName as firstName profile.lastName as lastName
+@users{tag=$OKTA_USERS json id status passwordChanged profile.login as login profile.firstName as firstName profile.lastName as lastName
 | last id
-| table id status passwordChanged lastLogin login firstName lastName};
+| table id status passwordChanged login firstName lastName};
+@signins{dump -r okta_user_aggregates metric=="user_last_signin" key value
+| table key value};
 dump -r @users
 | eval status == "ACTIVE"
+| lookup -r @signins id key (value as lastSignin)
 | eval user = strings_trimspace(firstName + " " + lastName); if (user == "") { user = login; }
 | time passwordChanged pcTS
-| time lastLogin llTS
 | eval
     passwordDays = 999999;
     if (has(pcTS)) { passwordDays = (unix(NOW) - unix(pcTS)) / 86400; }
     signinDays = "";
-    if (has(llTS)) { signinDays = printf("%d", (unix(NOW) - unix(llTS)) / 86400); }
+    if (has(lastSignin) && lastSignin != "") { signinDays = printf("%d", (unix(NOW) - int(lastSignin)) / 86400); }
     password = "never set";
     if (has(pcTS)) { password = printf("%d", passwordDays); }
 | sort by passwordDays desc

@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - User Aggregates - Active Users Never Signed In [numbercard]",
-	"Description": "Active users with no lastLogin. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"Description": "Active users with no successful sign-in (user.session.start) in the okta System Log since the resource started tracking sign-ins. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
 	"GUID": "05bc0f05-1d85-5402-9015-83bad0e7f1d0",
 	"Labels": [
 		"okta"

@@ -40,7 +40,10 @@ is slow, and the user tag only holds what the ingester wrote recently.
   them to the resource `okta_user_aggregates` with `table -save -update rowkey`, as
   `ts,metric,key,value,rowkey` rows: the current count of every metric (`rowkey` = `metric|key`,
   overwritten each run) and one history point per run for last sign-in and password age
-  (`rowkey` = `ts|metric|key`, never pruned). A key that no longer occurs keeps its last count. Tiles that add up rows
+  (`rowkey` = `ts|metric|key`, never pruned). A key that no longer occurs keeps its last count.
+  Last sign-in comes from successful `user.session.start` events in the System Log, kept per user
+  as `user_last_signin` rows, because the user records' `lastLogin` only changes when the record
+  is rewritten. Seed it by running the **Okta - User Aggregates** saved query over a long range. Tiles that add up rows
   (Total Users, the sign-in and password-age counts) include the last count of any status or bucket that has
   since emptied. Because the search writes to a resource the kit ships, Gravwell reports the kit as modified
   after the first run; the warning when you uninstall or upgrade is expected.

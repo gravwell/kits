@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - User Aggregates - Last Sign-In of Active Users over Time [chart]",
-	"Description": "Active users by time since their last sign-in, over time. From the okta_user_aggregates resource (one point per hourly run, never pruned, written by the scheduled search \"Okta - User Aggregates\"), averaged per time bucket.",
+	"Description": "Active users by time since their last sign-in (newest successful user.session.start in the okta System Log), over time. From the okta_user_aggregates resource (one point per hourly run, never pruned, written by the scheduled search \"Okta - User Aggregates\"), averaged per time bucket.",
 	"GUID": "00850f5c-9eee-597b-9747-8ff911f88380",
 	"Labels": [
 		"okta"
