@@ -1,0 +1,5 @@
+dump -r okta_user_aggregates metric=="division" key value
+| eval n = 0; if (key != "(none)") { n = 1; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

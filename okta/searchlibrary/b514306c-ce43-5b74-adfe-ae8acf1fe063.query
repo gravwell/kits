@@ -1,0 +1,26 @@
+tag=$OKTA json eventType client.ipAddress as ip actor.alternateId as user debugContext.debugData.threatSuspected as threatSuspected
+| eval in(eventType, "security.threat.detected", "security.request.blocked") || (has(threatSuspected) && threatSuspected == "true")
+| json client.ipAddress as geoIp client.geographicalContext.geolocation.lat as geoLat client.geographicalContext.geolocation.lon as geoLon client.geographicalContext.country as geoCountry client.geographicalContext.state as geoState client.geographicalContext.city as geoCity securityContext.asOrg as geoAsOrg
+| eval
+    geoSource = "okta";
+    geoFallbackIp = "";
+    if (!has(geoLat) || geoLat == "" || !has(geoLon) || geoLon == "") {
+        geoSource = "maxmind";
+        geoFallbackIp = geoIp;
+    }
+| geoip geoFallbackIp.Lat as geoFbLat geoFallbackIp.Long as geoFbLon geoFallbackIp.CountryName as geoFbCountry geoFallbackIp.City as geoFbCity
+| eval
+    if (geoSource == "maxmind") {
+        if (has(geoFbLat)) {
+            geoLat = geoFbLat;
+            geoLon = geoFbLon;
+        } else {
+            geoSource = "none";
+        }
+        if (has(geoFbCountry) && (!has(geoCountry) || geoCountry == "")) { geoCountry = geoFbCountry; }
+        if (has(geoFbCity) && (!has(geoCity) || geoCity == "")) { geoCity = geoFbCity; }
+    }
+| stats count as events unique_count(user) as users unique_count(eventType) as eventTypes by ip geoCountry geoAsOrg
+| sort by events desc
+| limit 50
+| table ip geoCountry geoAsOrg events users eventTypes

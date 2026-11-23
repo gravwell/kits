@@ -1,5 +1,0 @@
-tag=$OKTA_SYSTEM
-| json
-    client.geographicalContext.country
-| stats count by country
-| chart count by country

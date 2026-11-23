@@ -1,0 +1,26 @@
+tag=$OKTA json eventType==user.session.start securityContext.isProxy==true actor.alternateId as user outcome.result as result
+| json client.ipAddress as geoIp client.geographicalContext.geolocation.lat as geoLat client.geographicalContext.geolocation.lon as geoLon client.geographicalContext.country as geoCountry client.geographicalContext.state as geoState client.geographicalContext.city as geoCity securityContext.asOrg as geoAsOrg
+| eval
+    geoSource = "okta";
+    geoFallbackIp = "";
+    if (!has(geoLat) || geoLat == "" || !has(geoLon) || geoLon == "") {
+        geoSource = "maxmind";
+        geoFallbackIp = geoIp;
+    }
+| geoip geoFallbackIp.Lat as geoFbLat geoFallbackIp.Long as geoFbLon geoFallbackIp.CountryName as geoFbCountry geoFallbackIp.City as geoFbCity
+| eval
+    if (geoSource == "maxmind") {
+        if (has(geoFbLat)) {
+            geoLat = geoFbLat;
+            geoLon = geoFbLon;
+        } else {
+            geoSource = "none";
+        }
+        if (has(geoFbCountry) && (!has(geoCountry) || geoCountry == "")) { geoCountry = geoFbCountry; }
+        if (has(geoFbCity) && (!has(geoCity) || geoCity == "")) { geoCity = geoFbCity; }
+    }
+| eval ok = 0; failed = 0; if (result == "SUCCESS") { ok = 1; } else { failed = 1; }
+| stats sum(ok) as successful sum(failed) as failed unique_count(user) as users by geoIp geoCountry geoAsOrg
+| sort by users desc
+| limit 50
+| table geoIp geoCountry geoAsOrg users successful failed

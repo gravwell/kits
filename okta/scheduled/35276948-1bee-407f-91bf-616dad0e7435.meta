@@ -1,0 +1,20 @@
+{
+  "Name": "Okta - Admin & Configuration Changes - Okta Admin Role Granted to a New User",
+  "Description": "Alert: Alert - Okta - Admin & Configuration Changes\nMITRE ATT&CK: Persistence / T1098.003\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Admin Role Granted to a New User\" or \"<ip>|Okta Admin Role Granted to a New User\"\n\nAn administrator role granted (user.account.privilege.grant) to a user account created in the 24 hours before the search window (user.lifecycle.create). Creating an account and immediately making it an admin is a classic persistence step after an admin compromise.",
+  "Labels": [
+    "okta",
+    "detection",
+    "admin-configuration-changes",
+    "persistence",
+    "T1098.003"
+  ],
+  "Schedule": "9,24,39,54 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": false,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "35276948-1bee-407f-91bf-616dad0e7435",
+  "SearchReference": "4f9ba97d-aaec-4d1c-90c3-ddd00388b570"
+}

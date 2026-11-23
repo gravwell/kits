@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Password Reset and Unlock Requests by User [table]",
+	"Description": "Password reset and account unlock events per user (the user reset, not the admin doing it). A burst is account takeover in progress (detection threshold: 3 in 15 minutes).",
+	"GUID": "10890b77-ba0e-52a0-b46e-607058311f9f",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

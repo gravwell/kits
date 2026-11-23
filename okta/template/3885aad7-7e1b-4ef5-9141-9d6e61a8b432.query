@@ -1,4 +1,4 @@
-tag=$OKTA_SYSTEM json eventType
+tag=$OKTA json eventType
 | lookup -r okta_eventTypes eventType eventType (category subcategory)
 | grep -e category "%%okta_category%%"
 | stats count by category subcategory

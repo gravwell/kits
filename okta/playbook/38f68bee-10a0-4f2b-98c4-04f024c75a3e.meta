@@ -8,8 +8,8 @@
 		"Global": false,
 		"GIDs": []
 	},
-	"Name": "Playbook - Okta - System - Event Types - Modification Alerts",
-	"Desc": "",
+	"Name": "Playbook - Okta - Alert Response",
+	"Desc": "Triage and investigation steps for Okta kit alerts",
 	"Labels": [
 		"okta"
 	],

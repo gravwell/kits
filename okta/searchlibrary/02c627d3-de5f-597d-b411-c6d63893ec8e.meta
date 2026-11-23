@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Users by Job Title [table]",
+	"Description": "Users per job title (profile.title); \"(none)\" = not set. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "02c627d3-de5f-597d-b411-c6d63893ec8e",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "Name": "Okta - Authentication & Sessions - Okta OAuth Refresh Token Reuse Detected",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Credential Access / T1528\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta OAuth Refresh Token Reuse Detected\" or \"<ip>|Okta OAuth Refresh Token Reuse Detected\"\n\nOkta detected an already-used (rotated) OAuth refresh token being presented again (app.oauth2.token.detect_reuse for the org authorization server, app.oauth2.as.token.detect_reuse for custom authorization servers). With refresh token rotation, reuse means two parties hold the same token: a strong sign the token was stolen. Okta revokes the token family; review the client and user.",
+  "Labels": [
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "credential-access",
+    "T1528"
+  ],
+  "Schedule": "0,15,30,45 * * * *",
+  "Duration": -900,
+  "DefaultDeploymentRules": {
+    "Disabled": false,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e1cfb6ee-6445-428e-a86d-6ff8c8dc73a4",
+  "SearchReference": "bca7b662-4234-43ab-a308-49df3e6b9381"
+}

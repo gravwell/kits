@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Users Signing In from Several Countries [table]",
+	"Description": "Users with successful Okta sign-ins from more than one country in the time range: countries, source IPs and sign-ins (the detection looks at 4 hours). Country from Okta's geolocation (geoip fallback).",
+	"GUID": "3d7b7740-3462-51dc-87e0-8746601d85a9",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

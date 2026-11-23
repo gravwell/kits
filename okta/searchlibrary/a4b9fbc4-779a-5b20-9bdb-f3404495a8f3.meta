@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Okta Verify Push Activity by User [table]",
+	"Description": "Okta Verify pushes per user with denied, unanswered or abandoned prompts and successful MFA. Many pushes with denials then a success is MFA fatigue (detection threshold: 5 pushes, or 3 with 2 denied/unanswered, in 15 minutes).",
+	"GUID": "a4b9fbc4-779a-5b20-9bdb-f3404495a8f3",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

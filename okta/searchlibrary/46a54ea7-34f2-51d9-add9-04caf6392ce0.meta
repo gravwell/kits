@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Users by Department [table]",
+	"Description": "Users per department (profile.department); \"(none)\" = not set. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "46a54ea7-34f2-51d9-add9-04caf6392ce0",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

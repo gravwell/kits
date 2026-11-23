@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication / Session - High Number of Okta Device Token Cookies Generated for Authentication",
-  "Description": "Detects when an Okta client address has a certain threshold of Okta user authentication events with multiple device token hashes generated for single user authentication. Adversaries may attempt to launch a credential stuffing or password spraying attack from the same device by using a list of known usernames and passwords to gain unauthorized access to user accounts.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_multiple_device_token_hashes_for_single_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_multiple_device_token_hashes_for_single_user.toml",
+  "Name": "Okta - Authentication & Sessions - Okta Many Device Tokens from One IP on Failed Sign-Ins",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Credential Access / T1110\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Many Device Tokens from One IP on Failed Sign-Ins\" or \"<ip>|Okta Many Device Tokens from One IP on Failed Sign-Ins\"\n\nTen or more different device token hashes on failed authentications (INVALID_CREDENTIALS) from one client IP within the search window. Automated tooling that discards cookies between attempts creates a new device token each time.\n\nFalse positives: large shared egress IPs; tune with okta_ip_allowlist.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/credential_access_okta_multiple_device_token_hashes_for_single_user/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/credential_access_okta_multiple_device_token_hashes_for_single_user.toml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "credential-access",
+    "T1110"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "14,29,44,59 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

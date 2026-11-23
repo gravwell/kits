@@ -1,5 +1,0 @@
-tag=$OKTA_USERS
-| json 
-    profile.division as division
-| stats count by division
-| chart count by division

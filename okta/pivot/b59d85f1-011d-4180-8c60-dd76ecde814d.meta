@@ -7,7 +7,7 @@
 		"actions": [
 			{
 				"name": "Investigate",
-				"description": "This actionable will launch the Okta Investigation Dashboard to see if there are any modification and/or catalog alerts as well as show all successful and failed authentication events and attempts performed from this IP Address. ",
+				"description": "This actionable will launch the Okta Investigation Dashboard to see if there are any Okta alerts and modification events as well as show all successful and failed authentication events and attempts performed from this IP Address. ",
 				"placeholder": null,
 				"command": {
 					"type": "dashboard",

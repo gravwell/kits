@@ -1,0 +1,124 @@
+/* Okta - User Aggregates */
+@users{tag=$OKTA_USERS json id status created activated lastLogin passwordChanged type.id as userTypeId profile.userType as userType profile.division as division profile.department as department profile.title as title profile.manager as manager profile.timezone as timezone credentials.provider.type as providerType credentials.provider.name as providerName
+| last id
+| table id status created activated lastLogin passwordChanged userTypeId userType division department title manager timezone providerType providerName};
+@status{dump -r @users
+| eval key = status; if (key == "" || key == "null") { key = "(none)"; }
+| stats count as value by key
+| eval metric = "status";
+| table metric key value};
+@provider_type{dump -r @users
+| eval key = providerType; if (key == "" || key == "null") { key = "(none)"; }
+| stats count as value by key
+| eval metric = "provider_type";
+| table metric key value};
+@provider_name{dump -r @users
+| eval key = providerName; if (key == "" || key == "null") { key = "(none)"; }
+| stats count as value by key
+| eval metric = "provider_name";
+| table metric key value};
+@last_signin{dump -r @users
+| eval status == "ACTIVE"
+| time lastLogin lastLoginTS
+| eval
+    key = "never";
+    if (has(lastLoginTS)) {
+        days = (unix(NOW) - unix(lastLoginTS)) / 86400;
+        if (days <= 30) { key = "30 days or less"; }
+        else if (days <= 90) { key = "31-90 days"; }
+        else if (days <= 365) { key = "91-365 days"; }
+        else { key = "over 1 year"; }
+    }
+| stats count as value by key
+| eval metric = "last_signin";
+| table metric key value};
+@password_age{dump -r @users
+| eval status == "ACTIVE"
+| time passwordChanged passwordChangedTS
+| eval
+    key = "never set";
+    if (has(passwordChangedTS)) {
+        days = (unix(NOW) - unix(passwordChangedTS)) / 86400;
+        if (days <= 30) { key = "30 days or less"; }
+        else if (days <= 90) { key = "31-90 days"; }
+        else if (days <= 365) { key = "91-365 days"; }
+        else { key = "over 1 year"; }
+    }
+| stats count as value by key
+| eval metric = "password_age";
+| table metric key value};
+@avg_password_age{dump -r @users
+| eval status == "ACTIVE"
+| time passwordChanged pcTS
+| eval has(pcTS)
+| eval days = float(unix(NOW) - unix(pcTS)) / 86400.0;
+| stats mean(days) as value
+| eval metric = "avg_password_age_days"; key = ""; value = math_floor(value);
+| table metric key value};
+@avg_onboarding{dump -r @users
+| time created aTS
+| time activated bTS
+| eval has(aTS) && has(bTS)
+| eval days = float(unix(bTS) - unix(aTS)) / 86400.0;
+| stats mean(days) as value
+| eval metric = "avg_days_created_to_activated"; key = ""; value = math_floor(value);
+| table metric key value};
+@user_type{dump -r @users
+| eval
+    key = userType;
+    if (key == "" || key == "null") { key = userTypeId; }
+    if (key == "" || key == "null") { key = "(none)"; }
+| stats count as value by key
+| eval metric = "user_type";
+| table metric key value};
+@division{dump -r @users
+| eval key = division; if (key == "" || key == "null") { key = "(none)"; }
+| stats count as value by key
+| eval metric = "division";
+| table metric key value};
+@department{dump -r @users
+| eval key = department; if (key == "" || key == "null") { key = "(none)"; }
+| stats count as value by key
+| eval metric = "department";
+| table metric key value};
+@title{dump -r @users
+| eval key = title; if (key == "" || key == "null") { key = "(none)"; }
+| stats count as value by key
+| eval metric = "title";
+| table metric key value};
+@manager{dump -r @users
+| eval key = manager; if (key == "" || key == "null") { key = "(no manager)"; }
+| stats count as value by key
+| eval metric = "manager";
+| table metric key value};
+@timezone{dump -r @users
+| eval key = timezone; if (key == "" || key == "null") { key = "(none)"; }
+| stats count as value by key
+| eval metric = "timezone";
+| table metric key value};
+@last_signin_history{dump -r @last_signin
+| eval metric = "last_signin_history";
+| table metric key value};
+@password_age_history{dump -r @password_age
+| eval metric = "password_age_history";
+| table metric key value};
+dump -r @status
+| dump -p -r @provider_type
+| dump -p -r @provider_name
+| dump -p -r @last_signin
+| dump -p -r @password_age
+| dump -p -r @avg_password_age
+| dump -p -r @avg_onboarding
+| dump -p -r @user_type
+| dump -p -r @division
+| dump -p -r @department
+| dump -p -r @title
+| dump -p -r @manager
+| dump -p -r @timezone
+| dump -p -r @last_signin_history
+| dump -p -r @password_age_history
+| eval
+    ts = unix(NOW);
+    rowkey = metric + "|" + key;
+    if (metric == "last_signin_history" || metric == "password_age_history") { rowkey = string(ts) + "|" + rowkey; }
+| table -save okta_user_aggregates -update rowkey ts metric key value rowkey

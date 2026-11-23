@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Average Days from Created to Activated [numbercard]",
+	"Description": "Average days between a user being created and activated in Okta. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "65a15245-bd8a-5858-bb5d-32c3d583bbe7",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

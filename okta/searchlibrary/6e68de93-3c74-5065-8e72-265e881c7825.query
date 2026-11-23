@@ -1,0 +1,5 @@
+dump -r okta_user_aggregates metric=="last_signin" key value
+| eval n = 0; if (key == "91-365 days" || key == "over 1 year") { n = value; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

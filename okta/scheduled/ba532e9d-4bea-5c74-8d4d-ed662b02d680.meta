@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - Group / User - Account / Privilege - Okta Admin Role Assigned to an User or Group",
-  "Description": "Detects when an the Administrator role is assigned to an user or group.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_admin_role_assigned_to_user_or_group/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Name": "Okta - Admin & Configuration Changes - Okta Admin Role Assigned to a User or Group",
+  "Description": "Alert: Alert - Okta - Admin & Configuration Changes\nMITRE ATT&CK: Persistence / T1098.003\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Admin Role Assigned to a User or Group\" or \"<ip>|Okta Admin Role Assigned to a User or Group\"\n\nDetects administrator roles being assigned in Okta: to a user (user.account.privilege.grant), to a group (group.privilege.grant), or through a custom role binding (iam.resourceset.bindings.add). New administrators are a common persistence and escalation step. Merges the separate user, group and resource-set rules.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_admin_role_assigned_to_user_or_group/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "admin-configuration-changes",
+    "persistence",
+    "T1098.003"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "12,27,42,57 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

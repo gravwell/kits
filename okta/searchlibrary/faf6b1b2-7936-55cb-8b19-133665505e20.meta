@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Active Users [numbercard]",
+	"Description": "Users with status ACTIVE. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "faf6b1b2-7936-55cb-8b19-133665505e20",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

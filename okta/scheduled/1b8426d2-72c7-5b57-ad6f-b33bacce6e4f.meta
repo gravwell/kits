@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication / Session - Okta Sign-In Events via Third-Party IdP",
-  "Description": "Detects sign-in events where authentication is carried out via a third-party Identity Provider (IdP).\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp.toml",
+  "Name": "Okta - Authentication & Sessions - Okta Sign-In Events via Third-Party IdP",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1199\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Sign-In Events via Third-Party IdP\" or \"<ip>|Okta Sign-In Events via Third-Party IdP\"\n\nFailed sign-ins through a third-party Identity Provider (user.authentication.auth_via_IDP, auth_via_inbound_SAML, auth_via_social, user.session.start) on the OAuth authorize callback, where Okta rejected the IdP's response: a replayed SAML assertion ID, an unresolvable IdP endpoint, an unmappable username, or a SAML response or assertion that failed validation. Replayed or forged assertions are how a compromised or spoofed IdP is abused.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_sign_in_events_via_third_party_idp.toml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "initial-access",
+    "T1199"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "14,29,44,59 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

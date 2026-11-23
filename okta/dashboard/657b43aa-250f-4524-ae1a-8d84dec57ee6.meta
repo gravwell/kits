@@ -65,6 +65,28 @@
 						"defaultValue": null
 					}
 				}
+			},
+			{
+				"alias": "Template - Okta - Investigation - Okta Alerts for Actor, Target, and/or IP [table]",
+				"color": null,
+				"reference": {
+					"id": "d1f671ca-5acd-4784-9cbc-99c9872e8913",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - Okta - Investigation - Sign-In Locations for Actor, Target, and/or IP [pointmap]",
+				"color": null,
+				"reference": {
+					"id": "ad619988-a775-5918-a853-2ab362d2dcb9",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
 			}
 		],
 		"tiles": [
@@ -137,6 +159,34 @@
 				},
 				"searchesIndex": 4,
 				"rendererOptions": {}
+			},
+			{
+				"id": 17636051889468,
+				"title": "Okta Alerts",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 13
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17637000000018,
+				"title": "Sign-In Locations",
+				"renderer": "pointmap",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 8,
+					"x": 0,
+					"y": 39
+				},
+				"rendererOptions": {},
+				"searchesIndex": 6
 			}
 		],
 		"linkZooming": false,

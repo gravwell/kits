@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Credential Provider Types [chart]",
+	"Description": "Users by credential provider type (credentials.provider.type). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "afd060fb-613f-54e7-84b4-5c489c0402be",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

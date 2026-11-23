@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - User Timezone [table]",
+	"Description": "Users by the timezone in their Okta profile (profile.timezone). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "e8d65ae0-9893-56ac-ade8-164e9c8d7176",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

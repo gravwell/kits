@@ -1,0 +1,204 @@
+{
+	"Can": {
+		"Delete": true,
+		"Modify": true,
+		"Share": true
+	},
+	"Consumers": [],
+	"Description": "Sign-in, session and MFA attacks against Okta users: risky or anomalous sign-ins, sessions from several countries, MFA push bombing, Admin Console access with new behaviors, phishing-resistant authenticator declines, impersonation, third-party IdP failures and unauthorized app access. Usually routed to the SOC / on-call queue.\n\nNo consumers are attached. Next step after install: add a consumer flow to this alert (email, Slack, Teams, webhook, Jira, ...) to route it where your team works. Alert events are also written to the shared _alerts tag (Contents._vendor is Okta), so you can search them without a consumer. Each producer is a scheduled search; disable a producer to turn off one detection without turning off the alert.",
+	"Disabled": false,
+	"Dispatchers": [
+		{
+			"ID": "0a973182-2d42-51be-b9b2-adb941952536",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "11b6dc2c-977e-5351-a640-2b2a7d725e85",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "1b8426d2-72c7-5b57-ad6f-b33bacce6e4f",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "28beeeeb-cad1-5cf7-a131-7644ef41d188",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "3a3ec380-5c28-5466-8434-39655c24d876",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "3ec32acc-6f49-554e-b59c-7e94ddfd4e63",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "4485470b-c96a-5825-97ac-d0dc392dc351",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "605cbb11-2eb7-5e7a-a454-4208330bab2c",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "6c9fc6ad-ee68-5942-922a-260199a606be",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "738f0f31-1382-54e8-87b0-a88ad7c360b8",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "77c3c0c5-6fb7-59d9-be6c-9ae432952ebe",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "797c8fd8-9f11-50fc-b5e6-ca3c9f01e2c4",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "7dfa9fd9-7aca-5998-ba0a-7f3ca69de97a",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "85d5985f-5919-529e-9c75-cca224da0a87",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "98e3ea52-80d6-5ea2-85e9-210abbe575b6",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ac9da7ee-2886-423f-a63b-e62502fcdd0a",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "c6086abd-5ae3-581c-a613-0d4d8233738b",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "cb966bea-0abb-4e5b-b08a-1bff66ee2ef1",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "d24a2c60-26ca-5081-a95c-6bb3dcf5f4a1",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "df13c43d-4b0b-5fab-91fb-7e84d25bf65c",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "dfd0f580-d637-5498-bae8-653993143e57",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e1cfb6ee-6445-428e-a86d-6ff8c8dc73a4",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e65998cf-d4c7-56c6-a80f-5b9b7c483539",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "fd31dc01-e956-5edc-9f2b-9f3508c5fdca",
+			"Type": "scheduledsearch"
+		}
+	],
+	"GIDs": [],
+	"GUID": "777d56ed-4686-42eb-ae2f-b081a1c8c831",
+	"Global": true,
+	"IngestBlocked": false,
+	"Labels": [
+		"okta",
+		"alert",
+		"authentication-sessions"
+	],
+	"LastUpdated": "2026-11-21T00:00:00Z",
+	"MaxEvents": 16,
+	"Name": "Alert - Okta - Authentication & Sessions",
+	"SaveSearchDuration": 604800,
+	"SaveSearchEnabled": false,
+	"Schemas": {
+		"Simple": [
+			{
+				"Name": "_alert_title",
+				"Type": "string"
+			},
+			{
+				"Name": "_alert_priority",
+				"Type": "string"
+			},
+			{
+				"Name": "_alert_name",
+				"Type": "string"
+			},
+			{
+				"Name": "_alert_risk",
+				"Type": "string"
+			},
+			{
+				"Name": "_vendor",
+				"Type": "string"
+			},
+			{
+				"Name": "_product",
+				"Type": "string"
+			},
+			{
+				"Name": "_category",
+				"Type": "string"
+			},
+			{
+				"Name": "_subcategory",
+				"Type": "string"
+			},
+			{
+				"Name": "user",
+				"Type": "string"
+			},
+			{
+				"Name": "src_ip",
+				"Type": "string"
+			},
+			{
+				"Name": "target",
+				"Type": "string"
+			},
+			{
+				"Name": "eventType",
+				"Type": "string"
+			},
+			{
+				"Name": "_mitre_tactic",
+				"Type": "string"
+			},
+			{
+				"Name": "_mitre_technique",
+				"Type": "string"
+			},
+			{
+				"Name": "context",
+				"Type": "string"
+			},
+			{
+				"Name": "published",
+				"Type": "string"
+			}
+		],
+		"OCSF": {
+			"EventClass": "",
+			"Extensions": [],
+			"Profiles": []
+		},
+		"JSON": {},
+		"ActiveSchema": "simple"
+	},
+	"TargetTag": "_alerts",
+	"UID": 1,
+	"UserMetadata": {},
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	}
+}

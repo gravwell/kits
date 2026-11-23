@@ -1,6 +1,6 @@
 {
 	"Name": "okta-users",
-	"Desc": "Gravwell-generated JSON extraction for tag okta-users",
+	"Desc": "JSON extraction for Okta user profile records on tag okta-users (the hosted ingester default). Autoextractor tags are fixed: if OKTA_USERS points at a different tag, change Tags here too.",
 	"Module": "json",
 	"Tag": "",
 	"Tags": [

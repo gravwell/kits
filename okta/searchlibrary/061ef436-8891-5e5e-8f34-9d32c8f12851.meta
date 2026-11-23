@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - User Types [numbercard]",
+	"Description": "Distinct user types (profile.userType, or the user type id when the org does not set it). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "061ef436-8891-5e5e-8f34-9d32c8f12851",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

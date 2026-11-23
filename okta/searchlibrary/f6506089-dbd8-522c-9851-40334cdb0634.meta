@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Sign-Ins - Sign-In Locations [heatmap]",
+	"Description": "Heatmap of successful Okta sign-ins (user.session.start) by client location. Locations come from Okta (client.geographicalContext), with the geoip module (MaxMind, Network Enrichment kit) only for events Okta did not place.",
+	"GUID": "f6506089-dbd8-522c-9851-40334cdb0634",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

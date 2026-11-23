@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Job Titles [numbercard]",
+	"Description": "Distinct job titles in user profiles (profile.title). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "5d125385-566c-5f0f-9cd3-4b85947e19ff",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

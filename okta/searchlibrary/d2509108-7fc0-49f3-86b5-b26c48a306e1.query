@@ -1,0 +1,16 @@
+/* Okta - Kit Health - Target Key Order Changed */
+/* The kit extracts Okta targets by type (the target extraction step of each query), which relies on Okta serializing every target object as {"id":...,"type":...,"alternateId":...,"displayName":...}. This query returns a row per eventType when any target object does not match that shape. It should always return nothing. */
+tag=$OKTA json uuid eventType target
+| eval target != "null"
+| json -x target
+| regex -v -e target "^\{\"id\":(?:null|\"[^\"]*\"),\"type\":\"[^\"]*\",\"alternateId\":(?:null|\"[^\"]*\"),\"displayName\":(?:null|\"[^\"]*\")"
+| stats count as n by uuid eventType
+| stats count as events sum(n) as targets by eventType
+| eval
+    _alert_name = "Target Key Order Changed";
+    _alert_priority = "Critical";
+    _vendor = "Okta";
+    _product = "Okta Kit Health";
+    _alert_title = printf("Alert: Okta - Kit Health - Critical - Target Key Order Changed - %v", eventType);
+    context = printf("%v %v events (%v target objects) have targets that are not serialized as {id,type,alternateId,displayName,...}. The Okta kit's typed target fields (targetUser*, targetAppUser*, targetApp*) are empty for these events and detections fall back to the first target, so alerts that depend on the user or app acted on may be wrong or missing. Report this to the Okta kit maintainers. See the Okta kit README, section Known assumptions.", events, eventType, targets);
+| table _alert_title _alert_priority _vendor _product context eventType events targets

@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - MFA / Session - Stolen Credentials Used to Login to Okta Account After MFA Reset",
-  "Description": "Stolen Credentials Used to Login to Okta Account After MFA Reset\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset.toml",
+  "Name": "Okta - Authentication & Sessions - Okta Sign-In from a New IP After MFA Reset",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1078\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Sign-In from a New IP After MFA Reset\" or \"<ip>|Okta Sign-In from a New IP After MFA Reset\"\n\nA successful Okta session start for a user whose MFA factors were reset or deactivated (user.mfa.factor.reset_all / deactivate) in the previous 12 hours, from an IP address that was not used for the reset. An attacker who talks a helpdesk into an MFA reset, then signs in with stolen credentials, produces exactly this sequence.\n\nFalse positives: a user who resets MFA from one network and signs in from another (home vs office).\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/persistence_stolen_credentials_used_to_login_to_okta_account_after_mfa_reset.toml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "initial-access",
+    "T1078"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "13,28,43,58 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

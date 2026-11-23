@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Rate Limit Violations over Time [chart]",
+	"Description": "Okta rate-limit and concurrency violations over time by event type. A spike is a possible denial of service or an integration out of control.",
+	"GUID": "97b1afc0-3f7b-5ba8-bea1-19514e02f66c",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,13 @@
+tag=$OKTA json eventType==policy.evaluate_sign_on actor.alternateId as user debugContext.debugData.behaviors as b debugContext.debugData.logOnlySecurityData as sec
+| eval
+    ng = 0; nd = 0; ni = 0; nc = 0; v = 0;
+    if (match(b, "New Geo-Location=POSITIVE") || match(sec, "\"New Geo-Location\":\"POSITIVE\"")) { ng = 1; }
+    if (match(b, "New Device=POSITIVE") || match(sec, "\"New Device\":\"POSITIVE\"")) { nd = 1; }
+    if (match(b, "New IP=POSITIVE") || match(sec, "\"New IP\":\"POSITIVE\"")) { ni = 1; }
+    if (match(b, "New Country=POSITIVE") || match(sec, "\"New Country\":\"POSITIVE\"")) { nc = 1; }
+    if (match(b, "Velocity=POSITIVE") || match(sec, "\"Velocity\":\"POSITIVE\"")) { v = 1; }
+| eval ng + nd + ni + nc + v > 0
+| stats sum(nc) as newCountry sum(v) as velocity sum(ng) as newGeoLocation sum(nd) as newDevice sum(ni) as newIp by user
+| sort by velocity desc
+| limit 50
+| table user newCountry velocity newGeoLocation newDevice newIp

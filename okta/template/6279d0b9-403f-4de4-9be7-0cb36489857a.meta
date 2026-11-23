@@ -1,7 +1,7 @@
 {
 	"UUID": "6279d0b9-403f-4de4-9be7-0cb36489857a",
 	"Name": "Template - Okta - System - Event Types - Category Actor/Target Result [table]",
-	"Description": "Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/",
+	"Description": "Displays a table of events by category, subcategory, event type, actorAltId, targetAltId, and result for the category you enter into the variable.\n\nReference(s):\n  - Okta \n    - https://developer.okta.com/docs/reference/api/event-types/\n    - https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/\n\nActors and targets are shown with their display name and Okta object type. A user's ID is their login (email); an app acting on its own (type PublicClientApp, OAuth token events) is identified by its OAuth client ID, which starts with 0oa; \"(no target)\" means Okta logged no target (for example an app requesting a token for itself).",
 	"Data": {
 		"variables": [
 			{

@@ -1,0 +1,5 @@
+dump -r okta_user_aggregates metric=="avg_password_age_days" key value
+| eval n = 0; if (true) { n = value; }
+| stats sum(n) as count
+| alias count " "
+| numbercard " "

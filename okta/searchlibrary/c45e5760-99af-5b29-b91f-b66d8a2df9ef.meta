@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Active Users with Password Older Than 90 Days [numbercard]",
+	"Description": "Active users whose password (passwordChanged) was set more than 90 days ago, or never. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "c45e5760-99af-5b29-b91f-b66d8a2df9ef",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

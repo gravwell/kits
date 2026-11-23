@@ -1,0 +1,5 @@
+dump -r okta_user_aggregates metric=="department" key value
+| stats sum(value) as users by key
+| sort by users desc
+| alias key department
+| table department users

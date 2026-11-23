@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Sign-Ins - Sign-Ins by Country [table]",
+	"Description": "Okta sign-ins (user.session.start) by country: distinct users, successful and failed sign-ins. Locations come from Okta (client.geographicalContext), with the geoip module (MaxMind, Network Enrichment kit) only for events Okta did not place.",
+	"GUID": "9502a73d-b430-55dd-bcb4-f393e6f26976",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Invalid Credential Sign-Ins by Source IP [table]",
+	"Description": "Failed Okta sign-ins with invalid credentials by client IP: failures, distinct users and devices, with the location and network from Okta's geolocation (geoip fallback). Many users from one IP is password spraying (detection threshold: 3 users in 15 minutes); many failures for one user is brute force. Top 50.",
+	"GUID": "a0328e0b-063e-55bd-852a-eed8606bdc81",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

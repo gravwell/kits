@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - Application / Support / System - Integration / Org - Possible Okta DoS Attack",
-  "Description": "Detects possible Denial of Service (DoS) attacks against an Okta organization. An adversary may attempt to disrupt an organization's business operations by performing a DoS attack against its Okta service.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_possible_okta_dos_attack/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/impact_possible_okta_dos_attack.toml",
+  "Name": "Okta - Threats & Platform - Possible Okta DoS Attack",
+  "Description": "Alert: Alert - Okta - Threats & Platform\nMITRE ATT&CK: Impact / T1498\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Possible Okta DoS Attack\" or \"<ip>|Possible Okta DoS Attack\"\n\nDetects Okta rate-limit and concurrency-limit violations: system.operation.rate_limit.violation, system.client.rate_limit.violation, system.client.concurrency_rate_limit.violation (the event types Okta emits today) plus the older system.org.rate_limit.*, application.integration.rate_limit_exceeded and core.concurrency.org.limit.violation. Sustained violations can indicate a denial-of-service attempt or an integration abusing the API. Risk floor Medium (55).\n\nFalse positives: misbehaving or bursty integrations and scripts. Tune with okta_ip_allowlist.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/impact_possible_okta_dos_attack/\n- https://github.com/elastic/detection-rules/tree/main/rules/integrations/okta/impact_possible_okta_dos_attack.toml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "threats-platform",
+    "impact",
+    "T1498"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "6,21,36,51 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

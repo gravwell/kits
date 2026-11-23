@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - Security - Events - Okta Security Threat Detected",
-  "Description": "Detects when an security threat is detected in Okta.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_security_threat_detected/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_security_threat_detected.yml",
+  "Name": "Okta - Threats & Platform - Okta Security Threat Detected",
+  "Description": "Alert: Alert - Okta - Threats & Platform\nMITRE ATT&CK: Credential Access / T1110\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Security Threat Detected\" or \"<ip>|Okta Security Threat Detected\"\n\nDetects when an security threat is detected in Okta.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_security_threat_detected/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_security_threat_detected.yml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "threats-platform",
+    "credential-access",
+    "T1110"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "9,24,39,54 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

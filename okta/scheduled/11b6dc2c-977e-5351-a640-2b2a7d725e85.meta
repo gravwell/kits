@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Session - Okta User Session Start Via An Anonymising Proxy Service",
-  "Description": "Detects when an Okta user session starts where the user is behind an anonymising proxy service.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_session_start_via_anonymised_proxy/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_session_start_via_anonymised_proxy.yml",
+  "Name": "Okta - Authentication & Sessions - Okta Session Start via Anonymizing Proxy",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Command and Control / T1090.003\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Session Start via Anonymizing Proxy\" or \"<ip>|Okta Session Start via Anonymizing Proxy\"\n\nOkta session starts (successful or failed) that Okta flags as coming through an anonymizing proxy: securityContext.isProxy is true, or the risk reasons include \"Anonymizing Proxy\". Attackers commonly use VPN/Tor/residential proxies to sign in with stolen credentials. Merges the former \"First Occurrence of Okta User Session Started via Proxy\" rule.\n\nFalse positives: users on consumer VPNs; tune with okta_user_allowlist or okta_ip_allowlist.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_session_start_via_anonymised_proxy/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_session_start_via_anonymised_proxy.yml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "command-and-control",
+    "T1090.003"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "3,18,33,48 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

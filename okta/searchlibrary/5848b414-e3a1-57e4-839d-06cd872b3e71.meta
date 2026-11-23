@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Managers [numbercard]",
+	"Description": "Distinct managers named in user profiles (profile.manager). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "5848b414-e3a1-57e4-839d-06cd872b3e71",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

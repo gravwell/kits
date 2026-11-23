@@ -1,11 +1,15 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - System - Event Types - Potential Okta Password in AlternateID Field [table]",
-  "Description": "Detects when a user has potentially entered their password into the username field, which will cause the password to be retained in log files.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_password_in_alternateid_field/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_password_in_alternateid_field.yml",
-  "GUID": "f08582d0-faf4-539f-9998-575ee252ed1f",
-  "Labels": [
-    "okta"
-  ],
-  "Metadata": {
-    "timeframe": null
-  }
+	"Name": "Okta - Authentication & Sessions - Potential Okta Password in AlternateID Field",
+	"Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Credential Access / T1552\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Potential Okta Password in AlternateID Field\" or \"<ip>|Potential Okta Password in AlternateID Field\"\n\nFailed sign-ins (user.session.start FAILURE) where the username (actor.alternateId) is neither an email address nor \"unknown\". Users sometimes type their password into the username field; the value then sits in the Okta System Log and in Gravwell. The alert does not show the value (only its length). Rotate the user's password and consider limiting who can search this tag.\n\nFalse positives: orgs whose usernames are not email addresses (tune with okta_user_allowlist or disable this rule).\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_password_in_alternateid_field/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_password_in_alternateid_field.yml",
+	"GUID": "f08582d0-faf4-539f-9998-575ee252ed1f",
+	"Labels": [
+		"okta",
+		"detection",
+		"authentication-sessions",
+		"credential-access",
+		"T1552"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
 }

@@ -1,0 +1,3 @@
+dump -r okta_user_aggregates metric=="status" key value
+| stats sum(value) as users by key
+| chart users by key

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Okta Threat Signals by Source IP [table]",
+	"Description": "Requests Okta itself flagged: security.threat.detected, security.request.blocked and anything with debugContext.debugData.threatSuspected true (ThreatInsight). By source IP with location and network from Okta's geolocation (geoip fallback).",
+	"GUID": "b514306c-ce43-5b74-adfe-ae8acf1fe063",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

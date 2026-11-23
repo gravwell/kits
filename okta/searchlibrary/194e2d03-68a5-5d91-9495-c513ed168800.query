@@ -1,0 +1,4 @@
+dump -r okta_user_aggregates metric=="status" key value
+| stats sum(value) as count
+| alias count " "
+| numbercard " "

@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - Threats - Invalid Credential Sign-Ins by User [table]",
+	"Description": "Failed Okta sign-ins with invalid credentials by user: failures, distinct source IPs and countries. Brute force against one account shows as many failures (detection threshold: 5 in 15 minutes). Top 50.",
+	"GUID": "2be8b04f-d9dd-5261-a58a-d92cd387ab16",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

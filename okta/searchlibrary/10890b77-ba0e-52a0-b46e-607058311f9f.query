@@ -1,0 +1,8 @@
+tag=$OKTA json eventType actor.alternateId as actorAltId target
+| eval in(eventType, "user.account.reset_password", "user.account.unlock", "user.account.unlock_token", "system.email.password_reset.sent_message", "system.email.account_unlock.sent_message", "system.sms.send_password_reset_message", "system.sms.send_account_unlock_message", "system.voice.send_password_reset_call", "system.voice.send_account_unlock_call")
+| regex -p -e target "\"type\":\"User\",\"alternateId\":\"(?P<user>[^\"]*)\""
+| eval if (!has("user")) { user = actorAltId; }
+| stats count as requests by user
+| sort by requests desc
+| limit 50
+| table user requests

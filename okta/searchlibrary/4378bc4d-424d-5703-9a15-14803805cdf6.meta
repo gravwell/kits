@@ -1,0 +1,11 @@
+{
+	"Name": "Search - Okta - User Aggregates - Divisions [numbercard]",
+	"Description": "Distinct divisions in user profiles (profile.division). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"GUID": "4378bc4d-424d-5703-9a15-14803805cdf6",
+	"Labels": [
+		"okta"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

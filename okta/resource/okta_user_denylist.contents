@@ -1,3 +1,3 @@
 key,enabled,min_risk,reason
-svc-admin|*,1,0,"always force include service admin"
-charlie|Alert - Okta - Medium - App Assignment Changed,1,65,"repeat offender"
+example.admin|*,0,0,"EXAMPLE (disabled): always alert (High) for this account regardless of score"
+"example.user|Okta Application Modified, Deactivated or Deleted",0,65,"EXAMPLE (disabled): force High for one alert when risk_score >= 65"

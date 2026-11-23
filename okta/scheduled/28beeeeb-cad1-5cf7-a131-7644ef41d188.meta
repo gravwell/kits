@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - User - Authentication - Okta FastPass Phishing Detection",
-  "Description": "Detects when Okta FastPass prevents a known phishing site.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_fastpass_phishing_detection/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Name": "Okta - Authentication & Sessions - Okta FastPass Phishing Detection",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1566\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta FastPass Phishing Detection\" or \"<ip>|Okta FastPass Phishing Detection\"\n\nDetects when Okta FastPass prevents a known phishing site.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_fastpass_phishing_detection/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "initial-access",
+    "T1566"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "11,26,41,56 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

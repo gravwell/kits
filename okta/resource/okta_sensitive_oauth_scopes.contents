@@ -1,0 +1,27 @@
+scope,tier,reason
+okta.users.manage,High,write access to users
+okta.groups.manage,High,write access to groups
+okta.apps.manage,High,write access to apps
+okta.roles.manage,High,write access to roles
+okta.policies.manage,High,write access to policies
+okta.authorizationServers.manage,High,write access to authorizationServers
+okta.idps.manage,High,write access to idps
+okta.apiTokens.manage,High,write access to apiTokens
+okta.factors.manage,High,write access to factors
+okta.authenticators.manage,High,write access to authenticators
+okta.networkZones.manage,High,write access to networkZones
+okta.orgs.manage,High,write access to orgs
+okta.schemas.manage,High,write access to schemas
+okta.eventHooks.manage,High,write access to eventHooks
+okta.inlineHooks.manage,High,write access to inlineHooks
+okta.logStreams.manage,High,write access to logStreams
+okta.clients.manage,High,write access to clients
+okta.domains.manage,High,write access to domains
+okta.devices.manage,High,write access to devices
+okta.sessions.manage,High,write access to sessions
+okta.logs.read,Medium,read the full System Log
+okta.apiTokens.read,Medium,list API tokens
+okta.sessions.read,Medium,read user sessions
+okta.users.read,Medium,read every user profile
+okta.roles.read,Medium,enumerate administrators
+okta.clients.read,Medium,read OAuth client configuration

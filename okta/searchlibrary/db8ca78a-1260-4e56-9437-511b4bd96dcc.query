@@ -1,6 +1,0 @@
-tag=$OKTA_USERS
-| json 
-    profile.timezone as timezone
-| stats count by timezone
-| alias count " "
-| numbercard " "

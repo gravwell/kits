@@ -1,0 +1,13 @@
+tag=$OKTA json eventType actor.alternateId as user outcome.result as res
+| eval in(eventType, "system.push.send_factor_verify_push", "user.mfa.okta_verify.deny_push", "user.authentication.auth_via_mfa")
+| eval
+    p = 0; d = 0; u = 0; s = 0;
+    if (eventType == "system.push.send_factor_verify_push") { p = 1; }
+    if (eventType == "user.mfa.okta_verify.deny_push" || (eventType == "user.authentication.auth_via_mfa" && res == "DENY")) { d = 1; }
+    if (eventType == "user.authentication.auth_via_mfa" && (res == "UNANSWERED" || res == "ABANDONED")) { u = 1; }
+    if (eventType == "user.authentication.auth_via_mfa" && res == "SUCCESS") { s = 1; }
+| stats sum(p) as pushes sum(d) as denied sum(u) as unanswered sum(s) as successes by user
+| eval pushes > 0
+| sort by pushes desc
+| limit 50
+| table user pushes denied unanswered successes

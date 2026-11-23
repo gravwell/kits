@@ -1,0 +1,17 @@
+{
+	"Name": "okta",
+	"Desc": "JSON extraction for Okta System Log data on tag okta (the hosted ingester default). Autoextractor tags are fixed: if the OKTA config macro points at a different tag, change Tags here too.",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"okta"
+	],
+	"Labels": [
+		"okta"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "0F4403BE-619F-462D-B5B4-8D89D99F474D",
+	"LastUpdated": "2026-06-22T14:31:19.281632919Z"
+}

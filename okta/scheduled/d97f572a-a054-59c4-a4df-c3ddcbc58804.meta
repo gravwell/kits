@@ -1,13 +1,17 @@
 {
-  "Name": "ScheduledSearch - Okta - Identity Access Management - Lifecycle - IDP - Okta Identity Provider Created",
-  "Description": "Detects when a new identity provider is created for Okta.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_identity_provider_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_identity_provider_created.yml",
+  "Name": "Okta - Admin & Configuration Changes - Okta Identity Provider Created",
+  "Description": "Alert: Alert - Okta - Admin & Configuration Changes\nMITRE ATT&CK: Persistence / T1556.007\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Identity Provider Created\" or \"<ip>|Okta Identity Provider Created\"\n\nDetects when a new identity provider is created for Okta.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_identity_provider_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_identity_provider_created.yml",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "admin-configuration-changes",
+    "persistence",
+    "T1556.007"
   ],
-  "Schedule": "*/15 * * * *",
+  "Schedule": "7,22,37,52 * * * *",
   "Duration": -900,
   "DefaultDeploymentRules": {
-    "Disabled": true,
+    "Disabled": false,
     "RunImmediately": false
   },
   "ScheduledType": "search",

@@ -1,9 +1,13 @@
 {
-  "Name": "AlertQuery - Okta - Identity Access Management - Audit - Application - Unauthorized Access to an Okta Application [table]",
-  "Description": "Identifies unauthorized access attempts to Okta applications.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_attempted_unauthorized_access/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_okta_user_attempted_unauthorized_access.toml",
+  "Name": "Okta - Authentication & Sessions - Unauthorized Access to an Okta Application",
+  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1078\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Unauthorized Access to an Okta Application\" or \"<ip>|Unauthorized Access to an Okta Application\"\n\nIdentifies unauthorized access attempts to Okta applications.\n\nReference(s):\n- https://detection.fyi/elastic/detection-rules/integrations/okta/initial_access_okta_user_attempted_unauthorized_access/\n- https://github.com/elastic/detection-rules/blob/main/rules/integrations/okta/initial_access_okta_user_attempted_unauthorized_access.toml",
   "GUID": "d0cc876e-0a81-532e-86ad-49862beba997",
   "Labels": [
-    "okta"
+    "okta",
+    "detection",
+    "authentication-sessions",
+    "initial-access",
+    "T1078"
   ],
   "Metadata": {
     "timeframe": null
