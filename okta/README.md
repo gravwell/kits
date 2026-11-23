@@ -38,11 +38,18 @@ the rows whose `rowkey` is in the new results and keeps every other row. `rowkey
 `last_signin_history` and `password_age_history` rows, so each run adds one point to the two
 "over Time" charts. The history is never pruned. A key that no longer occurs (a department nobody
 is in any more, a status or age bucket that dropped to zero) keeps its last count, and a run that
-finds no users changes nothing. The current figures don't depend on the time range; the "over
+finds no users changes nothing. Tiles that add up such rows can therefore read high: Total
+Users, Active Users Never Signed In, Active Users Without Sign-In for 90 Days and Active Users with
+Password Older Than 90 Days include the last count of any status or bucket that has since emptied,
+and the department, division, job title and manager tables keep rows for groups nobody is in. The current figures don't depend on the time range; the "over
 Time" charts follow it. The kit ships the resource with only its header row, so the dashboards
 are empty until the first run that finds users (at install, then at minute 17 of every hour).
 Upgrading the kit resets the resource and its history the same way. The search needs the daily
 snapshot to count users who haven't changed, and its owner needs permission to write resources.
+Because the search writes to a resource the kit ships, Gravwell reports the kit as modified after
+the first run: uninstalling warns that `okta_user_aggregates` has changed and asks for
+confirmation (`force` in the API), and upgrading offers to back it up. This is expected and safe
+to confirm, unless you have edited other kit items yourself.
 The aggregates only feed those dashboards. Detections never read them; they search the System
 Log directly, so they work from the moment the kit is installed, with or without aggregate
 history.

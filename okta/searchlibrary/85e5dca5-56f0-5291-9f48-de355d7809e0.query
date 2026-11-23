@@ -199,7 +199,7 @@ tag=$OKTA json eventType == "user.mfa.attempt_bypass"
 | eval if (has(di_en)  && int(di_en)==1  && (di_minrisk==""  || float(risk_score) >= float(di_minrisk)))  { _force_alert = 1 ;}
 | eval if (has(dia_en) && int(dia_en)==1 && (dia_minrisk=="" || float(risk_score) >= float(dia_minrisk))) { _force_alert = 1 ;}
 
-| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High" ;}
+| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High"; _alert_priority = _priority; _alert_risk = risk_score ;}
 | eval a = actorUserNorm; t = targetUserNorm;
 | eval if (!has("a") || a == "" || a == "null") { a = "-" ;}
 | eval if (!has("t") || t == "" || t == "null") { t = "-" ;}
@@ -235,7 +235,7 @@ tag=$OKTA json eventType == "user.mfa.attempt_bypass"
 | eval if (has("dt_en")  && int(dt_en)==1  && (dt_minrisk==""  || float(risk_score) >= float(dt_minrisk)))  { _force_alert = 1 ;}
 | eval if (has("dtt_en") && int(dtt_en)==1 && (dtt_minrisk=="" || float(risk_score) >= float(dtt_minrisk))) { _force_alert = 1 ;}
 
-| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High" ;}
+| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High"; _alert_priority = _priority; _alert_risk = risk_score ;}
 | eval _alert_name = "Attempted Bypass of Okta MFA"
 
 | eval
