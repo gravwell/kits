@@ -1,4 +1,4 @@
-$OKTA_USER_AGG("status")
+dump -r okta_user_aggregates metric=="status" key value
 | eval n = 0; if (key == "ACTIVE") { n = value; }
 | stats sum(n) as count
 | alias count " "

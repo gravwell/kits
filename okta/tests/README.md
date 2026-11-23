@@ -20,7 +20,7 @@ running anything. Edit the cases in the script, not the JSONL.
 ## Running
 
 The kit must be installed on the instance (the check reads the queries from this
-directory, but the server expands the kit's macros and lookups).
+directory, but the server provides the kit's lookups and resolves the `$OKTA_USERS` config macro).
 
 ```bash
 export GRAVWELL_URL=http://gravwell GRAVWELL_TOKEN=...   # token with search + ingest
@@ -32,8 +32,8 @@ python3 okta_fixtures.py check --full         # every detection on every case wi
 python3 okta_fixtures.py check admin-console-new-ip   # selected cases
 ```
 
-`check` substitutes `okta-fixtures` for `$OKTA_SYSTEM` in each detection, including inside
-kit macros that refer to it. It runs in two passes: first each detection once over the whole
+`check` substitutes `okta-fixtures` for `$OKTA` (the System Log tag) in each detection; the
+detections use no other macros. It runs in two passes: first each detection once over the whole
 fixture span, mapping result rows to cases by their `published` time; then each
 (case, detection) pair that fired or is expected, on the exact 15-minute window. This
 relies on a detection that fires on a case's window also firing for that case over the

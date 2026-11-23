@@ -1,6 +1,6 @@
 {
 	"Name": "okta",
-	"Desc": "JSON extraction for Okta System Log data on tag okta (the hosted ingester default). Autoextractor tags are fixed: if OKTA_SYSTEM points at a different tag, change Tags here too.",
+	"Desc": "JSON extraction for Okta System Log data on tag okta (the hosted ingester default). Autoextractor tags are fixed: if the OKTA config macro points at a different tag, change Tags here too.",
 	"Module": "json",
 	"Tag": "",
 	"Tags": [

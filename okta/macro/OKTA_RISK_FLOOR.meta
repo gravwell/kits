@@ -1,7 +1,0 @@
-{
-	"Name": "OKTA_RISK_FLOOR",
-	"Description": "Usage: $OKTA_RISK_FLOOR(\"75\") right after $OKTA_RISK_SCORE(\"catalog\"). Raises risk_score to at least the given value (0-100) and recomputes the priority with $OKTA_RISK_PRIORITY. For detections whose correlation logic makes them stronger than the event type's base score (for example, one user with sessions from several countries).",
-	"Labels": [
-		"okta"
-	]
-}

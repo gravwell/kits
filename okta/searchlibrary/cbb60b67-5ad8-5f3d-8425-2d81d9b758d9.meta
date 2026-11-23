@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - User Aggregates - Users by Manager [table]",
-	"Description": "Users per manager (profile.manager); \"(no manager)\" = not set. From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"Description": "Users per manager (profile.manager); \"(no manager)\" = not set. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
 	"GUID": "cbb60b67-5ad8-5f3d-8425-2d81d9b758d9",
 	"Labels": [
 		"okta"

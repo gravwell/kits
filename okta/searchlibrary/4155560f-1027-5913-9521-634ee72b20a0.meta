@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - User Aggregates - Password Age of Active Users [chart]",
-	"Description": "Active users by time since their last password change (passwordChanged). From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"Description": "Active users by time since their last password change (passwordChanged). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
 	"GUID": "4155560f-1027-5913-9521-634ee72b20a0",
 	"Labels": [
 		"okta"

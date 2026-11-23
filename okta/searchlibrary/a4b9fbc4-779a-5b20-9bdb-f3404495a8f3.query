@@ -1,4 +1,4 @@
-tag=$OKTA_SYSTEM json eventType actor.alternateId as user outcome.result as res
+tag=$OKTA json eventType actor.alternateId as user outcome.result as res
 | eval in(eventType, "system.push.send_factor_verify_push", "user.mfa.okta_verify.deny_push", "user.authentication.auth_via_mfa")
 | eval
     p = 0; d = 0; u = 0; s = 0;

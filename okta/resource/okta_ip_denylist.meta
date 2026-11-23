@@ -1,7 +1,7 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "okta_ip_denylist",
-	"Description": "Escalate Okta alerts from a source IP to at least High.\n\nColumns: key,enabled,min_risk,reason\nKey: \u003cip\u003e|\u003cdetection name\u003e or \u003cip\u003e|*. min_risk (optional): only escalate when the risk score is at least this value; empty or 0 = always. This raises the priority of alerts a detection already produced; it does not create alerts.\n\nThe detection name is the scheduled search name after the group, e.g. \"Okta Admin Console Access from a New IP\". Logins are lowercase and without @domain. Rows with enabled = 0 are ignored; the shipped rows are disabled examples. Used by every Okta detection and the modification feed through $OKTA_USER_TUNING / $OKTA_IP_TUNING.",
+	"Description": "Escalate Okta alerts from a source IP to at least High.\n\nColumns: key,enabled,min_risk,reason\nKey: \u003cip\u003e|\u003cdetection name\u003e or \u003cip\u003e|*. min_risk (optional): only escalate when the risk score is at least this value; empty or 0 = always. This raises the priority of alerts a detection already produced; it does not create alerts.\n\nThe detection name is the scheduled search name after the group, e.g. \"Okta Admin Console Access from a New IP\". Logins are lowercase and without @domain. Rows with enabled = 0 are ignored; the shipped rows are disabled examples. Used by every Okta detection and the modification feed (the user and IP tuning steps near the end of each query).",
 	"Labels": [
 		"okta"
 	],

@@ -1,6 +1,25 @@
-tag=$OKTA_SYSTEM json eventType outcome.result as res outcome.reason as reason actor.alternateId as user client.ipAddress as ip debugContext.debugData.dtHash as dtHash
+tag=$OKTA json eventType outcome.result as res outcome.reason as reason actor.alternateId as user client.ipAddress as ip debugContext.debugData.dtHash as dtHash
 | eval match(eventType, "^user\\.(session\\.start$|authentication\\.)") && res == "FAILURE" && match(reason, "INVALID_CREDENTIALS")
-$OKTA_GEO
+| json client.ipAddress as geoIp client.geographicalContext.geolocation.lat as geoLat client.geographicalContext.geolocation.lon as geoLon client.geographicalContext.country as geoCountry client.geographicalContext.state as geoState client.geographicalContext.city as geoCity securityContext.asOrg as geoAsOrg
+| eval
+    geoSource = "okta";
+    geoFallbackIp = "";
+    if (!has(geoLat) || geoLat == "" || !has(geoLon) || geoLon == "") {
+        geoSource = "maxmind";
+        geoFallbackIp = geoIp;
+    }
+| geoip geoFallbackIp.Lat as geoFbLat geoFallbackIp.Long as geoFbLon geoFallbackIp.CountryName as geoFbCountry geoFallbackIp.City as geoFbCity
+| eval
+    if (geoSource == "maxmind") {
+        if (has(geoFbLat)) {
+            geoLat = geoFbLat;
+            geoLon = geoFbLon;
+        } else {
+            geoSource = "none";
+        }
+        if (has(geoFbCountry) && (!has(geoCountry) || geoCountry == "")) { geoCountry = geoFbCountry; }
+        if (has(geoFbCity) && (!has(geoCity) || geoCity == "")) { geoCity = geoFbCity; }
+    }
 | stats count as failures unique_count(ip) as sources unique_count(geoCountry) as countries by user
 | sort by failures desc
 | limit 50

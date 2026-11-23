@@ -1,4 +1,4 @@
-tag=$OKTA_SYSTEM json 
+tag=$OKTA json 
     eventType 
     outcome.result
 | lookup -r okta_eventTypes eventType eventType (category subcategory)

@@ -1,2 +1,0 @@
-| eval target = targetAltId
-| eval if (has(targetName) && targetName != "" && targetName != "null") { target = targetName; }

@@ -1,6 +1,6 @@
 /* Search - Okta - Kit Health - Event Types Missing from Lookup [table] */
 /* Lists Okta eventTypes seen in the data that have no row in the okta_eventTypes lookup. Missing types get no category/subcategory and only the fallback modification heuristic. */
-tag=$OKTA_SYSTEM json eventType
+tag=$OKTA json eventType
 | eval eventType != ""
 | lookup -r okta_eventTypes eventType eventType category
 | eval !has("category")

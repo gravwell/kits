@@ -1,6 +1,6 @@
 /* Okta - Kit Health - Target Key Order Changed */
-/* The kit extracts Okta targets by type (OKTA_TARGETS macro), which relies on Okta serializing every target object as {"id":...,"type":...,"alternateId":...,"displayName":...}. This query returns a row per eventType when any target object does not match that shape. It should always return nothing. */
-tag=$OKTA_SYSTEM json uuid eventType target
+/* The kit extracts Okta targets by type (the target extraction step of each query), which relies on Okta serializing every target object as {"id":...,"type":...,"alternateId":...,"displayName":...}. This query returns a row per eventType when any target object does not match that shape. It should always return nothing. */
+tag=$OKTA json uuid eventType target
 | eval target != "null"
 | json -x target
 | regex -v -e target "^\{\"id\":(?:null|\"[^\"]*\"),\"type\":\"[^\"]*\",\"alternateId\":(?:null|\"[^\"]*\"),\"displayName\":(?:null|\"[^\"]*\")"

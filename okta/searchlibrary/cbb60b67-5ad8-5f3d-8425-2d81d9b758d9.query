@@ -1,4 +1,4 @@
-$OKTA_USER_AGG("manager")
+dump -r okta_user_aggregates metric=="manager" key value
 | stats sum(value) as users by key
 | sort by users desc
 | alias key manager

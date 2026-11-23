@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Sign-Ins - Sign-Ins by City [table]",
-	"Description": "Okta sign-ins (user.session.start) by country, state and city: distinct users, successful and failed sign-ins. Locations come from Okta (client.geographicalContext), with the geoip module (MaxMind, Network Enrichment kit) only for events Okta did not place ($OKTA_GEO).",
+	"Description": "Okta sign-ins (user.session.start) by country, state and city: distinct users, successful and failed sign-ins. Locations come from Okta (client.geographicalContext), with the geoip module (MaxMind, Network Enrichment kit) only for events Okta did not place.",
 	"GUID": "88191f82-d7e3-503f-9fdd-15af3a5d3695",
 	"Labels": [
 		"okta"

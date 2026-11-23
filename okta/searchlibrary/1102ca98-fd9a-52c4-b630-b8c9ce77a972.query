@@ -1,4 +1,4 @@
-tag=$OKTA_SYSTEM json eventType==policy.evaluate_sign_on actor.alternateId as user debugContext.debugData.behaviors as b debugContext.debugData.logOnlySecurityData as sec
+tag=$OKTA json eventType==policy.evaluate_sign_on actor.alternateId as user debugContext.debugData.behaviors as b debugContext.debugData.logOnlySecurityData as sec
 | eval
     ng = 0; nd = 0; ni = 0; nc = 0; v = 0;
     if (match(b, "New Geo-Location=POSITIVE") || match(sec, "\"New Geo-Location\":\"POSITIVE\"")) { ng = 1; }

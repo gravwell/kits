@@ -1,4 +1,4 @@
-tag=$OKTA_SYSTEM json eventType
+tag=$OKTA json eventType
 | lookup -r okta_eventTypes eventType eventType (category as category)
 | stats count by TAG category eventType
 | sort by count desc

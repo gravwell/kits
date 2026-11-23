@@ -1,5 +1,58 @@
-tag=$OKTA_SYSTEM
-$OKTA_ALERT_EVX
+tag=$OKTA
+| json
+    uuid
+    eventType
+    severity
+    outcome.result as outcomeResult
+    displayMessage as message
+    actor.id as actorId
+    actor.type as actorType
+    actor.alternateId as actorAltId
+    actor.displayName as actorName
+    client.ipAddress as clientIp
+    published
+    securityContext.isProxy as isProxy
+    debugContext.debugData.requestUri as requestUri
+    debugContext.debugData.behaviors as debugBehavior
+    debugContext.debugData.logOnlySecurityData as debugLogOnlySecData
+    debugContext.debugData.dtHash as dtHash
+    debugContext.debugData.threatSuspected as threatSuspect
+    outcome.reason as outcomeReason
+    request.ipChain.[].ip as requestIp
+    client.device as clientDevice
+    authenticationContext.externalSessionId as authExternalSessionId
+    target
+    target.[0].id as t0Id
+    target.[0].type as t0Type
+    target.[0].alternateId as t0AltId
+    target.[0].displayName as t0Name
+// One row per event: targets are extracted by type, never by splitting the target array.
+// Relies on Okta serializing each target as {"id":...,"type":...,"alternateId":...,"displayName":...};
+// the "Okta - Kit Health - Target Key Order Changed" alert detects if that ever stops being true.
+| regex -p -e target "\{\"id\":\"(?P<targetUserId>[^\"]*)\",\"type\":\"User\",\"alternateId\":(?:null|\"(?P<targetUserAltId>[^\"]*)\"),\"displayName\":(?:null|\"(?P<targetUserName>[^\"]*)\")"
+| regex -p -e target "\{\"id\":\"(?P<targetAppUserId>[^\"]*)\",\"type\":\"AppUser\",\"alternateId\":(?:null|\"(?P<targetAppUserAltId>[^\"]*)\"),\"displayName\":(?:null|\"(?P<targetAppUserName>[^\"]*)\")"
+| regex -p -e target "\{\"id\":\"(?P<targetAppId>[^\"]*)\",\"type\":\"AppInstance\",\"alternateId\":(?:null|\"(?P<targetAppAltId>[^\"]*)\"),\"displayName\":(?:null|\"(?P<targetAppName>[^\"]*)\")"
+// A user target "is the actor" when its login or its display name matches the actor's (case-insensitive).
+| eval
+    _actorKey = ""; _actorNameKey = "";
+    if (has("actorAltId")) { _actorKey = strings_tolower(actorAltId); }
+    if (has("actorName")) { _actorNameKey = strings_tolower(actorName); }
+    targetUserIsActor = false; targetAppUserIsActor = false;
+    if (has("targetUserId")) {
+        if ((has("targetUserAltId") && strings_tolower(targetUserAltId) == _actorKey)
+            || (has("targetUserName") && strings_tolower(targetUserName) == _actorNameKey)) { targetUserIsActor = true; }
+    }
+    if (has("targetAppUserId")) {
+        if ((has("targetAppUserAltId") && strings_tolower(targetAppUserAltId) == _actorKey)
+            || (has("targetAppUserName") && strings_tolower(targetAppUserName) == _actorNameKey)) { targetAppUserIsActor = true; }
+    }
+// Primary target: the user acted on (if not the actor) > the app account acted on (if not the actor) > the app > the first target.
+| eval
+    targetId = ""; targetType = ""; targetAltId = ""; targetName = "";
+    if (has("t0Id")) { targetId = t0Id; targetType = t0Type; targetAltId = t0AltId; targetName = t0Name; }
+    if (has("targetAppId")) { targetId = targetAppId; targetType = "AppInstance"; targetAltId = targetAppAltId; targetName = targetAppName; }
+    if (has("targetAppUserId") && !targetAppUserIsActor) { targetId = targetAppUserId; targetType = "AppUser"; targetAltId = targetAppUserAltId; targetName = targetAppUserName; }
+    if (has("targetUserId") && !targetUserIsActor) { targetId = targetUserId; targetType = "User"; targetAltId = targetUserAltId; targetName = targetUserName; }
 | lookup -r okta_eventTypes eventType eventType (category subcategory)
 | grep -e category "%%okta_category%%"
 | eval

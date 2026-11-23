@@ -1,7 +1,0 @@
-{
-	"Name": "OKTA_RISK_PRIORITY",
-	"Description": "Maps risk_score (0-100) to priority: Critical >= 90, High >= 75, Medium >= 55, Low >= 40, else Informational. Sets _priority, _alert_priority and _alert_risk. Called by $OKTA_RISK_SCORE and $OKTA_RISK_FLOOR; the single place the priority thresholds are defined.",
-	"Labels": [
-		"okta"
-	]
-}

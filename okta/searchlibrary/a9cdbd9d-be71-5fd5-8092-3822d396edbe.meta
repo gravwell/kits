@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Sign-Ins - Sign-Ins by User and IP [pointmap]",
-	"Description": "One point per user and client IP with successful Okta sign-ins. Click a point for the user and the IP. Locations come from Okta (client.geographicalContext), with the geoip module (MaxMind, Network Enrichment kit) only for events Okta did not place ($OKTA_GEO).",
+	"Description": "One point per user and client IP with successful Okta sign-ins. Click a point for the user and the IP. Locations come from Okta (client.geographicalContext), with the geoip module (MaxMind, Network Enrichment kit) only for events Okta did not place.",
 	"GUID": "a9cdbd9d-be71-5fd5-8092-3822d396edbe",
 	"Labels": [
 		"okta"

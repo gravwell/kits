@@ -1,4 +1,4 @@
-$OKTA_USER_AGG("user_type")
+dump -r okta_user_aggregates metric=="user_type" key value
 | eval n = 0; if (key != "(none)") { n = 1; }
 | stats sum(n) as count
 | alias count " "

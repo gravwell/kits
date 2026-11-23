@@ -1,4 +1,5 @@
-$OKTA_LATEST_USERS
+tag=$OKTA_USERS json id
+| last id
 | json
     created
 | time -oformat "2006-01-02" created createdDay

@@ -1,7 +1,7 @@
 {
 	"UUID": "c37615f7-f700-4600-aaf0-4ad47b524d99",
 	"Name": "Okta User Authentication Overview",
-	"Description": "Okta user hygiene: active users, users who never signed in or have not in 90 days, password age, onboarding time and credential providers. Every tile except the user table reads the hourly user aggregates (tag _aggs_okta_users, written by the \"Okta - User Aggregates\" flow), so the dashboard loads instantly at any time range; the table lists active users from the newest record per user.",
+	"Description": "Okta user hygiene: active users, users who never signed in or have not in 90 days, password age, onboarding time and credential providers. Every tile except the user table reads the okta_user_aggregates resource (written hourly by the \"Okta - User Aggregates\" scheduled search) with dump -r, so the dashboard loads instantly; the two over-time charts follow the time range (one point per hourly run since install), the other figures are the latest counts; the table lists active users from the newest record per user.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,

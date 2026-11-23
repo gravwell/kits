@@ -10,21 +10,20 @@ getting Okta data into Gravwell.
 
 | Config macro | Default | Required | Contents |
 |---|---|---|---|
-| `$OKTA_SYSTEM` | `okta` | yes | Okta System Log events, one JSON event per entry |
+| `$OKTA` | `okta` | yes | Okta System Log events, one JSON event per entry |
 | `$OKTA_USERS` | `okta-users` | no | Okta user profile records (feed the user aggregates below and the user tables; each user counted once, from their newest record) |
-| `$OKTA` | both | | `tag=$OKTA` searches both tags |
 
 Events per day in the System Log tag:
 
 ```query
-tag=$OKTA_SYSTEM json eventType | stats count over 24h | chart count
+tag=$OKTA json eventType | stats count over 24h | chart count
 ```
 
 Event types in your data that the kit's `okta_eventTypes` lookup doesn't describe yet
 (they still work in detections, they just have no category):
 
 ```query
-tag=$OKTA_SYSTEM json eventType | lookup -v -r okta_eventTypes eventType eventType category | stats count by eventType | sort by count desc | table eventType count
+tag=$OKTA json eventType | lookup -v -r okta_eventTypes eventType eventType category | stats count by eventType | sort by count desc | table eventType count
 ```
 
 ### How the dashboards get their data
@@ -36,36 +35,45 @@ as soon as the kit is installed. So do all 49 detections.
 The user-directory dashboards work differently. Searching every user record on each page load
 is slow, and the user tag only holds what the ingester wrote recently.
 
-- An hourly flow, **Okta - User Aggregates** (Automation > Flows), computes the directory
-  figures from the newest record per user in the last 25 hours. It writes them to the tag
-  `_aggs_okta_users` as `metric,key,value` rows.
+- An hourly scheduled search, **Okta - User Aggregates** (Automation > Scheduled Searches),
+  computes the directory figures from the newest record per user in the last 25 hours. It saves
+  them to the resource `okta_user_aggregates` with `table -save -update rowkey`, as
+  `ts,metric,key,value,rowkey` rows: the current count of every metric (`rowkey` = `metric|key`,
+  overwritten each run) and one history point per run for last sign-in and password age
+  (`rowkey` = `ts|metric|key`, never pruned). A key that no longer occurs keeps its last count.
 - **Okta User Overview** (totals, status, user type, division, department, job title,
   manager), **Okta User Authentication Overview** (except its user table) and the timezone
-  table on **Okta Sign-In Locations** read only that tag, through `$OKTA_USER_AGG("<metric>")`.
-  They load instantly at any time range.
+  table on **Okta Sign-In Locations** read only that resource, with
+  `dump -r okta_user_aggregates metric=="<metric>" key value`. They load instantly; only the two
+  "over Time" charts depend on the time range.
 - Detections never read the aggregates.
 
-When each metric was last computed, and how many aggregate rows the time range holds:
+When each metric was last computed, how long ago, and how many rows the resource holds for it:
 
 ```query
-tag=_aggs_okta_users ax metric | stats max(TIMESTAMP) as newest count as rows by metric | table metric newest rows
+dump -r okta_user_aggregates ts metric | stats max(ts) as newest count as rows by metric | eval age_minutes = (unix(NOW) - int(newest)) / 60; | table metric newest age_minutes rows
 ```
 
 **What to expect right after installing:**
 
-- **The flow runs once at install, then at minute 17 of every hour.** The user dashboards are
-  empty until the first run that finds user records. Run the flow by hand from Automation >
-  Flows to fill them sooner; extra runs are harmless, because the dashboards use the newest
-  one.
+- **The scheduled search runs once at install, then at minute 17 of every hour.** The user
+  dashboards are empty until the first run that finds user records. Run it by hand from
+  Automation > Scheduled Searches to fill them sooner; an extra run only adds one more point to
+  the "over Time" charts.
 - **A full directory needs the hosted ingester's daily snapshot.** The ingester writes every
   user at startup and then once a day (versions after 1.0.0). Until it has done so, and always
   with version 1.0.0, the figures only cover users whose records changed in the last 25 hours.
   "Total Users" then reads low.
 - **History starts at install.** The aggregates aren't backfilled, so the "over Time" charts
-  start as a single point and gain one per hour. Earlier ranges show nothing.
-- **Gaps mean missed runs.** If the flow's owner can't ingest, or the user tag stops
-  receiving data, the newest run in the time range is an old one. Check `newest` in the query
-  above, and check the flow's last run in Automation > Flows.
+  start as a single point and gain one per hour; nothing removes old points. Upgrading the kit
+  replaces the resource with the empty shipped copy, so history starts again after an upgrade.
+- **Old figures mean missed runs.** If the search's owner can't write resources, or the user
+  tag stops receiving data, the dashboards keep showing the last figures written. Check
+  `age_minutes` in the query above (it should stay under about 60), and check the search's last
+  run in Automation > Scheduled Searches.
+- **Keys that disappear keep their last count.** A department, title, manager or status that no
+  user has any more stays in the resource with the count it last had, and is included in the
+  totals. Its `ts` stops advancing, which shows it is no longer current.
 
 ***
 
@@ -286,7 +294,7 @@ Upgrading the kit replaces edited items, so keep a note of your changes.
   - a map of failed sign-ins.
 
   Its tables are ranked, not thresholded, so activity below a detection's threshold shows
-  too. Locations come from Okta (`client.geographicalContext`); `$OKTA_GEO` falls back to
+  too. Locations come from Okta (`client.geographicalContext`); the queries fall back to
   the `geoip` module only for events Okta didn't place.
 - **Templates (20)**: investigation templates (all events, alerts, modification events,
   successful and failed authentication, authentication by country and a sign-in location map
@@ -294,25 +302,18 @@ Upgrading the kit replaces edited items, so keep a note of your changes.
 - **Actionables (3)**: Okta Actor, Okta Target, Okta IP: open the Investigation dashboard.
 - **Saved queries**: one per detection (`Okta - <group> - <detection>`), plus the
   dashboard searches (`Search - Okta - ...`).
-- **Macros**: `$OKTA_SYSTEM`, `$OKTA_USERS`, `$OKTA` (tags); `$OKTA_LATEST_USERS` (newest
-  record per user, used by the user dashboards); `$OKTA_USER_AGG` (newest run of one metric from
-  the user aggregates); `$OKTA_SYSTEM_EVX`,
-  `$OKTA_USER_EVX` (extract every field); `$OKTA_ALERT_BASE`, `$OKTA_ALERT_EVX`,
-  `$OKTA_TARGETS`, `$OKTA_ENRICH_COMMON` (detection pipeline); `$OKTA_RISK_SCORE`,
-  `$OKTA_RISK_FLOOR`, `$OKTA_RISK_PRIORITY` (scoring); `$OKTA_USER_TUNING`,
-  `$OKTA_IP_TUNING` (tuning); `$OKTA_ALERT_META` (alert fields); `$OKTA_MOD_ALERTS`
-  (modification feed); `$OKTA_ALERT_SEARCH`, `$OKTA_ALERT_INFO`,
-  `$OKTA_INVESTIGATION_SEARCH`, `$OKTA_NORMALIZE_*`, `$OKTA_FAILED_AUTH`,
-  `$OKTA_SUCCESSFUL_AUTH`, `$OKTA_COMBINED_AUTH`, `$OKTA_GEO` (client location from Okta,
-  `geoip` fallback) (dashboards and templates).
+- **Macros (2)**: only the config macros `$OKTA` (System Log tag) and `$OKTA_USERS` (user
+  profile tag). Every query is self-contained: extraction, enrichment, risk scoring, tuning
+  and alert fields are written out in each detection, so a detection can be read and edited
+  on its own (an upgrade of the kit replaces your edits).
 - **Lookups (8)**: section 5.
-- **Aggregates**: the flow **Okta - User Aggregates** writes hourly user-directory figures to
-  `_aggs_okta_users` (autoextractor `okta-user-aggregates`). The Okta User Overview and User
+- **Aggregates**: the scheduled search **Okta - User Aggregates** saves hourly user-directory
+  figures to the resource `okta_user_aggregates` (`ts,metric,key,value,rowkey`). The Okta User Overview and User
   Authentication Overview dashboards and the Sign-In Locations timezone table read only that
-  tag. Read the aggregates with `$OKTA_USER_AGG("<metric>")`. See section 1 for what to expect
-  after installing.
-- **Autoextractors (3)**: `okta-user-aggregates` (the aggregates tag), plus `okta` and
-  `okta-users` for your own `ax` searches on the default
+  resource. Read a metric with `dump -r okta_user_aggregates metric=="<metric>" key value`, or
+  its trend with `dump -r okta_user_aggregates -t ts metric=="<metric>_history" ts key value`.
+  See section 1 for what to expect after installing.
+- **Autoextractors (2)**: `okta` and `okta-users` for your own `ax` searches on the default
   tags. The kit's queries don't use them.
 
 ***

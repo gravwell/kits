@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - User Aggregates - Total Users [numbercard]",
-	"Description": "Users in the Okta directory (all statuses). From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"Description": "Users in the Okta directory (all statuses). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
 	"GUID": "194e2d03-68a5-5d91-9495-c513ed168800",
 	"Labels": [
 		"okta"

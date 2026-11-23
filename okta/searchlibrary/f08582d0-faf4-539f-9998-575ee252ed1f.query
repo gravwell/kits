@@ -1,13 +1,302 @@
 /* Okta - Authentication & Sessions - Potential Okta Password in AlternateID Field */
-tag=$OKTA_SYSTEM json eventType==user.session.start outcome.result==FAILURE actor.alternateId as rawAlt
-$OKTA_ALERT_EVX
+tag=$OKTA json eventType==user.session.start outcome.result==FAILURE actor.alternateId as rawAlt
+| json
+    uuid
+    eventType
+    severity
+    outcome.result as outcomeResult
+    displayMessage as message
+    actor.id as actorId
+    actor.type as actorType
+    actor.alternateId as actorAltId
+    actor.displayName as actorName
+    client.ipAddress as clientIp
+    published
+    securityContext.isProxy as isProxy
+    debugContext.debugData.requestUri as requestUri
+    debugContext.debugData.behaviors as debugBehavior
+    debugContext.debugData.logOnlySecurityData as debugLogOnlySecData
+    debugContext.debugData.dtHash as dtHash
+    debugContext.debugData.threatSuspected as threatSuspect
+    outcome.reason as outcomeReason
+    request.ipChain.[].ip as requestIp
+    client.device as clientDevice
+    authenticationContext.externalSessionId as authExternalSessionId
+    target
+    target.[0].id as t0Id
+    target.[0].type as t0Type
+    target.[0].alternateId as t0AltId
+    target.[0].displayName as t0Name
+// One row per event: targets are extracted by type, never by splitting the target array.
+// Relies on Okta serializing each target as {"id":...,"type":...,"alternateId":...,"displayName":...};
+// the "Okta - Kit Health - Target Key Order Changed" alert detects if that ever stops being true.
+| regex -p -e target "\{\"id\":\"(?P<targetUserId>[^\"]*)\",\"type\":\"User\",\"alternateId\":(?:null|\"(?P<targetUserAltId>[^\"]*)\"),\"displayName\":(?:null|\"(?P<targetUserName>[^\"]*)\")"
+| regex -p -e target "\{\"id\":\"(?P<targetAppUserId>[^\"]*)\",\"type\":\"AppUser\",\"alternateId\":(?:null|\"(?P<targetAppUserAltId>[^\"]*)\"),\"displayName\":(?:null|\"(?P<targetAppUserName>[^\"]*)\")"
+| regex -p -e target "\{\"id\":\"(?P<targetAppId>[^\"]*)\",\"type\":\"AppInstance\",\"alternateId\":(?:null|\"(?P<targetAppAltId>[^\"]*)\"),\"displayName\":(?:null|\"(?P<targetAppName>[^\"]*)\")"
+// A user target "is the actor" when its login or its display name matches the actor's (case-insensitive).
+| eval
+    _actorKey = ""; _actorNameKey = "";
+    if (has("actorAltId")) { _actorKey = strings_tolower(actorAltId); }
+    if (has("actorName")) { _actorNameKey = strings_tolower(actorName); }
+    targetUserIsActor = false; targetAppUserIsActor = false;
+    if (has("targetUserId")) {
+        if ((has("targetUserAltId") && strings_tolower(targetUserAltId) == _actorKey)
+            || (has("targetUserName") && strings_tolower(targetUserName) == _actorNameKey)) { targetUserIsActor = true; }
+    }
+    if (has("targetAppUserId")) {
+        if ((has("targetAppUserAltId") && strings_tolower(targetAppUserAltId) == _actorKey)
+            || (has("targetAppUserName") && strings_tolower(targetAppUserName) == _actorNameKey)) { targetAppUserIsActor = true; }
+    }
+// Primary target: the user acted on (if not the actor) > the app account acted on (if not the actor) > the app > the first target.
+| eval
+    targetId = ""; targetType = ""; targetAltId = ""; targetName = "";
+    if (has("t0Id")) { targetId = t0Id; targetType = t0Type; targetAltId = t0AltId; targetName = t0Name; }
+    if (has("targetAppId")) { targetId = targetAppId; targetType = "AppInstance"; targetAltId = targetAppAltId; targetName = targetAppName; }
+    if (has("targetAppUserId") && !targetAppUserIsActor) { targetId = targetAppUserId; targetType = "AppUser"; targetAltId = targetAppUserAltId; targetName = targetAppUserName; }
+    if (has("targetUserId") && !targetUserIsActor) { targetId = targetUserId; targetType = "User"; targetAltId = targetUserAltId; targetName = targetUserName; }
 | eval has("rawAlt") && rawAlt != "unknown" && rawAlt != "" && !match(rawAlt, "@")
-$OKTA_ENRICH_COMMON
-$OKTA_RISK_SCORE("catalog")
-$OKTA_RISK_FLOOR("55")
-$OKTA_IP_TUNING
-$OKTA_USER_TUNING
+| lookup -r okta_eventTypes eventType eventType (category subcategory is_mod)
+
+// targetRaw is the *person* acted on (never an app, never the actor) so protected-target risk and target tuning only apply to people.
+| eval actorRaw = actorAltId; targetRaw = "";
+    if (has("targetAppUserAltId") && !(has("targetAppUserIsActor") && targetAppUserIsActor)) { targetRaw = targetAppUserAltId; }
+    if (has("targetUserAltId") && !(has("targetUserIsActor") && targetUserIsActor)) { targetRaw = targetUserAltId; }
+// user part of the login (before "@"); strings_replace is a literal replace, so a regex is needed here
+| eval actorUser = actorRaw; targetUser = targetRaw;
+| regex -p -e actorRaw "^(?P<actorUser>[^@]*)@"
+| regex -p -e targetRaw "^(?P<targetUser>[^@]*)@"
+| eval actorUserNorm = strings_tolower(actorUser); targetUserNorm = strings_tolower(targetUser);
+| lookup -r okta_privileged_actor actorUserNorm account (actor_weight actor_label)
+| lookup -r okta_protected_target  targetUserNorm account (target_weight target_label)
+
+| regex -e eventType "^(?P<stem>[A-Za-z0-9_.]+)\.(?P<method>[A-Za-z0-9_]+)$"
+
+| eval is_mod_final = 0
+| eval if (has("is_mod") && is_mod == 1) { is_mod_final = 1; }
+| eval if (is_mod_final == 0 && match(eventType, "(?i)\.(create|delete|update|remove|add|assign|unassign|grant|revoke|enable|disable|activate|deactivate|rotate|generate|issue|reset|set|unset|change|map|unmap|link|unlink|clone|import|export|enroll|unenroll|provision|deprovision|migrate|rename|reassign|transfer|approve|deny|suspend|unsuspend|block|unblock)$")) { is_mod_final = 1; }
+// Risk score, profile "catalog" or "mod" (set in _profile below): one scoring table for every Okta alert.
+// "mod" = the modification feed: only modification event types, lower default base, no extra modification bump,
+// and only Low priority or above is kept. "catalog" = detections: every event is scored and kept.
+// The target privilege bump uses targetUserNorm, which the enrichment step above only sets when a person other
+// than the actor was acted on. Okta's own automation (actorType SystemPrincipal, system@okta.com) never gets the actor privilege bump.
+| eval
+    et = eventType;
+    cat = category;
+    sub = subcategory;
+    _profile = "catalog";
+
+    base = 35.0;
+    if (_profile == "mod") { base = 25.0; }
+
+    if (match(et, "(?i)^(user\\.account\\.privilege|group\\.privilege)\\.(grant|revoke)$")
+        || match(et, "(?i)^iam\\.(resourceset|role)\\.")) {
+        base = 90.0;
+    } else if (match(et, "(?i)^(app|application)\\.(keys?|key_credential)(\\..*)?\\.(create|delete|update|rotate|generate|revoke)$")) {
+        base = 90.0;
+    } else if (match(et, "(?i)^system\\.idp\\.lifecycle\\.")
+        || match(et, "(?i)^system\\.api_token\\.(create|enable|revoke)$")
+        || match(et, "(?i)^app\\.oauth2\\.client\\.read_client_secret$")
+        || match(et, "(?i)^app\\.oauth2\\.credentials\\.lifecycle\\.(create|activate)$")
+        || match(et, "(?i)^app\\.oauth2\\.client\\.privilege\\.grant$")) {
+        base = 85.0;
+    } else if (match(et, "(?i)^oauth2\\.(client|clients|scope|scopes|claim|claims)(\\..*)?\\.(create|delete|update|rotate|revoke)$")) {
+        base = 85.0;
+    } else if (match(et, "(?i)^user\\.mfa\\.factor\\.(deactivate|reset_all|suspend)$")
+        || match(et, "(?i)^user\\.mfa\\.attempt_bypass$")) {
+        base = 80.0;
+    } else if (match(et, "(?i)^policy\\.lifecycle\\.(create|update|delete|deactivate|activate)$")
+        || match(et, "(?i)^policy\\.(mapping|rule|evaluate|execute|scheduled)(\\..*)?\\.(create|delete|update|enable|disable|deactivate)$")
+        || match(et, "(?i)^application\\.policy(\\..*)?\\.(create|delete|update|enable|disable)$")) {
+        base = 80.0;
+    } else if (match(et, "(?i)^user\\.(credential|factor|grant|session)(\\..*)?\\.(enroll|unenroll|reset|revoke|disable|enable|delete|create|update)$")) {
+        base = 80.0;
+    } else if (match(et, "(?i)^zone\\.(activate|deactivate|create|delete|update)$")) {
+        base = 75.0;
+    } else if (match(et, "(?i)^app\\.oauth2\\.(client|credentials)\\.lifecycle\\.")
+        || match(et, "(?i)^app\\.oauth2\\.client\\.privilege\\.revoke$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^security\\.(threat\\.detected|breached_credential\\.detected|protected_action\\.attempt)$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^application\\..*\\.(grant|revoke|assign|unassign)$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^group\\.(rule|owner|role|profile|user)(\\..*)?\\.(create|delete|update|assign|unassign)$")) {
+        base = 70.0;
+    } else if (match(et, "(?i)^device\\.(platform_sso|token|local_account|user_os_account|enrollment)(\\..*)?\\.(create|issue|register|sync|rotate|update|enable|disable)$")) {
+        base = 65.0;
+    } else if (match(et, "(?i)^user\\.mfa\\.factor\\.(activate|update)$")) {
+        base = 40.0;
+    } else if (match(et, "(?i)^(hook|event\\.hook|inline\\.hook)\\..*\\.(create|delete|update|enable|disable)$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^(directory|idp|identity|linked_objects)\\..*\\.(create|delete|update|import|link|unlink|map|unmap)$")) {
+        base = 60.0;
+    } else if (match(et, "(?i)^system\\.(rate_limit|email|brand|theme|custom_signout|well_known_uri)\\..*\\.(create|delete|update|enable|disable|set|unset|change)$")) {
+        base = 55.0;
+    };
+
+    sev_bump = 0.0;
+    if (has("severity") && match(severity, "(?i)ERROR")) { sev_bump = 10.0; }
+    else if (has("severity") && match(severity, "(?i)WARN")) { sev_bump = 5.0; }
+    res_bump = 0.0;
+    if (has("outcomeResult") && match(outcomeResult, "(?i)(SUCCESS|ALLOW)")) { res_bump = 5.0; }
+    proxy_bump = 0.0;
+    if (has("isProxy") && isProxy == "true") { proxy_bump = 5.0; }
+    mod_bump = 0.0;
+    if (_profile == "catalog" && has("is_mod_final") && is_mod_final == 1) {
+        if (base < 60.0) { mod_bump = 15.0; }
+        else if (base < 80.0) { mod_bump = 8.0; }
+    }
+    actor_priv_bump = 0.0;
+    if (has("actorType") && actorType == "SystemPrincipal") { actor_priv_bump = 0.0; }
+    else if (has("actor_weight") && actor_weight != "") { actor_priv_bump = float(actor_weight); }
+    else if (has("actorUserNorm") && actorUserNorm != "" &&
+             match(actorUserNorm, "(?i)(^root$|(^|[^a-z])admin([^a-z]|$)|(^|[^a-z])svc([^a-z]|$)|(^|[^a-z])sql([^a-z]|$)|(^|[^a-z])system([^a-z]|$))")) {
+        actor_priv_bump = 8.0;
+    }
+    target_priv_bump = 0.0;
+    if (has("target_weight") && target_weight != "") { target_priv_bump = float(target_weight); }
+    else if (has("targetUserNorm") && targetUserNorm != "" &&
+             match(targetUserNorm, "(?i)(^root$|(^|[^a-z])admin([^a-z]|$)|(^|[^a-z])svc([^a-z]|$)|(^|[^a-z])sql([^a-z]|$)|(^|[^a-z])system([^a-z]|$))")) {
+        target_priv_bump = 12.0;
+    }
+    risk_raw   = base + mod_bump + sev_bump + res_bump + proxy_bump + actor_priv_bump + target_priv_bump;
+    risk_score = math_round( math_min( math_max(risk_raw, 0.0), 100.0 ) );
+    _category    = cat;
+    _subcategory = sub;
+    _alert_name = et;
+    if (has("message") && message != "" && message != "null") { _alert_name = message; }
+    _vendor  = "Okta";
+    _product = "System Log";
+| eval
+    _priority = "Informational";
+    if (risk_score >= 90.0) { _priority = "Critical"; }
+    else if (risk_score >= 75.0) { _priority = "High"; }
+    else if (risk_score >= 55.0) { _priority = "Medium"; }
+    else if (risk_score >= 40.0) { _priority = "Low"; }
+    _alert_priority = _priority;
+    _alert_risk = risk_score;
+| eval _profile != "mod" || (is_mod_final == 1 && _priority != "Informational")
+| eval if (risk_score < 55) { risk_score = 55; }
+| eval
+    _priority = "Informational";
+    if (risk_score >= 90.0) { _priority = "Critical"; }
+    else if (risk_score >= 75.0) { _priority = "High"; }
+    else if (risk_score >= 55.0) { _priority = "Medium"; }
+    else if (risk_score >= 40.0) { _priority = "Low"; }
+    _alert_priority = _priority;
+    _alert_risk = risk_score;
+| eval src = clientIp;
+| eval if ((!has(src) || src == "" || src == "null") && has(requestIp) && requestIp != "" && requestIp != "null") { src = requestIp; }
+| eval if (!has(src) || src == "" || src == "null") { src = "-" ;}
+
+| eval ikey     = src + "|" + _alert_name;
+| eval ikey_any = src + "|*";
+
+| lookup -r okta_ip_allowlist ikey     key (enabled as i_en  until_ymd as i_until  reason as i_reason)
+| lookup -r okta_ip_allowlist ikey_any key (enabled as ia_en until_ymd as ia_until reason as ia_reason)
+
+| regex -e published "^(?P<_pubdate>\d{4}-\d{2}-\d{2})"
+| eval _pub_ymd = strings_replace(_pubdate, "-", "", -1)
+
+| eval _allow_ip = 0
+| eval if (has(i_en)  && int(i_en)==1  && (i_until==""  || int(_pub_ymd) <= int(i_until)))  { _allow_ip = 1 ;}
+| eval if (has(ia_en) && int(ia_en)==1 && (ia_until=="" || int(_pub_ymd) <= int(ia_until))) { _allow_ip = 1 ;}
+| grep -e _allow_ip "0"
+
+| lookup -r okta_ip_denylist ikey     key (enabled as di_en  min_risk as di_minrisk  reason as di_reason)
+| lookup -r okta_ip_denylist ikey_any key (enabled as dia_en min_risk as dia_minrisk reason as dia_reason)
+
+| eval _force_alert = 0
+| eval if (has(di_en)  && int(di_en)==1  && (di_minrisk==""  || float(risk_score) >= float(di_minrisk)))  { _force_alert = 1 ;}
+| eval if (has(dia_en) && int(dia_en)==1 && (dia_minrisk=="" || float(risk_score) >= float(dia_minrisk))) { _force_alert = 1 ;}
+
+| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High" ;}
+| eval a = actorUserNorm; t = targetUserNorm;
+| eval if (!has("a") || a == "" || a == "null") { a = "-" ;}
+| eval if (!has("t") || t == "" || t == "null") { t = "-" ;}
+
+| eval akey     = a + "|" + _alert_name
+| eval tkey     = t + "|" + _alert_name
+| eval akey_any = a + "|*"
+| eval tkey_any = t + "|*"
+
+| lookup -r okta_user_allowlist akey     key (enabled as a_en until_ymd as a_until reason as a_reason)
+| lookup -r okta_user_allowlist akey_any key (enabled as aa_en until_ymd as aa_until reason as aa_reason)
+| lookup -r okta_user_allowlist tkey     key (enabled as t_en until_ymd as t_until reason as t_reason)
+| lookup -r okta_user_allowlist tkey_any key (enabled as tt_en until_ymd as tt_until reason as tt_reason)
+
+| regex -e published "^(?P<_pubdate>\d{4}-\d{2}-\d{2})"
+| eval _pub_ymd = strings_replace(_pubdate, "-", "", -1)
+
+| eval _allow = 0
+| eval if (has("a_en")  && int(a_en)==1  && (a_until==""  || int(_pub_ymd) <= int(a_until)))  { _allow = 1 ;}
+| eval if (has("aa_en") && int(aa_en)==1 && (aa_until=="" || int(_pub_ymd) <= int(aa_until))) { _allow = 1 ;}
+| eval if (has("t_en")  && int(t_en)==1  && (t_until==""  || int(_pub_ymd) <= int(t_until)))  { _allow = 1 ;}
+| eval if (has("tt_en") && int(tt_en)==1 && (tt_until=="" || int(_pub_ymd) <= int(tt_until))) { _allow = 1 ;}
+| grep -e _allow "0"
+
+| lookup -r okta_user_denylist akey     key (enabled as da_en min_risk as da_minrisk reason as da_reason)
+| lookup -r okta_user_denylist akey_any key (enabled as daa_en min_risk as daa_minrisk reason as daa_reason)
+| lookup -r okta_user_denylist tkey     key (enabled as dt_en min_risk as dt_minrisk reason as dt_reason)
+| lookup -r okta_user_denylist tkey_any key (enabled as dtt_en min_risk as dtt_minrisk reason as dtt_reason)
+
+| eval _force_alert = 0
+| eval if (has("da_en")  && int(da_en)==1  && (da_minrisk==""  || float(risk_score) >= float(da_minrisk)))  { _force_alert = 1 ;}
+| eval if (has("daa_en") && int(daa_en)==1 && (daa_minrisk=="" || float(risk_score) >= float(daa_minrisk))) { _force_alert = 1 ;}
+| eval if (has("dt_en")  && int(dt_en)==1  && (dt_minrisk==""  || float(risk_score) >= float(dt_minrisk)))  { _force_alert = 1 ;}
+| eval if (has("dtt_en") && int(dtt_en)==1 && (dtt_minrisk=="" || float(risk_score) >= float(dtt_minrisk))) { _force_alert = 1 ;}
+
+| eval if (_force_alert==1 && risk_score < 75.0) { risk_score = 75.0; _priority = "High" ;}
 | eval
     _alert_name = "Potential Okta Password in AlternateID Field";
     message = printf("Failed sign-in where the username field held a %v-character value that is not an email address. The value is not shown because it may be a password.", len(rawAlt)); actorAltId = "[redacted: possible password]"; actorName = "[redacted]"; actorRaw = "[redacted]";
-$OKTA_ALERT_META("Credential Access", "T1552")
+
+| eval
+    _who = "unknown"; _name = ""; _ip = ""; _when = "";
+    _cat = "uncategorized"; _sub = ""; _verb = "action";
+    _out = ""; _msg = ""; _sev = ""; _uri = "";
+
+    if (has("actorAltId") && actorAltId != "" && actorAltId != "null") { _who = actorAltId; }
+    if (has("actorName") && actorName != "" && actorName != "null") { _name = printf(" (%v)", actorName); }
+
+    if (has("clientIp") && clientIp != "" && clientIp != "null") { _ip = printf(" from %v", clientIp); }
+    else if (has("requestIp") && requestIp != "" && requestIp != "null") { _ip = printf(" from %v", requestIp); }
+
+    if (has("published") && published != "" && published != "null") { _when = printf("At %v, ", published); }
+
+    if (has("category") && category != "" && category != "null") { _cat = category; }
+    if (has("subcategory") && subcategory != "" && subcategory != "null") { _sub = printf("/%v", subcategory); }
+    _tgt = "";
+    if (has("targetName") && targetName != "" && targetName != "null") { _tgt = targetName + " "; }
+    else if (has("targetAltId") && targetAltId != "" && targetAltId != "null") { _tgt = targetAltId + " "; }
+    if (_tgt != "") { _tgt = _tgt + "in "; }
+
+    if (has("method") && method != "" && method != "null") { _verb = method; }
+
+    if (has("outcomeResult") && outcomeResult != "" && outcomeResult != "null") { _out = printf(" resulting in %v", outcomeResult); }
+    if (has("message") && message != "" && message != "null") { _msg = printf(" — %v", message); }
+    if (has("severity") && severity != "" && severity != "null") { _sev = printf(" [sev=%v]", severity); }
+    if (has("requestUri") && requestUri != "" && requestUri != "null") { _uri = printf(" [uri=%v]", requestUri); }
+
+    context = _when + _who + _name + _ip +
+              " performed " + _verb + " against " + _tgt + _cat + _sub +
+              _out + _msg + _sev + _uri;
+| eval _alert_header = "| Context |"
+| eval _alert_divider = "|-----|"
+| eval _alert_data = printf("|%v|", context)
+| eval _alert_title = printf(
+    "Alert: %v - %v - %v - %v - %v - %v",
+    _vendor, _product, _category, _subcategory, _priority, _alert_name
+  )
+// Common alert fields (see notes: alert contract). user = the person acted on, else the actor.
+| eval
+    user = "";
+    if (has("targetUserNorm") && targetUserNorm != "") { user = targetRaw; }
+    else if (has("actorAltId")) { user = actorAltId; }
+    src_ip = "";
+    if (has("src") && src != "-") { src_ip = src; }
+    else if (has("clientIp") && clientIp != "" && clientIp != "null") { src_ip = clientIp; }
+    target = "";
+    if (has("targetName") && targetName != "" && targetName != "null") { target = targetName; }
+    else if (has("targetAltId") && targetAltId != "" && targetAltId != "null") { target = targetAltId; }
+    _mitre_tactic = "Credential Access"; _mitre_technique = "T1552";
+| table _alert_title _alert_priority _alert_name _alert_risk _vendor _product _category _subcategory user src_ip target eventType _mitre_tactic _mitre_technique context published

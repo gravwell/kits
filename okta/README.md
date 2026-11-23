@@ -10,18 +10,20 @@ The Okta Kit is licensed under the BSD 2-Clause license and the contents are ava
 
 | Tag (config macro) | Default | Required | Contents |
 |---|---|---|---|
-| `$OKTA_SYSTEM` | `okta` | yes | Okta System Log events, one JSON event per entry, timestamped by `published` |
+| `$OKTA` | `okta` | yes | Okta System Log events, one JSON event per entry, timestamped by `published` |
 | `$OKTA_USERS` | `okta-users` | no | Okta user profile records; only the user dashboards and queries use it |
 
-The user dashboards count each user once, from their newest record in the time range
-(`$OKTA_LATEST_USERS`). They show the whole directory only if every user is written at least
+The user dashboards count each user once, from their newest record in the time range.
+They show the whole directory only if every user is written at least
 once per dashboard time range. The Okta hosted ingester does this with a daily full snapshot
 (versions after 1.0.0); version 1.0.0 only writes users when they change.
 
-The user-directory dashboards don't search the user records. An hourly flow, **Okta - User
-Aggregates**, computes the directory figures from the last 25 hours of user records and writes
-them to the tag `_aggs_okta_users` as `metric,key,value` rows (CSV autoextractor
-`okta-user-aggregates`). The figures cover:
+The user-directory dashboards don't search the user records. An hourly scheduled search, **Okta -
+User Aggregates**, computes the directory figures from the newest record per user in the last 25
+hours and saves them to the resource `okta_user_aggregates` with `table -save -update rowkey`, as
+`ts,metric,key,value,rowkey` rows (`ts` is the run time in Unix seconds). It is one compound query:
+`@users` reads the user tag once, one inner query per metric counts it, and the main query stacks
+the results with `dump -p`. The figures cover:
 
 - users by status, user type, division, department, job title, manager and timezone;
 - last sign-in and password age of active users;
@@ -29,11 +31,18 @@ them to the tag `_aggs_okta_users` as `metric,key,value` rows (CSV autoextractor
 - average password age and onboarding time.
 
 **Okta User Overview**, **Okta User Authentication Overview** (except its user table) and the
-timezone table on **Okta Sign-In Locations** read only that tag, taking the newest run through
-`$OKTA_USER_AGG("<metric>")`. They load instantly at any time range, and a week shows the
-trend. The first figures appear after the
-flow's first run (at install, then at minute 17 of every hour). The flow needs the daily
-snapshot to count users who haven't changed, and its owner needs permission to ingest.
+timezone table on **Okta Sign-In Locations** read only that resource with `dump -r`
+(for example `dump -r okta_user_aggregates metric=="status" key value`). `-update rowkey` replaces
+the rows whose `rowkey` is in the new results and keeps every other row. `rowkey` is
+`metric|key` for the current figures, so each run overwrites them, and `ts|metric|key` for the
+`last_signin_history` and `password_age_history` rows, so each run adds one point to the two
+"over Time" charts. The history is never pruned. A key that no longer occurs (a department nobody
+is in any more, a status or age bucket that dropped to zero) keeps its last count, and a run that
+finds no users changes nothing. The current figures don't depend on the time range; the "over
+Time" charts follow it. The kit ships the resource with only its header row, so the dashboards
+are empty until the first run that finds users (at install, then at minute 17 of every hour).
+Upgrading the kit resets the resource and its history the same way. The search needs the daily
+snapshot to count users who haven't changed, and its owner needs permission to write resources.
 The aggregates only feed those dashboards. Detections never read them; they search the System
 Log directly, so they work from the moment the kit is installed, with or without aggregate
 history.
@@ -43,8 +52,7 @@ Both are written by the Gravwell Okta hosted ingester; see the
 ingest path works if each entry is one System Log event as returned by the Okta API
 (`/api/v1/logs`). Change the config macros at install if your tags differ. The kit's
 queries use `json`, not `ax`, so they work on any tag. The `okta` and `okta-users`
-autoextractors only matter for your own `ax` searches; `okta-user-aggregates` parses the kit's
-own `_aggs_okta_users` tag.
+autoextractors only matter for your own `ax` searches.
 
 ## Dependencies
 
@@ -52,7 +60,7 @@ own `_aggs_okta_users` tag.
 - Gravwell Network Enrichment kit (version 19 or newer), installed automatically, as a
   fallback only. Locations on the maps and in the country tables come from Okta itself
   (`client.geographicalContext` and `securityContext`), which Okta resolves when the request
-  happens. The `$OKTA_GEO` macro uses the Network Enrichment kit's GeoIP database (the
+  happens. The kit's location queries use the Network Enrichment kit's GeoIP database (the
   `geoip` module) only for events Okta didn't place (about 0.5% in a sample org), and records
   which source it used in `geoSource` (`okta`, `maxmind`, or `none`).
 
@@ -263,12 +271,12 @@ instance with the kit installed, and checks that exactly the expected detections
   - 49 detections grouped into 6 alerts (5 security alerts plus Kit Health), each detection a
     producer on its alert, all enabled at install. Alert events go to `_alerts` with a
     common field set.
-  - Detections every 15 minutes; one risk score (`$OKTA_RISK_SCORE`) with per-detection
+  - Detections every 15 minutes; one risk score with per-detection
     minimum priorities; ATT&CK labels; tuning lookups for users, IPs, privileged accounts
     and OAuth scopes.
   - Dashboards: General, Category, Event Type, Actor/Target, Investigation, User,
-    User Authentication overviews (both from hourly pre-computed aggregates in
-    `_aggs_okta_users`, written by the "Okta - User Aggregates" flow), Sign-In Locations
+    User Authentication overviews (both from hourly pre-computed aggregates in the
+    `okta_user_aggregates` resource, written by the "Okta - User Aggregates" scheduled search), Sign-In Locations
     (maps and per-country tables) and
     Threat Overview (the alerts raised, plus the signals the statistical detections watch,
     ranked without thresholds); locations from Okta's own geolocation;

@@ -1,7 +1,7 @@
 {
 	"UUID": "2554f31d-5ba4-4cc0-bfdc-7260e1470d26",
 	"Name": "Okta User Overview",
-	"Description": "The Okta user directory: totals, status, user type, and users by division, department, job title and manager. Every tile reads the hourly user aggregates (tag _aggs_okta_users, written by the \"Okta - User Aggregates\" flow), so the dashboard loads instantly at any time range.",
+	"Description": "The Okta user directory: totals, status, user type, and users by division, department, job title and manager. Every tile reads the okta_user_aggregates resource (latest hourly counts, written by the \"Okta - User Aggregates\" scheduled search) with dump -r, so the dashboard loads instantly and does not depend on the time range. A key that no longer occurs keeps its last count.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,

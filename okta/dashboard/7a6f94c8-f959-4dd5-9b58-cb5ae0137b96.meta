@@ -1,7 +1,7 @@
 {
 	"UUID": "7a6f94c8-f959-4dd5-9b58-cb5ae0137b96",
 	"Name": "Okta Sign-In Locations",
-	"Description": "Where Okta sign-ins come from: a heatmap and a map of sign-ins by user and IP, and tables by country and city, all using Okta's own geolocation (client.geographicalContext; geoip fallback via $OKTA_GEO), plus user profile timezones (from the hourly user aggregates).",
+	"Description": "Where Okta sign-ins come from: a heatmap and a map of sign-ins by user and IP, and tables by country and city, all using Okta's own geolocation (client.geographicalContext; geoip fallback), plus user profile timezones (from the okta_user_aggregates resource).",
 	"Data": {
 		"timeframe": {
 			"durationString": null,

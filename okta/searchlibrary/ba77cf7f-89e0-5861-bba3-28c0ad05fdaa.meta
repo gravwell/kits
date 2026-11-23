@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - User Aggregates - User Status [chart]",
-	"Description": "Users by status (ACTIVE, STAGED, PROVISIONED, SUSPENDED, LOCKED_OUT, DEPROVISIONED, ...). From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"Description": "Users by status (ACTIVE, STAGED, PROVISIONED, SUSPENDED, LOCKED_OUT, DEPROVISIONED, ...). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
 	"GUID": "ba77cf7f-89e0-5861-bba3-28c0ad05fdaa",
 	"Labels": [
 		"okta"

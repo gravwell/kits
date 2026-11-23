@@ -16,8 +16,8 @@ Usage (the kit must be installed on the instance; GRAVWELL_URL / GRAVWELL_TOKEN 
   python3 okta_fixtures.py check [-j 6] [--full] [CASE...]
 
 `check` reads the detection queries from this kit directory and points them at the
-fixture tag by expanding the kit macros that contain $OKTA_SYSTEM locally; every other
-macro is expanded by the server from the installed kit. Ingest once per tag: re-importing
+fixture tag by replacing the config macro $OKTA (the System Log tag). The queries use no other
+macros. Ingest once per tag: re-importing
 duplicates the events and the "below threshold" cases would then fire. After changing the
 fixtures, ingest into a new tag (OKTA_FIXTURE_TAG=okta-fixtures2 for ingest and check).
 """
@@ -460,26 +460,9 @@ def ingest():
 # ---------------------------------------------------------------------------------------------
 
 
-def load_macros():
-    macros = {}
-    for f in glob.glob(os.path.join(KIT, 'macro', '*.expansion')):
-        macros[os.path.basename(f)[:-len('.expansion')]] = open(f).read().strip()
-    return macros
-
-
-def retarget(query, macros):
-    """Expand (locally) every kit macro that leads to $OKTA_SYSTEM, then point $OKTA_SYSTEM at the fixture tag."""
-    def uses_tag(name, seen=()):
-        body = macros.get(name, '')
-        return '$OKTA_SYSTEM' in body or any(uses_tag(m, seen + (name,)) for m in re.findall(r'\$([A-Z0-9_]+)', body)
-                                              if m not in seen and m != name)
-    for _ in range(10):
-        new = re.sub(r'\$([A-Z0-9_]+)', lambda m: macros[m.group(1)] if m.group(1) != 'OKTA_SYSTEM' and
-                     m.group(1) in macros and uses_tag(m.group(1)) else m.group(0), query)
-        if new == query:
-            break
-        query = new
-    return query.replace('$OKTA_SYSTEM', TAG)
+def retarget(query):
+    """Point the config macro $OKTA (System Log tag) at the fixture tag; $OKTA_USERS is left alone."""
+    return re.sub(r'\$OKTA\b', TAG, query)
 
 
 def detections():
@@ -489,10 +472,46 @@ def detections():
         ref = meta.get('SearchReference')
         if not ref:
             continue
+        # never run a query that writes a resource (the user aggregates builder ends in `table -save`)
+        if re.search(r'\btable\s+-save\b', open(os.path.join(KIT, 'searchlibrary', ref + '.query')).read()):
+            continue
         name = json.load(open(os.path.join(KIT, 'searchlibrary', ref + '.meta')))['Name']
         short = name.split(' - ', 2)[2]
         out.append((short, open(os.path.join(KIT, 'searchlibrary', ref + '.query')).read()))
     return sorted(out)
+
+
+def compound_prefix_end(q):
+    """Index just past the leading `@name{...};` blocks of a compound query (0 if there are none).
+
+    Braces are matched, skipping quoted strings and `//` comments, because the detections' own eval code
+    contains `};` too, so the last `};` in the text is not necessarily the end of the inner queries."""
+    pos = 0
+    while True:
+        m = re.match(r'\s*@[A-Za-z0-9_]+\{', q[pos:])
+        if not m:
+            return pos
+        i, depth, quote = pos + m.end(), 1, None
+        while depth and i < len(q):
+            ch = q[i]
+            if quote:
+                if ch == '\\':
+                    i += 1
+                elif ch == quote:
+                    quote = None
+            elif ch == '"':
+                quote = ch
+            elif q.startswith('//', i):
+                i = q.find('\n', i)
+                if i < 0:
+                    break
+            elif ch == '{':
+                depth += 1
+            elif ch == '}':
+                depth -= 1
+            i += 1
+        semi = re.match(r'\s*;', q[i:])
+        pos = i + (semi.end() if semi else 0)
 
 
 def run(url, token, query, start, end):
@@ -501,10 +520,13 @@ def run(url, token, query, start, end):
     q = query
     # compound queries: inner queries without their own start= get the window; the main query always does
     q = re.sub(r'(@[A-Za-z0-9_]+\{)(?!\s*start=)', lambda m: m.group(1) + window, q)
-    i = q.rfind('};')
-    q = (q[:i + 2] + ' ' + window + q[i + 2:].lstrip()) if i >= 0 else window + q
-    req = urllib.request.Request(url + '/api/search/direct', method='POST', headers={
-        'Gravwell-Token': token, 'query': q.replace('\n', ' '), 'duration': '1h', 'format': 'csv'})
+    i = compound_prefix_end(q)
+    q = q[:i] + ' ' + window + q[i:].lstrip()
+    # The query goes in the JSON body, not a header: detections carry `//` line comments (which would swallow the
+    # rest of a query flattened onto one header line) and non-Latin-1 characters. The inline start=/end= window wins.
+    req = urllib.request.Request(url + '/api/search/direct', method='POST',
+                                 data=json.dumps({'SearchString': q, 'Format': 'csv'}).encode(),
+                                 headers={'Gravwell-Token': token, 'Content-Type': 'application/json'})
     try:
         body = urllib.request.urlopen(req, timeout=300).read().decode()
     except urllib.error.HTTPError as e:
@@ -526,8 +548,7 @@ def check(selected, jobs, full):
     every pair for detections whose output has no `published` column, on the exact 15-minute case window.
     --full runs pass 2 on every pair (cases x detections; slow, roughly 8 s per query on a small instance)."""
     url, token = env()
-    macros = load_macros()
-    dets = dict((n, retarget(re.sub(r'/\*.*?\*/', ' ', q, flags=re.S), macros)) for n, q in detections())
+    dets = dict((n, retarget(re.sub(r'/\*.*?\*/', ' ', q, flags=re.S))) for n, q in detections())
     cases = [c for c in CASES if not selected or c.name in selected]
     for c in cases:
         for e in c.expect:

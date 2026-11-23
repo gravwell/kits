@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - User Aggregates - Users by Division [table]",
-	"Description": "Users per division (profile.division); \"(none)\" = not set. From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"Description": "Users per division (profile.division); \"(none)\" = not set. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
 	"GUID": "02a65df3-7a1d-54d2-bd15-3b22de18df90",
 	"Labels": [
 		"okta"

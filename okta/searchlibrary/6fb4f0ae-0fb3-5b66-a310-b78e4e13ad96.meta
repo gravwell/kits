@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - User Aggregates - User Type [chart]",
-	"Description": "Users by user type (profile.userType, or the user type id). From the hourly user aggregates (tag _aggs_okta_users, flow \"Okta - User Aggregates\"); the newest run in the time range is used ($OKTA_USER_AGG).",
+	"Description": "Users by user type (profile.userType, or the user type id). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
 	"GUID": "6fb4f0ae-0fb3-5b66-a310-b78e4e13ad96",
 	"Labels": [
 		"okta"

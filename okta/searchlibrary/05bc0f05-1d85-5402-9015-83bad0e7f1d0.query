@@ -1,4 +1,4 @@
-$OKTA_USER_AGG("last_signin")
+dump -r okta_user_aggregates metric=="last_signin" key value
 | eval n = 0; if (key == "never") { n = value; }
 | stats sum(n) as count
 | alias count " "

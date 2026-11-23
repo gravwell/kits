@@ -1,4 +1,4 @@
-$OKTA_USER_AGG("division")
+dump -r okta_user_aggregates metric=="division" key value
 | stats sum(value) as users by key
 | sort by users desc
 | alias key division

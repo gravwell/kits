@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - Threats - Sign-Ins Through Proxies or Anonymizers [table]",
-	"Description": "Okta sign-ins (user.session.start) that Okta marked as coming through a proxy or anonymizer (securityContext.isProxy), by source IP with location and network from $OKTA_GEO.",
+	"Description": "Okta sign-ins (user.session.start) that Okta marked as coming through a proxy or anonymizer (securityContext.isProxy), by source IP with location and network from Okta's geolocation (geoip fallback).",
 	"GUID": "e9cf1033-29f9-52c3-954f-72925700423b",
 	"Labels": [
 		"okta"

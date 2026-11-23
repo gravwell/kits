@@ -1,7 +1,0 @@
-{
-	"Name": "OKTA_ALERT_META",
-	"Description": "Usage: $OKTA_ALERT_META(\"<MITRE tactic>\", \"<MITRE technique id>\") as the last line of an Okta detection. Builds the alert context and emits the common alert fields: _alert_title _alert_priority _alert_name _alert_risk _vendor _product _category _subcategory user src_ip target eventType _mitre_tactic _mitre_technique context published. These are the fields every Okta alert schema declares.",
-	"Labels": [
-		"okta"
-	]
-}

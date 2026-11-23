@@ -1,7 +1,7 @@
 {
 	"VersionNumber": 1,
 	"ResourceName": "okta_ip_allowlist",
-	"Description": "Suppress Okta alerts from a source IP (client IP, else the first request-chain IP).\n\nColumns: key,enabled,until_ymd,reason\nKey: \u003cip\u003e|\u003cdetection name\u003e for one detection, or \u003cip\u003e|* for all. until_ymd (YYYYMMDD, optional): stop suppressing after this date.\n\nThe detection name is the scheduled search name after the group, e.g. \"Okta Admin Console Access from a New IP\". Logins are lowercase and without @domain. Rows with enabled = 0 are ignored; the shipped rows are disabled examples. Used by every Okta detection and the modification feed through $OKTA_USER_TUNING / $OKTA_IP_TUNING.",
+	"Description": "Suppress Okta alerts from a source IP (client IP, else the first request-chain IP).\n\nColumns: key,enabled,until_ymd,reason\nKey: \u003cip\u003e|\u003cdetection name\u003e for one detection, or \u003cip\u003e|* for all. until_ymd (YYYYMMDD, optional): stop suppressing after this date.\n\nThe detection name is the scheduled search name after the group, e.g. \"Okta Admin Console Access from a New IP\". Logins are lowercase and without @domain. Rows with enabled = 0 are ignored; the shipped rows are disabled examples. Used by every Okta detection and the modification feed (the user and IP tuning steps near the end of each query).",
 	"Labels": [
 		"okta"
 	],

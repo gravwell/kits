@@ -1,6 +1,6 @@
 {
 	"Name": "Search - Okta - System - Event Types - Alert Title [Numbercard]",
-	"Description": "Count of System Log events by the alert title the kit's risk score gives them ($OKTA_RISK_SCORE(\"catalog\") after user/IP tuning). This scores every event in the time range; it is not a count of alerts raised (those are in the _alerts tag).",
+	"Description": "Count of System Log events by the alert title the kit's risk score gives them (catalog risk profile, after user/IP tuning). This scores every event in the time range; it is not a count of alerts raised (those are in the _alerts tag).",
 	"GUID": "ce435158-0ea1-494f-a6fe-fd6155873f16",
 	"Labels": [
 		"okta"

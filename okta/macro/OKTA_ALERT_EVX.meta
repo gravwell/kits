@@ -1,7 +1,0 @@
-{
-	"Name": "OKTA_ALERT_EVX",
-	"Description": "Extracts the Okta System Log fields every Okta detection uses (one row per event), then selects the targets by type with $OKTA_TARGETS. First step after tag=$OKTA_SYSTEM in every detection, the modification feed and the investigation templates.",
-	"Labels": [
-		"okta"
-	]
-}

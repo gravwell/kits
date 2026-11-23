@@ -1,7 +1,0 @@
-{
-	"Name": "OKTA_USER_AGG",
-	"Description": "Usage: $OKTA_USER_AGG(\"password_age\") | stats sum(value) as users by key | chart users by key. The rows (key, value) of one metric from the newest run of the \"Okta - User Aggregates\" flow in the time range (tag _aggs_okta_users). Taking the newest run, not the newest row per key, means a key that dropped to zero does not keep its old count. Metrics: status, user_type, division, department, title, manager, timezone, provider_type, provider_name, last_signin and password_age (active users, bucketed), avg_password_age_days, avg_days_created_to_activated.",
-	"Labels": [
-		"okta"
-	]
-}
