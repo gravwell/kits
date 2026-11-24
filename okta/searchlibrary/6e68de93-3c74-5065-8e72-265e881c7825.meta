@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - Active Users Without Sign-In for 90 Days [numbercard]",
-	"Description": "Active users whose last sign-in (lastLogin) is more than 90 days ago. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"Name": "Search - Okta - Users - Users Without Sign-In for 90 Days [numbercard]",
+	"Description": "Users whose last sign-in (lastLogin in their newest record) is 90 days ago or more; users with no lastLogin are not counted. From the newest record per user in $OKTA_USERS within the time range; the hosted ingester writes a full user dump at least every 24 hours, so use a time range of 24 hours or more.",
 	"GUID": "6e68de93-3c74-5065-8e72-265e881c7825",
 	"Labels": [
 		"okta"

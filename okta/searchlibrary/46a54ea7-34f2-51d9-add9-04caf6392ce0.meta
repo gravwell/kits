@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - Users by Department [table]",
-	"Description": "Users per department (profile.department); \"(none)\" = not set. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"Name": "Search - Okta - Users - Users by Department [table]",
+	"Description": "Users per department (profile.department); \"(none)\" = not set. From the newest record per user in $OKTA_USERS within the time range; the hosted ingester writes a full user dump at least every 24 hours, so use a time range of 24 hours or more.",
 	"GUID": "46a54ea7-34f2-51d9-add9-04caf6392ce0",
 	"Labels": [
 		"okta"

@@ -11,7 +11,7 @@ getting Okta data into Gravwell.
 | Config macro | Default | Required | Contents |
 |---|---|---|---|
 | `$OKTA` | `okta` | yes | Okta System Log events, one JSON event per entry |
-| `$OKTA_USERS` | `okta-users` | no | Okta user profile records (feed the user aggregates below and the user tables; each user counted once, from their newest record) |
+| `$OKTA_USERS` | `okta-users` | no | Okta user profile records (feed the user dashboards; each user counted once, from their newest record) |
 
 Events per day in the System Log tag:
 
@@ -32,81 +32,56 @@ Most dashboards search the System Log directly: General, Category, Event Type, A
 Sign-In Locations, Threat Overview and Investigation. They show whatever history is in the tag
 as soon as the kit is installed. So do all 49 detections.
 
-The user-directory dashboards work differently. Searching every user record on each page load
-is slow, and the user tag only holds what the ingester wrote recently.
+The user-directory dashboards (**Okta User Overview**, **Okta User Authentication Overview**
+and the timezone table on **Okta Sign-In Locations**) query the user tag directly. Each user is
+counted once, from their newest record in the time range, so the figures cover the whole
+directory as long as every user is written within the time range. The hosted ingester writes a
+full user dump at least every 24 hours: keep those dashboards at 24 hours or more. Last sign-in
+is the `lastLogin` in each user's newest record. The two "over Time" charts count every dump at
+its own time. Detections never read the user records.
 
-- An hourly scheduled search, **Okta - User Aggregates** (Automation > Scheduled Searches),
-  computes the directory figures from the newest record per user in the last 25 hours. It saves
-  them to the resource `okta_user_aggregates` with `table -save -update rowkey`, as
-  `ts,metric,key,value,rowkey` rows: the current count of every metric (`rowkey` = `metric|key`,
-  overwritten each run) and one history point per run for last sign-in and password age
-  (`rowkey` = `ts|metric|key`, never pruned). A key that no longer occurs keeps its last count. Tiles that add up rows
-  (Total Users, the sign-in and password-age counts) include the last count of any status or bucket that has
-  since emptied. Because the search writes to a resource the kit ships, Gravwell reports the kit as modified
-  after the first run; the warning when you uninstall or upgrade is expected.
-- **Okta User Overview** (totals, status, user type, division, department, job title,
-  manager), **Okta User Authentication Overview** (except its user table) and the timezone
-  table on **Okta Sign-In Locations** read only that resource, with
-  `dump -r okta_user_aggregates metric=="<metric>" key value`. They load instantly; only the two
-  "over Time" charts depend on the time range.
-- Detections never read the aggregates.
-
-When each metric was last computed, how long ago, and how many rows the resource holds for it:
+When the user tag last received a full dump, and how many users it held:
 
 ```query
-dump -r okta_user_aggregates ts metric | stats max(ts) as newest count as rows by metric | eval age_minutes = (unix(NOW) - int(newest)) / 60; | table metric newest age_minutes rows
+tag=$OKTA_USERS json id | stats count unique_count(id) as users max(TIMESTAMP) as newest | table count users newest
 ```
-
-**What to expect right after installing:**
-
-- **The scheduled search runs once at install, then at minute 17 of every hour.** The user
-  dashboards are empty until the first run that finds user records. Run it by hand from
-  Automation > Scheduled Searches to fill them sooner; an extra run only adds one more point to
-  the "over Time" charts.
-- **A full directory needs the hosted ingester's daily snapshot.** The ingester writes every
-  user at startup and then once a day (versions after 1.0.0). Until it has done so, and always
-  with version 1.0.0, the figures only cover users whose records changed in the last 25 hours.
-  "Total Users" then reads low.
-- **History starts at install.** The aggregates aren't backfilled, so the "over Time" charts
-  start as a single point and gain one per hour; nothing removes old points. Upgrading the kit
-  replaces the resource with the empty shipped copy, so history starts again after an upgrade.
-- **Old figures mean missed runs.** If the search's owner can't write resources, or the user
-  tag stops receiving data, the dashboards keep showing the last figures written. Check
-  `age_minutes` in the query above (it should stay under about 60), and check the search's last
-  run in Automation > Scheduled Searches.
-- **Keys that disappear keep their last count.** A department, title, manager or status that no
-  user has any more stays in the resource with the count it last had, and is included in the
-  totals. Its `ts` stops advancing, which shows it is no longer current.
 
 ***
 
 ## 2. Alerting
 
-All six alerts and their 49 scheduled searches are enabled at install. With no consumers, an
+The **Okta** alert and its 49 scheduled searches are enabled at install. With no consumers, the
 alert only writes its events to `_alerts`, the tag shared by every kit's alerts; nothing is sent
-anywhere. The Okta kit's events have `Contents._vendor` set to `Okta`.
+anywhere. The Okta kit's events have `Contents._vendor` set to `Okta`. The alert keeps the search behind each alert event for 7 days (search retention), so the
+results that raised an alert can be reopened from the alert event during that time.
+Each detection run raises at most 3 alert events (the alert's maximum event count).
 
-1. **Consumers**: to be notified, open an alert (Automation > Alerts) and add a consumer flow
-   (email, Slack, Teams, webhook, ticket). The kit ships none because every team routes
-   alerts differently.
+1. **Consumers**: to be notified, open the **Okta** alert (Automation > Alerts) and add a consumer
+   flow (email, Slack, Teams, webhook, ticket). The kit ships none because every team routes
+   alerts differently. Filter in the flow on `_alert_priority`, `_category` or `_alert_name` to
+   route detections differently.
 2. **Tuning**: add your administrators and service accounts to the lookups in section 5.
 3. **Turning detections off**: each scheduled search is one detection (labels `okta`,
    `detection`, and one group label: `authentication-sessions`, `admin-configuration-changes`,
-   `account-mfa-changes`, `threats-platform`, `modification-feed`). Disable one to turn off that
-   detection; disable an alert and its scheduled searches to turn off a group.
+   `account-mfa-changes`, `threats-platform`, `modification-feed`, `kit-health`). Disable one to turn
+   off that detection; disable every scheduled search with a group label to turn off a group.
 
 Every detection runs every 15 minutes over the previous 15 minutes. Start minutes are
 spread across the quarter hour. Detections that compare with history look further back
 on their own (up to 30 days).
 
-| Alert | Detections |
+All 49 detections are producers on one alert, **Okta**, and every producer returns the same 16
+fields. Each scheduled search carries a group label, and its events carry the group as
+`_category` (or the event type's category):
+
+| Group (scheduled search label) | Detections |
 |---|---|
-| Alert - Okta - Authentication & Sessions | 24 |
-| Alert - Okta - Admin & Configuration Changes | 13 |
-| Alert - Okta - Account & MFA Changes | 5 |
-| Alert - Okta - Threats & Platform | 5 |
-| Alert - Okta - Modification Feed | 1 |
-| Alert - Okta - Kit Health | 1 |
+| Authentication & Sessions (`authentication-sessions`) | 24 |
+| Admin & Configuration Changes (`admin-configuration-changes`) | 13 |
+| Account & MFA Changes (`account-mfa-changes`) | 5 |
+| Threats & Platform (`threats-platform`) | 5 |
+| Modification Feed (`modification-feed`) | 1 |
+| Kit Health (`kit-health`) | 1 |
 
 ***
 
@@ -225,7 +200,7 @@ investigation steps.
 
 | Detection | Fires on | Priority |
 |---|---|---|
-| Risk-Scored Modification Feed | Every configuration or account change scoring Low (40) or above; at most 50 events per run | Low and above |
+| Risk-Scored Modification Feed | Every configuration or account change scoring Low (40) or above; at most 3 alert events per run | Low and above |
 
 The modification feed is a review queue, not a detection. It overlaps with the Admin &
 Configuration Changes detections and is noisier; if you attach a notification to it, expect
@@ -266,7 +241,7 @@ Upgrading the kit replaces edited items, so keep a note of your changes.
 - **Target serialization.** The kit reads an event's targets by type with a regular
   expression instead of splitting the target list, so each event is one row. This relies on
   Okta writing every target's keys in the order `id, type, alternateId, displayName`.
-  **Alert - Okta - Kit Health** fires Critical if an event ever breaks that
+  The **Kit Health - Target Key Order Changed** detection fires Critical on the **Okta** alert if an event ever breaks that
   pattern. Typed target fields would then be empty and detections fall back to the first
   target. Report it to the kit maintainers.
 - **Window and ingest delay.** Events that arrive after their 15-minute window has been
@@ -279,7 +254,7 @@ Upgrading the kit replaces edited items, so keep a note of your changes.
 
 ## 7. What's in the kit
 
-- **Alerts (6)** and **scheduled searches (49)**: see sections 2 and 4.
+- **Alert (1)** and **scheduled searches (49)**: see sections 2 and 4.
 - **Dashboards (9)**: Okta General Overview, Okta Category Overview, Okta Event Type
   Overview, Okta Actor/Target Overview, Okta Investigation, Okta User Overview, Okta User
   Authentication Overview, Okta Sign-In Locations (heatmap and pointmap of sign-ins,
@@ -310,12 +285,6 @@ Upgrading the kit replaces edited items, so keep a note of your changes.
   and alert fields are written out in each detection, so a detection can be read and edited
   on its own (an upgrade of the kit replaces your edits).
 - **Lookups (8)**: section 5.
-- **Aggregates**: the scheduled search **Okta - User Aggregates** saves hourly user-directory
-  figures to the resource `okta_user_aggregates` (`ts,metric,key,value,rowkey`). The Okta User Overview and User
-  Authentication Overview dashboards and the Sign-In Locations timezone table read only that
-  resource. Read a metric with `dump -r okta_user_aggregates metric=="<metric>" key value`, or
-  its trend with `dump -r okta_user_aggregates -t ts metric=="<metric>_history" ts key value`.
-  See section 1 for what to expect after installing.
 - **Autoextractors (2)**: `okta` and `okta-users` for your own `ax` searches on the default
   tags. The kit's queries don't use them.
 

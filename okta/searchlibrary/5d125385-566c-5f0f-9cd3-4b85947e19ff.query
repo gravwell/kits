@@ -1,5 +1,8 @@
-dump -r okta_user_aggregates metric=="title" key value
-| eval n = 0; if (key != "(none)") { n = 1; }
-| stats sum(n) as count
+tag=$OKTA_USERS json id profile.title as key
+| last id
+| eval if (!has(key) || key == "" || key == "null") { key = "(none)"; }
+| stats count by key
+| eval key != "(none)"
+| stats count
 | alias count " "
 | numbercard " "

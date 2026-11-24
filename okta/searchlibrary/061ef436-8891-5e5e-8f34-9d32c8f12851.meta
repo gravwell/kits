@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - User Types [numbercard]",
-	"Description": "Distinct user types (profile.userType, or the user type id when the org does not set it). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"Name": "Search - Okta - Users - User Types [numbercard]",
+	"Description": "Distinct user types (profile.userType, or the user type id when the org does not set it). From the newest record per user in $OKTA_USERS within the time range; the hosted ingester writes a full user dump at least every 24 hours, so use a time range of 24 hours or more.",
 	"GUID": "061ef436-8891-5e5e-8f34-9d32c8f12851",
 	"Labels": [
 		"okta"

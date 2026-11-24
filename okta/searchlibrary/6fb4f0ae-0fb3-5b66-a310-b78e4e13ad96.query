@@ -1,3 +1,7 @@
-dump -r okta_user_aggregates metric=="user_type" key value
-| stats sum(value) as users by key
+tag=$OKTA_USERS json id profile.userType as key type.id as userTypeId
+| last id
+| eval
+    if (!has(key) || key == "" || key == "null") { key = userTypeId; }
+    if (!has(key) || key == "" || key == "null") { key = "(none)"; }
+| stats count as users by key
 | chart users by key

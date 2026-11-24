@@ -1,3 +1,14 @@
-dump -r okta_user_aggregates metric=="last_signin" key value
-| stats sum(value) as users by key
-| chart users by key
+tag=$OKTA_USERS json id profile.email lastLogin
+| last id
+| eval
+    signInCat = "never";
+    if (has(lastLogin) && lastLogin != "" && lastLogin != "null") {
+        lastSignIn = time(lastLogin); signInAge = NOW - lastSignIn;
+        if (signInAge < duration("24h")) { signInCat = "<24h"; }
+        else if (signInAge < duration("7d")) { signInCat = "7d"; }
+        else if (signInAge < duration("30d")) { signInCat = "30d"; }
+        else if (signInAge < duration("90d")) { signInCat = "90d"; }
+        else { signInCat = "> 90d"; }
+    }
+| stats count by signInCat
+| chart count by signInCat

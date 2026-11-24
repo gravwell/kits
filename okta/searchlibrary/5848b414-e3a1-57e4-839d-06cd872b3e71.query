@@ -1,5 +1,8 @@
-dump -r okta_user_aggregates metric=="manager" key value
-| eval n = 0; if (key != "(no manager)") { n = 1; }
-| stats sum(n) as count
+tag=$OKTA_USERS json id profile.manager as key
+| last id
+| eval if (!has(key) || key == "" || key == "null") { key = "(no manager)"; }
+| stats count by key
+| eval key != "(no manager)"
+| stats count
 | alias count " "
 | numbercard " "

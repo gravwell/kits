@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - Average Days from Created to Activated [numbercard]",
-	"Description": "Average days between a user being created and activated in Okta. From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"Name": "Search - Okta - Users - Average Days from Created to Activated [numbercard]",
+	"Description": "Average days between a user being created and activated in Okta. From the newest record per user in $OKTA_USERS within the time range; the hosted ingester writes a full user dump at least every 24 hours, so use a time range of 24 hours or more.",
 	"GUID": "65a15245-bd8a-5858-bb5d-32c3d583bbe7",
 	"Labels": [
 		"okta"

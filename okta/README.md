@@ -13,46 +13,14 @@ The Okta Kit is licensed under the BSD 2-Clause license and the contents are ava
 | `$OKTA` | `okta` | yes | Okta System Log events, one JSON event per entry, timestamped by `published` |
 | `$OKTA_USERS` | `okta-users` | no | Okta user profile records; only the user dashboards and queries use it |
 
-The user dashboards count each user once, from their newest record in the time range.
-They show the whole directory only if every user is written at least
-once per dashboard time range. The Okta hosted ingester does this with a daily full snapshot
-(versions after 1.0.0); version 1.0.0 only writes users when they change.
-
-The user-directory dashboards don't search the user records. An hourly scheduled search, **Okta -
-User Aggregates**, computes the directory figures from the newest record per user in the last 25
-hours and saves them to the resource `okta_user_aggregates` with `table -save -update rowkey`, as
-`ts,metric,key,value,rowkey` rows (`ts` is the run time in Unix seconds). It is one compound query:
-`@users` reads the user tag once, one inner query per metric counts it, and the main query stacks
-the results with `dump -p`. The figures cover:
-
-- users by status, user type, division, department, job title, manager and timezone;
-- last sign-in and password age of active users;
-- credential providers;
-- average password age and onboarding time.
-
-**Okta User Overview**, **Okta User Authentication Overview** (except its user table) and the
-timezone table on **Okta Sign-In Locations** read only that resource with `dump -r`
-(for example `dump -r okta_user_aggregates metric=="status" key value`). `-update rowkey` replaces
-the rows whose `rowkey` is in the new results and keeps every other row. `rowkey` is
-`metric|key` for the current figures, so each run overwrites them, and `ts|metric|key` for the
-`last_signin_history` and `password_age_history` rows, so each run adds one point to the two
-"over Time" charts. The history is never pruned. A key that no longer occurs (a department nobody
-is in any more, a status or age bucket that dropped to zero) keeps its last count, and a run that
-finds no users changes nothing. Tiles that add up such rows can therefore read high: Total
-Users, Active Users Never Signed In, Active Users Without Sign-In for 90 Days and Active Users with
-Password Older Than 90 Days include the last count of any status or bucket that has since emptied,
-and the department, division, job title and manager tables keep rows for groups nobody is in. The current figures don't depend on the time range; the "over
-Time" charts follow it. The kit ships the resource with only its header row, so the dashboards
-are empty until the first run that finds users (at install, then at minute 17 of every hour).
-Upgrading the kit resets the resource and its history the same way. The search needs the daily
-snapshot to count users who haven't changed, and its owner needs permission to write resources.
-Because the search writes to a resource the kit ships, Gravwell reports the kit as modified after
-the first run: uninstalling warns that `okta_user_aggregates` has changed and asks for
-confirmation (`force` in the API), and upgrading offers to back it up. This is expected and safe
-to confirm, unless you have edited other kit items yourself.
-The aggregates only feed those dashboards. Detections never read them; they search the System
-Log directly, so they work from the moment the kit is installed, with or without aggregate
-history.
+The user dashboards (**Okta User Overview**, **Okta User Authentication Overview** and the
+timezone table on **Okta Sign-In Locations**) query `$OKTA_USERS` directly. Each user is counted
+once, from their newest record in the time range (`json id … | last id`). This shows the whole
+directory as long as every user is written at least once per dashboard time range: the Okta hosted
+ingester writes a full user dump at least every 24 hours, so keep those dashboards at 24 hours or
+more. Last sign-in is the `lastLogin` in each user's newest record. The two "over Time" charts
+count every user dump at its own time, so they show one point per dump. Detections never read the
+user records; they search the System Log directly.
 
 Both are written by the Gravwell Okta hosted ingester; see the
 [Integration Guide](https://docs.gravwell.io/integrations/application/okta.html). Any other
@@ -73,33 +41,40 @@ autoextractors only matter for your own `ax` searches.
 
 ## After installing
 
-All six alerts and their 49 scheduled searches are enabled at install. With no consumers attached,
-an alert only writes its events to the tag `_alerts`, so nothing is sent anywhere until you
+The **Okta** alert and its 49 scheduled searches are enabled at install. With no consumers attached,
+the alert only writes its events to the tag `_alerts`, so nothing is sent anywhere until you
 add one. `_alerts` is shared by every kit's alerts; the Okta kit's events have `Contents._vendor`
-set to `Okta`.
+set to `Okta`. The alert keeps the search behind each alert event for 7 days (search retention), so the
+results that raised an alert can be reopened from the alert event during that time.
+Each detection run raises at most 3 alert events (the alert's maximum event count).
 
 1. Read the alerts. The fields are under `Contents`:
    `tag=_alerts json Contents._vendor==Okta Contents._alert_title as title Contents.context as context | table title context`.
    The Investigation dashboard's "Okta Alerts" tile does this for one actor, target or IP,
    and the **Okta Threat Overview** dashboard shows them by priority and detection.
-2. To notify someone, add a consumer to the alert (Automation > Alerts): a flow that sends
+2. To notify someone, add a consumer to the **Okta** alert (Automation > Alerts): a flow that sends
    email, posts to Slack, Teams or a webhook, or opens a ticket. The kit ships no consumers
-   because every team routes alerts differently.
+   because every team routes alerts differently. To route detections differently, filter in the
+   flow on `_alert_priority`, `_category` or `_alert_name`.
 3. Add your own administrators and service accounts to the tuning lookups (below).
 4. To turn off one detection, disable its scheduled search (Automation > Scheduled Searches;
    labels `okta`, `detection` and the group, for example `authentication-sessions`). To turn
-   off a whole group, disable the alert and its scheduled searches.
+   off a whole group, disable the scheduled searches with that group label.
 
 ### Alerts
 
-| Alert | Detections |
+All 49 detections are producers on one alert, **Okta**, and every producer returns the same 16
+fields (below). Each scheduled search carries a group label, and its events carry the group as
+`_category` (or the event type's category):
+
+| Group (scheduled search label) | Detections |
 |---|---|
-| Alert - Okta - Authentication & Sessions | 24 |
-| Alert - Okta - Admin & Configuration Changes | 13 |
-| Alert - Okta - Account & MFA Changes | 5 |
-| Alert - Okta - Threats & Platform | 5 |
-| Alert - Okta - Modification Feed | 1 |
-| Alert - Okta - Kit Health | 1 |
+| Authentication & Sessions (`authentication-sessions`) | 24 |
+| Admin & Configuration Changes (`admin-configuration-changes`) | 13 |
+| Account & MFA Changes (`account-mfa-changes`) | 5 |
+| Threats & Platform (`threats-platform`) | 5 |
+| Modification Feed (`modification-feed`) | 1 |
+| Kit Health (`kit-health`) | 1 |
 
 Every detection runs every 15 minutes over the previous 15 minutes. Start minutes are
 spread across the quarter hour so the searches don't all run at once. Detections that need
@@ -111,12 +86,12 @@ minutes; on a large org, lengthen their schedules if search load matters.
 
 ### Alert events
 
-Each security alert event carries the same fields (in `_alerts`, under `Contents`;
+Every alert event carries the same fields (in `_alerts`, under `Contents`;
 `Metadata` holds the alert and scheduled search that raised it):
 
 | Field | Meaning |
 |---|---|
-| `_alert_title` | `Alert: Okta - System Log - <category> - <subcategory> - <priority> - <detection>` |
+| `_alert_title` | `Alert: Okta - System Log - <category> - <subcategory> - <priority> - <detection>` (Kit Health: category `Kit Health`, subcategory `Target Serialization`, risk 90, no user, IP, target or ATT&CK) |
 | `_alert_priority` | Critical (risk ≥ 90), High (≥ 75), Medium (≥ 55), Low (≥ 40), Informational |
 | `_alert_name` | detection name; the key used by the tuning lookups |
 | `_alert_risk` | risk score, 0-100 |
@@ -210,11 +185,11 @@ column below), so a password spray is never reported below High.
 
 | Detection | Fires on | Priority |
 |---|---|---|
-| Risk-Scored Modification Feed | Every configuration or account change scoring Low (40) or above; at most 50 events per run | Low and above |
+| Risk-Scored Modification Feed | Every configuration or account change scoring Low (40) or above; at most 3 alert events per run | Low and above |
 
 The modification feed is a review queue, not a detection. It overlaps with the Admin &
 Configuration Changes detections and is noisier; if you attach a notification to it, expect
-more volume than from the other alerts, or disable it if you only want detections.
+more volume than from the other detections, or disable it if you only want detections.
 
 #### Kit Health (1)
 
@@ -253,8 +228,8 @@ data that `okta_eventTypes` doesn't know about yet.
   `id, type, alternateId, displayName`, which held for every target in 90 days of
   production data. If Okta ever changes that order, the typed target fields
   (`targetUser*`, `targetAppUser*`, `targetApp*`) come back empty and detections fall back
-  to the first target. The **Kit Health - Target Key Order Changed** alert fires
-  (Critical) as soon as one event in the window doesn't match; report it to the kit
+  to the first target. The **Kit Health - Target Key Order Changed** detection fires on the
+  **Okta** alert (Critical) as soon as one event in the window doesn't match; report it to the kit
   maintainers.
 - **Window and ingest delay.** A detection only sees events whose `published` time falls in
   its 15-minute window at the moment it runs. Events that arrive after the window has been
@@ -275,15 +250,13 @@ instance with the kit installed, and checks that exactly the expected detections
 ## Changelog
 
 - 1.0: Initial release.
-  - 49 detections grouped into 6 alerts (5 security alerts plus Kit Health), each detection a
-    producer on its alert, all enabled at install. Alert events go to `_alerts` with a
-    common field set.
+  - 49 detections, each a producer on a single **Okta** alert with one 16-field schema, all
+    enabled at install. Alert events go to `_alerts`.
   - Detections every 15 minutes; one risk score with per-detection
     minimum priorities; ATT&CK labels; tuning lookups for users, IPs, privileged accounts
     and OAuth scopes.
   - Dashboards: General, Category, Event Type, Actor/Target, Investigation, User,
-    User Authentication overviews (both from hourly pre-computed aggregates in the
-    `okta_user_aggregates` resource, written by the "Okta - User Aggregates" scheduled search), Sign-In Locations
+    User Authentication overviews (both query the user records directly), Sign-In Locations
     (maps and per-country tables) and
     Threat Overview (the alerts raised, plus the signals the statistical detections watch,
     ranked without thresholds); locations from Okta's own geolocation;

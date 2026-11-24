@@ -1,5 +1,11 @@
-dump -r okta_user_aggregates metric=="avg_days_created_to_activated" key value
-| eval n = 0; if (true) { n = value; }
-| stats sum(n) as count
+tag=$OKTA_USERS json id created activated
+| last id
+| time created aTS
+| time activated bTS
+| eval
+    n = 0; days = 0.0;
+    if (has(aTS) && has(bTS)) { n = 1; days = float(unix(bTS) - unix(aTS)) / 86400.0; }
+| stats sum(days) as total sum(n) as users
+| eval count = 0; if (users > 0) { count = math_floor(total / float(users)); }
 | alias count " "
 | numbercard " "

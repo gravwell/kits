@@ -1,6 +1,6 @@
 {
   "Name": "Okta - Admin & Configuration Changes - Okta API Token Created",
-  "Description": "Alert: Alert - Okta - Admin & Configuration Changes\nMITRE ATT&CK: Persistence / T1136\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta API Token Created\" or \"<ip>|Okta API Token Created\"\n\nDetects when a API Token is created.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_api_token_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Description": "Alert: Okta\nGroup: Admin & Configuration Changes\nMITRE ATT&CK: Persistence / T1136\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta API Token Created\" or \"<ip>|Okta API Token Created\"\n\nDetects when a API Token is created.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_api_token_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
   "Labels": [
     "okta",
     "detection",

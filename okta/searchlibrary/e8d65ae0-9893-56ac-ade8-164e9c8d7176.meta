@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - User Timezone [table]",
-	"Description": "Users by the timezone in their Okta profile (profile.timezone). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"Name": "Search - Okta - Users - User Timezone [table]",
+	"Description": "Users by the timezone in their Okta profile (profile.timezone). From the newest record per user in $OKTA_USERS within the time range; the hosted ingester writes a full user dump at least every 24 hours, so use a time range of 24 hours or more.",
 	"GUID": "e8d65ae0-9893-56ac-ade8-164e9c8d7176",
 	"Labels": [
 		"okta"

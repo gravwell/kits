@@ -1,6 +1,6 @@
 {
   "Name": "Okta - Account & MFA Changes - New Okta User Created",
-  "Description": "Alert: Alert - Okta - Account & MFA Changes\nMITRE ATT&CK: Persistence / T1136.003\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|New Okta User Created\" or \"<ip>|New Okta User Created\"\n\nDetects new user account creation.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_created.yml",
+  "Description": "Alert: Okta\nGroup: Account & MFA Changes\nMITRE ATT&CK: Persistence / T1136.003\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|New Okta User Created\" or \"<ip>|New Okta User Created\"\n\nDetects new user account creation.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_user_created/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/okta_user_created.yml",
   "Labels": [
     "okta",
     "detection",

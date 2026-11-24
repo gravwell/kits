@@ -1,7 +1,7 @@
 {
 	"UUID": "2554f31d-5ba4-4cc0-bfdc-7260e1470d26",
 	"Name": "Okta User Overview",
-	"Description": "The Okta user directory: totals, status, user type, and users by division, department, job title and manager. Every tile reads the okta_user_aggregates resource (latest hourly counts, written by the \"Okta - User Aggregates\" scheduled search) with dump -r, so the dashboard loads instantly and does not depend on the time range. A key that no longer occurs keeps its last count.",
+	"Description": "The Okta user directory: totals, status, user type, and users by division, department, job title and manager. Every tile reads $OKTA_USERS directly, counting each user once from their newest record in the time range; the hosted ingester writes a full user dump at least every 24 hours, so keep the time range at 24 hours or more.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Search - Okta - User Aggregates - Total Users [numbercard]",
+				"alias": "Search - Okta - Users - Total Users [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "194e2d03-68a5-5d91-9495-c513ed168800",
@@ -23,7 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Divisions [numbercard]",
+				"alias": "Search - Okta - Users - Divisions [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "4378bc4d-424d-5703-9a15-14803805cdf6",
@@ -34,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Departments [numbercard]",
+				"alias": "Search - Okta - Users - Departments [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "45a5d468-74de-5677-a167-f6f27691df11",
@@ -45,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Job Titles [numbercard]",
+				"alias": "Search - Okta - Users - Job Titles [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "5d125385-566c-5f0f-9cd3-4b85947e19ff",
@@ -56,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - User Types [numbercard]",
+				"alias": "Search - Okta - Users - User Types [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "061ef436-8891-5e5e-8f34-9d32c8f12851",
@@ -67,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Managers [numbercard]",
+				"alias": "Search - Okta - Users - Managers [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "5848b414-e3a1-57e4-839d-06cd872b3e71",
@@ -78,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - User Status [chart]",
+				"alias": "Search - Okta - Users - User Status [chart]",
 				"color": null,
 				"reference": {
 					"id": "ba77cf7f-89e0-5861-bba3-28c0ad05fdaa",
@@ -89,7 +89,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - User Type [chart]",
+				"alias": "Search - Okta - Users - User Type [chart]",
 				"color": null,
 				"reference": {
 					"id": "6fb4f0ae-0fb3-5b66-a310-b78e4e13ad96",
@@ -100,7 +100,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Users by Division [table]",
+				"alias": "Search - Okta - Users - Users by Division [table]",
 				"color": null,
 				"reference": {
 					"id": "02a65df3-7a1d-54d2-bd15-3b22de18df90",
@@ -111,7 +111,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Users by Department [table]",
+				"alias": "Search - Okta - Users - Users by Department [table]",
 				"color": null,
 				"reference": {
 					"id": "46a54ea7-34f2-51d9-add9-04caf6392ce0",
@@ -122,7 +122,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Users by Job Title [table]",
+				"alias": "Search - Okta - Users - Users by Job Title [table]",
 				"color": null,
 				"reference": {
 					"id": "02c627d3-de5f-597d-b411-c6d63893ec8e",
@@ -133,7 +133,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Users by Manager [table]",
+				"alias": "Search - Okta - Users - Users by Manager [table]",
 				"color": null,
 				"reference": {
 					"id": "cbb60b67-5ad8-5f3d-8425-2d81d9b758d9",

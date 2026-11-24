@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - Last Sign-In of Active Users [chart]",
-	"Description": "Active users by time since their last sign-in (lastLogin). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"Name": "Search - Okta - Users - Last Sign-In [chart]",
+	"Description": "Users by time since their last sign-in. Last sign-in is the user's lastLogin in their newest record (full user dump at least every 24 hours), in the categories <24h, 7d, 30d, 90d, > 90d, and never (no lastLogin). Each user is counted once.",
 	"GUID": "44435d15-80dc-5780-85b6-7e17e549c08f",
 	"Labels": [
 		"okta"

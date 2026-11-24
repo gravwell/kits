@@ -1,6 +1,6 @@
 {
   "Name": "Okta - Threats & Platform - Okta Support Access to the Org",
-  "Description": "Alert: Alert - Okta - Threats & Platform\nMITRE ATT&CK: Initial Access / T1199\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Support Access to the Org\" or \"<ip>|Okta Support Access to the Org\"\n\nOkta support personnel accessing or being granted access to the org (support.org.view, support.org.update, user.session.impersonation.grant). Support access is a trusted-relationship path that attackers have abused in past Okta incidents; confirm each access matches an open support case.",
+  "Description": "Alert: Okta\nGroup: Threats & Platform\nMITRE ATT&CK: Initial Access / T1199\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta Support Access to the Org\" or \"<ip>|Okta Support Access to the Org\"\n\nOkta support personnel accessing or being granted access to the org (support.org.view, support.org.update, user.session.impersonation.grant). Support access is a trusted-relationship path that attackers have abused in past Okta incidents; confirm each access matches an open support case.",
   "Labels": [
     "okta",
     "detection",
