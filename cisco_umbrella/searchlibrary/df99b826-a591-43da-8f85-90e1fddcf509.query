@@ -1,0 +1,4 @@
+tag=$UMBRELLA_AUDIT ax email
+| count by email over 10m
+| eval count > 20
+| table -nt email count

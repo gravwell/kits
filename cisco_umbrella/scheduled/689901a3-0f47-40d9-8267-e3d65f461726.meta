@@ -1,0 +1,21 @@
+{
+	"Name": "Umbrella - Request Blocked by Data Loss Prevention",
+	"Description": "Detects requests through the Umbrella proxy that were blocked by a Data Loss Prevention policy, indicating an attempt to move sensitive data to an external destination.",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"proxy",
+		"T1048",
+		"exfiltration"
+	],
+	"Schedule": "3 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "689901a3-0f47-40d9-8267-e3d65f461726",
+	"SearchReference": "078b3e7c-4429-450d-8d58-027aa153d0b9"
+}

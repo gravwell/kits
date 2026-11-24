@@ -1,0 +1,22 @@
+{
+	"Name": "Umbrella - Certificate Error on Proxied Request",
+	"Description": "Detects proxied requests with certificate or protocol errors. Certificate errors can indicate connections to impersonated or compromised infrastructure.",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"proxy",
+		"T1557",
+		"credential-access",
+		"collection"
+	],
+	"Schedule": "10 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "0c62ea6c-0f1d-4617-b4db-dc528db259de",
+	"SearchReference": "ef16ca4b-61ed-4724-9948-4e4447b8c761"
+}

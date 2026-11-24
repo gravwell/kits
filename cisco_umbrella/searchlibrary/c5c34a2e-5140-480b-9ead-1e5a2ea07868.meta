@@ -1,0 +1,14 @@
+{
+	"Name": "Umbrella - Malicious File Detected by AMP",
+	"Description": "Detects files proxied through Umbrella that Cisco Advanced Malware Protection (AMP) file inspection classified as Malicious.",
+	"GUID": "c5c34a2e-5140-480b-9ead-1e5a2ea07868",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"proxy",
+		"T1105",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

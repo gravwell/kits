@@ -1,0 +1,4 @@
+tag=$UMBRELLA_PROXY ax response_size != ""
+| eval bytes = float(response_size);
+| stats sum(bytes) as total_bytes over 1h
+| chart total_bytes

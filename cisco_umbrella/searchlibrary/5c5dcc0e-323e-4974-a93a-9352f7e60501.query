@@ -1,0 +1,3 @@
+tag=$UMBRELLA_PROXY ax destination_ip != ""
+| count by destination_ip
+| chart count by destination_ip limit 10

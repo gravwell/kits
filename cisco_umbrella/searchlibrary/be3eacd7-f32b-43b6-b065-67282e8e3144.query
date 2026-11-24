@@ -1,0 +1,3 @@
+tag=$UMBRELLA_DNS ax action=="Allowed" categories most_granular_identity internal_ip domain
+| eval categories ~ "Malware" || categories ~ "Command and Control" || categories ~ "Phishing"
+| table most_granular_identity internal_ip domain categories

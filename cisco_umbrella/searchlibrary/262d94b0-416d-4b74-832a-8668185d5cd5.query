@@ -1,0 +1,4 @@
+tag=$UMBRELLA_PROXY ax action=="BLOCKED" blocked_categories != ""
+| split -d "," blocked_categories
+| count by blocked_categories
+| chart count by blocked_categories limit 10

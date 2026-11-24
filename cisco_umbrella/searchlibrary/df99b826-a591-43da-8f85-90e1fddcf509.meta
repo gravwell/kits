@@ -1,0 +1,14 @@
+{
+	"Name": "Umbrella - Burst of Admin Changes",
+	"Description": "Detects an administrator making more than 20 configuration changes in a 10 minute window. Rapid bulk changes can indicate scripted tampering with the Umbrella configuration. Adjust the threshold to fit your environment.",
+	"GUID": "df99b826-a591-43da-8f85-90e1fddcf509",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"audit",
+		"T1562",
+		"defense-evasion"
+	],
+	"Metadata": {}
+}

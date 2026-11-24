@@ -1,0 +1,14 @@
+{
+	"Name": "Umbrella - Excessive NXDOMAIN Responses by Identity",
+	"Description": "Detects an identity receiving more than 100 NXDOMAIN responses in a 10 minute window. High NXDOMAIN rates are characteristic of domain generation algorithm (DGA) malware searching for live command and control domains. Adjust the threshold to fit your environment.",
+	"GUID": "7f02a260-c58b-4a3f-ba5f-f2ea36570bb8",
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"detection",
+		"dns",
+		"T1568.002",
+		"command-and-control"
+	],
+	"Metadata": {}
+}

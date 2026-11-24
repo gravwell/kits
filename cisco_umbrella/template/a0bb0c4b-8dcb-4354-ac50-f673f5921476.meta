@@ -1,0 +1,24 @@
+{
+	"UUID": "a0bb0c4b-8dcb-4354-ac50-f673f5921476",
+	"Name": "Umbrella - Investigate Domain",
+	"Description": "DNS activity for a domain - which identities requested it and what action Umbrella took.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%domain%%",
+				"label": "Domain",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "example.com"
+			}
+		]
+	},
+	"Labels": [
+		"umbrella",
+		"cisco umbrella",
+		"dns",
+		"domain",
+		"investigation"
+	]
+}
