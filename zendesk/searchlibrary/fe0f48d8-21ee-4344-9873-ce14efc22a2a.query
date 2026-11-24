@@ -1,0 +1,3 @@
+tag=$ZENDESK_AUDIT ax action
+| count by action over 1h
+| chart count by action

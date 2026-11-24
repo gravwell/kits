@@ -1,0 +1,150 @@
+{
+	"UUID": "f33a3197-bbc8-4e9a-aea4-b892f69d5177",
+	"Name": "Zendesk - Audit Overview",
+	"Description": "High-level view of Zendesk audit activity: event volume over time by action, action and source type distribution, top actors, and recent audit events.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Zendesk - Audit Events Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "fe0f48d8-21ee-4344-9873-ce14efc22a2a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - Audit Events by Action [Chart]",
+				"color": null,
+				"reference": {
+					"id": "f8e9e68b-e899-43ee-b074-87c388c124b3",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - Events by Source Type [Chart]",
+				"color": null,
+				"reference": {
+					"id": "2e543f80-db97-436f-85cf-b69150f583e9",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - Top Actors [Chart]",
+				"color": null,
+				"reference": {
+					"id": "b6448585-d5a7-47ac-920e-893bcbb4a4bc",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Zendesk - Recent Audit Events",
+				"color": null,
+				"reference": {
+					"id": "a3103137-52dc-4877-afea-4069142c0910",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17810000000100,
+				"title": "Audit Events Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000101,
+				"title": "Events by Action",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000102,
+				"title": "Events by Source Type",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 4,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000103,
+				"title": "Top Actors",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 4,
+					"row": 3,
+					"x": 8,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17810000000104,
+				"title": "Recent Audit Events",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 4,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"zendesk",
+		"audit"
+	]
+}

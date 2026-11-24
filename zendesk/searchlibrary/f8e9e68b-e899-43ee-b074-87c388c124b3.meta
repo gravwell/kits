@@ -1,0 +1,11 @@
+{
+	"Name": "Zendesk - Audit Events by Action [Chart]",
+	"Description": "Distribution of Zendesk audit events by action type (create, update, destroy, login, exported).",
+	"GUID": "f8e9e68b-e899-43ee-b074-87c388c124b3",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

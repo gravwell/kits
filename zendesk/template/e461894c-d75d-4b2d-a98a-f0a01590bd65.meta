@@ -1,0 +1,23 @@
+{
+	"UUID": "e461894c-d75d-4b2d-a98a-f0a01590bd65",
+	"Name": "Zendesk - Investigate IP Address",
+	"Description": "Audit activity originating from an IP address - which actors made changes from this address and what did they change?",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%ip_address%%",
+				"label": "IP Address",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "203.0.113.10"
+			}
+		]
+	},
+	"Labels": [
+		"zendesk",
+		"audit",
+		"ip",
+		"investigation"
+	]
+}

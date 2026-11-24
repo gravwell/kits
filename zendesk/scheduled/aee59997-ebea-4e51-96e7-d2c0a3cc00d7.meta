@@ -1,0 +1,20 @@
+{
+	"Name": "Zendesk - Marketplace App Change",
+	"Description": "Detects installation, modification, or removal of Zendesk Marketplace apps. Malicious or over-privileged apps can access ticket data and act as a persistence mechanism; removal of a security-relevant app is also worth reviewing.",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"detection",
+		"T1176",
+		"persistence"
+	],
+	"Schedule": "35 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "aee59997-ebea-4e51-96e7-d2c0a3cc00d7",
+	"SearchReference": "41df5ae4-e18d-4533-b9d5-78e6b045d0e3"
+}

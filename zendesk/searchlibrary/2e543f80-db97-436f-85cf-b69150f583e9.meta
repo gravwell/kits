@@ -1,0 +1,11 @@
+{
+	"Name": "Zendesk - Events by Source Type [Chart]",
+	"Description": "Distribution of Zendesk audit events by the type of item that was changed (user, rule, apitoken, ticket, app, and so on).",
+	"GUID": "2e543f80-db97-436f-85cf-b69150f583e9",
+	"Labels": [
+		"zendesk",
+		"audit",
+		"stats"
+	],
+	"Metadata": {}
+}

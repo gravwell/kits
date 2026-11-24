@@ -1,0 +1,4 @@
+tag=$ZENDESK_AUDIT ax action != "login" actor_name
+| count by actor_name over 10m
+| eval count > 30
+| table -nt actor_name count

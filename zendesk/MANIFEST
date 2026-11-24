@@ -1,0 +1,248 @@
+{
+	"ID": "io.gravwell.zendesk",
+	"Name": "Zendesk",
+	"Desc": "Provides tools, utilities, and detections to enable use of Zendesk audit logs.",
+	"Readme": "This kit is designed to provide an out-of-the-box experience for working with Zendesk audit logs.\n\nThe Zendesk audit log records changes made to your Zendesk account: who made each change, what was changed, the action taken, and the source IP address. Audit log access requires a Zendesk Enterprise plan (or the relevant add-on).\n\nThis kit expects Zendesk audit log entries to be ingested as individual JSON objects into the `zendesk-audit` tag, pulled from the [Zendesk Audit Logs API](https://developer.zendesk.com/api-reference/ticketing/account-configuration/audit_logs/).\n\nThis kit provides the following utilities:\n\n- Queries\n    - Detections\n    - Stats\n- Scheduled Searches\n- Dashboards\n- Actionables\n- Templates\n- Macros\n- Autoextractors\n\nRefer to the Kit Overview playbook for more detail on these components.\n\n**Note:** If your tag differs from the default, update both the kit's configuration macro *and* the `Tag` binding on the `zendesk-audit` autoextractor (Extractors page). The kit's queries reference fields through the autoextractor, so if it is not bound to your tag, no fields will be extracted and the queries will return empty results.\n\n## Version History\n**V1: Initial Release**\n",
+	"Version": 1,
+	"MinVersion": {
+		"Major": 5,
+		"Minor": 4,
+		"Point": 0
+	},
+	"MaxVersion": {
+		"Major": 5,
+		"Minor": 99,
+		"Point": 99
+	},
+	"Icon": "21a732b6-b0a3-4b81-b1cc-207b541f08ff",
+	"Banner": "8e9d3ce3-b729-4bb0-b035-21307531f447",
+	"Cover": "da0199a9-69de-4296-9f06-c1acd6f3ecbd",
+	"Items": [
+		{
+			"Name": "BSD 2-Clause",
+			"Type": 10,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "d1ca4d27-03fc-4a8e-a292-4bdc78154877",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "88acccba-c7f1-420f-a946-f8012138a604",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "17d57ea9-7815-495c-8aa8-489000cfd817",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c3b8f367-865e-40eb-9cb5-f61e90321dd3",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c46f4a29-a607-4ea0-9360-7bf7522785e4",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "aee59997-ebea-4e51-96e7-d2c0a3cc00d7",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a64b8372-80f7-480b-a8f9-949b50882622",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "9caa2fe0-0195-4060-a2ab-94753617070a",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "24776f93-110b-4be1-b6b3-9128b909315a",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "bf385ba7-a70f-4652-aab5-4224e06708c5",
+			"Type": 2,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "ZENDESK_AUDIT",
+			"Type": 8,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f33a3197-bbc8-4e9a-aea4-b892f69d5177",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b984a0d8-9b5a-4524-a893-f04c6872ca4f",
+			"Type": 3,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "2767a7b6-68b0-4eb7-87a7-0cb49f0a16e8",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e461894c-d75d-4b2d-a98a-f0a01590bd65",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "961e3ee1-52e9-4b9c-bb7b-ee477715084a",
+			"Type": 6,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "92fda29e-c112-4545-9219-8db5c653052c",
+			"Type": 5,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fe0f48d8-21ee-4344-9873-ce14efc22a2a",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "f8e9e68b-e899-43ee-b074-87c388c124b3",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "b6448585-d5a7-47ac-920e-893bcbb4a4bc",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "2e543f80-db97-436f-85cf-b69150f583e9",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "4094cb5e-4e86-4449-874e-86efaa9b4d7d",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c63c48c6-e048-42e8-856f-7f783f867f25",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "c0851e13-22a9-4a8c-b558-939fc56c0d09",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "7e438beb-c4c6-40f0-a794-770121c22965",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "a3103137-52dc-4877-afea-4069142c0910",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "e14f377d-8486-4f61-8001-aa36dcbbbd74",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "979a3f5c-465d-4b53-b750-b46a7b993bf8",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "db369e9b-4ef2-43f8-9ddf-5e8eba5fb34f",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "340f28f0-bce2-4bac-85c6-a7c53033d954",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "35fb8dde-5a65-439e-97bf-ea23c86dd936",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "41df5ae4-e18d-4533-b9d5-78e6b045d0e3",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "342cd6e6-d16d-42ec-9645-a3bfcd07e304",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "76ade016-9bd6-4303-a721-198fbaf3a437",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "5067c4ad-7f56-4eca-a528-ce2d96d4c7c1",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "315bb558-6382-41de-8e3f-d75c36c41629",
+			"Type": 9,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "21a732b6-b0a3-4b81-b1cc-207b541f08ff",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "8e9d3ce3-b729-4bb0-b035-21307531f447",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "da0199a9-69de-4296-9f06-c1acd6f3ecbd",
+			"Type": 7,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "84a7ee9d-eec6-4eaf-8d3b-e0906341caef",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "fe34f7e2-e385-4aa1-9177-2ace04ef01a4",
+			"Type": 11,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		},
+		{
+			"Name": "zendesk-audit",
+			"Type": 4,
+			"Hash": "0000000000000000000000000000000000000000000000000000000000000000"
+		}
+	],
+	"Dependencies": null,
+	"ConfigMacros": [
+		{
+			"MacroName": "ZENDESK_AUDIT",
+			"Description": "Configuration Macro: Tag for Zendesk audit logs",
+			"DefaultValue": "zendesk-audit",
+			"Value": "",
+			"Type": "TAG",
+			"InstalledByID": ""
+		}
+	]
+}

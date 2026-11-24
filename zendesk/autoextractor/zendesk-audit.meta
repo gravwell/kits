@@ -1,0 +1,15 @@
+{
+	"Name": "zendesk-audit",
+	"Desc": "JSON field extraction for Zendesk audit logs",
+	"Module": "json",
+	"Tag": "zendesk-audit",
+	"Tags": null,
+	"Labels": [
+		"zendesk"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "bfe43c7e-99dc-452c-a32a-1e70c262afe7",
+	"LastUpdated": "2026-08-08T12:00:00.000000000-06:00"
+}

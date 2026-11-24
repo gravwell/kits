@@ -1,0 +1,2 @@
+tag=$ZENDESK_AUDIT ax source_type=="zendesk/app_market/app" actor_name action source_label change_description ip_address
+| table actor_name action source_label change_description ip_address
