@@ -1,5 +1,7 @@
-dump -r okta_user_aggregates metric=="timezone" key value
-| stats sum(value) as users by key
+tag=$OKTA_USERS json id profile.timezone as key
+| last id
+| eval if (!has(key) || key == "" || key == "null") { key = "(none)"; }
+| stats count as users by key
 | sort by users desc
 | alias key timezone
 | table timezone users

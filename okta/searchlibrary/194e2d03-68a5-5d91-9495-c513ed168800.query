@@ -1,4 +1,4 @@
-dump -r okta_user_aggregates metric=="status" key value
-| stats sum(value) as count
+tag=$OKTA_USERS json id
+| stats unique_count(id) as count
 | alias count " "
 | numbercard " "

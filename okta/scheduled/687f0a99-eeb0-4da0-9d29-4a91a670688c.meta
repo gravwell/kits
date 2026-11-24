@@ -1,9 +1,9 @@
 {
   "Name": "Okta - Kit Health - Target Key Order Changed",
-  "Description": "Alert: Alert - Okta - Kit Health\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\n\nKit health check. The Okta kit extracts targets by type instead of splitting the target array, which relies on Okta serializing every target object as {\"id\",\"type\",\"alternateId\",\"displayName\",...}. This check returns one row per eventType when any target object does not have that shape (including names that contain escaped quotes). It should always be empty. When it fires, typed target fields are empty for the affected events and detections fall back to the first target.\n\nWhat to do: report it to the Okta kit maintainers with the eventType(s) shown. See the kit README, section Known assumptions.",
+  "Description": "Alert: Okta\nGroup: Kit Health\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\n\nKit health check. The Okta kit extracts targets by type instead of splitting the target array, which relies on Okta serializing every target object as {\"id\",\"type\",\"alternateId\",\"displayName\",...}. This check returns one row per eventType when any target object does not have that shape (including names that contain escaped quotes). It should always be empty. When it fires, typed target fields are empty for the affected events and detections fall back to the first target.\n\nWhat to do: report it to the Okta kit maintainers with the eventType(s) shown. See the kit README, section Known assumptions.",
   "Labels": [
     "okta",
-    "kit-health",
+    "detection",
     "kit-health"
   ],
   "Schedule": "9,24,39,54 * * * *",

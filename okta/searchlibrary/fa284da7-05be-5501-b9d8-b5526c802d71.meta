@@ -1,6 +1,6 @@
 {
   "Name": "Okta - Account & MFA Changes - Okta MFA Reset or Deactivated",
-  "Description": "Alert: Alert - Okta - Account & MFA Changes\nMITRE ATT&CK: Persistence / T1556.006\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta MFA Reset or Deactivated\" or \"<ip>|Okta MFA Reset or Deactivated\"\n\nDetects when an attempt at deactivating  or resetting MFA.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_mfa_reset_or_deactivated/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Description": "Alert: Okta\nGroup: Account & MFA Changes\nMITRE ATT&CK: Persistence / T1556.006\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta MFA Reset or Deactivated\" or \"<ip>|Okta MFA Reset or Deactivated\"\n\nDetects when an attempt at deactivating  or resetting MFA.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_mfa_reset_or_deactivated/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
   "GUID": "fa284da7-05be-5501-b9d8-b5526c802d71",
   "Labels": [
     "okta",

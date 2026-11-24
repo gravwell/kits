@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - Password Age of Active Users over Time [chart]",
-	"Description": "Active users by password age, over time. From the okta_user_aggregates resource (one point per hourly run, never pruned, written by the scheduled search \"Okta - User Aggregates\"), averaged per time bucket.",
+	"Name": "Search - Okta - Users - Password Age of Active Users over Time [chart]",
+	"Description": "Active users by password age, over time: each user dump counted at its own time, age measured from the dump time. From the newest record per user in $OKTA_USERS within the time range; the hosted ingester writes a full user dump at least every 24 hours, so use a time range of 24 hours or more.",
 	"GUID": "eb97ad87-e8c2-5327-ba66-f16d50621c86",
 	"Labels": [
 		"okta"

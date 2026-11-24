@@ -1,5 +1,12 @@
-dump -r okta_user_aggregates metric=="password_age" key value
-| eval n = 0; if (key == "91-365 days" || key == "over 1 year" || key == "never set") { n = value; }
+tag=$OKTA_USERS json id status passwordChanged
+| last id
+| time passwordChanged pcTS
+| eval
+    n = 0;
+    if (status == "ACTIVE") {
+        if (!has(pcTS)) { n = 1; }
+        else if ((unix(NOW) - unix(pcTS)) / 86400 > 90) { n = 1; }
+    }
 | stats sum(n) as count
 | alias count " "
 | numbercard " "

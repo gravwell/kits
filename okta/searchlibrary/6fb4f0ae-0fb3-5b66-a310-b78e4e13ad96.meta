@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - User Type [chart]",
-	"Description": "Users by user type (profile.userType, or the user type id). From the okta_user_aggregates resource (latest hourly counts, written by the scheduled search \"Okta - User Aggregates\"; a key that no longer occurs keeps its last count); not affected by the time range.",
+	"Name": "Search - Okta - Users - User Type [chart]",
+	"Description": "Users by user type (profile.userType, or the user type id). From the newest record per user in $OKTA_USERS within the time range; the hosted ingester writes a full user dump at least every 24 hours, so use a time range of 24 hours or more.",
 	"GUID": "6fb4f0ae-0fb3-5b66-a310-b78e4e13ad96",
 	"Labels": [
 		"okta"

@@ -5,71 +5,79 @@
 		"Share": true
 	},
 	"Consumers": [],
-	"Description": "Sign-in, session and MFA attacks against Okta users: risky or anomalous sign-ins, sessions from several countries, MFA push bombing, Admin Console access with new behaviors, phishing-resistant authenticator declines, impersonation, third-party IdP failures and unauthorized app access. Usually routed to the SOC / on-call queue.\n\nNo consumers are attached. Next step after install: add a consumer flow to this alert (email, Slack, Teams, webhook, Jira, ...) to route it where your team works. Alert events are also written to the shared _alerts tag (Contents._vendor is Okta), so you can search them without a consumer. Each producer is a scheduled search; disable a producer to turn off one detection without turning off the alert.",
+	"Description": "Every Okta kit detection: one alert with 49 producers (scheduled searches), one per detection, all with the same 16 fields (_alert_title, _alert_priority, _alert_name, _alert_risk, _vendor, _product, _category, _subcategory, user, src_ip, target, eventType, _mitre_tactic, _mitre_technique, context, published).\n\nGroups (label on each scheduled search; _category in the event): authentication-sessions (24), admin-configuration-changes (13), account-mfa-changes (5), threats-platform (5), modification-feed (1: a high-volume, risk-scored audit stream of configuration and account changes) and kit-health (1: Target Key Order Changed, Critical, _category Kit Health).\n\nNo consumers are attached. Next step after install: add a consumer flow (email, Slack, Teams, webhook, Jira, ...); filter on Contents._alert_priority, _category or _alert_name in the flow if different detections go to different places. Alert events are also written to the shared _alerts tag (Contents._vendor is Okta), so you can search them without a consumer. Disable a producer to turn off one detection. Each producer run raises at most 3 alert events. The search behind each alert event is kept for 7 days.",
 	"Disabled": false,
 	"Dispatchers": [
 		{
-			"ID": "0a973182-2d42-51be-b9b2-adb941952536",
+			"ID": "ed2321b8-7d04-596f-b6f4-da8636867806",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "11b6dc2c-977e-5351-a640-2b2a7d725e85",
+			"ID": "f4526173-b718-5e8e-b1fe-41c445de3836",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "1b8426d2-72c7-5b57-ad6f-b33bacce6e4f",
+			"ID": "618bfca6-2df2-5dd2-be0b-d4a97df1a0ad",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "28beeeeb-cad1-5cf7-a131-7644ef41d188",
+			"ID": "6b0692b8-7727-59fe-b105-d47930ef8e8d",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "3a3ec380-5c28-5466-8434-39655c24d876",
+			"ID": "a4b57de8-9995-586f-a122-ae3ade731c8a",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "3ec32acc-6f49-554e-b59c-7e94ddfd4e63",
+			"ID": "269af09f-0b4b-5cbd-95f3-83e046d4838e",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "4485470b-c96a-5825-97ac-d0dc392dc351",
+			"ID": "910c7cf8-0542-5f4e-8646-076f78a09f1e",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "605cbb11-2eb7-5e7a-a454-4208330bab2c",
+			"ID": "ba532e9d-4bea-5c74-8d4d-ed662b02d680",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "6c9fc6ad-ee68-5942-922a-260199a606be",
+			"ID": "35276948-1bee-407f-91bf-616dad0e7435",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "738f0f31-1382-54e8-87b0-a88ad7c360b8",
+			"ID": "f608c676-8fd9-51f8-b623-1b83a03f566c",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "77c3c0c5-6fb7-59d9-be6c-9ae432952ebe",
+			"ID": "9b1e5189-7b29-544c-ad9c-aff08c1900b0",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "797c8fd8-9f11-50fc-b5e6-ca3c9f01e2c4",
+			"ID": "d97f572a-a054-59c4-a4df-c3ddcbc58804",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "7dfa9fd9-7aca-5998-ba0a-7f3ca69de97a",
+			"ID": "29b927c1-1d37-56d4-8df4-91a1506d8aef",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "85d5985f-5919-529e-9c75-cca224da0a87",
+			"ID": "76a6f6ea-4420-4ba4-ac4e-d823c59b4127",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "98e3ea52-80d6-5ea2-85e9-210abbe575b6",
+			"ID": "55e5c2ad-3cf4-5892-a651-7d61360275b1",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "ac9da7ee-2886-423f-a63b-e62502fcdd0a",
+			"ID": "fe106d5e-b62b-52a8-9dc6-7fc34038a769",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "4b726baf-aef7-4bbb-ad63-334c6b8e4339",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "30ca20ae-f363-5250-a819-5dfa1ad403cd",
 			"Type": "scheduledsearch"
 		},
 		{
@@ -77,7 +85,83 @@
 			"Type": "scheduledsearch"
 		},
 		{
+			"ID": "85d5985f-5919-529e-9c75-cca224da0a87",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "4485470b-c96a-5825-97ac-d0dc392dc351",
+			"Type": "scheduledsearch"
+		},
+		{
 			"ID": "cb966bea-0abb-4e5b-b08a-1bff66ee2ef1",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "0a973182-2d42-51be-b9b2-adb941952536",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "738f0f31-1382-54e8-87b0-a88ad7c360b8",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "28beeeeb-cad1-5cf7-a131-7644ef41d188",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "3ec32acc-6f49-554e-b59c-7e94ddfd4e63",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "6c9fc6ad-ee68-5942-922a-260199a606be",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e1cfb6ee-6445-428e-a86d-6ff8c8dc73a4",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "7dfa9fd9-7aca-5998-ba0a-7f3ca69de97a",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "98e3ea52-80d6-5ea2-85e9-210abbe575b6",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "11b6dc2c-977e-5351-a640-2b2a7d725e85",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "fd31dc01-e956-5edc-9f2b-9f3508c5fdca",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "1b8426d2-72c7-5b57-ad6f-b33bacce6e4f",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "ac9da7ee-2886-423f-a63b-e62502fcdd0a",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "e65998cf-d4c7-56c6-a80f-5b9b7c483539",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "77c3c0c5-6fb7-59d9-be6c-9ae432952ebe",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "dfd0f580-d637-5498-bae8-653993143e57",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "605cbb11-2eb7-5e7a-a454-4208330bab2c",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "797c8fd8-9f11-50fc-b5e6-ca3c9f01e2c4",
 			"Type": "scheduledsearch"
 		},
 		{
@@ -89,19 +173,35 @@
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "dfd0f580-d637-5498-bae8-653993143e57",
+			"ID": "3a3ec380-5c28-5466-8434-39655c24d876",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "e1cfb6ee-6445-428e-a86d-6ff8c8dc73a4",
+			"ID": "687f0a99-eeb0-4da0-9d29-4a91a670688c",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "e65998cf-d4c7-56c6-a80f-5b9b7c483539",
+			"ID": "bd52363c-e32f-4b4d-ad66-046037147f31",
 			"Type": "scheduledsearch"
 		},
 		{
-			"ID": "fd31dc01-e956-5edc-9f2b-9f3508c5fdca",
+			"ID": "a9410227-691c-485d-ba28-53935978d043",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "a7898ef1-ef8b-5e5f-a5fd-5231a8a40242",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "9e889cb6-bc87-41c8-9a3e-484e326c78f6",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "1f3d0871-a20a-52de-bd70-9c5b3ea4905f",
+			"Type": "scheduledsearch"
+		},
+		{
+			"ID": "1b3820e2-c313-5c16-b893-ff7b8b307e20",
 			"Type": "scheduledsearch"
 		}
 	],
@@ -111,14 +211,13 @@
 	"IngestBlocked": false,
 	"Labels": [
 		"okta",
-		"alert",
-		"authentication-sessions"
+		"alert"
 	],
 	"LastUpdated": "2026-11-21T00:00:00Z",
-	"MaxEvents": 16,
-	"Name": "Alert - Okta - Authentication & Sessions",
+	"MaxEvents": 3,
+	"Name": "Okta",
 	"SaveSearchDuration": 604800,
-	"SaveSearchEnabled": false,
+	"SaveSearchEnabled": true,
 	"Schemas": {
 		"Simple": [
 			{

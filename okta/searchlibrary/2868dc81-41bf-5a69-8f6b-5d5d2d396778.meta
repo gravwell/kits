@@ -1,6 +1,6 @@
 {
   "Name": "Okta - Authentication & Sessions - Okta FastPass Phishing Detection",
-  "Description": "Alert: Alert - Okta - Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1566\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta FastPass Phishing Detection\" or \"<ip>|Okta FastPass Phishing Detection\"\n\nDetects when Okta FastPass prevents a known phishing site.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_fastpass_phishing_detection/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Description": "Alert: Okta\nGroup: Authentication & Sessions\nMITRE ATT&CK: Initial Access / T1566\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta FastPass Phishing Detection\" or \"<ip>|Okta FastPass Phishing Detection\"\n\nDetects when Okta FastPass prevents a known phishing site.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_fastpass_phishing_detection/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
   "GUID": "2868dc81-41bf-5a69-8f6b-5d5d2d396778",
   "Labels": [
     "okta",

@@ -1,6 +1,6 @@
 {
-	"Name": "Search - Okta - User Aggregates - Last Sign-In of Active Users over Time [chart]",
-	"Description": "Active users by time since their last sign-in (newest successful user.session.start in the okta System Log), over time. From the okta_user_aggregates resource (one point per hourly run, never pruned, written by the scheduled search \"Okta - User Aggregates\"), averaged per time bucket.",
+	"Name": "Search - Okta - Users - Last Sign-In over Time [chart]",
+	"Description": "Users by time since their last sign-in, over time: each user dump counted at its own time, age measured from the dump time. Last sign-in is the user's lastLogin in their newest record (full user dump at least every 24 hours), in the categories <24h, 7d, 30d, 90d, > 90d, and never (no lastLogin).",
 	"GUID": "00850f5c-9eee-597b-9747-8ff911f88380",
 	"Labels": [
 		"okta"

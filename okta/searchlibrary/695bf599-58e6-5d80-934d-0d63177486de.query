@@ -1,5 +1,10 @@
-dump -r okta_user_aggregates metric=="avg_password_age_days" key value
-| eval n = 0; if (true) { n = value; }
-| stats sum(n) as count
+tag=$OKTA_USERS json id status passwordChanged
+| last id
+| time passwordChanged pcTS
+| eval
+    n = 0; days = 0.0;
+    if (status == "ACTIVE" && has(pcTS)) { n = 1; days = float(unix(NOW) - unix(pcTS)) / 86400.0; }
+| stats sum(days) as total sum(n) as users
+| eval count = 0; if (users > 0) { count = math_floor(total / float(users)); }
 | alias count " "
 | numbercard " "

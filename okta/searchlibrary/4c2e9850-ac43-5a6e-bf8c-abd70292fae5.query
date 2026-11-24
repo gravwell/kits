@@ -1,3 +1,5 @@
-dump -r okta_user_aggregates metric=="provider_name" key value
-| stats sum(value) as users by key
+tag=$OKTA_USERS json id credentials.provider.name as key
+| last id
+| eval if (!has(key) || key == "" || key == "null") { key = "(none)"; }
+| stats count as users by key
 | chart users by key

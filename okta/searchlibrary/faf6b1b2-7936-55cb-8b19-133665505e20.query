@@ -1,5 +1,6 @@
-dump -r okta_user_aggregates metric=="status" key value
-| eval n = 0; if (key == "ACTIVE") { n = value; }
+tag=$OKTA_USERS json id status
+| last id
+| eval n = 0; if (status == "ACTIVE") { n = 1; }
 | stats sum(n) as count
 | alias count " "
 | numbercard " "

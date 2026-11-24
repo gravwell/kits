@@ -1,7 +1,7 @@
 {
 	"UUID": "c37615f7-f700-4600-aaf0-4ad47b524d99",
 	"Name": "Okta User Authentication Overview",
-	"Description": "Okta user hygiene: active users, users who never signed in or have not in 90 days, password age, onboarding time and credential providers. Every tile except the user table reads the okta_user_aggregates resource (written hourly by the \"Okta - User Aggregates\" scheduled search) with dump -r, so the dashboard loads instantly; the two over-time charts follow the time range (one point per hourly run since install), the other figures are the latest counts; the table lists active users from the newest record per user.",
+	"Description": "Okta user hygiene: active users, last sign-in, users who have not signed in for 90 days, password age, onboarding time and credential providers. Every tile reads $OKTA_USERS directly, counting each user once from their newest record in the time range (the over-time charts count every user dump at its own time); the hosted ingester writes a full user dump at least every 24 hours, so keep the time range at 24 hours or more.",
 	"Data": {
 		"timeframe": {
 			"durationString": null,
@@ -12,7 +12,7 @@
 		},
 		"searches": [
 			{
-				"alias": "Search - Okta - User Aggregates - Active Users [numbercard]",
+				"alias": "Search - Okta - Users - Active Users [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "faf6b1b2-7936-55cb-8b19-133665505e20",
@@ -23,18 +23,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Active Users Never Signed In [numbercard]",
-				"color": null,
-				"reference": {
-					"id": "05bc0f05-1d85-5402-9015-83bad0e7f1d0",
-					"type": "savedQuery",
-					"extras": {
-						"defaultValue": null
-					}
-				}
-			},
-			{
-				"alias": "Search - Okta - User Aggregates - Active Users Without Sign-In for 90 Days [numbercard]",
+				"alias": "Search - Okta - Users - Users Without Sign-In for 90 Days [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "6e68de93-3c74-5065-8e72-265e881c7825",
@@ -45,7 +34,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Active Users with Password Older Than 90 Days [numbercard]",
+				"alias": "Search - Okta - Users - Active Users with Password Older Than 90 Days [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "c45e5760-99af-5b29-b91f-b66d8a2df9ef",
@@ -56,7 +45,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Average Password Age [numbercard]",
+				"alias": "Search - Okta - Users - Average Password Age [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "695bf599-58e6-5d80-934d-0d63177486de",
@@ -67,7 +56,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Average Days from Created to Activated [numbercard]",
+				"alias": "Search - Okta - Users - Average Days from Created to Activated [numbercard]",
 				"color": null,
 				"reference": {
 					"id": "65a15245-bd8a-5858-bb5d-32c3d583bbe7",
@@ -78,7 +67,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Last Sign-In of Active Users [chart]",
+				"alias": "Search - Okta - Users - Last Sign-In [chart]",
 				"color": null,
 				"reference": {
 					"id": "44435d15-80dc-5780-85b6-7e17e549c08f",
@@ -89,7 +78,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Password Age of Active Users [chart]",
+				"alias": "Search - Okta - Users - Password Age of Active Users [chart]",
 				"color": null,
 				"reference": {
 					"id": "4155560f-1027-5913-9521-634ee72b20a0",
@@ -100,7 +89,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Last Sign-In of Active Users over Time [chart]",
+				"alias": "Search - Okta - Users - Last Sign-In over Time [chart]",
 				"color": null,
 				"reference": {
 					"id": "00850f5c-9eee-597b-9747-8ff911f88380",
@@ -111,7 +100,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Password Age of Active Users over Time [chart]",
+				"alias": "Search - Okta - Users - Password Age of Active Users over Time [chart]",
 				"color": null,
 				"reference": {
 					"id": "eb97ad87-e8c2-5327-ba66-f16d50621c86",
@@ -122,7 +111,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Credential Provider Types [chart]",
+				"alias": "Search - Okta - Users - Credential Provider Types [chart]",
 				"color": null,
 				"reference": {
 					"id": "afd060fb-613f-54e7-84b4-5c489c0402be",
@@ -133,7 +122,7 @@
 				}
 			},
 			{
-				"alias": "Search - Okta - User Aggregates - Credential Provider Names [chart]",
+				"alias": "Search - Okta - Users - Credential Provider Names [chart]",
 				"color": null,
 				"reference": {
 					"id": "4c2e9850-ac43-5a6e-bf8c-abd70292fae5",
@@ -162,7 +151,7 @@
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 3,
+					"col": 4,
 					"row": 3,
 					"x": 0,
 					"y": 0
@@ -171,32 +160,18 @@
 				"searchesIndex": 0
 			},
 			{
-				"id": 17639000000002,
-				"title": "Never Signed In",
-				"renderer": "numberCard",
-				"hideZoom": true,
-				"span": {
-					"col": 3,
-					"row": 3,
-					"x": 3,
-					"y": 0
-				},
-				"rendererOptions": {},
-				"searchesIndex": 1
-			},
-			{
 				"id": 17639000000003,
 				"title": "No Sign-In for 90+ Days",
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 3,
+					"col": 4,
 					"row": 3,
-					"x": 6,
+					"x": 4,
 					"y": 0
 				},
 				"rendererOptions": {},
-				"searchesIndex": 2
+				"searchesIndex": 1
 			},
 			{
 				"id": 17639000000004,
@@ -204,13 +179,13 @@
 				"renderer": "numberCard",
 				"hideZoom": true,
 				"span": {
-					"col": 3,
+					"col": 4,
 					"row": 3,
-					"x": 9,
+					"x": 8,
 					"y": 0
 				},
 				"rendererOptions": {},
-				"searchesIndex": 3
+				"searchesIndex": 2
 			},
 			{
 				"id": 17639000000005,
@@ -224,7 +199,7 @@
 					"y": 3
 				},
 				"rendererOptions": {},
-				"searchesIndex": 4
+				"searchesIndex": 3
 			},
 			{
 				"id": 17639000000006,
@@ -238,11 +213,11 @@
 					"y": 3
 				},
 				"rendererOptions": {},
-				"searchesIndex": 5
+				"searchesIndex": 4
 			},
 			{
 				"id": 17639000000007,
-				"title": "Last Sign-In (active users)",
+				"title": "Last Sign-In",
 				"renderer": "donutChart",
 				"hideZoom": true,
 				"span": {
@@ -255,7 +230,7 @@
 					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				},
-				"searchesIndex": 6
+				"searchesIndex": 5
 			},
 			{
 				"id": 17639000000008,
@@ -272,7 +247,7 @@
 					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				},
-				"searchesIndex": 7
+				"searchesIndex": 6
 			},
 			{
 				"id": 17639000000009,
@@ -286,7 +261,7 @@
 					"y": 12
 				},
 				"rendererOptions": {},
-				"searchesIndex": 8
+				"searchesIndex": 7
 			},
 			{
 				"id": 17639000000010,
@@ -300,7 +275,7 @@
 					"y": 12
 				},
 				"rendererOptions": {},
-				"searchesIndex": 9
+				"searchesIndex": 8
 			},
 			{
 				"id": 17639000000011,
@@ -317,7 +292,7 @@
 					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				},
-				"searchesIndex": 10
+				"searchesIndex": 9
 			},
 			{
 				"id": 17639000000012,
@@ -334,7 +309,7 @@
 					"IncludeOther": "no",
 					"SortCategoricalAxisBy": "value"
 				},
-				"searchesIndex": 11
+				"searchesIndex": 10
 			},
 			{
 				"id": 17639000000013,
@@ -348,7 +323,7 @@
 					"y": 23
 				},
 				"rendererOptions": {},
-				"searchesIndex": 12
+				"searchesIndex": 11
 			}
 		],
 		"linkZooming": false,

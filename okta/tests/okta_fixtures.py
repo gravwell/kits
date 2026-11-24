@@ -472,7 +472,7 @@ def detections():
         ref = meta.get('SearchReference')
         if not ref:
             continue
-        # never run a query that writes a resource (the user aggregates builder ends in `table -save`)
+        # never run a query that writes a resource (`table -save`)
         if re.search(r'\btable\s+-save\b', open(os.path.join(KIT, 'searchlibrary', ref + '.query')).read()):
             continue
         name = json.load(open(os.path.join(KIT, 'searchlibrary', ref + '.meta')))['Name']

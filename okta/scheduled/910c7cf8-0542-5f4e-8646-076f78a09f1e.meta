@@ -1,6 +1,6 @@
 {
   "Name": "Okta - Admin & Configuration Changes - Okta API Token Revoked",
-  "Description": "Alert: Alert - Okta - Admin & Configuration Changes\nMITRE ATT&CK: Impact / T1531\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta API Token Revoked\" or \"<ip>|Okta API Token Revoked\"\n\nDetects when a API Token is revoked.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_api_token_revoked/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
+  "Description": "Alert: Okta\nGroup: Admin & Configuration Changes\nMITRE ATT&CK: Impact / T1531\nSchedule: every 15 minutes over the previous 15 minutes (edit the scheduled search to change it)\nTuning: okta_user_allowlist / okta_ip_allowlist keys \"<login without domain>|Okta API Token Revoked\" or \"<ip>|Okta API Token Revoked\"\n\nDetects when a API Token is revoked.\n\nReference(s):\n- https://detection.fyi/sigmahq/sigma/identity/okta/okta_api_token_revoked/\n- https://github.com/SigmaHQ/sigma/blob/master/rules/identity/okta/?query=okta.yml",
   "Labels": [
     "okta",
     "detection",

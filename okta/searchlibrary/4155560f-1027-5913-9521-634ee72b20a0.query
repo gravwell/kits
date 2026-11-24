@@ -1,3 +1,18 @@
-dump -r okta_user_aggregates metric=="password_age" key value
-| stats sum(value) as users by key
+tag=$OKTA_USERS json id status passwordChanged
+| last id
+| time passwordChanged passwordChangedTS
+| eval
+    key = "(inactive)";
+    if (status == "ACTIVE") {
+        key = "never set";
+        if (has(passwordChangedTS)) {
+            days = (unix(NOW) - unix(passwordChangedTS)) / 86400;
+            if (days <= 30) { key = "30 days or less"; }
+            else if (days <= 90) { key = "31-90 days"; }
+            else if (days <= 365) { key = "91-365 days"; }
+            else { key = "over 1 year"; }
+        }
+    }
+| stats count as users by key
+| eval key != "(inactive)"
 | chart users by key
