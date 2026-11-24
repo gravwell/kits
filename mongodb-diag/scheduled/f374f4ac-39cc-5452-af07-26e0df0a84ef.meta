@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Primary Election Or Stepdown [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Primary Election Or Stepdown.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f374f4ac-39cc-5452-af07-26e0df0a84ef",
+	"SearchReference": "8cfeb9e5-02b0-5fb5-baf8-818e40244ccb"
+}

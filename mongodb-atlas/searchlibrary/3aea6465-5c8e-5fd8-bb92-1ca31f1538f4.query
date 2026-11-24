@@ -1,0 +1,6 @@
+/* Search - MongoDB - Atlas - Admin API - API Keys Overview - Count by Role Name [numbercard] */
+tag=$MONGODB_ATLAS_API_KEYS ax roleName
+| json -x roleName
+| stats count by roleName
+| top -n 1 count
+| numbercard (count " ")

@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Paused [table]",
+  "Description": "Detects clusters in a paused state.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "0eae40cf-8f78-5cec-9f26-dbe2b6d0aaf8",
+  "SearchReference": "3846d188-514d-5faa-9e80-ea0fc4d19f97"
+}

@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Database Dropped [table]",
+  "Description": "Detects MongoDB database deletion.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "79421524-7452-55fd-9c61-a8be70288453",
+  "SearchReference": "21313afa-27fb-51eb-836d-5f2064c1b209"
+}

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - System - Log Types - Count by Category & Subcategory [chart] */
+tag=$MONGODB_ATLAS
+| lookup -r mongodb-atlas-categories TAG tag (category subcategory)
+| stats count as " " by category subcategory
+| chart " " by category subcategory

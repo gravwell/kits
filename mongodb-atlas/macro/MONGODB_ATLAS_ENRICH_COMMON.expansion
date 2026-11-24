@@ -1,0 +1,68 @@
+/* MONGODB_ATLAS_ENRICH_COMMON */
+$MONGODB_ATLAS_ALERT_STATUS_LOOKUP
+$MONGODB_ATLAS_ALERT_RISK_LOOKUP
+| eval 
+    if (!has("acknowledgingUsername")){acknowledgingUsername = "null";}
+    if (!has("authResult")){authResult = "null";}
+    if (!has("authResult")){authResult = "null";}
+    if (!has("cidrBlock")){cidrBlock = "null";}
+    if (!has("clientId")){clientId = "null";}
+    if (!has("enabled")){enabled = "null";}
+    if (!has("eventTypeName")){eventTypeName = "null";}
+    if (!has("failureReason")){failureReason = "null";}
+    if (!has("groupId")){groupId = "null";}
+    if (!has("hostname")){hostname = "null";}
+    if (!has("ipAddress")){ipAddress = "null";}
+    if (!has("metricName")){metricName = "null";}
+    if (!has("orgId")){orgId = "null";}
+    if (!has("publicKey")){publicKey = "null";}
+    if (!has("remoteAddress")){remoteAddress = "null";}
+    if (!has("replicaSetName")){replicaSetName = "null";}
+    if (!has("risk")){risk = "null";}
+    if (!has("roleGroupId")){roleGroupId = "null";}
+    if (!has("roleOrgId")){roleOrgId = "null";}
+    if (!has("stateName")){stateName = "null";}
+    if (!has("stateName")){stateName = "null";}
+    if (!has("status")){status = "null";}
+    if (!has("timestamp")){timestamp = "null";}
+    if (!has("typeName")){typeName = "null";}
+    if (!has("updated")){updated = "null";}
+    if (!has("userId")){userId = "null";}
+    if (!has("username")){username = "null";}
+    _atlas_user = "unknown";
+        if (has("username") && username != "" && username != "null") { _atlas_user = username; }
+        else if (has("acknowledgingUsername") && acknowledgingUsername != "" && acknowledgingUsername != "null") { _atlas_user = acknowledgingUsername; }
+        else if (has("publicKey") && publicKey != "" && publicKey != "null") { _atlas_user = publicKey; }
+        else if (has("clientId") && clientId != "" && clientId != "null") { _atlas_user = clientId; }
+        else if (has("userId") && userId != "" && userId != "null") { _atlas_user = userId; }
+    _atlas_ip = "unknown";
+        if (has("remoteAddress") && remoteAddress != "" && remoteAddress != "null") { _atlas_ip = remoteAddress; }
+        else if (has("ipAddress") && ipAddress != "" && ipAddress != "null") { _atlas_ip = ipAddress; }
+        else if (has("cidrBlock") && cidrBlock != "" && cidrBlock != "null") { _atlas_ip = cidrBlock; }
+    _atlas_scope_id = "unknown";
+        if (has("groupId") && groupId != "" && groupId != "null") { _atlas_scope_id = groupId; }
+        else if (has("orgId") && orgId != "" && orgId != "null") { _atlas_scope_id = orgId; }
+        else if (has("roleGroupId") && roleGroupId != "" && roleGroupId != "null") { _atlas_scope_id = roleGroupId; }
+        else if (has("roleOrgId") && roleOrgId != "" && roleOrgId != "null") { _atlas_scope_id = roleOrgId; }
+    _atlas_event_type = "unknown";
+        if (has("eventTypeName") && eventTypeName != "" && eventTypeName != "null") { _atlas_event_type = eventTypeName; }
+        else if (has("typeName") && typeName != "" && typeName != "null") { _atlas_event_type = typeName; }
+        else if (has("metricName") && metricName != "" && metricName != "null") { _atlas_event_type = metricName; }
+        else if (has("authResult") && authResult != "" && authResult != "null") { _atlas_event_type = authResult; }
+        else if (has("stateName") && stateName != "" && stateName != "null") { _atlas_event_type = stateName; }
+    _atlas_status = "unknown";
+        if (has("status") && status != "" && status != "null") { _atlas_status = status; }
+        else if (has("authResult") && authResult != "" && authResult != "null") { _atlas_status = authResult; }
+        else if (has("enabled") && enabled == false) { _atlas_status = "DISABLED"; }
+        else if (has("enabled") && enabled == true) { _atlas_status = "ENABLED"; }
+        else if (has("stateName") && stateName != "" && stateName != "null") { _atlas_status = stateName; }
+    _atlas_category = "Atlas";
+        if (has("risk") && risk != "" && risk != "null") { _atlas_category = risk; }
+        else if (match(_atlas_event_type, "(?i)(HOST|NO_PRIMARY|REPLICATION|OUTSIDE_|REQUEST_RATE_LIMIT|RESOURCE_POLICY)")) { _atlas_category = "Infrastructure"; }
+        else if (match(_atlas_event_type, "(?i)(MFA|SECURITY|ACCESS_LIST|EXPOSED|SERVICE_ACCOUNT_SECRETS)")) { _atlas_category = "Security"; }
+        else if (match(_atlas_event_type, "(?i)(API_KEY|USER|ROLE|MONGODB_USER|MONGODB_ROLE|SERVICE_ACCOUNT)")) { _atlas_category = "Identity"; }
+        else if (match(_atlas_event_type, "(?i)(NETWORK_PERMISSION|CLOUD_PROVIDER_ACCESS)")) { _atlas_category = "Network"; }
+        else if (match(_atlas_event_type, "(?i)(BACKUP|CPS_|SNAPSHOT|RESTORE|OPLOG|DATA_PROTECTION)")) { _atlas_category = "Backup"; }
+    _atlas_subcategory = _atlas_event_type;
+        if (has("metricName") && metricName != "" && metricName != "null") { _atlas_subcategory = metricName; }
+        else if (has("typeName") && typeName != "" && typeName != "null") { _atlas_subcategory = typeName; }

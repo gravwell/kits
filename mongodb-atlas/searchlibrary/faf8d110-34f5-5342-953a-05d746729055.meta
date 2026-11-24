@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Custom Database Roles - Dangerous Custom Database Role Action [table]",
+  "Description": "Detects custom database roles granting dangerous administrative or destructive actions.",
+  "GUID": "faf8d110-34f5-5342-953a-05d746729055",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

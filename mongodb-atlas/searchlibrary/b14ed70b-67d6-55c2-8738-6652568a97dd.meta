@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Activity Overview - Count by Public Key [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Public Key (publicKey) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "b14ed70b-67d6-55c2-8738-6652568a97dd",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,180 @@
+{
+	"UUID": "8dbd64f2-9ec6-53ed-8266-94d64d2ad2e1",
+	"Name": "MongoDB Audit Investigation",
+	"Description": "Investigate MongoDB Audit activity for a User or IP.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "thisMonth",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - MongoDB - Database - Audit - Investigation - Total Events [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "312d2dc2-f4ce-504a-808f-807bb7e0634c",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Database - Audit - Investigation - Count by Category [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "bd1cc4b9-9401-51fd-9e4f-8a414996973a",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Database - Audit - Investigation - Count by Subcategory [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1148b397-6e3e-533a-90a6-83d133cd0e46",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Database - Audit - Investigation - Count by Result [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "d3a310c2-445b-5933-a2f8-ea42dd8a6506",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Database - Audit - Investigation - Recent Events [table]",
+				"color": null,
+				"reference": {
+					"id": "b54f2cd2-a21a-5f05-b5e7-4c575fa82092",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6046073879051575,
+				"title": "Total Events [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6151254706934502,
+				"title": "Count by Category [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 3,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6063200014895446,
+				"title": "Count by Subcategory [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6220985596061609,
+				"title": "Count by Result [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 3,
+					"row": 3,
+					"x": 9,
+					"y": 0
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6168834861737730,
+				"title": "Recent Events [table]",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 7,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"IncludeOther": "no"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}

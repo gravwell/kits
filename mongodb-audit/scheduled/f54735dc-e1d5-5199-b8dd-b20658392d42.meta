@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Granted To User [table]",
+  "Description": "Detects MongoDB role grants to users.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "f54735dc-e1d5-5199-b8dd-b20658392d42",
+  "SearchReference": "10fb4e38-932b-5077-a4cb-b89ceb75014a"
+}

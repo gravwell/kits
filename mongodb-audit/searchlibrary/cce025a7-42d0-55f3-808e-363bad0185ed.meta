@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Direct Auth Collection Mutation [table]",
+  "Description": "Detects direct modification of MongoDB authentication collections.",
+  "GUID": "cce025a7-42d0-55f3-808e-363bad0185ed",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - High Yield Slow Operation [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: High Yield Slow Operation.",
+	"GUID": "84997f4e-fb05-5f9c-9af2-c869f9949e38",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

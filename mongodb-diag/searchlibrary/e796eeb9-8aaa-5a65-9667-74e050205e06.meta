@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Component Error Spike [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Component Error Spike.",
+	"GUID": "e796eeb9-8aaa-5a65-9667-74e050205e06",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"Name": "Flow - MongoDB Diagnostics - Email Alerts",
+	"Description": "Detects when a Scheduled Search has fired and will email the email address input at $MONGODB_DIAG_ALERT_RECIPIENT from $MONGODB_DIAG_ALERT_SENDER.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "3 * * * *",
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "flow",
+	"GUID": "cdc1b887-cbee-53ea-abf1-f22d6eb73b98",
+	"SearchReference": "00000000-0000-0000-0000-000000000000"
+}

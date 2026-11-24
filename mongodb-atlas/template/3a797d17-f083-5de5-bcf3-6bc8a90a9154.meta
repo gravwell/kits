@@ -1,0 +1,21 @@
+{
+	"UUID": "3a797d17-f083-5de5-bcf3-6bc8a90a9154",
+	"Name": "Template - MongoDB - Atlas - System - Log Types - Category [table]",
+	"Description": "Displays a table of events by category and subcategory for the category entered into the variable.\n\nReference(s):\n  - MongoDB\n    - https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/\n\nOptions: Access,Activity,Events,Alerts,Authentication,Backups,Clusters,Database Users,Network Access,Organization,Projects,Service Accounts",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%mongodb_category%%",
+				"label": "Log Category",
+				"description": "Options: Access,Activity,Events,Alerts,Authentication,Backups,Clusters,Database Users,Network Access,Organization,Projects,Service Accounts",
+				"required": true,
+				"defaultValue": "*",
+				"previewValue": "*"
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

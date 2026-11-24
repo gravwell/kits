@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Collection Renamed [table]",
+  "Description": "Detects MongoDB collection rename activity.",
+  "GUID": "0d172403-b2a9-5a77-b432-fe4695754dfb",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

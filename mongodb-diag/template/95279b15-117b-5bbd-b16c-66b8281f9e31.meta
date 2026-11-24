@@ -1,0 +1,45 @@
+{
+	"UUID": "95279b15-117b-5bbd-b16c-66b8281f9e31",
+	"Name": "Template - MongoDB - Database - Diagnostics - Investigation - Count by Message [numbercard]",
+	"Description": "This is intended to show a numbercard of MongoDB Diagnostics events by diagnostic message for the investigation scope.",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%identity%%",
+				"label": "User / Principal / Client / Context",
+				"description": "What MongoDB user, principal, application, client, or context are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%ip%%",
+				"label": "Remote IP / Host / Client",
+				"description": "What remote address, client address, or host are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%namespace%%",
+				"label": "Namespace / Database / Collection",
+				"description": "What namespace, database, or collection are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			},
+			{
+				"name": "%%component%%",
+				"label": "Component",
+				"description": "What MongoDB log component are you investigating?",
+				"required": true,
+				"defaultValue": ".",
+				"previewValue": "."
+			}
+		]
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	]
+}

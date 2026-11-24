@@ -1,0 +1,393 @@
+{
+	"UUID": "fecdb492-16e2-5390-abe4-c2f8a3e6ce80",
+	"Name": "MongoDB Atlas General Overview",
+	"Description": "This Dashboard is a general overview of your MongoDB Atlas logs by tag, category, and subcategory.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Search - MongoDB - Atlas - Admin API - Overview - Total Events [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "3174ae89-56b4-5415-845d-e13f48dc125a",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - Admin API - Overview - Total Events [chart]",
+				"color": null,
+				"reference": {
+					"id": "e072f668-0db4-59c9-8b0e-f4df0c3e6c41",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - System - Log Types - Count by Tag [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "1cc70422-7a04-5dbf-b882-9d9b8a0eae23",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - System - Log Types - Count by Tag [chart]",
+				"color": null,
+				"reference": {
+					"id": "4666ea01-006e-5c5e-bc84-72dfbfaa8d25",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - System - Log Types - Count by Category & Subcategory [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "9ba50ffc-e2de-527c-bcee-b33d9349a594",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - System - Log Types - Count by Category [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "d6770752-282b-5358-b6b2-4241a9112679",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - System - Log Types - Count by Subcategory [numbercard]",
+				"color": null,
+				"reference": {
+					"id": "86c260f8-2e8a-5052-a2e6-4b3caf2b8b55",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - System - Log Types - Count by Category & Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "2d2a2f5a-4dd1-563f-8541-95d0ebd36ebe",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - System - Log Types - Count by Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "e1a37963-ffa7-5409-a4fd-b410b4111644",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Search - MongoDB - Atlas - System - Log Types - Count by Subcategory [chart]",
+				"color": null,
+				"reference": {
+					"id": "da103de5-4a7d-5592-ad3b-62c1046066a7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6050164201247827,
+				"title": "Total Events [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 2,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6027862848985907,
+				"title": "Total Events [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 10,
+					"row": 3,
+					"x": 2,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6013405769012695,
+				"title": "Count by Tag [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6155883110871620,
+				"title": "Count by Tag [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6032315314511186,
+				"title": "Count by Tag [pie chart]",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 13
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6188619144677176,
+				"title": "Count by Category & Subcategory [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 20
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6128496883654171,
+				"title": "Count by Category & Subcategory [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 23
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6238857414376971,
+				"title": "Count by Category & Subcategory [donut chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 23
+				},
+				"searchesIndex": 7,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6124065715991870,
+				"title": "Count by Category [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 30
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6018506272557939,
+				"title": "Count by Category [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 33
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6135455695528890,
+				"title": "Count by Category [donut chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 33
+				},
+				"searchesIndex": 8,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6031258409758860,
+				"title": "Count by Subcategory [numbercard]",
+				"renderer": "numberCard",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 40
+				},
+				"searchesIndex": 6,
+				"rendererOptions": {
+					"Range": "no",
+					"Precision": "yes",
+					"NumberCardLabelFontSize": 24,
+					"NumberCardNumberFontSize": 48,
+					"NumberCardWidth": 25,
+					"IncludeOther": "no"
+				}
+			},
+			{
+				"id": 6139025544424263,
+				"title": "Count by Subcategory [line chart]",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 43
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6130829077937701,
+				"title": "Count by Subcategory [donut chart]",
+				"renderer": "donutChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 43
+				},
+				"searchesIndex": 9,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

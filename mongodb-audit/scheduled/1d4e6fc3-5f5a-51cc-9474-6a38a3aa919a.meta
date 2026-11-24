@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Unauthorized Operation [table]",
+  "Description": "Detects MongoDB authorization failures.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "1d4e6fc3-5f5a-51cc-9474-6a38a3aa919a",
+  "SearchReference": "bf590b66-7fc2-5dd8-a459-c8913fde85f1"
+}

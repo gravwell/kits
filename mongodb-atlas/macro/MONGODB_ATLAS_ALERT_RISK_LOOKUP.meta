@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_ALERT_RISK_LOOKUP",
+	"Description": "Lookup macro for MongoDB Atlas alert risk grouping and reason enrichment.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

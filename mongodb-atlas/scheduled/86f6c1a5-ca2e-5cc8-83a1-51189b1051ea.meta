@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - OAuth Audit Event Observed [table]",
+  "Description": "Detects documented MongoDB Atlas OAuth audit events including client, secret, authorization, token, and consent activity.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "86f6c1a5-ca2e-5cc8-83a1-51189b1051ea",
+  "SearchReference": "8b00c7f7-edcd-5be1-9ce4-c60afe509686"
+}

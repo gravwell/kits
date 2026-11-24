@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Atlas Log Download [table]",
+  "Description": "Detects MongoDB, mongot, or BI Connector log downloads from Atlas.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "6fe76313-a380-5fc4-842a-4c00907a60d7",
+  "SearchReference": "93717e60-c391-55e9-b522-04deb6fee176"
+}

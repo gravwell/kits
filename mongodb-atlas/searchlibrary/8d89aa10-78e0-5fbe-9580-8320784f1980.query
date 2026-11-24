@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Backups Overview - Count by Replica Set Name [chart] */
+tag=$MONGODB_ATLAS_BACKUPS ax replicaSetName
+| stats count as " " by replicaSetName
+| chart " " by replicaSetName

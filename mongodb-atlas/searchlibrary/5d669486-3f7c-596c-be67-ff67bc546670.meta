@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Open Threshold or Rate Limit Alert [table]",
+  "Description": "Detects open Atlas alerts for metric threshold, space threshold, request-rate, billing, or usage-spike conditions.",
+  "GUID": "5d669486-3f7c-596c-be67-ff67bc546670",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Database - Audit - Overview - Count by Tag [numbercard]",
+  "Description": "This displays a numbercard of all MongoDB Tag values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/manual/reference/audit-message/mongo/",
+  "GUID": "08a4bb12-e90f-5268-8da9-e98db60ea45b",
+  "Labels": [
+  "mongodb",
+  "mongodb-audit"
+],
+  "Metadata": {
+    "timeframe": null
+  }
+}

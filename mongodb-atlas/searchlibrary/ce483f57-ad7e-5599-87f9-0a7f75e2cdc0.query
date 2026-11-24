@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Cloud Provider Access Credential Change [table]*/
+tag=$MONGODB_ATLAS_ACTIVITY ax
+| regex -e eventTypeName "^CLOUD_PROVIDER_ACCESS_(AWS_IAM_ROLE|AZURE_SERVICE_PRINCIPAL|GCP_SERVICE_ACCOUNT)_(ADDED|DELETED|UPDATED)$"
+| eval _alert_name = "Cloud Provider Access Credential Change";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

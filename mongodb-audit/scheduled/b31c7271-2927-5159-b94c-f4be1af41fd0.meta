@@ -1,0 +1,16 @@
+{
+  "Name": "Flow - MongoDB Audit - Email Alerts",
+  "Description": "Detects when a Scheduled Search has fired and will email the email address input at $MONGODB_AUDIT_ALERT_RECIPIENT from $MONGODB_AUDIT_ALERT_SENDER.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "3 * * * *",
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "flow",
+  "GUID": "b31c7271-2927-5159-b94c-f4be1af41fd0",
+  "SearchReference": "00000000-0000-0000-0000-000000000000"
+}

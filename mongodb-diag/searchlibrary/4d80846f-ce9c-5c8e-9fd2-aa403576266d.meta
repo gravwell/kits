@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Log Message Truncated [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Log Message Truncated.",
+	"GUID": "4d80846f-ce9c-5c8e-9fd2-aa403576266d",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

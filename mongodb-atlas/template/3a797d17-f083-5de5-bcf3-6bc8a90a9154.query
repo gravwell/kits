@@ -1,0 +1,5 @@
+tag=$MONGODB_ATLAS json TAG
+| lookup -r mongodb-atlas-categories TAG tag (category subcategory)
+| grep -e category "%%mongodb_category%%"
+| stats count by category subcategory
+| table category subcategory count

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Primary Election Or Stepdown [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Primary Election Or Stepdown.",
+	"GUID": "8cfeb9e5-02b0-5fb5-baf8-818e40244ccb",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

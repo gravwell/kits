@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Audit - Overview - Count by Result [numbercard] */
+tag=$MONGODB_AUDIT ax result
+| stats count by result
+| numbercard (count " ")

@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Parameter Changed [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Parameter Changed.",
+	"GUID": "988bf965-1166-5f3c-ab44-0b363b5b4401",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

@@ -1,0 +1,5 @@
+/* Search - MongoDB - Database - Diagnostics - Overview - Count by Severity [numbercard] */
+tag=$MONGODB_DIAG ax severity
+| lookup -r mongodb-severity severity severity (severityName)
+| stats count by severityName
+| numbercard (count " ")

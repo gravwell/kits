@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Project Activity Events - Cloud Provider Access Credential Change [table]",
+  "Description": "Detects AWS IAM role, Azure service principal, or GCP service account changes used for Atlas cloud provider access.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "b0db3616-3459-5bd4-b274-67e8edb576db",
+  "SearchReference": "ce483f57-ad7e-5599-87f9-0a7f75e2cdc0"
+}

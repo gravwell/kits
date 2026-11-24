@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - WiredTiger Recovery Activity [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: WiredTiger Recovery Activity.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a1087262-f889-5492-ae07-ac2232fe943d",
+	"SearchReference": "697bbcf3-7dcf-53fe-a7c5-7cf9c7738cfc"
+}

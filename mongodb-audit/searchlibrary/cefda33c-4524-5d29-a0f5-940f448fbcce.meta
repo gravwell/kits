@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Shard Added [table]",
+  "Description": "Detects MongoDB shard additions.",
+  "GUID": "cefda33c-4524-5d29-a0f5-940f448fbcce",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

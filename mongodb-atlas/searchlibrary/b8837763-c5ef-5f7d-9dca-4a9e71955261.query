@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Database Users Overview - Count by Ldap Auth Type [chart] */
+tag=$MONGODB_ATLAS_DATABASE_USERS ax ldapAuthType
+| stats count as " " by ldapAuthType
+| chart " " by ldapAuthType

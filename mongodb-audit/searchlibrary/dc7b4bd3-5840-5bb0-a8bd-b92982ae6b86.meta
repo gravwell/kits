@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - Privileges Granted To Role [table]",
+  "Description": "Detects privilege grants to MongoDB roles.",
+  "GUID": "dc7b4bd3-5840-5bb0-a8bd-b92982ae6b86",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

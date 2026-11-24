@@ -1,0 +1,5 @@
+/* Search - MongoDB - Database - Audit - Overview - Top Remote IP [numbercard] */
+tag=$MONGODB_AUDIT ax remoteIp
+| stats count by remoteIp
+| top -n 1 count
+| numbercard (count " ")

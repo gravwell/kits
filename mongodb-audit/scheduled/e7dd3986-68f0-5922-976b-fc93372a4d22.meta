@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Unauthorized Operation Spike By User [table]",
+  "Description": "Detects repeated MongoDB authorization failures by user and remote IP.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e7dd3986-68f0-5922-976b-fc93372a4d22",
+  "SearchReference": "b136889e-36c6-5c08-a16b-fc938a8c0eb3"
+}

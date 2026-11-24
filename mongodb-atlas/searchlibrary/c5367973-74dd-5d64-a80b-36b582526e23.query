@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Alerts Overview - Count by Status [chart] */
+tag=$MONGODB_ATLAS_ALERTS ax status
+| stats count as " " by status
+| chart " " by status

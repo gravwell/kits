@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - API Keys Overview - Top Role Group ID [numbercard]",
+  "Description": "This displays the top Role Group ID (roleGroupId) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listapikeys",
+  "GUID": "472eaa0f-3ea0-59ec-9cba-6dc1d653e061",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

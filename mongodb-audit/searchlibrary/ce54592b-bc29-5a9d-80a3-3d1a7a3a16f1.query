@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Audit - Overview - Count by User [chart] */
+tag=$MONGODB_AUDIT ax user
+| stats count as " " by user
+| chart " " by user

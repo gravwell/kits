@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Election Activity [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Election Activity.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "f412b6fd-a8e1-5ae4-8d2d-29fcd039ea89",
+	"SearchReference": "dc4adcfc-fba6-53b0-a342-9ea133670581"
+}

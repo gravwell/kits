@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Error Message [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Error Message.",
+	"GUID": "3553c206-05db-5c44-98ac-4e56d1bd4b78",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

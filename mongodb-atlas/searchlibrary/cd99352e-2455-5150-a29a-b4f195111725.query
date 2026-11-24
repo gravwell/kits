@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Clusters Overview - Top State Name [numbercard] */
+tag=$MONGODB_ATLAS_CLUSTERS ax stateName
+| stats count by stateName
+| top -n 1 count
+| numbercard (count " ")

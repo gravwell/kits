@@ -1,0 +1,18 @@
+{
+	"Name": "mongodb-atlas-alert-configs",
+	"Desc": "Gravwell-generated JSON extraction for tag mongodb-atlas-alert-configs",
+	"Module": "json",
+	"Tag": "",
+	"Tags": [
+		"mongodb-atlas-alert-configs"
+	],
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	],
+	"UID": 1,
+	"GIDs": null,
+	"Global": true,
+	"UUID": "b7e52f91-a3a9-5827-aa95-574ad8b7ec5f",
+	"LastUpdated": "2026-07-10T14:16:49.961521Z"
+}

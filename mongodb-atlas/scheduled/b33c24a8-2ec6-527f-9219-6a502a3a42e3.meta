@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Clusters - Cluster Unsafe Protection Settings [table]",
+  "Description": "Detects clusters with point-in-time restore, termination protection, or client-log redaction disabled.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "b33c24a8-2ec6-527f-9219-6a502a3a42e3",
+  "SearchReference": "3fdb4e96-411a-551d-9f9a-c75867927e08"
+}

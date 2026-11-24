@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Authentication Failure [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Authentication Failure.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "286721a4-8c25-52b3-a9a7-3f40d35a42d8",
+	"SearchReference": "03394ec6-ae03-534c-a189-54d2bf8d9189"
+}

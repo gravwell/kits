@@ -1,0 +1,1 @@
+awsIAMType databaseName deleteAfterDate description groupId labels ldapAuthType oidcAuthType roles roles.[].collectionName as roleCollection roles.[].databaseName as roleDatabase roles.[].roleName as roleName scopes scopes.[].name as scopeName scopes.[].type as scopeType username x509Type

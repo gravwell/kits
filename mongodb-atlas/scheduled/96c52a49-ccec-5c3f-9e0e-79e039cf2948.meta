@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Custom Database Roles - Dangerous Custom Database Role Action [table]",
+  "Description": "Detects custom database roles granting dangerous administrative or destructive actions.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "96c52a49-ccec-5c3f-9e0e-79e039cf2948",
+  "SearchReference": "faf8d110-34f5-5342-953a-05d746729055"
+}

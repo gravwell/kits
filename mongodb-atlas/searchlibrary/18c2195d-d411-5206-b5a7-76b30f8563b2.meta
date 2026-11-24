@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Masked Secret Value [chart]",
+  "Description": "This displays a chart of all Masked Secret Value (maskedSecretValue) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgserviceaccounts",
+  "GUID": "18c2195d-d411-5206-b5a7-76b30f8563b2",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

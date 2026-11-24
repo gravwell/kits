@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Cluster Parameter Changed [table]",
+  "Description": "Detects MongoDB cluster parameter changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "73f79d58-49fb-5b07-9134-38d0f551c778",
+  "SearchReference": "c20ea820-b62c-5fc3-bd66-925fd17cc3d5"
+}

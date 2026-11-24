@@ -1,0 +1,75 @@
+/* MONGODB_AUDIT_RISK_SCORE */
+/* normalize fields for scoring */
+| eval
+at  = actionType;
+rn  = resultName;
+cat = category;
+sub = subcategory;
+sev = severity;
+result_success = 0;
+if (has(result) && result == 0) { result_success = 1; }
+	result_failure = 0;
+if (has(result) && result != 0) { result_failure = 1; }
+	base = 25.0;
+/* critical destructive / privilege / cluster control */
+if (match(at, "(?i)^(directAuthMutation|dropDatabase|dropAllUsersFromDatabase|dropAllRolesFromDatabase|grantPrivilegesToRole|replSetReconfig|addShard|removeShard|shutdown)$")) {base = 95.0;}
+	/* high-impact identity / role / authz changes */
+	else if (base < 95.0 && match(at, "(?i)^(createUser|dropUser|updateUser|grantRolesToUser|revokeRolesFromUser|createRole|updateRole|dropRole|grantRolesToRole|revokeRolesFromRole|revokePrivilegesFromRole)$")) {base = 85.0;}
+	/* high-impact cluster / sharding / security parameter changes */
+	else if (base < 85.0 && match(at, "(?i)^(setClusterParameter|updateCachedClusterServerParameter|enableSharding|shardCollection|refineCollectionShardKey)$")) {base = 80.0;}
+	/* destructive database/object actions */
+	else if (base < 80.0 && match(at, "(?i)^(dropCollection|dropIndex|renameCollection)$")) {base = 75.0;}
+	/* object creation / database structure changes */
+	else if (base < 75.0 && match(at, "(?i)^(createDatabase|createCollection|createIndex)$")) {base = 60.0;}
+	/* authentication / authorization failures */
+	else if (match(at, "(?i)^authenticate$") && result_failure == 1) {base = 70.0;}
+	else if (match(at, "(?i)^authCheck$") && result_failure == 1) {base = 75.0;}
+	/* successful authz checks are usually noise unless paired with sensitive commands */
+	else if (match(at, "(?i)^authCheck$") && result_success == 1) {base = 30.0;}
+	/* operational/noise-style audit records */
+	else if (match(at, "(?i)^(clientMetadata|logout|applicationMessage|startup|getClusterParameter)$")) {base = 20.0;}
+	/* category/subcategory fallback from mongodb-audit-actionType */
+	else if (base < 80.0 && has(cat) && match(cat, "(?i)^(Identity|Authorization|Security)$")) {base = 80.0;}
+	else if (base < 70.0 && has(cat) && match(cat, "(?i)^(Cluster|Sharding)$")) {base = 70.0;}
+	else if (base < 60.0 && has(cat) && match(cat, "(?i)^Database$")) {base = 60.0;}
+/* severity bumps */
+severity_bump = 0.0;
+if (has(sev) && match(sev, "(?i)^critical$")) {severity_bump = 15.0;}
+	else if (has(sev) && match(sev, "(?i)^high$")) {severity_bump = 10.0;}
+	else if (has(sev) && match(sev, "(?i)^medium$")) {severity_bump = 5.0;}
+result_bump = 0.0;
+if (result_failure == 1) {result_bump = 10.0;}
+if (has(rn) && match(rn, "(?i)(Unauthorized|Authentication Failed|Mechanism Unavailable|Authentication Abandoned|Index build aborted|NamespaceNotFound)")) {result_bump = result_bump + 5.0;}
+success_bump = 0.0;
+if (result_success == 1 && match(at, "(?i)^(directAuthMutation|dropDatabase|dropAllUsersFromDatabase|dropAllRolesFromDatabase|grantPrivilegesToRole|replSetReconfig|addShard|removeShard|shutdown|setClusterParameter)$")) {success_bump = 10.0;}
+privilege_bump = 0.0;
+if (has(roles) && match(roles, "(?i)(root|readWriteAnyDatabase|dbAdminAnyDatabase|userAdminAnyDatabase|clusterAdmin|hostManager|backup|restore)")) {privilege_bump = privilege_bump + 10.0;}
+if (has(param) && match(param, "(?i)(root|readWriteAnyDatabase|dbAdminAnyDatabase|userAdminAnyDatabase|clusterAdmin|grantRole|revokeRole|addShard|removeShard|replSetConfigure|setUserWriteBlockMode)")) {privilege_bump = privilege_bump + 10.0;}
+admin_bump = 0.0;
+if (has(param) && match(param, "(?i)(admin\\.system\\.users|admin\\.system\\.roles|\"db\"\\s*:\\s*\"admin\"|db:admin)")) {admin_bump = 10.0;}
+method_bump = 0.0;
+if (has(method) && match(method, "(?i)^(drop|grant|revoke|direct|set|shutdown|remove|add|repl)$")) {method_bump = 5.0;}
+/* total and clamp */
+risk_raw = base + severity_bump + result_bump + success_bump + privilege_bump + admin_bump + method_bump;
+risk_score = math_round(math_min(math_max(risk_raw, 0.0), 100.0));
+/* alert metadata expected by MONGODB_AUDIT_ALERT_META */
+_vendor = "MongoDB";
+_product = "Audit";
+_category = cat;
+_subcategory = sub;
+_alert_name = message;
+_alert_description = "MongoDB Audit event " + at;
+if (has(cat) && has(sub)) {_alert_description = "MongoDB Audit event " + at + " in " + cat + " / " + sub;}
+_priority = "Informational";
+if (risk_score >= 90.0) {
+_priority = "Critical";
+} else if (risk_score >= 80.0) {
+_priority = "High";
+} else if (risk_score >= 60.0) {
+_priority = "Medium";
+} else if (risk_score >= 45.0) {
+_priority = "Low";
+}
+_alert_priority = _priority;
+/* only keep alert-worthy rows */
+in(_priority, "Critical", "High", "Medium", "Low");

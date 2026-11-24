@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Initial Sync Activity [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Initial Sync Activity.",
+	"GUID": "cd718b51-b19a-57d4-83d3-7f1ff9e96308",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

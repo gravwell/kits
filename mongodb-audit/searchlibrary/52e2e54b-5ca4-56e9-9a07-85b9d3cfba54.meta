@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Database - Audit - Overview - Rare Action Type [numbercard]",
+  "Description": "This displays the bottom Action Type (actionType) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/manual/reference/audit-message/mongo/",
+  "GUID": "52e2e54b-5ca4-56e9-9a07-85b9d3cfba54",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

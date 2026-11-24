@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Service Accounts Overview - Count by Name [chart]",
+  "Description": "This displays a chart of all Name (name) values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listorgserviceaccounts",
+  "GUID": "06ce7081-d0e3-58d4-92f9-e2edf4f99087",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

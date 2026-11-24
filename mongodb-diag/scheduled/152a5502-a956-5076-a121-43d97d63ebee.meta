@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Connection Accepted Spike By Remote [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Connection Accepted Spike By Remote.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "152a5502-a956-5076-a121-43d97d63ebee",
+	"SearchReference": "69e608e0-a0a2-5f97-9499-05c3f1322d6e"
+}

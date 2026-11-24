@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Renamed [table]",
+  "Description": "Detects MongoDB collection rename activity.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "4d433e8e-5912-5eba-b915-1bcc37556908",
+  "SearchReference": "0d172403-b2a9-5a77-b432-fe4695754dfb"
+}

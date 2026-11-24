@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Risk Administrative Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: High Risk Administrative Command Logged.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "c534241e-07a4-57dc-a29e-f29d5904a054",
+	"SearchReference": "eab05ffb-dd7a-554a-a213-9036fb673cf3"
+}

@@ -1,0 +1,31 @@
+/* MONGODB_DIAG_ENRICH_COMMON */
+$MONGODB_DIAG_SEVERITY_LOOKUP
+$MONGODB_DIAG_COMPONENT_LOOKUP
+$MONGODB_DIAG_NORMALIZE_SERVICE
+| eval
+    _diag_identity = "unknown";
+        if (has("user") && user != "" && user != "null") { _diag_identity = user; }
+        else if (has("principalName") && principalName != "" && principalName != "null") { _diag_identity = principalName; }
+        else if (has("appName") && appName != "" && appName != "null") { _diag_identity = appName; }
+        else if (has("client") && client != "" && client != "null") { _diag_identity = client; }
+        else if (has("context") && context != "" && context != "null") { _diag_identity = context; }
+    _diag_ip = "unknown";
+        if (has("remote") && remote != "" && remote != "null") { _diag_ip = remote; }
+        else if (has("address") && address != "" && address != "null") { _diag_ip = address; }
+        else if (has("client") && client != "" && client != "null") { _diag_ip = client; }
+        else if (has("host") && host != "" && host != "null") { _diag_ip = host; }
+    _diag_namespace = "unknown";
+        if (has("namespace") && namespace != "" && namespace != "null") { _diag_namespace = namespace; }
+        else if (has("database") && database != "" && database != "null" && has("collection") && collection != "" && collection != "null") { _diag_namespace = database + "." + collection; }
+        else if (has("database") && database != "" && database != "null") { _diag_namespace = database; }
+        else if (has("collection") && collection != "" && collection != "null") { _diag_namespace = collection; }
+    _diag_component = "unknown";
+        if (has("component") && component != "" && component != "null") { _diag_component = component; }
+    _diag_event_type = "unknown";
+        if (has("message") && message != "" && message != "null") { _diag_event_type = message; }
+        else if (has("codeName") && codeName != "" && codeName != "null") { _diag_event_type = codeName; }
+        else if (has("errorMessage") && errorMessage != "" && errorMessage != "null") { _diag_event_type = errorMessage; }
+        else if (has("log_id") && log_id != "" && log_id != "null") { _diag_event_type = log_id; }
+    _diag_status = "unknown";
+        if (has("severityName") && severityName != "" && severityName != "null") { _diag_status = severityName; }
+        else if (has("severity") && severity != "" && severity != "null") { _diag_status = severity; }

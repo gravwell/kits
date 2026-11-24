@@ -1,0 +1,9 @@
+/* AlertQuery - MongoDB - Database - Audit - Alerts - Authentication Failure Spike By Remote IP [table]*/
+tag=$MONGODB_AUDIT ax timestamp actionType == "authenticate" result == 18 user userDatabase localIp remoteIp remotePort mechanism database paramUser param roles
+| count by localIp remoteIp user userDatabase mechanism result
+| sort by count desc
+| eval message = "Authentication Failure Spike By Remote IP";
+$MONGODB_AUDIT_ENRICH_COMMON
+$MONGODB_AUDIT_RISK_SCORE
+$MONGODB_AUDIT_ALERT_META
+| table timestamp actionType result user userDatabase localIp remoteIp remotePort mechanism database paramUser param roles

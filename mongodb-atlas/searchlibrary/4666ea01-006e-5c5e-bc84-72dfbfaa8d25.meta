@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - System - Log Types - Count by Tag [chart]",
+  "Description": "This displays a chart of all MongoDB Tag values by count.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/",
+  "GUID": "4666ea01-006e-5c5e-bc84-72dfbfaa8d25",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

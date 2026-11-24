@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Role Created [table]",
+  "Description": "Detects MongoDB role creation.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "e7576f39-8eaa-58a6-86a1-5ddf34235916",
+  "SearchReference": "ae6e0ce3-73de-529c-8996-a0f724beea0d"
+}

@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Atlas Events - Organization Role or Federation Change [table]",
+  "Description": "Detects organization role changes, role mapping changes, federation setting changes, and organization membership restriction changes.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "bb28aaa8-98af-5470-9c63-36676da0234b",
+  "SearchReference": "f4e50771-2439-50c3-8301-6436e0bf17d5"
+}

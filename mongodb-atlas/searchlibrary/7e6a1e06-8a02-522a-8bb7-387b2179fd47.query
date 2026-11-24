@@ -1,0 +1,5 @@
+/* Search - MongoDB - Atlas - Admin API - Network Access Overview - Rare Cidr Block [numbercard] */
+tag=$MONGODB_ATLAS_NETWORK_ACCESS ax cidrBlock
+| stats count by cidrBlock
+| bottom -n 1 count
+| numbercard (count " ")

@@ -1,0 +1,5 @@
+/* Template - MongoDB - Database - Audit - Investigation - Total Events [numbercard] */
+tag=$MONGODB_AUDIT ax user localIp remoteIp
+| eval (user ~ "%%user%%" && (localIp ~ "%%ip%%" || remoteIp ~ "%%ip%%"))
+| stats count
+| numbercard (count " ")

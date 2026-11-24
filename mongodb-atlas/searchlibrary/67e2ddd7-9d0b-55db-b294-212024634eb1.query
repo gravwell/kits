@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Observability Export Disabled or Changed [table]*/
+tag=$MONGODB_ATLAS_ACTIVITY ax
+| regex -e eventTypeName "^(S3_LOG_STREAMING_DISABLED|S3_LOG_STREAMING_CONFIGURATION_UPDATED|OTEL_LOG_STREAMING_DISABLED|OTEL_LOG_STREAMING_CONFIGURATION_UPDATED|OTEL_METRIC_INTEGRATION_DISABLED|OTEL_METRIC_INTEGRATION_CONFIGURATION_UPDATED|HOST_EXTERNAL_LOG_SINK_EXPORT_DOWN)$"
+| eval _alert_name = "Observability Export Disabled or Changed";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

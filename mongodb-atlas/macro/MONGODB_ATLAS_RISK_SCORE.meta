@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS_RISK_SCORE",
+	"Description": "Risk scoring macro for MongoDB Atlas alerts, project activity, identity changes, network exposure, backup failures, and degraded infrastructure.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

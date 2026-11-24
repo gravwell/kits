@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Large Log Message [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Large Log Message.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "404454a2-d05a-5ca4-9cc8-1d2e50cc8653",
+	"SearchReference": "dbdd7e0f-4cad-51db-ab36-977de2ff40a5"
+}

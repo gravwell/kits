@@ -1,0 +1,2 @@
+/* MONGODB_DIAG_SEVERITY_LOOKUP */
+| lookup -r mongodb-severity severity severity (severityName description as severityDescription)

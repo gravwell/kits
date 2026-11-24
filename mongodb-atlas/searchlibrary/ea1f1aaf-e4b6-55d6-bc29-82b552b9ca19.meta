@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Network Permission Entry Change [table]",
+  "Description": "Detects Atlas project network permission entries being added, removed, or updated.",
+  "GUID": "ea1f1aaf-e4b6-55d6-bc29-82b552b9ca19",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

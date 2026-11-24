@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - High Scan Low Return [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: High Scan Low Return.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "6ed131c5-e80f-53a6-8bf1-dc24953fded5",
+	"SearchReference": "333b11ce-338f-51ff-a73d-28833d226891"
+}

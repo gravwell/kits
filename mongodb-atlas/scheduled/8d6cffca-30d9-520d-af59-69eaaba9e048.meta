@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Atlas - Admin API - Organization Users - Organization Owner User Present [table]",
+  "Description": "Detects organization users with owner role assignments for review.",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "8d6cffca-30d9-520d-af59-69eaaba9e048",
+  "SearchReference": "d01063eb-05b9-5ff5-812a-25eb3470c1a0"
+}

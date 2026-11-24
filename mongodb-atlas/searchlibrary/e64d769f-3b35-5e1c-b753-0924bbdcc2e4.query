@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Critical Atlas Alert Configuration Defined [table]*/
+tag=$MONGODB_ATLAS_EVENTS ax
+| regex -e eventTypeName "^(HOST_DOWN|HOST_EXPOSED|HOST_NOT_ENOUGH_DISK_SPACE|NO_PRIMARY|OUTSIDE_METRIC_THRESHOLD|OUTSIDE_SPACE_USED_THRESHOLD|REPLICATION_OPLOG_WINDOW_RUNNING_OUT|CPS_SNAPSHOT_FAILED|CPS_SNAPSHOT_BEHIND|CPS_RESTORE_FAILED|CPS_OPLOG_BEHIND|ORG_USERS_WITHOUT_MFA|USERS_WITHOUT_MULTI_FACTOR_AUTH)$"
+| eval _alert_name = "Critical Atlas Alert Configuration Defined";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

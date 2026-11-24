@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Backup Control Plane Change [table]",
+  "Description": "Detects backup compliance disablement, restore requests, snapshot deletion, retention changes, schedule updates, and key backup credential changes.",
+  "GUID": "bd441c65-6eff-55f9-a435-595613ac3bdf",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

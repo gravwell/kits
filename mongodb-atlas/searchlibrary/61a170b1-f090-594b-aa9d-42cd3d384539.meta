@@ -1,0 +1,12 @@
+{
+  "Name": "Search - MongoDB - Atlas - Admin API - Custom Roles Overview - Rare Inherited Role Database [numbercard]",
+  "Description": "This displays the bottom Inherited Role Database (inheritedRoleDatabase) during the specified timeframe.\n\nReference(s):\n- https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/operation/operation-listgroupcustomdbroleroles",
+  "GUID": "61a170b1-f090-594b-aa9d-42cd3d384539",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

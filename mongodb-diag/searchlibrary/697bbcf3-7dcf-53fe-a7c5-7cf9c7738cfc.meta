@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - WiredTiger Recovery Activity [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: WiredTiger Recovery Activity.",
+	"GUID": "697bbcf3-7dcf-53fe-a7c5-7cf9c7738cfc",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

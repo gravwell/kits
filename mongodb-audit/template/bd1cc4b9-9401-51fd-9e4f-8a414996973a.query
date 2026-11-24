@@ -1,0 +1,6 @@
+/* Template - MongoDB - Database - Audit - Investigation - Count by Category [numbercard] */
+tag=$MONGODB_AUDIT ax actionType user localIp remoteIp
+| eval (user ~ "%%user%%" && (localIp ~ "%%ip%%" || remoteIp ~ "%%ip%%"))
+| lookup -r mongodb-audit-actionType actionType actionType (category)
+| stats count by category
+| numbercard (count " ")

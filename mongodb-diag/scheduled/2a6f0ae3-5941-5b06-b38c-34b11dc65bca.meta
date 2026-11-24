@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Warning Spike By Message [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Warning Spike By Message.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "2a6f0ae3-5941-5b06-b38c-34b11dc65bca",
+	"SearchReference": "7a2c08e6-5b16-5aed-a381-fae6f6f49b95"
+}

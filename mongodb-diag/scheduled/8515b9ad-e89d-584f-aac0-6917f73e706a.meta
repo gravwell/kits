@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Unexpected Mongo Shell Client [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Unexpected Mongo Shell Client.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "8515b9ad-e89d-584f-aac0-6917f73e706a",
+	"SearchReference": "2c5de940-c13a-59a3-9cec-2677ce134eac"
+}

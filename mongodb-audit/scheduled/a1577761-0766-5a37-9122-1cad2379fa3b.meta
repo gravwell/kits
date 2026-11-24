@@ -1,0 +1,17 @@
+{
+  "Name": "ScheduledSearch - MongoDB - Database - Audit - Alerts - Collection Created [table]",
+  "Description": "Detects MongoDB collection or view creation.",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Schedule": "30 * * * *",
+  "Duration": -3600,
+  "DefaultDeploymentRules": {
+    "Disabled": true,
+    "RunImmediately": false
+  },
+  "ScheduledType": "search",
+  "GUID": "a1577761-0766-5a37-9122-1cad2379fa3b",
+  "SearchReference": "66bd3345-deb6-5125-8d15-6043f90154ba"
+}

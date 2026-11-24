@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Access Control Not Enabled [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Access Control Not Enabled.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "b495404d-597e-585b-acec-15f53933f41c",
+	"SearchReference": "1f38d97d-61a7-55a5-b1bf-d0c03b18c48b"
+}

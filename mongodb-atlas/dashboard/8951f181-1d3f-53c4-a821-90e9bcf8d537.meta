@@ -1,0 +1,81 @@
+{
+	"UUID": "8951f181-1d3f-53c4-a821-90e9bcf8d537",
+	"Name": "MongoDB Atlas Category Overview",
+	"Description": "This Dashboard is a category overview of your MongoDB Atlas logs.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Template - MongoDB - Atlas - System - Log Types - Category [chart]",
+				"color": null,
+				"reference": {
+					"id": "3f65e852-d7e2-5b36-aa4f-10af31ad50d4",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Template - MongoDB - Atlas - System - Log Types - Category [table]",
+				"color": null,
+				"reference": {
+					"id": "3a797d17-f083-5de5-bcf3-6bc8a90a9154",
+					"type": "template",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 6150394364748185,
+				"title": "Category",
+				"renderer": "pieChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			},
+			{
+				"id": 6206220933842454,
+				"title": "Category",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 7,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {
+					"IncludeOther": "no",
+					"SortCategoricalAxisBy": "value"
+				}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

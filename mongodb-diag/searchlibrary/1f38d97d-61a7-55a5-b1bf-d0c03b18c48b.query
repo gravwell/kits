@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Database - Diagnostics - Alerts - Access Control Not Enabled [table]*/
+tag=$MONGODB_DIAG ax
+| regex -e message "(?i)access control is not enabled|authentication is not enabled|authorization is not enabled|no access control"
+| eval _alert_name = "Access Control Not Enabled";
+$MONGODB_DIAG_ENRICH_COMMON
+$MONGODB_DIAG_RISK_SCORE
+$MONGODB_DIAG_ALERT_META
+// | table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _severity context

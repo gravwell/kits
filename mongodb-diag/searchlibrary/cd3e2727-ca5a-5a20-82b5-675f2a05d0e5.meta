@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Replica Set Heartbeat Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Replica Set Heartbeat Warning Or Error.",
+	"GUID": "cd3e2727-ca5a-5a20-82b5-675f2a05d0e5",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

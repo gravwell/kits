@@ -1,0 +1,9 @@
+/* Template - MongoDB - Database - Diagnostics - Investigation - Total Events [numbercard] */
+tag=$MONGODB_DIAG ax 
+$MONGODB_DIAG_ENRICH_COMMON
+| regex -e _diag_identity "%%identity%%" 
+| regex -e _diag_ip "%%ip%%" 
+| regex -e _diag_namespace "%%namespace%%" 
+| regex -e _diag_component "%%component%%"
+| stats count
+| numbercard (count " ")

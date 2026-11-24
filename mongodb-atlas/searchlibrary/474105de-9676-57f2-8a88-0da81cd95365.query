@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Activity Overview - Count by API Key ID [chart] */
+tag=$MONGODB_ATLAS_ACTIVITY ax apiKeyId
+| stats count as " " by apiKeyId
+| chart " " by apiKeyId

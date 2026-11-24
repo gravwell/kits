@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Backup Warning Or Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Backup Warning Or Error.",
+	"GUID": "27dccccd-44fe-5fae-a307-4aaf353507e3",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

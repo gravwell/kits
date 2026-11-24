@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Parameter Changed [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Parameter Changed.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "8393966f-684f-5645-a536-64d1997c8e81",
+	"SearchReference": "988bf965-1166-5f3c-ab44-0b363b5b4401"
+}

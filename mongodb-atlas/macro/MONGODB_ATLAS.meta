@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_ATLAS",
+	"Description": "Configuration Macro; Catch-all tag used for MongoDB Atlas Admin API data.",
+	"Labels": [
+		"mongodb",
+		"mongodb-atlas"
+	]
+}

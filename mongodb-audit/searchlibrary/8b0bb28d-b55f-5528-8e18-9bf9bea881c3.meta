@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Database - Audit - Alerts - High Risk Administrative Action [table]",
+  "Description": "Detects high-risk MongoDB administrative audit actions.",
+  "GUID": "8b0bb28d-b55f-5528-8e18-9bf9bea881c3",
+  "Labels": [
+    "mongodb",
+    "mongodb-audit"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

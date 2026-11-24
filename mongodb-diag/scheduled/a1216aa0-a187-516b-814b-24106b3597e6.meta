@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Authentication Failure Spike By Remote [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Authentication Failure Spike By Remote.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "a1216aa0-a187-516b-814b-24106b3597e6",
+	"SearchReference": "738c9d6f-e577-5013-a28a-37786da4d67c"
+}

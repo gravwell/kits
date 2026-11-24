@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Network Access Overview - Total Events [numbercard] */
+tag=$MONGODB_ATLAS_NETWORK_ACCESS
+| stats count
+| numbercard (count " ")

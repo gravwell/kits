@@ -1,0 +1,4 @@
+/* Search - MongoDB - Database - Audit - Overview - Count by Action Type [chart] */
+tag=$MONGODB_AUDIT ax actionType
+| stats count as " " by actionType
+| chart " " by actionType

@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Project Activity Events - Maintenance Control Weakened [table]",
+  "Description": "Detects maintenance deferral, protected hours changes, or maintenance auto-defer changes that can affect patch cadence.",
+  "GUID": "759aaedf-78e6-50b7-8cba-d9bb3c93aff1",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

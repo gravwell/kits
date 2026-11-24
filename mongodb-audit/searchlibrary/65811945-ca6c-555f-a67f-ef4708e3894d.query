@@ -1,0 +1,7 @@
+/* AlertQuery - MongoDB - Database - Audit - Alerts - Privileges Revoked From Role [table]*/
+tag=$MONGODB_AUDIT ax timestamp actionType == "revokePrivilegesFromRole" result == 0 user userDatabase role roleDatabase localIp remoteIp privileges param roles
+| eval message = "Privileges Revoked From Role";
+$MONGODB_AUDIT_ENRICH_COMMON
+$MONGODB_AUDIT_RISK_SCORE
+$MONGODB_AUDIT_ALERT_META
+| table timestamp actionType result user userDatabase role roleDatabase localIp remoteIp privileges param roles

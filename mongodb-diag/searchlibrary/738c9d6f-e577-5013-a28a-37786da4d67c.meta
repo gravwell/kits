@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Authentication Failure Spike By Remote [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Authentication Failure Spike By Remote.",
+	"GUID": "738c9d6f-e577-5013-a28a-37786da4d67c",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

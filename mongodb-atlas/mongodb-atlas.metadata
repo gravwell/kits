@@ -1,0 +1,38 @@
+{
+  "Tags": [
+    "["mongodb-atlas-access","mongodb-atlas-activity","mongodb-atlas-events","mongodb-atlas-alert-configs","mongodb-atlas-alerts","mongodb-atlas-api-keys","mongodb-atlas-backups","mongodb-atlas-clusters","mongodb-atlas-custom-roles","mongodb-atlas-database-users","mongodb-atlas-network-access","mongodb-atlas-org-activity","mongodb-atlas-org-users","mongodb-atlas-projects","mongodb-atlas-service-accounts"]"
+  ],
+  "Assets": [
+    {
+      "Type": "image",
+      "Source": "mongodb-atlas-cover.png",
+      "Legend": "MongoDB Atlas Cover",
+      "Featured": true
+    },
+    {
+      "Type": "image",
+      "Source": "mongodb-atlas-banner.png",
+      "Legend": "MongoDB Atlas Banner",
+      "Featured": true,
+      "Banner": true
+    },
+    {
+      "Type": "readme",
+      "Source": "README.md"
+    }
+  ],
+  "dashboards": [],
+  "attachments": [
+    {
+      "context": "cover",
+      "type": "image",
+      "file": "mongodb-atlas-cover.png"
+    },
+    {
+      "context": "banner",
+      "type": "image",
+      "file": "mongodb-atlas-banner.png"
+    }
+  ],
+  "readme": "README.md"
+}

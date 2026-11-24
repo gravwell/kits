@@ -1,0 +1,12 @@
+{
+  "Name": "AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Service Account Secret Risk [table]",
+  "Description": "Detects expired or expiring organization service account secrets and maximum secret validity changes.",
+  "GUID": "3e0f2d00-4fc1-5198-9148-4b09dd7a32b9",
+  "Labels": [
+    "mongodb",
+    "mongodb-atlas"
+  ],
+  "Metadata": {
+    "timeframe": null
+  }
+}

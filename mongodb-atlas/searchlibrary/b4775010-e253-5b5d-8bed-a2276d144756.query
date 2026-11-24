@@ -1,0 +1,4 @@
+/* Search - MongoDB - Atlas - Admin API - Overview - Count by Org ID [chart] */
+tag=$MONGODB_ATLAS ax orgId
+| stats count as " " by orgId
+| chart " " by orgId

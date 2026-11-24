@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Error Code Spike [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Error Code Spike.",
+	"GUID": "8187665d-571e-5174-9b9a-eda71cd552c2",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}

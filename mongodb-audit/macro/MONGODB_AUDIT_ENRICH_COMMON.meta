@@ -1,0 +1,8 @@
+{
+	"Name": "MONGODB_AUDIT_ENRICH_COMMON",
+	"Description": "Macro used for MongoDB Audit alerts.",
+	"Labels": [
+		"mongodb",
+		"mongodb-audit"
+	]
+}

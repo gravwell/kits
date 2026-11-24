@@ -1,0 +1,16 @@
+{
+	"Name": "ScheduledSearch - MongoDB - Database - Diagnostics - Alerts - Transient Transaction Error [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Transient Transaction Error.",
+	"Labels": [
+		"mongodb"
+	],
+	"Schedule": "30 * * * *",
+	"Duration": -3600,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "03d30bca-9adc-5d13-9ad8-969b7013af19",
+	"SearchReference": "e32a385e-d2f0-50a6-8790-d05380a98307"
+}

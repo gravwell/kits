@@ -1,0 +1,8 @@
+/* AlertQuery - MongoDB - Atlas - Admin API - Atlas Events - Organization Billing Spike [table]*/
+tag=$MONGODB_ATLAS_EVENTS ax
+| regex -e eventTypeName "^(ORG_WEEKLY_BILLING_CHANGE_OVER_THRESHOLD|ORG_MONTHLY_BILLING_CHANGE_OVER_THRESHOLD|DAILY_BILL_OVER_THRESHOLD|DAILY_BILLING_CHANGE_OVER_THRESHOLD|MONTHLY_BILLING_CHANGE_OVER_THRESHOLD)$"
+| eval _alert_name = "Organization Billing Spike";
+$MONGODB_ATLAS_ENRICH_COMMON
+$MONGODB_ATLAS_RISK_SCORE
+$MONGODB_ATLAS_ALERT_META
+| table _alert_title _vendor _product _category _subcategory _priority _alert_name _who _ip _status context

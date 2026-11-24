@@ -1,0 +1,12 @@
+{
+	"Name": "AlertQuery - MongoDB - Database - Diagnostics - Alerts - Replica Set Reconfiguration Command Logged [table]",
+	"Description": "Detects MongoDB diagnostic log events matching: Replica Set Reconfiguration Command Logged.",
+	"GUID": "342effcc-fd37-511e-aefd-406c86869e34",
+	"Labels": [
+		"mongodb",
+		"mongodb-diag"
+	],
+	"Metadata": {
+		"timeframe": null
+	}
+}
