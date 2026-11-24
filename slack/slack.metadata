@@ -1,0 +1,25 @@
+{
+	"Tags": [
+		"slack-audit"
+	],
+	"Ingesters": [],
+	"Assets": [
+		{
+			"Type": "image",
+			"Source": "slack-cover.png",
+			"Legend": "Slack Cover",
+			"Featured": true
+		},
+		{
+			"Type": "image",
+			"Source": "slack-banner.png",
+			"Legend": "Slack Banner",
+			"Featured": true,
+			"Banner": true
+		},
+		{
+			"Type": "readme",
+			"Source": "README.md"
+		}
+	]
+}

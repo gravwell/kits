@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax locationName
+| count by locationName
+| chart count by locationName limit 10

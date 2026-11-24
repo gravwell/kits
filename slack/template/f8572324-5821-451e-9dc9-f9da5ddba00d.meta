@@ -1,0 +1,23 @@
+{
+	"UUID": "f8572324-5821-451e-9dc9-f9da5ddba00d",
+	"Name": "Slack - Investigate User",
+	"Description": "Audit activity for a Slack user, matched by display name or email address as either the actor or the target of an action - what did they do, what was done to them, and from where?",
+	"Data": {
+		"variables": [
+			{
+				"name": "%%actor%%",
+				"label": "User Name or Email",
+				"description": "",
+				"required": true,
+				"defaultValue": "",
+				"previewValue": "alice@example.com"
+			}
+		]
+	},
+	"Labels": [
+		"slack",
+		"audit",
+		"user",
+		"investigation"
+	]
+}

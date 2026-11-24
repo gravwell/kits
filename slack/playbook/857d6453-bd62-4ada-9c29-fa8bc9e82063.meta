@@ -1,0 +1,22 @@
+{
+	"UUID": "0eb7c14b-e7c5-4d6b-8223-f2981924f5e9",
+	"GUID": "857d6453-bd62-4ada-9c29-fa8bc9e82063",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Slack - Kit Overview",
+	"Desc": "Overview of the Slack kit: data source, ingest guidance, field naming, queries, dashboards, actionables, templates, and macros.",
+	"Labels": null,
+	"LastUpdated": "2026-08-09T12:00:00.000000000-06:00",
+	"Author": {
+		"Name": "Mike Wade",
+		"Email": "mike.wade@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

@@ -1,0 +1,13 @@
+{
+	"Name": "Slack - Workspace Data Export",
+	"Description": "Detects the start or download of a Slack data export, and changes that enable corporate exports. Exports package message history and files for the whole workspace and are the single highest-impact data egress path in Slack.",
+	"GUID": "16fccda0-98a6-4170-9b04-6f66581adc7d",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1567",
+		"exfiltration"
+	],
+	"Metadata": {}
+}

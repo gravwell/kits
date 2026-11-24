@@ -1,0 +1,22 @@
+{
+	"UUID": "26a8cb27-2a4e-49ad-95c6-4f443717c9b3",
+	"GUID": "876ecba8-5d90-4d35-a358-2358e344433e",
+	"UID": 1,
+	"GIDs": [],
+	"Global": true,
+	"WriteAccess": {
+		"Global": false,
+		"GIDs": []
+	},
+	"Name": "Slack - Readme",
+	"Desc": "Readme for the Slack kit.",
+	"Labels": null,
+	"LastUpdated": "2026-08-09T12:00:00.000000000-06:00",
+	"Author": {
+		"Name": "Mike Wade",
+		"Email": "mike.wade@gravwell.io",
+		"Company": "",
+		"URL": ""
+	},
+	"Synced": true
+}

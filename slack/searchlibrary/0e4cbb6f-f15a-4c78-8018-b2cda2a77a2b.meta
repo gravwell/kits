@@ -1,0 +1,13 @@
+{
+	"Name": "Slack - App Installed or Scopes Expanded",
+	"Description": "Detects installation or approval of a Slack app, and expansion of an already-installed app's OAuth scopes. Malicious or over-privileged apps can read messages and files and act as a durable persistence mechanism.",
+	"GUID": "0e4cbb6f-f15a-4c78-8018-b2cda2a77a2b",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1550.001",
+		"persistence"
+	],
+	"Metadata": {}
+}

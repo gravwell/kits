@@ -1,0 +1,20 @@
+{
+	"Name": "Slack - DLP, Barrier, or Legal Hold Control Removed",
+	"Description": "Detects deactivation of native DLP rules, deletion of DLP violations, removal of information barriers, and release of legal hold policies. Each of these removes a compliance or data-protection control.",
+	"Labels": [
+		"slack",
+		"audit",
+		"detection",
+		"T1562.001",
+		"defense-evasion"
+	],
+	"Schedule": "46 * * * *",
+	"Duration": -7200,
+	"DefaultDeploymentRules": {
+		"Disabled": true,
+		"RunImmediately": false
+	},
+	"ScheduledType": "search",
+	"GUID": "b529ddad-7699-4116-aebf-817aaea6d00a",
+	"SearchReference": "b117d843-be37-4a31-8a8c-f82d3af0bd44"
+}

@@ -1,0 +1,175 @@
+{
+	"UUID": "b8846223-3252-42b7-b809-7588856a5947",
+	"Name": "Slack - Access & Identity",
+	"Description": "Authentication and identity view: logins and failed logins over time, top source IPs, privilege escalation, authentication policy changes, and events Slack flagged as anomalous.",
+	"Data": {
+		"timeframe": {
+			"durationString": null,
+			"timeframe": "P7DT",
+			"timezone": null,
+			"start": null,
+			"end": null
+		},
+		"searches": [
+			{
+				"alias": "Slack - Logins Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "7feda64d-e034-4546-8969-185c173a8234",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Failed Logins Over Time [Chart]",
+				"color": null,
+				"reference": {
+					"id": "efde7e0b-1387-4cb6-80bb-e8ebc1001045",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Top Source IP Addresses [Chart]",
+				"color": null,
+				"reference": {
+					"id": "62f6738c-680f-48d1-93eb-f48f8755aeb7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Anomaly Flagged by Slack",
+				"color": null,
+				"reference": {
+					"id": "5f884867-f753-4d87-9188-3cc7ca456bd7",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - User Granted Admin or Owner Role",
+				"color": null,
+				"reference": {
+					"id": "a2117e64-2360-4020-814c-cd165396705f",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			},
+			{
+				"alias": "Slack - Authentication Policy Changed",
+				"color": null,
+				"reference": {
+					"id": "b21554d3-05b6-4111-9f49-da17dbc85451",
+					"type": "savedQuery",
+					"extras": {
+						"defaultValue": null
+					}
+				}
+			}
+		],
+		"tiles": [
+			{
+				"id": 17830000000200,
+				"title": "Logins Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 0
+				},
+				"searchesIndex": 0,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000201,
+				"title": "Failed Logins Over Time",
+				"renderer": "lineChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 0
+				},
+				"searchesIndex": 1,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000202,
+				"title": "Top Source IP Addresses",
+				"renderer": "barChart",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 0,
+					"y": 3
+				},
+				"searchesIndex": 2,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000203,
+				"title": "Anomalies Flagged by Slack",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 6,
+					"row": 3,
+					"x": 6,
+					"y": 3
+				},
+				"searchesIndex": 3,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000204,
+				"title": "Admin and Owner Role Grants",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 6
+				},
+				"searchesIndex": 4,
+				"rendererOptions": {}
+			},
+			{
+				"id": 17830000000205,
+				"title": "Authentication Policy Changes",
+				"renderer": "table",
+				"hideZoom": true,
+				"span": {
+					"col": 12,
+					"row": 3,
+					"x": 0,
+					"y": 9
+				},
+				"searchesIndex": 5,
+				"rendererOptions": {}
+			}
+		],
+		"linkZooming": false,
+		"grid": {},
+		"version": 2
+	},
+	"Labels": [
+		"slack",
+		"audit"
+	]
+}

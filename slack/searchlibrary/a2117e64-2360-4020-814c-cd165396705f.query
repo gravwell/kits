@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT ax action actorName targetUserName targetUserEmail locationName
+| eval in(action, "role_change_to_admin", "role_change_to_owner", "owner_transferred", "permissions_assigned")
+| table action actorName targetUserName targetUserEmail locationName

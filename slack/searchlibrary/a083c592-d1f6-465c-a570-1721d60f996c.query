@@ -1,0 +1,3 @@
+tag=$SLACK_AUDIT
+| count over 1h
+| chart count
