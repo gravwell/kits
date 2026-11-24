@@ -153,7 +153,7 @@ investigation steps.
 | Okta Sign-In with Elevated Risk or New Behavior | Okta risk HIGH or Velocity / New Country (High), risk MEDIUM (Medium) | Medium or High minimum | Initial Access, T1078 |
 | Okta User Session Impersonation | `user.session.impersonation.initiate` | by risk score | Defense Evasion, T1550 |
 | Okta User Sessions Started from Different Geolocations | Sessions for one user from 2+ countries within 4 hours | High minimum | Initial Access, T1078 |
-| Potential Okta MFA Bombing via Push Notifications | 5+ pushes, or 3+ pushes with 2+ denied / unanswered, for one user in the window | High minimum | Credential Access, T1621 |
+| Potential Okta MFA Bombing via Push Notifications | 5+ pushes, or 3+ pushes with 2+ denied / unanswered, for one user in the window, with no successful MFA | High minimum | Credential Access, T1621 |
 | Potential Okta Password in AlternateID Field | Failed sign-in whose username is not an email address (value masked in the alert) | Medium minimum | Credential Access, T1552 |
 | Potentially Successful Okta MFA Bombing via Push Notifications | Push bombing followed by a successful MFA | Critical minimum | Credential Access, T1621 |
 | Unauthorized Access to an Okta Application | User tried to open an app they are not assigned to | by risk score | Initial Access, T1078 |

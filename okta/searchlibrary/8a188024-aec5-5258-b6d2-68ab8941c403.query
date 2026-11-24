@@ -1,5 +1,5 @@
 /* Okta - Authentication & Sessions - Potential Okta MFA Bombing via Push Notifications */
-/* Per user within the search window (15 minutes when scheduled): 5+ Okta Verify pushes, or 3+ pushes with 2+ denied, unanswered or abandoned prompts. */
+/* Per user within the search window (15 minutes when scheduled): 5+ Okta Verify pushes, or 3+ pushes with 2+ denied, unanswered or abandoned prompts, and no successful MFA (that case is Potentially Successful Okta MFA Bombing, so each burst raises one alert). */
 /* One alert per user per window. Bursts that straddle two windows are split, which is why the denied/unanswered branch exists. */
 @mfa{tag=$OKTA json eventType actor.alternateId as actorAltId outcome.result as res
 | eval in(eventType, "system.push.send_factor_verify_push", "user.mfa.okta_verify.deny_push", "user.authentication.auth_via_mfa")
@@ -11,6 +11,7 @@
     if (eventType == "user.authentication.auth_via_mfa" && res == "SUCCESS") { s = 1; }
 | stats sum(p) as pushes sum(d) as denies sum(u) as unanswered sum(s) as successes by actorAltId
 | eval pushes >= 5 || (pushes >= 3 && denies + unanswered >= 2)
+| eval successes == 0
 | table actorAltId pushes denies unanswered successes};
 tag=$OKTA json eventType==system.push.send_factor_verify_push
 | json

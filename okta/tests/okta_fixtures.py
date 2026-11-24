@@ -324,7 +324,7 @@ c = case('mfa-push-bombing', ['Potential Okta MFA Bombing via Push Notifications
 for i in range(5):
     c.ev('system.push.send_factor_verify_push', at=2 + i, actor='user35')
 
-c = case('mfa-push-bombing-accepted', ['Potential Okta MFA Bombing via Push Notifications', 'Potentially Successful Okta MFA Bombing via Push Notifications'],
+c = case('mfa-push-bombing-accepted', ['Potentially Successful Okta MFA Bombing via Push Notifications'],
          '3 pushes, 2 denied, then the user accepts one')
 for i in range(3):
     c.ev('system.push.send_factor_verify_push', at=2 + i, actor='user36')
